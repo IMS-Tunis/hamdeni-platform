@@ -1,0 +1,13 @@
+
+services:
+  - type: web
+    name: hamdeni-cs-platform
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: SUPABASE_URL
+        fromEnv: SUPABASE_URL
+      - key: SUPABASE_KEY
+        fromEnv: SUPABASE_KEY

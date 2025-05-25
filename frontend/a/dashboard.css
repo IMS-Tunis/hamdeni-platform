@@ -1,0 +1,144 @@
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f4f7fc;
+}
+header {
+  background: linear-gradient(to right, #4a00e0, #8e2de2);
+  color: white;
+  text-align: center;
+  padding: 40px 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+header h1 {
+  font-size: 3em;
+  margin: 0;
+  animation: fadeInDown 1s ease;
+}
+header h2 {
+  font-size: 1.2em;
+  font-weight: 300;
+  margin-top: 10px;
+  animation: fadeInUp 1s ease;
+}
+.dashboard {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  gap: 40px;
+}
+.theory-column, .levels-column {
+  width: 50%;
+}
+.theory-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+.theory-point {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: #ddd;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+.theory-point:hover {
+  transform: scale(1.05);
+}
+.theory-point .layer {
+  position: absolute;
+  border-radius: 50%;
+  background: grey;
+  opacity: 0.7;
+}
+.layer1 { width: 120px; height: 120px; }
+.layer2 { width: 80px; height: 80px; }
+.layer3 { width: 40px; height: 40px; }
+.theory-point.completed .layer { background: #4CAF50; }
+.theory-point.partial .layer1 { background: #4CAF50; }
+.theory-point.partial .layer2 { background: #4CAF50; }
+.theory-point .label {
+  z-index: 1;
+  color: white;
+  font-size: 1.4em;
+  font-weight: bold;
+}
+.theory-point:hover::after {
+  content: attr(data-title);
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: white;
+  padding: 4px 8px;
+  font-size: 0.9em;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+.levels-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.level-box {
+  width: 80%;
+  background: #ddd;
+  padding: 12px 20px;
+  margin: 10px 0;
+  border-radius: 8px;
+  position: relative;
+  font-size: 1em;
+  transition: all 0.3s ease;
+}
+.level-box.unlocked {
+  background: #c8e6c9;
+  cursor: pointer;
+}
+.level-box.locked {
+  background: #f0f0f0;
+  color: #888;
+}
+.level-progress {
+  height: 6px;
+  background: #ccc;
+  margin-top: 6px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.level-progress .bar {
+  height: 100%;
+  transition: width 0.4s ease;
+}
+.level-progress.done .bar {
+  width: 100%;
+  background: #4CAF50;
+}
+.level-progress.unlocked .bar {
+  width: 40%;
+  background: #FFC107;
+}
+.level-progress.locked .bar {
+  width: 0;
+}
+.arrow-down {
+  width: 30px;
+  height: 30px;
+  margin: -5px 0;
+}
+@keyframes fadeInDown {
+  from { transform: translateY(-30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+@keyframes fadeInUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
