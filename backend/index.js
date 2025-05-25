@@ -4,13 +4,13 @@ const path = require("path");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Serve frontend static files
+// Serve static files from frontend
 app.use(express.static(path.join(__dirname, "../frontend")));
 app.use("/images", express.static(path.join(__dirname, "../public/images")));
 
-// Route fallback
+// Fallback to dashboard
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../frontend/index.html"));
+  res.sendFile(path.join(__dirname, "../frontend/dashboard.html"));
 });
 
 app.listen(PORT, () => {

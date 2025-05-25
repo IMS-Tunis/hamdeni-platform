@@ -1,6 +1,6 @@
 
 {
-  "name": "hamdeni-cs-platform",
+  "name": "hamdeni-cs-dashboard",
   "version": "1.0.0",
   "main": "backend/index.js",
   "scripts": {

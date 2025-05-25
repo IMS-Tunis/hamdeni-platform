@@ -1,7 +1,7 @@
 
 services:
   - type: web
-    name: hamdeni-cs-platform
+    name: hamdeni-computer-science
     env: node
     plan: free
     buildCommand: npm install
