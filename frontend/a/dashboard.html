@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Computer Science Journey</title>
+  <link rel="stylesheet" href="dashboard.css"/>
+</head>
+<body>
+  <header class="main-header">
+    <img src="images/header_bg.png" alt="Header Banner" class="header-background" />
+  </header>
+
+  <div class="status-bar">
+    <div class="left-status" id="student-name-bar">Guest Mode</div>
+    <div class="right-status">Contact Mr. Hamdeni: Hamdeni.chamseddine@gmail.com</div>
+  </div>
+
+  <div style="text-align:center; margin:20px;">
+    <input type="text" id="username" placeholder="Username" />
+    <input type="password" id="password" placeholder="Password" />
+    <button onclick="login()">Login</button>
+    <button onclick="logout()">Logout</button>
+  </div>
+
+  <main class="dashboard">
+    <section class="theory-column">
+      <div class="section-header">
+        <img src="images/advanced_theory.png" alt="Advanced Theory" class="section-title"/>
+      </div>
+      <div id="theory-points" class="theory-wrapper"></div>
+      <img src="images/approved_banner.png" class="footer-image" alt="Approved"/>
+    </section>
+
+    <section class="levels-column">
+      <div class="section-header">
+        <img src="images/programming_skills.png" alt="Programming Skills" class="section-title"/>
+      </div>
+      <div id="programming-levels" class="levels-wrapper"></div>
+      <img src="images/certificate.png" class="certificate-image" alt="Certificate"/>
+    </section>
+  </main>
+
+  <div class="centered-check">
+    <img src="images/progress_inspired_2.png" alt="Progress Completed">
+  </div>
+
+  <script src="dashboard.js"></script>
+  <script>
+    const student = localStorage.getItem("studentId");
+    if (student) {
+      document.getElementById("student-name-bar").textContent = "Computer Science Journey progress of " + student;
+    }
+
+    async function login() {
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const response = await fetch("https://tsmzmuclrnyryuvanlxl.supabase.co/rest/v1/login_data?select=*", {
+        headers: {
+          apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+          Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+        }
+      });
+      const users = await response.json();
+      const match = users.find(u => u.username === username && u.password === password);
+      if (match) {
+        localStorage.setItem("studentId", username);
+        location.reload();
+      } else {
+        alert("Invalid credentials");
+      }
+    }
+
+    function logout() {
+      localStorage.removeItem("studentId");
+      location.reload();
+    }
+  </script>
+</body>
+</html>
