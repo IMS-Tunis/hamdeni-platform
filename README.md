@@ -1,2 +1,2 @@
 # Hamdeni Platform
-This is the full version with structured levels and routing.
+Fully complete version with login, real dashboard, CSS/JS, and all images.
