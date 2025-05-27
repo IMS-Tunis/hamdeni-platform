@@ -1,2 +1,2 @@
 # Hamdeni Platform
-Fully structured version with login and embedded dashboard.
+Final structured version with transparent image and full dashboard refinements.
