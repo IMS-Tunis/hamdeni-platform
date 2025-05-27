@@ -13,32 +13,70 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function renderTheoryPoints() {
-  const theoryPoints = [
-    "P1", "P2", "P3", "P4", "P5", "P6", "P7", "P8",
-    "P9", "P10", "P11", "P12", "P13", "P14", "P15", "P16"
+  const data = [
+    { id: "P1", title: "User-defined data types", progress: 4 },
+    { id: "P2", title: "File organisation and access", progress: 3 },
+    { id: "P3", title: "Floating-point numbers", progress: 1 },
+    { id: "P4", title: "Bitwise operations", progress: 0 }
   ];
   const container = document.getElementById("theory-points");
   container.innerHTML = "";
-  theoryPoints.forEach((pt, index) => {
+  data.forEach((item) => {
     const box = document.createElement("div");
     box.className = "point-box";
-    box.textContent = pt;
+    const title = document.createElement("h3");
+    title.textContent = `${item.id}: ${item.title}`;
+    const bar = document.createElement("div");
+    bar.className = "progress-bar";
+    const tick = document.createElement("div");
+    tick.className = "tick";
+    tick.innerHTML = item.progress === 4 ? "✅" : "";
+
+    for (let i = 0; i < 4; i++) {
+      const segment = document.createElement("div");
+      segment.className = "segment";
+      segment.style.backgroundColor = i < item.progress ? "#4caf50" : "#ccc";
+      bar.appendChild(segment);
+    }
+
+    const labels = document.createElement("div");
+    labels.className = "progress-labels";
+    labels.innerHTML = `
+      <span>Basic Understanding</span>
+      <span>Exam-Style Questions</span>
+      <span>Past Paper Questions</span>
+      <span>Test Validation</span>
+    `;
+
+    box.appendChild(title);
+    box.appendChild(bar);
+    box.appendChild(labels);
+    box.appendChild(tick);
     container.appendChild(box);
   });
 }
 
 function renderProgrammingLevels() {
+  const levels = [
+    "Introduction", "Basic I/O", "Conditionals", "Loops",
+    "Functions", "Arrays", "Strings", "Data structures",
+    "Recursion", "File handling", "Object-Oriented 1", "Object-Oriented 2",
+    "Algorithms", "Searching & Sorting", "Advanced Projects", "Final Challenge"
+  ];
   const container = document.getElementById("programming-levels");
   container.innerHTML = "";
-  for (let i = 1; i <= 16; i++) {
-    const level = document.createElement("a");
-    level.className = "level-box";
-    level.href = `level${i}.html`;
-    level.textContent = `Level ${i}`;
-    level.style.display = "block";
-    level.style.marginBottom = "10px";
-    container.appendChild(level);
-  }
+  levels.forEach((title, index) => {
+    const box = document.createElement("div");
+    box.className = "level-box";
+    box.innerHTML = `
+      <a href="level${index + 1}.html">
+        <div class="level-header">Level ${index + 1}</div>
+        <div class="level-sub">${title}</div>
+      </a>
+      <div class="connector">${index < levels.length - 1 ? "⭣" : ""}</div>
+    `;
+    container.appendChild(box);
+  });
 }
 
 async function login() {
