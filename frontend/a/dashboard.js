@@ -24,34 +24,36 @@ function renderTheoryPoints() {
   data.forEach((item) => {
     const box = document.createElement("div");
     box.className = "point-box";
-    const title = document.createElement("h3");
+
+    const title = document.createElement("div");
+    title.className = "point-title";
     title.textContent = `${item.id}: ${item.title}`;
-    const bar = document.createElement("div");
-    bar.className = "progress-bar";
-    const tick = document.createElement("div");
-    tick.className = "tick";
-    tick.innerHTML = item.progress === 4 ? "✅" : "";
+
+    const progressContainer = document.createElement("div");
+    progressContainer.className = "progress-container";
 
     for (let i = 0; i < 4; i++) {
       const segment = document.createElement("div");
-      segment.className = "segment";
+      segment.className = "progress-segment";
       segment.style.backgroundColor = i < item.progress ? "#4caf50" : "#ccc";
-      bar.appendChild(segment);
+      progressContainer.appendChild(segment);
     }
 
     const labels = document.createElement("div");
     labels.className = "progress-labels";
     labels.innerHTML = `
-      <span>Basic Understanding</span>
-      <span>Exam-Style Questions</span>
-      <span>Past Paper Questions</span>
-      <span>Test Validation</span>
+      <span>Basic</span><span>Exam</span><span>Past</span><span>Test</span>
     `;
 
+    const tick = document.createElement("div");
+    tick.className = "tick";
+    tick.innerHTML = item.progress === 4 ? "✅" : "";
+
     box.appendChild(title);
-    box.appendChild(bar);
+    box.appendChild(progressContainer);
     box.appendChild(labels);
     box.appendChild(tick);
+
     container.appendChild(box);
   });
 }
@@ -66,16 +68,32 @@ function renderProgrammingLevels() {
   const container = document.getElementById("programming-levels");
   container.innerHTML = "";
   levels.forEach((title, index) => {
-    const box = document.createElement("div");
-    box.className = "level-box";
-    box.innerHTML = `
-      <a href="level${index + 1}.html">
-        <div class="level-header">Level ${index + 1}</div>
-        <div class="level-sub">${title}</div>
-      </a>
-      <div class="connector">${index < levels.length - 1 ? "⭣" : ""}</div>
-    `;
-    container.appendChild(box);
+    const card = document.createElement("div");
+    card.className = "level-card";
+
+    const link = document.createElement("a");
+    link.href = `level${index + 1}.html`;
+
+    const main = document.createElement("div");
+    main.className = "level-title";
+    main.textContent = `Level ${index + 1}`;
+
+    const sub = document.createElement("div");
+    sub.className = "level-sub";
+    sub.textContent = title;
+
+    link.appendChild(main);
+    link.appendChild(sub);
+    card.appendChild(link);
+
+    if (index < levels.length - 1) {
+      const arrow = document.createElement("div");
+      arrow.className = "level-arrow";
+      arrow.textContent = "↓";
+      card.appendChild(arrow);
+    }
+
+    container.appendChild(card);
   });
 }
 
