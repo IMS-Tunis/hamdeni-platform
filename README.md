@@ -1,2 +1,2 @@
 # Hamdeni Platform
-Fully complete version with login, real dashboard, CSS/JS, and all images.
+This version is ready for Render with correct root structure.
