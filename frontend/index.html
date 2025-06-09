@@ -1,51 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Select Your Path</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-    }
-    h1 {
-      font-size: 2.5em;
-      margin-bottom: 10px;
-    }
-    .buttons {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .buttons a {
-      padding: 15px 25px;
-      background-color: #007BFF;
-      color: white;
-      text-decoration: none;
-      font-size: 1em;
-      border-radius: 8px;
-      transition: background-color 0.3s;
-    }
-    .buttons a:hover {
-      background-color: #0056b3;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Computer Science with Dr. Hamdeni</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <h1>Hamdeni Educational Platform</h1>
-  <p>Please select your level to continue:</p>
-  <div class="buttons">
-    <a href="igcse/dashboard.html">IGCSE</a>
-    <a href="as/dashboard.html">AS Level</a>
-    <a href="a/dashboard.html">A Level</a>
+
+  <header class="main-header">
+    <img src="images/maarifLOGO.png" class="logo-left" alt="Maarif Logo"/>
+    <nav class="nav-links">
+      <a href="#">Home</a>
+      <a href="#about">About the Platform</a>
+      <a href="#teacher">About the Teacher</a>
+      <a href="#contact">Contact the Teacher</a>
+    </nav>
+    <img src="images/cambridge.png" class="logo-right" alt="Cambridge Logo"/>
+  </header>
+
+  <main class="main-content">
+    <section class="highlight-frame">
+      <div class="teacher-box">
+        <img src="images/Picture1.png" alt="Dr. Hamdeni" class="teacher-img"/>
+        <div class="title-block">
+          <h1>Computer Science with Dr. Hamdeni</h1>
+          <p>Educational Platform for Cambridge Computer Science Students</p>
+        </div>
+      </div>
+    </section>
+
+    
+<section class="row double-column">
+  <div class="left-column path-frame">
+    <h2 class="section-title">Choose Your Cambridge Path</h2>
+    <div class="path-buttons">
+      <a href="igcse/index.html" class="ripple-button" data-label="IGCSE">
+        <img src="images/igbutton.png" alt="IGCSE" />
+      </a>
+      <a href="as/index.html" class="ripple-button" data-label="AS Level">
+        <img src="images/asbutton.png" alt="AS Level" />
+      </a>
+      <a href="a/index.html" class="ripple-button" data-label="A Level">
+        <img src="images/abutton.png" alt="A Level" />
+      </a>
+    </div>
   </div>
+
+  <div class="right-column training-frame">
+    <h2 class="section-title">Available Trainings</h2>
+    <div class="training-buttons">
+      <a href="#" class="training-box">
+        <img src="images/pythonTraining.png" alt="Python Special Training" />
+      </a>
+      <a href="#" class="training-box">
+        <img src="images/pseudocodeTraining.png" alt="Pseudocode Special Training" />
+      </a>
+    </div>
+  </div>
+</section>
+
+
+</main>
+
+  <footer>
+    <p>&copy; 2025 Dr. Hamdeni – All rights reserved.</p>
+  </footer>
+
+
+<script>
+document.querySelectorAll('.ripple-container').forEach(button => {
+  button.addEventListener('click', function(e) {
+    const circle = document.createElement('span');
+    circle.classList.add('ripple');
+    const rect = button.getBoundingClientRect();
+    circle.style.left = `${e.clientX - rect.left}px`;
+    circle.style.top = `${e.clientY - rect.top}px`;
+    this.appendChild(circle);
+    setTimeout(() => circle.remove(), 600);
+  });
+});
+</script>
+
 </body>
 </html>

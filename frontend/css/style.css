@@ -1,0 +1,482 @@
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f3faff;
+  color: #003f63;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.main-header {
+  background-color: #00A3B4;
+  padding: 5px 40px !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.logo-left {
+  height: 100px; /* doubled size */
+}
+
+.logo-right {
+  height: 60px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #FFD700;
+}
+
+.main-content {
+  padding: 40px 5%;
+}
+
+.highlight-frame {
+  background: white;
+  border: 2px solid #0093D0;
+  border-radius: 16px;
+  padding: 30px;
+  margin-bottom: 60px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  animation: fadeInDown 1.2s ease-in-out;
+}
+
+.teacher-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.teacher-img {
+  width: 180px !important;
+
+  width: 250px;
+  transition: transform 0.6s ease;
+}
+
+.teacher-img:hover {
+  transform: scale(1.05);
+}
+
+.title-block h1 {
+  font-size: 2.8rem;
+  color: #005DAA;
+  margin-bottom: 0.3em;
+  animation: slideInRight 1.2s ease;
+}
+
+.title-block p {
+  font-size: 1.3rem;
+  color: #01579b;
+  animation: slideInRight 1.5s ease;
+}
+
+.second-row {
+  display: flex;
+  gap: 40px;
+}
+
+.left-column {
+  flex: 2;
+}
+
+.right-column {
+  flex: 1;
+}
+
+.path-frame, .training-frame {
+  border: 2px solid #cceeff;
+  border-radius: 12px;
+  padding: 20px;
+  background: #ffffff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+.section-title {
+  font-size: 1.6rem;
+  color: #005DAA;
+  margin-bottom: 20px;
+  font-weight: bold;
+  border-bottom: 1px solid #cceeff;
+  padding-bottom: 8px;
+}
+
+.path-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.btn.big-btn {
+  background: linear-gradient(to right, #00aaff, #0077cc);
+  color: white;
+  padding: 22px 40px;
+  font-size: 1.4rem;
+  border-radius: 12px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.btn.big-btn:hover {
+  background: #005DAA;
+  transform: scale(1.1);
+}
+
+.training-img {
+  width: 70% !important;
+  margin: 10px auto;
+  display: block;
+}
+
+.training-img:hover {
+  transform: scale(1.03);
+}
+
+footer {
+  background: #005DAA;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 40px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(60px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+header {
+  background-color: #00A3B4;
+  padding: 5px 40px !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.path-buttons {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+.path-buttons a {
+  flex: 1;
+  margin: 0 0.1%;
+}
+.path-img {
+  width: 100% !important;
+}
+
+header {
+  background-color: #00A3B4;
+  padding: 5px 40px !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+
+/* Ripple container and animation */
+.ripple-container {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  border-radius: 12px;
+  background-color: transparent;
+}
+
+.ripple-container .ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple-animation 600ms linear;
+  background-color: rgba(255, 255, 255, 0.6);
+  pointer-events: none;
+}
+
+@keyframes ripple-animation {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Button active scale + bounce */
+.ripple-container:active {
+  transform: scale(0.97);
+  animation: bounce 300ms ease-out;
+}
+
+@keyframes bounce {
+  0% { transform: scale(0.97); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+
+/* General button wrapper */
+.ripple-button {
+  position: relative;
+  overflow: hidden;
+  flex: 1;
+  border-radius: 20px;
+  display: inline-block;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+/* Hover elevation and shimmer */
+.ripple-button:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* Shimmer effect */
+.ripple-button::before {
+  content: "";
+  position: absolute;
+  top: 0; left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.6s ease-in-out;
+}
+
+.ripple-button:hover::before {
+  left: 125%;
+}
+
+/* Ripple circle */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple-animation 0.6s linear;
+  background-color: rgba(255, 255, 255, 0.7);
+  pointer-events: none;
+}
+
+/* Ripple spread animation */
+@keyframes ripple-animation {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Active scale and bounce */
+.ripple-button:active {
+  transform: scale(0.95);
+  animation: bounce 0.5s ease-in-out;
+}
+
+@keyframes bounce {
+  0%   { transform: scale(0.95) translateY(0); }
+  30%  { transform: scale(1.05) translateY(-5px); }
+  60%  { transform: scale(1.02) translateY(2px); }
+  100% { transform: scale(1.0) translateY(0); }
+}
+
+/* Image style inside button */
+.ripple-button img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3/2;
+  border-radius: 20px;
+  display: block;
+}
+
+/* Clean ripple-button container */
+.path-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 1%;
+  margin-top: 20px;
+}
+
+.ripple-button {
+  position: relative;
+  overflow: hidden;
+  flex: 1;
+  border-radius: 20px;
+  display: inline-block;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.ripple-button:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.ripple-button::before {
+  content: "";
+  position: absolute;
+  top: 0; left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.6s ease-in-out;
+}
+
+.ripple-button:hover::before {
+  left: 125%;
+}
+
+.ripple-button img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3/2;
+  border-radius: 20px;
+  display: block;
+}
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple-animation 0.6s linear;
+  background-color: rgba(255, 255, 255, 0.7);
+  pointer-events: none;
+}
+
+@keyframes ripple-animation {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.ripple-button:active {
+  transform: scale(0.95);
+  animation: bounce 0.5s ease-in-out;
+}
+
+@keyframes bounce {
+  0%   { transform: scale(0.95) translateY(0); }
+  30%  { transform: scale(1.05) translateY(-5px); }
+  60%  { transform: scale(1.02) translateY(2px); }
+  100% { transform: scale(1.0) translateY(0); }
+}
+
+.training-frame {
+  margin-top: 40px;
+}
+
+.training-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.training-box {
+  width: 70%;
+  max-width: 300px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.training-box:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.training-box img {
+  width: 100%;
+  display: block;
+  border-radius: 16px;
+}
+
+h1 {
+  color: #007BFF;
+}
+
+.double-column {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 0 40px;
+  margin-top: 0;
+}
+
+.left-column {
+  flex: 0 0 65%;
+}
+
+.right-column {
+  flex: 0 0 35%;
+}
+
+.left-column .path-buttons,
+.right-column .training-buttons {
+  margin-top: 20px;
+}
+
+.path-frame, .training-frame {
+  margin-top: 0;
+}
+
+.highlight-frame {
+  margin-bottom: 10px !important;
+}
+
+.double-column {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 0 40px;
+  margin-top: 0;
+}
+
+.path-frame, .training-frame {
+  margin: 0;
+  padding: 0;
+}
+
+footer {
+  background-color: #00A3B4;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.path-frame {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
