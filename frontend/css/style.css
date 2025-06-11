@@ -1,4 +1,3 @@
-
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -17,7 +16,7 @@ body {
 }
 
 .logo-left {
-  height: 100px; /* doubled size */
+  height: 100px;
 }
 
 .logo-right {
@@ -49,7 +48,7 @@ body {
   border: 2px solid #0093D0;
   border-radius: 16px;
   padding: 30px;
-  margin-bottom: 60px;
+  margin-bottom: 10px !important;
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
   animation: fadeInDown 1.2s ease-in-out;
 }
@@ -64,8 +63,6 @@ body {
 
 .teacher-img {
   width: 180px !important;
-
-  width: 250px;
   transition: transform 0.6s ease;
 }
 
@@ -197,55 +194,7 @@ header {
   width: 100% !important;
 }
 
-header {
-  background-color: #00A3B4;
-  padding: 5px 40px !important;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: white;
-}
-
-
-/* Ripple container and animation */
-.ripple-container {
-  position: relative;
-  overflow: hidden;
-  display: inline-block;
-  border-radius: 12px;
-  background-color: transparent;
-}
-
-.ripple-container .ripple {
-  position: absolute;
-  border-radius: 50%;
-  transform: scale(0);
-  animation: ripple-animation 600ms linear;
-  background-color: rgba(255, 255, 255, 0.6);
-  pointer-events: none;
-}
-
-@keyframes ripple-animation {
-  to {
-    transform: scale(4);
-    opacity: 0;
-  }
-}
-
-/* Button active scale + bounce */
-.ripple-container:active {
-  transform: scale(0.97);
-  animation: bounce 300ms ease-out;
-}
-
-@keyframes bounce {
-  0% { transform: scale(0.97); }
-  50% { transform: scale(1.03); }
-  100% { transform: scale(1); }
-}
-
-
-/* General button wrapper */
+/* Enhanced ripple button without white frame */
 .ripple-button {
   position: relative;
   overflow: hidden;
@@ -253,101 +202,39 @@ header {
   border-radius: 20px;
   display: inline-block;
   transition: transform 0.2s ease, box-shadow 0.3s ease;
+  background: transparent !important;
+  border: none;
+  outline: none;
 }
 
-/* Hover elevation and shimmer */
 .ripple-button:hover {
   transform: scale(1.03);
   box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  background: transparent !important;
 }
 
-/* Shimmer effect */
-.ripple-button::before {
-  content: "";
-  position: absolute;
-  top: 0; left: -75%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent);
-  transform: skewX(-20deg);
-  transition: left 0.6s ease-in-out;
+.ripple-button:focus {
+  outline: none;
+  background: transparent !important;
 }
 
-.ripple-button:hover::before {
-  left: 125%;
-}
-
-/* Ripple circle */
-.ripple {
-  position: absolute;
-  border-radius: 50%;
-  transform: scale(0);
-  animation: ripple-animation 0.6s linear;
-  background-color: rgba(255, 255, 255, 0.7);
-  pointer-events: none;
-}
-
-/* Ripple spread animation */
-@keyframes ripple-animation {
-  to {
-    transform: scale(4);
-    opacity: 0;
-  }
-}
-
-/* Active scale and bounce */
 .ripple-button:active {
-  transform: scale(0.95);
-  animation: bounce 0.5s ease-in-out;
+  background: transparent !important;
 }
 
-@keyframes bounce {
-  0%   { transform: scale(0.95) translateY(0); }
-  30%  { transform: scale(1.05) translateY(-5px); }
-  60%  { transform: scale(1.02) translateY(2px); }
-  100% { transform: scale(1.0) translateY(0); }
-}
-
-/* Image style inside button */
-.ripple-button img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 3/2;
-  border-radius: 20px;
-  display: block;
-}
-
-/* Clean ripple-button container */
-.path-buttons {
-  display: flex;
-  justify-content: space-between;
-  gap: 1%;
-  margin-top: 20px;
-}
-
-.ripple-button {
-  position: relative;
-  overflow: hidden;
-  flex: 1;
-  border-radius: 20px;
-  display: inline-block;
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
-}
-
-.ripple-button:hover {
-  transform: scale(1.03);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-}
-
+/* Subtle shimmer effect without white frame */
 .ripple-button::before {
   content: "";
   position: absolute;
-  top: 0; left: -75%;
+  top: 0; 
+  left: -75%;
   width: 50%;
   height: 100%;
-  background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent);
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.15), transparent);
   transform: skewX(-20deg);
   transition: left 0.6s ease-in-out;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .ripple-button:hover::before {
@@ -360,6 +247,8 @@ header {
   aspect-ratio: 3/2;
   border-radius: 20px;
   display: block;
+  position: relative;
+  z-index: 0;
 }
 
 .ripple {
@@ -367,8 +256,9 @@ header {
   border-radius: 50%;
   transform: scale(0);
   animation: ripple-animation 0.6s linear;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.4);
   pointer-events: none;
+  z-index: 2;
 }
 
 @keyframes ripple-animation {
@@ -479,4 +369,157 @@ footer {
 .path-frame {
   margin-left: 0 !important;
   padding-left: 0 !important;
+}
+
+/* Clean path buttons layout */
+.path-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 1%;
+  margin-top: 20px;
+}
+
+.path-frame, .training-frame {
+  padding: 20px;
+}
+
+/* Mobile Responsive Styles */
+@media screen and (max-width: 768px) {
+  .main-header {
+    padding: 10px 20px !important;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .logo-left {
+    height: 60px;
+  }
+
+  .logo-right {
+    height: 40px;
+  }
+
+  .nav-links {
+    order: 3;
+    flex-basis: 100%;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+  }
+
+  .nav-links a {
+    font-size: 0.9rem;
+  }
+
+  .main-content {
+    padding: 20px 3%;
+  }
+
+  .highlight-frame {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  .teacher-box {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .teacher-img {
+    width: 150px !important;
+  }
+
+  .title-block h1 {
+    font-size: 2rem;
+  }
+
+  .title-block p {
+    font-size: 1.1rem;
+  }
+
+  .double-column {
+    flex-direction: column;
+    padding: 0 10px;
+    gap: 30px;
+  }
+
+  .left-column, .right-column {
+    flex: none;
+    width: 100%;
+  }
+
+  .section-title {
+    font-size: 1.4rem;
+  }
+
+  .path-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .ripple-button {
+    width: 100%;
+  }
+
+  .training-box {
+    width: 90%;
+    max-width: none;
+  }
+
+  footer {
+    padding: 15px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Small Mobile Styles */
+@media screen and (max-width: 480px) {
+  .main-header {
+    padding: 8px 15px !important;
+  }
+
+  .logo-left {
+    height: 50px;
+  }
+
+  .logo-right {
+    height: 35px;
+  }
+
+  .nav-links {
+    gap: 10px;
+  }
+
+  .nav-links a {
+    font-size: 0.8rem;
+  }
+
+  .main-content {
+    padding: 15px 2%;
+  }
+
+  .highlight-frame {
+    padding: 15px;
+  }
+
+  .teacher-img {
+    width: 120px !important;
+  }
+
+  .title-block h1 {
+    font-size: 1.6rem;
+  }
+
+  .title-block p {
+    font-size: 1rem;
+  }
+
+  .section-title {
+    font-size: 1.2rem;
+  }
+
+  .path-frame, .training-frame {
+    padding: 15px;
+  }
 }

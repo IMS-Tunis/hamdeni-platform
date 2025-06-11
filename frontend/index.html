@@ -30,57 +30,69 @@
       </div>
     </section>
 
-    
-<section class="row double-column">
-  <div class="left-column path-frame">
-    <h2 class="section-title">Choose Your Cambridge Path</h2>
-    <div class="path-buttons">
-      <a href="igcse/index.html" class="ripple-button" data-label="IGCSE">
-        <img src="images/igbutton.png" alt="IGCSE" />
-      </a>
-      <a href="as/index.html" class="ripple-button" data-label="AS Level">
-        <img src="images/asbutton.png" alt="AS Level" />
-      </a>
-      <a href="a/index.html" class="ripple-button" data-label="A Level">
-        <img src="images/abutton.png" alt="A Level" />
-      </a>
-    </div>
-  </div>
+    <section class="row double-column">
+      <div class="left-column path-frame">
+        <h2 class="section-title">Choose Your Full Cambridge Path</h2>
+        <div class="path-buttons">
+          <a href="igcse/index.html" class="ripple-button" data-label="IGCSE">
+            <img src="images/igbutton.png" alt="IGCSE" />
+          </a>
+          <a href="as/index.html" class="ripple-button" data-label="AS Level">
+            <img src="images/asbutton.png" alt="AS Level" />
+          </a>
+          <a href="a/index.html" class="ripple-button" data-label="A Level">
+            <img src="images/abutton.png" alt="A Level" />
+          </a>
+        </div>
+      </div>
 
-  <div class="right-column training-frame">
-    <h2 class="section-title">Available Trainings</h2>
-    <div class="training-buttons">
-      <a href="#" class="training-box">
-        <img src="images/pythonTraining.png" alt="Python Special Training" />
-      </a>
-      <a href="#" class="training-box">
-        <img src="images/pseudocodeTraining.png" alt="Pseudocode Special Training" />
-      </a>
-    </div>
-  </div>
-</section>
+      <div class="right-column training-frame">
+        <h2 class="section-title">Available Focused Trainings</h2>
+        <div class="training-buttons">
+          <a href="#" class="training-box">
+            <img src="images/pythonTraining.png" alt="Python Special Training" />
+          </a>
+          <a href="#" class="training-box">
+            <img src="images/pseudocodeTraining.png" alt="Pseudocode Special Training" />
+          </a>
+        </div>
+      </div>
+    </section>
 
-
-</main>
+  </main>
 
   <footer>
     <p>&copy; 2025 Dr. Hamdeni – All rights reserved.</p>
   </footer>
 
-
-<script>
-document.querySelectorAll('.ripple-container').forEach(button => {
-  button.addEventListener('click', function(e) {
-    const circle = document.createElement('span');
-    circle.classList.add('ripple');
-    const rect = button.getBoundingClientRect();
-    circle.style.left = `${e.clientX - rect.left}px`;
-    circle.style.top = `${e.clientY - rect.top}px`;
-    this.appendChild(circle);
-    setTimeout(() => circle.remove(), 600);
-  });
-});
-</script>
+  <script>
+    document.querySelectorAll('.ripple-button').forEach(button => {
+      button.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const circle = document.createElement('span');
+        circle.classList.add('ripple');
+        const rect = button.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        circle.style.width = circle.style.height = size + 'px';
+        circle.style.left = `${e.clientX - rect.left - size / 2}px`;
+        circle.style.top = `${e.clientY - rect.top - size / 2}px`;
+        
+        this.appendChild(circle);
+        
+        setTimeout(() => {
+          if (circle.parentNode) {
+            circle.remove();
+          }
+        }, 600);
+        
+        // Navigate after ripple effect
+        setTimeout(() => {
+          window.location.href = button.href;
+        }, 200);
+      });
+    });
+  </script>
 
 </body>
 </html>
