@@ -1,4 +1,3 @@
-
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
@@ -14,11 +13,49 @@ body {
 .status-bar {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 10px 20px;
   font-size: 1em;
-  font-weight: bold;
   background-color: #ffffff;
   border-bottom: 1px solid #ccc;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.left-cluster {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.student-label {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #2c3e50;
+  background: #e3f2fd;
+  padding: 6px 12px;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.08);
+}
+.form-box {
+  background: #f8f9fa;
+  padding: 10px 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.contact-info {
+  font-size: 0.9em;
+  color: #444;
+  text-align: right;
+}
+.contact-info a {
+  color: #0077cc;
+  text-decoration: none;
+}
+.contact-info a:hover {
+  text-decoration: underline;
 }
 .left-status {
   color: #2c3e50;
@@ -95,40 +132,89 @@ body {
   font-size: 1.05em;
   color: #2c3e50;
 }
+
+/* Updated Progress Bar Styles */
+.progress-container {
+  position: relative;
+}
+
 .progress-bar {
-  display: flex;
-  align-items: center;
-  height: 14px;
+  display: block;
+  height: 20px;
   background: #e0e0e0;
   border-radius: 10px;
   overflow: hidden;
+  position: relative;
+  margin-bottom: 10px;
 }
+
+.progress-bar .progress-fill {
+  height: 100%;
+  background: #4CAF50;
+  border-radius: 10px;
+  transition: width 0.3s ease;
+  position: relative;
+}
+
+/* Remove old segmented progress styles */
 .progress-bar div {
   height: 100%;
-  flex: 1;
-  margin-right: 1px;
+  margin-right: 0;
+  flex: none;
 }
-.progress-bar .done {
-  background: #4CAF50;
-}
+
+.progress-bar .done,
 .progress-bar .not-done {
-  background: #ccc;
+  display: none; /* Hide old segmented style */
 }
+
 .progress-labels {
   display: flex;
-  justify-content: space-between;
-  font-size: 0.6em;
+  font-size: 0.75em;
   color: #666;
-  margin-top: 5px;
-  padding: 0 2px;
+  margin-top: 8px;
+  position: relative;
+  height: 20px;
 }
-.progress-bar::after {
+
+.progress-labels span {
+  position: absolute;
+  white-space: nowrap;
+  font-size: 0.85em;
+  color: #666;
+}
+
+/* Position labels at section boundaries */
+.progress-labels span:nth-child(1) {
+  left: 0;
+  transform: translateX(0);
+}
+
+.progress-labels span:nth-child(2) {
+  left: 25%;
+  transform: translateX(-50%);
+}
+
+.progress-labels span:nth-child(3) {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.progress-labels span:nth-child(4) {
+  left: 75%;
+  transform: translateX(-50%);
+}
+
+/* Checkmark positioning */
+.progress-container::after {
   content: "✅";
-  font-size: 1.1em;
-  padding-left: 8px;
-  line-height: 14px;
+  font-size: 1.2em;
+  position: absolute;
+  right: -35px;
+  top: 0;
   display: inline-block;
 }
+
 .levels-wrapper {
   display: flex;
   flex-direction: column;
@@ -175,26 +261,11 @@ body {
   transform: rotate(90deg);
 }
 
-
 /* Better student name display */
 #student-name-bar {
   font-size: 1.3em;
   font-weight: bold;
   color: #2c3e50;
-}
-
-/* Contact info and mail link */
-.contact-info {
-  font-size: 0.9em;
-  color: #444;
-  margin-top: 5px;
-}
-.contact-info a {
-  color: #0077cc;
-  text-decoration: none;
-}
-.contact-info a:hover {
-  text-decoration: underline;
 }
 
 /* Stylish login/logout buttons */
@@ -218,60 +289,9 @@ body {
   background-color: #c62828;
 }
 
-
 .home {
   background-color: #2196F3;
 }
 .home:hover {
   background-color: #1976D2;
-}
-
-
-
-.status-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  font-size: 1em;
-  background-color: #ffffff;
-  border-bottom: 1px solid #ccc;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-.left-cluster {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-.student-label {
-  font-size: 1.3em;
-  font-weight: bold;
-  color: #2c3e50;
-  background: #e3f2fd;
-  padding: 6px 12px;
-  border-radius: 8px;
-  box-shadow: 0 0 5px rgba(0,0,0,0.08);
-}
-.form-box {
-  background: #f8f9fa;
-  padding: 10px 15px;
-  border-radius: 8px;
-  box-shadow: 0 0 6px rgba(0,0,0,0.1);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-.contact-info {
-  font-size: 0.9em;
-  color: #444;
-  text-align: right;
-}
-.contact-info a {
-  color: #0077cc;
-  text-decoration: none;
-}
-.contact-info a:hover {
-  text-decoration: underline;
 }
