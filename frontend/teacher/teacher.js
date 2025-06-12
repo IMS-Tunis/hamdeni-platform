@@ -50,10 +50,10 @@ async function loadStudentProgress(username) {
   const lTable = platformTable('programming');
 
   const { data: tData } = await supabase.from(tTable).select('*').eq('studentid', username);
-  renderTheory(tData || []);
+  renderTheory(Array.isArray(tData) ? tData : []);
 
   const { data: lData } = await supabase.from(lTable).select('*').eq('studentid', username);
-  renderLevels(lData || []);
+  renderLevels(Array.isArray(lData) ? lData : []);
 }
 
 function renderTheory(data) {
