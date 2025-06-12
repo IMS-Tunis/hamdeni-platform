@@ -50,10 +50,10 @@ async function loadStudentProgress(username) {
   const lTable = platformTable('programming');
 
   const { data: tData } = await supabase.from(tTable).select('*').eq('studentid', username);
-  renderTheory(Array.isArray(tData) ? tData : []);
+  renderTheory(tData || []);
 
   const { data: lData } = await supabase.from(lTable).select('*').eq('studentid', username);
-  renderLevels(Array.isArray(lData) ? lData : []);
+  renderLevels(lData || []);
 }
 
 function renderTheory(data) {
@@ -148,3 +148,14 @@ function platformTable(type) {
   const prefix = selectedPlatform.toLowerCase();
   return `${prefix}_${type}_progress`;
 }
+
+
+// Force reload when clicking the same student again
+document.querySelector("#student-list")?.addEventListener("click", (e) => {
+  if (e.target.tagName === "LI") {
+    document.querySelectorAll("#student-list li").forEach(li => li.classList.remove("selected"));
+    e.target.classList.add("selected");
+    const username = e.target.textContent;
+    loadStudentProgress(username);
+  }
+});
