@@ -26,3 +26,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   document.getElementById("login-btn").onclick = login;
   document.getElementById("logout-btn").onclick = logout;
 });
+
+document.getElementById("home-btn").onclick = () => {
+  window.location.href = "/index.html";
+};
