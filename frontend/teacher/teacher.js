@@ -121,7 +121,7 @@ document.getElementById('save-progress').onclick = async () => {
   for (let point of theoryPoints) {
     const pointInputs = document.querySelectorAll(`[data-point='${point}']`);
     const update = {
-      studentid: selectedStudent,
+      studentid: selectedStudent.trim(),
       point_id: point
     };
     pointInputs.forEach(input => {
@@ -133,7 +133,7 @@ document.getElementById('save-progress').onclick = async () => {
   for (let level of programmingLevels) {
     const input = document.querySelector(`[data-level='${level}']`);
     const update = {
-      studentid: selectedStudent,
+      studentid: selectedStudent.trim(),
       level_number: level,
       level_done: input.checked
     };
@@ -150,12 +150,5 @@ function platformTable(type) {
 }
 
 
-// Force reload when clicking the same student again
-document.querySelector("#student-list")?.addEventListener("click", (e) => {
-  if (e.target.tagName === "LI") {
-    document.querySelectorAll("#student-list li").forEach(li => li.classList.remove("selected"));
-    e.target.classList.add("selected");
-    const username = e.target.textContent;
-    loadStudentProgress(username);
-  }
-});
+// After saving, force reload the student's data
+loadStudentProgress(selectedStudent.trim());
