@@ -121,23 +121,29 @@ document.getElementById('save-progress').onclick = async () => {
   for (let point of theoryPoints) {
     const pointInputs = document.querySelectorAll(`[data-point='${point}']`);
     const update = {
-      studentid: selectedStudent.trim(),
+      studentid: selectedStudent,
       point_id: point
     };
     pointInputs.forEach(input => {
       update["layer" + input.dataset.layer + "_done"] = input.checked;
     });
-    await supabase.from(tTable).upsert(update, { onConflict: ['studentid', 'point_id'] });
+    
+    await supabase.from(tTable).delete().match({ studentid: selectedStudent.trim(), point_id: point });
+    await supabase.from(tTable).insert(update);
+    
   }
 
   for (let level of programmingLevels) {
     const input = document.querySelector(`[data-level='${level}']`);
     const update = {
-      studentid: selectedStudent.trim(),
+      studentid: selectedStudent,
       level_number: level,
       level_done: input.checked
     };
-    await supabase.from(lTable).upsert(update, { onConflict: ['studentid', 'level_number'] });
+    
+    await supabase.from(lTable).delete().match({ studentid: selectedStudent.trim(), level_number: level });
+    await supabase.from(lTable).insert(update);
+    
   }
 
   msg.textContent = "✅ Progress saved.";
@@ -148,7 +154,3 @@ function platformTable(type) {
   const prefix = selectedPlatform.toLowerCase();
   return `${prefix}_${type}_progress`;
 }
-
-
-// After saving, force reload the student's data
-loadStudentProgress(selectedStudent.trim());
