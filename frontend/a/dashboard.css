@@ -275,21 +275,3 @@ body {
 .contact-info a:hover {
   text-decoration: underline;
 }
-
-
-.arrow-connector {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin: -10px 0 10px;
-}
-.level-arrow {
-  width: 40px;
-  margin: 8px auto;
-  display: block;
-  animation: bounce 1.5s infinite;
-}
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(6px); }
-}
