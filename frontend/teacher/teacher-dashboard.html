@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Teacher Dashboard</title>
+  <link rel="stylesheet" href="teacher.css" />
+</head>
+<body>
+  <header>
+    <h1>Teacher Dashboard – Student Progress</h1>
+  </header>
+
+  <div class="filters">
+    <label for="platform">Platform:</label>
+    <select id="platform">
+      <option value="A_Level">A Level</option>
+      <option value="AS_Level">AS Level</option>
+      <option value="IGCSE">IGCSE</option>
+    </select>
+
+    <button id="load-students">Filter Students</button>
+  </div>
+
+  <div class="dashboard-content">
+    <aside class="student-list">
+      <h3>Students</h3>
+      <ul id="student-list">
+        <!-- Populated by JS -->
+      </ul>
+    </aside>
+
+    <main class="student-progress">
+      <h3 id="student-title">Select a student to view progress</h3>
+      <div id="theory-progress"></div>
+      <div id="programming-progress"></div>
+      <button id="save-progress" class="save-btn" style="display: none;">Save Progress</button>
+    </main>
+  </div>
+
+  <script type="module" src="teacher.js"></script>
+</body>
+</html>

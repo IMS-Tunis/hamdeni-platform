@@ -1,0 +1,141 @@
+
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+
+const SUPABASE_URL = "https://tsmzmuclrnyryuvanlxl.supabase.co";
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...";
+const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+
+let selectedStudent = null;
+let selectedPlatform = null;
+let theoryPoints = [];
+let programmingLevels = [];
+
+document.getElementById('load-students').onclick = async () => {
+  selectedPlatform = document.getElementById('platform').value;
+  const { data: students } = await supabase
+    .from('students')
+    .select('*')
+    .eq('platform', selectedPlatform);
+
+  const list = document.getElementById('student-list');
+  list.innerHTML = '';
+  students.forEach(s => {
+    const li = document.createElement('li');
+    li.textContent = s.username;
+    li.onclick = () => loadStudentProgress(s.username);
+    list.appendChild(li);
+  });
+};
+
+async function loadStudentProgress(username) {
+  selectedStudent = username;
+  document.getElementById('student-title').textContent = "Progress of " + username;
+  document.getElementById('save-progress').style.display = 'block';
+
+  const tTable = platformTable('theory');
+  const lTable = platformTable('programming');
+
+  // Load theory
+  const { data: tData } = await supabase
+    .from(tTable)
+    .select('*')
+    .eq('studentid', username);
+  renderTheory(tData);
+
+  // Load programming
+  const { data: lData } = await supabase
+    .from(lTable)
+    .select('*')
+    .eq('studentid', username);
+  renderLevels(lData);
+}
+
+function renderTheory(data) {
+  const container = document.getElementById('theory-progress');
+  container.innerHTML = '<h4>Theory Progress</h4>';
+  theoryPoints = ["13_1","13_2","13_3","14_1","14_2","15_1","15_2","16_1","16_2","17_1","18_1","19_1","19_2","20_1","20_2"];
+
+  theoryPoints.forEach(id => {
+    const row = document.createElement('div');
+    row.className = 'point-row';
+
+    const label = document.createElement('div');
+    label.className = 'point-label';
+    label.textContent = "P" + (theoryPoints.indexOf(id)+1) + " – " + id;
+    row.appendChild(label);
+
+    for (let i = 1; i <= 4; i++) {
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.dataset.point = id;
+      checkbox.dataset.layer = i;
+      const found = data.find(d => d.point_id === id);
+      if (found && found['layer' + i + '_done']) checkbox.checked = true;
+      row.appendChild(checkbox);
+    }
+
+    container.appendChild(row);
+  });
+}
+
+function renderLevels(data) {
+  const container = document.getElementById('programming-progress');
+  container.innerHTML = '<h4>Programming Progress</h4>';
+  programmingLevels = Array.from({ length: 16 }, (_, i) => i + 1);
+
+  programmingLevels.forEach(level => {
+    const row = document.createElement('div');
+    row.className = 'level-row';
+
+    const label = document.createElement('div');
+    label.className = 'level-label';
+    label.textContent = "Level " + level;
+    row.appendChild(label);
+
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.dataset.level = level;
+    const found = data.find(d => d.level_number === level);
+    if (found && found.level_done) checkbox.checked = true;
+    row.appendChild(checkbox);
+
+    container.appendChild(row);
+  });
+}
+
+document.getElementById('save-progress').onclick = async () => {
+  if (!selectedStudent || !selectedPlatform) return alert("Select student first.");
+  const tTable = platformTable('theory');
+  const lTable = platformTable('programming');
+
+  // Save theory
+  for (let point of theoryPoints) {
+    const pointInputs = document.querySelectorAll(`[data-point='${point}']`);
+    const update = {
+      studentid: selectedStudent,
+      point_id: point
+    };
+    pointInputs.forEach(input => {
+      update["layer" + input.dataset.layer + "_done"] = input.checked;
+    });
+    await supabase.from(tTable).upsert(update, { onConflict: ['studentid', 'point_id'] });
+  }
+
+  // Save levels
+  for (let level of programmingLevels) {
+    const input = document.querySelector(`[data-level='${level}']`);
+    const update = {
+      studentid: selectedStudent,
+      level_number: level,
+      level_done: input.checked
+    };
+    await supabase.from(lTable).upsert(update, { onConflict: ['studentid', 'level_number'] });
+  }
+
+  alert("Progress saved for " + selectedStudent);
+};
+
+function platformTable(type) {
+  const prefix = selectedPlatform.toLowerCase();
+  return `${prefix}_${type}_progress`;
+}
