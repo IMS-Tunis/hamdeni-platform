@@ -150,7 +150,21 @@ document.getElementById('save-progress').onclick = async () => {
   document.getElementById('save-progress').disabled = false;
 };
 
+
 function platformTable(type) {
-  const prefix = selectedPlatform.toLowerCase();
-  return `${prefix}_${type}_progress`;
+  const map = {
+    A_Level: {
+      theory: 'a_theory_progress',
+      programming: 'a_programming_progress'
+    },
+    AS_Level: {
+      theory: 'as_theory_progress',
+      programming: 'as_programming_progress'
+    },
+    IGCSE: {
+      theory: 'igcse_theory_progress',
+      programming: 'igcse_programming_progress'
+    }
+  };
+  return map[selectedPlatform][type];
 }
