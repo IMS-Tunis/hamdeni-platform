@@ -5,7 +5,6 @@ const SUPABASE_URL = "https://tsmzmuclrnyryuvanlxl.supabase.co";
 const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzbXptdWNscm55cnl1dmFubHhsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc3MzM5NjUsImV4cCI6MjA2MzMwOTk2NX0.-l7Klmp5hKru3w2HOWLRPjCiQprJ2pOjsI-HPTGtAiw";
 const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
-// ========== TEACHER ACCESS PROTECTION ==========
 if (!localStorage.getItem("teacher-auth")) {
   const pass = prompt("Enter teacher password:");
   if (pass !== "maarifadmin") {
@@ -51,10 +50,10 @@ async function loadStudentProgress(username) {
   const lTable = platformTable('programming');
 
   const { data: tData } = await supabase.from(tTable).select('*').eq('studentid', username);
-  renderTheory(tData);
+  renderTheory(tData || []);
 
   const { data: lData } = await supabase.from(lTable).select('*').eq('studentid', username);
-  renderLevels(lData);
+  renderLevels(lData || []);
 }
 
 function renderTheory(data) {
@@ -76,7 +75,7 @@ function renderTheory(data) {
       checkbox.type = 'checkbox';
       checkbox.dataset.point = id;
       checkbox.dataset.layer = i;
-      const found = data.find(d => d.point_id === id);
+      const found = (data || []).find(d => d.point_id === id);
       if (found && found['layer' + i + '_done']) checkbox.checked = true;
       row.appendChild(checkbox);
     }
@@ -102,7 +101,7 @@ function renderLevels(data) {
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.dataset.level = level;
-    const found = data.find(d => d.level_number === level);
+    const found = (data || []).find(d => d.level_number === level);
     if (found && found.level_done) checkbox.checked = true;
     row.appendChild(checkbox);
 
