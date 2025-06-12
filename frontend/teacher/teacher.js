@@ -5,6 +5,17 @@ const SUPABASE_URL = "https://tsmzmuclrnyryuvanlxl.supabase.co";
 const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...";
 const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
+// ========== TEACHER ACCESS PROTECTION ==========
+if (!localStorage.getItem("teacher-auth")) {
+  const pass = prompt("Enter teacher password:");
+  if (pass !== "maarifadmin") {
+    alert("Access denied.");
+    window.location.href = "/index.html";
+  } else {
+    localStorage.setItem("teacher-auth", "1");
+  }
+}
+
 let selectedStudent = null;
 let selectedPlatform = null;
 let theoryPoints = [];
@@ -22,7 +33,11 @@ document.getElementById('load-students').onclick = async () => {
   students.forEach(s => {
     const li = document.createElement('li');
     li.textContent = s.username;
-    li.onclick = () => loadStudentProgress(s.username);
+    li.onclick = () => {
+      document.querySelectorAll("#student-list li").forEach(e => e.classList.remove("selected"));
+      li.classList.add("selected");
+      loadStudentProgress(s.username);
+    };
     list.appendChild(li);
   });
 };
@@ -35,18 +50,10 @@ async function loadStudentProgress(username) {
   const tTable = platformTable('theory');
   const lTable = platformTable('programming');
 
-  // Load theory
-  const { data: tData } = await supabase
-    .from(tTable)
-    .select('*')
-    .eq('studentid', username);
+  const { data: tData } = await supabase.from(tTable).select('*').eq('studentid', username);
   renderTheory(tData);
 
-  // Load programming
-  const { data: lData } = await supabase
-    .from(lTable)
-    .select('*')
-    .eq('studentid', username);
+  const { data: lData } = await supabase.from(lTable).select('*').eq('studentid', username);
   renderLevels(lData);
 }
 
@@ -108,7 +115,10 @@ document.getElementById('save-progress').onclick = async () => {
   const tTable = platformTable('theory');
   const lTable = platformTable('programming');
 
-  // Save theory
+  document.getElementById('save-progress').disabled = true;
+  const msg = document.getElementById('save-msg');
+  msg.textContent = "Saving...";
+
   for (let point of theoryPoints) {
     const pointInputs = document.querySelectorAll(`[data-point='${point}']`);
     const update = {
@@ -121,7 +131,6 @@ document.getElementById('save-progress').onclick = async () => {
     await supabase.from(tTable).upsert(update, { onConflict: ['studentid', 'point_id'] });
   }
 
-  // Save levels
   for (let level of programmingLevels) {
     const input = document.querySelector(`[data-level='${level}']`);
     const update = {
@@ -132,7 +141,8 @@ document.getElementById('save-progress').onclick = async () => {
     await supabase.from(lTable).upsert(update, { onConflict: ['studentid', 'level_number'] });
   }
 
-  alert("Progress saved for " + selectedStudent);
+  msg.textContent = "✅ Progress saved.";
+  document.getElementById('save-progress').disabled = false;
 };
 
 function platformTable(type) {
