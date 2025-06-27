@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const nameBar = document.getElementById("student-name-bar");
 
   if (studentId) {
-    nameBar.textContent = "Computer Science Journey progress of " + studentId;
+    nameBar.textContent = "Dashboard progress of " + studentId;
 
     const [theoryData, levelData] = await Promise.all([
       fetchTheoryProgress(studentId),
