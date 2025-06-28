@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("student-name").textContent = "👤 " + studentName;
 
   fetch("points/index.json")
-    .then(response => response.json())
+    .then(res => res.json())
     .then(points => {
       points.forEach((point, i) => {
         const div = document.createElement("div");
@@ -21,10 +21,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const bar = document.createElement("div");
         bar.className = "progress-bar";
-
         const fill = document.createElement("div");
         fill.className = "progress-fill";
-        fill.style.width = "0%"; // Placeholder: no Supabase data in this version
+        fill.style.width = "0%";
         bar.appendChild(fill);
 
         div.appendChild(title);
@@ -33,12 +32,11 @@ document.addEventListener("DOMContentLoaded", () => {
         theoryContainer.appendChild(div);
       });
 
-      // Static level rendering
       for (let i = 1; i <= 16; i++) {
-        const lvl = document.createElement("div");
-        lvl.className = "level-box";
-        lvl.textContent = `Level ${i}`;
-        levelContainer.appendChild(lvl);
+        const level = document.createElement("div");
+        level.className = "level-box";
+        level.textContent = "Level " + i;
+        levelContainer.appendChild(level);
       }
     });
 });
