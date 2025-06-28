@@ -1,15 +1,17 @@
 
 document.addEventListener("DOMContentLoaded", () => {
-  const container = document.getElementById("theory-points");
+  const theoryContainer = document.getElementById("theory-points");
+  const levelContainer = document.getElementById("programming-levels");
   const studentId = localStorage.getItem("student_id");
-  const studentName = localStorage.getItem("student_name");
-  document.getElementById("student-name").textContent = "👤 " + (studentName || "Guest");
+  const studentName = localStorage.getItem("student_name") || "Guest";
+
+  document.getElementById("student-name").textContent = "👤 " + studentName;
 
   fetch("points/index.json")
     .then(response => response.json())
     .then(points => {
       if (!studentId) {
-        renderDefaultBoxes(points);
+        renderDefaultBoxes(points, theoryContainer);
       } else {
         fetch(`https://tsmzmuclrnyryuvanlxl.supabase.co/rest/v1/progress?student_id=eq.${studentId}`, {
           headers: {
@@ -19,19 +21,19 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .then(res => res.json())
         .then(progressData => {
-          renderBoxesWithProgress(points, progressData);
+          renderBoxesWithProgress(points, progressData, theoryContainer);
         });
       }
     });
 
-  function renderDefaultBoxes(points) {
+  function renderDefaultBoxes(points, container) {
     points.forEach((point, i) => {
       const box = createBox(point, i + 1, null);
       container.appendChild(box);
     });
   }
 
-  function renderBoxesWithProgress(points, progressData) {
+  function renderBoxesWithProgress(points, progressData, container) {
     points.forEach((point, i) => {
       const progress = progressData.find(p => p.point_id === point.id.toUpperCase());
       const box = createBox(point, i + 1, progress);
@@ -68,5 +70,13 @@ document.addEventListener("DOMContentLoaded", () => {
     div.appendChild(link);
     div.appendChild(bar);
     return div;
+  }
+
+  // Static 16 programming levels
+  for (let i = 1; i <= 16; i++) {
+    const lvl = document.createElement("div");
+    lvl.className = "level-box";
+    lvl.textContent = `Level ${i}`;
+    levelContainer.appendChild(lvl);
   }
 });
