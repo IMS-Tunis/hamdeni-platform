@@ -1,37 +1,58 @@
 
+import { login, logout, getCurrentStudent, fetchTheoryProgress, fetchProgrammingProgress } from './modules/supabase.js';
+import { renderTheoryPoints } from './modules/theoryRenderer.js';
+import { renderProgrammingLevels } from './modules/levelRenderer.js';
+
+document.addEventListener("DOMContentLoaded", async () => {
+  const studentId = getCurrentStudent();
+  const nameBar = document.getElementById("student-name-bar");
+
+  if (studentId) {
+    nameBar.textContent = "Dashboard progress of " + studentId;
+
+    const [theoryData, levelData] = await Promise.all([
+      fetchTheoryProgress(studentId),
+      fetchProgrammingProgress(studentId)
+    ]);
+
+    renderTheoryPoints(theoryData);
+    renderProgrammingLevels(levelData);
+  } else {
+    nameBar.textContent = "Guest Mode";
+    renderTheoryPoints();  // Render default (gray)
+    renderProgrammingLevels();  // Render locked
+  }
+
+  document.getElementById("login-btn").onclick = login;
+  document.getElementById("logout-btn").onclick = logout;
+});
+
+document.getElementById("home-btn").onclick = () => {
+  window.location.href = "/index.html";
+};
+
+
 document.addEventListener("DOMContentLoaded", () => {
-  const theoryContainer = document.getElementById("theory-points");
+  const container = document.getElementById("theory-points");
   const levelContainer = document.getElementById("programming-levels");
-  const studentName = localStorage.getItem("student_name") || "Guest";
-  document.getElementById("student-name").textContent = "👤 " + studentName;
+  if (!container || !levelContainer) return;
 
   fetch("points/index.json")
     .then(res => res.json())
     .then(points => {
+      container.innerHTML = "";
       points.forEach((point, i) => {
         const div = document.createElement("div");
         div.className = "point-box";
-
-        const title = document.createElement("h3");
-        title.textContent = `P${i + 1}: ${point.title}`;
-
-        const link = document.createElement("a");
-        link.href = `points/${point.id}/layer1.html`;
-        link.textContent = "Start";
-
-        const bar = document.createElement("div");
-        bar.className = "progress-bar";
-        const fill = document.createElement("div");
-        fill.className = "progress-fill";
-        fill.style.width = "0%";
-        bar.appendChild(fill);
-
-        div.appendChild(title);
-        div.appendChild(link);
-        div.appendChild(bar);
-        theoryContainer.appendChild(div);
+        div.innerHTML = `
+          <h3>P${i + 1}: ${point.title}</h3>
+          <a href="points/${point.id}/layer1.html">Start</a>
+          <div class="progress-bar"><div class="progress-fill" style="width: 0%;"></div></div>
+        `;
+        container.appendChild(div);
       });
 
+      levelContainer.innerHTML = "";
       for (let i = 1; i <= 16; i++) {
         const level = document.createElement("div");
         level.className = "level-box";
