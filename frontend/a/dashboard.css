@@ -1,277 +1,101 @@
 
 body {
-  margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: #f0f4fa;
+  margin: 0;
+  padding: 0;
+  background-color: #eef2f5;
 }
+
 .main-header {
-  width: 100%;
-}
-.header-background {
-  width: 100%;
-  display: block;
-}
-.status-bar {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px 20px;
-  font-size: 1em;
-  font-weight: bold;
-  background-color: #ffffff;
-  border-bottom: 1px solid #ccc;
-}
-.left-status {
-  color: #2c3e50;
-  font-size: 1.1em;
-}
-.right-status {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.right-status input {
-  padding: 6px;
-  font-size: 0.95em;
-}
-.right-status button {
-  padding: 6px 10px;
-  font-size: 0.9em;
-  cursor: pointer;
-}
-.right-status div {
-  margin-left: 10px;
-  font-size: 0.8em;
-  color: #444;
-}
-.dashboard {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 40px;
-  gap: 30px;
-  border-top: 1px solid #ddd;
-}
-.theory-column, .levels-column {
-  width: 48%;
-}
-.section-header {
-  text-align: center;
-  margin-bottom: 20px;
-}
-.section-title {
-  max-width: 260px;
-  height: auto;
-}
-.footer-image, .certificate-image {
-  display: block;
-  margin: 30px auto 0;
-  width: 50%;
-}
-.centered-check {
-  text-align: center;
-  margin-top: 40px;
-}
-.centered-check img {
-  width: 150px;
-  height: auto;
-}
-.theory-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-.point-box {
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.08);
-  padding: 15px 20px;
-  transition: 0.3s ease;
-  text-decoration: none;
-}
-.point-box:hover {
-  transform: scale(1.02);
-}
-.point-box h4 {
-  margin: 0 0 10px;
-  font-size: 1.05em;
-  color: #2c3e50;
-}
-.progress-bar {
-  display: flex;
-  align-items: center;
-  height: 14px;
-  background: #e0e0e0;
-  border-radius: 10px;
-  overflow: hidden;
-}
-.progress-bar div {
-  height: 100%;
-  flex: 1;
-  margin-right: 1px;
-}
-.progress-bar .done {
-  background: #4CAF50;
-}
-.progress-bar .not-done {
-  background: #ccc;
-}
-.progress-labels {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.6em;
-  color: #666;
-  margin-top: 5px;
-  padding: 0 2px;
-}
-.progress-bar::after {
-  content: "✅";
-  font-size: 1.1em;
-  padding-left: 8px;
-  line-height: 14px;
-  display: inline-block;
-}
-.levels-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-}
-.level-box {
-  background: #e0e0e0;
-  width: 50%;
-  padding: 10px;
-  border-radius: 10px;
+  background: #003366;
+  color: white;
+  padding: 20px;
   text-align: center;
   position: relative;
 }
-.level-box h4 {
-  margin: 0;
-  font-size: 1.1em;
-}
-.level-box p {
-  margin: 5px 0 0;
-  font-size: 0.85em;
-  color: #333;
-}
-.level-box.locked {
-  background: #f2f2f2;
-  color: #444;
-}
-.level-box.unlocked {
-  background: #4CAF50;
-  color: white;
-  cursor: pointer;
-}
-.level-box[data-status]::before {
-  content: attr(data-status);
+
+.main-header img.logo-left {
   position: absolute;
-  left: -30px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 1.2em;
-}
-.arrow-down svg {
-  width: 30px;
-  height: 30px;
-  transform: rotate(90deg);
+  left: 20px;
+  top: 10px;
+  height: 50px;
 }
 
-
-/* Better student name display */
-#student-name-bar {
-  font-size: 1.3em;
-  font-weight: bold;
-  color: #2c3e50;
+.main-header img.logo-right {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  height: 50px;
 }
-
-/* Contact info and mail link */
-.contact-info {
-  font-size: 0.9em;
-  color: #444;
-  margin-top: 5px;
-}
-.contact-info a {
-  color: #0077cc;
-  text-decoration: none;
-}
-.contact-info a:hover {
-  text-decoration: underline;
-}
-
-/* Stylish login/logout buttons */
-.styled-button {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  padding: 6px 14px;
-  border-radius: 5px;
-  font-size: 0.9em;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-.styled-button:hover {
-  background-color: #388E3C;
-}
-.logout {
-  background-color: #e53935;
-}
-.logout:hover {
-  background-color: #c62828;
-}
-
-
-.home {
-  background-color: #2196F3;
-}
-.home:hover {
-  background-color: #1976D2;
-}
-
-
 
 .status-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  font-size: 1em;
-  background-color: #ffffff;
-  border-bottom: 1px solid #ccc;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-.left-cluster {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-.student-label {
-  font-size: 1.3em;
+  text-align: center;
+  padding: 10px;
+  background: #dceeff;
   font-weight: bold;
-  color: #2c3e50;
-  background: #e3f2fd;
-  padding: 6px 12px;
-  border-radius: 8px;
-  box-shadow: 0 0 5px rgba(0,0,0,0.08);
 }
-.form-box {
-  background: #f8f9fa;
-  padding: 10px 15px;
-  border-radius: 8px;
-  box-shadow: 0 0 6px rgba(0,0,0,0.1);
+
+.content {
   display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
+  padding: 20px;
+  gap: 40px;
+  justify-content: space-between;
 }
-.contact-info {
-  font-size: 0.9em;
-  color: #444;
-  text-align: right;
+
+.left-panel, .right-panel {
+  flex: 1;
 }
-.contact-info a {
-  color: #0077cc;
+
+.left-panel h2, .right-panel h2 {
+  text-align: center;
+  color: #003366;
+  margin-bottom: 20px;
+}
+
+.point-container, .level-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 0 10px;
+}
+
+.point-box {
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.point-box h3 {
+  margin: 0 0 8px;
+}
+
+.point-box a {
+  color: #0066cc;
   text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  margin-bottom: 10px;
 }
-.contact-info a:hover {
-  text-decoration: underline;
+
+.progress-bar {
+  height: 10px;
+  background: #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #28a745;
+  transition: width 0.3s ease;
+}
+
+.level-box {
+  background: #fff;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+  border: 1px solid #ccc;
+  font-weight: bold;
 }

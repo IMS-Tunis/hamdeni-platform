@@ -6,21 +6,22 @@
   <link rel="stylesheet" href="dashboard.css" />
 </head>
 <body>
-  <header>
-    <img src="images/Maariflogo.png" class="logo left" alt="Maarif Logo" />
+  <header class="main-header">
+    <img src="images/Maariflogo.png" class="logo-left" alt="Maarif Logo" />
     <h1>Computer Science Journey</h1>
     <h2>Guided by Dr Chamseddine Hamdani, toward Cambridge A-Level Exams</h2>
-    <img src="images/Cambridgelogo.png" class="logo right" alt="Cambridge Logo" />
+    <img src="images/Cambridgelogo.png" class="logo-right" alt="Cambridge Logo" />
   </header>
 
-  <main class="dashboard-layout">
-    <section class="theory-column">
+  <div class="status-bar" id="student-name">👤 Guest</div>
+
+  <main class="content">
+    <section class="left-panel">
       <h2>Theory Points</h2>
-      <div id="student-name" class="student-name"></div>
       <div id="theory-points" class="point-container"></div>
     </section>
 
-    <section class="programming-column">
+    <section class="right-panel">
       <h2>Programming Levels</h2>
       <div id="programming-levels" class="level-container"></div>
     </section>
