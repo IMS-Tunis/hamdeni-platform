@@ -1,0 +1,9 @@
+
+# Automatically normalize line endings
+* text=auto
+
+# Force LF for web development files
+*.html text eol=lf
+*.css  text eol=lf
+*.js   text eol=lf
+*.json text eol=lf
