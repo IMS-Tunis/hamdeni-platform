@@ -2,15 +2,15 @@
 <html>
 <head>
   <title>Layer 2</title>
-  <link rel="stylesheet" href="../../dashboard.css">
-  <script src="../../modules/supabase.js"></script>
+  <link rel="stylesheet" href="../dashboard.css">
+  <script src="../modules/supabase.js"></script>
 </head>
 <body>
   <div class="header">Layer 2 - Quiz</div>
   <div id="student-name" style="text-align:center; font-weight: bold;"></div>
   <div id="quiz-container"></div>
   <div id="result-container" style="margin-top: 20px;"></div>
-  <script src="quiz.js"></script>
+  <script src="./quiz.js"></script>
   <script>
     document.getElementById("student-name").innerText = "Student: " + localStorage.getItem("student_name");
   </script>
