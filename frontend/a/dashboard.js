@@ -30,34 +30,3 @@ document.addEventListener("DOMContentLoaded", async () => {
 document.getElementById("home-btn").onclick = () => {
   window.location.href = "/index.html";
 };
-
-
-document.addEventListener("DOMContentLoaded", () => {
-  const container = document.getElementById("theory-points");
-  const levelContainer = document.getElementById("programming-levels");
-  if (!container || !levelContainer) return;
-
-  fetch("points/index.json")
-    .then(res => res.json())
-    .then(points => {
-      container.innerHTML = "";
-      points.forEach((point, i) => {
-        const div = document.createElement("div");
-        div.className = "point-box";
-        div.innerHTML = `
-          <h3>P${i + 1}: ${point.title}</h3>
-          <a href="points/${point.id}/layer1.html">Start</a>
-          <div class="progress-bar"><div class="progress-fill" style="width: 0%;"></div></div>
-        `;
-        container.appendChild(div);
-      });
-
-      levelContainer.innerHTML = "";
-      for (let i = 1; i <= 16; i++) {
-        const level = document.createElement("div");
-        level.className = "level-box";
-        level.textContent = "Level " + i;
-        levelContainer.appendChild(level);
-      }
-    });
-});
