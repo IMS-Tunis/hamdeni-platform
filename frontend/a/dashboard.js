@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (homeBtn) {
     homeBtn.onclick = () => {
       console.log("🏠 Home button clicked");
-      window.location.href = "./index.html";
+      window.location.href = "../index.html";
     };
   }
 

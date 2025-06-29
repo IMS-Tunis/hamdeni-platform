@@ -418,3 +418,44 @@ body {
   width: 1px;
   background-color: #ccc;
 }
+
+
+/* NEW: General Progress Bar */
+.general-progress-container {
+  width: 100%;
+  padding: 10px 30px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+.general-progress-label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.general-progress-bar {
+  background-color: #e0e0e0;
+  height: 18px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.general-progress-fill {
+  height: 100%;
+  background-color: #4CAF50;
+  width: 62%; /* Static for now */
+  border-radius: 10px 0 0 10px;
+}
+
+/* Remove ↓ arrows and add nice connecting line */
+.level-box:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  width: 2px;
+  height: 25px;
+  background-color: #ccc;
+  transform: translateX(-50%);
+}
