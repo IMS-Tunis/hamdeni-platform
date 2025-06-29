@@ -4,6 +4,8 @@ import { renderProgrammingLevels } from "./modules/levelRenderer.js";
 import { initializeLogin } from "./modules/supabase.js";
 
 document.addEventListener("DOMContentLoaded", () => {
+  console.log("✅ DOM fully loaded, running dashboard.js");
+
   renderTheoryPoints();
   renderProgrammingLevels();
   initializeLogin();
@@ -11,7 +13,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const homeBtn = document.getElementById("home-btn");
   if (homeBtn) {
     homeBtn.onclick = () => {
-      window.location.href = "../../index.html";
+      console.log("🏠 Home button clicked");
+      window.location.href = "./index.html";
     };
   }
+
+  const studentName = localStorage.getItem("student_name");
+  console.log("👤 Logged in as:", studentName);
 });
