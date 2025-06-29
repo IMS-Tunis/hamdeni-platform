@@ -1,37 +1,43 @@
 
-export function renderProgrammingLevels(progressData = []) {
+export function renderProgrammingLevels() {
   const container = document.getElementById("programming-levels");
-  container.innerHTML = "";
+  if (!container) return;
 
   const levels = [
-    "Introduction", "Basic I/O", "Conditionals", "Loops",
-    "List", "String", "Functions", "OOP",
-    "Files and Exception", "Recursion", "Search Algorithms", "Sort Algorithms",
-    "Linked Lists", "Stacks and Queues", "Binary Trees", "Implement ADT from ADT"
+    { title: "Introduction", id: "level1", status: "locked" },
+    { title: "Basic I/O", id: "level2", status: "locked" },
+    { title: "Conditionals", id: "level3", status: "locked" },
+    { title: "Loops", id: "level4", status: "locked" },
+    { title: "Functions", id: "level5", status: "locked" },
+    { title: "Lists", id: "level6", status: "locked" },
+    { title: "Strings", id: "level7", status: "locked" },
+    { title: "Dictionaries", id: "level8", status: "locked" },
+    { title: "File Handling", id: "level9", status: "locked" },
+    { title: "Debugging", id: "level10", status: "locked" },
+    { title: "OOP Basics", id: "level11", status: "locked" },
+    { title: "Advanced OOP", id: "level12", status: "locked" },
+    { title: "Modules", id: "level13", status: "locked" },
+    { title: "Recursion", id: "level14", status: "locked" },
+    { title: "Algorithms", id: "level15", status: "locked" },
+    { title: "Final Project", id: "level16", status: "locked" }
   ];
 
-  const levelMap = {};
-  progressData.forEach(p => {
-    levelMap[p.level_number] = p.level_done;
-  });
+  levels.forEach((level, index) => {
+    const box = document.createElement("div");
+    box.className = `level-box ${level.status}`;
+    box.innerHTML = `
+      <strong>Level ${index + 1}</strong><br/>
+      <span>${level.title}</span>
+    `;
+    container.appendChild(box);
 
-  for (let i = 0; i < levels.length; i++) {
-    const levelNum = i + 1;
-    const isDone = levelMap[levelNum] === true;
-
-    const levelBox = document.createElement("div");
-    levelBox.className = isDone ? "level-box unlocked" : "level-box locked";
-    levelBox.setAttribute("data-status", isDone ? "✅" : "🔒");
-    levelBox.onclick = () => window.location.href = `pages/levels/level${levelNum}.html`;
-
-    levelBox.innerHTML = `<h4>Level ${levelNum}</h4><p>${levels[i]}</p>`;
-    container.appendChild(levelBox);
-
-    if (levelNum < levels.length) {
-      const arrow = document.createElement("div");
-      arrow.className = "arrow-down";
-      arrow.innerHTML = '<svg viewBox="0 0 100 50"><path d="M0,0 Q50,50 100,0" stroke="#888" stroke-width="4" fill="none"/></svg>';
+    // Insert red arrow image between levels except after last one
+    if (index < levels.length - 1) {
+      const arrow = document.createElement("img");
+      arrow.src = "images/arrow.png";
+      arrow.alt = "↓";
+      arrow.className = "arrow-img";
       container.appendChild(arrow);
     }
-  }
+  });
 }
