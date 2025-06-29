@@ -25,6 +25,12 @@ export function renderTheoryPoints() {
             <div class="segment grey"></div>
             <div class="segment grey"></div>
           </div>
+          <div class="labels">
+            <span>Basic Understanding</span>
+            <span>Exam-Style Questions</span>
+            <span>Past Paper Questions</span>
+            <span>Test Validation</span>
+          </div>
         `;
         box.onclick = () => {
           localStorage.setItem("current_point", point.id);
