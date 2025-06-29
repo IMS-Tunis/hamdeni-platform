@@ -16,7 +16,7 @@ export function renderTheoryPoints() {
 
       points.forEach(point => {
         const box = document.createElement("div");
-        box.className = "theory-box";
+        box.className = "theory-box theory-clickable";
         box.innerHTML = `
           <h3>${point.title}</h3>
           <div class="progress-bar">
@@ -27,9 +27,9 @@ export function renderTheoryPoints() {
           </div>
           <div class="labels">
             <span>Basic Understanding</span>
-            <span>Exam-Style Questions</span>
-            <span>Past Paper Questions</span>
-            <span>Test Validation</span>
+            <span>Exam-Style</span>
+            <span>Past Paper</span>
+            <span>Test</span>
           </div>
         `;
         box.onclick = () => {
