@@ -312,3 +312,109 @@ body {
   justify-content: space-between;
   margin-top: 10px;
 }
+
+
+/* LEFT SIDE THEORY POINTS */
+.theory-clickable {
+  cursor: pointer;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
+  background-color: #f5f5f5; /* light grey box */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.theory-clickable:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.progress-bar {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.segment {
+  height: 12px;
+  flex: 1;
+  margin: 2px;
+  background-color: grey;
+  border-radius: 4px;
+}
+
+.segment.green {
+  background-color: #4CAF50;
+}
+
+.labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  margin-top: 6px;
+  color: #444;
+}
+
+.labels span {
+  flex: 1;
+  text-align: center;
+}
+
+/* RIGHT SIDE LEVELS */
+.level-box {
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  padding: 12px;
+  margin: 20px auto;
+  width: 80%;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+  text-align: center;
+  position: relative;
+}
+
+.level-box:hover {
+  transform: scale(1.02);
+}
+
+.level-box.locked {
+  background-color: #d3d3d3;
+}
+
+.level-box.unlocked {
+  background-color: #c8e6c9;
+}
+
+.level-box.passed {
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* Arrows between levels */
+.level-box:not(:last-child)::after {
+  content: "↓";
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 18px;
+  color: #aaa;
+}
+
+/* Divider between left and right */
+.dashboard {
+  display: flex;
+  gap: 10px;
+  position: relative;
+}
+
+.dashboard::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: #ccc;
+}
