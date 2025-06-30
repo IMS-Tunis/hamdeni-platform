@@ -2,30 +2,126 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Layer 2 - Quiz</title>
-  <link rel="stylesheet" href="../../a/dashboard.css" />
+  <link rel="stylesheet" href="../../a/dashboard.css">
+  <style>
+    .question {
+      background: #fff;
+      padding: 20px;
+      margin: 15px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ccc;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <img src="../../a/images/Maariflogo.png" class="logo left" />
+    <img src="../../a/images/Maariflogo.png" class="logo left">
     <div class="title"><h1>Layer 2 - Quiz</h1></div>
-    <img src="../../a/images/Cambridgelogo.png" class="logo right" />
+    <img src="../../a/images/Cambridgelogo.png" class="logo right">
   </header>
   <main>
     <p style="text-align:center;">Student: <span id="student-name"></span></p>
     <div id="result" style="text-align:center;"></div>
-    <div id="quiz-container" class="quiz-wrapper"></div>
-    <div class="actions" style="text-align:center; margin-top:20px;">
+    <div id="quiz-container"></div>
+    <div class="actions" style="text-align:center;">
       <button onclick="submitQuiz()">Submit</button>
+      <button id="retry-btn" style="display:none;" onclick="retryWrong()">Retry Incorrect</button>
       <button id="proceed-btn" style="display:none;" onclick="goToLayer3()">Go to Layer 3</button>
     </div>
   </main>
+
   <script>
     document.getElementById("student-name").innerText = localStorage.getItem("student_name") || "Guest";
   </script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
   <script src="../../a/modules/supabase.js"></script>
-  <script src="quiz.js"></script>
+  <script>
+    let quizData = [];
+    let wrongIndexes = [];
+    let displayIndexes = [];
+
+    fetch("quiz.json").then(res => res.json()).then(data => {
+      quizData = data;
+      renderQuiz();
+    });
+
+    function renderQuiz() {
+      const container = document.getElementById("quiz-container");
+      container.innerHTML = "";
+      displayIndexes = [];
+
+      quizData.forEach((q, i) => {
+        if (wrongIndexes.length && !wrongIndexes.includes(i)) return;
+        displayIndexes.push(i);
+
+        const div = document.createElement("div");
+        div.className = "question";
+        let html = `<p><strong>Q${i + 1}:</strong> ${q.question}</p>`;
+
+        if (q.type === "mcq") {
+          q.options.forEach(opt => {
+            html += `<label><input type="radio" name="q${i}" value="${opt}"> ${opt}</label><br>`;
+          });
+        } else if (q.type === "truefalse") {
+          ["True", "False"].forEach(opt => {
+            html += `<label><input type="radio" name="q${i}" value="${opt}"> ${opt}</label><br>`;
+          });
+        } else if (q.type === "fill") {
+          html += `<input type="text" name="q${i}" />`;
+        }
+
+        div.innerHTML = html;
+        container.appendChild(div);
+      });
+    }
+
+    function submitQuiz() {
+      let score = 0;
+      let newWrong = [];
+      let total = displayIndexes.length;
+
+      displayIndexes.forEach(i => {
+        const q = quizData[i];
+        let answer = "";
+
+        if (q.type === "fill") {
+          answer = document.querySelector(`[name='q${i}']`)?.value || "";
+        } else {
+          answer = document.querySelector(`[name='q${i}']:checked`)?.value || "";
+        }
+
+        if (answer.trim().toLowerCase() === q.correctAnswer.toLowerCase()) {
+          score++;
+        } else {
+          newWrong.push(i);
+        }
+      });
+
+      const result = document.getElementById("result");
+      if (newWrong.length === 0) {
+        result.innerHTML = `✅ All answers correct!`;
+        document.getElementById("retry-btn").style.display = "none";
+        document.getElementById("proceed-btn").style.display = "inline-block";
+        updateTheoryProgress("P1", 2);
+      } else {
+        result.innerHTML = `❌ ${newWrong.length} incorrect. Try again.`;
+        wrongIndexes = newWrong;
+        document.getElementById("retry-btn").style.display = "inline-block";
+        document.getElementById("proceed-btn").style.display = "none";
+      }
+    }
+
+    function retryWrong() {
+      renderQuiz();
+      document.getElementById("result").innerText = "Retrying only incorrect questions.";
+      document.getElementById("retry-btn").style.display = "none";
+    }
+
+    function goToLayer3() {
+      location.href = "layer3.html";
+    }
+  </script>
 </body>
 </html>
