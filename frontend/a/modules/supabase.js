@@ -14,7 +14,7 @@ export function initializeLogin() {
       const username = document.getElementById("username").value;
       const password = document.getElementById("password").value;
 
-      const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...";
+      const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzbXptdWNscm55cnl1dmFubHhsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc3MzM5NjUsImV4cCI6MjA2MzMwOTk2NX0.-l7Klmp5hKru3w2HOWLRPjCiQprJ2pOjsI-HPTGtAiw";
       const url = "https://tsmzmuclrnyryuvanlxl.supabase.co/rest/v1/students?select=*&username=eq." + encodeURIComponent(username) + "&password=eq." + encodeURIComponent(password);
 
       console.log("🔍 Sending login request to Supabase:", url);
