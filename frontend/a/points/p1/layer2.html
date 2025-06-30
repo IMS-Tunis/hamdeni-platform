@@ -1,18 +1,39 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Layer 2</title>
-  <link rel="stylesheet" href="../dashboard.css">
-  <script src="../modules/supabase.js"></script>
+  <meta charset="UTF-8">
+  <title>Layer 2 Quiz - P1</title>
+  <link rel="stylesheet" href="../../dashboard.css">
 </head>
 <body>
-  <div class="header">Layer 2 - Quiz</div>
-  <div id="student-name" style="text-align:center; font-weight: bold;"></div>
-  <div id="quiz-container"></div>
-  <div id="result-container" style="margin-top: 20px;"></div>
-  <script src="./quiz.js"></script>
+  <header>
+    <img src="../../images/Maariflogo.png" alt="Maarif Logo" class="logo left">
+    <div class="title">
+      <h1>Layer 2 Quiz</h1>
+      <h2>Point: P1</h2>
+    </div>
+    <img src="../../images/Cambridgelogo.png" alt="Cambridge Logo" class="logo right">
+  </header>
+
+  <nav>
+    <button onclick="location.href='layer1.html'">← Back to Notes</button>
+  </nav>
+
+  <main>
+    <p style="text-align:center; font-weight:bold;">Student: <span id="student-name"></span></p>
+    <div id="result"></div>
+    <div id="quiz-container"></div>
+    <div class="actions">
+      <button onclick="submitQuiz()">Submit</button>
+      <button onclick="retryWrong()" id="retry-btn" style="display:none;">Retry Incorrect Questions</button>
+      <button onclick="goToLayer3()" id="proceed-btn" style="display:none;">Go to Layer 3 ⟶</button>
+    </div>
+  </main>
+
   <script>
-    document.getElementById("student-name").innerText = "Student: " + localStorage.getItem("student_name");
+    document.getElementById('student-name').innerText = localStorage.getItem('student_name') || 'Guest';
   </script>
+  <script src="quiz_refined.js"></script>
 </body>
 </html>
