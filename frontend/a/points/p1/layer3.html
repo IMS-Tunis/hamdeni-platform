@@ -1,25 +1,28 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <title>Layer 3 – Coming Soon</title>
-  <link rel="stylesheet" href="../../dashboard.css" />
+  <meta charset="UTF-8">
+  <title>Layer 3 – Submission</title>
+  <link rel="stylesheet" href="../../dashboard.css">
 </head>
 <body>
   <header>
-    <img src="../../images/Maariflogo.png" alt="Maarif Logo" class="logo left">
-    <div class="title">
-      <h1>Layer 3 – Coming Soon</h1>
-    </div>
-    <img src="../../images/Cambridgelogo.png" alt="Cambridge Logo" class="logo right">
+    <img src="../../images/Maariflogo.png" class="logo left">
+    <div class="title"><h1>Layer 3 – Upload</h1></div>
+    <img src="../../images/Cambridgelogo.png" class="logo right">
   </header>
   <main style="text-align:center; padding:40px;">
     <p>This layer is under construction.</p>
-    <div class="actions">
-      <button onclick="window.location.href='layer2.html'">← Previous</button>
-      <button onclick="window.location.href='layer4.html'">Next →</button>
-    </div>
+    <button onclick="submitToTeacher()">Submit</button>
   </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script src="../../modules/supabase.js"></script>
+  <script>
+    function submitToTeacher() {
+      updateTheoryProgress("P1", 3);
+      alert("Submitted to teacher. Awaiting validation.");
+    }
+  </script>
 </body>
 </html>

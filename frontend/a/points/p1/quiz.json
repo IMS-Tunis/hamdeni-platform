@@ -1,78 +1,12 @@
 [
   {
     "type": "mcq",
-    "question": "Which file organization method stores records in the order they are added, with no specific sequence?",
+    "question": "What does CPU stand for?",
     "options": [
-      "Sequential",
-      "Serial",
-      "Random",
-      "Direct"
+      "Central Processing Unit",
+      "Central Processing Utility",
+      "Control Program Unit"
     ],
-    "correctAnswer": "Serial"
-  },
-  {
-    "type": "mcq",
-    "question": "Which file access method would you use to quickly update a specific record in a large database?",
-    "options": [
-      "Sequential Access",
-      "Direct Access",
-      "Random Access",
-      "Serial Access"
-    ],
-    "correctAnswer": "Direct Access"
-  },
-  {
-    "type": "fill",
-    "question": "In ________ file organization, records are stored in a specific order based on a key field.",
-    "correctAnswer": "Sequential"
-  },
-  {
-    "type": "fill",
-    "question": "________ algorithms are used in random file organization to determine the storage location of records based on key fields.",
-    "correctAnswer": "Hashing"
-  },
-  {
-    "type": "truefalse",
-    "question": "In serial file organization, records are stored randomly based on a hash function.",
-    "correctAnswer": "False"
-  },
-  {
-    "type": "truefalse",
-    "question": "Direct access can only be used with random file organization.",
-    "correctAnswer": "False"
-  },
-  {
-    "type": "truefalse",
-    "question": "Sequential access reads records one by one, starting from the beginning of the file.",
-    "correctAnswer": "True"
-  },
-  {
-    "type": "match",
-    "question": "Match the file organization method with its description.",
-    "pairs": {
-      "Serial File Organization": "Records are stored one after another in the order they are added.",
-      "Sequential File Organization": "Records are stored in a specific order based on a key field.",
-      "Random File Organization": "Records are stored based on a calculated storage location using a hashing algorithm."
-    }
-  },
-  {
-    "type": "fill",
-    "question": "In random file organization, collisions (when two records hash to the same location) can be managed by ________ hashing, where the next available space is found.",
-    "correctAnswer": "Open"
-  },
-  {
-    "type": "fill",
-    "question": "Sequential files are ideal for applications that require processing or retrieving data in a specific ________.",
-    "correctAnswer": "Order"
-  },
-  {
-    "type": "fill",
-    "question": "A customer database is sorted by customer ID, and new records are inserted in the correct position. Answer: ___________",
-    "correctAnswer": "Sequential File Organization"
-  },
-  {
-    "type": "fill",
-    "question": "A banking system quickly updates a specific customer's balance without reading other records. Answer: ___________",
-    "correctAnswer": "Direct Access"
+    "correctAnswer": "Central Processing Unit"
   }
 ]

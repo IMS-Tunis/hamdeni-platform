@@ -1,24 +1,56 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <title>Layer 1 – Theory Notes</title>
-  <link rel="stylesheet" href="../../dashboard.css" />
+  <meta charset="UTF-8">
+  <title>Layer 1</title>
+  <link rel="stylesheet" href="../../dashboard.css">
 </head>
 <body>
   <header>
-    <img src="../../images/Maariflogo.png" alt="Maarif Logo" class="logo left">
-    <div class="title">
-      <h1>Layer 1: Theory Notes</h1>
-    </div>
-    <img src="../../images/Cambridgelogo.png" alt="Cambridge Logo" class="logo right">
+    <img src="../../images/Maariflogo.png" class="logo left">
+    <div class="title"><h1>Layer 1 - Theory Notes</h1></div>
+    <img src="../../images/Cambridgelogo.png" class="logo right">
   </header>
   <main>
     <iframe src="https://docs.google.com/document/d/e/2PACX-EXAMPLE_DOC_ID/pub?embedded=true" width="100%" height="800px"></iframe>
-    <div class="actions" style="text-align:center;">
-      <button onclick="window.location.href='layer2.html'">Go to Quiz ⟶</button>
+    <div class="actions" style="text-align:center; margin-top:20px;">
+      <button onclick="markClear()">Notes are clear</button>
+      <button onclick="showHelp()">I'm still need teacher's help</button>
+      <button onclick="markConfused()">I'm confused</button>
+    </div>
+    <div id="help-section" style="display:none; text-align:center; margin-top:20px;">
+      <label for="unclear">Unclear sections:</label><br>
+      <textarea id="unclear" rows="4" cols="60"></textarea><br>
+      <button onclick="submitHelp()">Save and Continue</button>
     </div>
   </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script src="../../modules/supabase.js"></script>
+  <script src="../../modules/feedback.js"></script>
+  <script>
+    const student_id = localStorage.getItem("student_id");
+    const student_name = localStorage.getItem("student_name");
+    const point_id = "P1";
+    function markClear() {
+      updateTheoryProgress(point_id, 1);
+      sendFeedback({ student_id, student_name, point_id, layer: "Layer 1", feedback_type: "clear", comment: "" });
+      location.href = "layer2.html";
+    }
+    function markConfused() {
+      updateTheoryProgress(point_id, 1);
+      sendFeedback({ student_id, student_name, point_id, layer: "Layer 1", feedback_type: "confused", comment: "" });
+      location.href = "layer2.html";
+    }
+    function showHelp() {
+      document.getElementById("help-section").style.display = "block";
+    }
+    function submitHelp() {
+      const comment = document.getElementById("unclear").value;
+      updateTheoryProgress(point_id, 1);
+      sendFeedback({ student_id, student_name, point_id, layer: "Layer 1", feedback_type: "need_help", comment });
+      location.href = "layer2.html";
+    }
+  </script>
 </body>
 </html>
