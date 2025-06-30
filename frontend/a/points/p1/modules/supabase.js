@@ -9,7 +9,8 @@ async function updateTheoryProgress(pointId, layer) {
   const table = `${platform}_theory_progress`;
   const layerColumn = `layer${layer}_done`;
 
-  console.log("📡 Supabase Update:", { table, pointId, layerColumn });
+  console.log("📡 Supabase Update:", { table, student_id, pointId, layerColumn });
+
   const { error } = await client
     .from(table)
     .update({ [layerColumn]: true })

@@ -4,8 +4,7 @@
     "question": "What is the brain of the computer?",
     "options": [
       "CPU",
-      "RAM",
-      "GPU"
+      "RAM"
     ],
     "correctAnswer": "CPU"
   },
