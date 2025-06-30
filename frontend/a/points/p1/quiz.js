@@ -61,7 +61,7 @@ function submitQuiz() {
 
   const result = document.getElementById("result");
   if (newWrong.length === 0) {
-    result.innerHTML = `✅ All answers correct!`;
+    result.innerHTML = `✅ All correct!`;
     document.getElementById("retry-btn").style.display = "none";
     document.getElementById("proceed-btn").style.display = "inline-block";
     updateTheoryProgress("P1", 2);

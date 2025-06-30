@@ -4,14 +4,13 @@
     "question": "What does CPU stand for?",
     "options": [
       "Central Processing Unit",
-      "Computer Performance Unit",
-      "Central Processing Utility"
+      "Control Program Unit"
     ],
     "correctAnswer": "Central Processing Unit"
   },
   {
     "type": "fill",
-    "question": "Fill in the blank: RAM stands for ______.",
+    "question": "RAM stands for ______.",
     "correctAnswer": "Random Access Memory"
   },
   {
