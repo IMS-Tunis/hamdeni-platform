@@ -1,66 +1,66 @@
 [
   {
-    "point_id": "P1",
-    "title": "Theory Point 1"
+    "id": "p1",
+    "title": "P1: Sample Title for Point 1"
   },
   {
-    "point_id": "P2",
-    "title": "Theory Point 2"
+    "id": "p2",
+    "title": "P2: Sample Title for Point 2"
   },
   {
-    "point_id": "P3",
-    "title": "Theory Point 3"
+    "id": "p3",
+    "title": "P3: Sample Title for Point 3"
   },
   {
-    "point_id": "P4",
-    "title": "Theory Point 4"
+    "id": "p4",
+    "title": "P4: Sample Title for Point 4"
   },
   {
-    "point_id": "P5",
-    "title": "Theory Point 5"
+    "id": "p5",
+    "title": "P5: Sample Title for Point 5"
   },
   {
-    "point_id": "P6",
-    "title": "Theory Point 6"
+    "id": "p6",
+    "title": "P6: Sample Title for Point 6"
   },
   {
-    "point_id": "P7",
-    "title": "Theory Point 7"
+    "id": "p7",
+    "title": "P7: Sample Title for Point 7"
   },
   {
-    "point_id": "P8",
-    "title": "Theory Point 8"
+    "id": "p8",
+    "title": "P8: Sample Title for Point 8"
   },
   {
-    "point_id": "P9",
-    "title": "Theory Point 9"
+    "id": "p9",
+    "title": "P9: Sample Title for Point 9"
   },
   {
-    "point_id": "P10",
-    "title": "Theory Point 10"
+    "id": "p10",
+    "title": "P10: Sample Title for Point 10"
   },
   {
-    "point_id": "P11",
-    "title": "Theory Point 11"
+    "id": "p11",
+    "title": "P11: Sample Title for Point 11"
   },
   {
-    "point_id": "P12",
-    "title": "Theory Point 12"
+    "id": "p12",
+    "title": "P12: Sample Title for Point 12"
   },
   {
-    "point_id": "P13",
-    "title": "Theory Point 13"
+    "id": "p13",
+    "title": "P13: Sample Title for Point 13"
   },
   {
-    "point_id": "P14",
-    "title": "Theory Point 14"
+    "id": "p14",
+    "title": "P14: Sample Title for Point 14"
   },
   {
-    "point_id": "P15",
-    "title": "Theory Point 15"
+    "id": "p15",
+    "title": "P15: Sample Title for Point 15"
   },
   {
-    "point_id": "P16",
-    "title": "Theory Point 16"
+    "id": "p16",
+    "title": "P16: Sample Title for Point 16"
   }
 ]

@@ -1,12 +1,12 @@
 [
   {
     "type": "mcq",
-    "question": "What is the brain of the computer?",
+    "question": "What does CPU stand for?",
     "options": [
-      "CPU",
-      "RAM"
+      "Central Processing Unit",
+      "Control Program Unit"
     ],
-    "correctAnswer": "CPU"
+    "correctAnswer": "Central Processing Unit"
   },
   {
     "type": "fill",
