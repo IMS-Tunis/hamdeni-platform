@@ -14,16 +14,18 @@ export function initializeLogin() {
       const username = document.getElementById("username").value;
       const password = document.getElementById("password").value;
 
+      const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
       fetch("https://tsmzmuclrnyryuvanlxl.supabase.co/rest/v1/students?select=*&username=eq." + username + "&password=eq." + password, {
         headers: {
-          apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+          apikey: SUPABASE_KEY,
+          Authorization: "Bearer " + SUPABASE_KEY
         }
       })
       .then(res => res.json())
       .then(data => {
         if (data.length === 1) {
           localStorage.setItem("student_id", data[0].studentid);
-          localStorage.setItem("student_name", data[0].username);  // ✅ FIXED
+          localStorage.setItem("student_name", data[0].username);
           localStorage.setItem("platform", data[0].platform);
           location.reload();
         } else {
