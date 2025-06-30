@@ -1,47 +1,55 @@
 
-const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...";
-const SUPABASE_URL = "https://tsmzmuclrnyryuvanlxl.supabase.co";
-const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+export function initializeLogin() {
+  const loginBtn = document.getElementById("login-btn");
+  const logoutBtn = document.getElementById("logout-btn");
+  const studentLabel = document.getElementById("student-name-bar");
 
-async function updateTheoryProgress(pointId, layer) {
-  const student_id = localStorage.getItem("student_id");
-  const platform = localStorage.getItem("platform");
-  const table = `${platform}_theory_progress`;
-  const layerColumn = `layer${layer}_done`;
+  const studentName = localStorage.getItem("student_name");
+  if (studentName) {
+    studentLabel.textContent = "Computer Science Journey progress of: " + studentName;
+  }
 
-  console.log("📡 Supabase Update:", { table, pointId, layerColumn });
+  if (loginBtn) {
+    loginBtn.onclick = () => {
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
 
-  // Try to update first
-  let { data, error } = await client
-    .from(table)
-    .update({ [layerColumn]: true })
-    .eq("studentid", student_id)
-    .eq("point_id", pointId);
+      const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzbXptdWNscm55cnl1dmFubHhsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc3MzM5NjUsImV4cCI6MjA2MzMwOTk2NX0.-l7Klmp5hKru3w2HOWLRPjCiQprJ2pOjsI-HPTGtAiw";
+      const url = "https://tsmzmuclrnyryuvanlxl.supabase.co/rest/v1/students?select=*&username=eq." + encodeURIComponent(username) + "&password=eq." + encodeURIComponent(password);
 
-  if (error) {
-    console.warn("⚠️ Update failed. Trying UPSERT...");
+      console.log("🔍 Sending login request to Supabase:", url);
 
-    // Try insert (UPSERT)
-    const insertData = {
-      studentid: student_id,
-      point_id: pointId,
-      layer1_done: false,
-      layer2_done: false,
-      layer3_done: false,
-      layer4_done: false,
-      [layerColumn]: true
+      fetch(url, {
+        method: "GET",
+        mode: "cors",
+        headers: {
+          apikey: SUPABASE_KEY,
+          Authorization: "Bearer " + SUPABASE_KEY
+        }
+      })
+      .then(res => res.json())
+      .then(data => {
+        console.log("📦 Supabase response:", data);
+        if (data.length === 1) {
+          localStorage.setItem("student_id", data[0].studentid);
+          localStorage.setItem("student_name", data[0].username);
+          localStorage.setItem("platform", data[0].platform);
+          location.reload();
+        } else {
+          alert("Login failed. Check your credentials.");
+        }
+      })
+      .catch(error => {
+        console.error("❌ Supabase fetch error:", error);
+        alert("Connection to Supabase failed. Check console for details.");
+      });
     };
+  }
 
-    const { error: insertError } = await client
-      .from(table)
-      .upsert(insertData, { onConflict: ['studentid', 'point_id'] });
-
-    if (insertError) {
-      console.error("❌ Supabase Insert Error:", insertError);
-    } else {
-      console.log("✅ Supabase Inserted (UPSERT)");
-    }
-  } else {
-    console.log("✅ Supabase Updated");
+  if (logoutBtn) {
+    logoutBtn.onclick = () => {
+      localStorage.clear();
+      location.reload();
+    };
   }
 }
