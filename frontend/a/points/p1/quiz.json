@@ -1,22 +1,22 @@
 [
   {
     "type": "mcq",
-    "question": "Which component processes data?",
+    "question": "What does CPU stand for?",
     "options": [
-      "CPU",
-      "RAM",
-      "Hard Drive"
+      "Central Processing Unit",
+      "Central Performance Unit",
+      "Compute Processing Utility"
     ],
-    "correctAnswer": "CPU"
+    "correctAnswer": "Central Processing Unit"
   },
   {
     "type": "fill",
-    "question": "The brain of the computer is the ____.",
-    "correctAnswer": "CPU"
+    "question": "Fill in the blank: RAM stands for ______.",
+    "correctAnswer": "Random Access Memory"
   },
   {
     "type": "truefalse",
-    "question": "RAM is non-volatile memory.",
-    "correctAnswer": "False"
+    "question": "ROM is read-only memory.",
+    "correctAnswer": "True"
   }
 ]
