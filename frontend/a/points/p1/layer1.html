@@ -52,14 +52,14 @@
       console.log("✅ Clear clicked");
       updateTheoryProgress(point_id, 1);
       sendFeedback({ student_id, student_name, point_id, layer: "Layer 1", feedback_type: "clear", comment: "" });
-      console.log("➡️ Would go to layer2.html now");
+      window.location.href = "layer2.html";
     }
 
     function markConfused() {
       console.log("❓ Confused clicked");
       updateTheoryProgress(point_id, 1);
       sendFeedback({ student_id, student_name, point_id, layer: "Layer 1", feedback_type: "confused", comment: "" });
-      console.log("➡️ Would go to layer2.html now");
+      window.location.href = "layer2.html";
     }
 
     function showHelp() {
@@ -71,7 +71,7 @@
       console.log("✍️ Help comment:", comment);
       updateTheoryProgress(point_id, 1);
       sendFeedback({ student_id, student_name, point_id, layer: "Layer 1", feedback_type: "need_help", comment });
-      console.log("➡️ Would go to layer2.html now");
+      window.location.href = "layer2.html";
     }
   </script>
 </body>
