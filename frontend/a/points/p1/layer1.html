@@ -3,14 +3,14 @@
 <html>
 <head>
   <meta charset="UTF-8" />
-  <title>Layer 1 - DEBUG</title>
+  <title>Layer 1 - Theory</title>
   <link rel="stylesheet" href="../../dashboard.css" />
 </head>
 <body>
   <header>
     <img src="../../images/Maariflogo.png" class="logo left" />
     <div class="title">
-      <h1>Layer 1 - DEBUG MODE</h1>
+      <h1>Layer 1 - Theory Notes</h1>
       <p id="student-info"></p>
     </div>
     <img src="../../images/Cambridgelogo.png" class="logo right" />
@@ -28,7 +28,6 @@
       <button onclick="submitHelp()">Save and Continue</button>
     </div>
   </main>
-
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
   <script src="modules/supabase.js"></script>
   <script src="modules/feedback.js"></script>
@@ -36,30 +35,19 @@
     const student_id = localStorage.getItem("student_id");
     const student_name = localStorage.getItem("student_name");
     const point_id = "P1";
-
-    console.log("🧠 student_id:", student_id);
-    console.log("🧠 student_name:", student_name);
-    console.log("🧠 platform:", localStorage.getItem("platform"));
-
-    if (!student_id) {
-      console.log("❌ No student_id, redirecting to dashboard...");
-      location.href = "../../a/dashboard.html";
-    } else {
-      document.getElementById("student-info").innerText = "Logged in as: " + student_name;
-    }
+    if (!student_id) location.href = "../../a/dashboard.html";
+    else document.getElementById("student-info").innerText = "Logged in as: " + student_name;
 
     function markClear() {
-      console.log("✅ Clear clicked");
       updateTheoryProgress(point_id, 1);
       sendFeedback({ student_id, student_name, point_id, layer: "Layer 1", feedback_type: "clear", comment: "" });
-      console.log("➡️ Would go to layer2.html now");
+      setTimeout(() => location.href = "layer2.html", 300);
     }
 
     function markConfused() {
-      console.log("❓ Confused clicked");
       updateTheoryProgress(point_id, 1);
       sendFeedback({ student_id, student_name, point_id, layer: "Layer 1", feedback_type: "confused", comment: "" });
-      console.log("➡️ Would go to layer2.html now");
+      setTimeout(() => location.href = "layer2.html", 300);
     }
 
     function showHelp() {
@@ -68,10 +56,9 @@
 
     function submitHelp() {
       const comment = document.getElementById("unclear").value;
-      console.log("✍️ Help comment:", comment);
       updateTheoryProgress(point_id, 1);
       sendFeedback({ student_id, student_name, point_id, layer: "Layer 1", feedback_type: "need_help", comment });
-      console.log("➡️ Would go to layer2.html now");
+      setTimeout(() => location.href = "layer2.html", 300);
     }
   </script>
 </body>
