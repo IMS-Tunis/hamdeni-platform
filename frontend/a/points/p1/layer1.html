@@ -2,54 +2,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Layer 1 - Theory Notes</title>
-  <link rel="stylesheet" href="../../a/dashboard.css">
-  <style>
-    .action-btn {
-      display: inline-block;
-      padding: 15px 30px;
-      font-size: 18px;
-      font-weight: bold;
-      margin: 10px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      background-color: #003366;
-      color: white;
-    }
-    .action-btn:hover {
-      background-color: #005599;
-    }
-  </style>
+  <link rel="stylesheet" href="../../a/dashboard.css" />
 </head>
 <body>
   <header>
-    <img src="../../a/images/Maariflogo.png" class="logo left">
+    <img src="../../a/images/Maariflogo.png" class="logo left" />
     <div class="title">
       <h1>Layer 1 - Theory Notes</h1>
       <p id="student-info"></p>
     </div>
-    <img src="../../a/images/Cambridgelogo.png" class="logo right">
+    <img src="../../a/images/Cambridgelogo.png" class="logo right" />
   </header>
   <main>
     <iframe src="https://docs.google.com/document/d/e/2PACX-EXAMPLE_DOC_ID/pub?embedded=true"
             width="100%" height="800px"></iframe>
     <div class="actions" style="text-align:center;">
-      <button class="action-btn" onclick="markClear()">Notes are clear</button>
-      <button class="action-btn" onclick="showHelp()">I still need help</button>
-      <button class="action-btn" onclick="markConfused()">I'm confused</button>
+      <button onclick="markClear()">Notes are clear</button>
+      <button onclick="showHelp()">I still need help</button>
+      <button onclick="markConfused()">I'm confused</button>
     </div>
-    <div id="help-section" style="display:none; text-align:center;">
-      <label for="unclear">Unclear sections:</label><br>
-      <textarea id="unclear" rows="4" cols="60"></textarea><br>
-      <button class="action-btn" onclick="submitHelp()">Save and Continue</button>
+    <div id="help-section" style="display:none; text-align:center; margin-top:20px;">
+      <label for="unclear">Unclear sections:</label><br />
+      <textarea id="unclear" rows="4" cols="60"></textarea><br />
+      <button onclick="submitHelp()">Save and Continue</button>
     </div>
   </main>
-
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-  <script src="../../a/modules/supabase.js"></script>
-  <script src="../../a/modules/feedback.js"></script>
+  <script src="modules/supabase.js"></script>
+  <script src="modules/feedback.js"></script>
   <script>
     const student_id = localStorage.getItem("student_id");
     const student_name = localStorage.getItem("student_name");

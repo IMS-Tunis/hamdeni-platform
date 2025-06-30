@@ -4,19 +4,19 @@
     "question": "What does CPU stand for?",
     "options": [
       "Central Processing Unit",
-      "Central Performance Unit",
-      "Compute Processing Utility"
+      "Computer Performance Unit",
+      "Central Program Utility"
     ],
     "correctAnswer": "Central Processing Unit"
   },
   {
     "type": "fill",
-    "question": "Fill in the blank: RAM stands for ______.",
+    "question": "RAM stands for ______.",
     "correctAnswer": "Random Access Memory"
   },
   {
     "type": "truefalse",
-    "question": "ROM is read-only memory.",
-    "correctAnswer": "True"
+    "question": "ROM is volatile memory.",
+    "correctAnswer": "False"
   }
 ]
