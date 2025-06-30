@@ -1,16 +1,15 @@
-
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8" />
-  <title>Layer 1 - DEBUG</title>
+  <title>Layer 1</title>
   <link rel="stylesheet" href="../../dashboard.css" />
 </head>
 <body>
   <header>
     <img src="../../images/Maariflogo.png" class="logo left" />
     <div class="title">
-      <h1>Layer 1 - DEBUG MODE</h1>
+      <h1>Layer 1</h1>
       <p id="student-info"></p>
     </div>
     <img src="../../images/Cambridgelogo.png" class="logo right" />
@@ -37,41 +36,33 @@
     const student_name = localStorage.getItem("student_name");
     const point_id = "P1";
 
-    console.log("🧠 student_id:", student_id);
-    console.log("🧠 student_name:", student_name);
-    console.log("🧠 platform:", localStorage.getItem("platform"));
-
     if (!student_id) {
-      console.log("❌ No student_id, redirecting to dashboard...");
       location.href = "../../a/dashboard.html";
     } else {
       document.getElementById("student-info").innerText = "Logged in as: " + student_name;
     }
 
-    function markClear() {
-      console.log("✅ Clear clicked");
-      updateTheoryProgress(point_id, 1);
-      sendFeedback({ student_id, student_name, point_id, layer: "Layer 1", feedback_type: "clear", comment: "" });
-      console.log("➡️ Would go to layer2.html now");
+    async function markClear() {
+      await updateTheoryProgress(point_id, 1);
+      await sendFeedback({ student_id, student_name, point_id, layer: "Layer 1", feedback_type: "clear", comment: "" });
+      window.location.href = "layer2.html";
     }
 
-    function markConfused() {
-      console.log("❓ Confused clicked");
-      updateTheoryProgress(point_id, 1);
-      sendFeedback({ student_id, student_name, point_id, layer: "Layer 1", feedback_type: "confused", comment: "" });
-      console.log("➡️ Would go to layer2.html now");
+    async function markConfused() {
+      await updateTheoryProgress(point_id, 1);
+      await sendFeedback({ student_id, student_name, point_id, layer: "Layer 1", feedback_type: "confused", comment: "" });
+      window.location.href = "layer2.html";
     }
 
     function showHelp() {
       document.getElementById("help-section").style.display = "block";
     }
 
-    function submitHelp() {
+    async function submitHelp() {
       const comment = document.getElementById("unclear").value;
-      console.log("✍️ Help comment:", comment);
-      updateTheoryProgress(point_id, 1);
-      sendFeedback({ student_id, student_name, point_id, layer: "Layer 1", feedback_type: "need_help", comment });
-      console.log("➡️ Would go to layer2.html now");
+      await updateTheoryProgress(point_id, 1);
+      await sendFeedback({ student_id, student_name, point_id, layer: "Layer 1", feedback_type: "need_help", comment });
+      window.location.href = "layer2.html";
     }
   </script>
 </body>
