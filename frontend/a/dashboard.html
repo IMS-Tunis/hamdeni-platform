@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,45 +8,43 @@
 </head>
 <body>
 
-<!-- ✅ TOP BANNER IMAGE -->
+<!-- ✅ TOP BANNER -->
 <img src="./images/header_bg.png" alt="Header Banner" class="header-background" />
 
-<!-- ✅ ROW 1: Home, Login, Contact -->
-<div class="status-bar">
-  <div class="left-cluster">
-    <button id="home-btn" class="styled-button home">🏠 Home</button>
-    <div class="student-label" id="student-name-bar">Guest Mode</div>
+<!-- ✅ One unified row with left and right sides -->
+<div class="header-row" style="display: flex; justify-content: space-between; align-items: flex-start; padding: 20px 30px; gap: 20px; flex-wrap: wrap;">
+
+  <!-- Left: Home, Guest, Progress Bar -->
+  <div style="display: flex; flex-direction: column; gap: 10px;">
+    <div style="display: flex; gap: 15px; align-items: center;">
+      <button id="home-btn" class="styled-button home">🏠 Home</button>
+      <div id="student-name-bar" style="font-weight: bold; font-size: 1.2em;">Guest Mode</div>
+    </div>
+    <div class="general-progress-wrapper">
+      <div class="general-progress-label">GENERAL PROGRESS</div>
+      <div class="general-progress-bar">
+        <div class="general-progress-fill">62%</div>
+        <div class="general-progress-max">100%</div>
+      </div>
+    </div>
   </div>
-  <div class="form-box">
+
+  <!-- Right: Login -->
+  <div class="form-box" style="display: flex; gap: 10px; align-items: center;">
     <input type="text" id="username" placeholder="Username" />
     <input type="password" id="password" placeholder="Password" />
     <button id="login-btn" class="styled-button">Login</button>
     <button id="logout-btn" class="styled-button logout">Logout</button>
   </div>
-  <div class="contact-info">
-    Contact Mr. Chamseddine Hamdeni at:<br/>
-    <a href="mailto:chams-eddine.hemdani@tn.maarifschools.org">chams-eddine.hemdani@tn.maarifschools.org</a>
-  </div>
 </div>
 
-<!-- ✅ ROW 2: General Progress -->
-<div class="general-progress-wrapper">
-  <div class="general-progress-label">GENERAL PROGRESS</div>
-  <div class="general-progress-bar">
-    <div class="general-progress-fill">62%</div>
-    <div class="general-progress-max">100%</div>
-  </div>
-</div>
-
-<!-- ✅ MAIN SPLIT: THEORY + LEVELS -->
+<!-- ✅ Main Content -->
 <main class="dashboard">
   <section class="theory-column">
     <div class="section-header">
       <img src="./images/advanced_theory.png" alt="Advanced Theory" class="section-title"/>
     </div>
-    <div id="theory-points" class="theory-wrapper">
-      <!-- Points rendered by JS -->
-    </div>
+    <div id="theory-points" class="theory-wrapper"></div>
     <img src="./images/approved_banner.png" class="footer-image" alt="Approved"/>
   </section>
 
@@ -55,23 +52,24 @@
     <div class="section-header">
       <img src="./images/programming_skills.png" alt="Programming Skills" class="section-title"/>
     </div>
-    <div id="programming-levels" class="levels-wrapper">
-      <!-- Levels rendered by JS, red arrow inserted by JS between them -->
-    </div>
+    <div id="programming-levels" class="levels-wrapper"></div>
     <img src="./images/certificate.png" class="certificate-image" alt="Certificate"/>
   </section>
 </main>
 
-<!-- ✅ Footer -->
-<footer>
-  &copy; 2025 Dr. Hamdeni Computer Science Platform. All rights reserved.
-</footer>
+<div class="centered-check">
+  <img src="./images/progress_inspired_2.png" alt="Progress Completed">
+</div>
 
 <!-- ✅ Scripts -->
 <script type="module" src="./dashboard.js"></script>
 <script type="module" src="./modules/theoryRenderer.js"></script>
 <script type="module" src="./modules/levelRenderer.js"></script>
 <script type="module" src="./modules/supabase.js"></script>
+
+<footer>
+  &copy; 2025 Dr. Hamdeni Computer Science Platform. All rights reserved.
+</footer>
 
 </body>
 </html>
