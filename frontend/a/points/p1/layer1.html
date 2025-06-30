@@ -3,53 +3,86 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Layer 1</title>
-  <link rel="stylesheet" href="../../dashboard.css">
+  <title>Layer 1 - Theory</title>
+  <link rel="stylesheet" href="../../a/dashboard.css">
+  <style>
+    .action-btn {
+      display: inline-block;
+      padding: 15px 30px;
+      font-size: 18px;
+      font-weight: bold;
+      margin: 10px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background-color: #003366;
+      color: white;
+    }
+    .action-btn:hover {
+      background-color: #005599;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <img src="../../images/Maariflogo.png" class="logo left">
-    <div class="title"><h1>Layer 1 - Theory Notes</h1></div>
-    <img src="../../images/Cambridgelogo.png" class="logo right">
+    <img src="../../a/images/Maariflogo.png" class="logo left">
+    <div class="title">
+      <h1>Layer 1 - Theory Notes</h1>
+      <p id="student-info" style="text-align:center; font-weight:bold; font-size: 1.2em;"></p>
+    </div>
+    <img src="../../a/images/Cambridgelogo.png" class="logo right">
   </header>
   <main>
     <iframe src="https://docs.google.com/document/d/e/2PACX-EXAMPLE_DOC_ID/pub?embedded=true" width="100%" height="800px"></iframe>
-    <div class="actions" style="text-align:center; margin-top:20px;">
-      <button onclick="markClear()">Notes are clear</button>
-      <button onclick="showHelp()">I'm still need teacher's help</button>
-      <button onclick="markConfused()">I'm confused</button>
+
+    <div class="actions" style="text-align:center; margin-top:30px;">
+      <button class="action-btn" onclick="markClear()">Notes are clear</button>
+      <button class="action-btn" onclick="showHelp()">I'm still need teacher's help</button>
+      <button class="action-btn" onclick="markConfused()">I'm confused</button>
     </div>
+
     <div id="help-section" style="display:none; text-align:center; margin-top:20px;">
-      <label for="unclear">Unclear sections:</label><br>
-      <textarea id="unclear" rows="4" cols="60"></textarea><br>
-      <button onclick="submitHelp()">Save and Continue</button>
+      <label for="unclear" style="font-weight:bold;">Unclear sections:</label><br>
+      <textarea id="unclear" rows="4" cols="60" style="margin: 10px;"></textarea><br>
+      <button class="action-btn" onclick="submitHelp()">Save and Continue</button>
     </div>
   </main>
+
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-  <script src="../../modules/supabase.js"></script>
-  <script src="../../modules/feedback.js"></script>
+  <script src="../../a/modules/supabase.js"></script>
+  <script src="../../a/modules/feedback.js"></script>
   <script>
     const student_id = localStorage.getItem("student_id");
     const student_name = localStorage.getItem("student_name");
     const point_id = "P1";
+
+    if (!student_id) {
+      window.location.href = "../../a/dashboard.html";
+    } else {
+      document.getElementById("student-info").innerText = "Logged in as: " + student_name;
+    }
+
     function markClear() {
       updateTheoryProgress(point_id, 1);
       sendFeedback({ student_id, student_name, point_id, layer: "Layer 1", feedback_type: "clear", comment: "" });
-      location.href = "layer2.html";
+      window.location.href = "layer2.html";
     }
+
     function markConfused() {
       updateTheoryProgress(point_id, 1);
       sendFeedback({ student_id, student_name, point_id, layer: "Layer 1", feedback_type: "confused", comment: "" });
-      location.href = "layer2.html";
+      window.location.href = "layer2.html";
     }
+
     function showHelp() {
       document.getElementById("help-section").style.display = "block";
     }
+
     function submitHelp() {
       const comment = document.getElementById("unclear").value;
       updateTheoryProgress(point_id, 1);
       sendFeedback({ student_id, student_name, point_id, layer: "Layer 1", feedback_type: "need_help", comment });
-      location.href = "layer2.html";
+      window.location.href = "layer2.html";
     }
   </script>
 </body>

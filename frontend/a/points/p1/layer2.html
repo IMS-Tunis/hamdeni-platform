@@ -1,36 +1,5 @@
 
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>Layer 2 - Quiz</title>
-  <link rel="stylesheet" href="../../dashboard.css">
-</head>
-<body>
-  <header>
-    <img src="../../images/Maariflogo.png" class="logo left">
-    <div class="title"><h1>Layer 2 - Quiz</h1></div>
-    <img src="../../images/Cambridgelogo.png" class="logo right">
-  </header>
-  <main>
-    <p style="text-align:center;">Student: <span id="student-name"></span></p>
-    <div id="result"></div>
-    <div id="quiz-container"></div>
-    <div class="actions">
-      <button onclick="submitQuiz()">Submit</button>
-      <button onclick="retryWrong()" id="retry-btn" style="display:none;">Retry</button>
-      <button onclick="goToLayer3()" id="proceed-btn" style="display:none;">Go to Layer 3</button>
-    </div>
-  </main>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-  <script src="../../modules/supabase.js"></script>
-  <script>
-    document.getElementById("student-name").innerText = localStorage.getItem("student_name") || "Guest";
-    function goToLayer3() {
-      updateTheoryProgress("P1", 2);
-      location.href = "layer3.html";
-    }
-  </script>
-  <script src="quiz.js"></script>
-</body>
-</html>
+<html><head><meta charset="UTF-8"><title>Layer 2</title>
+<link rel="stylesheet" href="../../a/dashboard.css"></head>
+<body><h1 style='text-align:center;'>Layer 2 – Coming Soon</h1></body></html>
