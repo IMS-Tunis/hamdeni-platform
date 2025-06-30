@@ -9,11 +9,17 @@ async function updateTheoryProgress(pointId, layer) {
   const table = `${platform}_theory_progress`;
   const layerColumn = `layer${layer}_done`;
 
-  const { error } = await client
+  console.log("📡 Sending Supabase update:", { student_id, pointId, layer, table, column: layerColumn });
+
+  const { data, error } = await client
     .from(table)
     .update({ [layerColumn]: true })
     .eq("studentid", student_id)
     .eq("point_id", pointId);
 
-  if (error) console.error("Supabase update error:", error);
+  if (error) {
+    console.error("❌ Supabase update failed:", error);
+  } else {
+    console.log("✅ Supabase update success:", data);
+  }
 }

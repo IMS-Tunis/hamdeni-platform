@@ -5,13 +5,13 @@
     "options": [
       "Central Processing Unit",
       "Computer Performance Unit",
-      "Central Program Utility"
+      "Central Processing Utility"
     ],
     "correctAnswer": "Central Processing Unit"
   },
   {
     "type": "fill",
-    "question": "RAM stands for ______.",
+    "question": "Fill in the blank: RAM stands for ______.",
     "correctAnswer": "Random Access Memory"
   },
   {
