@@ -4,16 +4,16 @@
 <head>
   <meta charset="UTF-8" />
   <title>Layer 1 - Theory</title>
-  <link rel="stylesheet" href="../../dashboard.css" />
+  <link rel="stylesheet" href="/dashboard.css" />
 </head>
 <body>
   <header>
-    <img src="../../images/Maariflogo.png" class="logo left" />
+    <img src="/images/Maariflogo.png" class="logo left" />
     <div class="title">
       <h1>Layer 1 - Theory Notes</h1>
       <p id="student-info"></p>
     </div>
-    <img src="../../images/Cambridgelogo.png" class="logo right" />
+    <img src="/images/Cambridgelogo.png" class="logo right" />
   </header>
   <main>
     <iframe src="https://docs.google.com/document/d/e/2PACX-EXAMPLE_DOC_ID/pub?embedded=true"
@@ -39,15 +39,15 @@
     else document.getElementById("student-info").innerText = "Logged in as: " + student_name;
 
     function markClear() {
+      console.log("✅ markClear clicked");
       updateTheoryProgress(point_id, 1);
       sendFeedback({ student_id, student_name, point_id, layer: "Layer 1", feedback_type: "clear", comment: "" });
-      setTimeout(() => location.href = "layer2.html", 300);
     }
 
     function markConfused() {
+      console.log("❓ markConfused clicked");
       updateTheoryProgress(point_id, 1);
       sendFeedback({ student_id, student_name, point_id, layer: "Layer 1", feedback_type: "confused", comment: "" });
-      setTimeout(() => location.href = "layer2.html", 300);
     }
 
     function showHelp() {
@@ -56,9 +56,9 @@
 
     function submitHelp() {
       const comment = document.getElementById("unclear").value;
+      console.log("✍️ Help comment:", comment);
       updateTheoryProgress(point_id, 1);
       sendFeedback({ student_id, student_name, point_id, layer: "Layer 1", feedback_type: "need_help", comment });
-      setTimeout(() => location.href = "layer2.html", 300);
     }
   </script>
 </body>
