@@ -50,16 +50,64 @@
 
     function markClear() {
       console.log("✅ Clear clicked");
-      updateTheoryProgress(point_id, 1);
+      
+// ✅ Enhanced updateTheoryProgress with UPSERT
+const platform = localStorage.getItem("platform") || "a";
+const table = `${platform}_theory_progress`;
+const layerColumn = "layer1_done";
+
+const SUPABASE_URL = "https://tsmzmuclrnyryuvanlxl.supabase.co";
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzbXptdWNscm55cnl1dmFubHhsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc3MzM5NjUsImV4cCI6MjA2MzMwOTk2NX0.-l7Klmp5hKru3w2HOWLRPjCiQprJ2pOjsI-HPTGtAiw";
+const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+client.from(table).upsert({
+  studentid: student_id,
+  point_id: point_id,
+  layer1_done: true,
+  layer2_done: false,
+  layer3_done: false,
+  layer4_done: false
+}, { onConflict: ['studentid', 'point_id'] }).then(({ error }) => {
+  if (error) {
+    console.error("❌ Supabase insert error:", error);
+  } else {
+    console.log("✅ Supabase layer1_done updated");
+  }
+});
+
       sendFeedback({ student_id, student_name, point_id, layer: "Layer 1", feedback_type: "clear", comment: "" });
-      console.log("➡️ Would go to layer2.html now");
+      window.location.href = "layer2.html";
     }
 
     function markConfused() {
       console.log("❓ Confused clicked");
-      updateTheoryProgress(point_id, 1);
+      
+// ✅ Enhanced updateTheoryProgress with UPSERT
+const platform = localStorage.getItem("platform") || "a";
+const table = `${platform}_theory_progress`;
+const layerColumn = "layer1_done";
+
+const SUPABASE_URL = "https://tsmzmuclrnyryuvanlxl.supabase.co";
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzbXptdWNscm55cnl1dmFubHhsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc3MzM5NjUsImV4cCI6MjA2MzMwOTk2NX0.-l7Klmp5hKru3w2HOWLRPjCiQprJ2pOjsI-HPTGtAiw";
+const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+client.from(table).upsert({
+  studentid: student_id,
+  point_id: point_id,
+  layer1_done: true,
+  layer2_done: false,
+  layer3_done: false,
+  layer4_done: false
+}, { onConflict: ['studentid', 'point_id'] }).then(({ error }) => {
+  if (error) {
+    console.error("❌ Supabase insert error:", error);
+  } else {
+    console.log("✅ Supabase layer1_done updated");
+  }
+});
+
       sendFeedback({ student_id, student_name, point_id, layer: "Layer 1", feedback_type: "confused", comment: "" });
-      console.log("➡️ Would go to layer2.html now");
+      window.location.href = "layer2.html";
     }
 
     function showHelp() {
@@ -69,9 +117,33 @@
     function submitHelp() {
       const comment = document.getElementById("unclear").value;
       console.log("✍️ Help comment:", comment);
-      updateTheoryProgress(point_id, 1);
+      
+// ✅ Enhanced updateTheoryProgress with UPSERT
+const platform = localStorage.getItem("platform") || "a";
+const table = `${platform}_theory_progress`;
+const layerColumn = "layer1_done";
+
+const SUPABASE_URL = "https://tsmzmuclrnyryuvanlxl.supabase.co";
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzbXptdWNscm55cnl1dmFubHhsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc3MzM5NjUsImV4cCI6MjA2MzMwOTk2NX0.-l7Klmp5hKru3w2HOWLRPjCiQprJ2pOjsI-HPTGtAiw";
+const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+client.from(table).upsert({
+  studentid: student_id,
+  point_id: point_id,
+  layer1_done: true,
+  layer2_done: false,
+  layer3_done: false,
+  layer4_done: false
+}, { onConflict: ['studentid', 'point_id'] }).then(({ error }) => {
+  if (error) {
+    console.error("❌ Supabase insert error:", error);
+  } else {
+    console.log("✅ Supabase layer1_done updated");
+  }
+});
+
       sendFeedback({ student_id, student_name, point_id, layer: "Layer 1", feedback_type: "need_help", comment });
-      console.log("➡️ Would go to layer2.html now");
+      window.location.href = "layer2.html";
     }
   </script>
 </body>
