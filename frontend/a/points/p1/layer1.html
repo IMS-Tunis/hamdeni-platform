@@ -23,27 +23,48 @@
       <button onclick="markConfused()">I'm confused</button>
     </div>
     <div id="help-section" style="display:none; text-align:center;">
-      <textarea id="unclear" rows="4" cols="60"></textarea><br />
+      <textarea id="unclear" rows="4" cols="60" placeholder="Write what you found unclear..."></textarea><br />
       <button onclick="submitHelp()">Save and Continue</button>
     </div>
   </main>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-  <script src="modules/supabase.js"></script>
   <script>
+    const supabase = supabase.createClient(
+      "https://tsmzmuclrnyryuvanlxl.supabase.co",
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzbXptdWNscm55cnl1dmFubHhsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc3MzM5NjUsImV4cCI6MjA2MzMwOTk2NX0.-l7Klmp5hKru3w2HOWLRPjCiQprJ2pOjsI-HPTGtAiw"
+    );
+
     const student_id = localStorage.getItem("student_id");
     const student_name = localStorage.getItem("student_name");
+    const platform = localStorage.getItem("platform") || "a";
     const point_id = "P1";
-    if (!student_id) location.href = "../../a/dashboard.html";
-    else document.getElementById("student-info").innerText = "Logged in as: " + student_name;
+    document.getElementById("student-info").innerText = "Logged in as: " + student_name;
+
+    async function updateProgress() {
+      await supabase
+        .from(`${platform}_theory_progress`)
+        .update({ layer1_done: true })
+        .eq("studentid", student_id)
+        .eq("point_id", point_id);
+    }
 
     function markClear() {
-      updateTheoryProgress(point_id, 1);
-      setTimeout(() => location.href = "layer2.html", 300);
+      updateProgress().then(() => {
+        window.location.href = "layer2.html";
+      });
     }
 
     function markConfused() {
-      updateTheoryProgress(point_id, 1);
-      setTimeout(() => location.href = "layer2.html", 300);
+      supabase.from("a_theory_feedback").insert([{
+        studentid: student_id,
+        point_id: point_id,
+        layer: "Layer 1",
+        feedback_type: "confused",
+        comment: ""
+      }]);
+      updateProgress().then(() => {
+        window.location.href = "layer2.html";
+      });
     }
 
     function showHelp() {
@@ -51,8 +72,17 @@
     }
 
     function submitHelp() {
-      updateTheoryProgress(point_id, 1);
-      setTimeout(() => location.href = "layer2.html", 300);
+      const comment = document.getElementById("unclear").value;
+      supabase.from("a_theory_feedback").insert([{
+        studentid: student_id,
+        point_id: point_id,
+        layer: "Layer 1",
+        feedback_type: "need_help",
+        comment: comment
+      }]);
+      updateProgress().then(() => {
+        window.location.href = "layer2.html";
+      });
     }
   </script>
 </body>
