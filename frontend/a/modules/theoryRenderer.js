@@ -1,45 +1,52 @@
 
-export function renderTheoryPoints() {
-  console.log("📦 Loading theory points from index.json...");
-  fetch("./points/index.json")
-    .then(response => {
-      if (!response.ok) throw new Error("Failed to load index.json");
-      return response.json();
-    })
-    .then(points => {
-      console.log("✅ Loaded points:", points);
-      const container = document.getElementById("theory-points");
-      if (!container) {
-        console.error("❌ theory-points container not found");
-        return;
-      }
+import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
 
-      points.forEach(point => {
-        const box = document.createElement("div");
-        box.className = "theory-box theory-clickable";
-        box.innerHTML = `
-          <h3>${point.title}</h3>
-          <div class="progress-bar">
-            <div class="segment grey"></div>
-            <div class="segment grey"></div>
-            <div class="segment grey"></div>
-            <div class="segment grey"></div>
-          </div>
-          <div class="labels">
-            <span>Basic Understanding</span>
-            <span>Exam-Style</span>
-            <span>Past Paper</span>
-            <span>Test</span>
-          </div>
-        `;
-        box.onclick = () => {
-          localStorage.setItem("current_point", point.id);
-          window.location.href = `./points/${point.id}/layer1.html`;
-        };
-        container.appendChild(box);
-      });
-    })
-    .catch(error => {
-      console.error("❌ Error loading points:", error);
-    });
+const supabase = createClient(
+  "https://tsmzmuclrnyryuvanlxl.supabase.co",
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzbXptdWNscm55cnl1dmFubHhsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc3MzM5NjUsImV4cCI6MjA2MzMwOTk2NX0.-l7Klmp5hKru3w2HOWLRPjCiQprJ2pOjsI-HPTGtAiw"
+);
+
+export async function renderTheoryPoints() {
+  const response = await fetch("/a/points/index.json");
+  const theoryList = await response.json();
+  const container = document.getElementById("theory-container");
+  container.innerHTML = "";
+
+  const student_id = localStorage.getItem("student_id");
+  const platform = localStorage.getItem("platform");
+  let progressData = [];
+
+  if (student_id && platform) {
+    const { data, error } = await supabase
+      .from(`${platform}_theory_progress`)
+      .select("*")
+      .eq("studentid", student_id);
+
+    if (data) progressData = data;
+  }
+
+  theoryList.forEach((point) => {
+    const card = document.createElement("div");
+    card.className = "theory-box";
+    card.onclick = () => {
+      localStorage.setItem("current_point_id", point.point_id);
+      window.location.href = `/a/points/${point.point_id.toLowerCase()}/layer1.html`;
+    };
+
+    const progress = progressData.find((p) => p.point_id === point.point_id);
+    const layers = ["layer1_done", "layer2_done", "layer3_done", "layer4_done"];
+
+    let bars = layers
+      .map((layer) => {
+        const filled = progress?.[layer] ? "green" : "gray";
+        return `<div class="segment" style="background:${filled}"></div>`;
+      })
+      .join("");
+
+    card.innerHTML = `
+      <div class="point-title">${point.point_id}: ${point.title}</div>
+      <div class="progress-bar">${bars}</div>
+    `;
+    container.appendChild(card);
+  });
 }
