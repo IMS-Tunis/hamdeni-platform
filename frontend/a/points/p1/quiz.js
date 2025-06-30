@@ -1,1 +1,1 @@
-// Placeholder quiz.js logic
+// quiz logic placeholder
