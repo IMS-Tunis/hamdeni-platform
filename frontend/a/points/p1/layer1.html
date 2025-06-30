@@ -2,9 +2,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Layer 1 - Theory Notes</title>
-  <link rel="stylesheet" href="../../a/dashboard.css" />
+  <link rel="stylesheet" href="../../a/dashboard.css">
+  <style>
+    .action-btn {
+      display: inline-block;
+      padding: 15px 30px;
+      font-size: 18px;
+      font-weight: bold;
+      margin: 10px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background-color: #003366;
+      color: white;
+      transition: background-color 0.3s ease;
+    }
+    .action-btn:hover {
+      background-color: #005599;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -19,16 +37,18 @@
     <iframe src="https://docs.google.com/document/d/e/2PACX-EXAMPLE_DOC_ID/pub?embedded=true"
             width="100%" height="800px"></iframe>
     <div class="actions" style="text-align:center;">
-      <button onclick="markClear()">Notes are clear</button>
-      <button onclick="showHelp()">I still need help</button>
-      <button onclick="markConfused()">I'm confused</button>
+      <button class="action-btn" onclick="markClear()">Notes are clear</button>
+      <button class="action-btn" onclick="showHelp()">I still need help</button>
+      <button class="action-btn" onclick="markConfused()">I'm confused</button>
     </div>
     <div id="help-section" style="display:none; text-align:center; margin-top:20px;">
       <label for="unclear">Unclear sections:</label><br />
       <textarea id="unclear" rows="4" cols="60"></textarea><br />
-      <button onclick="submitHelp()">Save and Continue</button>
+      <button class="action-btn" onclick="submitHelp()">Save and Continue</button>
     </div>
   </main>
+
+  <!-- Load Supabase and Google Sheet logic -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
   <script src="modules/supabase.js"></script>
   <script src="modules/feedback.js"></script>
@@ -40,15 +60,17 @@
     else document.getElementById("student-info").innerText = "Logged in as: " + student_name;
 
     function markClear() {
+      console.log("✅ Notes are clear button clicked");
       updateTheoryProgress(point_id, 1);
       sendFeedback({ student_id, student_name, point_id, layer: "Layer 1", feedback_type: "clear", comment: "" });
-      location.href = "layer2.html";
+      setTimeout(() => window.location.href = "layer2.html", 300);  // short delay to ensure async
     }
 
     function markConfused() {
+      console.log("❓ I'm confused button clicked");
       updateTheoryProgress(point_id, 1);
       sendFeedback({ student_id, student_name, point_id, layer: "Layer 1", feedback_type: "confused", comment: "" });
-      location.href = "layer2.html";
+      setTimeout(() => window.location.href = "layer2.html", 300);
     }
 
     function showHelp() {
@@ -56,10 +78,11 @@
     }
 
     function submitHelp() {
+      console.log("📝 Help comment submitted");
       const comment = document.getElementById("unclear").value;
       updateTheoryProgress(point_id, 1);
       sendFeedback({ student_id, student_name, point_id, layer: "Layer 1", feedback_type: "need_help", comment });
-      location.href = "layer2.html";
+      setTimeout(() => window.location.href = "layer2.html", 300);
     }
   </script>
 </body>
