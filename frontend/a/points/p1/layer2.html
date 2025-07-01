@@ -1,32 +1,21 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Layer 2 - Quiz</title>
-  <link rel="stylesheet" href="../../dashboard.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layer 2 - Quiz</title>
+    <link rel="stylesheet" href="../../dashboard.css">
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
 </head>
 <body>
-  <header>
-    <img src="../../images/Maariflogo.png" class="logo left" />
-    <div class="title"><h1>Layer 2 - Quiz</h1></div>
-    <img src="../../images/Cambridgelogo.png" class="logo right" />
-  </header>
-  <main>
-    <p style="text-align:center;">Student: <span id="student-name"></span></p>
-    <div id="result" style="text-align:center;"></div>
-    <div id="quiz-container"></div>
-    <div class="actions" style="text-align:center;">
-      <button onclick="submitQuiz()">Submit</button>
-      <button id="retry-btn" onclick="retryWrong()" style="display:none;">Retry</button>
-      <button id="proceed-btn" onclick="goToLayer3()" style="display:none;">Go to Layer 3</button>
+    <div class="container">
+        <h1>Layer 2 - Quiz</h1>
+        <p>Complete this quiz to unlock the next layer. You must get all questions correct to proceed.</p>
+        <div id="quiz-container">
+            <p>Loading quiz...</p>
+        </div>
+        <div id="quiz-result"></div>
     </div>
-  </main>
-  <script>
-    document.getElementById("student-name").innerText = localStorage.getItem("student_name") || "Guest";
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-  <script src="modules/supabase.js"></script>
-  <script src="quiz.js"></script>
+    <script src="quiz.js"></script>
 </body>
 </html>
