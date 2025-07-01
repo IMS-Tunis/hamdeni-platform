@@ -2,35 +2,161 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Layer 1</title>
+  <title>Layer 1 - Theory Note</title>
   <link rel="stylesheet" href="../../dashboard.css" />
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #f4f7fb;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background-color: #004080;
+      color: white;
+    }
+
+    header h1 {
+      font-size: 2em;
+      margin: 0;
+    }
+
+    header .info {
+      text-align: right;
+    }
+
+    .logo {
+      height: 50px;
+    }
+
+    main {
+      display: flex;
+      padding: 20px;
+      gap: 20px;
+    }
+
+    .doc-container {
+      flex: 7;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .doc-container label {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .doc-container iframe {
+      width: 100%;
+      height: 700px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .notes-container {
+      flex: 3;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .notes-container label {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .notes-container textarea {
+      width: 100%;
+      height: 700px;
+      padding: 15px;
+      font-size: 1em;
+      border-radius: 6px;
+      border: 1px solid #aaa;
+      resize: vertical;
+    }
+
+    .actions {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .highlight-button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 15px 25px;
+      margin: 10px;
+      border-radius: 8px;
+      font-size: 1.2em;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .highlight-button:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+    }
+
+    #help-section {
+      display: none;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    #error-message {
+      text-align: center;
+      margin: 50px auto;
+      padding: 30px;
+      font-size: 1.3em;
+      color: red;
+      max-width: 600px;
+      background: #ffe5e5;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <img src="../../images/Maariflogo.png" class="logo left" />
-    <div class="title">
-      <h1>Layer 1</h1>
-      <p id="student-info"></p>
+    <img src="../../images/maarifLOGO.png" alt="Logo" class="logo" />
+    <h1>LAYER 1</h1>
+    <div class="info">
+      <div id="student-name"></div>
+      <div id="point-id">Point: P1</div>
     </div>
-    <img src="../../images/Cambridgelogo.png" class="logo right" />
   </header>
 
-  <main>
-    <iframe src="https://docs.google.com/document/d/e/2PACX-EXAMPLE_DOC_ID/pub?embedded=true"
-            width="100%" height="800px"></iframe>
+  <div id="error-message" style="display: none;">
+    ⚠️ You must be logged in to view this content.
+  </div>
 
-    <div class="actions" style="text-align:center; margin-top:20px;">
-      <button onclick="markClear()">✅ Notes are clear</button>
-      <button onclick="showHelp()">🆘 Need help</button>
-      <button onclick="markConfused()">😕 I'm confused</button>
+  <main id="content-area" style="display: none;">
+    <div class="doc-container">
+      <label>📄 Official Theory Notes</label>
+      <iframe src="https://docs.google.com/document/d/e/2PACX-1vRvBHZuPzhu5e1ZqIfFISG5htJXqqkO_mBA8INcH053tFI9vyGlNwQQLkgZluFDqKxLN2IOAptPXPvJ/pub?embedded=true"></iframe>
     </div>
 
-    <div id="help-section" style="display:none; text-align:center; margin-top:20px;">
-      <textarea id="unclear" rows="4" cols="60" placeholder="Describe what you need help with..."></textarea><br />
-      <button onclick="submitHelp()">Submit Help Request</button>
+    <div class="notes-container">
+      <label>📝 Your Personal Notes</label>
+      <textarea placeholder="Write your own notes or summary about the theory..."></textarea>
     </div>
   </main>
+
+  <div class="actions">
+    <button class="highlight-button" onclick="markClear()">✅ Notes are clear</button>
+    <button class="highlight-button" onclick="showHelp()">🆘 Need help</button>
+    <button class="highlight-button" onclick="markConfused()">😕 I'm confused</button>
+  </div>
+
+  <div id="help-section">
+    <textarea id="unclear" rows="4" cols="60" placeholder="Describe what you need help with..."></textarea><br />
+    <button class="highlight-button" onclick="submitHelp()">Submit Help Request</button>
+  </div>
 
   <script>
     const supabase = window.supabase.createClient(
@@ -42,15 +168,16 @@
     const student_name = localStorage.getItem("student_name");
     const point_id = "P1";
 
-    if (!student_id) {
-      window.location.href = "../../a/dashboard.html";
+    if (!student_id || !student_name) {
+      document.getElementById("error-message").style.display = "block";
     } else {
-      document.getElementById("student-info").innerText = "Logged in as: " + student_name;
+      document.getElementById("student-name").textContent = "👤 " + student_name;
+      document.getElementById("content-area").style.display = "flex";
     }
 
     async function updateProgress() {
       const { error } = await supabase
-        .from("a_theory_progress") // ✅ Hardcoded table name
+        .from("a_theory_progress")
         .upsert({
           studentid: student_id,
           point_id: point_id,
@@ -58,11 +185,10 @@
         }, { onConflict: ['studentid', 'point_id'] });
 
       if (error) {
-        console.error("❌ Supabase Progress Error:", error);
-        alert("Failed to update progress.");
+        alert("❌ Failed to update progress.");
+        console.error(error);
         return false;
       }
-
       return true;
     }
 
@@ -78,21 +204,19 @@
         }]);
 
       if (error) {
-        console.error("❌ Supabase Feedback Error:", error);
+        console.error("❌ Feedback insert error:", error);
       }
     }
 
     async function markClear() {
-      const ok = await updateProgress();
-      if (ok) {
+      if (await updateProgress()) {
         await sendFeedback("clear");
         window.location.href = "layer2.html";
       }
     }
 
     async function markConfused() {
-      const ok = await updateProgress();
-      if (ok) {
+      if (await updateProgress()) {
         await sendFeedback("confused");
         window.location.href = "layer2.html";
       }
@@ -105,12 +229,11 @@
     async function submitHelp() {
       const comment = document.getElementById("unclear").value.trim();
       if (!comment) {
-        alert("Please enter a comment.");
+        alert("Please describe what you need help with.");
         return;
       }
 
-      const ok = await updateProgress();
-      if (ok) {
+      if (await updateProgress()) {
         await sendFeedback("need_help", comment);
         window.location.href = "layer2.html";
       }
