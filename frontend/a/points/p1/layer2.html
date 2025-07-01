@@ -120,7 +120,7 @@
 <body>
   <header>
     <img src="../../images/maarifLOGO.png" alt="Logo" class="logo" />
-    <h1>LAYER 2</h1>
+    <h1>LAYER 2: Basic Understanding</h1>
     <div class="info">
       <div id="student-name">👤 Student</div>
       <div id="point-id">Point: P1</div>
@@ -144,6 +144,37 @@
       document.getElementById("student-name").textContent = "👤 " + student_name;
     }
   </script>
-  <script src="quiz.js"></script>
+  
+<style>
+  .quiz-question {
+    background: #eef2f7;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  .submit-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1.1em;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: background 0.3s, transform 0.2s;
+  }
+  .submit-btn:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+  }
+</style>
+
+<footer style="margin-top: 50px; text-align: center; padding: 20px; background: #e0e0e0; color: #333; font-size: 0.95em;">
+  📧 Contact Dr. Hamdeni at <a href="mailto:hamdeni.chamseddine@gmail.com">hamdeni.chamseddine@gmail.com</a>
+</footer>
+
+<script src="quiz.js"></script>
+
 </body>
 </html>
