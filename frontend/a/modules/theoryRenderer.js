@@ -25,7 +25,7 @@ export async function renderTheoryPoints() {
       if (error) throw error;
 
       data.forEach(entry => {
-        progressMap[entry.point_id] = entry;
+        progressMap[entry.point_id.toLowerCase()] = entry;
       });
     } catch (err) {
       console.error("❌ Failed to fetch Supabase progress:", err);
@@ -40,7 +40,7 @@ export async function renderTheoryPoints() {
   }
 
   points.forEach(point => {
-    const entry = progressMap[point.id] || {};
+    const entry = progressMap[point.id.toLowerCase()] || {};
     const layerStates = [
       entry.layer1_done ? "green" : "grey",
       entry.layer2_done ? "green" : "grey",
