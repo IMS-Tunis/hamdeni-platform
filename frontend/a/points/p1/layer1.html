@@ -40,7 +40,6 @@
 
     const student_id = localStorage.getItem("student_id");
     const student_name = localStorage.getItem("student_name");
-    const platform = localStorage.getItem("platform") || "a";
     const point_id = "P1";
 
     if (!student_id) {
@@ -51,7 +50,7 @@
 
     async function updateProgress() {
       const { error } = await supabase
-        .from(`${platform}_theory_progress`)
+        .from("a_theory_progress") // ✅ Hardcoded table name
         .upsert({
           studentid: student_id,
           point_id: point_id,
