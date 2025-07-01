@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <title>Layer 1</title>
   <link rel="stylesheet" href="../../dashboard.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
   <header>
@@ -14,44 +15,88 @@
     </div>
     <img src="../../images/Cambridgelogo.png" class="logo right" />
   </header>
+
   <main>
     <iframe src="https://docs.google.com/document/d/e/2PACX-EXAMPLE_DOC_ID/pub?embedded=true"
             width="100%" height="800px"></iframe>
-    <div class="actions" style="text-align:center;">
-      <button onclick="markClear()">Notes are clear</button>
-      <button onclick="showHelp()">Need help</button>
-      <button onclick="markConfused()">I'm confused</button>
+
+    <div class="actions" style="text-align:center; margin-top:20px;">
+      <button onclick="markClear()">✅ Notes are clear</button>
+      <button onclick="showHelp()">🆘 Need help</button>
+      <button onclick="markConfused()">😕 I'm confused</button>
     </div>
-    <div id="help-section" style="display:none; text-align:center;">
-      <textarea id="unclear" rows="4" cols="60"></textarea><br />
-      <button onclick="submitHelp()">Save and Continue</button>
+
+    <div id="help-section" style="display:none; text-align:center; margin-top:20px;">
+      <textarea id="unclear" rows="4" cols="60" placeholder="Describe what you need help with..."></textarea><br />
+      <button onclick="submitHelp()">Submit Help Request</button>
     </div>
   </main>
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-  <script src="modules/supabase.js"></script>
-  <script src="modules/feedback.js"></script>
   <script>
+    const supabase = window.supabase.createClient(
+      'https://tsmzmuclrnyryuvanlxl.supabase.co',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzbXptdWNscm55cnl1dmFubHhsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc3MzM5NjUsImV4cCI6MjA2MzMwOTk2NX0.-l7Klmp5hKru3w2HOWLRPjCiQprJ2pOjsI-HPTGtAiw'
+    );
+
     const student_id = localStorage.getItem("student_id");
     const student_name = localStorage.getItem("student_name");
+    const platform = localStorage.getItem("platform") || "a";
     const point_id = "P1";
 
     if (!student_id) {
-      location.href = "../../a/dashboard.html";
+      window.location.href = "../../a/dashboard.html";
     } else {
       document.getElementById("student-info").innerText = "Logged in as: " + student_name;
     }
 
+    async function updateProgress() {
+      const { error } = await supabase
+        .from(`${platform}_theory_progress`)
+        .upsert({
+          studentid: student_id,
+          point_id: point_id,
+          layer1_done: true
+        }, { onConflict: ['studentid', 'point_id'] });
+
+      if (error) {
+        console.error("❌ Supabase Progress Error:", error);
+        alert("Failed to update progress.");
+        return false;
+      }
+
+      return true;
+    }
+
+    async function sendFeedback(feedback_type, comment = "") {
+      const { error } = await supabase
+        .from("a_theory_feedback")
+        .insert([{
+          studentid: student_id,
+          point_id: point_id,
+          layer: "layer1",
+          feedback_type,
+          comment
+        }]);
+
+      if (error) {
+        console.error("❌ Supabase Feedback Error:", error);
+      }
+    }
+
     async function markClear() {
-      await updateTheoryProgress(point_id, 1);
-      await sendFeedback({ student_id, student_name, point_id, layer: "Layer 1", feedback_type: "clear", comment: "" });
-      window.location.href = "layer2.html";
+      const ok = await updateProgress();
+      if (ok) {
+        await sendFeedback("clear");
+        window.location.href = "layer2.html";
+      }
     }
 
     async function markConfused() {
-      await updateTheoryProgress(point_id, 1);
-      await sendFeedback({ student_id, student_name, point_id, layer: "Layer 1", feedback_type: "confused", comment: "" });
-      window.location.href = "layer2.html";
+      const ok = await updateProgress();
+      if (ok) {
+        await sendFeedback("confused");
+        window.location.href = "layer2.html";
+      }
     }
 
     function showHelp() {
@@ -59,10 +104,17 @@
     }
 
     async function submitHelp() {
-      const comment = document.getElementById("unclear").value;
-      await updateTheoryProgress(point_id, 1);
-      await sendFeedback({ student_id, student_name, point_id, layer: "Layer 1", feedback_type: "need_help", comment });
-      window.location.href = "layer2.html";
+      const comment = document.getElementById("unclear").value.trim();
+      if (!comment) {
+        alert("Please enter a comment.");
+        return;
+      }
+
+      const ok = await updateProgress();
+      if (ok) {
+        await sendFeedback("need_help", comment);
+        window.location.href = "layer2.html";
+      }
     }
   </script>
 </body>
