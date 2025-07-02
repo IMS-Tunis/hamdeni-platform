@@ -17,21 +17,33 @@
       justify-content: space-between;
       align-items: center;
       padding: 15px 30px;
-      background-color: #004080;
+      background-color: #003366;
       color: white;
     }
 
-    header h1 {
-      font-size: 2em;
-      margin: 0;
+    .header-left,
+    .header-right {
+      flex: 1;
     }
 
-    header .info {
-      text-align: right;
+    .header-center {
+      flex: 2;
+      text-align: center;
+    }
+
+    .header-center h1 {
+      margin: 0;
+      font-size: 1.8em;
+    }
+
+    .header-center p {
+      margin: 3px 0;
+      font-size: 1em;
+      color: #f0f0f0;
     }
 
     .logo {
-      height: 50px;
+      height: 55px;
     }
 
     .container {
@@ -83,6 +95,34 @@
       transform: scale(1.05);
     }
 
+    .submit-btn {
+      background: linear-gradient(135deg, #28a745, #5cd263);
+      color: #fff;
+      border: none;
+      padding: 14px 28px;
+      font-size: 1.2em;
+      font-weight: bold;
+      border-radius: 30px;
+      cursor: pointer;
+      margin-top: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      transition: transform 0.2s, box-shadow 0.3s;
+      display: inline-block;
+    }
+
+    .submit-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+    }
+
+    .retry-btn {
+      background: linear-gradient(135deg, #ff5722, #ff9800);
+    }
+
+    .retry-btn:hover {
+      box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+    }
+
     .success-message, .retry-message {
       margin-top: 20px;
       padding: 20px;
@@ -115,94 +155,41 @@
     .nav-btn:hover {
       background: #0056b3;
     }
+
+    .quiz-question {
+      background: #eef2f7;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .quiz-question label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-right: 25px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+
+    .quiz-question input[type="radio"] {
+      margin: 0;
+    }
   </style>
-
-<style>
-  .quiz-question {
-    background: #eef2f7;
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 20px;
-  }
-  .quiz-question h3 {
-    margin-bottom: 10px;
-  }
-  .quiz-question label {
-    display: inline-block;
-    margin-right: 20px;
-    font-size: 1em;
-    cursor: pointer;
-  }
-  .quiz-question input[type="radio"] {
-    margin-right: 8px;
-  }
-  .submit-btn {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    padding: 14px 28px;
-    font-size: 1.1em;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-top: 20px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: background 0.3s, transform 0.2s;
-  }
-  .submit-btn:hover {
-    background-color: #218838;
-    transform: scale(1.05);
-  }
-</style>
-
-
-<style>
-  .quiz-question {
-    background: #eef2f7;
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 20px;
-  }
-  .quiz-question h3 {
-    margin-bottom: 10px;
-  }
-  .quiz-question label {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin-right: 25px;
-    font-size: 1em;
-    cursor: pointer;
-  }
-  .quiz-question input[type="radio"] {
-    margin: 0;
-  }
-  .submit-btn {
-    background-color: #28a745 !important;
-    color: white;
-    border: none;
-    padding: 14px 28px;
-    font-size: 1.1em;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-top: 20px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: background 0.3s, transform 0.2s;
-    display: inline-block;
-  }
-  .submit-btn:hover {
-    background-color: #218838;
-    transform: scale(1.05);
-  }
-</style>
 
 </head>
 <body>
   <header>
-    <img src="../../images/maarifLOGO.png" alt="Logo" class="logo" />
-    <h1>LAYER 2: Basic Understanding</h1>
-    <div class="info">
-      <div id="student-name">👤 Student</div>
-      <div id="point-id">Point: P1</div>
+    <div class="header-left">
+      <img src="../../../images/maarifLOGO.png" class="logo" />
+    </div>
+    <div class="header-center">
+      <h1>LAYER 2: Basic Understanding of <span id="point-title">P1</span></h1>
+      <p id="student-name"></p>
+      <p id="platform-name"></p>
+    </div>
+    <div class="header-right" style="text-align:right;">
+      <img src="../../../images/cambridge.png" class="logo" />
     </div>
   </header>
 
@@ -219,35 +206,20 @@
 
   <script>
     const student_name = localStorage.getItem("student_name");
+    const platform = localStorage.getItem("platform");
+    const point_id = "P1";
+
     if (student_name) {
       document.getElementById("student-name").textContent = "👤 " + student_name;
     }
+
+    if (platform) {
+      document.getElementById("platform-name").textContent = "🎓 Platform: " + platform;
+    }
+
+    document.getElementById("point-title").textContent = point_id;
   </script>
   
-<style>
-  .quiz-question {
-    background: #eef2f7;
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 20px;
-  }
-  .submit-btn {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    font-size: 1.1em;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-top: 20px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: background 0.3s, transform 0.2s;
-  }
-  .submit-btn:hover {
-    background-color: #218838;
-    transform: scale(1.05);
-  }
-</style>
 
 <footer style="margin-top: 50px; text-align: center; padding: 20px; background: #e0e0e0; color: #333; font-size: 0.95em;">
   📧 Contact Dr. Hamdeni at <a href="mailto:hamdeni.chamseddine@gmail.com">hamdeni.chamseddine@gmail.com</a>

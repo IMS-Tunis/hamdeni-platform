@@ -53,13 +53,14 @@
     }
 
     .doc-container {
-      flex: 6;
+      flex: 0 0 850px;
+      max-width: 100%;
       display: flex;
       flex-direction: column;
     }
 
     .notes-container {
-      flex: 4;
+      flex: 1;
       display: flex;
       flex-direction: column;
       padding-right: 20px;
@@ -113,8 +114,31 @@
     }
 
     .highlight-button:hover {
-      background-color: #0056b3;
       transform: scale(1.05);
+    }
+
+    .btn-clear {
+      background-color: #28a745;
+    }
+
+    .btn-clear:hover {
+      background-color: #218838;
+    }
+
+    .btn-help {
+      background-color: #ff9800;
+    }
+
+    .btn-help:hover {
+      background-color: #e68900;
+    }
+
+    .btn-confused {
+      background-color: #dc3545;
+    }
+
+    .btn-confused:hover {
+      background-color: #c82333;
     }
 
     #help-section {
@@ -149,7 +173,7 @@
   <header>
 
     <div class="header-left">
-      <img src="../../images/maarifLOGO.png" class="logo" />
+      <img src="../../../images/maarifLOGO.png" class="logo" />
     </div>
     <div class="header-center">
       <h1>LAYER 1: Theory Notes of <span id="point-title">P1</span></h1>
@@ -157,7 +181,7 @@
       <p id="platform-name"></p>
     </div>
     <div class="header-right" style="text-align:right;">
-      <img src="../../images/Cambridgelogo.png" class="logo" />
+      <img src="../../../images/cambridge.png" class="logo" />
 
     </div>
   </header>
@@ -172,7 +196,7 @@
       <img src="syllabus.png" alt="Syllabus Image" style="max-width: 100%; margin-bottom: 20px;" />
 
       <div class="section-title">📄 Official Theory Notes</div>
-      <iframe src="https://docs.google.com/document/d/e/2PACX-1vRvBHZuPzhu5e1ZqIfFISG5htJXqqkO_mBA8INcH053tFI9vyGlNwQQLkgZluFDqKxLN2IOAptPXPvJ/pub?embedded=true" height="900"></iframe>
+      <iframe src="https://docs.google.com/document/d/e/2PACX-1vRvBHZuPzhu5e1ZqIfFISG5htJXqqkO_mBA8INcH053tFI9vyGlNwQQLkgZluFDqKxLN2IOAptPXPvJ/pub?embedded=true" height="2000" scrolling="no"></iframe>
     </div>
 
     <div class="notes-container">
@@ -187,9 +211,9 @@
   </main>
 
   <div class="actions">
-    <button class="highlight-button" onclick="markClear()">✅ Notes are clear</button>
-    <button class="highlight-button" onclick="showHelp()">🆘 Need help</button>
-    <button class="highlight-button" onclick="markConfused()">😕 I'm confused</button>
+    <button class="highlight-button btn-clear" onclick="markClear()">✅ Notes are clear</button>
+    <button class="highlight-button btn-help" onclick="showHelp()">🆘 Need help</button>
+    <button class="highlight-button btn-confused" onclick="markConfused()">😕 I'm confused</button>
   </div>
 
   <div id="help-section">
@@ -219,7 +243,7 @@
     document.getElementById("platform-name").textContent = "🎓 Platform: " + platform;
     document.getElementById("content-area").style.display = "flex";
 
-    fetch("../../videos.json")
+    fetch("videos.json")
       .then(res => res.json())
       .then(videos => {
         if (videos[point_id] && videos[point_id].length > 0) {
