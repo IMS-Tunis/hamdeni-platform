@@ -408,7 +408,7 @@ body {
 .general-progress-fill {
   height: 100%;
   background-color: #4CAF50;
-  width: 62%; /* Static for now */
+  width: 0%;
   border-radius: 10px 0 0 10px;
 }
 /* Remove ↓ arrows and add nice connecting line */
@@ -447,7 +447,7 @@ body {
 .general-progress-fill {
   height: 100%;
   background-color: #4CAF50;
-  width: 62%;
+  width: 0%;
   border-radius: 10px 0 0 10px;
   text-align: center;
   color: white;
@@ -490,7 +490,7 @@ footer {
 }
 .general-progress-fill {
   height: 100%;
-  width: 62%; /* static for now */
+  width: 0%;
   background-color: #4CAF50;
   text-align: center;
   color: white;
@@ -536,7 +536,7 @@ footer {
 
 .general-progress-fill {
   height: 100%;
-  width: 62%; /* static for now */
+  width: 0%;
   background-color: #4CAF50;
   text-align: center;
   color: white;
