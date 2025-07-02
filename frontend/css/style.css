@@ -8,7 +8,7 @@ body {
 
 .main-header {
   background-color: #00A3B4;
-  padding: 5px 40px !important;
+  padding: 3px 40px !important;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -16,11 +16,11 @@ body {
 }
 
 .logo-left {
-  height: 100px;
+  height: 80px;
 }
 
 .logo-right {
-  height: 60px;
+  height: 50px;
 }
 
 .nav-links {
@@ -174,7 +174,7 @@ footer {
 
 header {
   background-color: #00A3B4;
-  padding: 5px 40px !important;
+  padding: 3px 40px !important;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -392,11 +392,11 @@ footer {
   }
 
   .logo-left {
-    height: 60px;
+    height: 50px;
   }
 
   .logo-right {
-    height: 40px;
+    height: 35px;
   }
 
   .nav-links {
@@ -480,11 +480,11 @@ footer {
   }
 
   .logo-left {
-    height: 50px;
+    height: 40px;
   }
 
   .logo-right {
-    height: 35px;
+    height: 30px;
   }
 
   .nav-links {
