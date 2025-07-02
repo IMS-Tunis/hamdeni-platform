@@ -44,6 +44,7 @@ function startQuiz(questions) {
 
   const submit = document.createElement("button");
   submit.textContent = attempt === 1 ? "Submit" : "Retry";
+  submit.className = attempt === 1 ? "submit-btn" : "submit-btn retry-btn";
   submit.onclick = () => checkAnswers(questions);
   container.appendChild(submit);
 }
