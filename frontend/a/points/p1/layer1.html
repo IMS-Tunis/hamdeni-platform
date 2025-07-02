@@ -16,9 +16,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 30px;
-      background-color: #004080;
-      color: white;
+      padding: 20px 40px;
+      background: linear-gradient(90deg, #004080 0%, #0066cc 100%);
+      color: #fff;
     }
 
     header h1 {
@@ -31,7 +31,11 @@
     }
 
     .logo {
-      height: 50px;
+      height: 60px;
+    }
+
+    .cambridge-logo {
+      height: 60px;
     }
 
     main {
@@ -41,7 +45,7 @@
     }
 
     .doc-container {
-      flex: 7;
+      flex: 6;
       display: flex;
       flex-direction: column;
     }
@@ -53,15 +57,28 @@
 
     .doc-container iframe {
       width: 100%;
-      height: 700px;
+      height: 1200px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .syllabus-image {
+      width: 100%;
+      max-width: 400px;
+      margin-bottom: 20px;
       border: 1px solid #ccc;
       border-radius: 6px;
     }
 
     .notes-container {
-      flex: 3;
+      flex: 4;
       display: flex;
       flex-direction: column;
+      padding-right: 20px;
+    }
+
+    #videos-section {
+      margin-bottom: 20px;
     }
 
     .notes-container label {
@@ -124,11 +141,12 @@
 <body>
   <header>
     <img src="../../../images/maarifLOGO.png" alt="Logo" class="logo" />
-    <h1>LAYER 1: Theory Notes</h1>
+    <h1 id="header-title">LAYER 1: Theory Notes</h1>
     <div class="info">
       <div id="student-name"></div>
-      <div id="point-id">Point: P1</div>
+      <div id="platform-name"></div>
     </div>
+    <img src="../../../images/cambridge.png" alt="Cambridge" class="cambridge-logo" />
   </header>
 
   <div id="error-message" style="display: none;">
@@ -137,11 +155,17 @@
 
   <main id="content-area" style="display: none;">
     <div class="doc-container">
+      <label>📑 Syllabus Points</label>
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAwUBAaMBIwAAAABJRU5ErkJggg==" alt="Syllabus" class="syllabus-image" />
       <label>📄 Official Theory Notes</label>
       <iframe src="https://docs.google.com/document/d/e/2PACX-1vRvBHZuPzhu5e1ZqIfFISG5htJXqqkO_mBA8INcH053tFI9vyGlNwQQLkgZluFDqKxLN2IOAptPXPvJ/pub?embedded=true"></iframe>
     </div>
 
     <div class="notes-container">
+      <div id="videos-section">
+        <label>🎞️ Related Videos</label>
+        <div id="videos-container" style="display:flex; flex-direction:column; gap:10px;"></div>
+      </div>
       <label>📝 Your Personal Notes</label>
       <textarea placeholder="Write your own notes or summary about the theory..."></textarea>
     </div>
@@ -166,7 +190,36 @@
 
     const student_id = localStorage.getItem("student_id");
     const student_name = localStorage.getItem("student_name");
+    const platform = (localStorage.getItem("platform") || "").toUpperCase();
     const point_id = "P1";
+
+    document.getElementById("platform-name").textContent = platform;
+
+    fetch("../index.json")
+      .then(res => res.json())
+      .then(points => {
+        const p = points.find(pt => pt.id.toLowerCase() === point_id.toLowerCase());
+        if (p) {
+          document.getElementById("header-title").textContent =
+            `LAYER 1: Theory Notes of ${p.title}`;
+        }
+      });
+
+    fetch("videos.json")
+      .then(res => res.json())
+      .then(data => {
+        const section = document.getElementById("videos-section");
+        const container = document.getElementById("videos-container");
+        if (data.videos && data.videos.length) {
+          data.videos.forEach(v => {
+            const wrap = document.createElement("div");
+            wrap.innerHTML = v;
+            container.appendChild(wrap);
+          });
+        } else {
+          section.style.display = "none";
+        }
+      });
 
     if (!student_id || !student_name) {
       document.getElementById("error-message").style.display = "block";
