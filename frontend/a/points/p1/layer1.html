@@ -17,51 +17,52 @@
       justify-content: space-between;
       align-items: center;
       padding: 15px 30px;
-      background-color: #004080;
+      background-color: #003366;
       color: white;
     }
 
-    header h1 {
-      font-size: 2em;
-      margin: 0;
+    .header-left,
+    .header-right {
+      flex: 1;
     }
 
-    header .info {
-      text-align: right;
+    .header-center {
+      flex: 2;
+      text-align: center;
+    }
+
+    .header-center h1 {
+      margin: 0;
+      font-size: 1.8em;
+    }
+
+    .header-center p {
+      margin: 3px 0;
+      font-size: 1em;
+      color: #f0f0f0;
     }
 
     .logo {
-      height: 50px;
+      height: 55px;
     }
 
     main {
       display: flex;
-      padding: 20px;
+      padding: 30px;
       gap: 20px;
     }
 
     .doc-container {
-      flex: 7;
+      flex: 6;
       display: flex;
       flex-direction: column;
-    }
-
-    .doc-container label {
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-    .doc-container iframe {
-      width: 100%;
-      height: 700px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
     }
 
     .notes-container {
-      flex: 3;
+      flex: 4;
       display: flex;
       flex-direction: column;
+      padding-right: 20px;
     }
 
     .notes-container label {
@@ -71,12 +72,26 @@
 
     .notes-container textarea {
       width: 100%;
-      height: 700px;
+      height: 400px;
       padding: 15px;
       font-size: 1em;
       border-radius: 6px;
       border: 1px solid #aaa;
       resize: vertical;
+    }
+
+    .section-title {
+      font-weight: bold;
+      margin: 15px 0 8px;
+      font-size: 1.1em;
+      color: #003366;
+    }
+
+    iframe {
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-bottom: 20px;
     }
 
     .actions {
@@ -119,15 +134,29 @@
       border-radius: 10px;
       font-weight: bold;
     }
+
+    footer {
+      margin-top: 50px;
+      text-align: center;
+      padding: 20px;
+      background: #e0e0e0;
+      color: #333;
+      font-size: 0.95em;
+    }
   </style>
 </head>
 <body>
   <header>
-    <img src="../../images/maarifLOGO.png" alt="Logo" class="logo" />
-    <h1>LAYER 1: Theory Notes</h1>
-    <div class="info">
-      <div id="student-name"></div>
-      <div id="point-id">Point: P1</div>
+    <div class="header-left">
+      <img src="../../images/maarifLOGO.png" class="logo" />
+    </div>
+    <div class="header-center">
+      <h1>LAYER 1: Theory Notes of <span id="point-title">P1</span></h1>
+      <p id="student-name"></p>
+      <p id="platform-name"></p>
+    </div>
+    <div class="header-right" style="text-align:right;">
+      <img src="../../images/Cambridgelogo.png" class="logo" />
     </div>
   </header>
 
@@ -137,12 +166,20 @@
 
   <main id="content-area" style="display: none;">
     <div class="doc-container">
-      <label>📄 Official Theory Notes</label>
-      <iframe src="https://docs.google.com/document/d/e/2PACX-1vRvBHZuPzhu5e1ZqIfFISG5htJXqqkO_mBA8INcH053tFI9vyGlNwQQLkgZluFDqKxLN2IOAptPXPvJ/pub?embedded=true"></iframe>
+      <div class="section-title">📌 Syllabus Points</div>
+      <img src="syllabus.png" alt="Syllabus Image" style="max-width: 100%; margin-bottom: 20px;" />
+
+      <div class="section-title">📄 Official Theory Notes</div>
+      <iframe src="https://docs.google.com/document/d/e/2PACX-1vRvBHZuPzhu5e1ZqIfFISG5htJXqqkO_mBA8INcH053tFI9vyGlNwQQLkgZluFDqKxLN2IOAptPXPvJ/pub?embedded=true" height="900"></iframe>
     </div>
 
     <div class="notes-container">
-      <label>📝 Your Personal Notes</label>
+      <div id="video-section" style="display:none;">
+        <label class="section-title">🎥 Related Videos</label>
+        <div id="videos-container"></div>
+      </div>
+
+      <label class="section-title">📝 Your Personal Notes</label>
       <textarea placeholder="Write your own notes or summary about the theory..."></textarea>
     </div>
   </main>
@@ -158,91 +195,107 @@
     <button class="highlight-button" onclick="submitHelp()">Submit Help Request</button>
   </div>
 
-  <script>
-    const supabase = window.supabase.createClient(
-      'https://tsmzmuclrnyryuvanlxl.supabase.co',
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzbXptdWNscm55cnl1dmFubHhsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc3MzM5NjUsImV4cCI6MjA2MzMwOTk2NX0.-l7Klmp5hKru3w2HOWLRPjCiQprJ2pOjsI-HPTGtAiw'
-    );
+  <footer>
+    📧 Contact Dr. Hamdeni at <a href="mailto:hamdeni.chamseddine@gmail.com">hamdeni.chamseddine@gmail.com</a>
+  </footer>
 
-    const student_id = localStorage.getItem("student_id");
-    const student_name = localStorage.getItem("student_name");
-    const point_id = "P1";
+<script>
+  const supabase = window.supabase.createClient(
+    'https://tsmzmuclrnyryuvanlxl.supabase.co',
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzbXptdWNscm55cnl1dmFubHhsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc3MzM5NjUsImV4cCI6MjA2MzMwOTk2NX0.-l7Klmp5hKru3w2HOWLRPjCiQprJ2pOjsI-HPTGtAiw'
+  );
 
-    if (!student_id || !student_name) {
-      document.getElementById("error-message").style.display = "block";
-    } else {
-      document.getElementById("student-name").textContent = "👤 " + student_name;
-      document.getElementById("content-area").style.display = "flex";
+  const student_id = localStorage.getItem("student_id");
+  const student_name = localStorage.getItem("student_name");
+  const platform = localStorage.getItem("platform");
+  const point_id = "P1";
+
+  if (!student_id || !student_name) {
+    document.getElementById("error-message").style.display = "block";
+  } else {
+    document.getElementById("student-name").textContent = "👤 " + student_name;
+    document.getElementById("platform-name").textContent = "🎓 Platform: " + platform;
+    document.getElementById("content-area").style.display = "flex";
+
+    fetch("../../videos.json")
+      .then(res => res.json())
+      .then(videos => {
+        if (videos[point_id] && videos[point_id].length > 0) {
+          document.getElementById("video-section").style.display = "block";
+          const container = document.getElementById("videos-container");
+          videos[point_id].forEach(video => {
+            const wrapper = document.createElement("div");
+            wrapper.innerHTML = video.iframe;
+            wrapper.style.marginBottom = "20px";
+            container.appendChild(wrapper);
+          });
+        }
+      });
+  }
+
+  async function updateProgress() {
+    const { error } = await supabase
+      .from("a_theory_progress")
+      .upsert({
+        studentid: student_id,
+        point_id: point_id,
+        layer1_done: true
+      }, { onConflict: ['studentid', 'point_id'] });
+
+    if (error) {
+      alert("❌ Failed to update progress.");
+      console.error(error);
+      return false;
+    }
+    return true;
+  }
+
+  async function sendFeedback(feedback_type, comment = "") {
+    const { error } = await supabase
+      .from("a_theory_feedback")
+      .insert([{
+        studentid: student_id,
+        point_id: point_id,
+        layer: "layer1",
+        feedback_type,
+        comment
+      }]);
+
+    if (error) {
+      console.error("❌ Feedback insert error:", error);
+    }
+  }
+
+  async function markClear() {
+    if (await updateProgress()) {
+      await sendFeedback("clear");
+      window.location.href = "layer2.html";
+    }
+  }
+
+  async function markConfused() {
+    if (await updateProgress()) {
+      await sendFeedback("confused");
+      window.location.href = "layer2.html";
+    }
+  }
+
+  function showHelp() {
+    document.getElementById("help-section").style.display = "block";
+  }
+
+  async function submitHelp() {
+    const comment = document.getElementById("unclear").value.trim();
+    if (!comment) {
+      alert("Please describe what you need help with.");
+      return;
     }
 
-    async function updateProgress() {
-      const { error } = await supabase
-        .from("a_theory_progress")
-        .upsert({
-          studentid: student_id,
-          point_id: point_id,
-          layer1_done: true
-        }, { onConflict: ['studentid', 'point_id'] });
-
-      if (error) {
-        alert("❌ Failed to update progress.");
-        console.error(error);
-        return false;
-      }
-      return true;
+    if (await updateProgress()) {
+      await sendFeedback("need_help", comment);
+      window.location.href = "layer2.html";
     }
-
-    async function sendFeedback(feedback_type, comment = "") {
-      const { error } = await supabase
-        .from("a_theory_feedback")
-        .insert([{
-          studentid: student_id,
-          point_id: point_id,
-          layer: "layer1",
-          feedback_type,
-          comment
-        }]);
-
-      if (error) {
-        console.error("❌ Feedback insert error:", error);
-      }
-    }
-
-    async function markClear() {
-      if (await updateProgress()) {
-        await sendFeedback("clear");
-        window.location.href = "layer2.html";
-      }
-    }
-
-    async function markConfused() {
-      if (await updateProgress()) {
-        await sendFeedback("confused");
-        window.location.href = "layer2.html";
-      }
-    }
-
-    function showHelp() {
-      document.getElementById("help-section").style.display = "block";
-    }
-
-    async function submitHelp() {
-      const comment = document.getElementById("unclear").value.trim();
-      if (!comment) {
-        alert("Please describe what you need help with.");
-        return;
-      }
-
-      if (await updateProgress()) {
-        await sendFeedback("need_help", comment);
-        window.location.href = "layer2.html";
-      }
-    }
-  </script>
-
-<footer style="margin-top: 50px; text-align: center; padding: 20px; background: #e0e0e0; color: #333; font-size: 0.95em;">
-  📧 Contact Dr. Hamdeni at <a href="mailto:hamdeni.chamseddine@gmail.com">hamdeni.chamseddine@gmail.com</a>
-</footer>
-
+  }
+</script>
 </body>
 </html>
