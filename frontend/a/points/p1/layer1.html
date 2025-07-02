@@ -53,13 +53,14 @@
     }
 
     .doc-container {
-      flex: 6;
+      flex: 0 0 850px;
+      max-width: 100%;
       display: flex;
       flex-direction: column;
     }
 
     .notes-container {
-      flex: 4;
+      flex: 1;
       display: flex;
       flex-direction: column;
       padding-right: 20px;
@@ -113,8 +114,31 @@
     }
 
     .highlight-button:hover {
-      background-color: #0056b3;
       transform: scale(1.05);
+    }
+
+    .btn-clear {
+      background-color: #28a745;
+    }
+
+    .btn-clear:hover {
+      background-color: #218838;
+    }
+
+    .btn-help {
+      background-color: #ff9800;
+    }
+
+    .btn-help:hover {
+      background-color: #e68900;
+    }
+
+    .btn-confused {
+      background-color: #dc3545;
+    }
+
+    .btn-confused:hover {
+      background-color: #c82333;
     }
 
     #help-section {
@@ -187,9 +211,9 @@
   </main>
 
   <div class="actions">
-    <button class="highlight-button" onclick="markClear()">✅ Notes are clear</button>
-    <button class="highlight-button" onclick="showHelp()">🆘 Need help</button>
-    <button class="highlight-button" onclick="markConfused()">😕 I'm confused</button>
+    <button class="highlight-button btn-clear" onclick="markClear()">✅ Notes are clear</button>
+    <button class="highlight-button btn-help" onclick="showHelp()">🆘 Need help</button>
+    <button class="highlight-button btn-confused" onclick="markConfused()">😕 I'm confused</button>
   </div>
 
   <div id="help-section">
