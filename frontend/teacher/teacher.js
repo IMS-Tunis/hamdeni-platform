@@ -5,15 +5,34 @@ const SUPABASE_URL = "https://tsmzmuclrnyryuvanlxl.supabase.co";
 const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzbXptdWNscm55cnl1dmFubHhsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc3MzM5NjUsImV4cCI6MjA2MzMwOTk2NX0.-l7Klmp5hKru3w2HOWLRPjCiQprJ2pOjsI-HPTGtAiw";
 const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
-if (!localStorage.getItem("teacher-auth")) {
-  const pass = prompt("Enter teacher password:");
-  if (pass !== "maarifadmin") {
-    alert("Access denied.");
-    window.location.href = "/index.html";
+async function ensureAuth() {
+  if (localStorage.getItem('teacher-token')) {
+    return;
+  }
+
+  const pass = prompt('Enter teacher password:');
+  if (!pass) {
+    alert('Access denied.');
+    window.location.href = '/index.html';
+    return;
+  }
+
+  const res = await fetch('/api/login', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ password: pass })
+  });
+
+  if (res.ok) {
+    const data = await res.json();
+    localStorage.setItem('teacher-token', data.token);
   } else {
-    localStorage.setItem("teacher-auth", "1");
+    alert('Access denied.');
+    window.location.href = '/index.html';
   }
 }
+
+await ensureAuth();
 
 let selectedStudent = null;
 let selectedPlatform = null;

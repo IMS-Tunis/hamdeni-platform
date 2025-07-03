@@ -17,6 +17,7 @@ HAMDENI COMPUTER SCIENCE PLATFORM – DEPLOYMENT GUIDE
 4. Set these values:
    - Build Command: (leave blank)
    - Publish Directory: public
+   - Environment Variable TEACHER_PASSWORD_HASH: set to the SHA-256 hash of your desired teacher password
 
 📌 STEP 2 – Add Custom Domain (hamdeni-cs.tn)
 ---------------------------------------------
