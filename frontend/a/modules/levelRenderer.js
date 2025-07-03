@@ -1,5 +1,7 @@
 
-export function renderProgrammingLevels() {
+import { fetchPassedLevels } from "./supabase.js";
+
+export async function renderProgrammingLevels() {
   const container = document.getElementById("programming-levels");
   if (!container) return;
 
@@ -22,16 +24,26 @@ export function renderProgrammingLevels() {
     { title: "Final Project", id: "level16", status: "locked" }
   ];
 
+  const passed = await fetchPassedLevels();
+  const highestPassed = passed.length ? Math.max(...passed) : 0;
+
   levels.forEach((level, index) => {
+    const num = index + 1;
+    let status = "locked";
+    if (passed.includes(num)) {
+      status = "passed";
+    } else if (num === highestPassed + 1) {
+      status = "unlocked";
+    }
+
     const box = document.createElement("div");
-    box.className = `level-box ${level.status}`;
+    box.className = `level-box ${status}`;
     box.innerHTML = `
-      <strong>Level ${index + 1}</strong><br/>
+      <strong>Level ${num}</strong><br/>
       <span>${level.title}</span>
     `;
     container.appendChild(box);
 
-    // Insert red arrow image between levels except after last one
     if (index < levels.length - 1) {
       const arrow = document.createElement("img");
       arrow.src = "images/arrow.png";

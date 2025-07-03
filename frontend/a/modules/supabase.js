@@ -1,4 +1,88 @@
 
+const SUPABASE_URL = "https://tsmzmuclrnyryuvanlxl.supabase.co";
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzbXptdWNscm55cnl1dmFubHhsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc3MzM5NjUsImV4cCI6MjA2MzMwOTk2NX0.-l7Klmp5hKru3w2HOWLRPjCiQprJ2pOjsI-HPTGtAiw";
+
+function tableName(platform, type) {
+  const map = {
+    A_Level: {
+      theory: 'a_theory_progress',
+      programming: 'a_programming_progress'
+    },
+    AS_Level: {
+      theory: 'as_theory_progress',
+      programming: 'as_programming_progress'
+    },
+    IGCSE: {
+      theory: 'igcse_theory_progress',
+      programming: 'igcse_programming_progress'
+    }
+  };
+  return map[platform] ? map[platform][type] : null;
+}
+
+export async function fetchProgressCounts() {
+  const studentId = localStorage.getItem('student_id');
+  const platform = localStorage.getItem('platform');
+
+  if (!studentId || !platform) return { points: 0, levels: 0 };
+
+  const theoryTable = tableName(platform, 'theory');
+  const levelTable = tableName(platform, 'programming');
+  const base = `${SUPABASE_URL}/rest/v1`;
+
+  try {
+    const [tRes, lRes] = await Promise.all([
+      fetch(`${base}/${theoryTable}?select=layer4_done&studentid=eq.${studentId}`, {
+        headers: {
+          apikey: SUPABASE_KEY,
+          Authorization: 'Bearer ' + SUPABASE_KEY
+        }
+      }),
+      fetch(`${base}/${levelTable}?select=level_done&studentid=eq.${studentId}`, {
+        headers: {
+          apikey: SUPABASE_KEY,
+          Authorization: 'Bearer ' + SUPABASE_KEY
+        }
+      })
+    ]);
+
+    const tData = await tRes.json();
+    const lData = await lRes.json();
+
+    const passedPoints = tData.filter(r => r.layer4_done).length;
+    const passedLevels = lData.filter(r => r.level_done).length;
+
+    return { points: passedPoints, levels: passedLevels };
+  } catch (err) {
+    console.error('❌ Failed fetching progress counts:', err);
+    return { points: 0, levels: 0 };
+  }
+}
+
+export async function fetchPassedLevels() {
+  const studentId = localStorage.getItem('student_id');
+  const platform = localStorage.getItem('platform');
+
+  if (!studentId || !platform) return [];
+
+  const levelTable = tableName(platform, 'programming');
+  const url = `${SUPABASE_URL}/rest/v1/${levelTable}?select=level_number,level_done&studentid=eq.${studentId}`;
+
+  try {
+    const res = await fetch(url, {
+      headers: {
+        apikey: SUPABASE_KEY,
+        Authorization: 'Bearer ' + SUPABASE_KEY
+      }
+    });
+    const data = await res.json();
+    return data.filter(r => r.level_done).map(r => r.level_number);
+  } catch (err) {
+    console.error('❌ Failed fetching passed levels:', err);
+    return [];
+  }
+}
+
 export function initializeLogin() {
   const loginBtn = document.getElementById("login-btn");
   const logoutBtn = document.getElementById("logout-btn");
@@ -14,8 +98,7 @@ export function initializeLogin() {
       const username = document.getElementById("username").value;
       const password = document.getElementById("password").value;
 
-      const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzbXptdWNscm55cnl1dmFubHhsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc3MzM5NjUsImV4cCI6MjA2MzMwOTk2NX0.-l7Klmp5hKru3w2HOWLRPjCiQprJ2pOjsI-HPTGtAiw";
-      const url = "https://tsmzmuclrnyryuvanlxl.supabase.co/rest/v1/students?select=*&username=eq." + encodeURIComponent(username) + "&password=eq." + encodeURIComponent(password);
+      const url = `${SUPABASE_URL}/rest/v1/students?select=*&username=eq.${encodeURIComponent(username)}&password=eq.${encodeURIComponent(password)}`;
 
       console.log("🔍 Sending login request to Supabase:", url);
 
