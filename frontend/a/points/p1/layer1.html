@@ -53,7 +53,7 @@
     }
 
     .doc-container {
-      flex: 0 0 60%;
+      flex: 3;
       max-width: 100%;
       display: flex;
       flex-direction: column;
@@ -62,10 +62,14 @@
     }
 
     .notes-container {
-      flex: 0 0 40%;
+      flex: 2;
       display: flex;
       flex-direction: column;
       padding-left: 20px;
+    }
+
+    .official-doc {
+      flex: 1;
     }
 
     .notes-container label {
@@ -210,7 +214,9 @@
       <img src="syllabus.png" alt="Syllabus Image" style="max-width: 100%; margin-bottom: 20px;" />
 
       <div class="section-title">📄 Official Theory Notes</div>
-      <iframe src="https://docs.google.com/document/d/e/2PACX-1vRvBHZuPzhu5e1ZqIfFISG5htJXqqkO_mBA8INcH053tFI9vyGlNwQQLkgZluFDqKxLN2IOAptPXPvJ/pub?embedded=true" height="2000" scrolling="no"></iframe>
+      <div class="official-doc">
+        <iframe src="https://docs.google.com/document/d/e/2PACX-1vRvBHZuPzhu5e1ZqIfFISG5htJXqqkO_mBA8INcH053tFI9vyGlNwQQLkgZluFDqKxLN2IOAptPXPvJ/pub?embedded=true" height="2000" scrolling="no"></iframe>
+      </div>
     </div>
 
     <div class="notes-container">
