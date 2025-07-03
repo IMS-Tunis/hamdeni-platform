@@ -6,6 +6,9 @@
   <link rel="stylesheet" href="../../dashboard.css" />
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
     body {
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
@@ -105,6 +108,16 @@
       border: 1px solid #ccc;
       border-radius: 6px;
       margin-bottom: 20px;
+    }
+
+    #official-notes {
+      overflow-x: hidden;
+    }
+
+    .official-doc {
+      width: calc(100% / 1.1);
+      transform: scale(1.1);
+      transform-origin: top left;
     }
 
     .actions {
@@ -210,7 +223,9 @@
       <img src="syllabus.png" alt="Syllabus Image" style="max-width: 100%; margin-bottom: 20px;" />
 
       <div class="section-title">📄 Official Theory Notes</div>
-      <iframe src="https://docs.google.com/document/d/e/2PACX-1vRvBHZuPzhu5e1ZqIfFISG5htJXqqkO_mBA8INcH053tFI9vyGlNwQQLkgZluFDqKxLN2IOAptPXPvJ/pub?embedded=true" height="2000" scrolling="no"></iframe>
+      <div id="official-notes">
+        <iframe class="official-doc" src="https://docs.google.com/document/d/e/2PACX-1vRvBHZuPzhu5e1ZqIfFISG5htJXqqkO_mBA8INcH053tFI9vyGlNwQQLkgZluFDqKxLN2IOAptPXPvJ/pub?embedded=true" height="2000" scrolling="no"></iframe>
+      </div>
     </div>
 
     <div class="notes-container">
