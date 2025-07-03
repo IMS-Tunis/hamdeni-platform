@@ -25,9 +25,18 @@ export function renderProgrammingLevels() {
   levels.forEach((level, index) => {
     const box = document.createElement("div");
     box.className = `level-box ${level.status}`;
+
+    let icon = "";
+    if (level.status === "locked") icon = "\uD83D\uDD12"; // 🔒
+    else if (level.status === "unlocked") icon = "\uD83D\uDD13"; // 🔓
+    else if (level.status === "passed") icon = "\u2705"; // ✅
+
     box.innerHTML = `
-      <strong>Level ${index + 1}</strong><br/>
-      <span>${level.title}</span>
+      <span class="level-icon">${icon}</span>
+      <div class="level-text">
+        <strong>Level ${index + 1}</strong><br/>
+        <span>${level.title}</span>
+      </div>
     `;
     container.appendChild(box);
 

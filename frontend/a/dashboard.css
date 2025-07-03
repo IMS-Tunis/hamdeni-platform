@@ -342,12 +342,16 @@ body {
   background-color: #e0e0e0;
   border-radius: 10px;
   padding: 12px;
-  margin: 20px auto;
-  width: 80%;
+  margin: 10px auto;
+  width: 64%;
   transition: transform 0.2s ease;
   cursor: pointer;
-  text-align: center;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: left;
 }
 .level-box:hover {
   transform: scale(1.02);
@@ -361,6 +365,12 @@ body {
 .level-box.passed {
   background-color: #4CAF50;
   color: white;
+}
+.level-icon {
+  font-size: 1.2em;
+}
+.level-text {
+  line-height: 1.2;
 }
 /* Arrows between levels */
 .level-box:not(:last-child)::after {
@@ -429,7 +439,7 @@ body {
 /* Insert PNG-based arrow between levels */
 .arrow-img {
   width: 20px;
-  margin: 0 auto 15px;
+  margin: 0 auto 5px;
   display: block;
 }
 .general-progress-label {
