@@ -5,6 +5,7 @@
   <title>Layer 1 - Theory Note</title>
   <link rel="stylesheet" href="../../dashboard.css" />
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="/config.js"></script>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -241,8 +242,8 @@
 
 <script>
   const supabase = window.supabase.createClient(
-    'https://tsmzmuclrnyryuvanlxl.supabase.co',
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzbXptdWNscm55cnl1dmFubHhsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc3MzM5NjUsImV4cCI6MjA2MzMwOTk2NX0.-l7Klmp5hKru3w2HOWLRPjCiQprJ2pOjsI-HPTGtAiw'
+    window.APP_CONFIG.SUPABASE_URL,
+    window.APP_CONFIG.SUPABASE_KEY
   );
 
   const student_id = localStorage.getItem("student_id");

@@ -54,3 +54,16 @@ For client-side fallback, you can add JavaScript redirect if needed.
 ----------------------
 - Open https://hamdeni-cs.tn from multiple devices
 - Test SSL (https), loading speed, and page not found
+
+Environment Variables
+---------------------
+The server injects configuration values into the frontend via `/config.js`.
+Set these variables before running `npm start`:
+
+```
+SUPABASE_URL      your Supabase project URL
+SUPABASE_KEY      your Supabase service key
+TEACHER_PASSWORD  password required for the teacher dashboard
+```
+
+These variables are **not** committed to the repository.
