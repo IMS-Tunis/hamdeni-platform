@@ -53,17 +53,19 @@
     }
 
     .doc-container {
-      flex: 0 0 850px;
+      flex: 0 0 60%;
       max-width: 100%;
       display: flex;
       flex-direction: column;
+      padding-right: 20px;
+      border-right: 2px solid #ccc;
     }
 
     .notes-container {
-      flex: 1;
+      flex: 0 0 40%;
       display: flex;
       flex-direction: column;
-      padding-right: 20px;
+      padding-left: 20px;
     }
 
     .notes-container label {
@@ -73,7 +75,8 @@
 
     .notes-container textarea {
       width: 100%;
-      height: 400px;
+      height: 100%;
+      flex: 1;
       padding: 15px;
       font-size: 1em;
       border-radius: 6px;
@@ -84,8 +87,17 @@
     .section-title {
       font-weight: bold;
       margin: 15px 0 8px;
-      font-size: 1.1em;
-      color: #003366;
+      font-size: 1.2em;
+      color: #fff;
+      background: #003366;
+      padding: 6px 10px;
+      border-radius: 4px;
+    }
+
+    #video-section {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #ccc;
     }
 
     iframe {
