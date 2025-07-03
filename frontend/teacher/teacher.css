@@ -48,6 +48,7 @@ header {
   flex-grow: 1;
   padding: 20px;
 }
+
 #student-title {
   font-weight: bold;
   font-size: 1.2em;
@@ -57,4 +58,30 @@ header {
   font-size: 0.95em;
   margin-top: 8px;
   color: green;
+}
+
+/* Layout for progress columns */
+.progress-columns {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+#theory-progress,
+#programming-progress {
+  flex: 1;
+}
+
+/* Style individual rows inside progress tables */
+.point-row,
+.level-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.point-label,
+.level-label {
+  width: 140px;
 }
