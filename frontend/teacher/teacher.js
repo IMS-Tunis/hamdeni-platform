@@ -1,7 +1,14 @@
 
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
 
-const { SUPABASE_URL, SUPABASE_KEY, TEACHER_PASSWORD } = window.APP_CONFIG;
+const { SUPABASE_URL, SUPABASE_KEY, TEACHER_PASSWORD } = window.APP_CONFIG || {};
+
+console.log('🧪 APP_CONFIG:', window.APP_CONFIG);
+
+if (!SUPABASE_URL || !SUPABASE_KEY) {
+  alert('Missing Supabase configuration. Please ensure config.js is loaded.');
+}
+
 const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
 if (!localStorage.getItem("teacher-auth")) {
