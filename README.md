@@ -59,11 +59,16 @@ Environment Variables
 ---------------------
 `/config.js` is served statically. Ensure `frontend/config.js` contains real values or generate it during your build process:
 
+
 ```
 SUPABASE_URL      your Supabase project URL
 SUPABASE_KEY      your Supabase service key
 TEACHER_PASSWORD  password required for the teacher dashboard
 ```
+
+When hosting the `frontend` folder on a static service, run `npm run build`
+locally so that `frontend/config.js` contains your credentials before
+uploading the site.
 
 These variables are **not** committed to the repository.
 # Database Schema
