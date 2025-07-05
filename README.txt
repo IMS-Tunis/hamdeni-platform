@@ -57,13 +57,18 @@ For client-side fallback, you can add JavaScript redirect if needed.
 
 Environment Variables
 ---------------------
-The server injects configuration values into the frontend via `/config.js`.
-Set these variables before running `npm start`:
+Configuration values are injected into `frontend/config.js` using the build
+script. Set these variables and run `npm run build` before starting the server
+or uploading the static site:
 
 ```
 SUPABASE_URL      your Supabase project URL
 SUPABASE_KEY      your Supabase service key
 TEACHER_PASSWORD  password required for the teacher dashboard
 ```
+
+When hosting the `frontend` folder on a static service, run `npm run build`
+locally so that `frontend/config.js` contains your credentials before
+uploading the site.
 
 These variables are **not** committed to the repository.
