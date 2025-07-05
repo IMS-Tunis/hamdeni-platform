@@ -66,9 +66,9 @@ SUPABASE_KEY      your Supabase service key
 TEACHER_PASSWORD  password required for the teacher dashboard
 ```
 
-When hosting the `frontend` folder on a static service, run `npm run build`
-locally so that `frontend/config.js` contains your credentials before
-uploading the site.
+Before deploying the `frontend` folder, edit `frontend/config.js` with your
+real credentials. The file is served statically so whatever values are present
+will be used by the browser.
 
 These variables are **not** committed to the repository.
 # Database Schema
