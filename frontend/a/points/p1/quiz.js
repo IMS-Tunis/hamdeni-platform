@@ -67,7 +67,9 @@ function checkAnswers(questions) {
     startQuiz(incorrect);
   }
 async function sendProgress() {
-  await supabase.from("a_theory_progress").upsert({
+  const platform = localStorage.getItem("platform");
+  const table = `${platform}_theory_progress`;
+  await supabase.from(table).upsert({
     studentid: studentId,
     point_id: pointId,
     layer2_done: true

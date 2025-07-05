@@ -290,22 +290,32 @@
   }
 
   async function updateProgress() {
-    try {
-      const { error } = await supabase
-        .from("a_theory_progress")
-        .upsert({
-          studentid: student_id,
-          point_id: point_id,
-          layer1_done: true
-        }, { onConflict: ['studentid', 'point_id'] });
+    const platform = localStorage.getItem("platform");
+    const student_id = localStorage.getItem("student_id");
 
-      if (error) throw error;
-      return true;
-    } catch (err) {
-      alert("❌ Failed to update progress. Please check your connection or contact your teacher.");
-      console.error("updateProgress error", err);
+    if (!student_id || !platform) {
+      alert("❌ Missing student information. Please log in again.");
       return false;
     }
+
+    const table = `${platform}_theory_progress`;
+
+    const { error } = await supabase
+      .from(table)
+      .upsert({
+        studentid: student_id,
+        point_id: point_id,
+        layer1_done: true
+      }, { onConflict: ['studentid', 'point_id'] });
+
+    if (error) {
+      console.error("❌ Supabase Error:", error);
+      alert(`❌ Failed to update progress: ${error.message}`);
+      return false;
+    }
+
+    console.log("✅ Progress updated in table:", table);
+    return true;
   }
 
   async function sendFeedback(feedback_type, comment = "") {
