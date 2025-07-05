@@ -5,9 +5,9 @@ HAMDENI COMPUTER SCIENCE PLATFORM – DEPLOYMENT GUIDE
 
 📁 Structure:
 -------------
-- /public/index.html         ← Your main site
-- /public/404.html           ← Custom not-found page
-- /public/*                  ← CSS, JS, images, etc.
+- frontend/index.html        ← Your main site
+- 404.html                   ← Custom not-found page
+- frontend/*                 ← CSS, JS, images, etc.
 
 📌 STEP 1 – Deploy to Render
 -----------------------------
@@ -16,7 +16,7 @@ HAMDENI COMPUTER SCIENCE PLATFORM – DEPLOYMENT GUIDE
 3. Connect to GitHub OR upload this folder as ZIP manually
 4. Set these values:
    - Build Command: (leave blank)
-   - Publish Directory: public
+   - Publish Directory: frontend
 
 📌 STEP 2 – Add Custom Domain (hamdeni-cs.tn)
 ---------------------------------------------
@@ -57,8 +57,7 @@ For client-side fallback, you can add JavaScript redirect if needed.
 
 Environment Variables
 ---------------------
-The server injects configuration values into the frontend via `/config.js`.
-Set these variables before running `npm start`:
+`/config.js` is served statically. Ensure `frontend/config.js` contains real values or generate it during your build process:
 
 ```
 SUPABASE_URL      your Supabase project URL
