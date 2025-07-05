@@ -1,8 +1,8 @@
 
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
 
-const { SUPABASE_URL, SUPABASE_ANON_KEY, TEACHER_PASSWORD } = window.APP_CONFIG;
-const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+const { SUPABASE_URL, SUPABASE_KEY, TEACHER_PASSWORD } = window.APP_CONFIG;
+const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
 if (!localStorage.getItem("teacher-auth")) {
   const pass = prompt("Enter teacher password:");
@@ -21,16 +21,10 @@ let programmingLevels = [];
 
 document.getElementById('load-students').onclick = async () => {
   selectedPlatform = document.getElementById('platform').value;
-  const { data: students, error } = await supabase
+  const { data: students } = await supabase
     .from('students')
     .select('*')
     .eq('platform', selectedPlatform);
-
-  if (error) {
-    console.error('Failed to load students:', error);
-    alert('Error loading students');
-    return;
-  }
 
   const list = document.getElementById('student-list');
   list.innerHTML = '';
@@ -54,20 +48,10 @@ async function loadStudentProgress(username) {
   const tTable = platformTable('theory');
   const lTable = platformTable('programming');
 
-  const { data: tData, error: tErr } = await supabase.from(tTable).select('*').eq('studentid', username);
-  if (tErr) {
-    console.error('Failed to load theory progress:', tErr);
-    alert('Error loading theory progress');
-    return;
-  }
+  const { data: tData } = await supabase.from(tTable).select('*').eq('studentid', username);
   renderTheory(tData || []);
 
-  const { data: lData, error: lErr } = await supabase.from(lTable).select('*').eq('studentid', username);
-  if (lErr) {
-    console.error('Failed to load programming progress:', lErr);
-    alert('Error loading programming progress');
-    return;
-  }
+  const { data: lData } = await supabase.from(lTable).select('*').eq('studentid', username);
   renderLevels(lData || []);
 }
 
@@ -142,17 +126,10 @@ document.getElementById('save-progress').onclick = async () => {
     pointInputs.forEach(input => {
       update["layer" + input.dataset.layer + "_done"] = input.checked;
     });
-
-    const { error } = await supabase
-      .from(tTable)
-      .upsert(update, { onConflict: 'studentid,point_id' });
-    if (error) {
-      console.error('Failed to save theory progress:', error);
-      msg.textContent = 'Error saving progress';
-      document.getElementById('save-progress').disabled = false;
-      return;
-    }
-
+    
+    await supabase.from(tTable).delete().match({ studentid: selectedStudent.trim(), point_id: point });
+    await supabase.from(tTable).insert(update);
+    
   }
 
   for (let level of programmingLevels) {
@@ -162,17 +139,10 @@ document.getElementById('save-progress').onclick = async () => {
       level_number: level,
       level_done: input.checked
     };
-
-    const { error } = await supabase
-      .from(lTable)
-      .upsert(update, { onConflict: 'studentid,level_number' });
-    if (error) {
-      console.error('Failed to save programming progress:', error);
-      msg.textContent = 'Error saving progress';
-      document.getElementById('save-progress').disabled = false;
-      return;
-    }
-
+    
+    await supabase.from(lTable).delete().match({ studentid: selectedStudent.trim(), level_number: level });
+    await supabase.from(lTable).insert(update);
+    
   }
 
   msg.textContent = "✅ Progress saved.";
