@@ -75,7 +75,9 @@ export async function renderTheoryPoints() {
 
 async function fetchProgress(studentId) {
   const { SUPABASE_URL, SUPABASE_KEY } = window.APP_CONFIG;
-  const url = `${SUPABASE_URL}/rest/v1/a_theory_progress?select=*&studentid=eq.${studentId}`;
+  const platform = localStorage.getItem('platform');
+  const table = `${platform}_theory_progress`;
+  const url = `${SUPABASE_URL}/rest/v1/${table}?select=*&studentid=eq.${studentId}`;
 
   const res = await fetch(url, {
     headers: {
