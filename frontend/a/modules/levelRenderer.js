@@ -25,6 +25,7 @@ export function renderProgrammingLevels() {
   levels.forEach((level, index) => {
     const box = document.createElement("div");
     box.className = `level-box ${level.status}`;
+    box.dataset.level = index + 1;
 
     let icon = "";
     if (level.status === "locked") icon = "\uD83D\uDD12"; // 🔒
@@ -38,6 +39,14 @@ export function renderProgrammingLevels() {
         <span>${level.title}</span>
       </div>
     `;
+    box.addEventListener("click", () => {
+      if (box.classList.contains("locked")) {
+        alert("This level is locked.");
+      } else {
+        window.location.href = `./levels/level${index + 1}.html`;
+      }
+    });
+
     container.appendChild(box);
 
     // Insert red arrow image between levels except after last one
