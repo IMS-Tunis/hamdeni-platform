@@ -3,6 +3,8 @@ import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js
 
 const { SUPABASE_URL, SUPABASE_KEY, TEACHER_PASSWORD } = window.APP_CONFIG || {};
 
+console.log('🧪 APP_CONFIG:', window.APP_CONFIG);
+
 if (!SUPABASE_URL || !SUPABASE_KEY) {
   alert('Missing Supabase configuration. Please ensure config.js is loaded.');
 }
