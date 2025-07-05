@@ -4,7 +4,10 @@ export function renderProgrammingLevels() {
   if (!container) return;
 
   const levels = [
-    { title: "Introduction", id: "level1", status: "locked" },
+    // Level 1 is unlocked by default. Other levels remain locked until
+    // the student completes the previous ones. This array can later be
+    // populated dynamically using saved progress.
+    { title: "Introduction", id: "level1", status: "unlocked" },
     { title: "Basic I/O", id: "level2", status: "locked" },
     { title: "Conditionals", id: "level3", status: "locked" },
     { title: "Loops", id: "level4", status: "locked" },
@@ -39,6 +42,15 @@ export function renderProgrammingLevels() {
       </div>
     `;
     container.appendChild(box);
+
+    // When a level box is clicked, navigate only if it's unlocked or passed
+    box.addEventListener("click", () => {
+      if (level.status === "locked") {
+        alert("This level is locked. Complete previous levels to unlock it.");
+      } else {
+        window.location.href = `levels/${level.id}.html`;
+      }
+    });
 
     // Insert red arrow image between levels except after last one
     if (index < levels.length - 1) {
