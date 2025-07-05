@@ -290,35 +290,41 @@
   }
 
   async function updateProgress() {
-    const { error } = await supabase
-      .from("a_theory_progress")
-      .upsert({
-        studentid: student_id,
-        point_id: point_id,
-        layer1_done: true
-      }, { onConflict: ['studentid', 'point_id'] });
+    try {
+      const { error } = await supabase
+        .from("a_theory_progress")
+        .upsert({
+          studentid: student_id,
+          point_id: point_id,
+          layer1_done: true
+        }, { onConflict: ['studentid', 'point_id'] });
 
-    if (error) {
-      alert("❌ Failed to update progress.");
-      console.error(error);
+      if (error) throw error;
+      return true;
+    } catch (err) {
+      alert("❌ Failed to update progress. Please check your connection or contact your teacher.");
+      console.error("updateProgress error", err);
       return false;
     }
-    return true;
   }
 
   async function sendFeedback(feedback_type, comment = "") {
-    const { error } = await supabase
-      .from("a_theory_feedback")
-      .insert([{
-        studentid: student_id,
-        point_id: point_id,
-        layer: "layer1",
-        feedback_type,
-        comment
-      }]);
+    try {
+      const { error } = await supabase
+        .from("a_theory_feedback")
+        .insert([
+          {
+            studentid: student_id,
+            point_id: point_id,
+            layer: "layer1",
+            feedback_type,
+            comment
+          }
+        ]);
 
-    if (error) {
-      console.error("❌ Feedback insert error:", error);
+      if (error) throw error;
+    } catch (err) {
+      console.error("❌ Feedback insert error:", err);
     }
   }
 
