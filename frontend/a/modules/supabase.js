@@ -1,5 +1,6 @@
 
-const { SUPABASE_URL, SUPABASE_ANON_KEY } = window.APP_CONFIG;
+const SUPABASE_URL = "https://tsmzmuclrnyryuvanlxl.supabase.co";
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzbXptdWNscm55cnl1dmFubHhsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc3MzM5NjUsImV4cCI6MjA2MzMwOTk2NX0.-l7Klmp5hKru3w2HOWLRPjCiQprJ2pOjsI-HPTGtAiw";
 
 function tableName(platform, type) {
   const map = {
@@ -33,14 +34,14 @@ export async function fetchProgressCounts() {
     const [tRes, lRes] = await Promise.all([
       fetch(`${base}/${theoryTable}?select=layer4_done&studentid=eq.${studentId}`, {
         headers: {
-          apikey: SUPABASE_ANON_KEY,
-          Authorization: 'Bearer ' + SUPABASE_ANON_KEY
+          apikey: SUPABASE_KEY,
+          Authorization: 'Bearer ' + SUPABASE_KEY
         }
       }),
       fetch(`${base}/${levelTable}?select=level_done&studentid=eq.${studentId}`, {
         headers: {
-          apikey: SUPABASE_ANON_KEY,
-          Authorization: 'Bearer ' + SUPABASE_ANON_KEY
+          apikey: SUPABASE_KEY,
+          Authorization: 'Bearer ' + SUPABASE_KEY
         }
       })
     ]);
@@ -81,8 +82,8 @@ export function initializeLogin() {
         method: "GET",
         mode: "cors",
         headers: {
-          apikey: SUPABASE_ANON_KEY,
-          Authorization: "Bearer " + SUPABASE_ANON_KEY
+          apikey: SUPABASE_KEY,
+          Authorization: "Bearer " + SUPABASE_KEY
         }
       })
       .then(res => res.json())

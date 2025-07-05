@@ -14,22 +14,8 @@ app.get('/config.js', (req, res) => {
   res.send(`window.APP_CONFIG = ${JSON.stringify(config)};`);
 });
 app.use(express.static(path.join(__dirname, '..', 'frontend')));
-
-// Fallback route with path normalization to prevent directory traversal
 app.get('*', (req, res) => {
-  const frontendRoot = path.join(__dirname, '..', 'frontend');
-  const normalized = path.normalize(req.path).replace(/^\/+/, '');
-  const absolutePath = path.join(frontendRoot, normalized);
-
-  if (!absolutePath.startsWith(frontendRoot)) {
-    return res.status(404).sendFile(path.join(__dirname, '..', '404.html'));
-  }
-
-  res.sendFile(absolutePath, err => {
-    if (err) {
-      res.status(err.statusCode === 404 ? 404 : 500).sendFile(path.join(__dirname, '..', '404.html'));
-    }
-  });
+  res.sendFile(path.join(__dirname, '..', 'frontend', req.url));
 });
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

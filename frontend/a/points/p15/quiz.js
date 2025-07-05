@@ -114,10 +114,10 @@ function sendProgress() {
   const path = window.location.pathname;
   const point_id = path.split("/").find(p => p.startsWith("p"));
 
-  fetch(`${window.APP_CONFIG.SUPABASE_URL}/rest/v1/theory_progress`, {
+  fetch("https://tsmzmuclrnyryuvanlxl.supabase.co/rest/v1/theory_progress", {
     method: "PATCH",
     headers: {
-      "apikey": window.APP_CONFIG.SUPABASE_ANON_KEY,
+      "apikey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzbXptdWNscm55cnl1dmFubHhsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc3MzM5NjUsImV4cCI6MjA2MzMwOTk2NX0.-l7Klmp5hKru3w2HOWLRPjCiQprJ2pOjsI-HPTGtAiw.",
       "Content-Type": "application/json",
       "Prefer": "resolution=merge-duplicates"
     },
