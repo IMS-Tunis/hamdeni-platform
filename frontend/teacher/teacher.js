@@ -21,13 +21,27 @@ let programmingLevels = [];
 
 document.getElementById('load-students').onclick = async () => {
   selectedPlatform = document.getElementById('platform').value;
-  const { data: students } = await supabase
+  const { data: students, error } = await supabase
     .from('students')
     .select('*')
     .eq('platform', selectedPlatform);
 
   const list = document.getElementById('student-list');
+  const msg = document.getElementById('load-msg');
+  msg.textContent = '';
   list.innerHTML = '';
+
+  if (error) {
+    console.error('Failed to fetch students:', error);
+    msg.textContent = '❌ Unable to load students.';
+    return;
+  }
+
+  if (!students || students.length === 0) {
+    msg.textContent = 'No students found.';
+    return;
+  }
+
   students.forEach(s => {
     const li = document.createElement('li');
     li.textContent = s.username;
