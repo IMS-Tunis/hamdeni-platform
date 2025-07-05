@@ -1,3 +1,4 @@
+const { SUPABASE_URL, SUPABASE_KEY } = window.APP_CONFIG;
 
 // Load quiz data
 fetch("quiz.json")
@@ -114,10 +115,10 @@ function sendProgress() {
   const path = window.location.pathname;
   const point_id = path.split("/").find(p => p.startsWith("p"));
 
-  fetch("https://tsmzmuclrnyryuvanlxl.supabase.co/rest/v1/theory_progress", {
+  fetch(`${SUPABASE_URL}/rest/v1/theory_progress`, {
     method: "PATCH",
     headers: {
-      "apikey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzbXptdWNscm55cnl1dmFubHhsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc3MzM5NjUsImV4cCI6MjA2MzMwOTk2NX0.-l7Klmp5hKru3w2HOWLRPjCiQprJ2pOjsI-HPTGtAiw.",
+      "apikey": SUPABASE_KEY,
       "Content-Type": "application/json",
       "Prefer": "resolution=merge-duplicates"
     },

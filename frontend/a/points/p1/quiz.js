@@ -1,6 +1,7 @@
+const { SUPABASE_URL, SUPABASE_KEY } = window.APP_CONFIG;
 const supabase = window.supabase.createClient(
-  'https://tsmzmuclrnyryuvanlxl.supabase.co',
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzbXptdWNscm55cnl1dmFubHhsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc3MzM5NjUsImV4cCI6MjA2MzMwOTk2NX0.-l7Klmp5hKru3w2HOWLRPjCiQprJ2pOjsI-HPTGtAiw'
+  SUPABASE_URL,
+  SUPABASE_KEY
 );
 const studentId = localStorage.getItem("student_id");
 const pointId = location.pathname.split("/").find(p => p.startsWith("p")).toUpperCase();
