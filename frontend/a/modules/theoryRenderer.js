@@ -74,13 +74,13 @@ export async function renderTheoryPoints() {
 }
 
 async function fetchProgress(studentId) {
-  const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzbXptdWNscm55cnl1dmFubHhsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc3MzM5NjUsImV4cCI6MjA2MzMwOTk2NX0.-l7Klmp5hKru3w2HOWLRPjCiQprJ2pOjsI-HPTGtAiw";
-  const url = `https://tsmzmuclrnyryuvanlxl.supabase.co/rest/v1/a_theory_progress?select=*&studentid=eq.${studentId}`;
+  const { SUPABASE_URL, SUPABASE_ANON_KEY } = window.APP_CONFIG;
+  const url = `${SUPABASE_URL}/rest/v1/a_theory_progress?select=*&studentid=eq.${studentId}`;
 
   const res = await fetch(url, {
     headers: {
-      apikey: SUPABASE_KEY,
-      Authorization: "Bearer " + SUPABASE_KEY
+      apikey: SUPABASE_ANON_KEY,
+      Authorization: "Bearer " + SUPABASE_ANON_KEY
     }
   });
 
