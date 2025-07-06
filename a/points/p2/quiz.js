@@ -1,4 +1,5 @@
-const { SUPABASE_URL, SUPABASE_KEY } = window.APP_CONFIG;
+const SUPABASE_URL = "https://tsmzmuclrnyryuvanlxl.supabase.co";
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzbXptdWNscm55cnl1dmFubHhsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc3MzM5NjUsImV4cCI6MjA2MzMwOTk2NX0.-l7Klmp5hKru3w2HOWLRPjCiQprJ2pOjsI-HPTGtAiw";
 // Load quiz data
 fetch("quiz.json")
   .then(response => response.json())
@@ -79,17 +80,24 @@ function sendProgress() {
   const student_id = localStorage.getItem("student_id");
   const path = window.location.pathname;
   const point_id = path.split("/").find(p => p.startsWith("p"));
-  fetch(`${SUPABASE_URL}/rest/v1/theory_progress`, {
+  const platform = localStorage.getItem("platform");
+  const tables = {
+    A_Level: "a_theory_progress",
+    AS_Level: "as_theory_progress",
+    IGCSE: "igcse_theory_progress"
+  };
+  const table = tables[platform];
+  fetch(`${SUPABASE_URL}/rest/v1/${table}`, {
     method: "PATCH",
     headers: {
-      "apikey": SUPABASE_KEY,
+      apikey: SUPABASE_KEY,
       "Content-Type": "application/json",
-      "Prefer": "resolution=merge-duplicates"
+      Prefer: "resolution=merge-duplicates"
     },
     body: JSON.stringify({
-      student_id: student_id,
+      studentid: student_id,
       point_id: point_id.toUpperCase(),
-      layer2_passed: true
+      layer2_done: true
     })
 function shuffle(array) {
   let currentIndex = array.length, randomIndex;

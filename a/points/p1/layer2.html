@@ -4,10 +4,11 @@
   <meta charset="UTF-8" />
   <title>Layer 2 - Quiz</title>
   <link rel="stylesheet" href="../../dashboard.css" />
-  <script src="/config.js"></script>
   <script type="module">
     import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
-    window.supabase = { createClient };
+    const SUPABASE_URL = "https://tsmzmuclrnyryuvanlxl.supabase.co";
+    const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzbXptdWNscm55cnl1dmFubHhsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc3MzM5NjUsImV4cCI6MjA2MzMwOTk2NX0.-l7Klmp5hKru3w2HOWLRPjCiQprJ2pOjsI-HPTGtAiw";
+    window.supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
   </script>
   <style>
     body {
@@ -223,7 +224,9 @@
   📧 Contact Dr. Hamdeni at <a href="mailto:hamdeni.chamseddine@gmail.com">hamdeni.chamseddine@gmail.com</a>
 </footer>
 
-<script src="quiz.js"></script>
+<!-- Ensure the quiz script runs after the module above has created
+     `window.supabase` by deferring its execution -->
+<script src="quiz.js" defer></script>
 
 </body>
 </html>

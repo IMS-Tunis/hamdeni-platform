@@ -1,7 +1,11 @@
 
 export function renderProgrammingLevels() {
+  console.log('[levelRenderer] Rendering programming levels');
   const container = document.getElementById("programming-levels");
-  if (!container) return;
+  if (!container) {
+    console.error('[levelRenderer] programming-levels container not found');
+    return;
+  }
 
   const levels = [
     { title: "Introduction", id: "level1", status: "locked" },
@@ -23,6 +27,7 @@ export function renderProgrammingLevels() {
   ];
 
   levels.forEach((level, index) => {
+    console.debug('[levelRenderer] Creating level box', level.id);
     const box = document.createElement("div");
     box.className = `level-box ${level.status}`;
     box.dataset.level = index + 1;
@@ -40,10 +45,14 @@ export function renderProgrammingLevels() {
       </div>
     `;
     box.addEventListener("click", () => {
-      if (box.classList.contains("locked")) {
-        alert("This level is locked.");
-      } else {
-        window.location.href = `./levels/level${index + 1}.html`;
+      try {
+        if (box.classList.contains("locked")) {
+          alert("This level is locked.");
+        } else {
+          window.location.href = `./levels/level${index + 1}.html`;
+        }
+      } catch (err) {
+        console.error('[levelRenderer] Level box click error:', err);
       }
     });
 
@@ -56,6 +65,8 @@ export function renderProgrammingLevels() {
       arrow.alt = "↓";
       arrow.className = "arrow-img";
       container.appendChild(arrow);
+      console.debug('[levelRenderer] Inserted arrow after', level.id);
     }
   });
+  console.log('[levelRenderer] Finished rendering levels');
 }

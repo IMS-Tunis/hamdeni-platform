@@ -1,3 +1,5 @@
+import { SUPABASE_URL, SUPABASE_KEY } from '../../supabaseClient.js';
+
 export async function renderTheoryPoints() {
   console.log("📦 Loading theory points from index.json...");
   const studentId = localStorage.getItem("student_id");
@@ -40,6 +42,7 @@ export async function renderTheoryPoints() {
   }
 
   points.forEach(point => {
+    console.debug('[theoryRenderer] Rendering point', point.id);
     const entry = progressMap[point.id.toLowerCase()] || {};
     const layerStates = [
       entry.layer1_done ? "green" : "grey",
@@ -70,13 +73,19 @@ export async function renderTheoryPoints() {
       window.location.href = `./points/${point.id}/layer1.html`;
     };
     container.appendChild(box);
+    console.debug('[theoryRenderer] Added box for', point.id);
   });
+  console.log('[theoryRenderer] Finished rendering theory points');
 }
 
 async function fetchProgress(studentId) {
-  const { SUPABASE_URL, SUPABASE_KEY } = window.APP_CONFIG;
   const platform = localStorage.getItem('platform');
-  const table = `${platform}_theory_progress`;
+  const tables = {
+    A_Level: 'a_theory_progress',
+    AS_Level: 'as_theory_progress',
+    IGCSE: 'igcse_theory_progress'
+  };
+  const table = tables[platform];
   const url = `${SUPABASE_URL}/rest/v1/${table}?select=*&studentid=eq.${studentId}`;
 
   const res = await fetch(url, {

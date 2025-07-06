@@ -1,13 +1,19 @@
-const { SUPABASE_URL, SUPABASE_KEY } = window.APP_CONFIG;
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+const SUPABASE_URL = "https://tsmzmuclrnyryuvanlxl.supabase.co";
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI6InRzbXptdWNscm55cnl1dmFubHhsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc3MzM5NjUsImV4cCI6MjA2MzMwOTk2NX0.-l7Klmp5hKru3w2HOWLRPjCiQprJ2pOjsI-HPTGtAiw";
+// `window.supabase` already holds the Supabase client instance created in
+// `layer2.html`. Just reuse it instead of trying to call `createClient` again
+// on an undefined object.
+const supabase = window.supabase;
 const studentId = localStorage.getItem("student_id");
 const pointId = location.pathname.split("/").find(p => p.startsWith("p")).toUpperCase();
 
 fetch("quiz.json")
   .then(r => r.json())
   .then(data => startQuiz(data.questions));
+
 let attempt = 1;
 let incorrect = [];
+
 function startQuiz(questions) {
   const container = document.getElementById("quiz-container");
   container.innerHTML = "";
@@ -16,7 +22,7 @@ function startQuiz(questions) {
     if (attempt > 1 && !q.retry) return;
     const div = document.createElement("div");
     div.className = "quiz-question";
-    let html = `<h3>Q${i+1}: ${q.question}</h3>`;
+    let html = `<h3>Q${i + 1}: ${q.question}</h3>`;
     if (q.type === "mcq" || q.type === "true_false") {
       const opts = q.type === "mcq" ? q.options : ["True", "False"];
       opts.forEach(opt => {
@@ -30,6 +36,7 @@ function startQuiz(questions) {
       pairs.forEach(([key, correct], j) => {
         html += `<div class="match-item"><span>${key}</span><select name="q${i}_${j}"><option>Select</option>` +
           values.map(v => `<option value="${v}">${v}</option>`).join('') + `</select></div>`;
+      });
     }
     div.innerHTML = html;
     container.appendChild(div);
@@ -39,43 +46,67 @@ function startQuiz(questions) {
   submit.onclick = () => checkAnswers(questions);
   container.appendChild(submit);
 }
+
 function checkAnswers(questions) {
-  let correct = 0, total = 0;
+  let correct = 0;
   const result = document.getElementById("quiz-result");
   result.innerHTML = "";
-    total++;
-    let isCorrect = false, val = "";
+  questions.forEach((q, i) => {
+    if (attempt > 1 && !q.retry) return;
+    let isCorrect = false;
+    if (q.type === "mcq" || q.type === "true_false") {
       const sel = document.querySelector(`input[name="q${i}"]:checked`);
-      val = sel?.value || "";
+      const val = sel ? sel.value : "";
       isCorrect = val === q.answer;
-      val = document.querySelector(`input[name="q${i}"]`).value.trim();
+    } else if (q.type === "fill_blank") {
+      const val = document.querySelector(`input[name="q${i}"]`).value.trim();
       isCorrect = val.toLowerCase() === q.answer.toLowerCase();
+    } else if (q.type === "match") {
+      const pairs = Object.entries(q.pairs);
       isCorrect = pairs.every(([key, correct], j) =>
         document.querySelector(`select[name="q${i}_${j}"]`).value === correct
       );
-    if (isCorrect) correct++;
-    else {
+    }
+    if (isCorrect) {
+      correct++;
+    } else {
       q.retry = true;
       incorrect.push(q);
+    }
+  });
+
+  const total = questions.filter(q => attempt === 1 || q.retry).length;
   if (correct === total) {
-    result.innerHTML = `<div class="success-message">✅ All correct! Proceed to next layer.</div>
-      <a class="nav-btn next" href="layer3.html">Continue to Layer 3</a>`;
+    result.innerHTML = `<div class="success-message">✅ All correct! Proceed to next layer.</div>` +
+      `<a class="nav-btn next" href="layer3.html">Continue to Layer 3</a>`;
     sendProgress();
   } else {
     attempt++;
     result.innerHTML = `<div class="retry-message">❌ ${correct}/${total} correct. Try again.</div>`;
     startQuiz(incorrect);
   }
+}
+
 async function sendProgress() {
   const platform = localStorage.getItem("platform");
-  const table = `${platform}_theory_progress`;
+  const tables = {
+    A_Level: 'a_theory_progress',
+    AS_Level: 'as_theory_progress',
+    IGCSE: 'igcse_theory_progress'
+  };
+  const table = tables[platform];
+  if (!table) return;
   await supabase.from(table).upsert({
     studentid: studentId,
     point_id: pointId,
     layer2_done: true
   }, { onConflict: ['studentid', 'point_id'] });
+}
+
 function shuffle(a) {
   for (let i = a.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [a[i], a[j]] = [a[j], a[i]];
+  }
   return a;
+}
