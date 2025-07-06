@@ -42,6 +42,7 @@ export async function renderTheoryPoints() {
   }
 
   points.forEach(point => {
+    console.debug('[theoryRenderer] Rendering point', point.id);
     const entry = progressMap[point.id.toLowerCase()] || {};
     const layerStates = [
       entry.layer1_done ? "green" : "grey",
@@ -72,7 +73,9 @@ export async function renderTheoryPoints() {
       window.location.href = `./points/${point.id}/layer1.html`;
     };
     container.appendChild(box);
+    console.debug('[theoryRenderer] Added box for', point.id);
   });
+  console.log('[theoryRenderer] Finished rendering theory points');
 }
 
 async function fetchProgress(studentId) {
