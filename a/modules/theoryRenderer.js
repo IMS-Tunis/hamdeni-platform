@@ -77,7 +77,12 @@ export async function renderTheoryPoints() {
 
 async function fetchProgress(studentId) {
   const platform = localStorage.getItem('platform');
-  const table = `${platform}_theory_progress`;
+  const tables = {
+    A_Level: 'a_theory_progress',
+    AS_Level: 'as_theory_progress',
+    IGCSE: 'igcse_theory_progress'
+  };
+  const table = tables[platform];
   const url = `${SUPABASE_URL}/rest/v1/${table}?select=*&studentid=eq.${studentId}`;
 
   const res = await fetch(url, {

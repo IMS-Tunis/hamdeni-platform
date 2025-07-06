@@ -69,7 +69,12 @@ function checkAnswers(questions) {
   }
 async function sendProgress() {
   const platform = localStorage.getItem("platform");
-  const table = `${platform}_theory_progress`;
+  const tables = {
+    A_Level: 'a_theory_progress',
+    AS_Level: 'as_theory_progress',
+    IGCSE: 'igcse_theory_progress'
+  };
+  const table = tables[platform];
   await supabase.from(table).upsert({
     studentid: studentId,
     point_id: pointId,

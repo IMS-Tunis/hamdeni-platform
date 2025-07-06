@@ -5,7 +5,12 @@ const client = window.supabase;
 async function updateTheoryProgress(pointId, layer) {
   const student_id = localStorage.getItem("student_id");
   const platform = localStorage.getItem("platform");
-  const table = `${platform}_theory_progress`;
+  const tables = {
+    A_Level: 'a_theory_progress',
+    AS_Level: 'as_theory_progress',
+    IGCSE: 'igcse_theory_progress'
+  };
+  const table = tables[platform];
   const layerColumn = `layer${layer}_done`;
 
   console.log("📡 Supabase UPSERT:", { table, pointId, layerColumn });
