@@ -1,6 +1,9 @@
 const SUPABASE_URL = "https://tsmzmuclrnyryuvanlxl.supabase.co";
 const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI6InRzbXptdWNscm55cnl1dmFubHhsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc3MzM5NjUsImV4cCI6MjA2MzMwOTk2NX0.-l7Klmp5hKru3w2HOWLRPjCiQprJ2pOjsI-HPTGtAiw";
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+// `window.supabase` already holds the Supabase client instance created in
+// `layer2.html`. Just reuse it instead of trying to call `createClient` again
+// on an undefined object.
+const supabase = window.supabase;
 const studentId = localStorage.getItem("student_id");
 const pointId = location.pathname.split("/").find(p => p.startsWith("p")).toUpperCase();
 
