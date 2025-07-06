@@ -62,14 +62,14 @@
 
     .grid-container {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 7fr 3fr;
       grid-template-rows: auto auto;
       gap: 30px;
     }
 
     .cell {
       background: #fff;
-      padding: 20px;
+      padding: 30px;
       border-radius: 8px;
       box-shadow: 0 0 5px rgba(0,0,0,0.1);
     }
@@ -84,6 +84,7 @@
     }
 
     .section-title {
+      display: inline-block;
       font-weight: bold;
       margin: 15px 0 8px;
       font-size: 1.2em;
@@ -104,6 +105,10 @@
       border: 1px solid #ccc;
       border-radius: 6px;
       margin-bottom: 20px;
+    }
+
+    .videos iframe {
+      height: 250px;
     }
 
     #official-notes {
@@ -197,15 +202,15 @@
 
     <div class="header-left">
       <a href="../../dashboard.html">
-        <img src="../../../images/maarifLOGO.png" class="logo" />
+        <img src="../../../images/maarifLOGO.png" class="logo" id="maarif-logo" />
       </a>
     </div>
     <div class="header-center">
       <h1>Layer 1: Theoretical Foundation</h1>
       <div class="info-line">
-        <span id="platform-name"></span>
-        <span id="student-name"></span>
         <span id="point-title"></span>
+        <span id="student-name"></span>
+        <span id="platform-name"></span>
       </div>
     </div>
     <div class="header-right" style="text-align:right;">
@@ -231,7 +236,7 @@
       <div class="cell theory">
         <div class="section-title">📄 Mr. Hamdeni's Theory Notes</div>
         <div id="official-notes">
-          <iframe class="official-doc" src="https://docs.google.com/document/d/e/2PACX-1vRvBHZuPzhu5e1ZqIfFISG5htJXqqkO_mBA8INcH053tFI9vyGlNwQQLkgZluFDqKxLN2IOAptPXPvJ/pub?embedded=true" scrolling="no"></iframe>
+          <iframe class="official-doc" src="https://docs.google.com/document/d/e/2PACX-1vRvBHZuPzhu5e1ZqIfFISG5htJXqqkO_mBA8INcH053tFI9vyGlNwQQLkgZluFDqKxLN2IOAptPXPvJ/pub?embedded=true" height="2000" scrolling="no"></iframe>
         </div>
       </div>
       <div class="cell personal">
