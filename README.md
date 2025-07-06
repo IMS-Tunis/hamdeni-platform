@@ -55,20 +55,9 @@ For client-side fallback, you can add JavaScript redirect if needed.
 - Open https://hamdeni-cs.tn from multiple devices
 - Test SSL (https), loading speed, and page not found
 
-Environment Variables
----------------------
-`/config.js` is served from the site root. The repository includes both `config.js` and `frontend/config.js` so the path works whether you publish the entire repo or just the `frontend` folder. Update these files with your real values before deploying:
-
-
-```
-SUPABASE_URL      your Supabase project URL
-SUPABASE_KEY      your Supabase service key
-TEACHER_PASSWORD  password required for the teacher dashboard
-```
-
-Before deploying, edit `config.js` (and `frontend/config.js` if publishing the
-`frontend` directory) with your real credentials. The files are served
-statically so whatever values are present will be used by the browser.
+Supabase Configuration
+----------------------
+The frontend now contains the Supabase URL, service key and teacher password directly in the JavaScript source. No external `config.js` file is required for deployment.
 # Database Schema
 
 Legend: PK=Primary Key, FK=Foreign Key, Nullable=YES if column allows NULL.
