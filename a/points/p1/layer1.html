@@ -261,7 +261,6 @@
   </footer>
 
 <script>
-  const supabase = window.supabase;
 
   const student_id = localStorage.getItem("student_id");
   const student_name = localStorage.getItem("student_name");
@@ -302,7 +301,7 @@
 
     const table = `${platform}_theory_progress`;
 
-    const { error } = await supabase
+    const { error } = await window.supabase
       .from(table)
       .upsert({
         studentid: student_id,
@@ -322,7 +321,7 @@
 
   async function sendFeedback(feedback_type, comment = "") {
     try {
-      const { error } = await supabase
+      const { error } = await window.supabase
         .from("a_theory_feedback")
         .insert([
           {
