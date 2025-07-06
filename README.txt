@@ -57,7 +57,7 @@ For client-side fallback, you can add JavaScript redirect if needed.
 
 Environment Variables
 ---------------------
-`/config.js` is served statically. Ensure `frontend/config.js` contains real values or generate it during your build process:
+`/config.js` is served from the site root. The repository includes both `config.js` and `frontend/config.js` so the path works whether you publish the entire repo or just the `frontend` folder. Update these files with your real values before deploying:
 
 
 ```
@@ -66,8 +66,6 @@ SUPABASE_KEY      your Supabase service key
 TEACHER_PASSWORD  password required for the teacher dashboard
 ```
 
-Before deploying the `frontend` folder, edit `frontend/config.js` with your
-real credentials. The file is served statically so whatever values are present
-will be used by the browser.
-
-These variables are **not** committed to the repository.
+Before deploying, edit `config.js` (and `frontend/config.js` if publishing the
+`frontend` directory) with your real credentials. The files are served
+statically so whatever values are present will be used by the browser.
