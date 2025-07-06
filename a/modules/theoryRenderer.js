@@ -1,3 +1,5 @@
+import { SUPABASE_URL, SUPABASE_KEY } from '../../supabaseClient.js';
+
 export async function renderTheoryPoints() {
   console.log("📦 Loading theory points from index.json...");
   const studentId = localStorage.getItem("student_id");
@@ -74,7 +76,6 @@ export async function renderTheoryPoints() {
 }
 
 async function fetchProgress(studentId) {
-  const { SUPABASE_URL, SUPABASE_KEY } = window.APP_CONFIG;
   const platform = localStorage.getItem('platform');
   const table = `${platform}_theory_progress`;
   const url = `${SUPABASE_URL}/rest/v1/${table}?select=*&studentid=eq.${studentId}`;
