@@ -1,5 +1,4 @@
-
-const { SUPABASE_URL, SUPABASE_KEY } = window.APP_CONFIG;
+import { SUPABASE_URL, SUPABASE_KEY } from '../../supabaseClient.js';
 
 function tableName(platform, type) {
   const map = {

@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <title>Layer 1 - Theory Note</title>
   <link rel="stylesheet" href="../../dashboard.css" />
-  <script src="./config.js?v=10"></script>
   <script type="module">
     import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
     window.supabase = { createClient };
@@ -260,8 +259,8 @@
 
 <script>
   const supabase = window.supabase.createClient(
-    window.APP_CONFIG.SUPABASE_URL,
-    window.APP_CONFIG.SUPABASE_KEY
+    "https://tsmzmuclrnryryuvanlxl.supabase.co",
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzbXptdWNscm55cnl1dmFubHhsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc3MzM5NjUsImV4cCI6MjA2MzMwOTk2NX0.-l7Klmp5hKru3w2HOWLRPjCiQprJ2pOjsI-HPTGtAiw"
   );
 
   const student_id = localStorage.getItem("student_id");

@@ -1,5 +1,5 @@
-const { SUPABASE_URL, SUPABASE_KEY } = window.APP_CONFIG;
-const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+import { supabase } from '../../../../supabaseClient.js';
+const client = supabase;
 
 async function sendFeedback({ student_id, student_name, point_id, layer, feedback_type, comment }) {
   const payload = { student_id, student_name, point_id, layer, feedback_type, comment };

@@ -1,5 +1,5 @@
-const { SUPABASE_URL, SUPABASE_KEY } = window.APP_CONFIG;
-const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+import { supabase } from '../../../../supabaseClient.js';
+const client = supabase;
 
 async function updateTheoryProgress(pointId, layer) {
   const student_id = localStorage.getItem("student_id");

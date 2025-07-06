@@ -1,4 +1,5 @@
-const { SUPABASE_URL, SUPABASE_KEY } = window.APP_CONFIG;
+const SUPABASE_URL = "https://tsmzmuclrnryryuvanlxl.supabase.co";
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzbXptdWNscm55cnl1dmFubHhsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc3MzM5NjUsImV4cCI6MjA2MzMwOTk2NX0.-l7Klmp5hKru3w2HOWLRPjCiQprJ2pOjsI-HPTGtAiw";
 // Load quiz data
 fetch("quiz.json")
   .then(response => response.json())
