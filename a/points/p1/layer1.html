@@ -4,7 +4,11 @@
   <meta charset="UTF-8" />
   <title>Layer 1 - Theory Note</title>
   <link rel="stylesheet" href="../../dashboard.css" />
-
+  <script src="./config.js?v=10"></script>
+  <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+    window.supabase = { createClient };
+  </script>
   <style>
     *, *::before, *::after {
       box-sizing: border-box;
@@ -19,7 +23,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px 30px;
+      padding: 15px 30px;
       background-color: #003366;
       color: white;
     }
@@ -35,120 +39,89 @@
     }
 
     .header-center h1 {
-      margin: 0 0 8px 0;
+      margin: 0;
       font-size: 1.8em;
     }
 
-    .header-info {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 30px;
-      margin: 0;
-      font-size: 0.9em;
+    .header-center p {
+      margin: 3px 0;
+      font-size: 1em;
       color: #f0f0f0;
     }
 
-    .header-info span {
-      white-space: nowrap;
-    }
-
     .logo {
-      height: 45px;
+      height: 55px;
     }
 
     main {
-      padding: 30px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: auto auto;
-      gap: 30px;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-
-    .grid-cell {
-      background: white;
-      border-radius: 8px;
-      padding: 25px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      border: 1px solid #e0e0e0;
-    }
-
-    .section-title {
-      font-weight: bold;
-      margin: 0 0 20px 0;
-      font-size: 1.2em;
-      color: #fff;
-      background: #003366;
-      padding: 8px 15px;
-      border-radius: 4px;
-    }
-
-    .syllabus-cell {
-      grid-column: 1;
-      grid-row: 1;
-    }
-
-    .videos-cell {
-      grid-column: 2;
-      grid-row: 1;
-    }
-
-    .theory-notes-cell {
-      grid-column: 1;
-      grid-row: 2;
-    }
-
-    .personal-notes-cell {
-      grid-column: 2;
-      grid-row: 2;
-    }
-
-    .syllabus-cell img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 6px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-
-    #videos-container {
       display: flex;
-      flex-direction: column;
+      padding: 30px;
       gap: 20px;
     }
 
-    #videos-container iframe {
-      width: 100%;
-      border: 1px solid #ccc;
-      border-radius: 6px;
+    .doc-container {
+      flex: 0 0 60%;
+      max-width: 100%;
+      display: flex;
+      flex-direction: column;
+      padding-right: 20px;
+      border-right: 2px solid #ccc;
     }
 
-    .theory-notes-cell iframe {
-      width: 100%;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      min-height: 800px;
+    .notes-container {
+      flex: 0 0 40%;
+      display: flex;
+      flex-direction: column;
+      padding-left: 20px;
     }
 
-    .personal-notes-cell textarea {
+    .notes-container label {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .notes-container textarea {
       width: 100%;
-      height: 600px;
-      padding: 20px;
+      height: 100%;
+      flex: 1;
+      padding: 15px;
       font-size: 1em;
       border-radius: 6px;
       border: 1px solid #aaa;
       resize: vertical;
-      font-family: 'Segoe UI', sans-serif;
-      line-height: 1.5;
     }
 
-    .videos-cell {
-      display: none;
+    .section-title {
+      font-weight: bold;
+      margin: 15px 0 8px;
+      font-size: 1.2em;
+      color: #fff;
+      background: #003366;
+      padding: 6px 10px;
+      border-radius: 4px;
     }
 
-    .videos-cell.show {
-      display: block;
+    #video-section {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #ccc;
+    }
+
+    iframe {
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-bottom: 20px;
+    }
+
+    #official-notes {
+      overflow-x: hidden;
+    }
+
+    .official-doc {
+      width: calc(100% / 1.1);
+      transform: scale(1.1);
+      transform-origin: top left;
     }
 
     .actions {
@@ -223,57 +196,24 @@
       color: #333;
       font-size: 0.95em;
     }
-
-    @media (max-width: 768px) {
-      main {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
-      
-      .syllabus-cell {
-        grid-column: 1;
-        grid-row: 1;
-      }
-
-      .videos-cell {
-        grid-column: 1;
-        grid-row: 2;
-      }
-
-      .theory-notes-cell {
-        grid-column: 1;
-        grid-row: 3;
-      }
-
-      .personal-notes-cell {
-        grid-column: 1;
-        grid-row: 4;
-      }
-
-      .header-info {
-        flex-direction: column;
-        gap: 5px;
-      }
-    }
   </style>
 </head>
 <body>
   <header>
+
     <div class="header-left">
       <a href="../../dashboard.html">
         <img src="../../../images/maarifLOGO.png" class="logo" />
       </a>
     </div>
     <div class="header-center">
-      <h1>Layer 1: Theoretical Foundation</h1>
-      <div class="header-info">
-        <span id="student-name"></span>
-        <span id="platform-name"></span>
-        <span id="point-name"></span>
-      </div>
+      <h1>Theoretical Foundation</h1>
+      <p id="student-name"></p>
+      <p id="platform-name"></p>
     </div>
     <div class="header-right" style="text-align:right;">
       <img src="../../../images/cambridge.png" class="logo" />
+
     </div>
   </header>
 
@@ -282,23 +222,23 @@
   </div>
 
   <main id="content-area" style="display: none;">
-    <div class="grid-cell syllabus-cell">
+    <div class="doc-container">
       <div class="section-title">📌 Syllabus Points</div>
-      <img src="syllabus.png" alt="Syllabus Image" />
+      <img src="syllabus.png" alt="Syllabus Image" style="max-width: 100%; margin-bottom: 20px;" />
+
+      <div class="section-title">📄 Official Theory Notes</div>
+      <div id="official-notes">
+        <iframe class="official-doc" src="https://docs.google.com/document/d/e/2PACX-1vRvBHZuPzhu5e1ZqIfFISG5htJXqqkO_mBA8INcH053tFI9vyGlNwQQLkgZluFDqKxLN2IOAptPXPvJ/pub?embedded=true" height="2000" scrolling="no"></iframe>
+      </div>
     </div>
 
-    <div class="grid-cell videos-cell" id="videos-cell">
-      <div class="section-title">🎥 Related Videos</div>
-      <div id="videos-container"></div>
-    </div>
+    <div class="notes-container">
+      <div id="video-section" style="display:none;">
+        <label class="section-title">🎥 Related Videos</label>
+        <div id="videos-container"></div>
+      </div>
 
-    <div class="grid-cell theory-notes-cell">
-      <div class="section-title">📄 Mr. Hamdeni's Theory Notes</div>
-      <iframe src="https://docs.google.com/document/d/e/2PACX-1vRvBHZuPzhu5e1ZqIfFISG5htJXqqkO_mBA8INcH053tFI9vyGlNwQQLkgZluFDqKxLN2IOAptPXPvJ/pub?embedded=true" scrolling="no"></iframe>
-    </div>
-
-    <div class="grid-cell personal-notes-cell">
-      <div class="section-title" id="personal-notes-title">📝 Personal Notes</div>
+      <label class="section-title">📝 Your Personal Notes</label>
       <textarea placeholder="Write your own notes or summary about the theory..."></textarea>
     </div>
   </main>
@@ -318,13 +258,11 @@
     📧 Contact Dr. Hamdeni at <a href="mailto:chams-eddine.hemdani@tn.maarifschools.org">chams-eddine.hemdani@tn.maarifschools.org</a>
   </footer>
 
-<script type="module">
-  import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
-
-  const SUPABASE_URL = "https://tsmzmuclrnyryuvanlxl.supabase.co";
-  const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzbXptdWNscm55cnl1dmFubHhsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc3MzM5NjUsImV4cCI6MjA2MzMwOTk2NX0.-l7Klmp5hKru3w2HOWLRPjCiQprJ2pOjsI-HPTGtAiw";
-
-  const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+<script>
+  const supabase = window.supabase.createClient(
+    window.APP_CONFIG.SUPABASE_URL,
+    window.APP_CONFIG.SUPABASE_KEY
+  );
 
   const student_id = localStorage.getItem("student_id");
   const student_name = localStorage.getItem("student_name");
@@ -336,19 +274,18 @@
   } else {
     document.getElementById("student-name").textContent = "👤 " + student_name;
     document.getElementById("platform-name").textContent = "🎓 Platform: " + platform;
-    document.getElementById("point-name").textContent = "📍 Point: " + point_id;
-    document.getElementById("personal-notes-title").textContent = "📝 " + student_name + "'s Personal Notes";
-    document.getElementById("content-area").style.display = "grid";
+    document.getElementById("content-area").style.display = "flex";
 
     fetch("videos.json")
       .then(res => res.json())
       .then(videos => {
         if (videos[point_id] && videos[point_id].length > 0) {
-          document.getElementById("videos-cell").classList.add("show");
+          document.getElementById("video-section").style.display = "block";
           const container = document.getElementById("videos-container");
           videos[point_id].forEach(video => {
             const wrapper = document.createElement("div");
             wrapper.innerHTML = video.iframe;
+            wrapper.style.marginBottom = "20px";
             container.appendChild(wrapper);
           });
         }
@@ -364,12 +301,7 @@
       return false;
     }
 
-    const tables = {
-      A_Level: 'a_theory_progress',
-      AS_Level: 'as_theory_progress',
-      IGCSE: 'igcse_theory_progress'
-    };
-    const table = tables[platform];
+    const table = `${platform}_theory_progress`;
 
     const { error } = await supabase
       .from(table)
@@ -415,7 +347,6 @@
       window.location.href = "layer2.html";
     }
   }
-  window.markClear = markClear;
 
   async function markConfused() {
     if (await updateProgress()) {
@@ -423,12 +354,10 @@
       window.location.href = "layer2.html";
     }
   }
-  window.markConfused = markConfused;
 
   function showHelp() {
     document.getElementById("help-section").style.display = "block";
   }
-  window.showHelp = showHelp;
 
   async function submitHelp() {
     const comment = document.getElementById("unclear").value.trim();
@@ -442,7 +371,6 @@
       window.location.href = "layer2.html";
     }
   }
-  window.submitHelp = submitHelp;
 </script>
 </body>
 </html>
