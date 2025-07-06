@@ -6,6 +6,7 @@ import { initializeLogin, fetchProgressCounts } from "./modules/supabase.js";
 async function updateGeneralProgress() {
   const fill = document.querySelector(".general-progress-fill");
   if (!fill) return;
+  console.log('[dashboard] Updating general progress');
 
   let totalPoints = 0;
   try {
@@ -28,6 +29,7 @@ async function updateGeneralProgress() {
 
   fill.style.width = percent + "%";
   fill.textContent = percent + "%";
+  console.debug('[dashboard] Progress percent', percent);
 }
 
 document.addEventListener("DOMContentLoaded", () => {

@@ -19,6 +19,7 @@ function tableName(platform, type) {
 }
 
 export async function fetchProgressCounts() {
+  console.log('[supabaseModule] Fetching progress counts');
   const studentId = localStorage.getItem('student_id');
   const platform = localStorage.getItem('platform');
 
@@ -49,8 +50,9 @@ export async function fetchProgressCounts() {
 
     const passedPoints = tData.filter(r => r.layer4_done).length;
     const passedLevels = lData.filter(r => r.level_done).length;
-
-    return { points: passedPoints, levels: passedLevels };
+    const result = { points: passedPoints, levels: passedLevels };
+    console.log('[supabaseModule] Progress counts', result);
+    return result;
   } catch (err) {
     console.error('❌ Failed fetching progress counts:', err);
     return { points: 0, levels: 0 };
@@ -58,6 +60,7 @@ export async function fetchProgressCounts() {
 }
 
 export function initializeLogin() {
+  console.log('[supabaseModule] Initializing login handlers');
   const loginBtn = document.getElementById("login-btn");
   const logoutBtn = document.getElementById("logout-btn");
   const studentLabel = document.getElementById("student-name-bar");
@@ -91,9 +94,11 @@ export function initializeLogin() {
           localStorage.setItem("student_id", data[0].studentid);
           localStorage.setItem("student_name", data[0].username);
           localStorage.setItem("platform", data[0].platform);
+          console.log('[supabaseModule] Login successful for', data[0].username);
           location.reload();
         } else {
           alert("Login failed. Check your credentials.");
+          console.warn('[supabaseModule] Login failed for', username);
         }
       })
       .catch(error => {
