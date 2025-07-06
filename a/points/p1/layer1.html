@@ -299,7 +299,12 @@
       return false;
     }
 
-    const table = `${platform}_theory_progress`;
+    const tables = {
+      A_Level: 'a_theory_progress',
+      AS_Level: 'as_theory_progress',
+      IGCSE: 'igcse_theory_progress'
+    };
+    const table = tables[platform];
 
     const { error } = await supabase
       .from(table)
