@@ -345,6 +345,7 @@
       window.location.href = "layer2.html";
     }
   }
+  window.markClear = markClear;
 
   async function markConfused() {
     if (await updateProgress()) {
@@ -352,10 +353,12 @@
       window.location.href = "layer2.html";
     }
   }
+  window.markConfused = markConfused;
 
   function showHelp() {
     document.getElementById("help-section").style.display = "block";
   }
+  window.showHelp = showHelp;
 
   async function submitHelp() {
     const comment = document.getElementById("unclear").value.trim();
@@ -369,6 +372,7 @@
       window.location.href = "layer2.html";
     }
   }
+  window.submitHelp = submitHelp;
 </script>
 </body>
 </html>
