@@ -20,6 +20,7 @@
       <option value="IGCSE">IGCSE</option>
     </select>
     <button id="load-students">Filter Students</button>
+    <button id="open-add-student">Add Student</button>
     <span id="load-msg"></span>
   </div>
 
@@ -38,6 +39,39 @@
       <button id="save-progress" class="save-btn" style="display: none;">Save Progress</button>
       <div id="save-msg"></div>
     </main>
+  </div>
+
+  <div id="add-student-modal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <h3>Add Student</h3>
+      <form id="add-student-form">
+        <label>
+          Username:
+          <input type="text" id="new-username" required />
+        </label>
+        <label>
+          Password:
+          <input type="text" id="new-password" required />
+        </label>
+        <label>
+          Platform:
+          <select id="new-platform">
+            <option value="A_Level">A Level</option>
+            <option value="AS_Level">AS Level</option>
+            <option value="IGCSE">IGCSE</option>
+          </select>
+        </label>
+        <label>
+          Student ID:
+          <input type="text" id="new-studentid" required />
+        </label>
+        <div class="modal-actions">
+          <button type="submit">Create</button>
+          <button type="button" id="cancel-add-student">Cancel</button>
+        </div>
+      </form>
+      <div id="add-student-msg"></div>
+    </div>
   </div>
 
 </body>
