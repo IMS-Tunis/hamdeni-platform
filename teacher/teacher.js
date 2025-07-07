@@ -81,7 +81,7 @@ async function loadStudentProgress(username) {
   try {
     const { data: tData, error: tErr } = await supabase.from(tTable).select('*').eq('studentid', username);
     if (tErr) throw tErr;
-    renderTheory(tData || []);
+    await renderTheory(tData || []);
   } catch (err) {
     console.error('[teacher] Failed to load theory progress:', err);
   }
@@ -95,18 +95,36 @@ async function loadStudentProgress(username) {
   }
 }
 
-function renderTheory(data) {
+async function renderTheory(data) {
   const container = document.getElementById('theory-progress');
   container.innerHTML = '<h4>Theory Progress</h4>';
-  theoryPoints = ["13_1","13_2","13_3","14_1","14_2","15_1","15_2","16_1","16_2","17_1","18_1","19_1","19_2","20_1","20_2"];
 
-  theoryPoints.forEach(id => {
+  // Determine which points index to load based on the selected platform
+  const dirMap = { A_Level: 'a', AS_Level: 'as', IGCSE: 'igcse' };
+  const platformDir = dirMap[selectedPlatform] || 'a';
+  const indexPath = `../${platformDir}/points/index.json`;
+
+  let points = [];
+  try {
+    const res = await fetch(indexPath);
+    if (!res.ok) throw new Error('Failed to load index.json');
+    points = await res.json();
+  } catch (err) {
+    console.error('[teacher] Error loading point index:', err);
+    container.insertAdjacentText('beforeend', ' Unable to load points.');
+    return;
+  }
+
+  theoryPoints = points.map(p => p.id);
+
+  points.forEach((point, idx) => {
+    const id = point.id;
     const row = document.createElement('div');
     row.className = 'point-row';
 
     const label = document.createElement('div');
     label.className = 'point-label';
-    label.textContent = "P" + (theoryPoints.indexOf(id)+1) + " – " + id;
+    label.textContent = point.title || `P${idx + 1} – ${id}`;
     row.appendChild(label);
 
     for (let i = 1; i <= 4; i++) {
