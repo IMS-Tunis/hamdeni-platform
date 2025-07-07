@@ -290,29 +290,28 @@
         }
       });
 
-    fetch("docs.json")
-      .then(res => res.json())
-      .then(docs => {
-        if (docs[point_id]) {
-          const { url, height } = docs[point_id];
-          const frame = document.getElementById("doc-frame");
-          frame.src = url;
-          if (height) frame.height = height;
-        }
-      });
-
     fetch("videos.json")
       .then(res => res.json())
-      .then(videos => {
-        if (videos[point_id] && videos[point_id].length > 0) {
-          document.getElementById("video-section").style.display = "block";
-          const container = document.getElementById("videos-container");
-          videos[point_id].forEach(video => {
-            const wrapper = document.createElement("div");
-            wrapper.innerHTML = video.iframe;
-            wrapper.style.marginBottom = "20px";
-            container.appendChild(wrapper);
-          });
+      .then(data => {
+        if (data[point_id]) {
+          const { videos = [], doc } = data[point_id];
+
+          if (doc) {
+            const frame = document.getElementById("doc-frame");
+            frame.src = doc.url;
+            if (doc.height) frame.height = doc.height;
+          }
+
+          if (videos.length > 0) {
+            document.getElementById("video-section").style.display = "block";
+            const container = document.getElementById("videos-container");
+            videos.forEach(video => {
+              const wrapper = document.createElement("div");
+              wrapper.innerHTML = video.iframe;
+              wrapper.style.marginBottom = "20px";
+              container.appendChild(wrapper);
+            });
+          }
         }
       });
   }
