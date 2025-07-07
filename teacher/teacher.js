@@ -225,3 +225,56 @@ function platformTable(type) {
   };
   return map[selectedPlatform][type];
 }
+
+// Add Student modal handlers
+const addStudentBtn = document.getElementById('open-add-student');
+const addStudentModal = document.getElementById('add-student-modal');
+const cancelAddStudentBtn = document.getElementById('cancel-add-student');
+const addStudentForm = document.getElementById('add-student-form');
+const addStudentMsg = document.getElementById('add-student-msg');
+
+if (addStudentBtn) {
+  addStudentBtn.onclick = () => {
+    addStudentForm.reset();
+    addStudentMsg.textContent = '';
+    addStudentModal.style.display = 'flex';
+  };
+}
+
+if (cancelAddStudentBtn) {
+  cancelAddStudentBtn.onclick = () => {
+    addStudentModal.style.display = 'none';
+  };
+}
+
+if (addStudentForm) {
+  addStudentForm.onsubmit = async (e) => {
+    e.preventDefault();
+    const username = document.getElementById('new-username').value.trim();
+    const password = document.getElementById('new-password').value.trim();
+    const platform = document.getElementById('new-platform').value;
+    const studentid = document.getElementById('new-studentid').value.trim();
+
+    if (!username || !password || !platform || !studentid) {
+      alert('Please fill in all fields.');
+      return;
+    }
+
+    try {
+      const { error } = await supabase.from('students').insert({
+        username,
+        password,
+        platform,
+        studentid
+      });
+
+      if (error) throw error;
+
+      alert('Student created successfully!');
+      addStudentModal.style.display = 'none';
+    } catch (err) {
+      console.error('Error creating student:', err);
+      alert('Error creating student: ' + err.message);
+    }
+  };
+}
