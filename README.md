@@ -341,7 +341,7 @@ Legend: PK=Primary Key, FK=Foreign Key, Nullable=YES if column allows NULL.
 | Column | Type | Nullable | Default | PK | Unique | Foreign Key |
 |--------|------|----------|---------|----|--------|-------------|
 | id | uuid | NO | gen_random_uuid() | PK |  | null(null) |
-| studentid | text | NO | null |  | UQ | null(null) |
+| username | text | NO | null |  | UQ | null(null) |
 | level_number | integer | NO | null |  | UQ | null(null) |
 | level_done | boolean | YES | false |  |  | null(null) |
 
@@ -349,7 +349,6 @@ Legend: PK=Primary Key, FK=Foreign Key, Nullable=YES if column allows NULL.
 | Column | Type | Nullable | Default | PK | Unique | Foreign Key |
 |--------|------|----------|---------|----|--------|-------------|
 | id | uuid | NO | gen_random_uuid() | PK |  | null(null) |
-| studentid | text | NO | null |  |  | null(null) |
 | point_id | text | NO | null |  |  | null(null) |
 | layer | text | NO | null |  |  | null(null) |
 | feedback_type | text | NO | null |  |  | null(null) |
@@ -369,7 +368,7 @@ Legend: PK=Primary Key, FK=Foreign Key, Nullable=YES if column allows NULL.
 | Column | Type | Nullable | Default | PK | Unique | Foreign Key |
 |--------|------|----------|---------|----|--------|-------------|
 | id | uuid | NO | gen_random_uuid() | PK |  | null(null) |
-| studentid | text | NO | null |  | UQ | null(null) |
+| username | text | NO | null |  | UQ | null(null) |
 | point_id | text | NO | null |  | UQ | null(null) |
 | reached_layer | integer | NO | 0 |  |  | null(null) |
 
@@ -384,7 +383,7 @@ Legend: PK=Primary Key, FK=Foreign Key, Nullable=YES if column allows NULL.
 | Column | Type | Nullable | Default | PK | Unique | Foreign Key |
 |--------|------|----------|---------|----|--------|-------------|
 | id | uuid | NO | gen_random_uuid() | PK |  | null(null) |
-| studentid | text | NO | null |  | UQ | null(null) |
+| username | text | NO | null |  | UQ | null(null) |
 | level_number | integer | NO | null |  | UQ | null(null) |
 | level_done | boolean | YES | false |  |  | null(null) |
 
@@ -400,7 +399,7 @@ Legend: PK=Primary Key, FK=Foreign Key, Nullable=YES if column allows NULL.
 | Column | Type | Nullable | Default | PK | Unique | Foreign Key |
 |--------|------|----------|---------|----|--------|-------------|
 | id | uuid | NO | gen_random_uuid() | PK |  | null(null) |
-| studentid | text | NO | null |  | UQ | null(null) |
+| username | text | NO | null |  | UQ | null(null) |
 | point_id | text | NO | null |  | UQ | null(null) |
 | layer1_done | boolean | YES | false |  |  | null(null) |
 | layer2_done | boolean | YES | false |  |  | null(null) |
@@ -419,7 +418,7 @@ Legend: PK=Primary Key, FK=Foreign Key, Nullable=YES if column allows NULL.
 | Column | Type | Nullable | Default | PK | Unique | Foreign Key |
 |--------|------|----------|---------|----|--------|-------------|
 | id | uuid | NO | gen_random_uuid() | PK |  | null(null) |
-| studentid | text | NO | null |  | UQ | null(null) |
+| username | text | NO | null |  | UQ | null(null) |
 | level_number | integer | NO | null |  | UQ | null(null) |
 | level_done | boolean | YES | false |  |  | null(null) |
 
@@ -436,7 +435,7 @@ Legend: PK=Primary Key, FK=Foreign Key, Nullable=YES if column allows NULL.
 | Column | Type | Nullable | Default | PK | Unique | Foreign Key |
 |--------|------|----------|---------|----|--------|-------------|
 | id | uuid | NO | gen_random_uuid() | PK |  | null(null) |
-| studentid | text | NO | null |  | UQ | null(null) |
+| username | text | NO | null |  | UQ | null(null) |
 | point_id | text | NO | null |  | UQ | null(null) |
 | layer1_done | boolean | YES | false |  |  | null(null) |
 | layer2_done | boolean | YES | false |  |  | null(null) |
@@ -450,7 +449,6 @@ Legend: PK=Primary Key, FK=Foreign Key, Nullable=YES if column allows NULL.
 | username | text | NO | null |  |  | null(null) |
 | password | text | NO | null |  |  | null(null) |
 | platform | text | NO | null |  |  | null(null) |
-| studentid | text | NO | null |  |  | null(null) |
 
 ## Schema `realtime`
 

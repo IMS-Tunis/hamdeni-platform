@@ -20,10 +20,10 @@ function tableName(platform, type) {
 
 export async function fetchProgressCounts() {
   console.log('[supabaseModule] Fetching progress counts');
-  const studentId = localStorage.getItem('student_id');
+  const username = localStorage.getItem('username');
   const platform = localStorage.getItem('platform');
 
-  if (!studentId || !platform) return { points: 0, levels: 0 };
+  if (!username || !platform) return { points: 0, levels: 0 };
 
   const theoryTable = tableName(platform, 'theory');
   const levelTable = tableName(platform, 'programming');
@@ -31,13 +31,13 @@ export async function fetchProgressCounts() {
 
   try {
     const [tRes, lRes] = await Promise.all([
-      fetch(`${base}/${theoryTable}?select=reached_layer&studentid=eq.${studentId}`, {
+      fetch(`${base}/${theoryTable}?select=reached_layer&username=eq.${username}`, {
         headers: {
           apikey: SUPABASE_KEY,
           Authorization: 'Bearer ' + SUPABASE_KEY
         }
       }),
-      fetch(`${base}/${levelTable}?select=level_done&studentid=eq.${studentId}`, {
+      fetch(`${base}/${levelTable}?select=level_done&username=eq.${username}`, {
         headers: {
           apikey: SUPABASE_KEY,
           Authorization: 'Bearer ' + SUPABASE_KEY
@@ -91,7 +91,7 @@ export function initializeLogin() {
       .then(data => {
         console.log("📦 Supabase response:", data);
         if (data.length === 1) {
-          localStorage.setItem("student_id", data[0].studentid);
+          localStorage.setItem("username", data[0].username);
           localStorage.setItem("student_name", data[0].username);
           localStorage.setItem("platform", data[0].platform);
           console.log('[supabaseModule] Login successful for', data[0].username);

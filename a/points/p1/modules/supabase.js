@@ -3,7 +3,7 @@ const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
 const client = window.supabase;
 
 async function updateTheoryProgress(pointId, layer) {
-  const student_id = localStorage.getItem("student_id");
+  const username = localStorage.getItem("username");
   const platform = localStorage.getItem("platform");
   const tables = {
     A_Level: 'a_theory_progress',
@@ -16,11 +16,10 @@ async function updateTheoryProgress(pointId, layer) {
   const { error } = await client
     .from(table)
     .upsert({
-      studentid: student_id,
+      username: username,
       point_id: pointId,
       reached_layer: layer
-    }, { onConflict: ['studentid', 'point_id'] });
+    }, { onConflict: ['username', 'point_id'] });
 
   if (error) console.error("❌ Supabase Error:", error);
-  else console.log("✅ Supabase Progress Updated");
-}
+  else console.log("✅ Supabase Progress Updated");}
