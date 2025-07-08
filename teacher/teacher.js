@@ -20,6 +20,10 @@ let selectedPlatform = null;
 let theoryPoints = [];
 let programmingLevels = [];
 
+function usesReachedLayer() {
+  return selectedPlatform === 'A_Level';
+}
+
 document.getElementById('load-students').onclick = async () => {
   selectedPlatform = document.getElementById('platform').value;
   console.log('[teacher] Loading students for', selectedPlatform);
@@ -133,7 +137,13 @@ async function renderTheory(data) {
       checkbox.dataset.point = id;
       checkbox.dataset.layer = i;
       const found = (data || []).find(d => d.point_id === id);
-      if (found && Number(found.reached_layer) >= i) checkbox.checked = true;
+      if (found) {
+        if (usesReachedLayer()) {
+          if (Number(found.reached_layer) >= i) checkbox.checked = true;
+        } else if (found[`layer${i}_done`]) {
+          checkbox.checked = true;
+        }
+      }
       row.appendChild(checkbox);
     }
 
@@ -187,9 +197,18 @@ document.getElementById('save-progress').onclick = async () => {
     });
 
     try {
-      await supabase
-        .from(tTable)
-        .upsert({ username: selectedStudent, point_id: point, reached_layer });
+      if (usesReachedLayer()) {
+        await supabase
+          .from(tTable)
+          .upsert({ username: selectedStudent, point_id: point, reached_layer });
+      } else {
+        const update = { username: selectedStudent, point_id: point };
+        for (let i = 1; i <= 4; i++) {
+          const input = document.querySelector(`[data-point='${point}'][data-layer='${i}']`);
+          update[`layer${i}_done`] = input.checked;
+        }
+        await supabase.from(tTable).upsert(update);
+      }
     } catch (err) {
       console.error('[teacher] Failed updating point', point, err);
     }
