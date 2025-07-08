@@ -51,11 +51,10 @@
   </header>
   <main style="text-align:center; padding:40px;">
     <p>To be implemented.</p>
-    <a href="layer4.html">Go to Layer 4</a>
+    <a href="layer4.html">Next → Layer 4</a>
   </main>
-  <script>
-const SUPABASE_URL = "https://tsmzmuclrnyryuvanlxl.supabase.co";
-const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzbXptdWNscm55cnl1dmFubHhsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc3MzM5NjUsImV4cCI6MjA2MzMwOTk2NX0.-l7Klmp5hKru3w2HOWLRPjCiQprJ2pOjsI-HPTGtAiw";
+  <script type="module">
+import { supabase } from '../../../supabaseClient.js';
 (async () => {
   const username = localStorage.getItem('username');
   const platform = localStorage.getItem('platform');
@@ -63,13 +62,16 @@ const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
   const tables = { A_Level: 'a_theory_progress', AS_Level: 'as_theory_progress', IGCSE: 'igcse_theory_progress' };
   const table = tables[platform];
   if (username && table && point_id) {
-    await fetch(`${SUPABASE_URL}/rest/v1/${table}`, {
-      method: 'PATCH',
-      headers: { apikey: SUPABASE_KEY, 'Content-Type': 'application/json', Prefer: 'resolution=merge-duplicates' },
-      body: JSON.stringify({ username: username, point_id: point_id.toUpperCase(), reached_layer: 3 })
-    });
+    const { error } = await supabase
+      .from(table)
+      .upsert(
+        { username, point_id: point_id.toUpperCase(), reached_layer: 3 },
+        { onConflict: ['username', 'point_id'] }
+      );
+    if (error) {
+      console.error('Upsert error:', error);
+    }
   }
-  window.location.href = 'layer4.html';
 })();
   </script>
 </body>
