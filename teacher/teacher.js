@@ -133,7 +133,7 @@ async function renderTheory(data) {
       checkbox.dataset.point = id;
       checkbox.dataset.layer = i;
       const found = (data || []).find(d => d.point_id === id);
-      if (found && found['layer' + i + '_done']) checkbox.checked = true;
+      if (found && Number(found.reached_layer) >= i) checkbox.checked = true;
       row.appendChild(checkbox);
     }
 
@@ -179,20 +179,17 @@ document.getElementById('save-progress').onclick = async () => {
   for (let point of theoryPoints) {
     console.debug('[teacher] Updating point', point);
     const pointInputs = document.querySelectorAll(`[data-point='${point}']`);
-    const update = {
-      studentid: selectedStudent,
-      point_id: point
-    };
+    let reached_layer = 0;
     pointInputs.forEach(input => {
-      update["layer" + input.dataset.layer + "_done"] = input.checked;
+      if (input.checked) {
+        reached_layer = Math.max(reached_layer, Number(input.dataset.layer));
+      }
     });
 
     try {
       await supabase
         .from(tTable)
-        .delete()
-        .match({ studentid: selectedStudent.trim(), point_id: point });
-      await supabase.from(tTable).insert(update);
+        .upsert({ studentid: selectedStudent, point_id: point, reached_layer });
     } catch (err) {
       console.error('[teacher] Failed updating point', point, err);
     }
