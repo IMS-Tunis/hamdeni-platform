@@ -337,7 +337,7 @@
       .upsert({
         studentid: student_id,
         point_id: point_id,
-        layer1_done: true
+        reached_layer: 1
       }, { onConflict: ['studentid', 'point_id'] });
 
     if (error) {

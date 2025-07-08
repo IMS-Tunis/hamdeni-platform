@@ -97,7 +97,7 @@ function sendProgress() {
     body: JSON.stringify({
       studentid: student_id,
       point_id: point_id.toUpperCase(),
-      layer2_done: true
+      reached_layer: 2
     })
 function shuffle(array) {
   let currentIndex = array.length, randomIndex;
