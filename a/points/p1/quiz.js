@@ -99,7 +99,7 @@ async function sendProgress() {
   await supabase.from(table).upsert({
     studentid: studentId,
     point_id: pointId,
-    layer2_done: true
+    reached_layer: 2
   }, { onConflict: ['studentid', 'point_id'] });
 }
 

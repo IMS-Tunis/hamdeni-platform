@@ -371,10 +371,7 @@ Legend: PK=Primary Key, FK=Foreign Key, Nullable=YES if column allows NULL.
 | id | uuid | NO | gen_random_uuid() | PK |  | null(null) |
 | studentid | text | NO | null |  | UQ | null(null) |
 | point_id | text | NO | null |  | UQ | null(null) |
-| layer1_done | boolean | YES | false |  |  | null(null) |
-| layer2_done | boolean | YES | false |  |  | null(null) |
-| layer3_done | boolean | YES | false |  |  | null(null) |
-| layer4_done | boolean | YES | false |  |  | null(null) |
+| reached_layer | integer | NO | 0 |  |  | null(null) |
 
 ### Table `as_programming_levels`
 | Column | Type | Nullable | Default | PK | Unique | Foreign Key |

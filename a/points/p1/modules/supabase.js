@@ -11,16 +11,14 @@ async function updateTheoryProgress(pointId, layer) {
     IGCSE: 'igcse_theory_progress'
   };
   const table = tables[platform];
-  const layerColumn = `layer${layer}_done`;
-
-  console.log("📡 Supabase UPSERT:", { table, pointId, layerColumn });
+  console.log("📡 Supabase UPSERT:", { table, pointId, reached_layer: layer });
 
   const { error } = await client
     .from(table)
     .upsert({
       studentid: student_id,
       point_id: pointId,
-      [layerColumn]: true
+      reached_layer: layer
     }, { onConflict: ['studentid', 'point_id'] });
 
   if (error) console.error("❌ Supabase Error:", error);
