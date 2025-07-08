@@ -54,6 +54,11 @@ header {
   font-size: 1.2em;
   margin-bottom: 15px;
 }
+
+/* Section for programming levels */
+#levels-section {
+  margin-bottom: 20px;
+}
 #save-msg {
   font-size: 0.95em;
   margin-top: 8px;
@@ -83,7 +88,7 @@ header {
 
 .point-label,
 .level-label {
-  width: 140px;
+  width: 200px;
 }
 
 /* Modal styles */

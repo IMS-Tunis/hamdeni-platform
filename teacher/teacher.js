@@ -158,7 +158,7 @@ function renderLevels(data) {
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.dataset.level = level;
-    const found = (data || []).find(d => d.level_number === level);
+    const found = (data || []).find(d => Number(d.level_number) === level);
     if (found && found.level_done) checkbox.checked = true;
     row.appendChild(checkbox);
 
@@ -201,7 +201,7 @@ document.getElementById('save-progress').onclick = async () => {
     const input = document.querySelector(`[data-level='${level}']`);
     const update = {
       username: selectedStudent,
-      level_number: level,
+      level_number: Number(level),
       level_done: input.checked
     };
 
@@ -209,7 +209,7 @@ document.getElementById('save-progress').onclick = async () => {
       await supabase
         .from(lTable)
         .delete()
-        .match({ username: selectedStudent.trim(), level_number: level });
+        .match({ username: selectedStudent.trim(), level_number: Number(level) });
       await supabase.from(lTable).insert(update);
     } catch (err) {
       console.error('[teacher] Failed updating level', level, err);
