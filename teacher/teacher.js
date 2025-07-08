@@ -79,7 +79,7 @@ async function loadStudentProgress(username) {
   console.debug('[teacher] Tables used:', tTable, lTable);
 
   try {
-    const { data: tData, error: tErr } = await supabase.from(tTable).select('*').eq('studentid', username);
+    const { data: tData, error: tErr } = await supabase.from(tTable).select('*').eq('username', username);
     if (tErr) throw tErr;
     await renderTheory(tData || []);
   } catch (err) {
@@ -87,7 +87,7 @@ async function loadStudentProgress(username) {
   }
 
   try {
-    const { data: lData, error: lErr } = await supabase.from(lTable).select('*').eq('studentid', username);
+    const { data: lData, error: lErr } = await supabase.from(lTable).select('*').eq('username', username);
     if (lErr) throw lErr;
     renderLevels(lData || []);
   } catch (err) {
@@ -189,7 +189,7 @@ document.getElementById('save-progress').onclick = async () => {
     try {
       await supabase
         .from(tTable)
-        .upsert({ studentid: selectedStudent, point_id: point, reached_layer });
+        .upsert({ username: selectedStudent, point_id: point, reached_layer });
     } catch (err) {
       console.error('[teacher] Failed updating point', point, err);
     }
@@ -200,7 +200,7 @@ document.getElementById('save-progress').onclick = async () => {
     console.debug('[teacher] Updating level', level);
     const input = document.querySelector(`[data-level='${level}']`);
     const update = {
-      studentid: selectedStudent,
+      username: selectedStudent,
       level_number: level,
       level_done: input.checked
     };
@@ -209,7 +209,7 @@ document.getElementById('save-progress').onclick = async () => {
       await supabase
         .from(lTable)
         .delete()
-        .match({ studentid: selectedStudent.trim(), level_number: level });
+        .match({ username: selectedStudent.trim(), level_number: level });
       await supabase.from(lTable).insert(update);
     } catch (err) {
       console.error('[teacher] Failed updating level', level, err);
@@ -268,9 +268,8 @@ if (addStudentForm) {
     const username = document.getElementById('new-username').value.trim();
     const password = document.getElementById('new-password').value.trim();
     const platform = document.getElementById('new-platform').value;
-    const studentid = document.getElementById('new-studentid').value.trim();
 
-    if (!username || !password || !platform || !studentid) {
+    if (!username || !password || !platform) {
       alert('Please fill in all fields.');
       return;
     }
@@ -279,8 +278,7 @@ if (addStudentForm) {
       const { error } = await supabase.from('students').insert({
         username,
         password,
-        platform,
-        studentid
+        platform
       });
 
       if (error) throw error;

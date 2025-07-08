@@ -2,9 +2,9 @@ import { SUPABASE_URL, SUPABASE_KEY } from '../../supabaseClient.js';
 
 export async function renderTheoryPoints() {
   console.log("📦 Loading theory points from index.json...");
-  const studentId = localStorage.getItem("student_id");
+  const username = localStorage.getItem("username");
 
-  if (!studentId) {
+  if (!username) {
     console.warn("🚫 No student logged in. Rendering default grey boxes.");
   }
 
@@ -21,9 +21,9 @@ export async function renderTheoryPoints() {
 
   // Step 2: Load progress from Supabase (if logged in)
   let progressMap = {};
-  if (studentId) {
+  if (username) {
     try {
-      const { data, error } = await fetchProgress(studentId);
+      const { data, error } = await fetchProgress(username);
       if (error) throw error;
 
       data.forEach(entry => {
@@ -74,7 +74,7 @@ export async function renderTheoryPoints() {
   console.log('[theoryRenderer] Finished rendering theory points');
 }
 
-async function fetchProgress(studentId) {
+async function fetchProgress(username) {
   const platform = localStorage.getItem('platform');
   const tables = {
     A_Level: 'a_theory_progress',
@@ -82,7 +82,7 @@ async function fetchProgress(studentId) {
     IGCSE: 'igcse_theory_progress'
   };
   const table = tables[platform];
-  const url = `${SUPABASE_URL}/rest/v1/${table}?select=*&studentid=eq.${studentId}`;
+  const url = `${SUPABASE_URL}/rest/v1/${table}?select=*&username=eq.${username}`;
 
   const res = await fetch(url, {
     headers: {
@@ -92,5 +92,4 @@ async function fetchProgress(studentId) {
   });
 
   const data = await res.json();
-  return { data };
-}
+  return { data };}

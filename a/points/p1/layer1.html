@@ -268,12 +268,12 @@
 
   const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
-  const student_id = localStorage.getItem("student_id");
+  const username = localStorage.getItem("username");
   const student_name = localStorage.getItem("student_name");
   const platform = localStorage.getItem("platform");
   const point_id = "P1";
 
-  if (!student_id || !student_name) {
+  if (!username || !student_name) {
     document.getElementById("error-message").style.display = "block";
   } else {
     document.getElementById("student-name").textContent = "👤 " + student_name;
@@ -318,9 +318,9 @@
 
   async function updateProgress() {
     const platform = localStorage.getItem("platform");
-    const student_id = localStorage.getItem("student_id");
+    const username = localStorage.getItem("username");
 
-    if (!student_id || !platform) {
+    if (!username || !platform) {
       alert("❌ Missing student information. Please log in again.");
       return false;
     }
@@ -335,10 +335,10 @@
     const { error } = await supabase
       .from(table)
       .upsert({
-        studentid: student_id,
+        username: username,
         point_id: point_id,
         reached_layer: 1
-      }, { onConflict: ['studentid', 'point_id'] });
+      }, { onConflict: ['username', 'point_id'] });
 
     if (error) {
       console.error("❌ Supabase Error:", error);
@@ -356,7 +356,7 @@
         .from("a_theory_feedback")
         .insert([
           {
-            studentid: student_id,
+            username: username,
             point_id: point_id,
             layer: "layer1",
             feedback_type,

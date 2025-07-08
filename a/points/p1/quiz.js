@@ -4,7 +4,7 @@ const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
 // `layer2.html`. Just reuse it instead of trying to call `createClient` again
 // on an undefined object.
 const supabase = window.supabase;
-const studentId = localStorage.getItem("student_id");
+const username = localStorage.getItem("username");
 const pointId = (location.pathname
   .split("/")
   .find(p => /^p\d+$/i.test(p)) || "")
@@ -100,10 +100,10 @@ async function sendProgress() {
   const table = tables[platform];
   if (!table) return;
   await supabase.from(table).upsert({
-    studentid: studentId,
+    username: username,
     point_id: pointId,
     reached_layer: 2
-  }, { onConflict: ['studentid', 'point_id'] });
+  }, { onConflict: ['username', 'point_id'] });
 }
 
 function shuffle(a) {

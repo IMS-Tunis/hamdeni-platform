@@ -77,7 +77,7 @@ function showResult(correct, total, questions) {
     result.innerHTML += `<button onclick='startQuiz(${JSON.stringify(questions)})'>Retry Incorrect Only</button>`;
   }
 function sendProgress() {
-  const student_id = localStorage.getItem("student_id");
+  const username = localStorage.getItem("username");
   const path = window.location.pathname;
   const point_id = path
     .split("/")
@@ -97,7 +97,7 @@ function sendProgress() {
       Prefer: "resolution=merge-duplicates"
     },
     body: JSON.stringify({
-      studentid: student_id,
+      username: username,
       point_id: point_id.toUpperCase(),
       reached_layer: 2
     })
