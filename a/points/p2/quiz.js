@@ -79,7 +79,9 @@ function showResult(correct, total, questions) {
 function sendProgress() {
   const student_id = localStorage.getItem("student_id");
   const path = window.location.pathname;
-  const point_id = path.split("/").find(p => p.startsWith("p"));
+  const point_id = path
+    .split("/")
+    .find(p => /^p\d+$/i.test(p));
   const platform = localStorage.getItem("platform");
   const tables = {
     A_Level: "a_theory_progress",
@@ -97,7 +99,7 @@ function sendProgress() {
     body: JSON.stringify({
       studentid: student_id,
       point_id: point_id.toUpperCase(),
-      layer2_done: true
+      reached_layer: 2
     })
 function shuffle(array) {
   let currentIndex = array.length, randomIndex;

@@ -5,7 +5,10 @@ const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
 // on an undefined object.
 const supabase = window.supabase;
 const studentId = localStorage.getItem("student_id");
-const pointId = location.pathname.split("/").find(p => p.startsWith("p")).toUpperCase();
+const pointId = (location.pathname
+  .split("/")
+  .find(p => /^p\d+$/i.test(p)) || "")
+  .toUpperCase();
 
 fetch("quiz.json")
   .then(r => r.json())
@@ -99,7 +102,7 @@ async function sendProgress() {
   await supabase.from(table).upsert({
     studentid: studentId,
     point_id: pointId,
-    layer2_done: true
+    reached_layer: 2
   }, { onConflict: ['studentid', 'point_id'] });
 }
 

@@ -31,7 +31,7 @@ export async function fetchProgressCounts() {
 
   try {
     const [tRes, lRes] = await Promise.all([
-      fetch(`${base}/${theoryTable}?select=layer4_done&studentid=eq.${studentId}`, {
+      fetch(`${base}/${theoryTable}?select=reached_layer&studentid=eq.${studentId}`, {
         headers: {
           apikey: SUPABASE_KEY,
           Authorization: 'Bearer ' + SUPABASE_KEY
@@ -48,7 +48,7 @@ export async function fetchProgressCounts() {
     const tData = await tRes.json();
     const lData = await lRes.json();
 
-    const passedPoints = tData.filter(r => r.layer4_done).length;
+    const passedPoints = tData.filter(r => r.reached_layer === 4).length;
     const passedLevels = lData.filter(r => r.level_done).length;
     const result = { points: passedPoints, levels: passedLevels };
     console.log('[supabaseModule] Progress counts', result);

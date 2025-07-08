@@ -44,12 +44,8 @@ export async function renderTheoryPoints() {
   points.forEach(point => {
     console.debug('[theoryRenderer] Rendering point', point.id);
     const entry = progressMap[point.id.toLowerCase()] || {};
-    const layerStates = [
-      entry.layer1_done ? "green" : "grey",
-      entry.layer2_done ? "green" : "grey",
-      entry.layer3_done ? "green" : "grey",
-      entry.layer4_done ? "green" : "grey"
-    ];
+    const reached = entry.reached_layer || 0;
+    const layerStates = [1, 2, 3, 4].map(n => reached >= n ? "green" : "grey");
 
     const box = document.createElement("div");
     box.className = "theory-box theory-clickable";
