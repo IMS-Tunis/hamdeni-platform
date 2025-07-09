@@ -58,14 +58,17 @@ import { supabase } from '../../../supabaseClient.js';
 (async () => {
   const username = localStorage.getItem('username');
   const platform = localStorage.getItem('platform');
-  const point_id = window.location.pathname.split('/').find(p => /^p\d+$/i.test(p));
+  const point_id = window.location.pathname
+    .split('/')
+    .find(p => /^p\d+$/i.test(p))
+    .toLowerCase();
   const tables = { A_Level: 'a_theory_progress', AS_Level: 'as_theory_progress', IGCSE: 'igcse_theory_progress' };
   const table = tables[platform];
   if (username && table && point_id) {
     const { error } = await supabase
       .from(table)
       .upsert(
-        { username, point_id: point_id.toUpperCase(), reached_layer: 3 },
+        { username, point_id, reached_layer: 3 },
         { onConflict: ['username', 'point_id'] }
       );
     if (error) {

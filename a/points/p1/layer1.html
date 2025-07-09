@@ -336,7 +336,7 @@
       .from(table)
       .upsert({
         username: username,
-        point_id: point_id,
+        point_id: point_id.toLowerCase(),
         reached_layer: 1
       }, { onConflict: ['username', 'point_id'] });
 
@@ -357,7 +357,7 @@
         .insert([
           {
             username: username,
-            point_id: point_id,
+            point_id: point_id.toLowerCase(),
             layer: "layer1",
             feedback_type,
             comment

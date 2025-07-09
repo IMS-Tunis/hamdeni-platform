@@ -204,11 +204,11 @@ document.getElementById('save-progress').onclick = async () => {
           .from(tTable)
           .upsert({
             username: selectedStudent,
-            point_id: point.toUpperCase(),
+            point_id: point.toLowerCase(),
             reached_layer
           });
       } else {
-        const update = { username: selectedStudent, point_id: point };
+        const update = { username: selectedStudent, point_id: point.toLowerCase() };
         for (let i = 1; i <= 4; i++) {
           const input = document.querySelector(`[data-point='${point}'][data-layer='${i}']`);
           update[`layer${i}_done`] = input.checked;

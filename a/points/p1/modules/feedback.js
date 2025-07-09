@@ -2,8 +2,9 @@ const SUPABASE_URL = "https://tsmzmuclrnyryuvanlxl.supabase.co";
 const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzbXptdWNscm55cnl1dmFubHhsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc3MzM5NjUsImV4cCI6MjA2MzMwOTk2NX0.-l7Klmp5hKru3w2HOWLRPjCiQprJ2pOjsI-HPTGtAiw";
 const client = window.supabase;
 
-async function sendFeedback({ username, student_name, point_id, layer, feedback_type, comment }) {
-  const payload = { username, student_name, point_id, layer, feedback_type, comment };
+  async function sendFeedback({ username, student_name, point_id, layer, feedback_type, comment }) {
+    point_id = point_id.toLowerCase();
+    const payload = { username, student_name, point_id, layer, feedback_type, comment };
   console.log("📨 Google Sheet Payload:", payload);
 
   try {
@@ -25,5 +26,4 @@ async function sendFeedback({ username, student_name, point_id, layer, feedback_
     if (error) console.error("❌ Supabase Feedback Error:", error);
     else console.log("✅ Supabase Feedback Logged");
   } catch (err) {
-    console.error("❌ Feedback Submission Error:", err);
-  }}
+    console.error("❌ Feedback Submission Error:", err);  }}
