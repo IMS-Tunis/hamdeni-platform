@@ -136,7 +136,9 @@ async function renderTheory(data) {
       checkbox.type = 'checkbox';
       checkbox.dataset.point = id;
       checkbox.dataset.layer = i;
-      const found = (data || []).find(d => d.point_id === id);
+      const found = (data || []).find(
+        d => d.point_id && d.point_id.toLowerCase() === id.toLowerCase()
+      );
       if (found) {
         if (usesReachedLayer()) {
           if (Number(found.reached_layer) >= i) checkbox.checked = true;
@@ -200,7 +202,11 @@ document.getElementById('save-progress').onclick = async () => {
       if (usesReachedLayer()) {
         await supabase
           .from(tTable)
-          .upsert({ username: selectedStudent, point_id: point, reached_layer });
+          .upsert({
+            username: selectedStudent,
+            point_id: point.toUpperCase(),
+            reached_layer
+          });
       } else {
         const update = { username: selectedStudent, point_id: point };
         for (let i = 1; i <= 4; i++) {
