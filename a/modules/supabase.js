@@ -31,13 +31,13 @@ export async function fetchProgressCounts() {
 
   try {
     const [tRes, lRes] = await Promise.all([
-      fetch(`${base}/${theoryTable}?select=reached_layer&username=eq.${username}`, {
+      fetch(`${base}/${theoryTable}?select=reached_layer&username=eq.${encodeURIComponent(username)}`, {
         headers: {
           apikey: SUPABASE_KEY,
           Authorization: 'Bearer ' + SUPABASE_KEY
         }
       }),
-      fetch(`${base}/${levelTable}?select=level_done&username=eq.${username}`, {
+      fetch(`${base}/${levelTable}?select=level_done&username=eq.${encodeURIComponent(username)}`, {
         headers: {
           apikey: SUPABASE_KEY,
           Authorization: 'Bearer ' + SUPABASE_KEY
