@@ -81,7 +81,8 @@ function sendProgress() {
   const path = window.location.pathname;
   const point_id = path
     .split("/")
-    .find(p => /^p\d+$/i.test(p));
+    .find(p => /^p\d+$/i.test(p))
+    .toLowerCase();
   const platform = localStorage.getItem("platform");
   const tables = {
     A_Level: "a_theory_progress",
@@ -98,7 +99,7 @@ function sendProgress() {
     },
     body: JSON.stringify({
       username: username,
-      point_id: point_id.toUpperCase(),
+      point_id,
       reached_layer: 2
     })
   });

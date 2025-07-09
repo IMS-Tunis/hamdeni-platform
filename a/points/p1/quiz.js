@@ -8,7 +8,7 @@ const username = localStorage.getItem("username");
 const pointId = (location.pathname
   .split("/")
   .find(p => /^p\d+$/i.test(p)) || "")
-  .toUpperCase();
+  .toLowerCase();
 
 fetch("quiz.json")
   .then(r => r.json())
