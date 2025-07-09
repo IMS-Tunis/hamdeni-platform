@@ -82,7 +82,7 @@ async function fetchProgress(username) {
     IGCSE: 'igcse_theory_progress'
   };
   const table = tables[platform];
-  const url = `${SUPABASE_URL}/rest/v1/${table}?select=*&username=eq.${username}`;
+  const url = `${SUPABASE_URL}/rest/v1/${table}?select=*&username=eq.${encodeURIComponent(username)}`;
 
   const res = await fetch(url, {
     headers: {
@@ -91,5 +91,4 @@ async function fetchProgress(username) {
     }
   });
 
-  const data = await res.json();
-  return { data };}
+  const data = await res.json();  return { data };}
