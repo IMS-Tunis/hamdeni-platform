@@ -340,10 +340,8 @@ Legend: PK=Primary Key, FK=Foreign Key, Nullable=YES if column allows NULL.
 ### Table `a_programming_progress`
 | Column | Type | Nullable | Default | PK | Unique | Foreign Key |
 |--------|------|----------|---------|----|--------|-------------|
-| id | uuid | NO | gen_random_uuid() | PK |  | null(null) |
-| username | text | NO | null |  | UQ | null(null) |
-| level_number | integer | NO | null |  | UQ | null(null) |
-| level_done | boolean | YES | false |  |  | null(null) |
+| studentid | text | NO | null | PK |  | students.username |
+| reached_level | integer | NO | 0 |  |  | null |
 
 ### Table `a_theory_feedback`
 | Column | Type | Nullable | Default | PK | Unique | Foreign Key |

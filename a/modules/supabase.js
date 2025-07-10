@@ -21,7 +21,6 @@ function tableName(platform, type) {
 export async function fetchProgressCounts() {
   console.log('[supabaseModule] Fetching progress counts');
   const username = localStorage.getItem('username');
-  const studentId = localStorage.getItem('student_id');
   const platform = localStorage.getItem('platform');
 
   if (!username || !platform) return { points: 0, levels: 0 };
@@ -38,7 +37,7 @@ export async function fetchProgressCounts() {
           Authorization: 'Bearer ' + SUPABASE_KEY
         }
       }),
-      fetch(`${base}/${levelTable}?select=level_done&${platform === 'A_Level' ? 'studentid' : 'username'}=eq.${encodeURIComponent(platform === 'A_Level' ? studentId : username)}`, {
+      fetch(`${base}/${levelTable}?select=${platform === 'A_Level' ? 'reached_level' : 'level_done'}&${platform === 'A_Level' ? 'studentid' : 'username'}=eq.${encodeURIComponent(username)}`, {
         headers: {
           apikey: SUPABASE_KEY,
           Authorization: 'Bearer ' + SUPABASE_KEY
@@ -50,7 +49,12 @@ export async function fetchProgressCounts() {
     const lData = await lRes.json();
 
     const passedPoints = tData.filter(r => r.reached_layer === 4).length;
-    const passedLevels = lData.filter(r => r.level_done).length;
+    let passedLevels = 0;
+    if (platform === 'A_Level') {
+      passedLevels = lData.length ? lData[0].reached_level : 0;
+    } else {
+      passedLevels = lData.filter(r => r.level_done).length;
+    }
     const result = { points: passedPoints, levels: passedLevels };
     console.log('[supabaseModule] Progress counts', result);
     return result;
