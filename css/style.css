@@ -83,6 +83,13 @@ body {
   animation: slideInRight 1.5s ease;
 }
 
+.platform-note {
+  font-size: 1.1rem;
+  color: #006095;
+  font-style: italic;
+  animation: slideInRight 1.8s ease;
+}
+
 .second-row {
   display: flex;
   gap: 40px;
@@ -438,6 +445,10 @@ footer {
     font-size: 1.1rem;
   }
 
+  .platform-note {
+    font-size: 1rem;
+  }
+
   .double-column {
     flex-direction: column;
     padding: 0 10px;
@@ -513,6 +524,10 @@ footer {
 
   .title-block p {
     font-size: 1rem;
+  }
+
+  .platform-note {
+    font-size: 0.9rem;
   }
 
   .section-title {
