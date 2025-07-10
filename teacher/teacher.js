@@ -97,7 +97,7 @@ async function loadStudentProgress(student) {
 
   try {
     const column = selectedPlatform === 'A_Level' ? 'studentid' : 'username';
-    const value = selectedPlatform === 'A_Level' ? student.id : username;
+    const value = username;
     const { data: lData, error: lErr } = await supabase
       .from(lTable)
       .select('*')
@@ -168,6 +168,9 @@ function renderLevels(data) {
   container.innerHTML = '<h4>Programming Progress</h4>';
   programmingLevels = levelDefs.map((_, i) => i + 1);
 
+  const reached =
+    selectedPlatform === 'A_Level' ? (data[0]?.reached_level || 0) : null;
+
   levelDefs.forEach((lvl, idx) => {
     const row = document.createElement('div');
     row.className = 'level-row';
@@ -180,8 +183,12 @@ function renderLevels(data) {
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.dataset.level = idx + 1;
-    const found = (data || []).find(d => Number(d.level_number) === idx + 1);
-    if (found && found.level_done) checkbox.checked = true;
+    if (selectedPlatform === 'A_Level') {
+      if (idx + 1 <= reached) checkbox.checked = true;
+    } else {
+      const found = (data || []).find(d => Number(d.level_number) === idx + 1);
+      if (found && found.level_done) checkbox.checked = true;
+    }
     row.appendChild(checkbox);
 
     container.appendChild(row);
@@ -231,31 +238,40 @@ document.getElementById('save-progress').onclick = async () => {
 
   }
 
-  for (let level of programmingLevels) {
-    console.debug('[teacher] Updating level', level);
-    const input = document.querySelector(`[data-level='${level}']`);
-    const update = {
-      ...(selectedPlatform === 'A_Level'
-        ? { studentid: selectedStudent.id }
-        : { username: selectedStudent.username }),
-      level_number: Number(level),
-      level_done: input.checked
-    };
-
+  if (selectedPlatform === 'A_Level') {
+    let reached = 0;
+    for (let level of programmingLevels) {
+      const input = document.querySelector(`[data-level='${level}']`);
+      if (input.checked) reached = Math.max(reached, Number(level));
+    }
     try {
       await supabase
         .from(lTable)
-        .delete()
-        .match(
-          selectedPlatform === 'A_Level'
-            ? { studentid: selectedStudent.id, level_number: Number(level) }
-            : { username: selectedStudent.username.trim(), level_number: Number(level) }
-        );
-      await supabase.from(lTable).insert(update);
+        .update({ reached_level: reached })
+        .eq('studentid', selectedStudent.username);
     } catch (err) {
-      console.error('[teacher] Failed updating level', level, err);
+      console.error('[teacher] Failed updating reached_level', err);
     }
+  } else {
+    for (let level of programmingLevels) {
+      console.debug('[teacher] Updating level', level);
+      const input = document.querySelector(`[data-level='${level}']`);
+      const update = {
+        username: selectedStudent.username,
+        level_number: Number(level),
+        level_done: input.checked
+      };
 
+      try {
+        await supabase
+          .from(lTable)
+          .delete()
+          .match({ username: selectedStudent.username.trim(), level_number: Number(level) });
+        await supabase.from(lTable).insert(update);
+      } catch (err) {
+        console.error('[teacher] Failed updating level', level, err);
+      }
+    }
   }
 
   msg.textContent = "✅ Progress saved.";
@@ -323,6 +339,13 @@ if (addStudentForm) {
       });
 
       if (error) throw error;
+
+      if (platform === 'A_Level') {
+        await supabase.from('a_programming_progress').insert({
+          studentid: username,
+          reached_level: 0
+        });
+      }
 
       alert('Student created successfully!');
       addStudentModal.style.display = 'none';

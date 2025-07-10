@@ -1,4 +1,6 @@
 
+import { fetchProgressCounts } from "./supabase.js";
+
 export const levels = [
     { title: "Introduction", id: "level1", status: "locked" },
     { title: "Basic I/O", id: "level2", status: "locked" },
@@ -18,7 +20,7 @@ export const levels = [
     { title: "Final Project", id: "level16", status: "locked" }
   ];
 
-export function renderProgrammingLevels() {
+export async function renderProgrammingLevels() {
   console.log('[levelRenderer] Rendering programming levels');
   const container = document.getElementById("programming-levels");
   if (!container) {
@@ -26,17 +28,21 @@ export function renderProgrammingLevels() {
     return;
   }
 
+  const { levels: reached = 0 } = await fetchProgressCounts();
 
   levels.forEach((level, index) => {
     console.debug('[levelRenderer] Creating level box', level.id);
     const box = document.createElement("div");
-    box.className = `level-box ${level.status}`;
+    let status = 'locked';
+    if (index + 1 <= reached) status = 'passed';
+    else if (index === reached) status = 'unlocked';
+    box.className = `level-box ${status}`;
     box.dataset.level = index + 1;
 
     let icon = "";
-    if (level.status === "locked") icon = "\uD83D\uDD12"; // 🔒
-    else if (level.status === "unlocked") icon = "\uD83D\uDD13"; // 🔓
-    else if (level.status === "passed") icon = "\u2705"; // ✅
+    if (status === "locked") icon = "\uD83D\uDD12"; // 🔒
+    else if (status === "unlocked") icon = "\uD83D\uDD13"; // 🔓
+    else if (status === "passed") icon = "\u2705"; // ✅
 
     box.innerHTML = `
       <span class="level-icon">${icon}</span>
