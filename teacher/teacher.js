@@ -1,5 +1,6 @@
 
 import { supabase } from '../supabaseClient.js';
+import { levels as levelDefs } from '../a/modules/levelRenderer.js';
 
 console.log('[teacher] teacher.js loaded');
 
@@ -15,7 +16,7 @@ if (!localStorage.getItem("teacher-auth")) {
   }
 }
 
-let selectedStudent = null;
+let selectedStudent = null; // { id, username }
 let selectedPlatform = null;
 let theoryPoints = [];
 let programmingLevels = [];
@@ -64,16 +65,17 @@ document.getElementById('load-students').onclick = async () => {
     const li = document.createElement('li');
     li.textContent = s.username;
     li.onclick = () => {
-      document.querySelectorAll("#student-list li").forEach(e => e.classList.remove("selected"));
-      li.classList.add("selected");
-      loadStudentProgress(s.username);
+      document.querySelectorAll('#student-list li').forEach(e => e.classList.remove('selected'));
+      li.classList.add('selected');
+      loadStudentProgress(s);
     };
     list.appendChild(li);
   });
 };
 
-async function loadStudentProgress(username) {
-  selectedStudent = username;
+async function loadStudentProgress(student) {
+  selectedStudent = { id: student.id, username: student.username };
+  const username = student.username;
   console.log('[teacher] Loading progress for', username);
   document.getElementById('student-title').textContent = "Progress of " + username;
   document.getElementById('save-progress').style.display = 'block';
@@ -83,7 +85,10 @@ async function loadStudentProgress(username) {
   console.debug('[teacher] Tables used:', tTable, lTable);
 
   try {
-    const { data: tData, error: tErr } = await supabase.from(tTable).select('*').eq('username', username);
+    const { data: tData, error: tErr } = await supabase
+      .from(tTable)
+      .select('*')
+      .eq('username', username);
     if (tErr) throw tErr;
     await renderTheory(tData || []);
   } catch (err) {
@@ -91,7 +96,12 @@ async function loadStudentProgress(username) {
   }
 
   try {
-    const { data: lData, error: lErr } = await supabase.from(lTable).select('*').eq('username', username);
+    const column = selectedPlatform === 'A_Level' ? 'studentid' : 'username';
+    const value = selectedPlatform === 'A_Level' ? student.id : username;
+    const { data: lData, error: lErr } = await supabase
+      .from(lTable)
+      .select('*')
+      .eq(column, value);
     if (lErr) throw lErr;
     renderLevels(lData || []);
   } catch (err) {
@@ -156,21 +166,21 @@ async function renderTheory(data) {
 function renderLevels(data) {
   const container = document.getElementById('programming-progress');
   container.innerHTML = '<h4>Programming Progress</h4>';
-  programmingLevels = Array.from({ length: 16 }, (_, i) => i + 1);
+  programmingLevels = levelDefs.map((_, i) => i + 1);
 
-  programmingLevels.forEach(level => {
+  levelDefs.forEach((lvl, idx) => {
     const row = document.createElement('div');
     row.className = 'level-row';
 
     const label = document.createElement('div');
     label.className = 'level-label';
-    label.textContent = "Level " + level;
+    label.textContent = `Level ${idx + 1} – ${lvl.title}`;
     row.appendChild(label);
 
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
-    checkbox.dataset.level = level;
-    const found = (data || []).find(d => Number(d.level_number) === level);
+    checkbox.dataset.level = idx + 1;
+    const found = (data || []).find(d => Number(d.level_number) === idx + 1);
     if (found && found.level_done) checkbox.checked = true;
     row.appendChild(checkbox);
 
@@ -182,7 +192,7 @@ document.getElementById('save-progress').onclick = async () => {
   if (!selectedStudent || !selectedPlatform) return alert("Select student first.");
   const tTable = platformTable('theory');
   const lTable = platformTable('programming');
-  console.log('[teacher] Saving progress for', selectedStudent, 'using tables', tTable, lTable);
+  console.log('[teacher] Saving progress for', selectedStudent.username, 'using tables', tTable, lTable);
 
   document.getElementById('save-progress').disabled = true;
   const msg = document.getElementById('save-msg');
@@ -203,12 +213,12 @@ document.getElementById('save-progress').onclick = async () => {
         await supabase
           .from(tTable)
           .upsert({
-            username: selectedStudent,
+            username: selectedStudent.username,
             point_id: point.toLowerCase(),
             reached_layer
           });
       } else {
-        const update = { username: selectedStudent, point_id: point.toLowerCase() };
+        const update = { username: selectedStudent.username, point_id: point.toLowerCase() };
         for (let i = 1; i <= 4; i++) {
           const input = document.querySelector(`[data-point='${point}'][data-layer='${i}']`);
           update[`layer${i}_done`] = input.checked;
@@ -225,7 +235,9 @@ document.getElementById('save-progress').onclick = async () => {
     console.debug('[teacher] Updating level', level);
     const input = document.querySelector(`[data-level='${level}']`);
     const update = {
-      username: selectedStudent,
+      ...(selectedPlatform === 'A_Level'
+        ? { studentid: selectedStudent.id }
+        : { username: selectedStudent.username }),
       level_number: Number(level),
       level_done: input.checked
     };
@@ -234,7 +246,11 @@ document.getElementById('save-progress').onclick = async () => {
       await supabase
         .from(lTable)
         .delete()
-        .match({ username: selectedStudent.trim(), level_number: Number(level) });
+        .match(
+          selectedPlatform === 'A_Level'
+            ? { studentid: selectedStudent.id, level_number: Number(level) }
+            : { username: selectedStudent.username.trim(), level_number: Number(level) }
+        );
       await supabase.from(lTable).insert(update);
     } catch (err) {
       console.error('[teacher] Failed updating level', level, err);
@@ -244,7 +260,7 @@ document.getElementById('save-progress').onclick = async () => {
 
   msg.textContent = "✅ Progress saved.";
   document.getElementById('save-progress').disabled = false;
-  console.log('[teacher] Progress saved for', selectedStudent);
+  console.log('[teacher] Progress saved for', selectedStudent.username);
 };
 
 
