@@ -1,13 +1,5 @@
 
-export function renderProgrammingLevels() {
-  console.log('[levelRenderer] Rendering programming levels');
-  const container = document.getElementById("programming-levels");
-  if (!container) {
-    console.error('[levelRenderer] programming-levels container not found');
-    return;
-  }
-
-  const levels = [
+export const levels = [
     { title: "Introduction", id: "level1", status: "locked" },
     { title: "Basic I/O", id: "level2", status: "locked" },
     { title: "Conditionals", id: "level3", status: "locked" },
@@ -25,6 +17,15 @@ export function renderProgrammingLevels() {
     { title: "Algorithms", id: "level15", status: "locked" },
     { title: "Final Project", id: "level16", status: "locked" }
   ];
+
+export function renderProgrammingLevels() {
+  console.log('[levelRenderer] Rendering programming levels');
+  const container = document.getElementById("programming-levels");
+  if (!container) {
+    console.error('[levelRenderer] programming-levels container not found');
+    return;
+  }
+
 
   levels.forEach((level, index) => {
     console.debug('[levelRenderer] Creating level box', level.id);
