@@ -34,8 +34,11 @@ export async function renderProgrammingLevels() {
     console.debug('[levelRenderer] Creating level box', level.id);
     const box = document.createElement("div");
     let status = 'locked';
-    if (index + 1 <= reached) status = 'passed';
-    else if (index === reached) status = 'unlocked';
+    if (index + 1 < reached) {
+      status = 'passed';
+    } else if (index + 1 === reached) {
+      status = 'unlocked';
+    }
     box.className = `level-box ${status}`;
     box.dataset.level = index + 1;
 
