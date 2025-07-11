@@ -249,6 +249,7 @@ document.getElementById('save-progress').onclick = async () => {
           { username: selectedStudent.username, reached_level: reached },
           { onConflict: 'username' }
         );
+
     } catch (err) {
       console.error('[teacher] Failed saving reached_level', err);
     }
