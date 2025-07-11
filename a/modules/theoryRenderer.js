@@ -58,10 +58,10 @@ export async function renderTheoryPoints() {
         <div class="segment ${layerStates[3]}"></div>
       </div>
       <div class="labels">
-        <span>Basic Understanding</span>
-        <span>Exam-Style</span>
-        <span>Past Paper</span>
-        <span>Test</span>
+        <span>Basics</span>
+        <span>Application</span>
+        <span>Exam-style questions</span>
+        <span>Past paper questions</span>
       </div>
     `;
     box.onclick = () => {
