@@ -245,10 +245,13 @@ document.getElementById('save-progress').onclick = async () => {
     try {
       await supabase
         .from(lTable)
-        .update({ reached_level: reached })
-        .eq('username', selectedStudent.username);
+        .upsert(
+          { username: selectedStudent.username, reached_level: reached },
+          { onConflict: 'username' }
+        );
+
     } catch (err) {
-      console.error('[teacher] Failed updating reached_level', err);
+      console.error('[teacher] Failed saving reached_level', err);
     }
   } else {
     for (let level of programmingLevels) {
