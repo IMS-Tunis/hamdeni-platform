@@ -96,12 +96,10 @@ async function loadStudentProgress(student) {
   }
 
   try {
-    const column = selectedPlatform === 'A_Level' ? 'studentid' : 'username';
-    const value = username;
     const { data: lData, error: lErr } = await supabase
       .from(lTable)
       .select('*')
-      .eq(column, value);
+      .eq('username', username);
     if (lErr) throw lErr;
     renderLevels(lData || []);
   } catch (err) {
@@ -248,7 +246,7 @@ document.getElementById('save-progress').onclick = async () => {
       await supabase
         .from(lTable)
         .update({ reached_level: reached })
-        .eq('studentid', selectedStudent.username);
+        .eq('username', selectedStudent.username);
     } catch (err) {
       console.error('[teacher] Failed updating reached_level', err);
     }
@@ -342,7 +340,7 @@ if (addStudentForm) {
 
       if (platform === 'A_Level') {
         await supabase.from('a_programming_progress').insert({
-          studentid: username,
+          username: username,
           reached_level: 0
         });
       }

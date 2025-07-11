@@ -37,7 +37,7 @@ export async function fetchProgressCounts() {
           Authorization: 'Bearer ' + SUPABASE_KEY
         }
       }),
-      fetch(`${base}/${levelTable}?select=${platform === 'A_Level' ? 'reached_level' : 'level_done'}&${platform === 'A_Level' ? 'studentid' : 'username'}=eq.${encodeURIComponent(username)}`, {
+      fetch(`${base}/${levelTable}?select=${platform === 'A_Level' ? 'reached_level' : 'level_done'}&username=eq.${encodeURIComponent(username)}`, {
         headers: {
           apikey: SUPABASE_KEY,
           Authorization: 'Bearer ' + SUPABASE_KEY
