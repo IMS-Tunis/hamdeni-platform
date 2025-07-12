@@ -81,8 +81,12 @@ function checkAnswers(questions) {
   const total = questions.filter(q => attempt === 1 || q.retry).length;
   if (correct === total) {
     result.innerHTML = `<div class="success-message">✅ All correct! Proceed to next layer.</div>` +
-      `<a class="nav-btn next" href="layer3.html">Continue to Layer 3</a>`;
-    sendProgress();
+      `<a class="nav-btn next" id="continue-btn" href="#">Continue to Layer 3</a>`;
+    document.getElementById('continue-btn').onclick = async (e) => {
+      e.preventDefault();
+      await sendProgress();
+      window.location.href = 'layer3.html';
+    };
   } else {
     attempt++;
     result.innerHTML = `<div class="retry-message">❌ ${correct}/${total} correct. Try again.</div>`;

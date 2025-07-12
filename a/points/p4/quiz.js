@@ -70,8 +70,12 @@ function showResult(correct, total, questions) {
   result.innerHTML = `<p>You got ${correct} out of ${total} correct.</p>`;
   if (correct === total) {
     result.innerHTML += `<p><strong>✅ Congratulations! You passed.</strong></p>`;
-    result.innerHTML += `<a href="layer3.html"><button>Next → Layer 3</button></a>`;
-    sendProgress();
+    result.innerHTML += `<a href="#" id="continue-btn"><button>Next → Layer 3</button></a>`;
+    document.getElementById('continue-btn').onclick = async (e) => {
+      e.preventDefault();
+      await sendProgress();
+      window.location.href = 'layer3.html';
+    };
   } else {
     currentAttempt++;
     result.innerHTML += `<button onclick='startQuiz(${JSON.stringify(questions)})'>Retry Incorrect Only</button>`;
