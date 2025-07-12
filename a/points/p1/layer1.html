@@ -335,12 +335,27 @@
     };
     const table = tables[platform];
 
+    const { data: existing, error: fetchErr } = await supabase
+      .from(table)
+      .select('reached_layer')
+      .eq('username', username)
+      .eq('point_id', point_id.toLowerCase())
+      .maybeSingle();
+
+    if (fetchErr) {
+      console.error('❌ Fetch progress error:', fetchErr);
+      alert(`❌ Failed to update progress: ${fetchErr.message}`);
+      return false;
+    }
+
+    const nextLayer = (existing?.reached_layer || 0) + 1;
+
     const { error } = await supabase
       .from(table)
       .upsert({
         username: username,
         point_id: point_id.toLowerCase(),
-        reached_layer: 1
+        reached_layer: nextLayer
       }, { onConflict: ['username', 'point_id'] });
 
     if (error) {
