@@ -346,12 +346,10 @@ Legend: PK=Primary Key, FK=Foreign Key, Nullable=YES if column allows NULL.
 ### Table `a_theory_feedback`
 | Column | Type | Nullable | Default | PK | Unique | Foreign Key |
 |--------|------|----------|---------|----|--------|-------------|
-| id | uuid | NO | gen_random_uuid() | PK |  | null(null) |
-| point_id | text | NO | null |  |  | null(null) |
-| layer | text | NO | null |  |  | null(null) |
-| feedback_type | text | NO | null |  |  | null(null) |
-| comment | text | YES | null |  |  | null(null) |
-| created_at | timestamp with time zone | YES | now() |  |  | null(null) |
+| username | text | NO | null | PK |  | null(null) |
+| point_id | text | NO | null | PK |  | null(null) |
+| feedback | text | YES | null |  |  | null(null) |
+| date | date | YES | null |  |  | null(null) |
 
 ### Table `a_theory_points`
 | Column | Type | Nullable | Default | PK | Unique | Foreign Key |

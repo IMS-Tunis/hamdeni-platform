@@ -2,9 +2,9 @@ const SUPABASE_URL = "https://tsmzmuclrnyryuvanlxl.supabase.co";
 const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzbXptdWNscm55cnl1dmFubHhsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc3MzM5NjUsImV4cCI6MjA2MzMwOTk2NX0.-l7Klmp5hKru3w2HOWLRPjCiQprJ2pOjsI-HPTGtAiw";
 const client = window.supabase;
 
-  async function sendFeedback({ username, student_name, point_id, layer, feedback_type, comment }) {
+  async function sendFeedback({ username, student_name, point_id, feedback }) {
     point_id = point_id.toLowerCase();
-    const payload = { username, student_name, point_id, layer, feedback_type, comment };
+    const payload = { username, student_name, point_id, feedback };
   console.log("📨 Google Sheet Payload:", payload);
 
   try {
@@ -15,13 +15,12 @@ const client = window.supabase;
     });
 
     // Insert into Supabase
-    const { error } = await client.from("a_theory_feedback").insert([{
+    const { error } = await client.from("a_theory_feedback").upsert([{
       username: username,
       point_id,
-      layer,
-      feedback_type,
-      comment
-    }]);
+      feedback,
+      date: new Date().toISOString().split("T")[0]
+    }], { onConflict: ['username', 'point_id'] });
 
     if (error) console.error("❌ Supabase Feedback Error:", error);
     else console.log("✅ Supabase Feedback Logged");
