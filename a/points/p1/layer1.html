@@ -353,7 +353,10 @@
     return true;
   }
 
-  async function sendFeedback(feedback) {
+  async function sendFeedback(feedback_type, comment = "") {
+    const fullFeedback = comment
+      ? `${feedback_type}: ${comment}`
+      : feedback_type;
     try {
       const { error } = await supabase
         .from("a_theory_feedback")
@@ -361,14 +364,18 @@
           {
             username: username,
             point_id: point_id.toLowerCase(),
-            feedback,
-            date: new Date().toISOString().split("T")[0]
+            feedback: fullFeedback,
+            date: new Date().toISOString().slice(0, 10)
           }
         ], { onConflict: ['username', 'point_id'] });
 
-      if (error) throw error;
+      if (error) {
+        console.error("❌ Feedback insert error:", error);
+        alert(`❌ Failed to submit feedback: ${error.message}`);
+      }
     } catch (err) {
       console.error("❌ Feedback insert error:", err);
+      alert("❌ Failed to submit feedback.");
     }
   }
 
@@ -401,7 +408,7 @@
     }
 
     if (await updateProgress()) {
-      await sendFeedback(comment);
+      await sendFeedback("help", comment);
       window.location.href = "layer2.html";
     }
   }
