@@ -4,10 +4,60 @@
   <meta charset="UTF-8">
   <title>Level 1</title>
   <link rel="stylesheet" href="../dashboard.css" />
+  <style>
+    .level-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 30px;
+      background: linear-gradient(90deg, #003366, #005b99);
+      color: #fff;
+      flex-wrap: wrap;
+    }
+    .level-header .logo {
+      height: 60px;
+    }
+    .header-center {
+      text-align: center;
+      flex: 1;
+    }
+    .header-center h1 {
+      margin: 0;
+      font-size: 2em;
+    }
+    .header-center h2 {
+      margin: 5px 0 0;
+      font-size: 1.3em;
+      color: #ffeb3b;
+    }
+    .info-line {
+      margin-top: 5px;
+      font-size: 0.9em;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      color: #f0f0f0;
+    }
+  </style>
 </head>
 <body>
-  <header style="text-align:center;padding:20px;background:#003366;color:#fff;">
-    <h1>Programming Level 1</h1>
+  <header class="level-header">
+    <div class="header-left">
+      <a href="../dashboard.html">
+        <img src="../../images/maarifLOGO.png" alt="Maarif Logo" class="logo" />
+      </a>
+    </div>
+    <div class="header-center">
+      <h1>Programming Level 1</h1>
+      <h2 id="level-title">Introduction</h2>
+      <div class="info-line">
+        <span id="student-name"></span>
+        <span id="platform-name"></span>
+      </div>
+    </div>
+    <div class="header-right">
+      <img src="../../images/cambridge.png" alt="Cambridge Logo" class="logo" />
+    </div>
   </header>
   <main style="padding:20px;text-align:center;">
     <p>Content for Level 1 goes here.</p>
@@ -19,5 +69,17 @@
       style="border: 1px solid #ccc; border-radius: 8px;">
     </iframe>
   </main>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const sName = localStorage.getItem('student_name');
+      if (sName) {
+        document.getElementById('student-name').textContent = '👤 ' + sName;
+      }
+      const platform = localStorage.getItem('platform');
+      if (platform) {
+        document.getElementById('platform-name').textContent = '🎓 Platform: ' + platform;
+      }
+    });
+  </script>
 </body>
 </html>
