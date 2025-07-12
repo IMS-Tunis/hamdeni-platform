@@ -119,7 +119,7 @@ exportBtn.addEventListener('click', async () => {
   doc.text('Layer 3 Reflection Notes', 10, 20);
   let y = 30;
   (data || []).forEach(row => {
-    const text = `Q${row.question_number} (${new Date(row.corrected_at || row.submitted_at).toLocaleString()})`;
+    const text = `Q${row.question_number}`;
     doc.text(text, 10, y);
     y += 6;
     const split = doc.splitTextToSize(row.correction_note || '', 180);
