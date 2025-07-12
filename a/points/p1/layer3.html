@@ -46,6 +46,7 @@
 
     .task-box {
       background: #eef2f7;
+      border: 1px solid #ccc;
       border-radius: 10px;
       padding: 20px;
       margin-bottom: 20px;
@@ -58,7 +59,21 @@
       padding: 8px;
       font-size: 1em;
     }
-    .task-box button { margin-bottom: 10px; }
+    .task-box button {
+      margin-bottom: 10px;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 6px;
+      background: #28a745;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .task-box button:hover { background: #1e7e34; }
+
+    .mark-scheme {
+      margin: 10px 0;
+    }
 
     #review-notes {
       background: #fff;
@@ -68,8 +83,15 @@
     }
     #export-btn {
       margin-top: 10px;
-      padding: 10px 15px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      background: #007bff;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.3s ease;
     }
+    #export-btn:hover { background: #0056b3; }
   </style>
 </head>
 <body>
