@@ -69,29 +69,6 @@
     <p>To be implemented.</p>
     <a href="layer4.html">Next → Layer 4</a>
   </main>
-  <script type="module">
-import { supabase } from '../../../supabaseClient.js';
-(async () => {
-  const username = localStorage.getItem('username');
-  const platform = localStorage.getItem('platform');
-  const point_id = window.location.pathname
-    .split('/')
-    .find(p => /^p\d+$/i.test(p))
-    .toLowerCase();
-  const tables = { A_Level: 'a_theory_progress', AS_Level: 'as_theory_progress', IGCSE: 'igcse_theory_progress' };
-  const table = tables[platform];
-  if (username && table && point_id) {
-    const { error } = await supabase
-      .from(table)
-      .upsert(
-        { username, point_id, reached_layer: 3 },
-        { onConflict: ['username', 'point_id'] }
-      );
-    if (error) {
-      console.error('Upsert error:', error);
-    }
-  }
-})();
-  </script>
+  <!-- Removed automatic progress update to avoid overwriting Layer 2 result -->
 </body>
 </html>
