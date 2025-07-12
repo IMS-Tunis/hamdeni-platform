@@ -472,6 +472,21 @@ body {
   color: #333;
   line-height: 18px;
 }
+
+/* Navigation buttons shared across layers */
+.nav-btn {
+  padding: 10px 20px;
+  background: #007bff;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 6px;
+  margin-right: 10px;
+  transition: background 0.3s ease;
+}
+
+.nav-btn:hover {
+  background: #0056b3;
+}
 /* Footer */
 footer {
   width: 100%;
