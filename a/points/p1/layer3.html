@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Layer 3 - Task</title>
+  <title>Layer 3 - Structured Questions</title>
   <link rel="stylesheet" href="../../dashboard.css" />
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -19,17 +20,9 @@
       color: white;
     }
     .header-left,
-    .header-right {
-      flex: 1;
-    }
-    .header-center {
-      flex: 2;
-      text-align: center;
-    }
-    .header-center h1 {
-      margin: 0;
-      font-size: 1.8em;
-    }
+    .header-right { flex: 1; }
+    .header-center { flex: 2; text-align: center; }
+    .header-center h1 { margin: 0; font-size: 1.8em; }
     .info-line {
       display: flex;
       justify-content: center;
@@ -38,8 +31,44 @@
       font-size: 1em;
       color: #f0f0f0;
     }
-    .logo {
-      height: 55px;
+    .logo { height: 55px; }
+
+    .nav-btn {
+      padding: 10px 20px;
+      background: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      margin-right: 10px;
+      transition: background 0.3s ease;
+    }
+    .nav-btn:hover { background: #0056b3; }
+
+    .task-box {
+      background: #eef2f7;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+    .task-box textarea {
+      width: 100%;
+      min-height: 60px;
+      margin: 10px 0;
+      padding: 8px;
+      font-size: 1em;
+    }
+    .task-box button { margin-bottom: 10px; }
+
+    #review-notes {
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 20px;
+    }
+    #export-btn {
+      margin-top: 10px;
+      padding: 10px 15px;
     }
   </style>
 </head>
@@ -62,13 +91,21 @@
       <img src="../../../images/cambridge.png" class="logo" />
     </div>
   </header>
+
   <div style="text-align:left; padding:10px;">
     <a href="layer2.html" class="nav-btn">← Back to Layer 2</a>
   </div>
-  <main style="text-align:center; padding:40px;">
-    <p>To be implemented.</p>
-    <a href="layer4.html">Next → Layer 4</a>
+
+  <main style="padding:40px;">
+    <div id="questions-container"></div>
+
+    <section id="review-notes">
+      <h2>📝 Review My Notes</h2>
+      <ul id="notes-list"></ul>
+      <button id="export-btn">Export My Notes as PDF</button>
+    </section>
   </main>
-  <!-- Removed automatic progress update to avoid overwriting Layer 2 result -->
+
+  <script type="module" src="layer3.js"></script>
 </body>
 </html>
