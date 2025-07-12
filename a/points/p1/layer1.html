@@ -353,19 +353,18 @@
     return true;
   }
 
-  async function sendFeedback(feedback_type, comment = "") {
+  async function sendFeedback(feedback) {
     try {
       const { error } = await supabase
         .from("a_theory_feedback")
-        .insert([
+        .upsert([
           {
             username: username,
             point_id: point_id.toLowerCase(),
-            layer: "layer1",
-            feedback_type,
-            comment
+            feedback,
+            date: new Date().toISOString().split("T")[0]
           }
-        ]);
+        ], { onConflict: ['username', 'point_id'] });
 
       if (error) throw error;
     } catch (err) {
@@ -402,7 +401,7 @@
     }
 
     if (await updateProgress()) {
-      await sendFeedback("need_help", comment);
+      await sendFeedback(comment);
       window.location.href = "layer2.html";
     }
   }
