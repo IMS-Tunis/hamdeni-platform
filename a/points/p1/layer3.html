@@ -35,14 +35,18 @@
 
     .nav-btn {
       padding: 10px 20px;
-      background: #007bff;
+      background: linear-gradient(135deg, #007bff, #66b3ff);
       color: white;
       text-decoration: none;
       border-radius: 6px;
       margin-right: 10px;
-      transition: background 0.3s ease;
+      transition: background 0.3s, transform 0.2s;
+      display: inline-block;
     }
-    .nav-btn:hover { background: #0056b3; }
+    .nav-btn:hover {
+      background: linear-gradient(135deg, #0062cc, #3399ff);
+      transform: scale(1.05);
+    }
 
     .task-box {
       background: #eef2f7;
@@ -50,6 +54,7 @@
       padding: 20px;
       margin-bottom: 20px;
       text-align: left;
+      border: 1px solid #ccc;
     }
     .task-box textarea {
       width: 100%;
@@ -58,7 +63,22 @@
       padding: 8px;
       font-size: 1em;
     }
-    .task-box button { margin-bottom: 10px; }
+    .task-box button {
+      margin-bottom: 10px;
+      background: linear-gradient(135deg, #28a745, #5cd263);
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1em;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .task-box button:hover {
+      background: linear-gradient(135deg, #218838, #4ebf50);
+      transform: scale(1.05);
+    }
 
     #review-notes {
       background: #fff;
@@ -68,7 +88,18 @@
     }
     #export-btn {
       margin-top: 10px;
-      padding: 10px 15px;
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #ff9800, #ffc107);
+      color: #fff;
+      border: none;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+    #export-btn:hover {
+      background: linear-gradient(135deg, #e68900, #e0a800);
+      transform: scale(1.05);
     }
   </style>
 </head>

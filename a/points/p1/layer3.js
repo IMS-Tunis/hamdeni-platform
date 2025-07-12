@@ -36,7 +36,7 @@ async function loadSaved() {
 function addNoteToReview(qNum, note, time) {
   if (!note) return;
   const li = document.createElement('li');
-  li.textContent = `Q${qNum} (${new Date(time).toLocaleString()}): ${note}`;
+  li.textContent = `Q${qNum}: ${note}`;
   notesList.appendChild(li);
 }
 
@@ -53,8 +53,8 @@ async function render() {
           <h3>Q${q.question_number}: ${q.question}</h3>
           <textarea data-q="${q.question_number}" class="answer-text" placeholder="Your answer...">${savedRow.student_answer || ''}</textarea>
           <button class="submit-btn">Submit Answer</button>
-          <div class="mark-scheme" style="display:${savedRow.student_answer ? 'block' : 'none'};">Model Answer: ${q.mark_scheme}</div>
-          <textarea data-note="${q.question_number}" class="note-text" placeholder="Reflection note...">${savedRow.correction_note || ''}</textarea>
+          <div class="mark-scheme" style="display:${savedRow.student_answer ? 'block' : 'none'};"><strong>Model Answer</strong>: ${q.mark_scheme}</div>
+          <textarea data-note="${q.question_number}" class="note-text" placeholder="Note what you missed in your answer, it will be saved as a personal note for future review.">${savedRow.correction_note || ''}</textarea>
           <button class="save-note-btn">Save Note</button>
         `;
         const textarea = wrapper.querySelector('.answer-text');
