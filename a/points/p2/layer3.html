@@ -12,11 +12,13 @@
   <div style="text-align: center; margin-top: 100px;">This content is coming soon.</div>
   <div style="text-align: center; margin: 20px;">
   <a href="layer2.html"><button>← Previous</button></a>
-  <a href="layer4.html">Next → Layer 4</a>
+  <a href="layer4.html" id="next-btn">Next → Layer 4</a>
   </div>
   <script type="module">
 import { supabase } from '../../../supabaseClient.js';
-(async () => {
+const next = document.getElementById('next-btn');
+next.addEventListener('click', async e => {
+  e.preventDefault();
   const username = localStorage.getItem('username');
   const platform = localStorage.getItem('platform');
   const point_id = window.location.pathname.split('/')
@@ -33,6 +35,12 @@ import { supabase } from '../../../supabaseClient.js';
       );
     if (error) {
       console.error('Upsert error:', error);
+      return;
     }
   }
-})();  </script></body></html>
+  window.location.href = 'layer4.html';
+});
+  </script>
+</body>
+</html>
+
