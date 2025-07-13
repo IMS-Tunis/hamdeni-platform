@@ -37,17 +37,49 @@
       max-width: 900px;
       margin: auto;
     }
+    .qa-heading {
+      display: flex;
+      background: #003366;
+      color: #fff;
+      font-weight: bold;
+      border-radius: 8px 8px 0 0;
+    }
+    .qa-heading div {
+      width: 50%;
+      padding: 10px;
+      text-align: center;
+      box-sizing: border-box;
+    }
     .qa-row {
       display: flex;
       background: #fff;
       border: 1px solid #ccc;
-      border-radius: 8px;
-      margin-bottom: 15px;
+      border-top: none;
+      border-radius: 0;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .qa-row:last-child {
+      border-radius: 0 0 8px 8px;
     }
     .qa-question, .qa-answer {
       width: 50%;
       padding: 15px;
       box-sizing: border-box;
+    }
+    #ready-btn {
+      padding: 12px 30px;
+      font-size: 1.1em;
+      background: linear-gradient(45deg, #007bff, #00c6ff);
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: background 0.3s ease;
+    }
+    #ready-btn:hover {
+      background: linear-gradient(45deg, #0056b3, #008cc6);
     }
     #ready-message { margin-top: 20px; }
   </style>
@@ -77,8 +109,13 @@
   </div>
 
   <main style="padding:40px; text-align:center;">
-    <div id="qa-container"></div>
-    <button id="ready-btn" class="nav-btn" style="margin-top:20px;">Ready for the test</button>
+    <div id="qa-container">
+      <div class="qa-heading">
+        <div>❓ Question</div>
+        <div>💡 Answer</div>
+      </div>
+    </div>
+    <button id="ready-btn" style="margin-top:20px;">✅ Ready for the test</button>
     <p id="ready-message" style="display:none;"></p>
   </main>
 
