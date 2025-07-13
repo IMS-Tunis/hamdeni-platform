@@ -19,17 +19,9 @@
       color: white;
     }
     .header-left,
-    .header-right {
-      flex: 1;
-    }
-    .header-center {
-      flex: 2;
-      text-align: center;
-    }
-    .header-center h1 {
-      margin: 0;
-      font-size: 1.8em;
-    }
+    .header-right { flex: 1; }
+    .header-center { flex: 2; text-align: center; }
+    .header-center h1 { margin: 0; font-size: 1.8em; }
     .info-line {
       display: flex;
       justify-content: center;
@@ -38,14 +30,26 @@
       font-size: 1em;
       color: #f0f0f0;
     }
-    .subheading {
-      margin: 5px 0;
-      font-size: 1.2em;
-      color: #f0f0f0;
+    .subheading { margin: 5px 0; font-size: 1.2em; color: #f0f0f0; }
+    .logo { height: 55px; }
+
+    #qa-container {
+      max-width: 900px;
+      margin: auto;
     }
-    .logo {
-      height: 55px;
+    .qa-row {
+      display: flex;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 15px;
     }
+    .qa-question, .qa-answer {
+      width: 50%;
+      padding: 15px;
+      box-sizing: border-box;
+    }
+    #ready-message { margin-top: 20px; }
   </style>
 </head>
 <body>
@@ -71,8 +75,13 @@
   <div style="text-align:left; padding:10px;">
     <a href="layer3.html" class="nav-btn">← Back to Layer 3</a>
   </div>
-  <main style="text-align:center; padding:40px;">
-    <p>Unlocked by teacher.</p>
+
+  <main style="padding:40px; text-align:center;">
+    <div id="qa-container"></div>
+    <button id="ready-btn" class="nav-btn" style="margin-top:20px;">Ready for the test</button>
+    <p id="ready-message" style="display:none;"></p>
   </main>
+
+  <script type="module" src="layer4.js"></script>
 </body>
 </html>
