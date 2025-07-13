@@ -8,6 +8,10 @@ const pointId = 'P1';
 const questionContainer = document.getElementById('questions-container');
 const notesList = document.getElementById('notes-list');
 const exportBtn = document.getElementById('export-btn');
+const layer4Btn = document.getElementById('layer4-btn');
+
+let totalQuestions = 0;
+const savedNotes = new Set();
 
 if (studentName) {
   document.getElementById('student-name').textContent = '👤 ' + studentName;
@@ -40,11 +44,35 @@ function addNoteToReview(qNum, note, time) {
   notesList.appendChild(li);
 }
 
+function checkAllNotesSaved() {
+  if (layer4Btn) {
+    layer4Btn.disabled = savedNotes.size < totalQuestions;
+  }
+}
+
+async function updateProgress() {
+  const tables = {
+    A_Level: 'a_theory_progress',
+    AS_Level: 'as_theory_progress',
+    IGCSE: 'igcse_theory_progress'
+  };
+  const table = tables[platform];
+  if (!username || !table) return;
+  const { error } = await supabase
+    .from(table)
+    .upsert(
+      { username, point_id: pointId.toLowerCase(), reached_layer: 3 },
+      { onConflict: ['username', 'point_id'] }
+    );
+  if (error) console.error('Upsert error:', error);
+}
+
 async function render() {
   const saved = await loadSaved();
   fetch('layer3_questions.json')
     .then(r => r.json())
     .then(questions => {
+      totalQuestions = questions.length;
       questions.forEach(q => {
         const wrapper = document.createElement('div');
         wrapper.className = 'task-box';
@@ -69,6 +97,7 @@ async function render() {
         }
         if (savedRow.correction_note) {
           addNoteToReview(q.question_number, savedRow.correction_note, savedRow.corrected_at || savedRow.submitted_at);
+          savedNotes.add(q.question_number);
         }
 
         btn.addEventListener('click', async () => {
@@ -98,10 +127,13 @@ async function render() {
             corrected_at: new Date().toISOString()
           }, { onConflict: ['username','point_id','question_number'] });
           addNoteToReview(q.question_number, note, new Date());
+          savedNotes.add(q.question_number);
+          checkAllNotesSaved();
         });
 
         questionContainer.appendChild(wrapper);
       });
+      checkAllNotesSaved();
     });
 }
 
@@ -130,3 +162,10 @@ exportBtn.addEventListener('click', async () => {
 });
 
 render();
+
+if (layer4Btn) {
+  layer4Btn.addEventListener('click', async () => {
+    await updateProgress();
+    window.location.href = 'layer4.html';
+  });
+}
