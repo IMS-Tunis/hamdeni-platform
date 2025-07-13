@@ -98,6 +98,8 @@ async function render() {
             corrected_at: new Date().toISOString()
           }, { onConflict: ['username','point_id','question_number'] });
           addNoteToReview(q.question_number, note, new Date());
+          savedNotes.add(q.question_number);
+          checkAllNotesSaved();
           alert('The note has been successfully saved in your personalized notebook.');
         });
 
