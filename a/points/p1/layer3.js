@@ -9,9 +9,14 @@ const questionContainer = document.getElementById('questions-container');
 const notesList = document.getElementById('notes-list');
 const exportBtn = document.getElementById('export-btn');
 const layer4Btn = document.getElementById('layer4-btn');
+const notesTitle = document.getElementById('notes-title');
 
 let totalQuestions = 0;
 const savedNotes = new Set();
+
+if (username && notesTitle) {
+  notesTitle.textContent = `📝 ${username}'s Notes`;
+}
 
 if (studentName) {
   document.getElementById('student-name').textContent = '👤 ' + studentName;
@@ -149,8 +154,9 @@ exportBtn.addEventListener('click', async () => {
   if (error) return console.error('Fetch notes error', error);
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF();
-  doc.setFontSize(16);
-  doc.text('Layer 3 Reflection Notes', 10, 20);
+  doc.setFontSize(18);
+  const pdfTitle = username ? `${username}'s Layer 3 Reflection Notes` : 'Layer 3 Reflection Notes';
+  doc.text(pdfTitle, 10, 20);
   let y = 30;
   (data || []).forEach(row => {
     const text = `Q${row.question_number} (${new Date(row.corrected_at || row.submitted_at).toLocaleString()})`;
