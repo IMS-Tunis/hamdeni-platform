@@ -47,6 +47,26 @@
       background: linear-gradient(135deg, #0062cc, #3399ff);
       transform: scale(1.05);
     }
+    #layer4-btn {
+      font-size: 1.1em;
+      padding: 12px 28px;
+      border-radius: 30px;
+      border: none;
+      background: linear-gradient(45deg, #12c2e9, #c471ed, #f64f59);
+      background-size: 200% 200%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      cursor: pointer;
+      transition: background-position 0.5s, transform 0.3s, box-shadow 0.3s;
+    }
+    #layer4-btn:hover:not(:disabled) {
+      background-position: right center;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+    }
+    #layer4-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
 
     .task-box {
       background: #eef2f7;
