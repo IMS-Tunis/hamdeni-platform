@@ -48,7 +48,7 @@ export async function fetchProgressCounts() {
     const tData = await tRes.json();
     const lData = await lRes.json();
 
-    const passedPoints = tData.filter(r => r.reached_layer === 4).length;
+    const passedPoints = tData.filter(r => r.reached_layer === '4').length;
     let passedLevels = 0;
     if (platform === 'A_Level') {
       passedLevels = lData.length ? lData[0].reached_level : 0;

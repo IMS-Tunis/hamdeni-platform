@@ -28,7 +28,7 @@ import { supabase } from '../../../supabaseClient.js';
     const { error } = await supabase
       .from(table)
       .upsert(
-        { username, point_id, reached_layer: 3 },
+        { username, point_id, reached_layer: '3' },
         { onConflict: ['username', 'point_id'] }
       );
     if (error) {
