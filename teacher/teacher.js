@@ -149,7 +149,7 @@ async function renderTheory(data) {
       );
       if (found) {
         if (usesReachedLayer()) {
-          if (Number(found.reached_layer) >= i) checkbox.checked = true;
+          if (parseInt(found.reached_layer, 10) >= i) checkbox.checked = true;
         } else if (found[`layer${i}_done`]) {
           checkbox.checked = true;
         }
@@ -200,10 +200,12 @@ document.getElementById('save-progress').onclick = async () => {
   for (let point of theoryPoints) {
     console.debug('[teacher] Updating point', point);
     const pointInputs = document.querySelectorAll(`[data-point='${point}']`);
-    let reached_layer = 0;
+    let reached_layer = '0';
     pointInputs.forEach(input => {
       if (input.checked) {
-        reached_layer = Math.max(reached_layer, Number(input.dataset.layer));
+        if (parseInt(input.dataset.layer, 10) > parseInt(reached_layer, 10)) {
+          reached_layer = input.dataset.layer;
+        }
       }
     });
 

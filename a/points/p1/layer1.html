@@ -340,7 +340,7 @@
       .upsert({
         username: username,
         point_id: point_id.toLowerCase(),
-        reached_layer: 1
+        reached_layer: '1'
       }, { onConflict: ['username', 'point_id'] });
 
     if (error) {

@@ -19,7 +19,7 @@ async function updateTheoryProgress(pointId, layer) {
     .upsert({
       username: username,
       point_id,
-      reached_layer: layer
+    reached_layer: String(layer)
     }, { onConflict: ['username', 'point_id'] });
 
   if (error) console.error("❌ Supabase Error:", error);  else console.log("✅ Supabase Progress Updated");}

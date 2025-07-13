@@ -106,7 +106,7 @@ async function sendProgress() {
   await supabase.from(table).upsert({
     username: username,
     point_id: pointId,
-    reached_layer: 2
+    reached_layer: '2'
   }, { onConflict: ['username', 'point_id'] });
 }
 

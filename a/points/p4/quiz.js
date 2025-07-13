@@ -104,7 +104,7 @@ function sendProgress() {
     body: JSON.stringify({
       username: username,
       point_id,
-      reached_layer: 2
+      reached_layer: '2'
     })
   });
 }
