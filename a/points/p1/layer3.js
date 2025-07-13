@@ -129,6 +129,8 @@ async function render() {
           addNoteToReview(q.question_number, note, new Date());
           savedNotes.add(q.question_number);
           checkAllNotesSaved();
+          alert('The note has been successfully saved in your personalized notebook.');
+
         });
 
         questionContainer.appendChild(wrapper);
