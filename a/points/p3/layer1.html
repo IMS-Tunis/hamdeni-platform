@@ -6,33 +6,10 @@
 </head>
 <body>
   <div class="header">Layer 1 - Theory</div>
-  <iframe id="doc-frame" src="doc.html" width="100%" scrolling="no" style="border:none;"></iframe>
+  <iframe id="doc-frame" src="doc.html" width="100%" scrolling="no" style="border:none; height: 4750px;"></iframe>
   <div style="text-align: center; margin: 20px;">
     <a href="layer2.html"><button>Next → Layer 2</button></a>
   </div>
-  <script>
-    const frame = document.getElementById('doc-frame');
 
-    function adjustHeight(height) {
-      if (!height) {
-        try {
-          const doc = frame.contentDocument || frame.contentWindow.document;
-          height = doc.documentElement.scrollHeight;
-        } catch (_) {
-          return; // cross-origin, wait for postMessage
-        }
-      }
-      frame.style.height = height + 'px';
-    }
-
-    frame.addEventListener('load', () => adjustHeight());
-    window.addEventListener('resize', () => adjustHeight());
-
-    window.addEventListener('message', (e) => {
-      if (e.data && e.data.type === 'docHeight') {
-        adjustHeight(e.data.height);
-      }
-    });
-  </script>
 </body>
 </html>

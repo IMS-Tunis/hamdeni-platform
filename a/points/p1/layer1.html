@@ -92,7 +92,7 @@
     }
 
     #official-notes {
-      /* allow iframe to grow based on content */
+      height: 4750px;
     }
 
     .official-doc {
@@ -204,7 +204,7 @@
 
   <main id="content-area" style="display: none;">
     <div id="official-notes">
-      <iframe id="doc-frame" class="official-doc" scrolling="no"></iframe>
+      <iframe id="doc-frame" class="official-doc" scrolling="no" style="height: 4750px;"></iframe>
     </div>
   </main>
 
@@ -266,30 +266,9 @@
           if (doc) {
             const frame = document.getElementById("doc-frame");
             frame.src = doc.url;
-
-            function adjustHeight(height) {
-              const scale = 1.1; // matches `.official-doc` scale
-              if (!height) {
-                try {
-                  const docEl = frame.contentDocument || frame.contentWindow.document;
-                  height = docEl.documentElement.scrollHeight;
-                } catch (_) {
-                  return; // cross-origin, wait for postMessage
-                }
-              }
-              const newHeight = Math.ceil(height * scale);
-              frame.style.height = newHeight + 'px';
-              document.getElementById('official-notes').style.height = newHeight + 'px';
-            }
-
-            frame.addEventListener('load', () => adjustHeight());
-            window.addEventListener('resize', () => adjustHeight());
-
-            window.addEventListener('message', (e) => {
-              if (e.data && e.data.type === 'docHeight') {
-                adjustHeight(e.data.height);
-              }
-            });
+            const height = 4750;
+            frame.style.height = height + 'px';
+            document.getElementById('official-notes').style.height = height + 'px';
           }
 
           if (videos.length > 0) {
