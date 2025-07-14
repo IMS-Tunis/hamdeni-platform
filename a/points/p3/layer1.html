@@ -12,9 +12,25 @@
   </div>
   <script>
     const frame = document.getElementById('doc-frame');
+
+    function adjustHeight(height) {
+      if (!height) {
+        try {
+          const doc = frame.contentDocument || frame.contentWindow.document;
+          height = doc.documentElement.scrollHeight;
+        } catch (_) {
+          return; // cross-origin, wait for postMessage
+        }
+      }
+      frame.style.height = height + 'px';
+    }
+
+    frame.addEventListener('load', () => adjustHeight());
+    window.addEventListener('resize', () => adjustHeight());
+
     window.addEventListener('message', (e) => {
       if (e.data && e.data.type === 'docHeight') {
-        frame.style.height = e.data.height + 'px';
+        adjustHeight(e.data.height);
       }
     });
   </script>
