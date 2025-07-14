@@ -48,11 +48,11 @@
   </div>
   <script>
     function sendHeight() {
-      const height = document.documentElement.scrollHeight;
+      const content = document.querySelector('.container') || document.querySelector('main');
+      const height = content ? content.scrollHeight : document.documentElement.scrollHeight;
       window.parent.postMessage({ type: 'docHeight', height }, '*');
     }
     window.addEventListener('load', sendHeight);
-    window.addEventListener('resize', sendHeight);
   </script>
 </body>
 </html>
