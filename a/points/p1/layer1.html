@@ -115,7 +115,7 @@
     }
 
     #official-notes {
-      overflow: hidden;
+      /* allow iframe to grow based on content */
     }
 
     .official-doc {
@@ -302,7 +302,13 @@
           if (doc) {
             const frame = document.getElementById("doc-frame");
             frame.src = doc.url;
-            if (doc.height) frame.height = doc.height;
+            frame.addEventListener('load', () => {
+              const contentHeight = frame.contentWindow.document.documentElement.scrollHeight;
+              const scale = 1.1;                     // matches `.official-doc` scale
+              const newHeight = Math.ceil(contentHeight * scale);
+              frame.style.height = newHeight + 'px';
+              document.getElementById('official-notes').style.height = newHeight + 'px';
+            });
           }
 
           if (videos.length > 0) {
