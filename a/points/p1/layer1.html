@@ -271,15 +271,17 @@
               const scale = 1.1; // matches `.official-doc` scale
               if (!height) {
                 try {
-                  const docEl = frame.contentDocument || frame.contentWindow.document;
-                  height = docEl.documentElement.scrollHeight;
+                  const doc = frame.contentDocument || frame.contentWindow.document;
+                  height = doc.body.scrollHeight;
                 } catch (_) {
                   return; // cross-origin, wait for postMessage
                 }
               }
               const newHeight = Math.ceil(height * scale);
-              frame.style.height = newHeight + 'px';
-              document.getElementById('official-notes').style.height = newHeight + 'px';
+              if (frame.style.height !== newHeight + 'px') {
+                frame.style.height = newHeight + 'px';
+                document.getElementById('official-notes').style.height = newHeight + 'px';
+              }
             }
 
             frame.addEventListener('load', () => adjustHeight());

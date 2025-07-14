@@ -17,12 +17,14 @@
       if (!height) {
         try {
           const doc = frame.contentDocument || frame.contentWindow.document;
-          height = doc.documentElement.scrollHeight;
+          height = doc.body.scrollHeight;
         } catch (_) {
           return; // cross-origin, wait for postMessage
         }
       }
-      frame.style.height = height + 'px';
+      if (frame.style.height !== height + 'px') {
+        frame.style.height = height + 'px';
+      }
     }
 
     frame.addEventListener('load', () => adjustHeight());

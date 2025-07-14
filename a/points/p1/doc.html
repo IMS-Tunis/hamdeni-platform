@@ -48,7 +48,7 @@
   </div>
   <script>
     function sendHeight() {
-      const height = document.documentElement.scrollHeight;
+      const height = document.body.scrollHeight;
       window.parent.postMessage({ type: 'docHeight', height }, '*');
     }
     window.addEventListener('load', sendHeight);
