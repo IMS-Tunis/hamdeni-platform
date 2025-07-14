@@ -27,6 +27,18 @@ h1 {
   margin-bottom: 2em;
   font-weight: 500;
 }
+.section {
+  background: #f9fcff;
+  border: 2px solid #e2e9ee;
+  border-radius: 12px;
+  margin-bottom: 2.1em;
+  padding: 1.2em 1.4em;
+  box-shadow: 0 2px 12px rgba(45,100,180,0.06);
+  transition: box-shadow 0.2s;
+}
+.section:hover {
+  box-shadow: 0 4px 20px rgba(45,100,180,0.14);
+}
 h2 {
   font-size: 1.17em;
   color: #153238;
@@ -36,7 +48,7 @@ h2 {
   margin-bottom: 1em;
   border-radius: 6px;
   font-weight: 600;
-  margin-top: 1.7em;
+  margin-top: 0;
 }
 ul, ol {
   margin: 0 0 1.2em 1.7em;
@@ -49,7 +61,6 @@ li {
 .official-note {
   color: #31363c;
   background: #ffffff;
-  /* border-left removed! */
   padding: 0.3em 1em 0.3em 0.8em;
   border-radius: 0 7px 7px 0;
   font-weight: 500;
@@ -60,7 +71,7 @@ li {
   padding-left: 0;
 }
 .example-box {
-  background: #f5e2e2;
+  background: #faf3f3;
   border-radius: 0 7px 7px 0;
   margin: 0.7em 0 0.7em 0.7em;
   padding: 0.52em 1em;
@@ -68,8 +79,8 @@ li {
   font-size: 1em;
   font-weight: 500;
   position: relative;
-  box-shadow: 0 2px 6px rgba(200, 30, 60, 0.08);
-  margin-left: 2em; /* further indent compared to official notes */
+  box-shadow: 0 2px 6px rgba(200, 30, 60, 0.04);
+  margin-left: 2em;
 }
 .example-box::before {
   content: "Example:";
@@ -79,12 +90,12 @@ li {
 }
 .fun-tip {
   color: #255124;
-  background: #e5f2e0;
+  background: #f1faf1;
   padding: 0.32em 1em 0.32em 2.3em;
   border-radius: 0 7px 7px 0;
   font-style: italic;
   position: relative;
-  margin-left: 2em; /* further indent compared to official notes */
+  margin-left: 2em;
   display: inline-block;
   margin-top: 0.4em;
   margin-bottom: 0.4em;
@@ -157,9 +168,6 @@ th, td {
 th {
   background: #fff4f4;
   color: #a50035;
-}
-.section {
-  margin-bottom: 2.1em;
 }
 @media (max-width: 650px) {
   .container { padding: 1rem 0.7rem; }
