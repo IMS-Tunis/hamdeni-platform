@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,104 +7,41 @@
 </head>
 <body>
   <div class="container">
-    <h1><span class="title-icon">🎉</span> 1.1 Number Systems <span class="title-icon">✨</span></h1>
-    <div class="subtitle">CS notes (IGCSE 0478) prepared by Dr. Hamdeni</div>
+    <h1><span class="title-icon">🔢</span> Number Systems <span class="title-icon">💡</span></h1>
+    <div class="subtitle">IGCSE CS theory notes, prepared by Dr. Hamdeni</div>
 
-    <h2>How and Why Computers Use <span class="keyword" data-tooltip="A number system with only two values, 0 and 1, used by all modern computers.">Binary</span></h2>
+    <h2>1.1 Understand how and why computers use binary to represent all forms of data</h2>
     <ul>
-      <li><span class="official-note">Computers process all data using <span class="keyword" data-tooltip="A number system with only two values, 0 and 1, used by all modern computers.">binary</span>. Each <span class="keyword" data-tooltip="A single digit in binary, either 0 or 1.">bit</span> is 0 (OFF) or 1 (ON).</span></li>
-      <li><span class="official-note">Logic gates process binary data, and registers are used to temporarily store data.</span></li>
-      <li><span class="official-note">Analogue data must be converted to digital (binary) form to be processed by a computer.</span></li>
-      <li><span class="official-note">The <span class="keyword" data-tooltip="Most Significant Bit — the leftmost bit, representing the highest value.">MSB</span> is the leftmost bit; the <span class="keyword" data-tooltip="Least Significant Bit — the rightmost bit, representing the lowest value.">LSB</span> is the rightmost.</span></li>
-      <li><span class="fun-tip">Imagine each bit as a tiny light switch: up (1) or down (0)!</span></li>
-      <li><div class="example-box"><span class="example-icon">🧑‍💻</span>For example, the number <span class="keyword" data-tooltip="A number system with only two values, 0 and 1, used by all modern computers.">101</span> in binary represents the value 5 in denary (4 + 0 + 1).</div></li>
+      <li><span class="official-note">Computers process and store all data in <span class="keyword" data-tooltip="A base-2 number system using only 0 and 1">binary</span> because internal hardware like logic gates and switches can only recognize ON/OFF states.</span></li>
+      <li><span class="official-note">In <span class="keyword" data-tooltip="Binary system">binary</span>, <span class="keyword" data-tooltip="OFF">0</span> represents OFF and <span class="keyword" data-tooltip="ON">1</span> represents ON.</span></li>
+      <li><span class="official-note">Any form of <span class="keyword" data-tooltip="Continuous data, such as sound, light, or temperature">analogue data</span> must be converted to <span class="keyword" data-tooltip="Data using only 0 and 1">digital data</span> so computers can process it.</span></li>
+      <li><span class="official-note"><span class="keyword" data-tooltip="Fundamental components for processing digital data">Logic gates</span> control the flow of electricity and process digital data.</span></li>
+      <li><span class="official-note"><span class="keyword" data-tooltip="Temporary storage for binary data in computers">Registers</span> are used to hold binary data during processing.</span></li>
+      <li><div class="example-box"><span class="example-icon">💡</span> A switch ON = 1, OFF = 0.</div></li>
+      <li><span class="fun-tip">Analogue data is like a dimmer light switch (smoothly adjustable), while digital data is like a standard switch (just ON or OFF).</span></li>
+      <li><span class="keyword" data-tooltip="Continuous stream, e.g., sound, light, temperature">Analogue data</span></li>
+      <li><span class="keyword" data-tooltip="Discrete, only 0 and 1">Digital data</span></li>
     </ul>
 
-    <h2>Denary, Binary, and Hexadecimal Number Systems</h2>
+    <h2>1.2 (a) Understand the denary, binary and hexadecimal number systems</h2>
     <ul>
-      <li><span class="official-note"><span class="keyword" data-tooltip="A number system using digits 0-9 (base-10), the one we use every day.">Denary</span> (decimal): Base-10, digits 0–9, each position increases by a power of 10.</span></li>
-      <li><span class="official-note"><span class="keyword" data-tooltip="A number system with only two digits (0 and 1). Used by computers.">Binary</span>: Base-2, digits 0 and 1, each position increases by a power of 2.</span></li>
-      <li><span class="official-note"><span class="keyword" data-tooltip="A number system with 16 digits (0–9 and A–F). A=10, F=15. Used as shorthand for binary.">Hexadecimal</span>: Base-16, digits 0–9 and A–F, each hex digit equals 4 binary digits (bits).</span></li>
-      <li><span class="fun-tip">Hex is like number VIPs: after 9, the alphabet takes over!</span></li>
-      <li><div class="example-box"><span class="example-icon">🔢</span> Example: The hexadecimal number <span class="keyword" data-tooltip="A number system with 16 digits (0–9 and A–F). A=10, F=15. Used as shorthand for binary.">2A</span> equals 42 in denary (2×16 + 10×1).</div></li>
-    </ul>
-    <div class="table-wrap">
-      <table>
-        <tr><th>Binary</th><th>Hex</th><th>Denary</th></tr>
-        <tr><td>0000</td><td>0</td><td>0</td></tr>
-        <tr><td>1001</td><td>9</td><td>9</td></tr>
-        <tr><td>1010</td><td>A</td><td>10</td></tr>
-        <tr><td>1111</td><td>F</td><td>15</td></tr>
-      </table>
-    </div>
-
-    <h2>Converting Between Number Systems</h2>
-    <ul>
-      <li><span class="official-note">To convert <span class="keyword" data-tooltip="A number system with only two digits (0 and 1). Used by computers.">binary</span> to denary: Add the value of each 1 bit (from right: 1, 2, 4, 8...). Example: 1101 = 8 + 4 + 1 = 13.</span></li>
-      <li><span class="official-note">To convert denary to <span class="keyword" data-tooltip="A number system with only two digits (0 and 1). Used by computers.">binary</span>: Repeatedly divide by 2 and read remainders from bottom to top.</span></li>
-      <li><span class="official-note">To convert <span class="keyword" data-tooltip="A number system with 16 digits (0–9 and A–F). A=10, F=15. Used as shorthand for binary.">hexadecimal</span> to binary: Replace each hex digit with its 4-bit binary equivalent.</span></li>
-      <li><span class="official-note">To convert binary to hexadecimal: Group binary digits into 4s (right to left), convert each group to hex.</span></li>
-      <li><span class="official-note">To convert denary to hexadecimal: Divide by 16 repeatedly, use remainders (read from bottom to top).</span></li>
-      <li><span class="official-note">To convert hexadecimal to denary: Multiply each digit by its power of 16 and add.</span></li>
-      <li><span class="fun-tip">Converting is like changing costumes—same number, different style!</span></li>
-      <li><div class="example-box"><span class="example-icon">🎲</span>Example: Convert 23 (denary) to binary: 23 ÷ 2 = 11 r1, 11 ÷ 2 = 5 r1, 5 ÷ 2 = 2 r1, 2 ÷ 2 = 1 r0, 1 ÷ 2 = 0 r1. Read remainders up: <span class="keyword" data-tooltip="A number system with only two digits (0 and 1). Used by computers.">10111</span>.</div></li>
+      <li><span class="official-note"><span class="keyword" data-tooltip="Base-10, digits 0–9">Denary</span> is used in everyday life, with each place increasing by powers of 10.</span></li>
+      <li><div class="example-box"><span class="example-icon">🔢</span> The denary number 25177 = 2×10000 + 5×1000 + 1×100 + 7×10 + 7×1.</div></li>
+      <li><span class="official-note"><span class="keyword" data-tooltip="Base-2, digits 0 and 1">Binary</span> is used by computers, with each place increasing by powers of 2.</span></li>
+      <li><span class="keyword" data-tooltip="Number of binary digits, e.g., 4-bit, 8-bit, 16-bit">Bit size</span></li>
+      <li><span class="official-note">The <span class="keyword" data-tooltip="The leftmost bit in a binary number, which has the highest value">MSB</span> (Most Significant Bit) is the leftmost bit.</span></li>
+      <li><div class="example-box"><span class="example-icon">💡</span> Binary 11101110 = 128+64+32+8+4+2 = 238 (denary).</div></li>
+      <li><span class="official-note"><span class="keyword" data-tooltip="Base-16, digits 0–9 and A–F">Hexadecimal</span> is closely related to binary; each hex digit is 4 bits.</span></li>
+      <li><div class="example-box"><span class="example-icon">🔠</span> Hex digit A = 10, F = 15 (denary).</div></li>
+      <li><div class="example-box"><span class="example-icon">🔄</span> 1010 (binary) = A (hex) = 10 (denary).</div></li>
+      <li><span class="keyword" data-tooltip="Base-16, digits 0–9 and A–F">Hexadecimal</span></li>
     </ul>
 
-    <h2>Why Hexadecimal is Used in Computer Science</h2>
+    <h2>1.2 (b) Convert between number systems</h2>
     <ul>
-      <li><span class="official-note"><span class="keyword" data-tooltip="A number system with 16 digits (0–9 and A–F). A=10, F=15. Used as shorthand for binary.">Hexadecimal</span> is easier for humans to read than binary. Each hex digit represents four binary digits.</span></li>
-      <li><span class="official-note">It's used for error codes, MAC addresses, IPv6, HTML colors, assembly/machine code, and memory dumps.</span></li>
-      <li><span class="fun-tip">Hex is the computer scientist's secret shorthand!</span></li>
-      <li><div class="example-box"><span class="example-icon">💻</span>Example: The color code <span class="keyword" data-tooltip="A number system with 16 digits (0–9 and A–F). A=10, F=15. Used as shorthand for binary.">#FF0000</span> in HTML represents pure red.</div></li>
-    </ul>
-
-    <h2>Adding Two Positive 8-Bit Binary Integers</h2>
-    <ul>
-      <li><span class="official-note">Binary addition rules: 0+0=0, 1+0=1, 1+1=0 (carry 1), 1+1+1=1 (carry 1). Add from right to left. If the result needs more bits than allowed, overflow occurs.</span></li>
-      <li><span class="fun-tip">Binary addition: when two bits love each other, they carry over!</span></li>
-      <li><div class="example-box"><span class="example-icon">➕</span>Example: 0110 + 1011 = 0001 (carry 1 to the next column, etc.).</div></li>
-    </ul>
-
-    <h2>Concept of Overflow</h2>
-    <ul>
-      <li><span class="official-note">Overflow occurs if a binary sum exceeds the register’s maximum size (e.g., an extra bit in 8-bit addition). The overflow bit is lost.</span></li>
-      <li><span class="fun-tip">Overflow is like pouring too much soda in your cup—what spills out is lost!</span></li>
-      <li><div class="example-box"><span class="example-icon">🥤</span>Example: 11111111 + 00000001 = 00000000 (overflow occurs).</div></li>
-    </ul>
-
-    <h2>Logical Binary Shifts</h2>
-    <ul>
-      <li><span class="official-note">Logical left shift: every bit moves left, zero enters on the right (multiplies by 2). Logical right shift: every bit moves right, zero enters on the left (divides by 2). Shifted-out bits are lost.</span></li>
-      <li><span class="fun-tip">Bits at a dance: step left or right, but if you step off the floor, you’re out!</span></li>
-      <li><div class="example-box"><span class="example-icon">➡️</span>Example: 10110000 left shift by 1 = 01100000.</div></li>
-    </ul>
-
-    <h2>Two’s Complement (Positives & Negatives)</h2>
-    <ul>
-      <li><span class="official-note">Two’s complement allows binary to represent both positive and negative numbers. For 8 bits: range is –128 to 127. To find a negative, write the positive in binary, invert all bits, add 1.</span></li>
-      <li><span class="fun-tip">Two’s complement: flip, add one, and you’ve found your negative!</span></li>
-      <li><div class="example-box"><span class="example-icon">➖</span>Example: To find -5 in 8 bits: 5 = 00000101, invert = 11111010, add 1 = 11111011.</div></li>
-    </ul>
-
-    <h2>Vocabulary (Number Systems)</h2>
-    <ul>
-      <li><span class="official-note"><span class="keyword" data-tooltip="A single digit in binary, either 0 or 1.">Bit</span>: A single binary digit (0 or 1).</span></li>
-      <li><span class="official-note"><span class="keyword" data-tooltip="A group of 8 bits.">Byte</span>: 8 bits.</span></li>
-      <li><span class="official-note"><span class="keyword" data-tooltip="Most Significant Bit — the leftmost bit, representing the highest value.">MSB</span>: Most Significant Bit (leftmost).</span></li>
-      <li><span class="official-note"><span class="keyword" data-tooltip="Least Significant Bit — the rightmost bit, representing the lowest value.">LSB</span>: Least Significant Bit (rightmost).</span></li>
-      <li><span class="official-note"><span class="keyword" data-tooltip="A fast, small storage location in the CPU, used to hold data temporarily.">Register</span>: Temporary storage in the CPU.</span></li>
-      <li><span class="official-note"><span class="keyword" data-tooltip="When the result of a calculation is too large for the register, the extra bits are lost.">Overflow</span>: Excess bits from a calculation that do not fit.</span></li>
-      <li><span class="official-note"><span class="keyword" data-tooltip="A digital circuit that processes binary input to produce an output.">Logic gate</span>: A component processing binary data.</span></li>
-      <li><span class="fun-tip">Learn these keywords for instant computer science power-ups!</span></li>
-    </ul>
-
-    <div class="section" style="background: #f6fff2; border-radius: 7px; padding: 1.2em; margin-top:2em;">
-      <ul>
-        <li><b>Remember:</b> <span class="keyword" data-tooltip="A number system with only two digits (0 and 1). Used by computers.">Binary</span> is the computer’s main language.</li>
-        <li><span class="keyword" data-tooltip="A number system with 16 digits (0–9 and A–F). A=10, F=15. Used as shorthand for binary.">Hexadecimal</span> is the programmer’s favorite shortcut.</li>
-        <li>Never fear a conversion! Practice makes perfect—just follow the steps, and you’ll be a number ninja in no time! <span class="emoji">🥷</span></li>
-      </ul>
-    </div>
-  </div>
-</body>
-</html>
+      <li><span class="official-note">To convert binary to denary: add up the values of all positions where there is a 1.</span></li>
+      <li><div class="example-box"><span class="example-icon">➡️</span> 011110001011 = 1024+512+256+128+8+2+1 = 1931 (denary).</div></li>
+      <li><span class="official-note">To convert denary to binary: subtract the largest possible powers of 2, or divide by 2 and record remainders.</span></li>
+      <li><span class="official-note">Successive division by 2 and reading remainders from bottom to top gives the binary value.</span></li>
+      <li><div class="example-box"><span class="example-icon">➗</span> Denary 142: 142 ÷ 2 repeatedly gives remainders 1 0 0 0 1 1 1 0 (read bottom to top: 10001110).</div></li>
+      <li><div class="example-
