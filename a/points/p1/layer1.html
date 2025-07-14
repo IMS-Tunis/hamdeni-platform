@@ -266,12 +266,13 @@
           if (doc) {
             const frame = document.getElementById("doc-frame");
             frame.src = doc.url;
-            frame.addEventListener('load', () => {
-              const contentHeight = frame.contentWindow.document.documentElement.scrollHeight;
-              const scale = 1.1;                     // matches `.official-doc` scale
-              const newHeight = Math.ceil(contentHeight * scale);
-              frame.style.height = newHeight + 'px';
-              document.getElementById('official-notes').style.height = newHeight + 'px';
+            window.addEventListener('message', (e) => {
+              if (e.data && e.data.type === 'docHeight') {
+                const scale = 1.1; // matches `.official-doc` scale
+                const newHeight = Math.ceil(e.data.height * scale);
+                frame.style.height = newHeight + 'px';
+                document.getElementById('official-notes').style.height = newHeight + 'px';
+              }
             });
           }
 
