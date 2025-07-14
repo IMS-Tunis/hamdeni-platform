@@ -149,7 +149,9 @@ async function renderTheory(data) {
       );
       if (found) {
         if (usesReachedLayer()) {
-          if (parseInt(found.reached_layer, 10) >= i) checkbox.checked = true;
+          const raw = found.reached_layer;
+          const reached = raw === 'R' ? 3 : parseInt(raw, 10);
+          if (reached >= i) checkbox.checked = true;
         } else if (found[`layer${i}_done`]) {
           checkbox.checked = true;
         }
@@ -166,7 +168,8 @@ function renderLevels(data) {
   container.innerHTML = '<h4>Programming Progress</h4>';
   programmingLevels = levelDefs.map((_, i) => i + 1);
 
-  const reached = data[0]?.reached_level || 0;
+  const rawReached = data[0]?.reached_level || 0;
+  const reached = rawReached === 'R' ? 3 : parseInt(rawReached, 10);
 
   levelDefs.forEach((lvl, idx) => {
     const row = document.createElement('div');
