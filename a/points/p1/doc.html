@@ -46,13 +46,6 @@
       <li><div class="example-box"><span class="example-icon">➗</span> Denary 142: 142 ÷ 2 repeatedly gives remainders 1 0 0 0 1 1 1 0 (read bottom to top: 10001110).</div></li>
     </ul>
   </div>
-  <script>
-    function sendHeight() {
-      const height = document.documentElement.scrollHeight;
-      window.parent.postMessage({ type: 'docHeight', height }, '*');
-    }
-    window.addEventListener('load', sendHeight);
-    window.addEventListener('resize', sendHeight);
-  </script>
+  
 </body>
 </html>

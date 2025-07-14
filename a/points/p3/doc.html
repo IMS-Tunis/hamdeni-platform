@@ -10,13 +10,6 @@
     <h1>Point Notes</h1>
     <p>This is a placeholder page for the full HTML notes. Replace this content with the actual notes as needed.</p>
   </main>
-  <script>
-    function sendHeight() {
-      const height = document.documentElement.scrollHeight;
-      window.parent.postMessage({ type: 'docHeight', height }, '*');
-    }
-    window.addEventListener('load', sendHeight);
-    window.addEventListener('resize', sendHeight);
-  </script>
+
 </body>
 </html>
