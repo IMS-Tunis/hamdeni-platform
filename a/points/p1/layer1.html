@@ -60,29 +60,6 @@
       padding: 50px;
     }
 
-    .grid-container {
-      display: grid;
-      grid-template-columns: 7fr 3fr;
-      grid-template-rows: auto auto;
-      gap: 30px;
-    }
-
-    .cell {
-      background: #fff;
-      padding: 40px;
-      border: 2px solid #003366;
-      border-radius: 8px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
-    }
-
-    .editable-note {
-      width: 100%;
-      min-height: 800px;
-      border: 1px solid #aaa;
-      border-radius: 6px;
-      padding: 15px;
-      font-size: 1em;
-    }
 
     .section-title {
       display: inline-block;
@@ -226,25 +203,8 @@
   </div>
 
   <main id="content-area" style="display: none;">
-    <div class="grid-container">
-      <div class="cell syllabus">
-        <div class="section-title">📌 Syllabus Points</div>
-        <img src="syllabus.png" alt="Syllabus Image" style="max-width: 100%; margin-bottom: 20px;" />
-      </div>
-      <div id="video-section" class="cell videos" style="display:none;">
-        <div class="section-title">🎥 Related Videos</div>
-        <div id="videos-container"></div>
-      </div>
-      <div class="cell theory">
-        <div class="section-title">📄 Mr. Hamdeni's Theory Notes</div>
-        <div id="official-notes">
-          <iframe id="doc-frame" class="official-doc" scrolling="no"></iframe>
-        </div>
-      </div>
-      <div class="cell personal">
-        <div class="section-title" id="personal-title">📝 Personal Notes</div>
-        <div id="personal-notes" class="editable-note" contenteditable="true" placeholder="Write your own notes or summary about the theory..."></div>
-      </div>
+    <div id="official-notes">
+      <iframe id="doc-frame" class="official-doc" scrolling="no"></iframe>
     </div>
   </main>
 
@@ -252,6 +212,11 @@
     <button class="highlight-button btn-clear" onclick="markClear()">✅ Notes are clear</button>
     <button class="highlight-button btn-help" onclick="showHelp()">🆘 Need help</button>
     <button class="highlight-button btn-confused" onclick="markConfused()">😕 I'm confused</button>
+  </div>
+
+  <div id="video-section" class="videos" style="display:none;">
+    <div class="section-title">🎥 Related Videos</div>
+    <div id="videos-container"></div>
   </div>
 
   <div id="help-section">
@@ -281,7 +246,6 @@
   } else {
     document.getElementById("student-name").textContent = "👤 " + student_name;
     document.getElementById("platform-name").textContent = "🎓 Platform: " + platform;
-    document.getElementById("personal-title").textContent = `📝 ${student_name}'s Personal Notes`;
     document.getElementById("content-area").style.display = "block";
 
     fetch("../index.json")
