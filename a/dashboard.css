@@ -326,6 +326,9 @@ body {
 .segment.green {
   background-color: #4CAF50;
 }
+.segment.light-green {
+  background-color: #b2fab4;
+}
 .labels {
   display: flex;
   justify-content: space-between;
