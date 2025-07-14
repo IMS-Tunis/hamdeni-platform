@@ -10,5 +10,17 @@
     <h1>Point Notes</h1>
     <p>This is a placeholder page for the full HTML notes. Replace this content with the actual notes as needed.</p>
   </main>
+  <script>
+    function sendHeight() {
+      const content = document.querySelector('.container') || document.querySelector('main');
+      const height = content ? content.scrollHeight : document.documentElement.scrollHeight;
+      window.parent.postMessage({ type: 'docHeight', height }, '*');
+    }
+    window.addEventListener('load', () => {
+      sendHeight();
+      const interval = setInterval(sendHeight, 200);
+      setTimeout(() => clearInterval(interval), 1000);
+    });
+  </script>
 </body>
 </html>

@@ -44,4 +44,20 @@
       <li><span class="official-note">To convert denary to binary: subtract the largest possible powers of 2, or divide by 2 and record remainders.</span></li>
       <li><span class="official-note">Successive division by 2 and reading remainders from bottom to top gives the binary value.</span></li>
       <li><div class="example-box"><span class="example-icon">➗</span> Denary 142: 142 ÷ 2 repeatedly gives remainders 1 0 0 0 1 1 1 0 (read bottom to top: 10001110).</div></li>
-      <li><div class="example-
+    </ul>
+  </div>
+  <script>
+    function sendHeight() {
+      const content = document.querySelector('.container') || document.querySelector('main');
+      const height = content ? content.scrollHeight : document.documentElement.scrollHeight;
+      window.parent.postMessage({ type: 'docHeight', height }, '*');
+    }
+
+    window.addEventListener('load', () => {
+      sendHeight();
+      const interval = setInterval(sendHeight, 200);
+      setTimeout(() => clearInterval(interval), 1000);
+    });
+  </script>
+</body>
+</html>
