@@ -251,12 +251,20 @@ document.getElementById('save-progress').onclick = async () => {
   }
 
   try {
-    await supabase
+    const { data: existing } = await supabase
       .from(lTable)
-      .upsert({
-        username: selectedStudent.username,
-        reached_level: maxLevel
-      });
+      .select('reached_level')
+      .eq('username', selectedStudent.username)
+      .maybeSingle();
+    const current = parseInt(existing?.reached_level, 10) || 0;
+    if (maxLevel > current) {
+      await supabase
+        .from(lTable)
+        .upsert({
+          username: selectedStudent.username,
+          reached_level: maxLevel
+        });
+    }
   } catch (err) {
     console.error('[teacher] Failed saving reached_level', err);
   }
