@@ -14,12 +14,22 @@ async function updateTheoryProgress(pointId, layer) {
   const point_id = pointId.toLowerCase();
   console.log("📡 Supabase UPSERT:", { table, point_id, reached_layer: layer });
 
-  const { error } = await client
+  const { data: existing } = await client
     .from(table)
-    .upsert({
-      username: username,
-      point_id,
-    reached_layer: String(layer)
-    }, { onConflict: ['username', 'point_id'] });
+    .select('reached_layer')
+    .eq('username', username)
+    .eq('point_id', point_id)
+    .maybeSingle();
+  const score = v => v === 'R' ? 4 : (parseInt(v, 10) || 0);
+  if (score(existing?.reached_layer) < layer) {
+    const { error } = await client
+      .from(table)
+      .upsert({
+        username: username,
+        point_id,
+        reached_layer: String(layer)
+      }, { onConflict: ['username', 'point_id'] });
 
-  if (error) console.error("❌ Supabase Error:", error);  else console.log("✅ Supabase Progress Updated");}
+    if (error) console.error("❌ Supabase Error:", error); else console.log("✅ Supabase Progress Updated");
+  }
+}
