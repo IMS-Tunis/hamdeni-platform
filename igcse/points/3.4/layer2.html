@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Layer 2 - Quiz</title>
+  <link rel="stylesheet" href="../../dashboard.css" />
+  <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+    const SUPABASE_URL = "https://tsmzmuclrnyryuvanlxl.supabase.co";
+    const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzbXptdWNscm55cnl1dmFubHhsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc3MzM5NjUsImV4cCI6MjA2MzMwOTk2NX0.-l7Klmp5hKru3w2HOWLRPjCiQprJ2pOjsI-HPTGtAiw";
+    window.supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+  </script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #f4f7fb;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background-color: #003366;
+      color: white;
+    }
+
+    .header-left,
+    .header-right {
+      flex: 1;
+    }
+
+    .header-center {
+      flex: 2;
+      text-align: center;
+    }
+
+    .header-center h1 {
+      margin: 0;
+      font-size: 1.8em;
+    }
+
+    .header-center p {
+      margin: 3px 0;
+      font-size: 1em;
+      color: #f0f0f0;
+    }
+
+    .info-line {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 3px;
+      font-size: 1em;
+      color: #f0f0f0;
+    }
+
+    .logo {
+      height: 55px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .question {
+      margin: 25px 0;
+      padding: 20px;
+      background: #eef2f7;
+      border-radius: 10px;
+    }
+
+    .question h3 {
+      margin-top: 0;
+    }
+
+    input[type="radio"],
+    input[type="text"],
+    select {
+      margin: 10px 0;
+      padding: 8px;
+      font-size: 1em;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      display: block;
+    }
+
+    .highlight-button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      margin: 20px 10px 0 0;
+      border-radius: 8px;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .highlight-button:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+    }
+
+    .submit-btn {
+      background: linear-gradient(135deg, #28a745, #5cd263);
+      color: #fff;
+      border: none;
+      padding: 14px 28px;
+      font-size: 1.2em;
+      font-weight: bold;
+      border-radius: 30px;
+      cursor: pointer;
+      margin-top: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      transition: transform 0.2s, box-shadow 0.3s;
+      display: inline-block;
+    }
+
+    .submit-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+    }
+
+    .success-message, .retry-message {
+      margin-top: 20px;
+      padding: 20px;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+
+    .success-message {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+
+    .retry-message {
+      background-color: #fff3cd;
+      color: #856404;
+      border: 1px solid #ffeeba;
+    }
+
+    .nav-btn {
+      padding: 10px 20px;
+      background: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      margin-right: 10px;
+      transition: background 0.3s ease;
+    }
+
+    .nav-btn:hover {
+      background: #0056b3;
+    }
+
+    .quiz-question {
+      background: #eef2f7;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .quiz-question label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-right: 25px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+
+    .quiz-question input[type="radio"] {
+      margin: 0;
+    }
+    .subheading { margin: 5px 0; font-size: 1.2em; color: #f0f0f0; }
+
+  </style>
+
+</head>
+<body>
+  <header>
+    <div class="header-left">
+      <a href="../../dashboard.html">
+        <img src="../../../images/maarifLOGO.png" class="logo" />
+      </a>
+    </div>
+    <div class="header-center">
+      <h1>Layer 2: Active Application</h1>
+        <p class="subheading">Apply what you've learned to master key terms</p>
+
+      <div class="info-line">
+        <span id="point-title"></span>
+        <span id="student-name"></span>
+        <span id="platform-name"></span>
+      </div>
+    </div>
+    <div class="header-right" style="text-align:right;">
+      <img src="../../../images/cambridge.png" class="logo" />
+    </div>
+  </header>
+
+  <div style="text-align:left; padding:10px;">
+    <a href="layer1.html" class="nav-btn">← Back to Layer 1</a>
+  </div>
+
+  <div class="container">
+    <h2>🧠 Quiz</h2>
+    <p>Answer all questions correctly to unlock the next layer.</p>
+
+    <div id="quiz-container">
+      <p>Loading quiz...</p>
+    </div>
+
+    <div id="quiz-result"></div>
+  </div>
+
+  <script>
+    const student_name = localStorage.getItem("student_name");
+    const platform = localStorage.getItem("platform");
+    const point_id = "3.4";
+
+    if (student_name) {
+      document.getElementById("student-name").textContent = "👤 " + student_name;
+    }
+
+    if (platform) {
+      document.getElementById("platform-name").textContent = "🎓 Platform: " + platform;
+    }
+
+    document.getElementById("point-title").textContent = point_id;
+  </script>
+  
+
+<footer style="margin-top: 50px; text-align: center; padding: 20px; background: #e0e0e0; color: #333; font-size: 0.95em;">
+  📧 Contact Dr. Hamdeni at <a href="mailto:hamdeni.chamseddine@gmail.com">hamdeni.chamseddine@gmail.com</a>
+</footer>
+
+<!-- Ensure the quiz script runs after the module above has created
+     `window.supabase` by deferring its execution -->
+<script src="quiz.js" defer></script>
+
+</body>
+</html>
