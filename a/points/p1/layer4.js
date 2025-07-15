@@ -5,6 +5,7 @@ const username = localStorage.getItem('username');
 const platform = localStorage.getItem('platform');
 const pointId = (location.pathname.split('/')
   .find(p => /^p\d+$/i.test(p)) || 'P1').toUpperCase();
+const readyKey = `${pointId.toLowerCase()}_layer4_ready`;
 
 document.getElementById('point-title').textContent = pointId;
 if (studentName) {
@@ -23,10 +24,29 @@ function renderQuestions(questions) {
   questions.forEach((q, i) => {
     const row = document.createElement('div');
     row.className = 'qa-row';
-    row.innerHTML = `
-      <div class="qa-question"><strong>Q${i + 1}.</strong> ${q.question}</div>
-      <div class="qa-answer">${q.answer}</div>
-    `;
+
+    const question = document.createElement('div');
+    question.className = 'qa-question';
+    question.innerHTML = `<strong>Q${i + 1}.</strong> ${q.question}<br>`;
+
+    const toggleBtn = document.createElement('button');
+    toggleBtn.textContent = 'Show Answer';
+    toggleBtn.className = 'toggle-answer-btn';
+    question.appendChild(toggleBtn);
+
+    const answer = document.createElement('div');
+    answer.className = 'qa-answer';
+    answer.textContent = q.answer;
+    answer.style.display = 'none';
+
+    toggleBtn.addEventListener('click', () => {
+      const show = answer.style.display === 'none';
+      answer.style.display = show ? 'block' : 'none';
+      toggleBtn.textContent = show ? 'Hide Answer' : 'Show Answer';
+    });
+
+    row.appendChild(question);
+    row.appendChild(answer);
     container.appendChild(row);
   });
 }
@@ -38,14 +58,29 @@ async function markReady() {
     reached_layer: 'R'
   }, { onConflict: ['username','point_id'] });
 
+  const btn = document.getElementById('ready-btn');
   const msg = document.getElementById('ready-message');
   if (error) {
     console.error('Failed to update progress', error);
     msg.textContent = '❌ Failed to inform the teacher.';
+    btn.disabled = false;
   } else {
-    msg.textContent = 'The teacher has been informed that you are ready and you will sit for a validation test soon.';
+    msg.textContent = 'The teacher has been informed that you are ready for the test. You will sit for a validation test soon.';
+    localStorage.setItem(readyKey, 'true');
   }
   msg.style.display = 'block';
 }
 
-document.getElementById('ready-btn').addEventListener('click', markReady);
+const readyBtn = document.getElementById('ready-btn');
+const readyMsg = document.getElementById('ready-message');
+
+if (localStorage.getItem(readyKey)) {
+  readyBtn.disabled = true;
+  readyMsg.textContent = 'The teacher has been informed that you are ready for the test. You will sit for a validation test soon.';
+  readyMsg.style.display = 'block';
+}
+
+readyBtn.addEventListener('click', () => {
+  readyBtn.disabled = true;
+  markReady();
+});
