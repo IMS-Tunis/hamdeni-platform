@@ -91,9 +91,7 @@
       height: 250px;
     }
 
-    #official-notes {
-      height: 4750px;
-    }
+    
 
     .official-doc {
       width: calc(100% / 1.1);
@@ -204,7 +202,7 @@
 
   <main id="content-area" style="display: none;">
     <div id="official-notes">
-      <iframe id="doc-frame" class="official-doc" scrolling="no" style="height: 4750px;"></iframe>
+      <iframe id="doc-frame" class="official-doc" scrolling="no" ></iframe>
     </div>
   </main>
 
@@ -267,8 +265,8 @@
             const frame = document.getElementById("doc-frame");
             frame.src = doc.url;
             const height = 4750;
-            frame.style.height = height + 'px';
-            document.getElementById('official-notes').style.height = height + 'px';
+            
+            
           }
 
           if (videos.length > 0) {
@@ -379,6 +377,15 @@
     }
   }
   window.submitHelp = submitHelp;
+</script>
+
+<script>
+window.addEventListener("message", function(event) {
+  if (event.data && event.data.type === 'resize') {
+    var frame = document.getElementById("doc-frame");
+    frame.style.height = (event.data.height + 10) + 'px';
+  }
+});
 </script>
 </body>
 </html>
