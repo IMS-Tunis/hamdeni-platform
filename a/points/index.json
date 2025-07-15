@@ -1,18 +1,17 @@
 [
-  {
-    "id": "p1",
-    "title": "P1: Sample Title for Point 1"
-  },
-  {
-    "id": "p2",
-    "title": "P2: Sample Title for Point 2"
-  },
-  {
-    "id": "p3",
-    "title": "P3: Sample Title for Point 3"
-  },
-  {
-    "id": "p4",
-    "title": "P4: Sample Title for Point 4"
-  }
+  {"id": "13.1", "title": "13.1 User-defined data types"},
+  {"id": "13.2", "title": "13.2 File organisation and access"},
+  {"id": "13.3", "title": "13.3 Floating-point numbers, representation and manipulation"},
+  {"id": "14.1", "title": "14.1 Protocols technologies"},
+  {"id": "14.2", "title": "14.2 Circuit switching, packet switching"},
+  {"id": "15.1", "title": "15.1 Processors, Parallel Processing and Virtual Machines"},
+  {"id": "15.2", "title": "15.2 Boolean Algebra and Logic Circuits"},
+  {"id": "16.1", "title": "16.1 Purposes of an Operating System"},
+  {"id": "16.2", "title": "16.2 Translation Software"},
+  {"id": "17",   "title": "17 Encryption, Encryption Protocols and Digital certificates"},
+  {"id": "18",   "title": "18 Artificial Intelligence"},
+  {"id": "19.1", "title": "19.1 Algorithms"},
+  {"id": "19.2", "title": "19.2 Recursion"},
+  {"id": "20.1", "title": "20.1 Programming Paradigms"},
+  {"id": "20.2", "title": "20.2 File Processing and Exception Handling"}
 ]
