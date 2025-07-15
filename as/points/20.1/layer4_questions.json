@@ -1,0 +1,14 @@
+[
+  {
+    "question": "Explain what is meant by a validation test in computer science education.",
+    "answer": "A validation test checks that students have understood the material and are ready to progress."
+  },
+  {
+    "question": "State one advantage of practicing with past paper questions before an exam.",
+    "answer": "Past paper questions familiarize students with the exam style and improve confidence."
+  },
+  {
+    "question": "Give an example of a simple binary operation.",
+    "answer": "Adding two 1-bit binary numbers, e.g. 1 + 1 = 10."
+  }
+]
