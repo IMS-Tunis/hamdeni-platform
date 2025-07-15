@@ -1,0 +1,20 @@
+[
+  {
+    "point_id": "5.3",
+    "question_number": 1,
+    "question": "State one benefit of using binary in computers.",
+    "mark_scheme": "Binary is simple for electronic circuits, representing two states such as on/off."
+  },
+  {
+    "point_id": "5.3",
+    "question_number": 2,
+    "question": "Define the term 'protocol' in networking.",
+    "mark_scheme": "A protocol is a set of rules that allow devices to communicate."
+  },
+  {
+    "point_id": "5.3",
+    "question_number": 3,
+    "question": "Explain the purpose of an IP address.",
+    "mark_scheme": "It uniquely identifies a device on a network."
+  }
+]
