@@ -214,22 +214,13 @@ document.getElementById('save-progress').onclick = async () => {
 
     try {
       if (usesReachedLayer()) {
-        const { data: existing } = await supabase
+        await supabase
           .from(tTable)
-          .select('reached_layer')
-          .eq('username', selectedStudent.username)
-          .eq('point_id', point.toLowerCase())
-          .maybeSingle();
-        const score = v => v === 'R' ? 4 : (parseInt(v, 10) || 0);
-        if (score(existing?.reached_layer) < parseInt(reached_layer, 10)) {
-          await supabase
-            .from(tTable)
-            .upsert({
-              username: selectedStudent.username,
-              point_id: point.toLowerCase(),
-              reached_layer
-            });
-        }
+          .upsert({
+            username: selectedStudent.username,
+            point_id: point.toLowerCase(),
+            reached_layer
+          });
       } else {
         const update = { username: selectedStudent.username, point_id: point.toLowerCase() };
         for (let i = 1; i <= 4; i++) {
