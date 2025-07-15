@@ -63,13 +63,22 @@ async function updateProgress() {
   };
   const table = tables[platform];
   if (!username || !table) return;
-  const { error } = await supabase
+  const { data: existing } = await supabase
     .from(table)
-    .upsert(
-      { username, point_id: pointId.toLowerCase(), reached_layer: 3 },
-      { onConflict: ['username', 'point_id'] }
-    );
-  if (error) console.error('Upsert error:', error);
+    .select('reached_layer')
+    .eq('username', username)
+    .eq('point_id', pointId.toLowerCase())
+    .maybeSingle();
+  const score = v => v === 'R' ? 4 : (parseInt(v, 10) || 0);
+  if (score(existing?.reached_layer) < 3) {
+    const { error } = await supabase
+      .from(table)
+      .upsert(
+        { username, point_id: pointId.toLowerCase(), reached_layer: 3 },
+        { onConflict: ['username', 'point_id'] }
+      );
+    if (error) console.error('Upsert error:', error);
+  }
 }
 
 async function render() {

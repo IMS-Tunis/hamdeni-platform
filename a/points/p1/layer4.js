@@ -52,11 +52,21 @@ function renderQuestions(questions) {
 }
 
 async function markReady() {
-  const { error } = await supabase.from('a_theory_progress').upsert({
-    username,
-    point_id: pointId.toLowerCase(),
-    reached_layer: 'R'
-  }, { onConflict: ['username','point_id'] });
+  const { data: existing } = await supabase
+    .from('a_theory_progress')
+    .select('reached_layer')
+    .eq('username', username)
+    .eq('point_id', pointId.toLowerCase())
+    .maybeSingle();
+  const score = v => v === 'R' ? 4 : (parseInt(v, 10) || 0);
+  let error = null;
+  if (score(existing?.reached_layer) < 4) {
+    ({ error } = await supabase.from('a_theory_progress').upsert({
+      username,
+      point_id: pointId.toLowerCase(),
+      reached_layer: 'R'
+    }, { onConflict: ['username','point_id'] }));
+  }
 
   const btn = document.getElementById('ready-btn');
   const msg = document.getElementById('ready-message');
