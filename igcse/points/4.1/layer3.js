@@ -164,6 +164,7 @@ exportBtn.addEventListener('click', async () => {
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF();
   doc.setFontSize(18);
+
   const pdfTitle = username ? `${username}'s Layer 3 Reflection Notes` : 'Layer 3 Reflection Notes';
   doc.text(pdfTitle, 10, 20);
   let y = 30;
@@ -172,6 +173,7 @@ exportBtn.addEventListener('click', async () => {
     doc.text(text, 10, y);
     y += 6;
     const split = doc.splitTextToSize(row.correction_note || '', 180);
+
     doc.text(split, 10, y);
     y += split.length * 6 + 4;
   });

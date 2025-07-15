@@ -14,6 +14,7 @@ body {
 }
 h1 {
   font-size: 2.18em;
+
   text-align: center;
   margin-bottom: 0.15em;
   font-weight: 700;
@@ -42,6 +43,7 @@ h1 {
 h2 {
   font-size: 1.17em;
   color: #4.138;
+
   background: #c1ffff;
   border-left: 6px solid #a50035;
   padding: 0.63em 0.8em;
@@ -105,6 +107,7 @@ li {
   position: absolute;
   left: 0.68em;
   top: 0.18em;
+
   font-size: 1.16em;
 }
 .keyword {
@@ -135,6 +138,7 @@ li {
   z-index: 99;
   opacity: 1;
   box-shadow: 0 2px 8px rgba(180,100,30,0.10);
+
   border: 1px solid #ffe480;
 }
 .keyword[data-tooltip]:hover::before {
