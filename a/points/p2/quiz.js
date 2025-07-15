@@ -94,19 +94,27 @@ function sendProgress() {
     IGCSE: "igcse_theory_progress"
   };
   const table = tables[platform];
-  fetch(`${SUPABASE_URL}/rest/v1/${table}`, {
-    method: "PATCH",
-    headers: {
-      apikey: SUPABASE_KEY,
-      "Content-Type": "application/json",
-      Prefer: "resolution=merge-duplicates"
-    },
-    body: JSON.stringify({
-      username: username,
-      point_id,
-      reached_layer: '2'
-    })
+  const url = `${SUPABASE_URL}/rest/v1/${table}?select=reached_layer&username=eq.${encodeURIComponent(username)}&point_id=eq.${encodeURIComponent(point_id)}`;
+  const res = await fetch(url, {
+    headers: { apikey: SUPABASE_KEY, Authorization: 'Bearer ' + SUPABASE_KEY }
   });
+  const data = await res.json();
+  const score = v => v === 'R' ? 4 : (parseInt(v, 10) || 0);
+  if (score(data[0]?.reached_layer) < 2) {
+    fetch(`${SUPABASE_URL}/rest/v1/${table}`, {
+      method: "PATCH",
+      headers: {
+        apikey: SUPABASE_KEY,
+        "Content-Type": "application/json",
+        Prefer: "resolution=merge-duplicates"
+      },
+      body: JSON.stringify({
+        username: username,
+        point_id,
+        reached_layer: '2'
+      })
+    });
+  }
 }
 
 function shuffle(a) {

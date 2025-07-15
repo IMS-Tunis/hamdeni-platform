@@ -103,11 +103,20 @@ async function sendProgress() {
   };
   const table = tables[platform];
   if (!table) return;
-  await supabase.from(table).upsert({
-    username: username,
-    point_id: pointId,
-    reached_layer: '2'
-  }, { onConflict: ['username', 'point_id'] });
+  const { data: existing } = await supabase
+    .from(table)
+    .select('reached_layer')
+    .eq('username', username)
+    .eq('point_id', pointId)
+    .maybeSingle();
+  const score = v => v === 'R' ? 4 : (parseInt(v, 10) || 0);
+  if (score(existing?.reached_layer) < 2) {
+    await supabase.from(table).upsert({
+      username: username,
+      point_id: pointId,
+      reached_layer: '2'
+    }, { onConflict: ['username', 'point_id'] });
+  }
 }
 
 function shuffle(a) {
