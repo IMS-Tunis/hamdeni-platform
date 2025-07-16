@@ -1,7 +1,7 @@
 
 import { renderTheoryPoints } from "./modules/theoryRenderer.js";
 import { renderProgrammingLevels } from "./modules/levelRenderer.js";
-import { initializeLogin, fetchProgressCounts } from "./modules/supabase.js";
+import { initializeLogin, fetchProgressCounts, verifyPlatform } from "./modules/supabase.js";
 
 async function updateGeneralProgress() {
   const fill = document.querySelector(".general-progress-fill");
@@ -34,6 +34,8 @@ async function updateGeneralProgress() {
 
 document.addEventListener("DOMContentLoaded", () => {
   console.log("✅ DOM fully loaded, running dashboard.js");
+
+  verifyPlatform();
 
   renderTheoryPoints();
   renderProgrammingLevels();

@@ -1,5 +1,15 @@
 import { SUPABASE_URL, SUPABASE_KEY } from '../../supabaseClient.js';
 
+const EXPECTED_PLATFORM = 'AS_Level';
+
+export function verifyPlatform() {
+  const stored = localStorage.getItem('platform');
+  if (stored && stored !== EXPECTED_PLATFORM) {
+    alert(`Access restricted to ${EXPECTED_PLATFORM} students.`);
+    localStorage.clear();
+  }
+}
+
 function tableName(platform, type) {
   const map = {
     A_Level: {
@@ -66,6 +76,7 @@ export async function fetchProgressCounts() {
 
 export function initializeLogin() {
   console.log('[supabaseModule] Initializing login handlers');
+  verifyPlatform();
   const loginBtn = document.getElementById("login-btn");
   const logoutBtn = document.getElementById("logout-btn");
   const studentLabel = document.getElementById("student-name-bar");
@@ -95,13 +106,16 @@ export function initializeLogin() {
       .then(res => res.json())
       .then(data => {
         console.log("📦 Supabase response:", data);
-        if (data.length === 1) {
+        if (data.length === 1 && data[0].platform === EXPECTED_PLATFORM) {
           localStorage.setItem('username', data[0].username);
           localStorage.setItem('student_name', data[0].username);
           localStorage.setItem('platform', data[0].platform);
           localStorage.setItem('student_id', data[0].id);
           console.log('[supabaseModule] Login successful for', data[0].username);
           location.reload();
+        } else if (data.length === 1) {
+          alert(`Please log in through the ${data[0].platform} dashboard.`);
+          console.warn('[supabaseModule] Login blocked for', username);
         } else {
           alert("Login failed. Check your credentials.");
           console.warn('[supabaseModule] Login failed for', username);
