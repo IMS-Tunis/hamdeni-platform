@@ -3,7 +3,7 @@ import { supabase } from '../../../supabaseClient.js';
 const username = localStorage.getItem('username');
 const studentName = localStorage.getItem('student_name');
 const platform = localStorage.getItem('platform');
-const pointId = '1.1';
+const pointId = '6.3';
 
 const questionContainer = document.getElementById('questions-container');
 const notesList = document.getElementById('notes-list');
