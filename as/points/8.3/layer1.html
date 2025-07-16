@@ -318,12 +318,17 @@
   }
 
   async function sendFeedback(feedback_type, comment = "") {
+    const feedbackTable = {
+      A_Level: 'a_theory_feedback',
+      AS_Level: 'as_theory_feedback',
+      IGCSE: 'igcse_theory_feedback'
+    }[platform];
     const fullFeedback = comment
       ? `${feedback_type}: ${comment}`
       : feedback_type;
     try {
       const { error } = await supabase
-        .from("a_theory_feedback")
+        .from(feedbackTable)
         .upsert([
           {
             username: username,
