@@ -4,7 +4,7 @@ const studentName = localStorage.getItem('student_name');
 const username = localStorage.getItem('username');
 const platform = localStorage.getItem('platform');
 const pointId = (location.pathname.split('/')
-  .find(p => /^p\d+$/i.test(p)) || '1.1').toUpperCase();
+  .find(p => /^p\d+$/i.test(p)) || '6.3').toUpperCase();
 const readyKey = `${pointId.toLowerCase()}_layer4_ready`;
 
 document.getElementById('point-title').textContent = pointId;
