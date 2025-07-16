@@ -1,5 +1,5 @@
 
-import { supabase } from '../supabaseClient.js';
+import { supabase, tableName } from '../supabaseClient.js';
 import { levels as levelDefs } from '../a/modules/levelRenderer.js';
 
 console.log('[teacher] teacher.js loaded');
@@ -319,7 +319,7 @@ if (addStudentForm) {
       if (error) throw error;
 
       if (platform === 'A_Level') {
-        await supabase.from('a_programming_progress').insert({
+        await supabase.from(tableName('programming_progress')).insert({
           username: username,
           reached_level: 0
         });

@@ -1,4 +1,4 @@
-import { supabase } from '../../../supabaseClient.js';
+import { supabase, tableName } from '../../../supabaseClient.js';
 
 const studentName = localStorage.getItem('student_name');
 const username = localStorage.getItem('username');
@@ -53,7 +53,7 @@ function renderQuestions(questions) {
 
 async function markReady() {
   const { data: existing } = await supabase
-    .from('a_theory_progress')
+    .from(tableName('theory_progress'))
     .select('reached_layer')
     .eq('username', username)
     .eq('point_id', pointId.toLowerCase())
@@ -61,7 +61,7 @@ async function markReady() {
   const score = v => v === 'R' ? 4 : (parseInt(v, 10) || 0);
   let error = null;
   if (score(existing?.reached_layer) < 4) {
-    ({ error } = await supabase.from('a_theory_progress').upsert({
+    ({ error } = await supabase.from(tableName('theory_progress')).upsert({
       username,
       point_id: pointId.toLowerCase(),
       reached_layer: 'R'

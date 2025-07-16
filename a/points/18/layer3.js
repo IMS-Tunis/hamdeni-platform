@@ -1,4 +1,4 @@
-import { supabase } from '../../../supabaseClient.js';
+import { supabase, tableName } from '../../../supabaseClient.js';
 
 const username = localStorage.getItem('username');
 const studentName = localStorage.getItem('student_name');
@@ -29,7 +29,7 @@ document.getElementById('point-title').textContent = pointId;
 async function loadSaved() {
   if (!username) return {};
   const { data, error } = await supabase
-    .from('a_layer3')
+    .from(tableName('layer3'))
     .select('*')
     .eq('username', username)
     .eq('point_id', pointId.toLowerCase());
@@ -120,7 +120,7 @@ async function render() {
           btn.disabled = true;
           textarea.disabled = true;
           ms.style.display = 'block';
-          await supabase.from('a_layer3').upsert({
+          await supabase.from(tableName('layer3')).upsert({
             username,
             point_id: pointId.toLowerCase(),
             question_number: q.question_number,
@@ -132,7 +132,7 @@ async function render() {
         saveBtn.addEventListener('click', async () => {
           const note = noteTA.value.trim();
           if (!note) return;
-          await supabase.from('a_layer3').upsert({
+          await supabase.from(tableName('layer3')).upsert({
             username,
             point_id: pointId.toLowerCase(),
             question_number: q.question_number,
@@ -155,7 +155,7 @@ async function render() {
 
 exportBtn.addEventListener('click', async () => {
   const { data, error } = await supabase
-    .from('a_layer3')
+    .from(tableName('layer3'))
     .select('*')
     .eq('username', username)
     .eq('point_id', pointId.toLowerCase())

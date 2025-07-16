@@ -8,6 +8,19 @@ export const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdX
 console.log('[supabaseClient] Creating client with URL:', SUPABASE_URL);
 export const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
+export function tableName(base) {
+  const platform = localStorage.getItem('platform');
+  const prefix = {
+    A_Level: 'a_',
+    AS_Level: 'as_',
+    IGCSE: 'igcse_'
+  }[platform] || 'a_';
+  return `${prefix}${base}`;
+}
+
+// expose helper for non-module scripts
+window.tableName = tableName;
+
 window.addEventListener('error', e => {
   console.error('[Global Error]', e.message, e.error);
 });

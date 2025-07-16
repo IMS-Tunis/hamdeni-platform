@@ -15,7 +15,7 @@ const client = window.supabase;
     });
 
     // Insert into Supabase
-    const { error } = await client.from("a_theory_feedback").upsert([{
+    const { error } = await client.from(window.tableName('theory_feedback')).upsert([{
       username: username,
       point_id,
       feedback,
