@@ -234,18 +234,23 @@ document.getElementById('save-progress').onclick = async () => {
       if (usesReachedLayer()) {
         await supabase
           .from(tTable)
-          .upsert({
-            username: selectedStudent.username,
-            point_id: point.toLowerCase(),
-            reached_layer
-          });
+          .upsert(
+            {
+              username: selectedStudent.username,
+              point_id: point.toLowerCase(),
+              reached_layer
+            },
+            { onConflict: 'username,point_id' }
+          );
       } else {
         const update = { username: selectedStudent.username, point_id: point.toLowerCase() };
         for (let i = 1; i <= 4; i++) {
           const input = document.querySelector(`[data-point='${point}'][data-layer='${i}']`);
           update[`layer${i}_done`] = input.checked;
         }
-        await supabase.from(tTable).upsert(update);
+        await supabase
+          .from(tTable)
+          .upsert(update, { onConflict: 'username,point_id' });
       }
     } catch (err) {
       console.error('[teacher] Failed updating point', point, err);
@@ -263,10 +268,13 @@ document.getElementById('save-progress').onclick = async () => {
     try {
       await supabase
         .from(lTable)
-        .upsert({
-          username: selectedStudent.username,
-          reached_level: maxLevel
-        });
+        .upsert(
+          {
+            username: selectedStudent.username,
+            reached_level: maxLevel
+          },
+          { onConflict: 'username' }
+        );
     } catch (err) {
       console.error('[teacher] Failed saving reached_level', err);
     }
@@ -282,7 +290,9 @@ document.getElementById('save-progress').onclick = async () => {
     }
 
     try {
-      await supabase.from(lTable).upsert(updates);
+      await supabase
+        .from(lTable)
+        .upsert(updates, { onConflict: 'username,level_number' });
     } catch (err) {
       console.error('[teacher] Failed saving level_done flags', err);
     }
