@@ -538,3 +538,40 @@ footer {
     padding: 15px;
   }
 }
+
+/* Syllabus Update Badge - Front Layer */
+.syllabus-update-badge {
+  position: fixed;
+  top: 90px;
+  right: 20px;
+  z-index: 1000; /* Ensures it appears above all other content */
+  width: 80px;
+  height: 80px;
+}
+
+.syllabus-update-badge img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2)); /* Adds visual depth */
+  transition: transform 0.3s ease;
+}
+
+.syllabus-update-badge:hover img {
+  transform: scale(1.1); /* Scales slightly when hovered */
+}
+
+/* Adjusts size for mobile devices */
+@media screen and (max-width: 768px) {
+  .syllabus-update-badge {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .syllabus-update-badge {
+    width: 50px;
+    height: 50px;
+  }
+}
