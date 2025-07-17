@@ -31,6 +31,13 @@ function usesReachedLayer() {
   return true;
 }
 
+// IGCSE and A Level store programming progress using a single reached_level
+// column. AS Level stores one row per level. This helper mirrors that logic so
+// renderLevels and save handlers can treat both platforms consistently.
+function reachedLevelPlatform() {
+  return selectedPlatform === 'A_Level' || selectedPlatform === 'IGCSE';
+}
+
 document.getElementById('load-students').onclick = async () => {
   selectedPlatform = document.getElementById('platform').value;
   console.log('[teacher] Loading students for', selectedPlatform);
@@ -174,11 +181,11 @@ function renderLevels(data) {
   container.innerHTML = '<h4>Programming Progress</h4>';
   programmingLevels = levelDefs.map((_, i) => i + 1);
 
-  // Determine progress depending on platform. A Level stores a single
-  // reached_level value while the other platforms store one row per level
-  // with a boolean flag.
+  // Determine progress depending on platform. A Level and IGCSE store a single
+  // reached_level value while AS Level stores one row per level with a boolean
+  // flag.
   let reached = 0;
-  if (selectedPlatform === 'A_Level') {
+  if (reachedLevelPlatform()) {
     const raw = data[0]?.reached_level || 0;
     reached = raw === 'R' ? 3 : parseInt(raw, 10);
   }
@@ -196,7 +203,7 @@ function renderLevels(data) {
     checkbox.type = 'checkbox';
     checkbox.dataset.level = idx + 1;
 
-    if (selectedPlatform === 'A_Level') {
+    if (reachedLevelPlatform()) {
       if (idx + 1 <= reached) checkbox.checked = true;
     } else {
       const found = data.find(d => d.level_number === idx + 1);
@@ -258,7 +265,7 @@ document.getElementById('save-progress').onclick = async () => {
 
   }
 
-  if (selectedPlatform === 'A_Level') {
+  if (reachedLevelPlatform()) {
     let maxLevel = 0;
     for (let level of programmingLevels) {
       const input = document.querySelector(`[data-level='${level}']`);
