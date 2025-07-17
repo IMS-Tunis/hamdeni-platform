@@ -83,7 +83,10 @@ header {
   margin-bottom: 6px;
 }
 
-.point-label,
+.point-label {
+  width: 260px;
+}
+
 .level-label {
   width: 200px;
 }
