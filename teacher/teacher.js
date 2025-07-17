@@ -245,7 +245,9 @@ document.getElementById('save-progress').onclick = async () => {
           const input = document.querySelector(`[data-point='${point}'][data-layer='${i}']`);
           update[`layer${i}_done`] = input.checked;
         }
-        await supabase.from(tTable).upsert(update);
+        await supabase
+          .from(tTable)
+          .upsert(update);
       }
     } catch (err) {
       console.error('[teacher] Failed updating point', point, err);
@@ -282,7 +284,9 @@ document.getElementById('save-progress').onclick = async () => {
     }
 
     try {
-      await supabase.from(lTable).upsert(updates);
+      await supabase
+        .from(lTable)
+        .upsert(updates);
     } catch (err) {
       console.error('[teacher] Failed saving level_done flags', err);
     }
