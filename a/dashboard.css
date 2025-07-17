@@ -581,3 +581,14 @@ footer {
   color: #333;
   line-height: 18px;
 }
+
+/* vertical divider between theory and levels */
+.theory-column {
+  border-right: 1px solid #ccc;
+  padding-right: 20px; /* so content doesn’t sit on the line */
+}
+
+.levels-column {
+  padding-left: 20px;  /* match the gutter on the right side */
+}
+
