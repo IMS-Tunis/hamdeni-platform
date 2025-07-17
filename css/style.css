@@ -545,8 +545,8 @@ footer {
   top: 90px;
   right: 20px;
   z-index: 1000; /* Ensures it appears above all other content */
-  width: 80px;
-  height: 80px;
+  width: 200px;
+  height: 200px;
 }
 
 .syllabus-update-badge img {
