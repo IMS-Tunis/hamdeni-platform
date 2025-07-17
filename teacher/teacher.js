@@ -31,11 +31,15 @@ function usesReachedLayer() {
   return true;
 }
 
-// IGCSE and A Level store programming progress using a single reached_level
-// column. AS Level stores one row per level. This helper mirrors that logic so
-// renderLevels and save handlers can treat both platforms consistently.
+// Programming progress now uses a single reached_level column for every
+// platform. Previously AS Level stored one row per level which caused
+// inconsistencies when loading or saving progress.
 function reachedLevelPlatform() {
-  return selectedPlatform === 'A_Level' || selectedPlatform === 'IGCSE';
+  return (
+    selectedPlatform === 'A_Level' ||
+    selectedPlatform === 'IGCSE' ||
+    selectedPlatform === 'AS_Level'
+  );
 }
 
 document.getElementById('load-students').onclick = async () => {
@@ -181,9 +185,7 @@ function renderLevels(data) {
   container.innerHTML = '<h4>Programming Progress</h4>';
   programmingLevels = levelDefs.map((_, i) => i + 1);
 
-  // Determine progress depending on platform. A Level and IGCSE store a single
-  // reached_level value while AS Level stores one row per level with a boolean
-  // flag.
+  // Determine progress using a single reached_level value for every platform.
   let reached = 0;
   if (reachedLevelPlatform()) {
     const raw = data[0]?.reached_level || 0;
@@ -265,44 +267,24 @@ document.getElementById('save-progress').onclick = async () => {
 
   }
 
-  if (reachedLevelPlatform()) {
-    let maxLevel = 0;
-    for (let level of programmingLevels) {
-      const input = document.querySelector(`[data-level='${level}']`);
-      if (input.checked) maxLevel = level;
-    }
+  let maxLevel = 0;
+  for (let level of programmingLevels) {
+    const input = document.querySelector(`[data-level='${level}']`);
+    if (input.checked) maxLevel = level;
+  }
 
-    try {
-      await supabase
-        .from(lTable)
-        .upsert(
-          {
-            username: selectedStudent.username,
-            reached_level: maxLevel
-          },
-          { onConflict: 'username' }
-        );
-    } catch (err) {
-      console.error('[teacher] Failed saving reached_level', err);
-    }
-  } else {
-    const updates = [];
-    for (let level of programmingLevels) {
-      const input = document.querySelector(`[data-level='${level}']`);
-      updates.push({
-        username: selectedStudent.username,
-        level_number: level,
-        level_done: input.checked
-      });
-    }
-
-    try {
-      await supabase
-        .from(lTable)
-        .upsert(updates, { onConflict: 'username,level_number' });
-    } catch (err) {
-      console.error('[teacher] Failed saving level_done flags', err);
-    }
+  try {
+    await supabase
+      .from(lTable)
+      .upsert(
+        {
+          username: selectedStudent.username,
+          reached_level: maxLevel
+        },
+        { onConflict: 'username' }
+      );
+  } catch (err) {
+    console.error('[teacher] Failed saving reached_level', err);
   }
 
   msg.textContent = "✅ Progress saved.";
