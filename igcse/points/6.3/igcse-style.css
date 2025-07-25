@@ -5,7 +5,9 @@ body {
   line-height: 1.7;
 }
 .container {
-  max-width: 850px;
+  /* Stretch to the full width of the iframe so no empty space is left */
+  width: 100%;
+  max-width: none;
   margin: 2.5rem auto;
   background: #fff;
   border-radius: 14px;
