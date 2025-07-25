@@ -1,20 +1,134 @@
 [
   {
-    "point_id": "6.3",
+    "point_id": "6.3a",
     "question_number": 1,
-    "question": "State one benefit of using binary in computers.",
-    "mark_scheme": "Binary is simple for electronic circuits, representing two states such as on/off."
+    "question": "Define artificial intelligence (AI).",
+    "mark_scheme": "(Define: give precise meaning)\nArtificial intelligence (AI) is a branch of computer science focused on creating machines that simulate intelligent human behavior, including reasoning, learning, and perception."
   },
   {
-    "point_id": "6.3",
+    "point_id": "6.3a",
     "question_number": 2,
-    "question": "Define the term 'protocol' in networking.",
-    "mark_scheme": "A protocol is a set of rules that allow devices to communicate."
+    "question": "Explain how natural language systems demonstrate AI.",
+    "mark_scheme": "(Explain: set out purposes or reasons)\nNatural language systems interpret variably phrased user queries (e.g., “sunset time today” vs. “when does the sun set?”), identify intent through keywords/grammar, and generate contextually accurate responses without hard-coded rules."
   },
   {
-    "point_id": "6.3",
+    "point_id": "6.3b",
     "question_number": 3,
-    "question": "Explain the purpose of an IP address.",
-    "mark_scheme": "It uniquely identifies a device on a network."
+    "question": "Identify the four key features of AI systems.",
+    "mark_scheme": "(Identify: name/select/recognise)\n1) Data collection (e.g., sensors or user input).\n2) Rules base (predefined logic for decisions).\n3) Reasoning (drawing conclusions from rules).\n4) Learning/adaptation (e.g., machine learning)."
+  },
+  {
+    "point_id": "6.3b",
+    "question_number": 4,
+    "question": "Contrast supervised and unsupervised learning with examples.",
+    "mark_scheme": "(Contrast: identify differences)\nSupervised learning uses labeled data (e.g., spam filters trained with tagged 'spam/not spam' emails).\nUnsupervised learning finds patterns in unlabeled data (e.g., clustering customer purchases without predefined categories)."
+  },
+  {
+    "point_id": "6.3c",
+    "question_number": 5,
+    "question": "Describe the four components of an expert system.",
+    "mark_scheme": "(Describe: state characteristics)\nKnowledge base: Stores facts (e.g., medical symptoms).\nRules base: Contains IF-THEN logic (e.g., 'IF fever AND rash THEN measles').\nInference engine: Applies rules to deduce conclusions.\nUser interface: Handles input/output."
+  },
+  {
+    "point_id": "6.3c",
+    "question_number": 6,
+    "question": "Explain the function of the following components of an expert system. (i) Knowledge base (ii) Rule base (iii) Inference engine (iv) User interface",
+    "mark_scheme": "(Explain: set out purposes or reasons / make the relationships between things evident)\n(i) Knowledge base: A storage area or repository for expert-level facts and information, often organized as objects and attributes.\n(ii) Rule base: A collection of logical IF-THEN rules used by the inference engine to apply logic and draw conclusions based on the facts in the knowledge base.\n(iii) Inference engine: The reasoning unit or 'brain' of the system that applies the rules from the rule base to the facts in the knowledge base to reach a decision or determine the next question to ask.\n(iv) User interface: Allows the user to interact with the system by inputting information (e.g., answering questions) and receiving the results or diagnosis."
+  },
+  {
+    "point_id": "6.3c",
+    "question_number": 7,
+    "question": "Explain what is meant by the term ‘machine learning’.",
+    "mark_scheme": "(Explain: set out purposes or reasons / make the relationships between things evident)\nMachine learning is a type of AI that gives a program the ability to automatically adapt its own processes or data. It involves training a system with data so it can learn from experience, recognise patterns, and improve its performance without needing to be explicitly reprogrammed."
+  },
+  {
+    "point_id": "6.3c",
+    "question_number": 8,
+    "question": "Describe the basic operation of an expert system when a user consults it for a diagnosis.",
+    "mark_scheme": "(Describe: state the points of a topic / give characteristics and main features)\nThe user inputs information or symptoms through the user interface.\nThe inference engine takes the input and searches the knowledge base for matching facts.\nThe inference engine uses the rule base to apply IF-THEN logic to the facts.\nThe system provides a conclusion or diagnosis to the user, and may ask further questions to refine the outcome."
+  },
+  {
+    "point_id": "6.3a",
+    "question_number": 9,
+    "question": "Give three examples of how artificial intelligence is used.",
+    "mark_scheme": "(Give: produce an answer from a given source or recall/memory)\nAny three from:\n- Medical diagnosis / expert systems\n- Chatbots / virtual assistants (e.g., Siri, Alexa)\n- Facial expression recognition\n- Natural language processing / speech recognition\n- Spam filtering in emails\n- Product recommendations on e-commerce sites\n- Fraud detection\n- Strategy games like chess\n- Automatic news generation"
+  },
+  {
+    "point_id": "6.3c",
+    "question_number": 10,
+    "question": "The table below shows four tasks. Tick (✓) one box in each row to identify whether the task is an example of an expert system or machine learning.",
+    "mark_scheme": "(Identify: name/select/recognise)\nTask\tExpert system\tMachine learning\nA system that suggests products to a customer based on their previous purchases.\t\t✓\nA system that diagnoses faults in electronic equipment by asking a technician questions.\t✓\t\nA system that identifies if an email is junk based on previously seen emails.\t\t✓\nA system that provides financial advice by processing user-provided financial data.\t✓"
+  },
+  {
+    "point_id": "6.3a",
+    "question_number": 11,
+    "question": "Compare human intelligence to artificial intelligence in terms of flexibility and learning.",
+    "mark_scheme": "(Compare: identify/comment on similarities and/or differences)\nHumans can learn from diverse experience and generalize flexibly, while AI systems are limited to their programming or training data. AI may outperform in specific tasks but lacks general reasoning."
+  },
+  {
+    "point_id": "6.3c",
+    "question_number": 12,
+    "question": "Explain how the components of an expert system work together to simulate human reasoning.",
+    "mark_scheme": "(Explain: set out purposes or reasons / make the relationships between things evident)\nThe inference engine uses the rule base and knowledge base to draw conclusions. The user interface allows input/output, creating a cycle where user input is matched to rules to generate decisions."
+  },
+  {
+    "point_id": "6.3b",
+    "question_number": 13,
+    "question": "Describe how the rule base enables reasoning in an expert system.",
+    "mark_scheme": "(Describe: state the points of a topic / give characteristics and main features)\nThe rule base holds logical IF-THEN rules. The inference engine uses these to apply logic to known facts from the knowledge base to deduce new information."
+  },
+  {
+    "point_id": "6.3b",
+    "question_number": 14,
+    "question": "Explain how machine learning systems improve over time through a feedback loop.",
+    "mark_scheme": "(Explain: set out purposes or reasons / make the relationships between things evident)\nFeedback allows systems to compare predictions with actual results. If incorrect, the model adjusts to reduce future errors—improving performance iteratively."
+  },
+  {
+    "point_id": "6.3c",
+    "question_number": 15,
+    "question": "How does machine learning improve search engine results?",
+    "mark_scheme": "(Explain: make relationships evident)\nSearch engines rank results higher if users frequently click them on Page 1 (success metric) and demote rarely clicked results, refining algorithms based on historical data."
+  },
+  {
+    "point_id": "6.3c",
+    "question_number": 16,
+    "question": "Explain one advantage of expert systems.",
+    "mark_scheme": "(Explain: provide why/how)\nExpert systems can offer consistent, fast decisions—especially valuable in high-stakes domains such as healthcare."
+  },
+  {
+    "point_id": "6.3c",
+    "question_number": 17,
+    "question": "Explain one disadvantage of expert systems.",
+    "mark_scheme": "(Explain: provide why/how)\nExpert systems can be expensive to build and maintain and may not adapt well to novel situations."
+  },
+  {
+    "point_id": "6.3c",
+    "question_number": 18,
+    "question": "Describe machine learning using the example of email spam filtering.",
+    "mark_scheme": "(Describe: state characteristics)\nSpam filters use machine learning to detect patterns (e.g., keywords like 'lottery' or 'earn'), train on labeled datasets, and flag future emails with similar traits."
+  },
+  {
+    "point_id": "6.3c",
+    "question_number": 19,
+    "question": "Give one example of an expert system application.",
+    "mark_scheme": "(Give: produce from recall)\nMedical diagnosis systems (e.g., identifying mercury poisoning from symptoms like impaired vision and slurred speech)."
+  },
+  {
+    "point_id": "6.3c",
+    "question_number": 20,
+    "question": "Give one example of a machine learning system used in online shopping.",
+    "mark_scheme": "(Give: produce from recall)\nE-commerce recommendation engines based on past purchases."
+  },
+  {
+    "point_id": "6.3c",
+    "question_number": 21,
+    "question": "Give one example of an expert system used in fault diagnosis.",
+    "mark_scheme": "(Give: produce from recall)\nA technical support system that troubleshoots based on user responses and IF-THEN logic."
+  },
+  {
+    "point_id": "6.3c",
+    "question_number": 22,
+    "question": "Give one example of a machine learning system used in image recognition.",
+    "mark_scheme": "(Give: produce from recall)\nFacial recognition systems trained on labeled image datasets."
   }
 ]

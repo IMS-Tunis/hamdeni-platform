@@ -2,144 +2,196 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>1.1 Number Systems</title>
-  <link rel="stylesheet" href="igcse-style.css">
+  <title>IGCSE Computer Science - 6.3 Artificial Intelligence</title>
+  <link rel="stylesheet" href="../igcse-style.css">
 </head>
 <body>
-   <div class="container">
-    <h1>Number Systems</h1>
-    <div class="subtitle">IGCSE CS theory notes, prepared by Dr. Hamdeni</div>
 
-    <div class="section">
-      <h2>1.1 Understand how and why computers use binary to represent all forms of data</h2>
+<div class="container">
 
-    </div>
 
-    <div class="section">
-      <h2>1.2 (a) Understand the denary, binary and hexadecimal number systems</h2>
-      <ul>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Base-10, digits 0–9">Denary</span> is used in everyday life, with each place increasing by powers of 10.</span></li>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Base-2, digits 0 and 1">Binary</span> is used by computers, with each place increasing by powers of 2.</span></li>
-        <li><span class="official-note">The <span class="keyword" data-tooltip="The leftmost bit in a binary number, which has the highest value">MSB</span> (Most Significant Bit) is the leftmost bit.</span></li>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Base-16, digits 0–9 and A–F">Hexadecimal</span> is closely related to binary; each hex digit is 4 bits.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">The denary number 25177 = 2×10000 + 5×1000 + 1×100 + 7×10 + 7×1.</div></li>
-        <li><div class="example-box">Binary 11101110 = 128+64+32+8+4+2 = 238 (denary).</div></li>
-        <li><div class="example-box">Hex digit A = 10, F = 15 (denary).</div></li>
-        <li><div class="example-box">1010 (binary) = A (hex) = 10 (denary).</div></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.2 (b) Convert between number systems</h2>
-      <ul>
-        <li><span class="official-note">To convert binary to denary: add up the values of all positions where there is a 1.</span></li>
-        <li><span class="official-note">To convert denary to binary: subtract the largest possible powers of 2, or divide by 2 and record remainders.</span></li>
-        <li><span class="official-note">Successive division by 2 and reading remainders from bottom to top gives the binary value.</span></li>
-        <li><span class="official-note">You can convert up to 16-bit binary numbers for this syllabus.</span></li>
-        <li><span class="official-note">To convert binary to hexadecimal: group bits from the right in sets of four, pad with zeros to the left if needed.</span></li>
-        <li><span class="official-note">To convert hexadecimal to binary: write each hex digit as 4 bits.</span></li>
-        <li><span class="official-note">To convert hexadecimal to denary: convert hex to binary, then binary to denary.</span></li>
-        <li><span class="official-note">To convert denary to hexadecimal: convert to binary, group in 4s, convert each group to hex.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">011110001011 = 1024+512+256+128+8+2+1 = 1931 (denary).</div></li>
-        <li><div class="example-box">Denary 142: 142 ÷ 2 repeatedly gives remainders 1 0 0 0 1 1 1 0 (read bottom to top: 10001110).</div></li>
-        <li><div class="example-box">Denary 13 → 8+4+0+1 = 13 → 1101 (binary).</div></li>
-        <li><div class="example-box">1000001111101 → 0010 0001 1111 1101 → 21FD (hex).</div></li>
-        <li><div class="example-box">Hex SE (S=5, E=14): 0101 1110 (binary).</div></li>
-        <li><div class="example-box">Hex 2 1 F D → 0010 0001 1111 1101 (binary).</div></li>
-        <li><div class="example-box">Hex SE = 64+16+8+4+2 = 94 (denary).</div></li>
-        <li><div class="example-box">Denary 201: binary 11001001 → 1100 (C), 1001 (9) → hex C9.</div></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.3 Understand how and why hexadecimal is used as a beneficial method of data representation</h2>
-      <ul>
-        <li><span class="official-note">Hexadecimal is shorter and easier to read and write than binary; simplifies debugging and error detection.</span></li>
-        <li><span class="official-note">Programmers find it easier to compare and spot differences in hexadecimal than in long binary strings.</span></li>
-        <li><span class="official-note">Common uses for hexadecimal: HTML colours, MAC addresses, assembly/machine code, memory dumps, debugging, error codes, and IP addresses.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">Comparing 10011100101110111000111011100010111101011010 (binary) vs. 9CBB8EE2F5A (hex).</div></li>
-        <li><div class="example-box"><span class="keyword" data-tooltip="Unique device identifier, written in hexadecimal">MAC address</span>: e.g., 00-1C-B3-4F-25-FE.</div></li>
-        <li><span class="fun-tip">Hex makes large binary numbers easier for humans to read and spot mistakes quickly!</span></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.4 (a) Add two positive 8-bit binary integers</h2>
-      <ul>
-        <li><span class="official-note">Binary addition rules: 0+0=0; 1+0/0+1=1; 1+1=0 (carry 1); 1+1+1=1 (carry 1).</span></li>
-        <li><span class="official-note">Carry values work like in denary addition—add rightmost columns first, carry left if needed.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">00100111 + 01001010 = 01110001 (binary addition).</div></li>
-        <li><div class="example-box">126 (01111110) + 62 (00111110) = 188 (10111100).</div></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.4 (b) Understand the concept of overflow and why it occurs in binary addition</h2>
-      <ul>
-        <li><span class="official-note"><span class="keyword" data-tooltip="When a calculation exceeds the maximum storable value in the register">Overflow error</span> occurs when a result is too big for the register.</span></li>
-        <li><span class="official-note">For an 8-bit register, the maximum value is 255 (11111111). A result with a 9th bit is overflow.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">Adding 01101110 + 11011110 = (1)01001100, the leading (1) is overflow.</div></li>
-        <li><span class="fun-tip">If your answer has more bits than allowed, that extra leftmost bit is overflow—the computer can't fit it!</span></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.5 Perform a logical binary shift on a positive 8-bit binary integer and understand the effect</h2>
-      <ul>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Moving all bits left (×2) or right (÷2); zero fills empty place">Logical shift</span>: move all bits left (multiply by 2) or right (divide by 2); zeros fill empty spots.</span></li>
-        <li><span class="official-note">Bits shifted out are lost; zeros fill the emptied places.</span></li>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Left-most">Most significant bit</span></li>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Right-most">Least significant bit</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">Left shift: 00010101 → 00101010 (21×2=42).</div></li>
-        <li><div class="example-box">Left shift 2: 00010101 → 01010100 (21×4=84).</div></li>
-        <li><div class="example-box">Right shift: 11001000 → 01100100 (200÷2=100).</div></li>
-        <li><div class="example-box">Shift 10101010 one place left: 01010100.</div></li>
-        <li><span class="fun-tip">Each left shift doubles your number—each right shift halves it (if you don't lose important bits)!</span></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.6 Use the two’s complement number system to represent positive and negative 8-bit binary integers</h2>
-      <ul>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Method to represent negative binary numbers; left-most bit is the sign (–128 for 8 bits)">Two’s complement</span> lets you use the same binary system for positive and negative numbers.</span></li>
-        <li><span class="official-note">In 8-bit two’s complement, the range is –128 to +127.</span></li>
-        <li><span class="official-note">To write a positive number, use normal binary (sign bit 0).</span></li>
-        <li><span class="official-note">To write a negative number:<br>
-            1. Write positive binary.<br>
-            2. Invert all bits left of the first 1 from the right (or invert all bits and add 1).<br>
-            3. Make sure the MSB is 1.
-          </span>
-        </li>
-        <li><span class="official-note">For negative values, sum bits using –128 as the left-most.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">38 = 00100110 (two’s complement).</div></li>
-        <li><div class="example-box">–67: 01000011 → invert → 10111100 → add 1 = 10111101.</div></li>
-        <li><div class="example-box">10111010 = –128 + 32 + 16 + 8 + 2 = –70.</div></li>
-        <li><span class="fun-tip">To get a negative number: "Flip all the bits and add one!" (That’s the computer’s trick.)</span></li>
-      </ul>
-    </div>
-
+<div class="header-container">
+<img src="../syllabus.png" alt="Syllabus Update" class="top-right-icon">
+  <div class="title-row">
+    <h1 class="section-title">6.3 Artificial Intelligence</h1>
   </div>
+  <div class="title-underline"></div>
+  <p class="section-subtitle">Computer Science IGCSE notes, prepared by Dr. Hamdeni</p>
+</div>
 
-    <script>
-    window.addEventListener('load', function() {
-      var height = document.body.scrollHeight;
-      window.parent.postMessage({type: 'resize', height: height}, '*');
-    });
-    </script>
-  </div>
+
+
+<div class="section">
+<h2>6.3a: Understand what is meant by artificial intelligence</h2>
+<ul>
+<li><span class="official-note"><span class="keyword" data-tooltip="A part of computer science that focuses on creating machines that can think and perform tasks a person would usually perform">Artificial intelligence (AI)</span> is used to simulate intelligent human behavior.</span></li>
+<li><span class="official-note">AI simulates <span class="keyword" data-tooltip="The mental processes of the human brain such as reasoning, learning, perception, and speech">Cognitive functions</span>.</span></li>
+<li><span class="official-note">AI is evaluated based on how well it performs tasks that are normally carried out by humans, such as speaking, recognizing images, or solving problems.</span></li>
+<li><span class="official-note">AI systems can be categorized into three types:</span>
+<ul>
+<li><span class="official-note"><span class="keyword" data-tooltip="AI that outperforms humans at one specific task, such as playing chess">Narrow AI</span></span></li>
+<li><span class="official-note"><span class="keyword" data-tooltip="AI that performs at a similar level to humans on a specific task">General AI</span></span></li>
+<li><span class="official-note"><span class="keyword" data-tooltip="AI that performs better than humans across many tasks">Strong AI</span></span></li>
+</ul></li>
+<li><span class="official-note"><span class="keyword" data-tooltip="The ability of a machine to mimic intelligent human behavior">Simulated intelligence</span> is the core idea behind AI.</span></li>
+<li><span class="official-note"><span class="keyword" data-tooltip="A test proposed by Alan Turing to determine if a machine can imitate human responses">Turing Test</span> checks whether a human can distinguish between responses from a person and an AI.</span></li>
+<li><span class="official-note">AI is often described as a collection of <span class="keyword" data-tooltip="Instructions a machine follows to make decisions">Rules</span>, <span class="keyword" data-tooltip="Information used by the system">Data</span>, and the ability to reason, learn, and adapt to its environment.</span></li>
+</ul>
+<ul class="no-bullets">
+<li><div class="example-box"><span class="keyword" data-tooltip="AI systems that interpret human language">Natural language systems</span> can answer differently phrased questions like “When does the sun set today?” or “What time is sunset?” by identifying the intended meaning and responding accurately.</div></li>
+<li><div class="example-box">Smart home devices like Alexa or Siri use <span class="keyword" data-tooltip="The ability of a machine to understand spoken language">Speech recognition</span> to take commands, learn user preferences, and improve future responses.</div></li>
+<li><div class="example-box">Chatbots simulate conversation by analyzing user input and generating appropriate replies, allowing them to interact with users in real time.</div></li>
+<li><div class="example-box"><span class="keyword" data-tooltip="An AI process for identifying human emotions based on facial features">Facial expression recognition</span> works by detecting the positions of eyebrows, eyes, and mouth to determine emotions like joy, anger, or surprise.</div></li>
+<li><div class="example-box">AI systems in journalism can generate news reports automatically by processing live data feeds. This allows real-time reporting without human intervention.</div></li>
+<li><span class="fun-tip">Imagine teaching your toaster to recognize burnt toast and avoid it next time. That’s AI trying to “think like you” in the kitchen.</span></li>
+<li><span class="fun-tip">Chatbots are like those friends who always text back instantly. These bots never sleep and reply to everyone.</span></li>
+<li><span class="fun-tip">The Turing Test is like a masked talent show. If the audience can’t tell whether the performer is a human or a robot, the AI wins.</span></li>
+<div class="button-group">
+  <button class="keyword-button" onclick="openPopupK('6.3a')">
+    🔑 View Keywords on This Topic 🔑
+  </button>
+  <button class="exam-button" onclick="openPopupQ('6.3a')">
+    👁️ Quick Look at Exam Questions on This Topic 👁️
+  </button>
+
+</div>
+</ul>
+</div>
+<div class="section">
+<h2>6.3b: Describe the main characteristics of AI</h2>
+<ul>
+<li><span class="official-note">AI systems often share four key features that support intelligent decision-making:</span>
+<ul>
+<li><span class="official-note"><span class="keyword" data-tooltip="The process of gathering input for the system, either from users or from sensors such as cameras or microphones">Data collection</span></span></li>
+<li><span class="official-note"><span class="keyword" data-tooltip="A collection of predefined instructions or logic used to guide decisions within the system">Rules base</span></span></li>
+<li><span class="official-note"><span class="keyword" data-tooltip="The ability to use logic and rules to draw new conclusions from known information">Reasoning</span></span></li>
+<li><span class="official-note"><span class="keyword" data-tooltip="The ability of the system to improve or change its decision-making rules based on experience or new data">Learning and adaptation</span></span></li>
+</ul></li>
+<li><span class="official-note"><span class="keyword" data-tooltip="A sub-field of AI that enables machines to learn from data and improve performance without explicit reprogramming">Machine learning</span> allows AI systems to adapt over time.</span>
+<ul>
+<li><span class="official-note">Machine learning involves training a system with data so it can recognize patterns and make decisions.</span></li>
+<li><span class="official-note">There are two main types of machine learning:</span></li>
+<li><span class="official-note"><span class="keyword" data-tooltip="A type of machine learning where the system is trained with labeled data and examples">Supervised learning</span></span></li>
+<li><span class="official-note"><span class="keyword" data-tooltip="A type of machine learning where the system finds patterns in data without human-provided labels">Unsupervised learning</span></span></li>
+<li><span class="official-note"><span class="keyword" data-tooltip="A method used in unsupervised learning to group similar data points based on shared features">Clustering</span> is commonly used to reveal hidden structure in the data.</span></li>
+</ul></li>
+<li><span class="official-note"><span class="keyword" data-tooltip="A technique used in recommendation systems to suggest items based on similar users’ preferences">Collaborative filtering</span> allows the AI to make suggestions even without direct input from the user.</span></li>
+<li><span class="official-note">An expert system contains three essential components: the <span class="keyword" data-tooltip="A storage area for expert-level facts">Knowledge base</span>, the <span class="keyword" data-tooltip="A set of IF-THEN rules for applying logic">Rule base</span>, and the <span class="keyword" data-tooltip="The system’s reasoning module that applies the rules to reach decisions">Inference engine</span>. It also includes a <span class="keyword" data-tooltip="The method by which the user communicates with the expert system">User interface</span>.</span></li>
+<li><span class="official-note">A robot with machine learning capabilities can adjust its internal rules, data, or processes based on past experience.</span></li>
+<li><span class="official-note">A robot using machine learning becomes more efficient over time because it:</span>
+<ul>
+<li><span class="official-note">Learns from its environment (for example, by remembering where obstacles are)</span></li>
+<li><span class="official-note">Can recall where to begin and end tasks like planting seeds</span></li>
+<li><span class="official-note">Reduces its error rate by applying what it has learned from earlier actions</span></li>
+</ul></li>
+<li><span class="official-note">AI systems can be summarized by three key capabilities:</span>
+<ul>
+<li><span class="official-note">Collect data and use rules to make decisions</span></li>
+<li><span class="official-note">Use logic and reasoning to develop new conclusions</span></li>
+<li><span class="official-note">Learn and adapt their behavior over time</span></li>
+</ul></li>
+<li><span class="official-note">AI simulates <span class="keyword" data-tooltip="Human mental processes such as perception, learning, memory, and decision-making">Cognitive functions</span>, enabling machines to operate intelligently.</span></li>
+</ul>
+<ul class="no-bullets">
+<li><div class="example-box">A robot using <span class="keyword" data-tooltip="Sensors that detect proximity or obstacles">Infra-red sensors</span> might collect data and follow a rule like: "If an obstacle is detected, turn right."</div></li>
+<li><div class="example-box">An AI might apply logical reasoning: “All dogs eat meat. Fred is a dog. Therefore, Fred eats meat.” This shows how the AI uses known rules to make new conclusions.</div></li>
+<li><div class="example-box">In <span class="keyword" data-tooltip="An application of machine learning to detect unwanted emails">Spam filtering</span>, the system learns from labeled examples and flags future messages containing common spam keywords such as “lottery” or “earn.”</div></li>
+<li><div class="example-box">In <span class="keyword" data-tooltip="The use of machine learning to suggest items to users">Product recommendation</span>, the system compares your shopping behavior with others to recommend similar products.</div></li>
+<li><div class="example-box"><span class="keyword" data-tooltip="Using machine learning to identify suspicious transactions">Fraud detection</span> works by analyzing spending patterns and flagging unusual behavior, such as an expensive jewelry purchase.</div></li>
+<li><div class="example-box">A search engine improves its ranking system using machine learning. If most users click a result on page 1, it is marked as useful and ranked higher in the future.</div></li>
+<li><span class="fun-tip">Think of machine learning like a kid learning to ride a bike. The more it falls, the better it gets!</span></li>
+<li><span class="fun-tip">Supervised learning is like teaching a dog tricks with treats. Unsupervised learning is your dog figuring out how to open the fridge on its own!</span></li>
+<li><span class="fun-tip">AI collecting data is like a robot keeping a diary — it remembers everything it senses to improve its decisions later.</span></li>
+<div class="button-group">
+  <button class="keyword-button" onclick="openPopupK('6.3b')">
+    🔑 View Keywords on This Topic 🔑
+  </button>
+  <button class="exam-button" onclick="openPopupQ('6.3b')">
+    👁️ Quick Look at Exam Questions on This Topic 👁️
+  </button>
+
+</div>
+
+</ul>
+</div>
+<div class="section">
+<h2>6.3c: Explain the basic operation and components of AI systems</h2>
+<ul>
+<li><span class="official-note">An <span class="keyword" data-tooltip="A type of AI that mimics human expert knowledge to solve problems or give advice">Expert system</span> helps users reach conclusions based on a structured set of rules and facts.</span></li>
+<li><span class="official-note">Expert systems simulate a real expert’s decision-making process by asking a series of questions and guiding the user toward a solution.</span></li>
+<li><span class="official-note">The main components of an expert system are:</span>
+<ul>
+<li><span class="official-note"><span class="keyword" data-tooltip="A storage of expert-level facts and information, often organized as objects and attributes">Knowledge base</span></span></li>
+<li><span class="official-note"><span class="keyword" data-tooltip="A set of logical IF-THEN statements that determine actions based on the facts">Rules base</span></span></li>
+<li><span class="official-note"><span class="keyword" data-tooltip="The reasoning unit that applies rules to the facts and decides what to do next">Inference engine</span></span></li>
+<li><span class="official-note"><span class="keyword" data-tooltip="The part of the system that allows users to input answers and receive results">User interface</span></span></li>
+</ul></li>
+<li><span class="official-note">Some expert systems include an <span class="keyword" data-tooltip="A module that explains the reasoning behind the system’s diagnosis or advice to the user">Explanation system</span>.</span></li>
+<li><span class="official-note">An expert system works by following these steps:</span>
+<ul>
+<li><span class="official-note">Taking input (such as symptoms or user observations) through the interface</span></li>
+<li><span class="official-note">Using the inference engine to compare user input with known facts in the knowledge base</span></li>
+<li><span class="official-note">Applying logic from the rules base to reach a decision or diagnosis</span></li>
+<li><span class="official-note">Presenting results, advice, or probabilities to the user</span></li>
+<li><span class="official-note">Optionally asking more questions to refine the outcome</span></li>
+</ul></li>
+<li><span class="official-note">The <span class="keyword" data-tooltip="The expert system’s main processor">Inference engine</span>:</span>
+<ul>
+<li><span class="official-note">Applies IF-THEN rules to known data</span></li>
+<li><span class="official-note">Draws conclusions or diagnoses based on reasoning</span></li>
+<li><span class="official-note">Decides if more input is needed to improve the result</span></li>
+</ul></li>
+<li><span class="official-note">A complete expert system also:</span>
+<ul>
+<li><span class="official-note">Uses the interface to receive input and display results</span></li>
+<li><span class="official-note">Combines logic from the rules base with facts from the knowledge base</span></li>
+<li><span class="official-note">Can decide the most relevant next question to ask the user</span></li>
+</ul></li>
+<li><span class="official-note">Advantages of expert systems include:</span>
+<ul>
+<li><span class="official-note">High level of accuracy and consistency</span></li>
+<li><span class="official-note">Fast response times compared to human experts</span></li>
+<li><span class="official-note">Can explain reasoning and give traceable logic</span></li>
+<li><span class="official-note">Can store and access vast amounts of information</span></li>
+<li><span class="official-note">Offer unbiased decisions based purely on logic</span></li>
+</ul></li>
+<li><span class="official-note">Disadvantages of expert systems include:</span>
+<ul>
+<li><span class="official-note">Require considerable user training to operate properly</span></li>
+<li><span class="official-note">Setup and maintenance costs are high</span></li>
+<li><span class="official-note">Responses may feel impersonal or “cold,” especially in sensitive contexts like medical care</span></li>
+<li><span class="official-note">The system’s performance depends entirely on the quality of its input data</span></li>
+<li><span class="official-note">Users may falsely assume the system is infallible and accept incorrect advice</span></li>
+</ul></li>
+<li><span class="official-note">Expert systems are also used in:</span>
+<ul>
+<li><span class="official-note">Oil and mineral exploration</span></li>
+<li><span class="official-note">Tax calculation and financial advising</span></li>
+<li><span class="official-note">Fault detection in electronics</span></li>
+<li><span class="official-note">Strategy games such as chess</span></li>
+<li><span class="official-note">Identifying animals, plants, or chemicals</span></li>
+</ul></li>
+<li><span class="official-note">A <span class="keyword" data-tooltip="An AI system that improves its own performance using data and feedback from past experience">Machine learning system</span> can adapt without needing to be reprogrammed.</span></li>
+<ul class="no-bullets">
+<li><div class="example-box">In a <span class="keyword" data-tooltip="An AI used to support medical diagnosis">Medical expert system</span>, the system asks about symptoms, searches its knowledge base, and provides a possible diagnosis with a confidence percentage. For example: “Based on symptoms, there is a 21% probability of mercury poisoning.”</div></li>
+<li><div class="example-box">A printer troubleshooting system might ask: “Is the green light on?” If not, it recommends turning on the power. If yes, it moves to a different question based on this response.</div></li>
+<li><div class="example-box">A rule in the rules base might be: IF continent = “South America” AND language = “Portuguese” THEN country = “Brazil”.</div></li>
+<li><div class="example-box">In a reasoning task, if a system is given the facts: “It is a mammal. It is not a pet. It lives in water. It makes sonic sounds. It has skin. It has no legs,” it will identify the object as a whale.</div></li>
+<li><span class="fun-tip">An expert system is like a super-serious quiz master — it always knows the next question to ask based on your answers.</span></li>
+<li><span class="fun-tip">The inference engine is the “AI Sherlock Holmes” — it pieces together clues and draws logical conclusions.</span></li>
+<div class="button-group">
+  <button class="keyword-button" onclick="openPopupK('6.3c')">
+    🔑 View Keywords on This Topic 🔑
+  </button>
+  <button class="exam-button" onclick="openPopupQ('6.3c')">
+    👁️ Quick Look at Exam Questions on This Topic 👁️
+  </button>
+
+</div>
+</ul>
+</div>
+</div>
+
+ <script src="popup-script.js"></script>
 </body>
 </html>

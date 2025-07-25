@@ -2,101 +2,85 @@
   "questions": [
     {
       "type": "mcq",
-      "question": "What is the main reason computers use binary to represent all data?",
+      "question": "Which of the following best describes Artificial Intelligence (AI)?",
       "options": [
-        "Binary numbers are easier for humans to read",
-        "Computers use logic gates that only understand ON and OFF states",
-        "It uses less power",
-        "Binary numbers are shorter than decimal numbers"
+        "a) A field that only focuses on controlling robots",
+        "b) A part of computer science that creates machines that simulate human intelligence",
+        "c) A method to speed up internet connectivity",
+        "d) A tool for creating websites"
       ],
-      "answer": "Computers use logic gates that only understand ON and OFF states"
-    },
-    {
-      "type": "mcq",
-      "question": "In an 8-bit binary number, what does the leftmost bit represent?",
-      "options": [
-        "Least Significant Bit",
-        "The parity bit",
-        "Most Significant Bit",
-        "The hexadecimal value"
-      ],
-      "answer": "Most Significant Bit"
-    },
-    {
-      "type": "mcq",
-      "question": "Which of the following is a hexadecimal digit?",
-      "options": [
-        "8",
-        "G",
-        "H",
-        "Q"
-      ],
-      "answer": "8"
-    },
-    {
-      "type": "mcq",
-      "question": "What is the maximum value that can be represented in an 8-bit binary number?",
-      "options": [
-        "255",
-        "256",
-        "128",
-        "1024"
-      ],
-      "answer": "255"
+      "answer": "b"
     },
     {
       "type": "fill_blank",
-      "question": "The process of moving all bits in a binary number to the left or right and filling the emptied spaces with zeros is called a __________ shift.",
-      "answer": "Logical"
+      "question": "AI simulates __________ such as reasoning, learning, perception, and speech.",
+      "answer": "cognitive functions"
+    },
+    {
+      "type": "mcq",
+      "question": "Which of the following best describes data collection in AI systems?",
+      "options": [
+        "a) Applying rules to reach conclusions",
+        "b) Gathering input from users or sensors",
+        "c) Drawing conclusions based on emotions",
+        "d) Training a system with expert advice"
+      ],
+      "answer": "b"
     },
     {
       "type": "fill_blank",
-      "question": "In binary addition, if the result is too large for the register to hold, this is called an __________ error.",
-      "answer": "Overflow"
-    },
-    {
-      "type": "fill_blank",
-      "question": "Each hexadecimal digit can be represented by exactly ___ binary bits.",
-      "answer": "4"
+      "question": "The component of an AI system that applies logic to draw new conclusions from known information is called __________.",
+      "answer": "reasoning"
     },
     {
       "type": "true_false",
-      "question": "Digital data can take any value, just like analogue data.",
-      "answer": "False"
-    },
-    {
-      "type": "true_false",
-      "question": "In two’s complement, the most significant bit represents the sign of the number.",
+      "question": "Rules in AI systems are used to guide decisions by applying predefined logic.",
       "answer": "True"
     },
     {
+      "type": "fill_blank",
+      "question": "In supervised learning, the system is trained using __________ data.",
+      "answer": "labeled"
+    },
+    {
       "type": "true_false",
-      "question": "The denary number system is also known as base 16.",
-      "answer": "False"
+      "question": "Clustering is a method used in supervised learning to classify data based on labels.",
+      "answer": "False. Clustering is part of unsupervised learning."
+    },
+    {
+      "type": "fill_blank",
+      "question": "The part of an expert system that allows communication between the user and the system is called the __________.",
+      "answer": "user interface"
     },
     {
       "type": "match",
-      "question": "Match the term with its correct definition:",
-      "pairs": {
-        "Register": "Used to temporarily hold binary data",
-        "Logic gate": "Basic building block for processing digital data",
-        "Two’s complement": "Method to represent negative binary"
-      }
+      "question": "Match each expert system component with its description:\nA. Knowledge base\nB. Rules base\nC. Inference engine",
+      "pairs": {}
     },
     {
       "type": "fill_blank",
-      "question": "Convert the binary number 1101 to denary: __________",
-      "answer": "13"
+      "question": "An expert system that mimics human knowledge to offer advice or solve problems is known as an __________.",
+      "answer": "expert system"
+    },
+    {
+      "type": "match",
+      "question": "Match each type of AI with its description:\nA) Narrow AI\nB) General AI\nC) Strong AI\nD) Simulated intelligence",
+      "pairs": {}
+    },
+    {
+      "type": "true_false",
+      "question": "Collaborative filtering recommends products by comparing a user’s preferences with similar users.",
+      "answer": "True"
     },
     {
       "type": "fill_blank",
-      "question": "What is the hexadecimal equivalent of the denary number 15? __________",
-      "answer": "F"
+      "question": "Artificial intelligence is used to simulate intelligent human __________.",
+      "answer": "behavior"
     },
     {
-      "type": "fill_blank",
-      "question": "What is the binary value for the hexadecimal digit C? __________",
-      "answer": "1100"
+      "type": "true_false",
+      "question": "Expert systems can provide biased decisions because they rely on human input.",
+      "answer": "False. They offer unbiased decisions based purely on logic."
     }
   ]
 }

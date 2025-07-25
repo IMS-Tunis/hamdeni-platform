@@ -1,14 +1,34 @@
 [
   {
-    "question": "Explain what is meant by a validation test in computer science education.",
-    "answer": "A validation test checks that students have understood the material and are ready to progress."
+    "question": "The expert system is an example of artificial intelligence (AI).\nDescribe what is meant by AI.",
+    "answer": "• AI is the simulation of human intelligence\n• … by computer systems\n• … to perform tasks normally requiring human intelligence\n• e.g. speech recognition, decision-making, language translation"
   },
   {
-    "question": "State one advantage of practicing with past paper questions before an exam.",
-    "answer": "Past paper questions familiarize students with the exam style and improve confidence."
+    "question": "Identify three components of an expert system.",
+    "answer": "• Knowledge base\n• Rule base\n• Inference engine\n• Interface"
   },
   {
-    "question": "Give an example of a simple binary operation.",
-    "answer": "Adding two 1-bit binary numbers, e.g. 1 + 1 = 10."
+    "question": "The robot is adapted to have machine learning capabilities.\nExplain how this will improve the robot.",
+    "answer": "• The robot can now adapt itself by changing its own rules/data/ processes\n• The robot will become more efficient\n• … as it has a greater knowledge of its surroundings/environment\n• … as it can remember where a fence is\n• … as it can remember the route it needs to take\n• … as it can remember where any obstacles are to avoid\n• … as it can remember where to start and stop sowing seeds\n• … as it may make fewer errors"
+  },
+  {
+    "question": "Explain how the expert system operates and how it is used to help diagnose the problem.",
+    "answer": "• User inputs symptoms via the interface\n• The inference engine searches the knowledge base\n• … applies the rule base to the symptoms\n• A diagnosis is made\n• … which is output to the user\n• System may ask follow-up questions to refine the diagnosis"
+  },
+  {
+    "question": "Identify the three other components in an expert system.",
+    "answer": "• Rule base\n• Interface\n• Inference engine"
+  },
+  {
+    "question": "Describe the role of the inference engine in an expert system.",
+    "answer": "• Applies the rules from the rule base\n• To the facts from the knowledge base\n• To draw conclusions/diagnosis/decision\n• Identifies what further data is needed / which question to ask next"
+  },
+  {
+    "question": "Complete the description about the operation of the expert system.\nUse the terms from the list.",
+    "answer": "• knowledge base\n• rule base\n• inference engine\n• interface"
+  },
+  {
+    "question": "An AI system is an expert system.\nExplain how an expert system operates.",
+    "answer": "• It has an interface …\n• … used to input data/view output\n• It has a knowledge base\n• It has a rule base\n• It has an inference engine\n• Applies the rule base to/and the knowledge base to provide output/diagnosis/result/solution/decision\n• Decides what to ask next based on the data input"
   }
 ]
