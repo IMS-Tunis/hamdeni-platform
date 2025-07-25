@@ -1,102 +1,85 @@
 {
   "questions": [
     {
-      "type": "mcq",
-      "question": "What is the main reason computers use binary to represent all data?",
-      "options": [
-        "Binary numbers are easier for humans to read",
-        "Computers use logic gates that only understand ON and OFF states",
-        "It uses less power",
-        "Binary numbers are shorter than decimal numbers"
-      ],
-      "answer": "Computers use logic gates that only understand ON and OFF states"
-    },
-    {
-      "type": "mcq",
-      "question": "In an 8-bit binary number, what does the leftmost bit represent?",
-      "options": [
-        "Least Significant Bit",
-        "The parity bit",
-        "Most Significant Bit",
-        "The hexadecimal value"
-      ],
-      "answer": "Most Significant Bit"
-    },
-    {
-      "type": "mcq",
-      "question": "Which of the following is a hexadecimal digit?",
-      "options": [
-        "8",
-        "G",
-        "H",
-        "Q"
-      ],
-      "answer": "8"
-    },
-    {
-      "type": "mcq",
-      "question": "What is the maximum value that can be represented in an 8-bit binary number?",
-      "options": [
-        "255",
-        "256",
-        "128",
-        "1024"
-      ],
-      "answer": "255"
-    },
-    {
       "type": "fill_blank",
-      "question": "The process of moving all bits in a binary number to the left or right and filling the emptied spaces with zeros is called a __________ shift.",
-      "answer": "Logical"
-    },
-    {
-      "type": "fill_blank",
-      "question": "In binary addition, if the result is too large for the register to hold, this is called an __________ error.",
-      "answer": "Overflow"
-    },
-    {
-      "type": "fill_blank",
-      "question": "Each hexadecimal digit can be represented by exactly ___ binary bits.",
-      "answer": "4"
+      "question": "The term 'robot' originates from the Czech word _____, meaning 'forced labour'.",
+      "answer": "robota"
     },
     {
       "type": "true_false",
-      "question": "Digital data can take any value, just like analogue data.",
+      "question": "Most robots are powered by AI algorithms and can make independent decisions.",
       "answer": "False"
     },
     {
-      "type": "true_false",
-      "question": "In two’s complement, the most significant bit represents the sign of the number.",
-      "answer": "True"
+      "type": "mcq",
+      "question": "Which of the following best defines robotics?",
+      "options": [
+        "A field of biology studying mechanical motion",
+        "A branch of computer science focused on design, construction, and operation of robots",
+        "Software development for mobile devices",
+        "Designing circuits for home automation"
+      ],
+      "answer": "A branch of computer science focused on design, construction, and operation of robots"
     },
     {
       "type": "true_false",
-      "question": "The denary number system is also known as base 16.",
+      "question": "A robot must have both sensors and actuators to be considered programmable.",
       "answer": "False"
+    },
+    {
+      "type": "fill_blank",
+      "question": "Robots are programmable machines that operate via stored instructions using a _____ or computer.",
+      "answer": "microprocessor"
     },
     {
       "type": "match",
-      "question": "Match the term with its correct definition:",
+      "question": "Match the robot component to its function.",
       "pairs": {
-        "Register": "Used to temporarily hold binary data",
-        "Logic gate": "Basic building block for processing digital data",
-        "Two’s complement": "Method to represent negative binary"
+        "Sensor": "Collects information about the environment",
+        "Actuator": "Moves or controls a part of the robot",
+        "Microprocessor": "Processes input and controls robot actions"
       }
     },
     {
-      "type": "fill_blank",
-      "question": "Convert the binary number 1101 to denary: __________",
-      "answer": "13"
+      "type": "mcq",
+      "question": "Which area does NOT commonly use robots?",
+      "options": [
+        "Transport",
+        "Agriculture",
+        "Medicine",
+        "Architecture"
+      ],
+      "answer": "Architecture"
+    },
+    {
+      "type": "true_false",
+      "question": "One advantage of robots is that they can safely operate in hazardous environments.",
+      "answer": "True"
     },
     {
       "type": "fill_blank",
-      "question": "What is the hexadecimal equivalent of the denary number 15? __________",
-      "answer": "F"
+      "question": "A _____ sensor is used to detect nearby objects such as walls or fences.",
+      "answer": "proximity"
     },
     {
-      "type": "fill_blank",
-      "question": "What is the binary value for the hexadecimal digit C? __________",
-      "answer": "1100"
+      "type": "mcq",
+      "question": "What is a disadvantage of using robots in manufacturing?",
+      "options": [
+        "They get tired easily",
+        "They can only work during the day",
+        "They may replace human jobs",
+        "They don’t need maintenance"
+      ],
+      "answer": "They may replace human jobs"
+    },
+    {
+      "type": "match",
+      "question": "Match each use of robots to the correct domain.",
+      "pairs": {
+        "Surgical assistants": "Medicine",
+        "Autonomous tractors": "Agriculture",
+        "Vacuum cleaners": "Domestic use"
+      }
     }
   ]
 }

@@ -1,14 +1,26 @@
 [
   {
-    "question": "Explain what is meant by a validation test in computer science education.",
-    "answer": "A validation test checks that students have understood the material and are ready to progress."
+    "question": "The robot plants seeds and stops when it reaches a fence. It then turns and continues planting seeds. The robot uses sensors and a microprocessor to know when it reaches a fence.\nExplain how the robot uses sensors and a microprocessor to know it has reached a fence.",
+    "answer": "A proximity sensor is used\n\nThe sensor continuously sends digitised data to the microprocessor\n\nThe microprocessor compares the data to a stored value/range of values\n\nIf the value is within the range/matches the robot continues planting\n\nIf the value is above/below/outside the range a signal is sent by the microprocessor to turn/stop the robot\n\n\u2026 using an actuator to turn/stop the robot\n\nThis process repeats until the robot is turned off"
   },
   {
-    "question": "State one advantage of practicing with past paper questions before an exam.",
-    "answer": "Past paper questions familiarize students with the exam style and improve confidence."
+    "question": "The train driver pushes a button to close the train door when all passengers have boarded the train. The train door will only close when there are no passengers in the doorway.\nThe system to check there are no passengers in the doorway uses a sensor and a microprocessor.\nExplain how the sensor and the microprocessor are used to check whether the train door can be closed.",
+    "answer": "Proximity/infrared/pressure sensor used\n\nSensor continually sends digitised data to microprocessor // when driver pushes button, sensor sends digitised data to the microprocessor\n\nMicroprocessor compares data to stored value(s)\n\nIf in range/out of range/matches, microprocessor sends signal to close the door\n\nActuator used to close door\n\nIf not in range/out of range/does not match door will not close //\nIf not in range/out of range/does not match actuator not activated/signal not sent as passenger in door //\nIf not in range/out of range/does not match a timer is set to check again //\nIf not in range/out of range/does not match a signal is sent to alert the driver/output a message\n\nThis process repeats until the door can close"
   },
   {
-    "question": "Give an example of a simple binary operation.",
-    "answer": "Adding two 1-bit binary numbers, e.g. 1 + 1 = 10."
+    "question": "Give two advantages of the farmer using an automated robot to plant seeds.",
+    "answer": "Any two from:\n\nThe robot is more accurate when planting seeds\n\nThe robot does not need to take breaks // works 24/7\n\nThe robot will not get bored of performing a repetitive task\n\nThe farmer can perform other tasks whilst the robot is planting the seeds\n\nThe robot may be faster/more efficient (at planting seeds)\n\nSafer as the robot can work in more dangerous environments (e.g. with animals in a field)\n\nDoesn\u2019t need to pay labour costs/wages"
+  },
+  {
+    "question": "Give two disadvantages of the farmer using an automated robot to plant seeds.",
+    "answer": "Any two from:\n\nThe robot may have been expensive to purchase\n\nThe robot may need maintenance and this may be costly\n\nThe robot may take away jobs from humans that previously planted the seeds\n\nFarmer/workers may be deskilled\n\nFarmer may need training in how to use the robot\n\nIf it breaks the farmer will need to manually plant\n\nIf faulty it may cause damage to farm/seeds\n\nCannot adapt to a new/unexpected event"
+  },
+  {
+    "question": "Explain one advantage to employees of using an automated system in manufacturing.",
+    "answer": "Any two from (for benefit and matching description):\nExample:\n\nIncreases safety\n\nmeaning that workers do not need to go into dangerous areas to collect data/make checks/do dangerous tasks\n\nCan increase jobs/skills\n\nas employees are needed to learn/maintain the equipment\n\nNo need to do repetitive tasks\n\nso they can use their time on other/more skilled tasks"
+  },
+  {
+    "question": "Explain one disadvantage to the company owner of using an automated system in manufacturing.",
+    "answer": "Any two from (for drawback and matching description):\nExample:\n\nHigh set-up/installation costs\n\nit would mean the company needs to find a lot of money up front to pay for the equipment // employees will need training\n\nUtility/maintenance/repair costs\n\nincrease in bills such as electricity // skilled employees will be required to maintain the system // equipment will break/need updating\n\nDeskilling of the workforce\n\nmay mean that workers will no longer have the skills for some of the manufacturing jobs, should the equipment break"
   }
 ]

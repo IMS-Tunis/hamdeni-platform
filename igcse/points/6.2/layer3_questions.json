@@ -1,20 +1,62 @@
 [
   {
-    "point_id": "6.2",
+    "point_id": "6.2.a",
     "question_number": 1,
-    "question": "State one benefit of using binary in computers.",
-    "mark_scheme": "Binary is simple for electronic circuits, representing two states such as on/off."
+    "question": "Define the term 'robotics' in the context of computer science.",
+    "mark_scheme": "(Define: give precise meaning)\nRobotics is the branch of computer science that focuses on the design, construction, and operation of robots to perform tasks or functions."
   },
   {
-    "point_id": "6.2",
+    "point_id": "6.2.a",
     "question_number": 2,
-    "question": "Define the term 'protocol' in networking.",
-    "mark_scheme": "A protocol is a set of rules that allow devices to communicate."
+    "question": "Explain the difference between independent (autonomous) and dependent robots.",
+    "mark_scheme": "(Explain: make the relationships between things evident)\nIndependent robots operate without human control and perform tasks automatically.\nDependent robots require human interaction and often supplement human activity."
   },
   {
-    "point_id": "6.2",
+    "point_id": "6.2.b",
     "question_number": 3,
-    "question": "Explain the purpose of an IP address.",
-    "mark_scheme": "It uniquely identifies a device on a network."
+    "question": "Describe three key characteristics commonly found in robots.",
+    "mark_scheme": "(Describe: state the points of a topic)\n1. Mechanical structure or framework\n2. Electrical components such as sensors or actuators\n3. Programmability using stored instructions"
+  },
+  {
+    "point_id": "6.2.b",
+    "question_number": 4,
+    "question": "Identify two components inside a robot and explain their function.",
+    "mark_scheme": "(Identify: name/select/recognise; Explain: provide how/why with relevant detail)\nSensor: collects data from the environment and sends it to the microprocessor.\nActuator: receives commands and moves parts like wheels or arms."
+  },
+  {
+    "point_id": "6.2.b",
+    "question_number": 5,
+    "question": "Match the following robotics terms to their correct definitions.\nTerms:\n- Accelerometer\n- LiDAR\n- End-effector\n- Phenotyping\nDefinitions:\nA. A device used to detect the direction and speed of movement\nB. A laser-based technology that creates 3D maps of surroundings\nC. An attachment like a spray gun or gripper fitted to a robotic arm\nD. Measuring features of plants to assess growth or health",
+    "mark_scheme": "(Match: draw a line to connect a term with a description)\nAccelerometer → A\nLiDAR → B\nEnd-effector → C\nPhenotyping → D"
+  },
+  {
+    "point_id": "6.2.c",
+    "question_number": 6,
+    "question": "Describe two advantages and two disadvantages of using robots in agriculture.",
+    "mark_scheme": "(Describe: give characteristics and features)\nAdvantages:\n- Robots can operate 24/7\n- They perform tasks like seed planting with high accuracy\nDisadvantages:\n- Robots are expensive to set up\n- They may cause job loss by replacing workers"
+  },
+  {
+    "point_id": "6.2.c",
+    "question_number": 7,
+    "question": "Explain how a robot can use sensors and a microprocessor to stop when reaching an obstacle.",
+    "mark_scheme": "(Explain: set out purposes or relationships)\nThe proximity sensor detects an object and sends data to the microprocessor.\nIf the data is outside a safe range, the microprocessor signals the actuator to stop or turn the robot."
+  },
+  {
+    "point_id": "6.2.c",
+    "question_number": 8,
+    "question": "Describe the advantages and disadvantages to the company of using robots to automatically find, package and load parcels.",
+    "mark_scheme": "(Describe: state key points clearly)\nAdvantages: speed, consistency, reduced human error, cost efficiency over time\nDisadvantages: high initial cost, maintenance needs, potential job losses"
+  },
+  {
+    "point_id": "6.2.c",
+    "question_number": 9,
+    "question": "Discuss the advantages and disadvantages of the factory replacing the workers with robots.",
+    "mark_scheme": "(Discuss: write about issues in depth)\nAdvantages: higher efficiency, 24/7 operation, consistent quality, reduced human injury risk\nDisadvantages: unemployment, high setup cost, loss of human skill, reliance on maintenance"
+  },
+  {
+    "point_id": "6.2.c",
+    "question_number": 10,
+    "question": "Identify two ways that robotics can be used in transport.",
+    "mark_scheme": "(Identify: name/select)\n1. Autonomous cars using sensors to steer and brake\n2. Driverless trains using GPS and cameras for navigation"
   }
 ]

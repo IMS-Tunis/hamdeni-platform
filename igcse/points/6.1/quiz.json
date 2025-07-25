@@ -2,101 +2,63 @@
   "questions": [
     {
       "type": "mcq",
-      "question": "What is the main reason computers use binary to represent all data?",
+      "question": "Which component of an automated system is responsible for deciding what action to take based on sensor input?",
       "options": [
-        "Binary numbers are easier for humans to read",
-        "Computers use logic gates that only understand ON and OFF states",
-        "It uses less power",
-        "Binary numbers are shorter than decimal numbers"
+        "Actuator",
+        "Sensor",
+        "Microprocessor",
+        "Power supply"
       ],
-      "answer": "Computers use logic gates that only understand ON and OFF states"
-    },
-    {
-      "type": "mcq",
-      "question": "In an 8-bit binary number, what does the leftmost bit represent?",
-      "options": [
-        "Least Significant Bit",
-        "The parity bit",
-        "Most Significant Bit",
-        "The hexadecimal value"
-      ],
-      "answer": "Most Significant Bit"
-    },
-    {
-      "type": "mcq",
-      "question": "Which of the following is a hexadecimal digit?",
-      "options": [
-        "8",
-        "G",
-        "H",
-        "Q"
-      ],
-      "answer": "8"
-    },
-    {
-      "type": "mcq",
-      "question": "What is the maximum value that can be represented in an 8-bit binary number?",
-      "options": [
-        "255",
-        "256",
-        "128",
-        "1024"
-      ],
-      "answer": "255"
-    },
-    {
-      "type": "fill_blank",
-      "question": "The process of moving all bits in a binary number to the left or right and filling the emptied spaces with zeros is called a __________ shift.",
-      "answer": "Logical"
-    },
-    {
-      "type": "fill_blank",
-      "question": "In binary addition, if the result is too large for the register to hold, this is called an __________ error.",
-      "answer": "Overflow"
-    },
-    {
-      "type": "fill_blank",
-      "question": "Each hexadecimal digit can be represented by exactly ___ binary bits.",
-      "answer": "4"
+      "answer": "Microprocessor"
     },
     {
       "type": "true_false",
-      "question": "Digital data can take any value, just like analogue data.",
+      "question": "An actuator converts digital data into analogue signals.",
       "answer": "False"
     },
     {
-      "type": "true_false",
-      "question": "In two’s complement, the most significant bit represents the sign of the number.",
-      "answer": "True"
-    },
-    {
-      "type": "true_false",
-      "question": "The denary number system is also known as base 16.",
-      "answer": "False"
+      "type": "fill_blank",
+      "question": "An _____ is used to convert real-world analogue data into digital form.",
+      "answer": "ADC"
     },
     {
       "type": "match",
-      "question": "Match the term with its correct definition:",
+      "question": "Match each component with its correct function:",
       "pairs": {
-        "Register": "Used to temporarily hold binary data",
-        "Logic gate": "Basic building block for processing digital data",
-        "Two’s complement": "Method to represent negative binary"
+        "Sensor": "Collects data from environment",
+        "Microprocessor": "Makes a decision",
+        "Actuator": "Performs a physical action"
       }
     },
     {
-      "type": "fill_blank",
-      "question": "Convert the binary number 1101 to denary: __________",
-      "answer": "13"
+      "type": "mcq",
+      "question": "Which of the following is a disadvantage of using automated systems in agriculture?",
+      "options": [
+        "Increased seed planting accuracy",
+        "24/7 operation",
+        "Risk of sensor failure or terrain issues",
+        "Safer working conditions"
+      ],
+      "answer": "Risk of sensor failure or terrain issues"
+    },
+    {
+      "type": "true_false",
+      "question": "Automated systems can sometimes cause workforce deskilling.",
+      "answer": "True"
     },
     {
       "type": "fill_blank",
-      "question": "What is the hexadecimal equivalent of the denary number 15? __________",
-      "answer": "F"
+      "question": "One benefit of automation is improved _______ since machines make fewer errors.",
+      "answer": "precision"
     },
     {
-      "type": "fill_blank",
-      "question": "What is the binary value for the hexadecimal digit C? __________",
-      "answer": "1100"
+      "type": "match",
+      "question": "Match each benefit to its description:",
+      "pairs": {
+        "Continuous work": "No rest needed; works 24/7",
+        "Safety": "Removes humans from dangerous environments",
+        "Precision": "Minimizes human error"
+      }
     }
   ]
 }

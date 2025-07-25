@@ -2,144 +2,277 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>1.1 Number Systems</title>
-  <link rel="stylesheet" href="igcse-style.css">
+  <title>IGCSE Computer Science - 6.2 Robotics</title>
+  <link rel="stylesheet" href="../igcse-style.css">
 </head>
 <body>
-   <div class="container">
-    <h1>Number Systems</h1>
-    <div class="subtitle">IGCSE CS theory notes, prepared by Dr. Hamdeni</div>
-
-    <div class="section">
-      <h2>1.1 Understand how and why computers use binary to represent all forms of data</h2>
-
-    </div>
-
-    <div class="section">
-      <h2>1.2 (a) Understand the denary, binary and hexadecimal number systems</h2>
+<div class="container">
+  <h1>6.1 Automated Systems</h1>
+  <div class="subtitle"> Computer Science IGCSE notes, prepared by Dr. Hamdeni</div>
+  
+  
+<div class="section">
+  <h2>6.2.a Understand what is meant by robotics</h2>
+  <ul>
+    <li><span class="official-note"><span class="keyword" data-tooltip="A branch of computer science that focuses on the creation and use of robots">Robotics</span> is a branch of computer science that focuses on the design, construction and operation of robots.</span></li>
+    <li><span class="official-note"><span class="keyword" data-tooltip="A machine that replicates human actions or movements">Robots</span> can operate in various ways:</span>
       <ul>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Base-10, digits 0–9">Denary</span> is used in everyday life, with each place increasing by powers of 10.</span></li>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Base-2, digits 0 and 1">Binary</span> is used by computers, with each place increasing by powers of 2.</span></li>
-        <li><span class="official-note">The <span class="keyword" data-tooltip="The leftmost bit in a binary number, which has the highest value">MSB</span> (Most Significant Bit) is the leftmost bit.</span></li>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Base-16, digits 0–9 and A–F">Hexadecimal</span> is closely related to binary; each hex digit is 4 bits.</span></li>
+        <li><span class="official-note">A robot can be <span class="keyword" data-tooltip="Robots that operate without human input">independent</span>, performing tasks on its own.</span></li>
+        <li><span class="official-note">A robot can be <span class="keyword" data-tooltip="Robots that require human control">dependent</span>, requiring human control.</span></li>
+        <li><span class="official-note">A robot may also be a combination of both.</span></li>
+        <li><span class="official-note">A robot is described as <span class="keyword" data-tooltip="Able to work independently without human control">automated</span> when it can perform actions without human intervention.</span></li>
       </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">The denary number 25177 = 2×10000 + 5×1000 + 1×100 + 7×10 + 7×1.</div></li>
-        <li><div class="example-box">Binary 11101110 = 128+64+32+8+4+2 = 238 (denary).</div></li>
-        <li><div class="example-box">Hex digit A = 10, F = 15 (denary).</div></li>
-        <li><div class="example-box">1010 (binary) = A (hex) = 10 (denary).</div></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.2 (b) Convert between number systems</h2>
+    </li>
+    <li><span class="official-note">Robots are used in many environments:</span>
       <ul>
-        <li><span class="official-note">To convert binary to denary: add up the values of all positions where there is a 1.</span></li>
-        <li><span class="official-note">To convert denary to binary: subtract the largest possible powers of 2, or divide by 2 and record remainders.</span></li>
-        <li><span class="official-note">Successive division by 2 and reading remainders from bottom to top gives the binary value.</span></li>
-        <li><span class="official-note">You can convert up to 16-bit binary numbers for this syllabus.</span></li>
-        <li><span class="official-note">To convert binary to hexadecimal: group bits from the right in sets of four, pad with zeros to the left if needed.</span></li>
-        <li><span class="official-note">To convert hexadecimal to binary: write each hex digit as 4 bits.</span></li>
-        <li><span class="official-note">To convert hexadecimal to denary: convert hex to binary, then binary to denary.</span></li>
-        <li><span class="official-note">To convert denary to hexadecimal: convert to binary, group in 4s, convert each group to hex.</span></li>
+        <li><span class="official-note">Factories</span></li>
+        <li><span class="official-note">Homes</span></li>
+        <li><span class="official-note">Farms</span></li>
+        <li><span class="official-note">Hospitals</span></li>
+        <li><span class="official-note">Entertainment</span></li>
       </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">011110001011 = 1024+512+256+128+8+2+1 = 1931 (denary).</div></li>
-        <li><div class="example-box">Denary 142: 142 ÷ 2 repeatedly gives remainders 1 0 0 0 1 1 1 0 (read bottom to top: 10001110).</div></li>
-        <li><div class="example-box">Denary 13 → 8+4+0+1 = 13 → 1101 (binary).</div></li>
-        <li><div class="example-box">1000001111101 → 0010 0001 1111 1101 → 21FD (hex).</div></li>
-        <li><div class="example-box">Hex SE (S=5, E=14): 0101 1110 (binary).</div></li>
-        <li><div class="example-box">Hex 2 1 F D → 0010 0001 1111 1101 (binary).</div></li>
-        <li><div class="example-box">Hex SE = 64+16+8+4+2 = 94 (denary).</div></li>
-        <li><div class="example-box">Denary 201: binary 11001001 → 1100 (C), 1001 (9) → hex C9.</div></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.3 Understand how and why hexadecimal is used as a beneficial method of data representation</h2>
+    </li>
+    <li><span class="official-note">The term <span class="keyword" data-tooltip="The origin of the word 'robot' from the Czech language">"robot"</span> originates from the Czech word "robota", meaning "forced labour".</span></li>
+    <li><span class="official-note"><span class="keyword" data-tooltip="Fictional science fiction principles about robotic ethics">Asimov's Laws</span> are fictional rules for robots:</span>
       <ul>
-        <li><span class="official-note">Hexadecimal is shorter and easier to read and write than binary; simplifies debugging and error detection.</span></li>
-        <li><span class="official-note">Programmers find it easier to compare and spot differences in hexadecimal than in long binary strings.</span></li>
-        <li><span class="official-note">Common uses for hexadecimal: HTML colours, MAC addresses, assembly/machine code, memory dumps, debugging, error codes, and IP addresses.</span></li>
+        <li><span class="official-note">A robot may not harm a human being.</span></li>
+        <li><span class="official-note">A robot must obey orders given by humans unless it conflicts with the first law.</span></li>
+        <li><span class="official-note">A robot must protect its own existence unless it conflicts with the first or second law.</span></li>
       </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">Comparing 10011100101110111000111011100010111101011010 (binary) vs. 9CBB8EE2F5A (hex).</div></li>
-        <li><div class="example-box"><span class="keyword" data-tooltip="Unique device identifier, written in hexadecimal">MAC address</span>: e.g., 00-1C-B3-4F-25-FE.</div></li>
-        <li><span class="fun-tip">Hex makes large binary numbers easier for humans to read and spot mistakes quickly!</span></li>
-      </ul>
-    </div>
+    </li>
+    <li><span class="official-note"><span class="keyword" data-tooltip="The ability of a machine to perform tasks that normally require human intelligence">Artificial intelligence (AI)</span> is not the same as robotics. Most robots perform repetitive, preprogrammed tasks, not intelligent decisions.</span></li>
+  </ul>
+  <ul class="no-bullets">
+    <li><div class="example-box">A <span class="keyword" data-tooltip="An unmanned aerial robot that may be remotely controlled or fully autonomous">drone</span> can either be controlled manually or operate using sensors and pre-programmed instructions. This shows how a robot may be partially or fully autonomous.</div></li>
+    <li><span class="fun-tip">The word 'robot' was born in a play — literally! Imagine naming your future project after a 100-year-old sci-fi script.</span></li>
+    <li><span class="fun-tip">Think of a robot as your digital stunt double — built to do the boring, dangerous, or downright exhausting things you’d rather avoid.</span></li>
+    <li><button class="exam-button" onclick="openPopupQ('6-2-a')"> 👁️ Quick Look at Exam Questions on This Topic 👁️ </button></li>
+  </ul>
+</div>
 
-    <div class="section">
-      <h2>1.4 (a) Add two positive 8-bit binary integers</h2>
+<div class="section">
+  <h2>6.2.b Describe the characteristics of a robot</h2>
+  <ul>
+    <li><span class="official-note">A <span class="keyword" data-tooltip="A machine that replicates human actions or movements">robot</span> typically includes the following key <span class="keyword" data-tooltip="Features or attributes that help define something">characteristics</span>:</span>
       <ul>
-        <li><span class="official-note">Binary addition rules: 0+0=0; 1+0/0+1=1; 1+1=0 (carry 1); 1+1+1=1 (carry 1).</span></li>
-        <li><span class="official-note">Carry values work like in denary addition—add rightmost columns first, carry left if needed.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">00100111 + 01001010 = 01110001 (binary addition).</div></li>
-        <li><div class="example-box">126 (01111110) + 62 (00111110) = 188 (10111100).</div></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.4 (b) Understand the concept of overflow and why it occurs in binary addition</h2>
-      <ul>
-        <li><span class="official-note"><span class="keyword" data-tooltip="When a calculation exceeds the maximum storable value in the register">Overflow error</span> occurs when a result is too big for the register.</span></li>
-        <li><span class="official-note">For an 8-bit register, the maximum value is 255 (11111111). A result with a 9th bit is overflow.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">Adding 01101110 + 11011110 = (1)01001100, the leading (1) is overflow.</div></li>
-        <li><span class="fun-tip">If your answer has more bits than allowed, that extra leftmost bit is overflow—the computer can't fit it!</span></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.5 Perform a logical binary shift on a positive 8-bit binary integer and understand the effect</h2>
-      <ul>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Moving all bits left (×2) or right (÷2); zero fills empty place">Logical shift</span>: move all bits left (multiply by 2) or right (divide by 2); zeros fill empty spots.</span></li>
-        <li><span class="official-note">Bits shifted out are lost; zeros fill the emptied places.</span></li>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Left-most">Most significant bit</span></li>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Right-most">Least significant bit</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">Left shift: 00010101 → 00101010 (21×2=42).</div></li>
-        <li><div class="example-box">Left shift 2: 00010101 → 01010100 (21×4=84).</div></li>
-        <li><div class="example-box">Right shift: 11001000 → 01100100 (200÷2=100).</div></li>
-        <li><div class="example-box">Shift 10101010 one place left: 01010100.</div></li>
-        <li><span class="fun-tip">Each left shift doubles your number—each right shift halves it (if you don't lose important bits)!</span></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.6 Use the two’s complement number system to represent positive and negative 8-bit binary integers</h2>
-      <ul>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Method to represent negative binary numbers; left-most bit is the sign (–128 for 8 bits)">Two’s complement</span> lets you use the same binary system for positive and negative numbers.</span></li>
-        <li><span class="official-note">In 8-bit two’s complement, the range is –128 to +127.</span></li>
-        <li><span class="official-note">To write a positive number, use normal binary (sign bit 0).</span></li>
-        <li><span class="official-note">To write a negative number:<br>
-            1. Write positive binary.<br>
-            2. Invert all bits left of the first 1 from the right (or invert all bits and add 1).<br>
-            3. Make sure the MSB is 1.
-          </span>
+        <li><span class="official-note"><span class="keyword" data-tooltip="The physical frame or body of a robot">Mechanical structure</span>: Provides form and movement (e.g., arms, wheels, legs).</span></li>
+        <li><span class="official-note"><span class="keyword" data-tooltip="Electronic parts that allow the robot to sense and act">Electrical components</span>: Enable sensing and movement.</span>
+          <ul>
+            <li><span class="official-note"><span class="keyword" data-tooltip="Devices that detect physical properties like distance or light">Sensors</span>: Gather input from the environment.</span></li>
+            <li><span class="official-note"><span class="keyword" data-tooltip="Parts that convert signals into movement">Actuators</span>: Perform actions such as turning wheels or arms.</span></li>
+            <li><span class="official-note"><span class="keyword" data-tooltip="A small computer that processes data and controls other parts">Microprocessors</span>: Process sensor input and issue commands.</span></li>
+          </ul>
         </li>
-        <li><span class="official-note">For negative values, sum bits using –128 as the left-most.</span></li>
+        <li><span class="official-note"><span class="keyword" data-tooltip="Can be programmed to follow instructions or logic">Programmability</span>: Robots follow stored instructions or code.</span></li>
+        <li><span class="official-note">Most robots also have the ability to move, interact with surroundings, and repeat tasks.</span></li>
       </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">38 = 00100110 (two’s complement).</div></li>
-        <li><div class="example-box">–67: 01000011 → invert → 10111100 → add 1 = 10111101.</div></li>
-        <li><div class="example-box">10111010 = –128 + 32 + 16 + 8 + 2 = –70.</div></li>
-        <li><span class="fun-tip">To get a negative number: "Flip all the bits and add one!" (That’s the computer’s trick.)</span></li>
+    </li>
+  </ul>
+  <ul class="no-bullets">
+    <li><div class="example-box">A robotic arm with motors and proximity sensors moves boxes from one place to another based on programmed logic.</div></li>
+    <li><span class="fun-tip">If a robot has eyes, arms, a brain, and muscles... relax, it's not human — it's just seriously overengineered 🤖</span></li>
+    <li><button class="exam-button" onclick="openPopupQ('6-2-b')"> 👁️ Quick Look at Exam Questions on This Topic 👁️ </button></li>
+  </ul>
+</div>
+
+
+<div class="section">
+  <h2>6.2.c Understand the roles that robots can perform and describe the advantages and disadvantages of their use</h2>
+  <ul>
+    <li><span class="official-note">Robots are used in a wide range of areas:</span>
+      <ul>
+        <li><span class="official-note"><span class="keyword" data-tooltip="The production of goods in factories">Industry</span>: Welding, assembling, packaging, testing, and transporting goods in warehouses.</span></li>
+        <li><span class="official-note"><span class="keyword" data-tooltip="Farming and crop/livestock production">Agriculture</span>: Planting, weeding, harvesting, phenotyping, and drone-assisted crop monitoring.</span></li>
+        <li><span class="official-note"><span class="keyword" data-tooltip="Medical diagnosis, treatment, and care">Medicine</span>: Assisting with surgery, diagnostics, sample collection, targeted therapy, and disinfection.</span></li>
+        <li><span class="official-note"><span class="keyword" data-tooltip="Everyday use at home">Domestic use</span>: Cleaning floors, mowing lawns, ironing, and handling other chores.</span></li>
+        <li><span class="official-note"><span class="keyword" data-tooltip="Use in games, media, and learning">Entertainment</span>: Filming, lighting, stunts, animation, amusement park interaction, and educational kits.</span></li>
+        <li><span class="official-note"><span class="keyword" data-tooltip="Systems used for movement of people or goods">Transport</span>: Autonomous cars, trains, and airplanes using sensors and microprocessors.</span></li>
       </ul>
+    </li>
+
+    <li><span class="official-note">A robot can use sensors and a microprocessor to control its actions:</span>
+      <ul>
+        <li><span class="official-note">A <span class="keyword" data-tooltip="Sensor that detects nearby objects and measures distance">proximity sensor</span> is used to detect nearby objects (e.g., fences).</span></li>
+        <li><span class="official-note">The sensor sends digitised data continuously to the microprocessor.</span></li>
+        <li><span class="official-note">The microprocessor compares the input with stored reference values.</span></li>
+        <li><span class="official-note">If the values are within range, the robot continues its task.</span></li>
+        <li><span class="official-note">If values are outside the range, the microprocessor sends a signal to an actuator to stop or turn the robot.</span></li>
+        <li><span class="official-note">This process repeats continuously until the robot is turned off.</span></li>
+      </ul>
+    </li>
+
+    <li><span class="official-note">Advantages of using robots:</span>
+      <ul>
+        <li><span class="official-note">Robots can plant seeds more accurately than humans.</span></li>
+        <li><span class="official-note">They can work continuously without breaks (24/7 operation).</span></li>
+        <li><span class="official-note">They don’t get bored or distracted when doing repetitive tasks.</span></li>
+        <li><span class="official-note">They can safely work in hazardous environments (e.g., near chemicals or animals).</span></li>
+        <li><span class="official-note">Using robots can reduce labour costs since wages don't need to be paid.</span></li>
+        <li><span class="official-note">They can enhance safety by taking over physically demanding or dangerous jobs.</span></li>
+        <li><span class="official-note">Humans can focus on more skilled or creative tasks while robots do the repetitive ones.</span></li>
+      </ul>
+    </li>
+
+    <li><span class="official-note">[MARK-SCHEME-INFO] Robots may be expensive to purchase and set up.</span></li>
+
+    <li><span class="official-note">Disadvantages of using robots:</span>
+      <ul>
+        <li><span class="official-note">They may require costly maintenance and expert repairs.</span></li>
+        <li><span class="official-note">Robots may replace human jobs, leading to unemployment.</span></li>
+        <li><span class="official-note">Workers may become deskilled if robots do most of the work.</span></li>
+        <li><span class="official-note">If a robot malfunctions, tasks must be done manually, causing delays.</span></li>
+        <li><span class="official-note">Robots may not be able to handle unexpected or non-standard tasks.</span></li>
+        <li><span class="official-note">Changing a robot’s function may require additional time and expense.</span></li>
+        <li><span class="official-note">A failure in one part of the automated system could stop the entire process.</span></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul class="no-bullets">
+    <li><div class="example-box">In a robot factory, each robot may be responsible for a specific repetitive task, such as placing a biscuit into a box.</div></li>
+    <li><div class="example-box">In farming, a robot tractor can plant seeds while the farmer does other work — showing automation in action.</div></li>
+    <li><div class="example-box">In medicine, a surgical robot allows a remote surgeon to perform an operation from another city.</div></li>
+    <li><div class="example-box">In domestic use, a robot vacuum cleaner changes direction automatically when it bumps into furniture.</div></li>
+    <li><span class="fun-tip">In a robot factory, the robots never strike or gossip — but if you unplug them, their day is done.</span></li>
+    <li><span class="fun-tip">Imagine a tractor that plants seeds while you nap. That’s a farming robot doing your chores while you relax.</span></li>
+    <li><span class="fun-tip">Robots in surgery are like super-steady hands — no shaking even after three espressos.</span></li>
+    <li><span class="fun-tip">A robot vacuum cleaner is like a digital pet that eats dust — but you don’t need to walk it.</span></li>
+    <li><span class="fun-tip">Ever seen a theme park mascot that doesn’t blink or sweat? That’s probably a robot under the costume!</span></li>
+    <li><button class="exam-button" onclick="openPopupQ('6-2-c')"> 👁️ Quick Look at Exam Questions on This Topic 👁️ </button></li>
+  </ul>
+</div>
+
+
+
+<script>
+function openPopupQ(id) {
+  const data = {
+    "6-2-a": `<html><head><title>Past Paper: 6.2.a</title>
+    <style>
+      body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        background: #f4f8fb;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+      .popup-card {
+        background: #fff;
+        border-radius: 14px;
+        max-width: 520px;
+        width: 95%;
+        box-shadow: 0 6px 28px rgba(60, 70, 90, 0.14);
+        padding: 2em 2.2em 1.5em 2.2em;
+        margin: auto;
+      }
+      .popup-label {
+        display: inline-block;
+        color: #fff;
+        background: #a50035;
+        font-weight: bold;
+        letter-spacing: 1px;
+        font-size: 1em;
+        border-radius: 7px 7px 7px 0;
+        padding: 0.4em 1.2em 0.4em 0.95em;
+        box-shadow: 0 2px 6px rgba(20, 80, 120, 0.10);
+        margin-bottom: 1.4em;
+      }
+      .popup-question {
+        color: #005f99;
+        font-weight: 600;
+        margin-top: 0;
+        margin-bottom: 0.2em;
+        padding-bottom: 5px;
+        border-left: 4px solid #a50035;
+        padding-left: 0.7em;
+        font-size: 1.15em;
+        background: #f9fcff;
+        border-radius: 4px;
+        line-height: 1.5;
+      }
+      .popup-answer {
+        margin: 1em 0 0 0.1em;
+        font-size: 1.07em;
+        background: #fdf8fc;
+        border-left: 4px solid #005f99;
+        padding: 0.85em 1.2em 0.85em 1.2em;
+        border-radius: 4px;
+        color: #31353a;
+        box-shadow: 0 0 4px rgba(90,110,120,0.04);
+      }
+      @media (max-width:600px) {
+        .popup-card { padding: 1em 0.25em; }
+        .popup-label { font-size: 0.97em; padding: 0.33em 0.8em 0.33em 0.8em; }
+        .popup-answer { font-size: 1em; }
+        .popup-question { font-size: 1em; padding-left: 0.5em; }
+      }
+    </style></head><body>
+    <div class="popup-card">
+      <div class="popup-label">Past Paper Example</div>
+      <div class="popup-question"><strong>Question:</strong> Describe what is meant by the term 'robot'.</div>
+      <div class="popup-answer"><strong>Answer:</strong> A robot is a machine that performs tasks, often replicating human actions. It typically has a mechanical structure, electrical components such as sensors and actuators, and can be programmed.</div>
     </div>
+    </body></html>`,
 
-  </div>
+    "6-2-b": `<html><head><title>Past Paper: 6.2.b</title>
+    <style>
+      body { font-family: 'Segoe UI', Arial, sans-serif; background: #f4f8fb; padding: 0; margin: 0; height: 100vh; display: flex; align-items: center; justify-content: center; }
+      .popup-card { background: #fff; border-radius: 14px; max-width: 520px; width: 95%; box-shadow: 0 6px 28px rgba(60,70,90,0.14); padding: 2em 2.2em 1.5em 2.2em; margin: auto; }
+      .popup-label { display: inline-block; color: #fff; background: #a50035; font-weight: bold; letter-spacing: 1px; font-size: 1em; border-radius: 7px 7px 7px 0; padding: 0.4em 1.2em 0.4em 0.95em; box-shadow: 0 2px 6px rgba(20,80,120,0.10); margin-bottom: 1.4em;}
+      .popup-question { color: #005f99; font-weight: 600; margin-top: 0; margin-bottom: 0.2em; padding-bottom: 5px; border-left: 4px solid #a50035; padding-left: 0.7em; font-size: 1.15em; background: #f9fcff; border-radius: 4px; line-height: 1.5; }
+      .popup-answer { margin: 1em 0 0 0.1em; font-size: 1.07em; background: #fdf8fc; border-left: 4px solid #005f99; padding: 0.85em 1.2em 0.85em 1.2em; border-radius: 4px; color: #31353a; box-shadow: 0 0 4px rgba(90,110,120,0.04);}
+      @media (max-width:600px) {
+        .popup-card { padding: 1em 0.25em; }
+        .popup-label { font-size: 0.97em; }
+        .popup-answer { font-size: 1em; }
+        .popup-question { font-size: 1em; padding-left: 0.5em; }
+      }
+    </style></head><body>
+    <div class="popup-card">
+      <div class="popup-label">Past Paper Example</div>
+      <div class="popup-question"><strong>Question:</strong> State two characteristics of a robot.</div>
+      <div class="popup-answer"><strong>Answer:</strong><br>1. A robot has a mechanical framework.<br>2. A robot has sensors and can be programmed to follow instructions.</div>
+    </div>
+    </body></html>`,
 
-    <script>
-    window.addEventListener('load', function() {
-      var height = document.body.scrollHeight;
-      window.parent.postMessage({type: 'resize', height: height}, '*');
-    });
-    </script>
-  </div>
+    "6-2-c": `<html><head><title>Past Paper: 6.2.c</title>
+    <style>
+      body { font-family: 'Segoe UI', Arial, sans-serif; background: #f4f8fb; padding: 0; margin: 0; height: 100vh; display: flex; align-items: center; justify-content: center; }
+      .popup-card { background: #fff; border-radius: 14px; max-width: 520px; width: 95%; box-shadow: 0 6px 28px rgba(60,70,90,0.14); padding: 2em 2.2em 1.5em 2.2em; margin: auto; }
+      .popup-label { display: inline-block; color: #fff; background: #a50035; font-weight: bold; letter-spacing: 1px; font-size: 1em; border-radius: 7px 7px 7px 0; padding: 0.4em 1.2em 0.4em 0.95em; box-shadow: 0 2px 6px rgba(20,80,120,0.10); margin-bottom: 1.4em;}
+      .popup-question { color: #005f99; font-weight: 600; margin-top: 0; margin-bottom: 0.2em; padding-bottom: 5px; border-left: 4px solid #a50035; padding-left: 0.7em; font-size: 1.15em; background: #f9fcff; border-radius: 4px; line-height: 1.5; }
+      .popup-answer { margin: 1em 0 0 0.1em; font-size: 1.07em; background: #fdf8fc; border-left: 4px solid #005f99; padding: 0.85em 1.2em 0.85em 1.2em; border-radius: 4px; color: #31353a; box-shadow: 0 0 4px rgba(90,110,120,0.04);}
+      @media (max-width:600px) {
+        .popup-card { padding: 1em 0.25em; }
+        .popup-label { font-size: 0.97em; }
+        .popup-answer { font-size: 1em; }
+        .popup-question { font-size: 1em; padding-left: 0.5em; }
+      }
+    </style></head><body>
+    <div class="popup-card">
+      <div class="popup-label">Past Paper Example</div>
+      <div class="popup-question"><strong>Question:</strong> Explain how the robot uses sensors and a microprocessor to know it has reached a fence.</div>
+      <div class="popup-answer"><strong>Answer:</strong><br>
+        • A proximity sensor is used.<br>
+        • The sensor continuously sends digitised data to the microprocessor.<br>
+        • The microprocessor compares the data to a stored range.<br>
+        • If the value is outside the range, a signal is sent to an actuator to stop or turn the robot.<br>
+        • This process repeats until the robot is turned off.
+      </div>
+    </div>
+    </body></html>`
+  };
+
+  const popup = window.open("", "_blank", "width=600,height=500,resizable=yes,scrollbars=yes");
+  popup.document.write(data[id]);
+  popup.document.close();
+}
+</script>
+
+
+
 </body>
 </html>

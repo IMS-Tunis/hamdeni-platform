@@ -1,14 +1,42 @@
 [
   {
-    "question": "Explain what is meant by a validation test in computer science education.",
-    "answer": "A validation test checks that students have understood the material and are ready to progress."
+    "question": "Define the term 'robotics' in the context of computer science.",
+    "answer": "(Define: give precise meaning)\nRobotics is the branch of computer science that focuses on the design, construction, and operation of robots to perform tasks or functions."
   },
   {
-    "question": "State one advantage of practicing with past paper questions before an exam.",
-    "answer": "Past paper questions familiarize students with the exam style and improve confidence."
+    "question": "Explain the difference between independent (autonomous) and dependent robots.",
+    "answer": "(Explain: make the relationships between things evident)\nIndependent robots operate without human control and perform tasks automatically.\nDependent robots require human interaction and often supplement human activity."
   },
   {
-    "question": "Give an example of a simple binary operation.",
-    "answer": "Adding two 1-bit binary numbers, e.g. 1 + 1 = 10."
+    "question": "Describe three key characteristics commonly found in robots.",
+    "answer": "(Describe: state the points of a topic)\n1. Mechanical structure or framework\n2. Electrical components such as sensors or actuators\n3. Programmability using stored instructions"
+  },
+  {
+    "question": "Identify two components inside a robot and explain their function.",
+    "answer": "(Identify: name/select/recognise; Explain: provide how/why with relevant detail)\nSensor: collects data from the environment and sends it to the microprocessor.\nActuator: receives commands and moves parts like wheels or arms."
+  },
+  {
+    "question": "Match the following robotics terms to their correct definitions.\nTerms:\n- Accelerometer\n- LiDAR\n- End-effector\n- Phenotyping\nDefinitions:\nA. A device used to detect the direction and speed of movement\nB. A laser-based technology that creates 3D maps of surroundings\nC. An attachment like a spray gun or gripper fitted to a robotic arm\nD. Measuring features of plants to assess growth or health",
+    "answer": "(Match: draw a line to connect a term with a description)\nAccelerometer → A\nLiDAR → B\nEnd-effector → C\nPhenotyping → D"
+  },
+  {
+    "question": "Describe two advantages and two disadvantages of using robots in agriculture.",
+    "answer": "(Describe: give characteristics and features)\nAdvantages:\n- Robots can operate 24/7\n- They perform tasks like seed planting with high accuracy\nDisadvantages:\n- Robots are expensive to set up\n- They may cause job loss by replacing workers"
+  },
+  {
+    "question": "Explain how a robot can use sensors and a microprocessor to stop when reaching an obstacle.",
+    "answer": "(Explain: set out purposes or relationships)\nThe proximity sensor detects an object and sends data to the microprocessor.\nIf the data is outside a safe range, the microprocessor signals the actuator to stop or turn the robot."
+  },
+  {
+    "question": "Describe the advantages and disadvantages to the company of using robots to automatically find, package and load parcels.",
+    "answer": "(Describe: state key points clearly)\nAdvantages: speed, consistency, reduced human error, cost efficiency over time\nDisadvantages: high initial cost, maintenance needs, potential job losses"
+  },
+  {
+    "question": "Discuss the advantages and disadvantages of the factory replacing the workers with robots.",
+    "answer": "(Discuss: write about issues in depth)\nAdvantages: higher efficiency, 24/7 operation, consistent quality, reduced human injury risk\nDisadvantages: unemployment, high setup cost, loss of human skill, reliance on maintenance"
+  },
+  {
+    "question": "Identify two ways that robotics can be used in transport.",
+    "answer": "(Identify: name/select)\n1. Autonomous cars using sensors to steer and brake\n2. Driverless trains using GPS and cameras for navigation"
   }
 ]

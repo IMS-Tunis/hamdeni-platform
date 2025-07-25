@@ -1,20 +1,38 @@
 [
   {
-    "point_id": "6.1",
+    "point_id": "6.1a",
     "question_number": 1,
-    "question": "State one benefit of using binary in computers.",
-    "mark_scheme": "Binary is simple for electronic circuits, representing two states such as on/off."
+    "question": "Describe the role of each component in an automated greenhouse watering system.",
+    "mark_scheme": "(Describe: state the points of a topic / give characteristics and main features)\n- A sensor measures environmental conditions like soil moisture.\n- An ADC converts the sensor\u2019s analogue signal into digital format.\n- A microprocessor compares this value with stored thresholds.\n- If water is needed, it sends a signal to the actuator to turn on the irrigation valve."
   },
   {
-    "point_id": "6.1",
+    "point_id": "6.1a",
     "question_number": 2,
-    "question": "Define the term 'protocol' in networking.",
-    "mark_scheme": "A protocol is a set of rules that allow devices to communicate."
+    "question": "Describe how the microprocessor in a robot ensures it stops when it encounters a person.",
+    "mark_scheme": "(Describe: state the points of a topic / give characteristics and main features)\n- A proximity sensor detects someone nearby.\n- It sends digitised data to the microprocessor.\n- The microprocessor checks the data against stored safety limits.\n- If the person is too close, it sends a signal to the actuator to stop the robot."
   },
   {
-    "point_id": "6.1",
+    "point_id": "6.1a",
     "question_number": 3,
-    "question": "Explain the purpose of an IP address.",
-    "mark_scheme": "It uniquely identifies a device on a network."
+    "question": "Explain how sensors, cameras, actuators and a computer are used to operate a train door system.",
+    "mark_scheme": "(Explain: set out purposes or reasons / make the relationships between things evident / provide why and/or how and support with relevant evidence)\n- Sensors detect movement or passengers near the door.\n- Cameras provide visual input to the driver.\n- Sensor data is digitised and sent to the computer.\n- The computer compares input against safe thresholds.\n- If no obstruction is detected, it signals the actuator to close the door.\n- If not safe, it holds the door or alerts the driver."
+  },
+  {
+    "point_id": "6.1b",
+    "question_number": 4,
+    "question": "A farmer installs an automated tractor and irrigation system.\n(a) Identify one other automated system the farmer could use.\n(b) Give two benefits to the farmer of using automated systems.\n(c) Give two drawbacks of using automated systems on a farm.",
+    "mark_scheme": "(Identify: name/select/recognise; Give: produce an answer from a given source or recall/memory)\n(a) An automated harvesting robot.\n(b) 1. Can work 24/7; 2. Greater precision in planting or spraying.\n(c) 1. High setup cost; 2. May require training to operate/maintain."
+  },
+  {
+    "point_id": "6.1b",
+    "question_number": 5,
+    "question": "Discuss the impact of automated systems on employee roles in manufacturing.",
+    "mark_scheme": "(Discuss: write about issue(s) or topic(s) in depth in a structured way)\n- Automation reduces repetitive manual tasks.\n- Workers may shift to technical or monitoring roles.\n- Training is required for new systems.\n- Over time, deskilling may occur if human tasks are replaced."
+  },
+  {
+    "point_id": "6.1b",
+    "question_number": 6,
+    "question": "Describe two advantages and two disadvantages of using an automated system to control lighting in a building.",
+    "mark_scheme": "(Describe: state the points of a topic / give characteristics and main features)\nAdvantages:\n- Saves energy by turning off unused lights.\n- Improves safety by ensuring lighting is available when needed.\nDisadvantages:\n- Expensive to install and maintain.\n- May fail to detect presence reliably in all situations."
   }
 ]
