@@ -542,11 +542,11 @@ footer {
 /* Syllabus Update Badge - Front Layer */
 .syllabus-update-badge {
   position: fixed;
-  top: 90px;
-  right: 20px;
+  top: 50px; /* moved 20px up */
+  right: 0px; /* moved 10px to the right */
   z-index: 1000; /* Ensures it appears above all other content */
-  width: 80px;
-  height: 80px;
+  width: 250px;
+  height: 250px;
 }
 
 .syllabus-update-badge img {

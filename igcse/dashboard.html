@@ -30,11 +30,16 @@
   </div>
 
   <!-- Right: Login -->
-  <div class="form-box" style="display: flex; gap: 10px; align-items: center;">
-    <input type="text" id="username" placeholder="Username" />
-    <input type="password" id="password" placeholder="Password" />
-    <button id="login-btn" class="styled-button">Login</button>
-    <button id="logout-btn" class="styled-button logout">Logout</button>
+  <div class="form-box">
+    <div class="login-row">
+      <input type="text" id="username" placeholder="Username" />
+      <input type="password" id="password" placeholder="Password" />
+      <button id="login-btn" class="styled-button">Login</button>
+      <button id="logout-btn" class="styled-button logout">Logout</button>
+    </div>
+    <div class="contact-info">
+      Contact <a href="mailto:chams-eddine.hemdani@tn.maarifschools.org">chams-eddine.hemdani@tn.maarifschools.org</a> for sign up.
+    </div>
   </div>
 </div>
 
@@ -42,7 +47,7 @@
 <main class="dashboard">
   <section class="theory-column">
     <div class="section-header">
-      <img src="./images/advanced_theory.png" alt="Advanced Theory" class="section-title"/>
+      <img src="./images/advanced_theory.png" alt="Advanced Theory" class="section-title" style="transform: scale(1.3); transform-origin: center;"/>
     </div>
     <div id="theory-points" class="theory-wrapper"></div>
     <img src="./images/approved_banner.png" class="footer-image" alt="Approved"/>

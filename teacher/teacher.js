@@ -31,6 +31,17 @@ function usesReachedLayer() {
   return true;
 }
 
+// Programming progress now uses a single reached_level column for every
+// platform. Previously AS Level stored one row per level which caused
+// inconsistencies when loading or saving progress.
+function reachedLevelPlatform() {
+  return (
+    selectedPlatform === 'A_Level' ||
+    selectedPlatform === 'IGCSE' ||
+    selectedPlatform === 'AS_Level'
+  );
+}
+
 document.getElementById('load-students').onclick = async () => {
   selectedPlatform = document.getElementById('platform').value;
   console.log('[teacher] Loading students for', selectedPlatform);
@@ -174,11 +185,9 @@ function renderLevels(data) {
   container.innerHTML = '<h4>Programming Progress</h4>';
   programmingLevels = levelDefs.map((_, i) => i + 1);
 
-  // Determine progress depending on platform. A Level stores a single
-  // reached_level value while the other platforms store one row per level
-  // with a boolean flag.
+  // Determine progress using a single reached_level value for every platform.
   let reached = 0;
-  if (selectedPlatform === 'A_Level') {
+  if (reachedLevelPlatform()) {
     const raw = data[0]?.reached_level || 0;
     reached = raw === 'R' ? 3 : parseInt(raw, 10);
   }
@@ -196,7 +205,7 @@ function renderLevels(data) {
     checkbox.type = 'checkbox';
     checkbox.dataset.level = idx + 1;
 
-    if (selectedPlatform === 'A_Level') {
+    if (reachedLevelPlatform()) {
       if (idx + 1 <= reached) checkbox.checked = true;
     } else {
       const found = data.find(d => d.level_number === idx + 1);
@@ -234,18 +243,23 @@ document.getElementById('save-progress').onclick = async () => {
       if (usesReachedLayer()) {
         await supabase
           .from(tTable)
-          .upsert({
-            username: selectedStudent.username,
-            point_id: point.toLowerCase(),
-            reached_layer
-          });
+          .upsert(
+            {
+              username: selectedStudent.username,
+              point_id: point.toLowerCase(),
+              reached_layer
+            },
+            { onConflict: 'username,point_id' }
+          );
       } else {
         const update = { username: selectedStudent.username, point_id: point.toLowerCase() };
         for (let i = 1; i <= 4; i++) {
           const input = document.querySelector(`[data-point='${point}'][data-layer='${i}']`);
           update[`layer${i}_done`] = input.checked;
         }
-        await supabase.from(tTable).upsert(update);
+        await supabase
+          .from(tTable)
+          .upsert(update, { onConflict: 'username,point_id' });
       }
     } catch (err) {
       console.error('[teacher] Failed updating point', point, err);
@@ -253,39 +267,24 @@ document.getElementById('save-progress').onclick = async () => {
 
   }
 
-  if (selectedPlatform === 'A_Level') {
-    let maxLevel = 0;
-    for (let level of programmingLevels) {
-      const input = document.querySelector(`[data-level='${level}']`);
-      if (input.checked) maxLevel = level;
-    }
+  let maxLevel = 0;
+  for (let level of programmingLevels) {
+    const input = document.querySelector(`[data-level='${level}']`);
+    if (input.checked) maxLevel = level;
+  }
 
-    try {
-      await supabase
-        .from(lTable)
-        .upsert({
+  try {
+    await supabase
+      .from(lTable)
+      .upsert(
+        {
           username: selectedStudent.username,
           reached_level: maxLevel
-        });
-    } catch (err) {
-      console.error('[teacher] Failed saving reached_level', err);
-    }
-  } else {
-    const updates = [];
-    for (let level of programmingLevels) {
-      const input = document.querySelector(`[data-level='${level}']`);
-      updates.push({
-        username: selectedStudent.username,
-        level_number: level,
-        level_done: input.checked
-      });
-    }
-
-    try {
-      await supabase.from(lTable).upsert(updates);
-    } catch (err) {
-      console.error('[teacher] Failed saving level_done flags', err);
-    }
+        },
+        { onConflict: 'username' }
+      );
+  } catch (err) {
+    console.error('[teacher] Failed saving reached_level', err);
   }
 
   msg.textContent = "✅ Progress saved.";
