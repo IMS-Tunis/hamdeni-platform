@@ -1,0 +1,286 @@
+{
+  "5.1a": [
+    {
+      "term": "Internet",
+      "definition": "A global system of interconnected computer networks"
+    },
+    {
+      "term": "Wide Area Network (WAN)",
+      "definition": "A network that spans a large geographical area, such as a country or the world"
+    },
+    {
+      "term": "World Wide Web",
+      "definition": "The collection of all websites and web pages available through the internet"
+    },
+    {
+      "term": "Email",
+      "definition": "Digital messages sent across networks"
+    },
+    {
+      "term": "World Wide Web",
+      "definition": "Delivered through browsers and built on web protocols like HTTP and HTTPS"
+    },
+    {
+      "term": "Web Pages",
+      "definition": "Individual documents on the internet"
+    },
+    {
+      "term": "Websites",
+      "definition": "A collection of related web pages under a common domain"
+    },
+    {
+      "term": "Internet",
+      "definition": "Global infrastructure of networks and cables"
+    },
+    {
+      "term": "World Wide Web",
+      "definition": "Websites that carry information"
+    },
+    {
+      "term": "Internet",
+      "definition": "A global network infrastructure"
+    },
+    {
+      "term": "World Wide Web",
+      "definition": "The collection of websites and pages accessible via browsers"
+    },
+    {
+      "term": "Internet",
+      "definition": "network infrastructure"
+    },
+    {
+      "term": "World Wide Web",
+      "definition": "web content"
+    }
+  ],
+  "5.1b": [
+    {
+      "term": "Uniform Resource Locator (URL)",
+      "definition": "A text-based address that identifies the location of a web page or file on the internet"
+    },
+    {
+      "term": "Protocol",
+      "definition": "A rule for how data is transmitted, like HTTP or HTTPS"
+    },
+    {
+      "term": "Domain Host",
+      "definition": "The part like \"www\" indicating web service"
+    },
+    {
+      "term": "Domain Name",
+      "definition": "The unique name of the website"
+    },
+    {
+      "term": "Domain Type",
+      "definition": "The category of site, like .com or .org, and optional [KEYWORD: Country Code]{e.g., .uk, .de"
+    },
+    {
+      "term": "File Name",
+      "definition": "The specific file or page being requested"
+    },
+    {
+      "term": "Protocol",
+      "definition": "The communication rule used for secure data transfer"
+    },
+    {
+      "term": "Domain Host",
+      "definition": "The web-specific part of the address"
+    },
+    {
+      "term": "Domain Name",
+      "definition": "The unique name of the server"
+    },
+    {
+      "term": "Domain Type",
+      "definition": "Indicates a commercial site in the UK"
+    },
+    {
+      "term": "Path",
+      "definition": "Points to a specific page or resource on the server"
+    },
+    {
+      "term": "URL",
+      "definition": "web address"
+    }
+  ],
+  "5.1c": [
+    {
+      "term": "Hypertext Transfer Protocol (HTTP)",
+      "definition": "A rule for how web pages and resources are sent between a browser and a server"
+    },
+    {
+      "term": "HTTPS (Hypertext Transfer Protocol Secure)",
+      "definition": "A secure version of HTTP that encrypts data"
+    },
+    {
+      "term": "HTTP",
+      "definition": "An insecure data transmission protocol"
+    },
+    {
+      "term": "HTTPS",
+      "definition": "A secure version of HTTP"
+    },
+    {
+      "term": "HTTPS",
+      "definition": "A secure version of HTTP"
+    },
+    {
+      "term": "SSL (Secure Socket Layer)",
+      "definition": "An older encryption method used to secure web traffic"
+    },
+    {
+      "term": "TLS (Transport Layer Security)",
+      "definition": "A newer and more secure version of SSL"
+    },
+    {
+      "term": "SSL",
+      "definition": "A security protocol for online communication"
+    },
+    {
+      "term": "Digital Certificate",
+      "definition": "A file proving the website\u2019s identity"
+    },
+    {
+      "term": "Certificate Authority",
+      "definition": "An organization that checks and approves websites"
+    },
+    {
+      "term": "HTTP",
+      "definition": "the open protocol"
+    },
+    {
+      "term": "HTTPS",
+      "definition": "the encrypted version"
+    }
+  ],
+  "5.1d": [
+    {
+      "term": "Web Browser",
+      "definition": "A program that lets users access and interact with websites on the World Wide Web"
+    },
+    {
+      "term": "HTML (Hypertext Markup Language)",
+      "definition": "Used to structure web page content"
+    },
+    {
+      "term": "CSS (Cascading Style Sheets)",
+      "definition": "Controls the appearance of a webpage"
+    },
+    {
+      "term": "JavaScript",
+      "definition": "Adds interactive elements to the page"
+    },
+    {
+      "term": "Renders",
+      "definition": "Processes and displays"
+    },
+    {
+      "term": "Web Browser",
+      "definition": "Software like Chrome or Safari used to display websites"
+    },
+    {
+      "term": "Search Engine",
+      "definition": "A tool like Google Search or Bing used to find websites"
+    },
+    {
+      "term": "Web Browser",
+      "definition": "browser"
+    },
+    {
+      "term": "Address Bar",
+      "definition": "Where you type a URL"
+    },
+    {
+      "term": "Tab",
+      "definition": "Lets you open multiple pages in one window"
+    },
+    {
+      "term": "Bookmark",
+      "definition": "Saves links to favourite sites"
+    },
+    {
+      "term": "User History",
+      "definition": "Stores previously visited websites"
+    },
+    {
+      "term": "Navigation Tools",
+      "definition": "Back, Forward, and Reload buttons"
+    },
+    {
+      "term": "Cache",
+      "definition": "Temporarily stores page data for faster loading"
+    },
+    {
+      "term": "Hyperlinks",
+      "definition": "Links that connect web pages"
+    },
+    {
+      "term": "Cookies",
+      "definition": "Files that store settings and information"
+    },
+    {
+      "term": "Web Browser",
+      "definition": "browser"
+    }
+  ],
+  "5.1e": [
+    {
+      "term": "URL",
+      "definition": "The address of a website"
+    },
+    {
+      "term": "Address Bar",
+      "definition": "The field in the browser where the URL is typed"
+    },
+    {
+      "term": "Domain Name System (DNS)",
+      "definition": "A system that converts domain names into IP addresses"
+    },
+    {
+      "term": "IP Address",
+      "definition": "A unique number that identifies the web server"
+    },
+    {
+      "term": "Web Server",
+      "definition": "Computer that stores the website"
+    },
+    {
+      "term": "Renders",
+      "definition": "Displays"
+    }
+  ],
+  "5.1f": [
+    {
+      "term": "Cookie",
+      "definition": "A small file stored on a user\u2019s device by a website"
+    },
+    {
+      "term": "Web Server",
+      "definition": "The computer hosting the website"
+    },
+    {
+      "term": "Cookies",
+      "definition": "Small text files"
+    },
+    {
+      "term": "Targeted Advertising",
+      "definition": "Advertising based on your browsing history and interests. Cookies enable this by tracking your activity."
+    },
+    {
+      "term": "Session Cookie",
+      "definition": "A temporary cookie deleted when the browser is closed"
+    },
+    {
+      "term": "Persistent Cookie",
+      "definition": "A cookie stored on the computer\u2019s hard drive until it expires or is deleted"
+    },
+    {
+      "term": "Cookies",
+      "definition": "Browser cookies"
+    },
+    {
+      "term": "Cookies",
+      "definition": "Browser cookies"
+    }
+  ]
+}

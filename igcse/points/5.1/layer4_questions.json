@@ -1,14 +1,34 @@
 [
   {
-    "question": "Explain what is meant by a validation test in computer science education.",
-    "answer": "A validation test checks that students have understood the material and are ready to progress."
+    "question": "Describe the difference between the internet and the world wide web.",
+    "answer": "• Internet is the hardware/infrastructure/network of connected devices\n• World wide web is a collection of websites/web pages (on the internet)"
   },
   {
-    "question": "State one advantage of practicing with past paper questions before an exam.",
-    "answer": "Past paper questions familiarize students with the exam style and improve confidence."
+    "question": "Complete the table with the missing terms and descriptions:\n\nTerm\tDescription\n......\tthe collective name for all the web pages available",
+    "answer": "• world wide web"
   },
   {
-    "question": "Give an example of a simple binary operation.",
-    "answer": "Adding two 1-bit binary numbers, e.g. 1 + 1 = 10."
+    "question": "(a) State what is meant by a URL.",
+    "answer": "• Text-based address for a website\n• (Can contain) protocol/domain name/web page name"
+  },
+  {
+    "question": "(b) Identify two different parts of a URL.\n1. ______\n2. ______",
+    "answer": "Any two from:\n• Protocol\n• Domain name\n• Filename/web page/file name"
+  },
+  {
+    "question": "The uniform resource locator (URL) for a website includes the protocol hypertext transfer protocol secure (HTTPS).\nExplain how HTTPS makes the transmission of data secure.",
+    "answer": "• Uses encryption\n• Data is unreadable if intercepted\n• Uses Secure Socket Layer (SSL) protocol\n• SSL uses public/private key encryption\n• SSL provides authentication to check the website is genuine"
+  },
+  {
+    "question": "The employee wants to be able to quickly access websites that he regularly uses.\nIdentify the function of a web browser that could be used for this purpose.",
+    "answer": "• Storing bookmarks\n• Storing favourites"
+  },
+  {
+    "question": "Draw and annotate a diagram to show how the web page is located and retrieved to be displayed on the student’s tablet computer.",
+    "answer": "The diagram should demonstrate (1 mark each):\n• The browser sending a request using the URL\n• The DNS converting the domain name to an IP address\n• The browser contacting the web server using the IP address\n• The web server sending the HTML/web page back to the browser\n• The browser rendering the HTML to display the page"
+  },
+  {
+    "question": "Complete the statements about cookies.\nUse only terms from the list.\nNot all terms need to be used. Some terms may be used more than once.\n\nbinary, close, denary, expire, hexadecimal, image, malware, operating system, permanent, persistent, session, sound, temporary, web browser\n\nCookies are small text files that are stored by a ______.\n______ cookies are ______ text files that are deleted when the ______ is closed.\n______ cookies are ______ text files that are stored on a user’s secondary storage device until they are manually deleted or they ______.",
+    "answer": "• web browser\n• session\n• temporary\n• web browser\n• persistent\n• permanent\n• expire"
   }
 ]
