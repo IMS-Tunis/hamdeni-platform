@@ -5,8 +5,7 @@ body {
   line-height: 1.7;
 }
 .container {
-  width: 100%;
-  max-width: none;
+  max-width: 850px;
   margin: 2.5rem auto;
   background: #fff;
   border-radius: 14px;
