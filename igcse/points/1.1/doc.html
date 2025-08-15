@@ -2,144 +2,223 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>1.1 Number Systems</title>
-  <link rel="stylesheet" href="igcse-style.css">
+  <title>IGCSE Computer Science - 1.1: Number systems</title>
+  <link rel="stylesheet" href="../igcse-style.css">
 </head>
 <body>
-   <div class="container">
-    <h1>Number Systems</h1>
-    <div class="subtitle">IGCSE CS theory notes, prepared by Dr. Hamdeni</div>
 
-    <div class="section">
-      <h2>1.1 Understand how and why computers use binary to represent all forms of data</h2>
+<div class="container">
 
-    </div>
-
-    <div class="section">
-      <h2>1.2 (a) Understand the denary, binary and hexadecimal number systems</h2>
-      <ul>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Base-10, digits 0–9">Denary</span> is used in everyday life, with each place increasing by powers of 10.</span></li>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Base-2, digits 0 and 1">Binary</span> is used by computers, with each place increasing by powers of 2.</span></li>
-        <li><span class="official-note">The <span class="keyword" data-tooltip="The leftmost bit in a binary number, which has the highest value">MSB</span> (Most Significant Bit) is the leftmost bit.</span></li>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Base-16, digits 0–9 and A–F">Hexadecimal</span> is closely related to binary; each hex digit is 4 bits.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">The denary number 25177 = 2×10000 + 5×1000 + 1×100 + 7×10 + 7×1.</div></li>
-        <li><div class="example-box">Binary 11101110 = 128+64+32+8+4+2 = 238 (denary).</div></li>
-        <li><div class="example-box">Hex digit A = 10, F = 15 (denary).</div></li>
-        <li><div class="example-box">1010 (binary) = A (hex) = 10 (denary).</div></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.2 (b) Convert between number systems</h2>
-      <ul>
-        <li><span class="official-note">To convert binary to denary: add up the values of all positions where there is a 1.</span></li>
-        <li><span class="official-note">To convert denary to binary: subtract the largest possible powers of 2, or divide by 2 and record remainders.</span></li>
-        <li><span class="official-note">Successive division by 2 and reading remainders from bottom to top gives the binary value.</span></li>
-        <li><span class="official-note">You can convert up to 16-bit binary numbers for this syllabus.</span></li>
-        <li><span class="official-note">To convert binary to hexadecimal: group bits from the right in sets of four, pad with zeros to the left if needed.</span></li>
-        <li><span class="official-note">To convert hexadecimal to binary: write each hex digit as 4 bits.</span></li>
-        <li><span class="official-note">To convert hexadecimal to denary: convert hex to binary, then binary to denary.</span></li>
-        <li><span class="official-note">To convert denary to hexadecimal: convert to binary, group in 4s, convert each group to hex.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">011110001011 = 1024+512+256+128+8+2+1 = 1931 (denary).</div></li>
-        <li><div class="example-box">Denary 142: 142 ÷ 2 repeatedly gives remainders 1 0 0 0 1 1 1 0 (read bottom to top: 10001110).</div></li>
-        <li><div class="example-box">Denary 13 → 8+4+0+1 = 13 → 1101 (binary).</div></li>
-        <li><div class="example-box">1000001111101 → 0010 0001 1111 1101 → 21FD (hex).</div></li>
-        <li><div class="example-box">Hex SE (S=5, E=14): 0101 1110 (binary).</div></li>
-        <li><div class="example-box">Hex 2 1 F D → 0010 0001 1111 1101 (binary).</div></li>
-        <li><div class="example-box">Hex SE = 64+16+8+4+2 = 94 (denary).</div></li>
-        <li><div class="example-box">Denary 201: binary 11001001 → 1100 (C), 1001 (9) → hex C9.</div></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.3 Understand how and why hexadecimal is used as a beneficial method of data representation</h2>
-      <ul>
-        <li><span class="official-note">Hexadecimal is shorter and easier to read and write than binary; simplifies debugging and error detection.</span></li>
-        <li><span class="official-note">Programmers find it easier to compare and spot differences in hexadecimal than in long binary strings.</span></li>
-        <li><span class="official-note">Common uses for hexadecimal: HTML colours, MAC addresses, assembly/machine code, memory dumps, debugging, error codes, and IP addresses.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">Comparing 10011100101110111000111011100010111101011010 (binary) vs. 9CBB8EE2F5A (hex).</div></li>
-        <li><div class="example-box"><span class="keyword" data-tooltip="Unique device identifier, written in hexadecimal">MAC address</span>: e.g., 00-1C-B3-4F-25-FE.</div></li>
-        <li><span class="fun-tip">Hex makes large binary numbers easier for humans to read and spot mistakes quickly!</span></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.4 (a) Add two positive 8-bit binary integers</h2>
-      <ul>
-        <li><span class="official-note">Binary addition rules: 0+0=0; 1+0/0+1=1; 1+1=0 (carry 1); 1+1+1=1 (carry 1).</span></li>
-        <li><span class="official-note">Carry values work like in denary addition—add rightmost columns first, carry left if needed.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">00100111 + 01001010 = 01110001 (binary addition).</div></li>
-        <li><div class="example-box">126 (01111110) + 62 (00111110) = 188 (10111100).</div></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.4 (b) Understand the concept of overflow and why it occurs in binary addition</h2>
-      <ul>
-        <li><span class="official-note"><span class="keyword" data-tooltip="When a calculation exceeds the maximum storable value in the register">Overflow error</span> occurs when a result is too big for the register.</span></li>
-        <li><span class="official-note">For an 8-bit register, the maximum value is 255 (11111111). A result with a 9th bit is overflow.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">Adding 01101110 + 11011110 = (1)01001100, the leading (1) is overflow.</div></li>
-        <li><span class="fun-tip">If your answer has more bits than allowed, that extra leftmost bit is overflow—the computer can't fit it!</span></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.5 Perform a logical binary shift on a positive 8-bit binary integer and understand the effect</h2>
-      <ul>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Moving all bits left (×2) or right (÷2); zero fills empty place">Logical shift</span>: move all bits left (multiply by 2) or right (divide by 2); zeros fill empty spots.</span></li>
-        <li><span class="official-note">Bits shifted out are lost; zeros fill the emptied places.</span></li>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Left-most">Most significant bit</span></li>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Right-most">Least significant bit</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">Left shift: 00010101 → 00101010 (21×2=42).</div></li>
-        <li><div class="example-box">Left shift 2: 00010101 → 01010100 (21×4=84).</div></li>
-        <li><div class="example-box">Right shift: 11001000 → 01100100 (200÷2=100).</div></li>
-        <li><div class="example-box">Shift 10101010 one place left: 01010100.</div></li>
-        <li><span class="fun-tip">Each left shift doubles your number—each right shift halves it (if you don't lose important bits)!</span></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.6 Use the two’s complement number system to represent positive and negative 8-bit binary integers</h2>
-      <ul>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Method to represent negative binary numbers; left-most bit is the sign (–128 for 8 bits)">Two’s complement</span> lets you use the same binary system for positive and negative numbers.</span></li>
-        <li><span class="official-note">In 8-bit two’s complement, the range is –128 to +127.</span></li>
-        <li><span class="official-note">To write a positive number, use normal binary (sign bit 0).</span></li>
-        <li><span class="official-note">To write a negative number:<br>
-            1. Write positive binary.<br>
-            2. Invert all bits left of the first 1 from the right (or invert all bits and add 1).<br>
-            3. Make sure the MSB is 1.
-          </span>
-        </li>
-        <li><span class="official-note">For negative values, sum bits using –128 as the left-most.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">38 = 00100110 (two’s complement).</div></li>
-        <li><div class="example-box">–67: 01000011 → invert → 10111100 → add 1 = 10111101.</div></li>
-        <li><div class="example-box">10111010 = –128 + 32 + 16 + 8 + 2 = –70.</div></li>
-        <li><span class="fun-tip">To get a negative number: "Flip all the bits and add one!" (That’s the computer’s trick.)</span></li>
-      </ul>
-    </div>
-
+<div class="header-container">
+<img src="../syllabus.png" alt="Syllabus Update" class="top-right-icon">
+  <div class="title-row">
+    <h1 class="section-title">1.1: Number systems</h1>
   </div>
-
-    <script>
-    window.addEventListener('load', function() {
-      var height = document.body.scrollHeight;
-      window.parent.postMessage({type: 'resize', height: height}, '*');
-    });
-    </script>
+  <div class="title-underline"></div>
+  <p class="section-subtitle">Computer Science IGCSE notes, prepared by Dr. Hamdeni</p>
+</div>
+  <div class="section">
+    <h2>1.1a: How and why computers use binary to represent all forms of data</h2>
+    <ul>
+      <li><span class="official-note">Computers process all data in binary using electronic switches with two states, so any form of data is converted into 0s and 1s before processing.</span>
+        <ul>
+          <li><span class="official-note">Inside the computer, many ON or OFF switches are combined in logic gates (switch-based operations that output 0 or 1) to process and store data.</span></li>
+          </ul>
+      </li>
+      <li><span class="official-note">In binary hardware, OFF is represented by 0 and ON by 1.</span>
+      </li>
+    </ul>
+    <ul class="no-bullets">
+      <li><span class="fun-tip">Analogue is like a dimmer switch that slides smoothly; digital is like a normal switch with only OFF=0 or ON=1.</span></li>
+    </ul>
+    <ul class="no-bullets">
+      <div class="button-group">
+        <button class="keyword-button" onclick="openPopupK('1.1a')">
+          🔑 View Keywords on This Topic 🔑
+        </button>
+        <button class="exam-button" onclick="openPopupQ('1.1a')">
+          👁️ Quick Look at Exam Questions on This Topic 👁️
+        </button>
+      </div>
+    </ul>
   </div>
+  <div class="section">
+    <h2>1.1b: Denary, binary, and hexadecimal; conversions among them</h2>
+    <ul>
+      <li><span class="official-note">Denary is base 10 using digits 0 to 9; binary is base 2 using digits 0 and 1; <span class="keyword" data-tooltip="a number system based on the value 16 which uses denary digits 0 to 9 and letters A to F">hexadecimal</span> is base 16 using symbols 0 to 9 and A to F.</span>
+        <ul>
+          <li><span class="official-note">In hexadecimal, the letters map to denary values: A=10, B=11, C=12, D=13, E=14, F=15.</span></li>
+          <li><span class="official-note">In an 8-bit layout, the place-value headings are 128, 64, 32, 16, 8, 4, 2, 1.</span></li>
+          </ul>
+      </li>
+    </ul>
+    <ul class="no-bullets">
+      <li><div class="example-box">Denary place values: 123 has 1 hundred (10^2), 2 tens (10^1), and 3 ones (10^0), which anchors the idea of place value before conversions.</div></li>
+    </ul>
+    <ul>
+      <li><span class="official-note">The leftmost bit of a binary number is the most significant bit (MSB).</span>
+        <ul>
+          <li><span class="official-note">The rightmost bit of a binary number is the least significant bit (LSB); it has the smallest place value.</span></li>
+          </ul>
+      </li>
+      <li><span class="official-note">To convert a positive denary number to binary, list the binary place values and mark each column with 1 if it is used and 0 if it is not, subtracting used values until the remainder is 0.</span>
+        <ul>
+          <li><span class="official-note">Alternative method: divide the denary number by 2 repeatedly and read the remainders from bottom to top to form the binary number.</span></li>
+          </ul>
+      </li>
+    </ul>
+    <ul class="no-bullets">
+      <li><div class="example-box">13 to 4-bit binary: Use 8 and 4, skip 2, use 1. Result 1101. This shows how marking columns builds the binary result.</div></li>
+      <li><div class="example-box">59 to 8-bit binary: Use 32 + 16 + 8 + 2 + 1. Result 00111011. This confirms the step-by-step method.</div></li>
+    </ul>
+    <ul>
+      <li><span class="official-note">To convert binary to denary, add the place values for all columns that contain a 1.</span>
+      </li>
+    </ul>
+    <ul class="no-bullets">
+      <li><div class="example-box">1010 to denary: Add 8 + 2 to get 10. This illustrates adding headings where bits are 1.</div></li>
+    </ul>
+    <ul>
+      <li><span class="official-note">Hexadecimal and binary convert directly because one hex digit corresponds to exactly four binary bits; split or group binary in fours and map each group to a hex digit.</span>
+        <ul>
+          <li><span class="official-note">When converting binary to hexadecimal, group bits from the right in sets of four; if the leftmost group has fewer than four bits, pad it with leading zeros.</span></li>
+          <li><span class="official-note">One way to convert hexadecimal to denary is to first write each hex digit as 4-bit binary, then add the binary place values where the bits are 1.</span></li>
+          </ul>
+      </li>
+    </ul>
+    <ul class="no-bullets">
+      <li><div class="example-box">101111100001 to hex: Group as 1011 1110 0001 and map to B E 1, giving BE1.</div></li>
+      <li><div class="example-box">201 to hex: Write binary 11001001, split as 1100 and 1001, map to C and 9, giving C9.</div></li>
+      <li><div class="example-box">Hex to binary: A2 → A is 1010 and 2 is 0010, so the binary is 10100010. This shows the reverse mapping from hexadecimal to binary.</div></li>
+      <li><div class="example-box">Hex to binary with three hex digits: 45A → 0100 0101 1010, then write without spaces as 010001011010. This reinforces grouping by fours.</div></li>
+      <li><span class="fun-tip">Binary place values are like a set of weights that double each time. With weights 1, 2, 4, 8, 16, you can make any whole number by picking some weights and leaving others, just like putting 1s and 0s under the headings.</span></li>
+    </ul>
+    <ul class="no-bullets">
+      <div class="button-group">
+        <button class="keyword-button" onclick="openPopupK('1.1b')">
+          🔑 View Keywords on This Topic 🔑
+        </button>
+        <button class="exam-button" onclick="openPopupQ('1.1b')">
+          👁️ Quick Look at Exam Questions on This Topic 👁️
+        </button>
+      </div>
+    </ul>
+  </div>
+  <div class="section">
+    <h2>1.1c: Why hexadecimal is a beneficial data representation</h2>
+    <ul>
+      <li><span class="official-note">Hexadecimal is shorter than binary and easier for humans to read, write, and check, so programmers use it to inspect and debug data.</span>
+        <ul>
+          <li><span class="official-note">A common use is writing device hardware addresses in hexadecimal.</span></li>
+          </ul>
+      </li>
+    </ul>
+    <ul class="no-bullets">
+      <li><div class="example-box">Hex shortens binary: The 12-bit binary 101111100001 becomes the 3-symbol hex BE1 by grouping into fours and mapping, which makes long values quicker to compare.</div></li>
+      <li><div class="example-box">Readability of a long value: The long binary 10011100101110111000111011100010111101011010 becomes 9CBB8EE2F5A in hexadecimal, making differences easier to spot.</div></li>
+      <li><div class="example-box">HTML colour code: #FF0000 represents red. Hex pairs give the intensities for red, green, and blue, which shows a practical use students see on web pages.</div></li>
+      <li><span class="fun-tip">Hexadecimal is a nickname for long binary. Saying BE1 instead of 101111100001 is like using a short contact name on your phone instead of the full number.</span></li>
+    </ul>
+    <ul class="no-bullets">
+      <div class="button-group">
+        <button class="keyword-button" onclick="openPopupK('1.1c')">
+          🔑 View Keywords on This Topic 🔑
+        </button>
+        <button class="exam-button" onclick="openPopupQ('1.1c')">
+          👁️ Quick Look at Exam Questions on This Topic 👁️
+        </button>
+      </div>
+    </ul>
+  </div>
+  <div class="section">
+    <h2>1.1d: Add two positive 8-bit binary integers; overflow</h2>
+    <ul>
+      <li><span class="official-note">Binary addition follows fixed rules applied column by column from right to left, carrying a 1 to the next column when required.</span>
+      </li>
+    </ul>
+    <ul class="no-bullets">
+      <li><div class="example-box">Worked 8-bit addition with carries: 10010100 + 00011110 → add each column right to left and record any carry above the next column; the final 8-bit sum is 10110010. This shows how carries build the result.</div></li>
+    </ul>
+    <ul>
+      <li><span class="official-note">In 8-bit arithmetic, overflow occurs when the true result needs a ninth bit; the stored 8-bit answer then does not match the correct denary total because the extra carry is lost.</span>
+      </li>
+      <li><span class="official-note">When 8-bit addition produces a ninth leftmost bit, that extra bit is the overflow bit and shows the result exceeds 8-bit capacity.</span>
+      </li>
+    </ul>
+    <ul class="no-bullets">
+      <li><div class="example-box">Overflow on 8-bit addition: 01101110 + 11011110 produces a 9th carry; the truncated 8-bit answer 01001100 equals 76, but the true denary sum is 332, which demonstrates overflow.</div></li>
+      <li><span class="fun-tip">If your answer has more bits than allowed, that extra leftmost bit is overflow: the computer can't fit it!</span></li>
+    </ul>
+    <ul class="no-bullets">
+      <div class="button-group">
+        <button class="keyword-button" onclick="openPopupK('1.1d')">
+          🔑 View Keywords on This Topic 🔑
+        </button>
+        <button class="exam-button" onclick="openPopupQ('1.1d')">
+          👁️ Quick Look at Exam Questions on This Topic 👁️
+        </button>
+      </div>
+    </ul>
+  </div>
+  <div class="section">
+    <h2>1.1e: Logical binary shifts on positive 8-bit integers and their effect</h2>
+    <ul>
+      <li><span class="official-note">A logical shift moves all bits left or right; bits that move past the edge are lost and zeros fill the emptied positions.</span>
+        <ul>
+          <li><span class="official-note">Each left shift doubles your number; each right shift halves it.</span></li>
+          <li><span class="official-note">In shift operations, the LSB is the rightmost bit that can be pushed out during a right shift; zeros fill the left as bits move right.</span></li>
+          </ul>
+      </li>
+    </ul>
+    <ul class="no-bullets">
+      <li><div class="example-box">Multiply or divide by shifting: Starting from a value equal to 44 in denary, one logical left shift gives 88 and one logical right shift gives 22.</div></li>
+      <li><div class="example-box">Losing the most significant 1-bit (MSB) after repeated left shifts: Starting from 00010101 (denary 21), left-shift once: 00101010 (42); twice: 01010100 (84); three times: 10101000 (168); four times: 01010000 (80). The fourth shift discards the MSB 1, so the value is not equal to 21×16 in 8 bits, which shows why losing edge bits changes the expected doubling.</div></li>
+      <li><div class="example-box">Shift limit to zero in 8 bits: Starting from 00011000 (denary 24), left shift five times: 00110000 (48), 01100000 (96), 11000000 (192), 10000000 (128), 00000000 (0). Repeated shifts push all 1-bits out of the 8-bit register, leaving 0.</div></li>
+      <li><span class="fun-tip">Picture 8 seats in a row. Shift right: everyone moves one seat right, the last student falls off the edge, and a new empty seat appears at the left as 0. Shift left: everyone moves one seat left, the first student falls off, and a new empty seat appears at the right as 0.</span></li>
+    </ul>
+    <ul class="no-bullets">
+      <div class="button-group">
+        <button class="keyword-button" onclick="openPopupK('1.1e')">
+          🔑 View Keywords on This Topic 🔑
+        </button>
+        <button class="exam-button" onclick="openPopupQ('1.1e')">
+          👁️ Quick Look at Exam Questions on This Topic 👁️
+        </button>
+      </div>
+    </ul>
+  </div>
+  <div class="section">
+    <h2>1.1f: Two’s complement representation of positive and negative 8-bit integers</h2>
+    <ul>
+      <li><span class="official-note">To represent a negative number in two’s complement, write the positive value in binary, invert every bit, and add 1.</span>
+        <ul>
+          <li><span class="official-note">Positive integers are stored the same as normal binary with the leftmost bit 0 (MSB=0).</span></li>
+          </ul>
+      </li>
+    </ul>
+    <ul class="no-bullets">
+      <li><div class="example-box">−35 in 8 bits: Write +35 in binary, invert the bits, then add 1 to obtain the two’s complement form; this shows the standard construction of a negative value.</div></li>
+    </ul>
+    <ul>
+      <li><span class="official-note">With 8 bits in two’s complement, the range is −128 to +127, and the leftmost bit indicates whether the number is negative or positive.</span></li>
+    </ul>
+    <ul class="no-bullets">
+      <li><div class="example-box">Decode a negative value to denary: 10010011 has signed headings −128, 64, 32, 16, 8, 4, 2, 1; add the positions with 1s: −128 + 16 + 2 + 1 = −109. This shows reverse conversion from binary to denary in two’s complement.</div></li>
+      <li><span class="fun-tip">To get a negative number: "Flip all the bits and add one!" (That’s the computer’s trick.)</span></li>
+    </ul>
+    <ul class="no-bullets">
+      <div class="button-group">
+        <button class="keyword-button" onclick="openPopupK('1.1f')">
+          🔑 View Keywords on This Topic 🔑
+        </button>
+        <button class="exam-button" onclick="openPopupQ('1.1f')">
+          👁️ Quick Look at Exam Questions on This Topic 👁️
+        </button>
+      </div>
+    </ul>
+  </div>
+</div>
+
+  <script src="popup-script.js"></script>
 </body>
 </html>

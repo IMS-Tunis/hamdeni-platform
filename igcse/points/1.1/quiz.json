@@ -1,102 +1,163 @@
 {
   "questions": [
     {
-      "type": "mcq",
-      "question": "What is the main reason computers use binary to represent all data?",
-      "options": [
-        "Binary numbers are easier for humans to read",
-        "Computers use logic gates that only understand ON and OFF states",
-        "It uses less power",
-        "Binary numbers are shorter than decimal numbers"
-      ],
-      "answer": "Computers use logic gates that only understand ON and OFF states"
-    },
-    {
-      "type": "mcq",
-      "question": "In an 8-bit binary number, what does the leftmost bit represent?",
-      "options": [
-        "Least Significant Bit",
-        "The parity bit",
-        "Most Significant Bit",
-        "The hexadecimal value"
-      ],
-      "answer": "Most Significant Bit"
-    },
-    {
-      "type": "mcq",
-      "question": "Which of the following is a hexadecimal digit?",
-      "options": [
-        "8",
-        "G",
-        "H",
-        "Q"
-      ],
-      "answer": "8"
-    },
-    {
-      "type": "mcq",
-      "question": "What is the maximum value that can be represented in an 8-bit binary number?",
-      "options": [
-        "255",
-        "256",
-        "128",
-        "1024"
-      ],
-      "answer": "255"
-    },
-    {
+      "section": "1.1a",
       "type": "fill_blank",
-      "question": "The process of moving all bits in a binary number to the left or right and filling the emptied spaces with zeros is called a __________ shift.",
-      "answer": "Logical"
+      "question": "A _____ is a very small component in a computer system that controls the flow of electricity and performs logic-based operations.",
+      "answer": "logic gate"
     },
     {
+      "section": "1.1a",
       "type": "fill_blank",
-      "question": "In binary addition, if the result is too large for the register to hold, this is called an __________ error.",
-      "answer": "Overflow"
+      "question": "In binary hardware, OFF is represented by _____ and ON is represented by _____.",
+      "answer": [
+        "0",
+        "1"
+      ]
     },
     {
+      "section": "1.1a",
+      "type": "mcq",
+      "question": "Why do computers process all data in binary?",
+      "options": [
+        "Because binary is the fastest number system",
+        "Because electronic switches have two states, so data is converted into 0s and 1s",
+        "Because binary uses less memory than other systems",
+        "Because binary is easier for humans to understand"
+      ],
+      "answer": "Because electronic switches have two states, so data is converted into 0s and 1s"
+    },
+    {
+      "section": "1.1b",
+      "type": "fill_blank",
+      "question": "_____ is a base-10 number system that uses the values 0-9, and a _____ is the basic computing element that is either 0 or 1.",
+      "answer": [
+        "denary",
+        "bit"
+      ]
+    },
+    {
+      "section": "1.1b",
+      "type": "match",
+      "question": "Match each term to its position.",
+      "pairs": {
+        "MSB": "leftmost bit",
+        "LSB": "rightmost bit"
+      }
+    },
+    {
+      "section": "1.1b",
       "type": "fill_blank",
       "question": "Each hexadecimal digit can be represented by exactly ___ binary bits.",
       "answer": "4"
     },
     {
-      "type": "true_false",
-      "question": "Digital data can take any value, just like analogue data.",
-      "answer": "False"
+      "section": "1.1c",
+      "type": "mcq",
+      "question": "Which benefit of hexadecimal is stated in the notes?",
+      "options": [
+        "It runs faster on processors",
+        "It is shorter than binary and easier for humans to read, write, and check",
+        "It uses less memory than binary",
+        "It replaces binary inside the computer"
+      ],
+      "answer": "It is shorter than binary and easier for humans to read, write, and check"
     },
     {
-      "type": "true_false",
-      "question": "In two’s complement, the most significant bit represents the sign of the number.",
-      "answer": "True"
+      "section": "1.1c",
+      "type": "fill_blank",
+      "question": "Hexadecimal is commonly used to write device _____ addresses.",
+      "answer": "hardware"
     },
     {
-      "type": "true_false",
-      "question": "The denary number system is also known as base 16.",
-      "answer": "False"
+      "section": "1.1d",
+      "type": "mcq",
+      "question": "In 8-bit arithmetic, when does overflow occur?",
+      "options": [
+        "When the result is negative",
+        "When the true result needs a ninth bit",
+        "When adding two even numbers",
+        "When the result contains all 1s"
+      ],
+      "answer": "When the true result needs a ninth bit"
     },
     {
+      "section": "1.1d",
+      "type": "mcq",
+      "question": "What happens to the extra ninth bit in an 8-bit addition overflow?",
+      "options": [
+        "It is stored in a separate register",
+        "It is converted to hexadecimal",
+        "It is lost",
+        "It triggers a logical shift"
+      ],
+      "answer": "It is lost"
+    },
+    {
+      "section": "1.1d",
+      "type": "mcq",
+      "question": "Binary addition is performed:",
+      "options": [
+        "From left to right, borrowing from the next column",
+        "From right to left, carrying a 1 to the next column when required",
+        "By converting to denary first",
+        "Using hexadecimal intermediate steps"
+      ],
+      "answer": "From right to left, carrying a 1 to the next column when required"
+    },
+    {
+      "section": "1.1e",
+      "type": "fill_blank",
+      "question": "A _____ _____ shifts bits left or right and fills emptied positions with zeros.",
+      "answer": "logical shift"
+    },
+    {
+      "section": "1.1e",
       "type": "match",
-      "question": "Match the term with its correct definition:",
+      "question": "Match the shift direction to its typical effect on a positive 8-bit value.",
       "pairs": {
-        "Register": "Used to temporarily hold binary data",
-        "Logic gate": "Basic building block for processing digital data",
-        "Two’s complement": "Method to represent negative binary"
+        "Left shift": "doubles the number",
+        "Right shift": "halves the number"
       }
     },
     {
-      "type": "fill_blank",
-      "question": "Convert the binary number 1101 to denary: __________",
-      "answer": "13"
+      "section": "1.1e",
+      "type": "mcq",
+      "question": "According to the notes, what happens to bits that move past the edge during a logical shift?",
+      "options": [
+        "They wrap around to the other side",
+        "They are lost",
+        "They are stored for later use",
+        "They are turned into ones"
+      ],
+      "answer": "They are lost"
     },
     {
-      "type": "fill_blank",
-      "question": "What is the hexadecimal equivalent of the denary number 15? __________",
-      "answer": "F"
+      "section": "1.1f",
+      "type": "mcq",
+      "question": "How do you represent a negative number using two's complement as described in the notes?",
+      "options": [
+        "Write the positive value in binary and flip only the MSB",
+        "Invert every bit of the positive value and add 1",
+        "Add a sign bit of 1 to the left without changing other bits",
+        "Subtract 1 from the positive value and invert only the LSB"
+      ],
+      "answer": "Invert every bit of the positive value and add 1"
     },
     {
+      "section": "1.1f",
+      "type": "match",
+      "question": "Match the sign bit to the meaning for 8-bit two's complement.",
+      "pairs": {
+        "MSB = 0": "positive",
+        "MSB = 1": "negative"
+      }
+    },
+    {
+      "section": "1.1f",
       "type": "fill_blank",
-      "question": "What is the binary value for the hexadecimal digit C? __________",
-      "answer": "1100"
+      "question": "In 8-bit two's complement, the leftmost bit has a value of _____ for negative numbers.",
+      "answer": "-128"
     }
   ]
 }

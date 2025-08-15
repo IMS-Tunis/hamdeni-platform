@@ -1,14 +1,82 @@
 [
-  {
-    "question": "Explain what is meant by a validation test in computer science education.",
-    "answer": "A validation test checks that students have understood the material and are ready to progress."
-  },
-  {
-    "question": "State one advantage of practicing with past paper questions before an exam.",
-    "answer": "Past paper questions familiarize students with the exam style and improve confidence."
-  },
-  {
-    "question": "Give an example of a simple binary operation.",
-    "answer": "Adding two 1-bit binary numbers, e.g. 1 + 1 = 10."
-  }
+{
+"question": "Tick (✓) one box to show the reason why computers use binary to represent data.\n\nA: Computers only allow 1s and 0s to be entered.\nB: Computers are made of switches and gates that can only be on or off.\nC: Binary does not need to be converted into other forms of data to be displayed.\nD: Both computers and humans can quickly process binary data.",
+"answer": "B"
+},
+{
+"question": "Convert the denary number 236 into hexadecimal.",
+"answer": "EC"
+},
+{
+"question": "Convert the denary number 45 into an 8-bit two's complement integer.",
+"answer": "00101101"
+},
+{
+"question": "State the mathematical effect of a right shift of four places on a positive binary integer.",
+"answer": "divides by 2^4 // 1/16"
+},
+{
+"question": "Convert the address to denary.\n\n[One address is A2F]",
+"answer": "2607"
+},
+{
+"question": "Convert the binary number to denary.\n\n[The binary number stored for another address is 000110011011]",
+"answer": "411"
+},
+{
+"question": "Give the denary number for the binary number stored in the register.\n\n[11100011]",
+"answer": "227"
+},
+{
+"question": "Give the hexadecimal number for the binary number stored in the register.\n\n[11100011]",
+"answer": "E3"
+},
+{
+"question": "A logical left shift of two places is performed on the binary number stored in the register.\n\nComplete the binary register to show its contents after this logical left shift.\n\n▢ ▢ ▢ ▢ ▢ ▢ ▢ ▢",
+"answer": "10001100"
+},
+{
+"question": "Complete the register to show the binary number that would be stored, using two's complement. Show all your working.\n\n[The negative denary number −99 needs to be stored in the register]\n\n...................................................................................................................\n...................................................................................................................\n...................................................................................................................\n...................................................................................................................",
+"answer": "10011101"
+},
+{
+"question": "Convert the denary numbers 14, 59 and 234 to binary.",
+"answer": "(0000)1110 ; (00)111011 ; 11101010"
+},
+{
+"question": "Convert the denary numbers 9, 26 and 65 to hexadecimal.",
+"answer": "9 ; 1A ; 41"
+},
+{
+"question": "Convert the two denary ASCII numbers to binary.\n\n[65 and 109]",
+"answer": "01000001 ; 01101101"
+},
+{
+"question": "Convert the two denary ASCII numbers to hexadecimal.\n\n[65 and 109]",
+"answer": "41 ; 6D"
+},
+{
+"question": "Convert the binary ASCII number to denary.\n\n[01111001]",
+"answer": "121"
+},
+{
+"question": "Convert the binary ASCII number to hexadecimal.\n\n[01111001]",
+"answer": "79"
+},
+{
+"question": "A logical right shift of two places is performed on the binary ASCII number 01111001.\n\nGive the binary number after the logical right shift of two places is performed.",
+"answer": "00011110"
+},
+{
+"question": "Give the binary number for each of the three denary numbers.\n\n[15, 180, 235]",
+"answer": "(0000)1111 ; 10110100 ; 11101011"
+},
+{
+"question": "Give the hexadecimal number for each of the three denary numbers.\n\n[14, 100, 250]",
+"answer": "E ; 64 ; FA"
+},
+{
+"question": "Calculate the binary number for the denary number 175. Show all your working.\n\n...................................................................................................................\n...................................................................................................................\n...................................................................................................................\n...................................................................................................................",
+"answer": "10101111"
+}
 ]

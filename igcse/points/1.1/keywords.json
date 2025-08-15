@@ -1,0 +1,54 @@
+{
+  "1.1a: binary representation, logic gates, registers": [
+    {
+      "term": "analogue data",
+      "definition": "a continuous stream of data that is processed by humans."
+    },
+    {
+      "term": "digital data",
+      "definition": "discrete data that only uses the values O and 1."
+    },
+    {
+      "term": "logic gate",
+      "definition": "a very small component in a computer system that controls the flow of e I ectri city."
+    },
+    {
+      "term": "register",
+      "definition": "a small component in a computer system that is used to temporarily store data."
+    }
+  ],
+  "1.1b: number systems and conversions": [
+    {
+      "term": "bit",
+      "definition": "the basic computing element that is either 0 or 1, and is formed from the words Binary digit"
+    },
+    {
+      "term": "denary",
+      "definition": "a base-10 number system that uses the values 0-9."
+    },
+    {
+      "term": "binary number system",
+      "definition": "a number system based on 2 and can only use the values 0 and 1"
+    },
+    {
+      "term": "hexadecimal number system",
+      "definition": "a number system based on the value 16 which uses denary digits 0 to 9 and letters A to F"
+    },
+    {
+      "term": "two’s complement",
+      "definition": "a method of representing negative numbers in binary; when applied to an 8-bit system, the left-most bit (most significant bit) is given the value –128"
+    }
+  ],
+  "1.1d: binary addition and overflow": [
+    {
+      "term": "overflow error",
+      "definition": "a type of error that occurs when a number larger than a register can store is generated."
+    }
+  ],
+  "1.1e: logical binary shifts": [
+    {
+      "term": "logical shift",
+      "definition": "an operation that shifts bits to the left or right in a register; any bits shifted out of a register (left or right) are replaced with zeroes"
+    }
+  ]
+}

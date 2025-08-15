@@ -1,0 +1,25 @@
+Total bullets: 20
+Syllabus 1.1a – Binary representation rationale
+1. Computers use binary because their hardware consists of logic gates and switches with two states (on/off), so data is represented using 0 and 1.
+Syllabus 1.1b – Number systems and conversions
+2. Denary 236 equals hexadecimal EC.
+3. In 8 bit two’s complement, denary 45 is represented as 00101101.
+4. Hexadecimal A2F corresponds to denary 2607.
+5. The binary number 000110011011 corresponds to denary 411.
+6. The binary number 11100011 corresponds to denary 227.
+7. The binary number 11100011 corresponds to hexadecimal E3.
+8. Denary 14, 59, and 234 correspond to binary (0000)1110, (00)111011, and 11101010, respectively.
+9. Denary 9, 26, and 65 correspond to hexadecimal 9, 1A, and 41, respectively.
+10. ASCII denary 65 and 109 correspond to binary 01000001 and 01101101, respectively.
+11. ASCII denary 65 and 109 correspond to hexadecimal 41 and 6D, respectively.
+12. The binary ASCII value 01111001 corresponds to denary 121.
+13. The binary ASCII value 01111001 corresponds to hexadecimal 79.
+14. Denary 15, 180, and 235 correspond to binary (0000)1111, 10110100, and 11101011, respectively.
+15. Denary 175 corresponds to binary 10101111.
+16. Denary 14, 100, and 250 correspond to hexadecimal E, 64, and FA, respectively.
+Syllabus 1.1e – Logical shifts and their effects
+17. A logical right shift of four places on a positive binary integer divides the value by 16 (2^4).
+18. A logical left shift of two places applied to 11100011 produces 10001100, because each bit moves two positions left, zeros fill from the right, and the two most significant bits are discarded.
+19. A logical right shift of two places applied to 01111001 produces 00011110, because each bit moves two positions right, zeros fill from the left, and the two least significant bits are discarded.
+Syllabus 1.1f – Two’s complement representation
+20. The 8‑bit two’s complement representation of −99 is 10011101.

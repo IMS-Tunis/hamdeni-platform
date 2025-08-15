@@ -1,0 +1,61 @@
+  1.1a: How and why computers use binary to represent all forms of data
+  [OFFICIAL] Computers process all data in binary using electronic switches with two states, so any form of data is converted into 0s and 1s before processing.
+  [SUB-OFFICIAL] Inside the computer, many ON or OFF switches are combined in [KEYWORD: logic gate]{a very small component in a computer system that controls the flow of e I ectri city.} (switch-based operations that output 0 or 1) to process and store data.
+ [OFFICIAL] In binary hardware, OFF is represented by 0 and ON by 1.
+ [FUN] Analogue is like a dimmer switch that slides smoothly; digital is like a normal switch with only OFF=0 or ON=1.
+
+ 1.1b: Denary, binary, and hexadecimal; conversions among them
+ [OFFICIAL] [KEYWORD: denary]{a base-10 number system that uses the values 0-9.} is base 10 using digits 0 to 9; binary is base 2 using digits 0 and 1; hexadecimal is base 16 using symbols 0 to 9 and A to F.
+ [SUB-OFFICIAL] In hexadecimal, the letters map to denary values: A=10, B=11, C=12, D=13, E=14, F=15.
+ [SUB-OFFICIAL] In an 8-[KEYWORD: bit]{the basic computing element that is either 0 or 1, and is formed from the words Binary digit} layout, the place-value headings are 128, 64, 32, 16, 8, 4, 2, 1.
+ [EXAMPLE] Example: Denary place values. 123 has 1 hundred (10^2), 2 tens (10^1), and 3 ones (10^0), which anchors the idea of place value before conversions.
+ [OFFICIAL] The leftmost bit of a binary number is the most significant bit (MSB).
+ [SUB-OFFICIAL] The rightmost bit of a binary number is the least significant bit (LSB); it has the smallest place value.
+ [OFFICIAL] To convert a positive denary number to binary, list the binary place values and mark each column with 1 if it is used and 0 if it is not, subtracting used values until the remainder is 0.
+ [SUB-OFFICIAL] Alternative method: divide the denary number by 2 repeatedly and read the remainders from bottom to top to form the binary number.
+ [EXAMPLE] Example: 13 to 4-bit binary. Use 8 and 4, skip 2, use 1. Result 1101. This shows how marking columns builds the binary result.
+ [EXAMPLE] Example: 59 to 8-bit binary. Use 32 + 16 + 8 + 2 + 1. Result 00111011. This confirms the step-by-step method.
+ [OFFICIAL] To convert binary to denary, add the place values for all columns that contain a 1.
+ [EXAMPLE] Example: 1010 to denary. Add 8 + 2 to get 10. This illustrates adding headings where bits are 1.
+ [OFFICIAL] Hexadecimal and binary convert directly because one hex digit corresponds to exactly four binary bits; split or group binary in fours and map each group to a hex digit.
+ [SUB-OFFICIAL] When converting binary to hexadecimal, group bits from the right in sets of four; if the leftmost group has fewer than four bits, pad it with leading zeros.
+ [SUB-OFFICIAL] One way to convert hexadecimal to denary is to first write each hex digit as 4-bit binary, then add the binary place values where the bits are 1.
+ [EXAMPLE] Example: 101111100001 to hex. Group as 1011 1110 0001 and map to B E 1, giving BE1.
+ [EXAMPLE] Example: 201 to hex. Write binary 11001001, split as 1100 and 1001, map to C and 9, giving C9.
+ [EXAMPLE] Example: Hex to binary. A2 → A is 1010 and 2 is 0010, so the binary is 10100010. This shows the reverse mapping from hexadecimal to binary.
+ [EXAMPLE] Example: Hex to binary with three hex digits. 45A → 0100 0101 1010, then write without spaces as 010001011010. This reinforces grouping by fours.
+ [FUN] Binary place values are like a set of weights that double each time. With weights 1, 2, 4, 8, 16, you can make any whole number by picking some weights and leaving others, just like putting 1s and 0s under the headings.
+
+ 1.1c: Why hexadecimal is a beneficial data representation
+ [OFFICIAL] Hexadecimal is shorter than binary and easier for humans to read, write, and check, so programmers use it to inspect and debug data.
+ [SUB-OFFICIAL] A common use is writing device hardware addresses in hexadecimal.
+ [EXAMPLE] Example: Hex shortens binary. The 12-bit binary 101111100001 becomes the 3-symbol hex BE1 by grouping into fours and mapping, which makes long values quicker to compare.
+ [EXAMPLE] Example: Readability of a long value. The long binary 10011100101110111000111011100010111101011010 becomes 9CBB8EE2F5A in hexadecimal, making differences easier to spot.
+ [EXAMPLE] Example: HTML colour code. #FF0000 represents red. Hex pairs give the intensities for red, green, and blue, which shows a practical use students see on web pages.
+ [FUN] Hexadecimal is a nickname for long binary. Saying BE1 instead of 101111100001 is like using a short contact name on your phone instead of the full number.
+
+ 1.1d: Add two positive 8-bit binary integers; overflow
+ [OFFICIAL] Binary addition follows fixed rules applied column by column from right to left, carrying a 1 to the next column when required.
+ [EXAMPLE] Example: Worked 8-bit addition with carries. 10010100 + 00011110 → add each column right to left and record any carry above the next column; the final 8-bit sum is 10110010. This shows how carries build the result.
+ [OFFICIAL] In 8-bit arithmetic, overflow occurs when the true result needs a ninth bit; the stored 8-bit answer then does not match the correct denary total because the extra carry is lost.
+ [OFFICIAL] When 8-bit addition produces a ninth leftmost bit, that extra bit is the overflow bit and shows the result exceeds 8-bit capacity.
+ [EXAMPLE] Example: Overflow on 8-bit addition. 01101110 + 11011110 produces a 9th carry; the truncated 8-bit answer 01001100 equals 76, but the true denary sum is 332, which demonstrates overflow.
+ [FUN] If your answer has more bits than allowed, that extra leftmost bit is overflow: the computer can't fit it!
+
+ 1.1e: Logical binary shifts on positive 8-bit integers and their effect
+ [OFFICIAL] A [KEYWORD: logical shift]{an operation that shifts bits to the left or right in a register; any bits shifted out of a register (left or right) are replaced with zeroes} moves all bits left or right; bits that move past the edge are lost and zeros fill the emptied positions.
+ [SUB-OFFICIAL]  Each left shift doubles your number; each right shift halves it.
+ [SUB-OFFICIAL] In shift operations, the LSB is the rightmost bit that can be pushed out during a right shift; zeros fill the left as bits move right.
+ [EXAMPLE] Example: Multiply or divide by shifting. Starting from a value equal to 44 in denary, one logical left shift gives 88 and one logical right shift gives 22.
+ [EXAMPLE] Example: Losing the most significant 1-bit (MSB) after repeated left shifts. Starting from 00010101 (denary 21), left-shift once: 00101010 (42); twice: 01010100 (84); three times: 10101000 (168); four times: 01010000 (80). The fourth shift discards the MSB 1, so the value is not equal to 21×16 in 8 bits, which shows why losing edge bits changes the expected doubling.
+ [EXAMPLE] Example: Shift limit to zero in 8 bits. Starting from 00011000 (denary 24), left shift five times: 00110000 (48), 01100000 (96), 11000000 (192), 10000000 (128), 00000000 (0). Repeated shifts push all 1-bits out of the 8-bit register, leaving 0.
+ [FUN] Picture 8 seats in a row. Shift right: everyone moves one seat right, the last student falls off the edge, and a new empty seat appears at the left as 0. Shift left: everyone moves one seat left, the first student falls off, and a new empty seat appears at the right as 0.
+
+ 1.1f: Two’s complement representation of positive and negative 8-bit integers
+ [OFFICIAL] To represent a negative number in [KEYWORD: two’s complement]{a method of representing negative numbers in binary; when applied to an 8-bit system, the left-most bit (most significant bit) is given the value –128}, write the positive value in binary, invert every bit, and add 1.
+ [SUB-OFFICIAL] Positive integers are stored the same as normal binary with the leftmost bit 0 (MSB=0).
+ [EXAMPLE] Example: −35 in 8 bits. Write +35 in binary, invert the bits, then add 1 to obtain the two’s complement form; this shows the standard construction of a negative value.
+ [SUB-OFFICIAL] Single-source clarity insert: With 8 bits in two’s complement, the range is −128 to +127, and the leftmost bit indicates whether the number is negative or positive.
+ [EXAMPLE] Example: Decode a negative value to denary. 10010011 has signed headings −128, 64, 32, 16, 8, 4, 2, 1; add the positions with 1s: −128 + 16 + 2 + 1 = −109. This shows reverse conversion from binary to denary in two’s complement.
+ [FUN] To get a negative number: "Flip all the bits and add one!" (That’s the computer’s trick.)
+ 
