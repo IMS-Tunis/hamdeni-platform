@@ -1,0 +1,66 @@
+{
+  "5.2a": [
+    {
+      "term": "Central banking system",
+      "definition": "A financial system where a central bank controls the processing of payments and transactions"
+    },
+    {
+      "term": "Confidentiality",
+      "definition": "The protection of personal or sensitive information from being accessed by unauthorized users"
+    },
+    {
+      "term": "Encrypted",
+      "definition": "Converted into a secure code so it can't be read by others"
+    },
+    {
+      "term": "HTTPS protocol",
+      "definition": "A secure version of the HTTP protocol used to protect information on websites"
+    },
+    {
+      "term": "Persistent cookie",
+      "definition": "A small file stored on your device that remembers your details for future visits"
+    },
+    {
+      "term": "Cryptocurrency",
+      "definition": "A special type of digital currency that uses encryption and works without central control"
+    },
+    {
+      "term": "Cryptocurrency transactions",
+      "definition": "Payments made using cryptocurrencies"
+    }
+  ],
+  "5.2b": [
+    {
+      "term": "Blockchain",
+      "definition": "A decentralised database where each transaction is stored with a timestamp and linked to the previous one"
+    },
+    {
+      "term": "Blocks",
+      "definition": "Units that contain data about a transaction, a unique code (called a hash), and a link to the previous block"
+    },
+    {
+      "term": "Hash value",
+      "definition": "A unique fingerprint created by an algorithm like SHA-256"
+    },
+    {
+      "term": "Timestamp",
+      "definition": "The exact time and date the block was created"
+    },
+    {
+      "term": "Genesis block",
+      "definition": "The very first block in a blockchain, which does not link to any previous block"
+    },
+    {
+      "term": "Proof-of-work",
+      "definition": "A method that requires a fixed amount of time and effort before a new block can be added"
+    },
+    {
+      "term": "Miners",
+      "definition": "Network participants who verify transactions and add new blocks in exchange for a reward"
+    },
+    {
+      "term": "Digital currency",
+      "definition": "electronic money system"
+    }
+  ]
+}

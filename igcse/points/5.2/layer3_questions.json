@@ -1,20 +1,80 @@
 [
   {
-    "point_id": "5.2",
+    "point_id": "5.2a",
     "question_number": 1,
-    "question": "State one benefit of using binary in computers.",
-    "mark_scheme": "Binary is simple for electronic circuits, representing two states such as on/off."
+    "question": "Define the term digital currency.",
+    "mark_scheme": "Digital currency is a form of money that only exists electronically and is used to pay for goods or services without using physical cash."
   },
   {
-    "point_id": "5.2",
+    "point_id": "5.2a",
     "question_number": 2,
-    "question": "Define the term 'protocol' in networking.",
-    "mark_scheme": "A protocol is a set of rules that allow devices to communicate."
+    "question": "State two common ways digital currency is used to make payments.",
+    "mark_scheme": "1) Credit card payments\n2) Mobile phone or smart watch payments"
   },
   {
-    "point_id": "5.2",
+    "point_id": "5.2a",
     "question_number": 3,
-    "question": "Explain the purpose of an IP address.",
-    "mark_scheme": "It uniquely identifies a device on a network."
+    "question": "Describe how encryption secures digital currency transactions.",
+    "mark_scheme": "Transaction data is converted into a secure code (encrypted) using protocols like HTTPS, preventing unauthorized reading during transmission."
+  },
+  {
+    "point_id": "5.2a",
+    "question_number": 4,
+    "question": "State two advantages of using cookies with digital payments.",
+    "mark_scheme": "1) Cookies can store payment details for future visits, avoiding re-entry.\n2) They allow websites to remember user preferences and improve user experience."
+  },
+  {
+    "point_id": "5.2a",
+    "question_number": 5,
+    "question": "Describe two differences between a traditional digital currency and a cryptocurrency.",
+    "mark_scheme": "1) Traditional digital currency is managed by central banks or governments, while cryptocurrency is decentralised and managed by a user community.\n2) Cryptocurrency transactions are publicly visible, whereas traditional digital payments are not."
+  },
+  {
+    "point_id": "5.2a",
+    "question_number": 6,
+    "question": "What is the purpose of a persistent cookie in digital currency payments?",
+    "mark_scheme": "To store payment details on a user\u2019s device, enabling automatic entry for future transactions without re-typing."
+  },
+  {
+    "point_id": "5.2b",
+    "question_number": 7,
+    "question": "State what a blockchain is and explain its role in tracking digital currency transactions.",
+    "mark_scheme": "A blockchain is a decentralised database in which each transaction is stored with a timestamp and linked to the previous one. Its role in tracking digital currency transactions is to ensure that every transaction is securely connected, traceable, and cannot be altered without the consensus of the network, thus providing transparency and security."
+  },
+  {
+    "point_id": "5.2b",
+    "question_number": 8,
+    "question": "Explain how a block in a blockchain is structured and how tampering with a block affects the chain.",
+    "mark_scheme": "Each block contains data about a transaction, a unique hash value, and a link to the previous block. Tampering with a block changes its hash value, breaking the link to the next block and invalidating the chain from that point onwards, which prevents undetected changes."
+  },
+  {
+    "point_id": "5.2b",
+    "question_number": 9,
+    "question": "Explain how proof-of-work secures the blockchain.",
+    "mark_scheme": "Proof-of-work requires significant time/effort (e.g., 10 minutes per block) to add new blocks, preventing rapid tampering and ensuring consensus-based validation."
+  },
+  {
+    "point_id": "5.2b",
+    "question_number": 10,
+    "question": "Justify the claim: \u201cIf you change the data in just one block of a blockchain, the whole chain is affected.\u201d",
+    "mark_scheme": "Changing the data in one block will modify its hash, causing the following block's reference (previous hash) to become invalid. This breaks the chain from that point, making all subsequent blocks invalid and any tampering easily detectable."
+  },
+  {
+    "point_id": "5.2b",
+    "question_number": 11,
+    "question": "What is the role of miners in a blockchain?",
+    "mark_scheme": "Miners verify transactions, add new blocks to the blockchain, and receive rewards for their computational effort."
+  },
+  {
+    "point_id": "5.2b",
+    "question_number": 12,
+    "question": "Give two benefits of storing copies of the blockchain across all network members.",
+    "mark_scheme": "1) It ensures transparency and traceability of transactions.\n2) It makes it difficult for a hacker to alter transaction data without detection."
+  },
+  {
+    "point_id": "5.2b",
+    "question_number": 13,
+    "question": "Explain the purpose of a 'genesis block' in a blockchain.",
+    "mark_scheme": "The genesis block is the first block in a blockchain, serves as the foundation, and does not link back to any previous block. It establishes the starting point for all subsequent blockchain records."
   }
 ]

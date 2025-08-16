@@ -2,19 +2,97 @@
   {
     "point_id": "5.3",
     "question_number": 1,
-    "question": "State one benefit of using binary in computers.",
-    "mark_scheme": "Binary is simple for electronic circuits, representing two states such as on/off."
+    "question": "Describe how a brute-force attack is carried out and state its main aim.",
+    "mark_scheme": "Answer 1:\n(Describe: state the points of a topic / give characteristics and main features)\nA brute-force attack is a trial-and-error method where a hacker attempts to find passwords or encryption keys by systematically trying every possible combination until they find the correct one. This can be done manually or with automated software that tries thousands of combinations per second. The aim is to steal personal data or use someone's account for unauthorized actions, like making purchases13."
   },
   {
     "point_id": "5.3",
     "question_number": 2,
-    "question": "Define the term 'protocol' in networking.",
-    "mark_scheme": "A protocol is a set of rules that allow devices to communicate."
+    "question": "Explain what is meant by data interception and its potential consequences.",
+    "mark_scheme": "Answer 2:\n(Explain: set out purposes or reasons / make the relationships between things evident / provide why and/or how and support with relevant evidence)\nData interception occurs when information sent between devices across a network is captured by an unauthorized party. Attackers may use tools like packet sniffers and techniques such as wardriving (driving around to intercept unsecured Wi-Fi signals) to access data without the user's knowledge. The stolen data can be used for identity theft or fraud."
   },
   {
     "point_id": "5.3",
     "question_number": 3,
-    "question": "Explain the purpose of an IP address.",
-    "mark_scheme": "It uniquely identifies a device on a network."
+    "question": "Describe what a Distributed Denial of Service (DDoS) attack is and its purpose.",
+    "mark_scheme": "Answer 3:\n(Describe: state the points of a topic / give characteristics and main features)\nA DDoS attack uses multiple computers (usually a botnet infected with malware) to send large amounts of fake requests to a server or network. This overloads the system, causing it to slow down or crash, preventing legitimate users from accessing services such as email, websites, or online banking. The aim is to disrupt normal operations, often for financial gain or to make a statement13."
+  },
+  {
+    "point_id": "5.3",
+    "question_number": 4,
+    "question": "State what is meant by hacking and give two reasons why it poses a threat to data security.",
+    "mark_scheme": "Answer 4:\n(State: express in clear terms)\nHacking is the act of gaining unauthorized access to a computer system or network. It poses a threat because hackers can steal, corrupt, delete, or leak data, as well as exploit system vulnerabilities to cause harm or obtain confidential information13."
+  },
+  {
+    "point_id": "5.3",
+    "question_number": 5,
+    "question": "Define malware and name four types with a brief explanation for each.",
+    "mark_scheme": "Answer 5:\n(Define: give precise meaning)\nMalware is malicious software designed to harm, steal from, or disrupt the normal operation of a system.\n\nVirus: Self-replicates to corrupt or delete files13.\nWorm: Spreads independently across networks, consuming resources13.\nTrojan horse: Disguised as legitimate software, releases harmful code when run13.\nSpyware: Secretly gathers user information and sends it to the attacker13."
+  },
+  {
+    "point_id": "5.3",
+    "question_number": 6,
+    "question": "Describe what is meant by pharming and how it differs from phishing.",
+    "mark_scheme": "Answer 6:\n(Describe: state the points of a topic / give characteristics and main features)\nPharming involves redirecting a user to a fake website even if they enter the correct URL, usually via malicious code or DNS tampering (e.g., DNS cache poisoning). In contrast, phishing deceives the user into visiting a fake site through deceptive links in emails. Pharming does not require the user to actively click a link; it happens automatically13."
+  },
+  {
+    "point_id": "5.3",
+    "question_number": 7,
+    "question": "Explain the term social engineering as a cyber security threat and give two examples.",
+    "mark_scheme": "Answer 7:\n(Explain: set out purposes or reasons / make the relationships between things evident / provide why and/or how and support with relevant evidence)\nSocial engineering manipulates people into giving away confidential information or breaking security by exploiting emotions like fear, curiosity, or trust. It relies on tricking people rather than technical hacking. Examples include:\n1) Scareware—pop-ups warning of fake viruses to frighten users into installing malware.\n2) Impersonation—fake phone calls claiming to be technical support staff to steal passwords."
+  },
+  {
+    "point_id": "5.3",
+    "question_number": 8,
+    "question": "Describe two checks users should make to identify if an email could be phishing.",
+    "mark_scheme": "Answer 8:\n(Describe: state the points of a topic / give characteristics and main features)\nCheck for spelling mistakes, urgent language, or generic greetings (\"Dear Customer\"). These often indicate phishing.\nHover over links to verify if the URL matches the legitimate website before clicking13."
+  },
+  {
+    "point_id": "5.3",
+    "question_number": 9,
+    "question": "Explain how access levels can reduce the impact of a cyber security threat.",
+    "mark_scheme": "Answer 9:\n(Explain: set out purposes or reasons / make the relationships between things evident / provide why and/or how and support with relevant evidence)\nBy assigning specific permissions to users, only those who need access to sensitive data can view or modify it. If a user account is compromised, the damage is limited because the attacker cannot access all parts of the system."
+  },
+  {
+    "point_id": "5.3",
+    "question_number": 10,
+    "question": "Outline the main functions of anti-malware software in protecting data.",
+    "mark_scheme": "Answer 10:\n(Outline: set out main points)\nScans and removes malicious software like viruses, worms, spyware, and ransomware.\nProvides real-time protection by blocking suspicious files.\nQuarantines infected files for user review.\nRegular updates ensure new threats are detected13."
+  },
+  {
+    "point_id": "5.3",
+    "question_number": 11,
+    "question": "Discuss the role of authentication methods in computer security, giving two examples.",
+    "mark_scheme": "Answer 11:\n(Discuss: write about issue(s) or topic(s) in depth in a structured way)\nAuthentication confirms the identity of users to restrict access to systems and data.\nUsername and password: The user provides credentials known only to them.\nBiometrics: Uses unique personal traits (e.g., fingerprint, retina scan) that are difficult to fake, providing secure access13."
+  },
+  {
+    "point_id": "5.3",
+    "question_number": 12,
+    "question": "State three features of a strong password.",
+    "mark_scheme": "Answer 12:\n(State: express in clear terms)\nUses a mix of uppercase/lowercase letters, numbers, and symbols.\nIs long (e.g., 12+ characters).\nAvoids personal information (e.g., birthdays, pet names)."
+  },
+  {
+    "point_id": "5.3",
+    "question_number": 13,
+    "question": "Describe the main role of a firewall in network security.",
+    "mark_scheme": "Answer 13:\n(Describe: state the points of a topic / give characteristics and main features)\nA firewall acts as a barrier between a computer and external networks. It filters incoming and outgoing traffic based on predefined criteria, blocks unauthorized access, warns about suspicious attempts, and can restrict access to specific sites13."
+  },
+  {
+    "point_id": "5.3",
+    "question_number": 14,
+    "question": "State two benefits of using a proxy server as part of cyber security.",
+    "mark_scheme": "Answer 14:\n(State: express in clear terms)\nFilters web traffic and blocks malicious requests before they reach a real server.\nHides user IP addresses and can mitigate the impact of DDoS attacks13."
+  },
+  {
+    "point_id": "5.3",
+    "question_number": 15,
+    "question": "Explain how SSL protects data transmitted online.",
+    "mark_scheme": "Answer 15:\n(Explain: set out purposes or reasons / make the relationships between things evident / provide why and/or how and support with relevant evidence)\nSSL encrypts data transmitted between devices and servers, making it unreadable to anyone intercepting the transmission. Verified SSL certificates (indicated by HTTPS and a padlock) ensure the authenticity of the website and the security of sensitive information like passwords and bank details13."
+  },
+  {
+    "point_id": "5.3",
+    "question_number": 16,
+    "question": "Explain why software updates are important for cyber security.",
+    "mark_scheme": "Answer 16:\n(Explain: set out purposes or reasons / make the relationships between things evident / provide why and/or how and support with relevant evidence)\nAutomating software updates ensures that security patches are applied as soon as they are released, reducing the risk of attackers exploiting known vulnerabilities. Delaying updates increases exposure to threats13."
   }
 ]

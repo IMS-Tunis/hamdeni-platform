@@ -1,145 +1,277 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>1.1 Number Systems</title>
-  <link rel="stylesheet" href="igcse-style.css">
+<meta charset="UTF-8">
+<title>IGCSE Computer Science - 5.3 Cyber Security</title>
+<link rel="stylesheet" href="../igcse-style.css">
 </head>
 <body>
-   <div class="container">
-    <h1>Number Systems</h1>
-    <div class="subtitle">IGCSE CS theory notes, prepared by Dr. Hamdeni</div>
+<div class="container">
 
-    <div class="section">
-      <h2>1.1 Understand how and why computers use binary to represent all forms of data</h2>
+<div class="header-container">
+<img src="../syllabus.png" alt="Syllabus Update" class="top-right-icon">
+<div class="title-row">
+<h1 class="section-title">5.3 Cyber Security</h1>
+</div>
+<div class="title-underline"></div>
+<p class="section-subtitle">Computer Science IGCSE notes, prepared by Dr. Hamdeni</p>
+</div>
 
-    </div>
-
-    <div class="section">
-      <h2>1.2 (a) Understand the denary, binary and hexadecimal number systems</h2>
-      <ul>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Base-10, digits 0–9">Denary</span> is used in everyday life, with each place increasing by powers of 10.</span></li>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Base-2, digits 0 and 1">Binary</span> is used by computers, with each place increasing by powers of 2.</span></li>
-        <li><span class="official-note">The <span class="keyword" data-tooltip="The leftmost bit in a binary number, which has the highest value">MSB</span> (Most Significant Bit) is the leftmost bit.</span></li>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Base-16, digits 0–9 and A–F">Hexadecimal</span> is closely related to binary; each hex digit is 4 bits.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">The denary number 25177 = 2×10000 + 5×1000 + 1×100 + 7×10 + 7×1.</div></li>
-        <li><div class="example-box">Binary 11101110 = 128+64+32+8+4+2 = 238 (denary).</div></li>
-        <li><div class="example-box">Hex digit A = 10, F = 15 (denary).</div></li>
-        <li><div class="example-box">1010 (binary) = A (hex) = 10 (denary).</div></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.2 (b) Convert between number systems</h2>
-      <ul>
-        <li><span class="official-note">To convert binary to denary: add up the values of all positions where there is a 1.</span></li>
-        <li><span class="official-note">To convert denary to binary: subtract the largest possible powers of 2, or divide by 2 and record remainders.</span></li>
-        <li><span class="official-note">Successive division by 2 and reading remainders from bottom to top gives the binary value.</span></li>
-        <li><span class="official-note">You can convert up to 16-bit binary numbers for this syllabus.</span></li>
-        <li><span class="official-note">To convert binary to hexadecimal: group bits from the right in sets of four, pad with zeros to the left if needed.</span></li>
-        <li><span class="official-note">To convert hexadecimal to binary: write each hex digit as 4 bits.</span></li>
-        <li><span class="official-note">To convert hexadecimal to denary: convert hex to binary, then binary to denary.</span></li>
-        <li><span class="official-note">To convert denary to hexadecimal: convert to binary, group in 4s, convert each group to hex.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">011110001011 = 1024+512+256+128+8+2+1 = 1931 (denary).</div></li>
-        <li><div class="example-box">Denary 142: 142 ÷ 2 repeatedly gives remainders 1 0 0 0 1 1 1 0 (read bottom to top: 10001110).</div></li>
-        <li><div class="example-box">Denary 13 → 8+4+0+1 = 13 → 1101 (binary).</div></li>
-        <li><div class="example-box">1000001111101 → 0010 0001 1111 1101 → 21FD (hex).</div></li>
-        <li><div class="example-box">Hex SE (S=5, E=14): 0101 1110 (binary).</div></li>
-        <li><div class="example-box">Hex 2 1 F D → 0010 0001 1111 1101 (binary).</div></li>
-        <li><div class="example-box">Hex SE = 64+16+8+4+2 = 94 (denary).</div></li>
-        <li><div class="example-box">Denary 201: binary 11001001 → 1100 (C), 1001 (9) → hex C9.</div></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.3 Understand how and why hexadecimal is used as a beneficial method of data representation</h2>
-      <ul>
-        <li><span class="official-note">Hexadecimal is shorter and easier to read and write than binary; simplifies debugging and error detection.</span></li>
-        <li><span class="official-note">Programmers find it easier to compare and spot differences in hexadecimal than in long binary strings.</span></li>
-        <li><span class="official-note">Common uses for hexadecimal: HTML colours, MAC addresses, assembly/machine code, memory dumps, debugging, error codes, and IP addresses.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">Comparing 10011100101110111000111011100010111101011010 (binary) vs. 9CBB8EE2F5A (hex).</div></li>
-        <li><div class="example-box"><span class="keyword" data-tooltip="Unique device identifier, written in hexadecimal">MAC address</span>: e.g., 00-1C-B3-4F-25-FE.</div></li>
-        <li><span class="fun-tip">Hex makes large binary numbers easier for humans to read and spot mistakes quickly!</span></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.4 (a) Add two positive 8-bit binary integers</h2>
-      <ul>
-        <li><span class="official-note">Binary addition rules: 0+0=0; 1+0/0+1=1; 1+1=0 (carry 1); 1+1+1=1 (carry 1).</span></li>
-        <li><span class="official-note">Carry values work like in denary addition—add rightmost columns first, carry left if needed.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">00100111 + 01001010 = 01110001 (binary addition).</div></li>
-        <li><div class="example-box">126 (01111110) + 62 (00111110) = 188 (10111100).</div></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.4 (b) Understand the concept of overflow and why it occurs in binary addition</h2>
-      <ul>
-        <li><span class="official-note"><span class="keyword" data-tooltip="When a calculation exceeds the maximum storable value in the register">Overflow error</span> occurs when a result is too big for the register.</span></li>
-        <li><span class="official-note">For an 8-bit register, the maximum value is 255 (11111111). A result with a 9th bit is overflow.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">Adding 01101110 + 11011110 = (1)01001100, the leading (1) is overflow.</div></li>
-        <li><span class="fun-tip">If your answer has more bits than allowed, that extra leftmost bit is overflow—the computer can't fit it!</span></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.5 Perform a logical binary shift on a positive 8-bit binary integer and understand the effect</h2>
-      <ul>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Moving all bits left (×2) or right (÷2); zero fills empty place">Logical shift</span>: move all bits left (multiply by 2) or right (divide by 2); zeros fill empty spots.</span></li>
-        <li><span class="official-note">Bits shifted out are lost; zeros fill the emptied places.</span></li>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Left-most">Most significant bit</span></li>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Right-most">Least significant bit</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">Left shift: 00010101 → 00101010 (21×2=42).</div></li>
-        <li><div class="example-box">Left shift 2: 00010101 → 01010100 (21×4=84).</div></li>
-        <li><div class="example-box">Right shift: 11001000 → 01100100 (200÷2=100).</div></li>
-        <li><div class="example-box">Shift 10101010 one place left: 01010100.</div></li>
-        <li><span class="fun-tip">Each left shift doubles your number—each right shift halves it (if you don't lose important bits)!</span></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.6 Use the two’s complement number system to represent positive and negative 8-bit binary integers</h2>
-      <ul>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Method to represent negative binary numbers; left-most bit is the sign (–128 for 8 bits)">Two’s complement</span> lets you use the same binary system for positive and negative numbers.</span></li>
-        <li><span class="official-note">In 8-bit two’s complement, the range is –128 to +127.</span></li>
-        <li><span class="official-note">To write a positive number, use normal binary (sign bit 0).</span></li>
-        <li><span class="official-note">To write a negative number:<br>
-            1. Write positive binary.<br>
-            2. Invert all bits left of the first 1 from the right (or invert all bits and add 1).<br>
-            3. Make sure the MSB is 1.
-          </span>
-        </li>
-        <li><span class="official-note">For negative values, sum bits using –128 as the left-most.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">38 = 00100110 (two’s complement).</div></li>
-        <li><div class="example-box">–67: 01000011 → invert → 10111100 → add 1 = 10111101.</div></li>
-        <li><div class="example-box">10111010 = –128 + 32 + 16 + 8 + 2 = –70.</div></li>
-        <li><span class="fun-tip">To get a negative number: "Flip all the bits and add one!" (That’s the computer’s trick.)</span></li>
-      </ul>
-    </div>
-
+<div class="section">
+<h2>5.3a Types of Cyber Security Threats</h2>
+<ul>
+  <li>
+    <span class="official-note">A <span class="keyword" data-tooltip="a trial-and-error method used to find passwords or keys by trying every possible combination until the correct one is found">brute-force attack</span> is when a hacker tries to guess a user's password by testing many combinations until the correct one is found.</span>
+    <ul>
+      <li>This can be done manually or automatically using a program that tries hundreds or thousands of guesses per second.</li>
+      <li>Hackers often begin with commonly used passwords like “123456” or “password” before trying random combinations.</li>
+      <li>The longer and more complex a password is, the harder it becomes to guess.</li>
+      <li>The goal of a <span class="keyword" data-tooltip="a trial-and-error method used to find passwords or keys by trying every possible combination until the correct one is found">brute-force attack</span> is to steal personal data or use someone else's account to buy things without permission.</li>
+    </ul>
+  </li>
+  <li>
+    <span class="official-note">Data interception means capturing data as it travels between devices across a network, often without the user's knowledge.</span>
+    <ul>
+      <li>A common tool used is a <span class="keyword" data-tooltip="software that monitors data packets being transmitted over a network">packet sniffer</span>, which inspects packets of data sent through routers or Wi-Fi.</li>
+      <li>In wired networks, data packets can be intercepted using software installed at a connection point.</li>
+      <li>In wireless networks, attackers may use a technique called <span class="keyword" data-tooltip="using a laptop or device to intercept Wi-Fi signals from outside a building, often illegally">wardriving</span>, using a laptop and antenna to collect signals from outside buildings.</li>
+      <li>The aim is often to steal confidential information for identity theft or fraud.</li>
+    </ul>
+  </li>
+  <li>
+    <span class="official-note">A <span class="keyword" data-tooltip="a cyber attack where multiple computers send too many requests to a server to overload and crash it">Distributed Denial of Service (DDoS) attack</span> floods a network, server, or service with an overwhelming amount of fake traffic.</span>
+    <ul>
+      <li>This makes the system unable to handle real user requests, causing it to slow down or crash.</li>
+      <li>A DDoS attack is launched using many computers (a botnet) infected with <span class="keyword" data-tooltip="malicious software designed to harm a computer or steal information">malware</span> to send repeated requests.</li>
+      <li>The <span class="keyword" data-tooltip="malicious software designed to harm a computer or steal information">malware</span> allows hackers to control those devices remotely and coordinate the attack.</li>
+      <li>It can stop users from checking email, accessing websites, or using online banking.</li>
+    </ul>
+  </li>
+  <li>
+    <span class="official-note">Hacking is gaining unauthorized access to a system or network, usually with the intent to steal, corrupt, or leak data.</span>
+    <ul>
+      <li>Hackers look for system weaknesses such as unpatched software, open ports, or weak login credentials.</li>
+      <li>Once inside, they may delete files, access private data, or cause system failure.</li>
+      <li>Even encrypted data can be deleted or modified if <span class="keyword" data-tooltip="gaining unauthorized access to a system or network">hacking</span> is successful.</li>
+    </ul>
+  </li>
+  <li>
+    <span class="official-note">Malware refers to malicious software designed to harm, steal, or interrupt the normal operation of a system.</span>
+    <ul>
+      <li><b>Viruses</b> replicate themselves and may delete files or consume storage, making the computer crash.</li>
+      <li><b>Worms</b> spread across networks without needing user interaction, often slowing down or damaging systems.</li>
+      <li><b>Trojan horses</b> pretend to be legitimate software but contain harmful code that activates when the user installs it.</li>
+      <li><b>Spyware</b> secretly monitors user activity and sends information (like keystrokes) to a hacker.</li>
+      <li><b>Adware</b> shows unwanted ads and may redirect your browser without permission.</li>
+      <li><b>Ransomware</b> encrypts your files and demands payment to unlock them.</li>
+      <li><b>Rootkit</b> is <span class="keyword" data-tooltip="malicious software designed to harm a computer or steal information">malware</span> that secretly allows continued access to a system while hiding its presence.</li>
+    </ul>
+  </li>
+  <li>
+    <span class="official-note">Phishing is a technique where users are tricked into clicking fake links or giving away personal data.</span>
+    <ul>
+      <li>Although phishing is a cyber threat, it is not classified as a type of <span class="keyword" data-tooltip="malicious software designed to harm a computer or steal information">malware</span>.</li>
+      <li>The attacker sends an email that looks like it’s from a real bank or service.</li>
+      <li>The email urges the user to click a link or update account details on a fake website.</li>
+      <li>Signs of <span class="keyword" data-tooltip="fraudulent emails or messages designed to trick recipients into revealing personal information">phishing</span> include generic greetings like "Dear Customer", spelling errors, or mismatched URLs.</li>
+    </ul>
+  </li>
+  <li>
+    <span class="official-note">Pharming redirects the user to a fake website even if they typed the correct URL into their browser.</span>
+    <ul>
+      <li>This can be caused by malicious code on the user’s computer or tampering with DNS records.</li>
+      <li>One common method is DNS cache poisoning, which changes the real IP address to that of the fake site.</li>
+      <li>The fake website collects usernames, passwords, or banking details.</li>
+      <li>Unlike <span class="keyword" data-tooltip="fraudulent emails or messages designed to trick recipients into revealing personal information">phishing</span>, pharming doesn’t require the user to click a link—it happens automatically.</li>
+    </ul>
+  </li>
+  <li>
+    <span class="official-note">Social engineering uses deception to trick people into giving away private data or breaking security rules.</span>
+    <ul>
+      <li>It manipulates emotions like fear, curiosity, or trust.</li>
+      <li>Common tactics include scareware, fake phone calls from “support staff,” and baiting with USB drives.</li>
+      <li>The attacker often doesn’t need technical skills—only the ability to convince the victim.</li>
+    </ul>
+  </li>
+</ul>
+<ul class="no-bullets">
+  <li><div class="example-box">A hacker guesses the password 'FILix1234' after discovering the user owns cats named Felix and Max.</div></li>
+  <li><div class="example-box">A hacker may use a word list containing one million entries to attempt to break into an account using brute force.</div></li>
+  <li><span class="fun-tip">A brute-force attack is like trying to guess the right key for a treasure chest by testing every single key on your keyring — it’s slow, boring, and if your lock is complex, it’ll take forever!</span></li>
+  <li><div class="example-box">A hacker uses a laptop and antenna near a building to intercept unencrypted Wi-Fi data.</div></li>
+  <li><div class="example-box">Connecting to unprotected public Wi-Fi at an airport can allow a hacker to intercept login credentials and personal messages.</div></li>
+  <li><div class="example-box">A DDoS attack using 10,000 bots sends repeated requests to a bank’s website, crashing it for all users.</div></li>
+  <li><div class="example-box">A hacker breaks into a hospital database and steals patient medical records by guessing weak passwords.</div></li>
+  <li><div class="example-box">A hacker exploits a system vulnerability to copy confidential files and distribute them online.</div></li>
+  <li><div class="example-box">Spyware running in the background captures and transmits a user’s credit card details to attackers.</div></li>
+  <li><div class="example-box">A fake antivirus program (Trojan) offers a “free scan” but installs spyware and ransomware instead.</div></li>
+  <li><div class="example-box">Common phishing messages may say there is a problem with your account or that you have won a prize to make you act quickly.</div></li>
+  <li><div class="example-box">A targeted spear phishing email asks for 'urgent account verification' and contains a misspelled URL link.</div></li>
+  <li><div class="example-box">An email claims there’s a problem with your Netflix account and links to a fake payment page to steal your card details.</div></li>
+  <li><div class="example-box">A user types 'amazon.com' but is redirected to a fake site like 'amaz0n.com' that looks real.</div></li>
+  <li><div class="example-box">Pharming websites are designed to look just like real sites so users don’t suspect anything when entering personal information.</div></li>
+  <li><div class="example-box">A user enters “paypal.com” but gets sent to a look-alike website that steals their login information.</div></li>
+  <li><div class="example-box">A caller pretends to be from IT support and asks for your password to “fix an issue.”</div></li>
+  <li><div class="example-box">A USB drive labeled "Company Salary Report" is left in a public place and installs spyware when plugged in.</div></li>
+  <div class="button-group">
+    <button class="keyword-button" onclick="openPopupK('5.3a')">
+    🔑 View Keywords on This Topic 🔑
+    </button>
+    <button class="exam-button" onclick="openPopupQ('5.3a')">
+    👁️ Quick Look at Exam Questions on This Topic 👁️
+    </button>
   </div>
+</ul>
+</div>
 
-    <script>
-    window.addEventListener('load', function() {
-      var height = document.body.scrollHeight;
-      window.parent.postMessage({type: 'resize', height: height}, '*');
-    });
-    </script>
+<div class="section">
+<h2>5.3b Preventing Cyber Attacks and Threats</h2>
+<ul>
+  <li>
+    <span class="official-note">Use a strong password that is long, includes upper- and lower-case letters, numbers, and symbols.</span>
+    <ul>
+      <li>Avoid passwords based on birthdays, pet names, or common words.</li>
+      <li>Strong passwords are harder for brute-force attacks to guess.</li>
+    </ul>
+  </li>
+  <li>
+    <span class="official-note">Limit the number of times a user can enter the wrong password before being locked out.</span>
+    <ul>
+      <li>This makes brute-force attacks less likely to succeed by limiting guessing attempts.</li>
+      <li>Another helpful method is <span class="keyword" data-tooltip="a challenge-response test used to determine whether a user is human or a bot">CAPTCHA</span>, which stops automated programs from submitting login attempts.</li>
+    </ul>
+  </li>
+  <li>
+    <span class="official-note">Use <span class="keyword" data-tooltip="verifying the identity of a user or device">authentication</span> methods to verify user identity securely.</span>
+    <ul>
+      <li>Authentication may use something the user knows (e.g. password), has (e.g. mobile phone), or is (e.g. fingerprint).</li>
+    </ul>
+  </li>
+  <li>
+    <span class="official-note">Use <span class="keyword" data-tooltip="a security method that requires two different forms of authentication">two-step verification</span> for added security.</span>
+    <ul>
+      <li>After entering a password, a code is sent to a trusted device.</li>
+      <li>This protects against <span class="keyword" data-tooltip="gaining unauthorized access to a system or network">hacking</span> and brute-force attacks by requiring two separate pieces of information.</li>
+    </ul>
+  </li>
+  <li>
+    <span class="official-note">Use <span class="keyword" data-tooltip="authentication using physical traits like fingerprints or retina scans">biometric methods</span> like fingerprint or retina scans for secure, user-specific access.</span>
+    <ul>
+      <li>These are difficult to fake and always unique to the person.</li>
+      <li>They add an extra layer of protection against unauthorized access.</li>
+    </ul>
+  </li>
+  <li>
+    <span class="official-note">Assign different <span class="keyword" data-tooltip="permissions assigned to users that define what data or functions they can access">access levels</span> to users in a system based on what data they need.</span>
+    <ul>
+      <li>This ensures that only authorized people can view or modify sensitive information.</li>
+      <li>Helps limit damage in case of social engineering or <span class="keyword" data-tooltip="gaining unauthorized access to a system or network">hacking</span>.</li>
+    </ul>
+  </li>
+  <li>
+    <span class="official-note">Apply <span class="keyword" data-tooltip="controls that limit how much information is shared or who can view it">privacy settings</span> in social media and browsers.</span>
+    <ul>
+      <li>This prevents unknown users from seeing your information or tracking your activity.</li>
+      <li>Useful in blocking <span class="keyword" data-tooltip="manipulating people into giving up confidential information or breaking security">social engineering</span> attempts.</li>
+    </ul>
+  </li>
+  <li>
+    <span class="official-note">Install and regularly update anti-<span class="keyword" data-tooltip="malicious software designed to harm a computer or steal information">malware</span> software.</span>
+    <ul>
+      <li>This detects, quarantines, and removes threats like viruses, worms, <span class="keyword" data-tooltip="software that gathers information about a person or organization without their knowledge">spyware</span>, and ransomware.</li>
+      <li>Anti-<span class="keyword" data-tooltip="software that gathers information about a person or organization without their knowledge">spyware</span> software can block programs that try to steal information or hijack your webcam.</li>
+    </ul>
+  </li>
+  <li>
+    <span class="official-note">Keep software up to date by enabling automatic updates.</span>
+    <ul>
+      <li>Updates fix security holes that hackers might exploit.</li>
+      <li>Delaying updates increases the risk of <span class="keyword" data-tooltip="malicious software designed to harm a computer or steal information">malware</span> infections.</li>
+    </ul>
+  </li>
+  <li>
+    <span class="official-note">Use a <span class="keyword" data-tooltip="software or hardware that blocks unauthorized access to or from a network">firewall</span> to filter incoming and outgoing traffic.</span>
+    <ul>
+      <li>Firewalls can help block various <span class="keyword" data-tooltip="malicious software designed to harm a computer or steal information">malware</span> such as viruses, worms, trojan horses, spyware, ransomware, and adware.</li>
+      <li>Firewalls block unwanted data, warn about suspicious access attempts, and enforce security rules.</li>
+      <li>They are essential for defending against malware, phishing, pharming, and <span class="keyword" data-tooltip="gaining unauthorized access to a system or network">hacking</span>.</li>
+    </ul>
+  </li>
+  <li>
+    <span class="official-note">Use a <span class="keyword" data-tooltip="a server that acts as an intermediary between a user's device and the internet">proxy server</span> as an extra layer between user and internet.</span>
+    <ul>
+      <li>Proxy servers filter web traffic, cache pages, hide user IP addresses, and help prevent DDoS attacks.</li>
+      <li>They stop malicious traffic before it reaches a real server.</li>
+      <li>Proxy servers can also hide your IP address, cache frequently visited content, and block harmful IP addresses.</li>
+    </ul>
+  </li>
+  <li>
+    <span class="official-note">Use SSL (Secure Sockets Layer) to encrypt data transmitted online.</span>
+    <ul>
+      <li>Encryption scrambles data so that only the intended recipient can understand it.</li>
+      <li>Websites with “HTTPS” and a padlock symbol use SSL.</li>
+    </ul>
+  </li>
+  <li>
+    <span class="official-note">Always check emails carefully before clicking links or entering data.</span>
+    <ul>
+      <li>Look for spelling errors, urgent language, or generic greetings (e.g., “Dear customer”). These are signs of <span class="keyword" data-tooltip="fraudulent emails or messages designed to trick recipients into revealing personal information">phishing</span>.</li>
+      <li>Hover over links to verify the true destination.</li>
+    </ul>
+  </li>
+  <li>
+    <span class="official-note">Never click on suspicious pop-ups or fake software warnings.</span>
+    <ul>
+      <li>These might lead to phishing or download <span class="keyword" data-tooltip="malicious software designed to harm a computer or steal information">malware</span> disguised as antivirus tools.</li>
+    </ul>
+  </li>
+  <li>
+    <span class="official-note">Be cautious about where you download software from.</span>
+    <ul>
+      <li>Only use trusted sources to avoid hidden <span class="keyword" data-tooltip="malicious software designed to harm a computer or steal information">malware</span> or trojan horses.</li>
+      <li>Helps protect against <span class="keyword" data-tooltip="fraudulent emails or messages designed to trick recipients into revealing personal information">phishing</span>, pharming, and social engineering.</li>
+    </ul>
+  </li>
+  <li>
+    <span class="official-note">Create regular backups of your important data on a separate device or cloud service.</span>
+    <ul>
+      <li>If your computer is attacked by <span class="keyword" data-tooltip="malware that locks or encrypts a user’s data and demands payment to unlock it">ransomware</span>, you can restore files without paying a ransom.</li>
+    </ul>
+  </li>
+</ul>
+<ul class="no-bullets">
+  <li><div class="example-box">Weak: "Felix123". Strong: "Sy12@#TT90kj=0", which is difficult to guess or crack.</div></li>
+  <li><div class="example-box">A user logs into a shopping site, receives a PIN via text, and enters it to complete the login process.</div></li>
+  <li><span class="fun-tip">Two-step verification is like needing both a key and a secret handshake to open your front door — even if someone steals your key, they’re still stuck outside!</span></li>
+  <li><div class="example-box">Fingerprint scanners have around 1 in 5,000 accuracy, while retina scans are accurate up to 1 in 10 million.</div></li>
+  <li><div class="example-box">A mobile phone only unlocks when the correct fingerprint is scanned.</div></li>
+  <li><div class="example-box">A junior employee in a company cannot access sensitive financial records due to limited access permissions.</div></li>
+  <li><div class="example-box">Setting social media profiles to 'friends only' ensures that only approved people can view your posts.</div></li>
+  <li><div class="example-box">A weekly anti-malware scan removes spyware that was secretly logging the user’s keyboard inputs.</div></li>
+  <li><div class="example-box">A firewall may block an app from sending keystrokes to an external server.</div></li>
+  <li><div class="example-box">During a DDoS attack, the proxy server filters out botnet traffic before it reaches the website.</div></li>
+  <li><div class="example-box">A green padlock in the browser indicates that SSL is active, such as during an online banking transaction.</div></li>
+  <li><div class="example-box">SSL is used when banking online to protect account numbers and passwords.</div></li>
+  <li><div class="example-box">A phishing email shows a link as 'netflix.com' but hovering reveals it actually points to 'billing.com'.</div></li>
+  <li><div class="example-box">A pop-up claims your computer is infected and urges you to download a fake “fix.”</div></li>
+  <div class="button-group">
+    <button class="keyword-button" onclick="openPopupK('5.3b')">
+    🔑 View Keywords on This Topic 🔑
+    </button>
+    <button class="exam-button" onclick="openPopupQ('5.3b')">
+    👁️ Quick Look at Exam Questions on This Topic 👁️
+    </button>
   </div>
+</ul>
+</div>
+
+</div>
+<script src="popup-script.js"></script>
+<script>
+window.addEventListener('load', function() {
+var height = document.body.scrollHeight;
+window.parent.postMessage({type: 'resize', height: height}, '*');
+});
+</script>
 </body>
 </html>

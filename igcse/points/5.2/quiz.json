@@ -2,101 +2,198 @@
   "questions": [
     {
       "type": "mcq",
-      "question": "What is the main reason computers use binary to represent all data?",
+      "question": "Which system do most digital currencies rely on for processing payments and transactions?",
       "options": [
-        "Binary numbers are easier for humans to read",
-        "Computers use logic gates that only understand ON and OFF states",
-        "It uses less power",
-        "Binary numbers are shorter than decimal numbers"
+        "Decentralized peer-to-peer networks",
+        "Central banking system",
+        "Blockchain technology",
+        "Cryptocurrency mining pools"
       ],
-      "answer": "Computers use logic gates that only understand ON and OFF states"
-    },
-    {
-      "type": "mcq",
-      "question": "In an 8-bit binary number, what does the leftmost bit represent?",
-      "options": [
-        "Least Significant Bit",
-        "The parity bit",
-        "Most Significant Bit",
-        "The hexadecimal value"
-      ],
-      "answer": "Most Significant Bit"
-    },
-    {
-      "type": "mcq",
-      "question": "Which of the following is a hexadecimal digit?",
-      "options": [
-        "8",
-        "G",
-        "H",
-        "Q"
-      ],
-      "answer": "8"
-    },
-    {
-      "type": "mcq",
-      "question": "What is the maximum value that can be represented in an 8-bit binary number?",
-      "options": [
-        "255",
-        "256",
-        "128",
-        "1024"
-      ],
-      "answer": "255"
+      "answer": "Central banking system"
     },
     {
       "type": "fill_blank",
-      "question": "The process of moving all bits in a binary number to the left or right and filling the emptied spaces with zeros is called a __________ shift.",
-      "answer": "Logical"
-    },
-    {
-      "type": "fill_blank",
-      "question": "In binary addition, if the result is too large for the register to hold, this is called an __________ error.",
-      "answer": "Overflow"
-    },
-    {
-      "type": "fill_blank",
-      "question": "Each hexadecimal digit can be represented by exactly ___ binary bits.",
-      "answer": "4"
+      "question": "Digital currency works like regular money but is exchanged __________ between computers over the __________.",
+      "answer": "electronically, internet"
     },
     {
       "type": "true_false",
-      "question": "Digital data can take any value, just like analogue data.",
+      "question": "Digital currency can only exist on computer systems and cannot be converted into physical cash.",
       "answer": "False"
     },
     {
+      "type": "mcq",
+      "question": "What is the most frequent method used for digital currency payments online?",
+      "options": [
+        "Mobile phone payments",
+        "Smart watch payments",
+        "Credit card payments",
+        "PayPal transfers"
+      ],
+      "answer": "Credit card payments"
+    },
+    {
+      "type": "fill_blank",
+      "question": "__________ is the protection of personal or sensitive information from being accessed by unauthorized users.",
+      "answer": "Confidentiality"
+    },
+    {
+      "type": "mcq",
+      "question": "When making a digital currency payment, the data is made safe by being:",
+      "options": [
+        "Stored in multiple locations",
+        "Encrypted into a secure code",
+        "Verified by multiple users",
+        "Processed through central banks"
+      ],
+      "answer": "Encrypted into a secure code"
+    },
+    {
       "type": "true_false",
-      "question": "In two’s complement, the most significant bit represents the sign of the number.",
+      "question": "The HTTPS protocol is responsible for handling the encryption used in digital currency payments.",
       "answer": "True"
     },
     {
       "type": "true_false",
-      "question": "The denary number system is also known as base 16.",
+      "question": "A persistent cookie is a small file stored on your device that remembers your payment details for future visits.",
+      "answer": "True"
+    },
+    {
+      "type": "mcq",
+      "question": "What was cryptocurrency designed to solve?",
+      "options": [
+        "The speed of internet transactions",
+        "The cost of digital payments",
+        "The problems of centralized systems",
+        "The complexity of mobile payments"
+      ],
+      "answer": "The problems of centralized systems"
+    },
+    {
+      "type": "fill_blank",
+      "question": "Unlike normal digital currencies, __________ transactions are not managed by central banks or governments.",
+      "answer": "cryptocurrency"
+    },
+    {
+      "type": "true_false",
+      "question": "All cryptocurrency transactions are kept private and cannot be tracked by the public.",
       "answer": "False"
     },
     {
-      "type": "match",
-      "question": "Match the term with its correct definition:",
-      "pairs": {
-        "Register": "Used to temporarily hold binary data",
-        "Logic gate": "Basic building block for processing digital data",
-        "Two’s complement": "Method to represent negative binary"
-      }
+      "type": "mcq",
+      "question": "What makes cryptocurrencies often considered more secure against tampering?",
+      "options": [
+        "They use stronger passwords",
+        "They are managed by governments",
+        "They use blockchain technology",
+        "They require biometric verification"
+      ],
+      "answer": "They use blockchain technology"
+    },
+    {
+      "type": "mcq",
+      "question": "Who manages cryptocurrency transactions according to the text?",
+      "options": [
+        "Central Banks",
+        "Governments",
+        "A community of users",
+        "The HTTPS protocol"
+      ],
+      "answer": "A community of users"
     },
     {
       "type": "fill_blank",
-      "question": "Convert the binary number 1101 to denary: __________",
-      "answer": "13"
+      "question": "A __________ is a decentralized database where each transaction is stored with a timestamp and linked to the previous one.",
+      "answer": "blockchain"
+    },
+    {
+      "type": "mcq",
+      "question": "How must changes to a blockchain record be approved?",
+      "options": [
+        "Approval by a central bank.",
+        "Approval by a single miner.",
+        "Approval by a consensus of users on the network.",
+        "Conversion into physical cash."
+      ],
+      "answer": "Approval by a consensus of users on the network."
+    },
+    {
+      "type": "true_false",
+      "question": "Blockchain technology is used only for cryptocurrency transactions.",
+      "answer": "False"
     },
     {
       "type": "fill_blank",
-      "question": "What is the hexadecimal equivalent of the denary number 15? __________",
-      "answer": "F"
+      "question": "The very first block in a blockchain is called the ______.",
+      "answer": "Genesis block"
+    },
+    {
+      "type": "true_false",
+      "question": "If someone changes the data in a block, it automatically updates the hash and the link to the next block remains valid.",
+      "answer": "False"
     },
     {
       "type": "fill_blank",
-      "question": "What is the binary value for the hexadecimal digit C? __________",
-      "answer": "1100"
+      "question": "The ______ method requires a fixed amount of time and effort before a new block can be added to prevent fast tampering.",
+      "answer": "Proof-of-work"
+    },
+    {
+      "type": "mcq",
+      "question": "In the context of blockchain, who are \"miners\"?",
+      "options": [
+        "Users who spend cryptocurrency.",
+        "Network participants who verify transactions and add new blocks for a reward.",
+        "Central authorities controlling the blockchain.",
+        "Algorithms that create hash values."
+      ],
+      "answer": "Network participants who verify transactions and add new blocks for a reward."
+    },
+    {
+      "type": "true_false",
+      "question": "When a new block is created, it is only sent to the miners for verification before being added.",
+      "answer": "False"
+    },
+    {
+      "type": "mcq",
+      "question": "What does a new user joining the blockchain network receive?",
+      "options": [
+        "Only the Genesis block.",
+        "A persistent cookie.",
+        "A full copy of all existing blocks.",
+        "Control over the proof-of-work process."
+      ],
+      "answer": "A full copy of all existing blocks."
+    },
+    {
+      "type": "true_false",
+      "question": "In a blockchain transaction, a single block can only ever contain one transaction.",
+      "answer": "False"
+    },
+    {
+      "type": "fill_blank",
+      "question": "When a new block is created, it is sent to all computers in the network, which __________ that the data is correct before the block is added.",
+      "answer": "verify"
+    },
+    {
+      "type": "true_false",
+      "question": "Each member of the blockchain network stores a different copy of the transaction records.",
+      "answer": "False"
+    },
+    {
+      "type": "mcq",
+      "question": "What happens if someone tries to change the data in a blockchain block?",
+      "options": [
+        "The system automatically corrects the error",
+        "Only that specific block becomes invalid",
+        "The hash alters and breaks the link, invalidating the chain from that point onward",
+        "The transaction is reversed to its original state"
+      ],
+      "answer": "The hash alters and breaks the link, invalidating the chain from that point onward"
+    },
+    {
+      "type": "true_false",
+      "question": "New users joining the blockchain network only receive the most recent blocks to save storage space.",
+      "answer": "False"
     }
   ]
 }

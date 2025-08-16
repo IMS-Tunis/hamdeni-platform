@@ -1,14 +1,14 @@
 [
   {
-    "question": "Explain what is meant by a validation test in computer science education.",
-    "answer": "A validation test checks that students have understood the material and are ready to progress."
+    "question": "Complete the description of digital currencies using the terms provided.\nblockchains changed datachains decentralised deleted encryption passport physical address physically records time-stamp traced transaction-chains virtually\n\nA digital currency does not exist ..........................................................., it can only be accessed electronically.\nSome digital currencies have digital ledgers called ............................................................\nThese are decentralised databases where each transaction is stored as a new set of data with a ........................................................... and is linked to the previous set of data.\nThis means that transactions cannot be altered, only new transactions added, which allows the location of the data to be ............................................................",
+    "answer": "• physically\n• blockchains\n• time-stamp\n• traced\n\nA digital currency does not exist physically, it can only be accessed electronically. Some digital currencies have digital ledgers called blockchains. These are decentralised databases where each transaction is stored as a new set of data with a time-stamp and is linked to the previous set of data. This means that transactions cannot be altered, only new transactions added, which allows the location of the data to be traced."
   },
   {
-    "question": "State one advantage of practicing with past paper questions before an exam.",
-    "answer": "Past paper questions familiarize students with the exam style and improve confidence."
+    "question": "12 Digital currency can be used to pay for products and services.\nDigital currencies are often tracked using digital ledgers.\n\n(a) Give two other features of digital currency.\n(b) Identify the process that uses a digital ledger to track the use of digital currency.",
+    "answer": "(a) Any two from:\n– Only exists electronically\n– Can be a decentralised system\n– Can be a centralised system\n– Usually encrypted\n\n(b) Blockchain"
   },
   {
-    "question": "Give an example of a simple binary operation.",
-    "answer": "Adding two 1-bit binary numbers, e.g. 1 + 1 = 10."
+    "question": "Draw and annotate a diagram to show how a payment transaction is made using digital currency and blockchain.",
+    "answer": "One mark for each correct part. The diagram shows:\n- Digital ledger is used\n- Device encrypting data\n- Device sending data to digital ledger\n- Payment being recorded on digital ledger\n- … including details such as digital signature/time/date stamp\n- Transaction is stored in a block\n- … in multiples\n- Each block has block hash/unique identifier\n- When block is executed or full\n- … it is applied to every device that has the blockchain // Block is added to blockchain (on each device)"
   }
 ]

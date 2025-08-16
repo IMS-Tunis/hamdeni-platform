@@ -1,14 +1,66 @@
 [
   {
-    "question": "Explain what is meant by a validation test in computer science education.",
-    "answer": "A validation test checks that students have understood the material and are ready to progress."
+    "question": "Tick (✓) one box to show which cyber security threat is not a type of malware.",
+    "answer": "✓ Phishing"
   },
   {
-    "question": "State one advantage of practicing with past paper questions before an exam.",
-    "answer": "Past paper questions familiarize students with the exam style and improve confidence."
+    "question": "Identify one other example of malware than those given in part 1(a).",
+    "answer": "Trojan horse\nAdware\nSpyware\nRansomware\nRootkit\n(Any one)"
   },
   {
-    "question": "Give an example of a simple binary operation.",
-    "answer": "Adding two 1-bit binary numbers, e.g. 1 + 1 = 10."
+    "question": "Complete the table by identifying and describing two other examples of malware.",
+    "answer": "Trojan horse: software that appears to perform a useful function, but also carries out an unwanted or harmful function.\nAdware: software that automatically displays or downloads advertising material.\nRootkit: software that enables continued privileged access to a computer while actively hiding its presence.\nSpyware: software that gathers information about a person or organisation without their knowledge.\nRansomware: software that locks or encrypts files until a ransom is paid.\n(Max 2, 1 mark for name, 1 mark for correct description)"
+  },
+  {
+    "question": "Give two examples of malware that the firewall can help protect the network from.",
+    "answer": "Virus\nWorm\nTrojan horse\nRansomware\nAdware\nSpyware\n(Any two)"
+  },
+  {
+    "question": "Complete the statements about a distributed denial of service (DDoS) attack... The attacker encourages people to download ...... onto their computer...",
+    "answer": "malware\nwhich allows a hacker to control their computer\nlarge number of computers send messages simultaneously\nto a particular server/computer\nthis causes the server to crash or become inaccessible"
+  },
+  {
+    "question": "Give three cyber security threats that the proxy server can help protect against.",
+    "answer": "Phishing\nDDoS attacks\nMalware\nPharming\n(Any three)"
+  },
+  {
+    "question": "Draw and annotate a diagram to represent the process of pharming.",
+    "answer": "Diagram should include:\nUser enters a legitimate website URL\nMalicious code redirects to a fake website\nFake website looks identical to legitimate site\nUser unknowingly enters personal details\nDetails harvested by attacker\n(Marks for correct flow and clear labeling)"
+  },
+  {
+    "question": "Draw and annotate a diagram that demonstrates the cyber security threat of data interception.",
+    "answer": "Sender sends data over the network\nA hacker/snoop can intercept the data\nThe hacker uses packet sniffing software\nData may be unencrypted/readable\nConsequences: identity theft, password stealing\n(Mark diagram clarity and relevance)"
+  },
+  {
+    "question": "Describe what is meant by social engineering. Include one example of social engineering in your answer.",
+    "answer": "Social engineering: psychological manipulation of people\nExample: phishing, pretexting, baiting\nTricks the victim into revealing confidential information\n(Max 3 marks: definition + valid example + process)"
+  },
+  {
+    "question": "Explain how the firewall operates to help protect the network.",
+    "answer": "Sits between computer and external network\nFilters packets of data based on rules\nBlocks unauthorized access\nMonitors incoming and outgoing traffic\nCan prevent access to malicious websites"
+  },
+  {
+    "question": "Draw and annotate a diagram to demonstrate how a firewall works.",
+    "answer": "Diagram includes: Internal network, firewall, external network (internet)\nArrows showing data packets\nLabels indicating packet filtering\nBlocked threats shown (e.g., hacker/malware)\nMonitoring and control clearly annotated"
+  },
+  {
+    "question": "Identify the type of software that is used to find and remove malware from a computer.",
+    "answer": "Anti-malware\nAnti-virus\nVirus checker\nAnti-spyware\n(Any one)"
+  },
+  {
+    "question": "Give two security solutions that could be used to help prevent a brute-force attack being successful.",
+    "answer": "Strong passwords\nTwo-step authentication\nLimit login attempts\nCAPTCHA\n(Any two)"
+  },
+  {
+    "question": "Identify two functions of the proxy server that can be used to help protect the web server and the network.",
+    "answer": "Hides the internal IP address of the server\nFilters requests to the server\nCaches content to reduce load\nBlocks malicious IP addresses\n(Any two)"
+  },
+  {
+    "question": "State how the SSL protocol secures the data for transmission.",
+    "answer": "Encrypts the data\nUses digital certificates\nEnsures secure and authenticated connection\n(Any valid point, max 2)"
+  },
+  {
+    "question": "Give one reason why the email data is encrypted.",
+    "answer": "To ensure privacy of message contents\nTo prevent interception and misuse\nTo ensure data confidentiality\n(Any one)"
   }
 ]

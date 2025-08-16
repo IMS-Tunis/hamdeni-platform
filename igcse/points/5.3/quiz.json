@@ -2,101 +2,272 @@
   "questions": [
     {
       "type": "mcq",
-      "question": "What is the main reason computers use binary to represent all data?",
+      "question": "What is the primary method used in a brute-force attack?",
       "options": [
-        "Binary numbers are easier for humans to read",
-        "Computers use logic gates that only understand ON and OFF states",
-        "It uses less power",
-        "Binary numbers are shorter than decimal numbers"
+        "A) Intercepting data packets during transmission",
+        "B) Trying every possible password combination until the correct one is found",
+        "C) Redirecting users to fake websites automatically",
+        "D) Installing malicious software on target systems"
       ],
-      "answer": "Computers use logic gates that only understand ON and OFF states"
+      "answer": "B"
     },
     {
       "type": "mcq",
-      "question": "In an 8-bit binary number, what does the leftmost bit represent?",
+      "question": "What technique involves using a laptop and antenna to collect Wi-Fi signals from outside buildings?",
       "options": [
-        "Least Significant Bit",
-        "The parity bit",
-        "Most Significant Bit",
-        "The hexadecimal value"
+        "A) Packet sniffing",
+        "B) Wardriving",
+        "C) DNS poisoning",
+        "D) Social engineering"
       ],
-      "answer": "Most Significant Bit"
+      "answer": "B"
     },
     {
       "type": "mcq",
-      "question": "Which of the following is a hexadecimal digit?",
+      "question": "A DDoS attack uses multiple infected computers to overwhelm a target. What is this network of infected computers called?",
       "options": [
-        "8",
-        "G",
-        "H",
-        "Q"
+        "A) Proxy network",
+        "B) Firewall cluster",
+        "C) Botnet",
+        "D) Authentication grid"
       ],
-      "answer": "8"
+      "answer": "C"
     },
     {
       "type": "mcq",
-      "question": "What is the maximum value that can be represented in an 8-bit binary number?",
+      "question": "Which type of malware spreads across networks without requiring user interaction?",
       "options": [
-        "255",
-        "256",
-        "128",
-        "1024"
+        "A) Virus",
+        "B) Trojan horse",
+        "C) Spyware",
+        "D) Worm"
       ],
-      "answer": "255"
+      "answer": "D"
+    },
+    {
+      "type": "mcq",
+      "question": "What type of malware pretends to be legitimate software but contains harmful code?",
+      "options": [
+        "A) Rootkit",
+        "B) Trojan horse",
+        "C) Adware",
+        "D) Ransomware"
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "mcq",
+      "question": "What is the key difference between phishing and pharming?",
+      "options": [
+        "A) Phishing uses email while pharming uses text messages",
+        "B) Phishing requires clicking a link while pharming redirects automatically",
+        "C) Phishing targets passwords while pharming targets credit cards",
+        "D) Phishing uses malware while pharming uses social engineering"
+      ],
+      "answer": "B"
     },
     {
       "type": "fill_blank",
-      "question": "The process of moving all bits in a binary number to the left or right and filling the emptied spaces with zeros is called a __________ shift.",
-      "answer": "Logical"
+      "question": "A _____________ is software that monitors data packets being transmitted over a network.",
+      "answer": "packet sniffer"
     },
     {
       "type": "fill_blank",
-      "question": "In binary addition, if the result is too large for the register to hold, this is called an __________ error.",
-      "answer": "Overflow"
+      "question": "_____________ encrypts your files and demands payment to unlock them.",
+      "answer": "Ransomware"
     },
     {
       "type": "fill_blank",
-      "question": "Each hexadecimal digit can be represented by exactly ___ binary bits.",
-      "answer": "4"
+      "question": "DNS cache poisoning is a common method used in _____________ attacks.",
+      "answer": "pharming"
+    },
+    {
+      "type": "fill_blank",
+      "question": "_____________ secretly monitors user activity and sends information like keystrokes to a hacker.",
+      "answer": "Spyware"
+    },
+    {
+      "type": "fill_blank",
+      "question": "_____________ uses deception to trick people into giving away private data or breaking security rules.",
+      "answer": "Social engineering"
     },
     {
       "type": "true_false",
-      "question": "Digital data can take any value, just like analogue data.",
+      "question": "Phishing is classified as a type of malware.",
       "answer": "False"
     },
     {
       "type": "true_false",
-      "question": "In two’s complement, the most significant bit represents the sign of the number.",
+      "question": "DNS cache poisoning is a common method used in pharming attacks.",
       "answer": "True"
     },
     {
       "type": "true_false",
-      "question": "The denary number system is also known as base 16.",
-      "answer": "False"
+      "question": "Rootkit malware is designed to hide its presence while allowing continued access to a system.",
+      "answer": "True"
     },
     {
       "type": "match",
-      "question": "Match the term with its correct definition:",
+      "question": "Match the terms",
       "pairs": {
-        "Register": "Used to temporarily hold binary data",
-        "Logic gate": "Basic building block for processing digital data",
-        "Two’s complement": "Method to represent negative binary"
+        "A. Virus": "2. Replicates itself and may delete files",
+        "B. Adware": "1. Shows unwanted advertisements",
+        "C. Rootkit": "3. Hides its presence while maintaining access",
+        "D. Worm": "4. Spreads across networks without user interaction"
       }
     },
     {
-      "type": "fill_blank",
-      "question": "Convert the binary number 1101 to denary: __________",
-      "answer": "13"
+      "type": "mcq",
+      "question": "Which of the following is an example of biometric authentication?",
+      "options": [
+        "A) CAPTCHA",
+        "B) Password",
+        "C) Retina scan",
+        "D) Proxy server"
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "true_false",
+      "question": "Wardriving is a legal technique to monitor Wi-Fi signals from inside a building.",
+      "answer": "False"
+    },
+    {
+      "type": "mcq",
+      "question": "Which of the following best describes a DDoS attack?",
+      "options": [
+        "A) Encrypting user files and demanding payment",
+        "B) Spying on user activity and stealing data",
+        "C) Redirecting users to a fake website",
+        "D) Overloading a network with excessive traffic from multiple devices"
+      ],
+      "answer": "D"
+    },
+    {
+      "type": "true_false",
+      "question": "A DDoS attack is often carried out using a group of infected computers called a botnet.",
+      "answer": "True"
+    },
+    {
+      "type": "mcq",
+      "question": "How does pharming differ from phishing?",
+      "options": [
+        "A) Pharming sends emails that appear real",
+        "B) Pharming redirects users without requiring them to click a link",
+        "C) Pharming asks users to verify payment info in person",
+        "D) Pharming requires users to download software"
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "mcq",
+      "question": "What should a strong password include to resist brute-force attacks?",
+      "options": [
+        "A) Only uppercase letters and numbers",
+        "B) Personal information like birthdays and pet names",
+        "C) Upper- and lower-case letters, numbers, and symbols",
+        "D) Common dictionary words for easy remembering"
+      ],
+      "answer": "C"
+    },
+    {
+      "type": "mcq",
+      "question": "What is the purpose of CAPTCHA in login systems?",
+      "options": [
+        "A) To encrypt user passwords during transmission",
+        "B) To stop automated programs from submitting login attempts",
+        "C) To create backup copies of user credentials",
+        "D) To filter incoming network traffic"
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "mcq",
+      "question": "Two-step verification requires which combination for authentication?",
+      "options": [
+        "A) Two different passwords entered simultaneously",
+        "B) A password and a code sent to a trusted device",
+        "C) Two different biometric scans",
+        "D) A username and two security questions"
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "mcq",
+      "question": "How does a proxy server help defend against DDoS attacks?",
+      "options": [
+        "A) By encrypting all data transmissions",
+        "B) By creating backup copies of websites",
+        "C) By stopping malicious traffic before it reaches the real server",
+        "D) By requiring biometric authentication for access"
+      ],
+      "answer": "C"
     },
     {
       "type": "fill_blank",
-      "question": "What is the hexadecimal equivalent of the denary number 15? __________",
-      "answer": "F"
+      "question": "_____________ is a challenge-response test used to determine whether a user is human or a bot.",
+      "answer": "CAPTCHA"
     },
     {
       "type": "fill_blank",
-      "question": "What is the binary value for the hexadecimal digit C? __________",
-      "answer": "1100"
+      "question": "_____________ methods use physical traits like fingerprints or retina scans for authentication.",
+      "answer": "Biometric"
+    },
+    {
+      "type": "fill_blank",
+      "question": "A _____________ is software or hardware that blocks unauthorized access to or from a network.",
+      "answer": "firewall"
+    },
+    {
+      "type": "fill_blank",
+      "question": "_____________ controls limit how much information is shared or who can view it on social media.",
+      "answer": "Privacy settings"
+    },
+    {
+      "type": "fill_blank",
+      "question": "A _____________ acts as an intermediary between a user's device and the internet.",
+      "answer": "proxy server"
+    },
+    {
+      "type": "true_false",
+      "question": "Delaying software updates increases the risk of malware infections.",
+      "answer": "True"
+    },
+    {
+      "type": "true_false",
+      "question": "Websites using SSL encryption display 'HTTP' in their URL.",
+      "answer": "False"
+    },
+    {
+      "type": "true_false",
+      "question": "Access levels ensure that only authorized people can view or modify sensitive information.",
+      "answer": "True"
+    },
+    {
+      "type": "mcq",
+      "question": "What is the main role of a firewall in cyber security?",
+      "options": [
+        "A) To generate passwords for secure access",
+        "B) To block unauthorized access to or from a network",
+        "C) To encrypt all user data in a cloud backup",
+        "D) To disguise malware as antivirus software"
+      ],
+      "answer": "B"
+    },
+    {
+      "type": "true_false",
+      "question": "Proxy servers can help prevent DDoS attacks by hiding real server IPs.",
+      "answer": "True"
+    },
+    {
+      "type": "fill_blank",
+      "question": "Websites using HTTPS and a padlock symbol are using _____ for secure data transmission.",
+      "answer": "SSL"
+    },
+    {
+      "type": "fill_blank",
+      "question": "Anti-_______ software can block programs that steal information or hijack your webcam.",
+      "answer": "spyware"
     }
   ]
 }

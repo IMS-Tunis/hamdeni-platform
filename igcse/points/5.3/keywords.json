@@ -1,0 +1,114 @@
+{
+  "5.3a": [
+    {
+      "term": "brute-force attack",
+      "definition": "a trial-and-error method used to find passwords or keys by trying every possible combination until the correct one is found"
+    },
+    {
+      "term": "Distributed Denial of Service (DDoS) attack",
+      "definition": "a cyber attack where multiple computers send too many requests to a server to overload and crash it"
+    },
+    {
+      "term": "hacking",
+      "definition": "gaining unauthorized access to a system or network"
+    },
+    {
+      "term": "malware",
+      "definition": "malicious software designed to harm a computer or steal information"
+    },
+    {
+      "term": "phishing",
+      "definition": "fraudulent emails or messages designed to trick recipients into revealing personal information"
+    },
+    {
+      "term": "pharming",
+      "definition": "redirecting users to fake websites to steal data without them noticing"
+    },
+    {
+      "term": "social engineering",
+      "definition": "manipulating people into giving up confidential information or breaking security"
+    },
+    {
+      "term": "packet sniffer",
+      "definition": "software that monitors data packets being transmitted over a network"
+    },
+    {
+      "term": "wardriving",
+      "definition": "using a laptop or device to intercept Wi-Fi signals from outside a building, often illegally"
+    },
+    {
+      "term": "virus",
+      "definition": "a type of malware that spreads by copying itself into other programs or files"
+    },
+    {
+      "term": "worm",
+      "definition": "a standalone malware that replicates and spreads without a host program"
+    },
+    {
+      "term": "trojan horse",
+      "definition": "malware disguised as a legitimate program that executes malicious tasks"
+    },
+    {
+      "term": "spyware",
+      "definition": "software that gathers information about a person or organization without their knowledge"
+    },
+    {
+      "term": "adware",
+      "definition": "software that automatically displays or downloads advertising material"
+    },
+    {
+      "term": "ransomware",
+      "definition": "malware that locks or encrypts a user\u2019s data and demands payment to unlock it"
+    },
+    {
+      "term": "rootkit",
+      "definition": "malware designed to gain administrator-level control of a computer without being detected"
+    }
+  ],
+  "5.3b": [
+    {
+      "term": "CAPTCHA",
+      "definition": "a challenge-response test used to determine whether a user is human or a bot"
+    },
+    {
+      "term": "firewall",
+      "definition": "software or hardware that blocks unauthorized access to or from a network"
+    },
+    {
+      "term": "proxy server",
+      "definition": "a server that acts as an intermediary between a user's device and the internet"
+    },
+    {
+      "term": "SSL (Secure Sockets Layer)",
+      "definition": "a protocol that encrypts data sent over the internet to keep it secure"
+    },
+    {
+      "term": "authentication",
+      "definition": "verifying the identity of a user or device"
+    },
+    {
+      "term": "two-step verification",
+      "definition": "a security method that requires two different forms of authentication"
+    },
+    {
+      "term": "biometric methods",
+      "definition": "authentication using physical traits like fingerprints or retina scans"
+    },
+    {
+      "term": "access levels",
+      "definition": "permissions assigned to users that define what data or functions they can access"
+    },
+    {
+      "term": "privacy settings",
+      "definition": "controls that limit how much information is shared or who can view it"
+    },
+    {
+      "term": "anti-malware software",
+      "definition": "programs designed to detect and remove malicious software"
+    },
+    {
+      "term": "software updates",
+      "definition": "new versions of software released to fix bugs or improve security"
+    }
+  ]
+}
