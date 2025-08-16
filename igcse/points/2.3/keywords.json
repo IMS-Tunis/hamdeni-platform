@@ -1,0 +1,46 @@
+{
+  "2.3a: Understand the need for and purpose of encryption when transmitting data": [
+    {
+      "term": "eavesdropper",
+      "definition": "another name for a hacker who intercepts data being transmitted on a wired or wireless network"
+    },
+    {
+      "term": "encryption",
+      "definition": "a method of securing data for storage or transmission that scrambles it and makes it meaningless"
+    }
+  ],
+  "2.3b: Understand how data is encrypted using symmetric and asymmetric encryption": [
+    {
+      "term": "asymmetric encryption",
+      "definition": "a type of encryption that uses two different keys to encrypt and decrypt data"
+    },
+    {
+      "term": "ciphertext",
+      "definition": "the name given to data after transmission"
+    },
+    {
+      "term": "encryption algorithm",
+      "definition": "a complex piece of software that takes plaintext and generates an encrypted string known as ciphertext"
+    },
+    {
+      "term": "encryption key",
+      "definition": "a type of algorithm that is used to encrypt data"
+    },
+    {
+      "term": "plaintext",
+      "definition": "the name given to data before encryption"
+    },
+    {
+      "term": "private key",
+      "definition": "a type of encryption key which is known only to the single computer/user"
+    },
+    {
+      "term": "public key",
+      "definition": "a type of encryption key that is known to all users"
+    },
+    {
+      "term": "symmetric encryption",
+      "definition": "a type of encryption that uses the same key to encrypt and decrypt data"
+    }
+  ]
+}

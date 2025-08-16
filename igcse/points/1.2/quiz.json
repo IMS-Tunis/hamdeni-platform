@@ -1,102 +1,79 @@
 {
   "questions": [
     {
-      "type": "mcq",
-      "question": "What is the main reason computers use binary to represent all data?",
-      "options": [
-        "Binary numbers are easier for humans to read",
-        "Computers use logic gates that only understand ON and OFF states",
-        "It uses less power",
-        "Binary numbers are shorter than decimal numbers"
-      ],
-      "answer": "Computers use logic gates that only understand ON and OFF states"
-    },
-    {
-      "type": "mcq",
-      "question": "In an 8-bit binary number, what does the leftmost bit represent?",
-      "options": [
-        "Least Significant Bit",
-        "The parity bit",
-        "Most Significant Bit",
-        "The hexadecimal value"
-      ],
-      "answer": "Most Significant Bit"
-    },
-    {
-      "type": "mcq",
-      "question": "Which of the following is a hexadecimal digit?",
-      "options": [
-        "8",
-        "G",
-        "H",
-        "Q"
-      ],
-      "answer": "8"
-    },
-    {
-      "type": "mcq",
-      "question": "What is the maximum value that can be represented in an 8-bit binary number?",
-      "options": [
-        "255",
-        "256",
-        "128",
-        "1024"
-      ],
-      "answer": "255"
-    },
-    {
       "type": "fill_blank",
-      "question": "The process of moving all bits in a binary number to the left or right and filling the emptied spaces with zeros is called a __________ shift.",
-      "answer": "Logical"
-    },
-    {
-      "type": "fill_blank",
-      "question": "In binary addition, if the result is too large for the register to hold, this is called an __________ error.",
-      "answer": "Overflow"
-    },
-    {
-      "type": "fill_blank",
-      "question": "Each hexadecimal digit can be represented by exactly ___ binary bits.",
-      "answer": "4"
-    },
-    {
-      "type": "true_false",
-      "question": "Digital data can take any value, just like analogue data.",
-      "answer": "False"
-    },
-    {
-      "type": "true_false",
-      "question": "In two’s complement, the most significant bit represents the sign of the number.",
-      "answer": "True"
-    },
-    {
-      "type": "true_false",
-      "question": "The denary number system is also known as base 16.",
-      "answer": "False"
+      "question": "A __________ is a defined list of characters where each character has a fixed binary code; one common example is _______ _______ _______ for _______ _______.",
+      "answer": "character set; American Standard Code for Information Interchange"
     },
     {
       "type": "match",
-      "question": "Match the term with its correct definition:",
+      "question": "Match each term to its description.",
       "pairs": {
-        "Register": "Used to temporarily hold binary data",
-        "Logic gate": "Basic building block for processing digital data",
-        "Two’s complement": "Method to represent negative binary"
+        "ASCII": "A character set that assigns a unique code to common characters",
+        "Unicode": "Supports a much wider range of characters and languages than ASCII",
+        "Binary": "Form used by computers to store and process text"
+      }
+    },
+    {
+      "type": "mcq",
+      "question": "What is the main advantage of Unicode over ASCII?",
+      "options": [
+        "Unicode uses less storage space",
+        "Unicode processes text faster",
+        "Unicode supports a much wider range of characters and languages",
+        "Unicode uses simpler binary codes"
+      ],
+      "answer": "Unicode supports a much wider range of characters and languages"
+    },
+    {
+      "type": "mcq",
+      "question": "What is the effect of increasing the sample rate?",
+      "options": [
+        "Captures the sound less accurately and reduces the file size",
+        "Captures the sound more accurately and increases the file size",
+        "Leaves accuracy and file size unchanged",
+        "Decreases accuracy and increases the file size"
+      ],
+      "answer": "Captures the sound more accurately and increases the file size"
+    },
+    {
+      "type": "fill_blank",
+      "question": "The sample rate is the number of ______ taken each second, measured in ______.",
+      "answer": "samples; hertz"
+    },
+    {
+      "type": "match",
+      "question": "Match each term to its description.",
+      "pairs": {
+        "Sampling with an analogue to digital converter": "Measures the sound wave at set intervals and approximate amplitude values are stored in binary",
+        "Sample rate": "Number of samples taken each second",
+        "Sample resolution": "Number of bits used to store each sample"
+      }
+    },
+    {
+      "type": "mcq",
+      "question": "What is a pixel?",
+      "options": [
+        "The number of samples taken each second in a sound file",
+        "The smallest image unit in a bitmap",
+        "A list of characters where each has a fixed binary code",
+        "A measurement of audio amplitude stored in binary"
+      ],
+      "answer": "The smallest image unit in a bitmap"
+    },
+    {
+      "type": "match",
+      "question": "Match each term to its description.",
+      "pairs": {
+        "Image metadata": "Information such as width and height that helps software reconstruct the image correctly when displayed",
+        "Image resolution": "Number of pixels in the image; higher values show more detail and increase the file size",
+        "Colour depth": "Number of bits used for each pixel; more bits allow more possible colours and increase the file size"
       }
     },
     {
       "type": "fill_blank",
-      "question": "Convert the binary number 1101 to denary: __________",
-      "answer": "13"
-    },
-    {
-      "type": "fill_blank",
-      "question": "What is the hexadecimal equivalent of the denary number 15? __________",
-      "answer": "F"
-    },
-    {
-      "type": "fill_blank",
-      "question": "What is the binary value for the hexadecimal digit C? __________",
-      "answer": "1100"
+      "question": "Image resolution is the number of pixels in the image, given by its ______ multiplied by its ______.",
+      "answer": "width; height"
     }
   ]
 }

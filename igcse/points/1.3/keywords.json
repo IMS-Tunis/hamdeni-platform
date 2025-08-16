@@ -1,0 +1,29 @@
+{
+  "1.3a: Understand how data storage is measured": [
+    { "term": "bit", "definition": "the basic computing element that is either 0 or 1, and is formed from the words Binary digit" },
+    { "term": "sampling resolution", "definition": "the number of bits used to represent sound amplitude in digital sound recording (also known as bit depth)" },
+    { "term": "colour depth", "definition": "the number of bits used to represent the colours of a pixel" }
+  ],
+  "1.3b: Calculate the file size of an image file and a sound file": [
+    { "term": "bitmap image", "definition": "an image made up of pixels" },
+    { "term": "pixel", "definition": "derived from the term 'picture element', this is the smallest element used to make up an image on a display" },
+    { "term": "image resolution", "definition": "the number of pixels in the X–Y direction of an image, for example, 4096 × 3192 pixels" },
+    { "term": "sampling rate", "definition": "the number of sound samples taken per second in digital sound recording" },
+    { "term": "pixel density", "definition": "number of pixels per square inch" },
+    { "term": "pixelated (image)", "definition": "this is the result of zooming into a bitmap image; on zooming out the pixel density can be diminished to such a degree that the actual pixels themselves can be seen" }
+  ],
+  "1.3c: Understand the purpose of and need for data compression": [
+    { "term": "compression", "definition": "a method that uses an algorithm to reduce the size of a file" },
+    { "term": "bandwidth", "definition": "the maximum rate of transfer of data across a network, measured in kilobits per second (kbps) or megabits per second (Mbps)" }
+  ],
+  "1.3d: Understand how files are compressed using lossy and lossless compression methods": [
+    { "term": "lossy", "definition": "a compression method that reduces the size of a file by permanently removing data" },
+    { "term": "lossless", "definition": "a compression method that reduces the size of a file by temporarily altering the data" },
+    { "term": "run length encoding (RLE)", "definition": "An algorithm that groups together repeating patterns and indexes them" },
+    { "term": "perceptual music shaping", "definition": "a process that is used in lossy compression that removes sounds that are not normally heard by the human ear" },
+    { "term": "audio compression", "definition": "a method used to reduce the size of a sound file using perceptual music shaping" },
+    { "term": "MP3", "definition": "a lossy file compression method used for music files" },
+    { "term": "MP4", "definition": "a lossy file compression method used for multimedia files" },
+    { "term": "JPEG", "definition": "from Joint Photographic Expert Group; a form of lossy file compression used with image files which relies on the inability of the human eye to distinguish certain colour changes and hues" }
+  ]
+}

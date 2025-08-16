@@ -1,0 +1,130 @@
+{
+  "4.1a": [
+    {
+      "term": "software",
+      "definition": "a series of instructions written in a programming language that performs a function"
+    },
+    {
+      "term": "system software",
+      "definition": "a type of software that manages the hardware and software in a computer"
+    },
+    {
+      "term": "application software",
+      "definition": "software that allows the user to perform a useful task"
+    },
+    {
+      "term": "utility programs",
+      "definition": "system software that performs housekeeping activities"
+    }
+  ],
+  "4.1b": [
+    {
+      "term": "operating system",
+      "definition": "software that provides an environment in which applications can run and also provides an interface between computer and human operator"
+    },
+    {
+      "term": "human computer interface (HCI)",
+      "definition": "an interface supplied by the operating system to ‘hide’ the complexities of the software and hardware from the human user"
+    },
+    {
+      "term": "Graphical User Interface (GUI)",
+      "definition": "an interface that uses icons to represent apps and tasks which the user can select/launch by clicking on a mouse or using a touch screen"
+    },
+    {
+      "term": "windows icons menu and pointing device (WIMP)",
+      "definition": "an interface that uses a pointing device such as  a mouse to select options from screen icons or a menu"
+    },
+    {
+      "term": "post-WIMP",
+      "definition": "a modern touch screen interface system that allows actions such as pinching and rotating"
+    },
+    {
+      "term": "command line interface (CLI)",
+      "definition": "an interface which allows communication with the computer by typing in commands using a keyboard"
+    },
+    {
+      "term": "natural language interface",
+      "definition": "a type of operating system that allows the user to type or speak commands"
+    },
+    {
+      "term": "interface",
+      "definition": "the method by which a user communicates with a computer"
+    },
+    {
+      "term": "file management",
+      "definition": "part of an operating system that manages files in a computer (for example, the ability to create, delete, copy, open, close and rename files)"
+    },
+    {
+      "term": "memory management",
+      "definition": "the part of an operating system that controls main memory"
+    },
+    {
+      "term": "hardware management",
+      "definition": "the part of an operating system that controls all input and output devices; it is made up of sub-systems such as printer management"
+    },
+    {
+      "term": "security management",
+      "definition": "the part of an operating system that ensures the integrity, confidentiality and availability of data"
+    },
+    {
+      "term": "multitasking",
+      "definition": "a function that allows a computer to process more than one task/process at a time"
+    },
+    {
+      "term": "buffer",
+      "definition": "a memory area used to store data temporarily"
+    },
+    {
+      "term": "user account",
+      "definition": "an agreement that allows an individual to use a computer; the user needs a user name and password to enter the user’s area"
+    }
+  ],
+  "4.1c": [
+    {
+      "term": "firmware",
+      "definition": "instructions that are stored in the ROM and are loaded when the computer starts"
+    },
+    {
+      "term": "boot up/bootstrap loader",
+      "definition": "a small program that is used to load other programs to correctly ‘start-up’ a computer system"
+    },
+    {
+      "term": "bootstrap",
+      "definition": "the first commands loaded when a computer starts, it checks hardware and loads the firmware"
+    }
+  ],
+  "4.1d": [
+    {
+      "term": "driver",
+      "definition": "a program that controls a device, for example, a printer or a keyboard"
+    },
+    {
+      "term": "device driver",
+      "definition": "software that communicates with the operating system and translates data into a format understood by the device"
+    },
+    {
+      "term": "peripheral",
+      "definition": "a hardware device, used to input, store or output data from a computer, that is not directly part of the computer itself"
+    },
+    {
+      "term": "interrupt",
+      "definition": "a signal sent to the processor to tell it that its attention is required"
+    },
+    {
+      "term": "interrupt priority",
+      "definition": "the priority assigned to an interrupt so that the microprocessor knows which one needs to be serviced first and which interrupts are to be dealt with quickly"
+    },
+    {
+      "term": "service (an interrupt)",
+      "definition": "when an interrupt is received, some action needs to be taken by the processor depending on what caused the interrupt; until this is resolved (that is, it is serviced), the interrupt cannot be removed to allow the processor to continue"
+    },
+    {
+      "term": "interrupt handler (IH)",
+      "definition": "a program that organises interrupts into an order based upon priorities"
+    },
+    {
+      "term": "interrupt service routine (ISR)",
+      "definition": "a program that retrieves an interrupt and performs the required action(s)"
+    }
+  ]
+}

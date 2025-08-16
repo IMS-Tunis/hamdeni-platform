@@ -1,20 +1,68 @@
 [
   {
-    "point_id": "5.1",
+    "point_id": "5.1a",
     "question_number": 1,
-    "question": "State one benefit of using binary in computers.",
-    "mark_scheme": "Binary is simple for electronic circuits, representing two states such as on/off."
+    "question": "Define the term \u2018Internet\u2019.",
+    "mark_scheme": "The Internet is a global system of interconnected computer networks that allows devices worldwide to communicate and exchange data."
   },
   {
-    "point_id": "5.1",
+    "point_id": "5.1a",
     "question_number": 2,
-    "question": "Define the term 'protocol' in networking.",
-    "mark_scheme": "A protocol is a set of rules that allow devices to communicate."
+    "question": "State two differences between the Internet and the World Wide Web.",
+    "mark_scheme": "1) The Internet is the physical infrastructure of networks and devices, while the World Wide Web is a service that uses the Internet to access websites.\n2) The Internet allows functions like email and video conferencing, while the World Wide Web is specifically used to access and display web pages using a browser."
   },
   {
-    "point_id": "5.1",
+    "point_id": "5.1b",
     "question_number": 3,
-    "question": "Explain the purpose of an IP address.",
-    "mark_scheme": "It uniquely identifies a device on a network."
+    "question": "Identify the three main components of a URL.",
+    "mark_scheme": "1) Protocol (e.g., https)\n2) Domain name, including host and type (e.g., www.hoddereducation.co.uk)\n3) Path and file name (e.g., /ict)"
+  },
+  {
+    "point_id": "5.1b",
+    "question_number": 4,
+    "question": "A user enters the following URL into a web browser: https://www.hoddereducation.co.uk/ict\nIdentify the following parts of the URL:\na) The protocol\nb) The domain name\nc) The domain suffix",
+    "mark_scheme": "a) https\nb) hoddereducation\nc) .co.uk (a second-level domain and country code combined)"
+  },
+  {
+    "point_id": "5.1c",
+    "question_number": 5,
+    "question": "Explain the difference between how HTTP and HTTPS operate to provide access to a website.",
+    "mark_scheme": "HTTP is a protocol used to transfer web pages and data between a browser and a web server. HTTPS adds a layer of security by encrypting the data using SSL or TLS. The browser requests a digital certificate from the server, verifies it with a certificate authority, and then establishes an encrypted connection."
+  },
+  {
+    "point_id": "5.1c",
+    "question_number": 6,
+    "question": "Explain why HTTPS is more secure than HTTP.",
+    "mark_scheme": "HTTPS encrypts data using SSL/TLS protocols and authenticates websites via digital certificates, preventing interception of sensitive information (e.g., passwords). HTTP lacks encryption, making data vulnerable to theft."
+  },
+  {
+    "point_id": "5.1d",
+    "question_number": 7,
+    "question": "Describe three functions of a web browser.",
+    "mark_scheme": "1) It renders HTML, CSS, and JavaScript to display web pages.\n2) It provides features such as tabbed browsing, bookmarks, and navigation tools.\n3) It stores and manages cookies and browsing history."
+  },
+  {
+    "point_id": "5.1e",
+    "question_number": 8,
+    "question": "Outline the steps taken when a user enters a URL into a browser.",
+    "mark_scheme": "1) The browser sends the URL to a DNS server to resolve the domain name into an IP address.\n2) The browser uses the IP address to request the web page from the web server via HTTP/HTTPS.\n3) The web server sends HTML/CSS files to the browser, which renders them into a visible webpage."
+  },
+  {
+    "point_id": "5.1f",
+    "question_number": 9,
+    "question": "Explain what a persistent cookie is and give three of its uses.",
+    "mark_scheme": "A persistent cookie is a type of cookie stored on the user's hard drive until it expires or is deleted. It is used to:\n1) Save login details\n2) Store preferences (e.g., language, theme)\n3) Retain items in an online shopping cart"
+  },
+  {
+    "point_id": "5.1f",
+    "question_number": 10,
+    "question": "Compare session cookies and persistent cookies.",
+    "mark_scheme": "Session cookies are temporary and deleted when the browser is closed. Persistent cookies remain stored on the user's device and are used across multiple sessions until they expire or are deleted."
+  },
+  {
+    "point_id": "5.1e",
+    "question_number": 11,
+    "question": "Complete the following paragraph using words from the list:\nList: browser, DNS, IP address, web server, HTTP, HTML\n\nThe user types the URL into the address bar in the _________. This is sent to the _________ where the corresponding _________ is found. The browser uses it to contact the _________ using the _________ protocol. The web pages are then sent to the browser, which renders the _________ to display the content.",
+    "mark_scheme": "\u2022 browser\n\u2022 DNS\n\u2022 IP address\n\u2022 web server\n\u2022 HTTP\n\u2022 HTML"
   }
 ]

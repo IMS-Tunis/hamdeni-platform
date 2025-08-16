@@ -1,0 +1,180 @@
+{
+  "3.1a: Role of the CPU and Microprocessor": [
+    {
+      "type": "official",
+      "text": "The [KEYWORD: central processing unit (CPU)]{a component in a computer system that processes data and instructions}, also called a [KEYWORD: microprocessor]{an integrated circuit that is able to perform many of the functions of a CPU} or processor, is the main part of the computer that processes all data and instructions, similar to the brain in a human body."
+    },
+    {
+      "type": "sub-official",
+      "text": "It is found in all modern devices like PCs, tablets, and smartphones, often built into a single [KEYWORD: integrated circuit]{usually a chip made from a semiconductor material which carries out the same tasks as a larger circuit made from individual components}."
+    },
+    {
+      "type": "sub-official",
+      "text": "The CPU usually contains three key parts: the [KEYWORD: control unit]{the component in the CPU that controls all the operations in the CPU} (CU), the [KEYWORD: arithmetic and logic unit (ALU)]{the component in the CPU that performs all the mathematical and logical operations required when processing data and instructions}, and [KEYWORD: registers]{a temporary component in the CPU which can be general or specific in its use} connected through buses."
+    },
+    {
+      "type": "official",
+      "text": "In smaller electronic systems, like washing machines or traffic lights, a similar component called a microprocessor is used."
+    },
+    {
+      "type": "sub-official",
+      "text": "These microprocessors are part of [KEYWORD: embedded systems]{a computer system that performs a dedicated function}, which are designed to carry out one specific task rather than multiple ones."
+    },
+    {
+      "type": "example",
+      "text": "A washing machine uses a microprocessor to control dedicated tasks like selecting and executing wash cycles."
+    },
+    {
+      "type": "fun",
+      "text": "If your brain had a CPU, it would be like your personal assistant - sorting tasks, solving math, and making sure you don’t forget lunch. A washing machine’s microprocessor is like a helper that just knows how to do laundry - nothing else!"
+    },
+    {
+      "type": "example",
+      "text": "Example: In a parking system, a microprocessor checks if a sensor is activated, compares how long a car has been parked against the time paid, and sends a signal to an output device (like a barrier) if the time is exceeded."
+    }
+  ],
+  "3.1b: Von Neumann Architecture, CPU Components, FDE Cycle": [
+    {
+      "type": "official",
+      "text": "The [KEYWORD: Von Neumann architecture]{a type of computer architecture which introduced the concept of the stored program in the 1940s} is a design model where both data and programs are stored in memory and processed by a central CPU using a repeated [KEYWORD: Fetch–Decode–Execute (FDE) cycle]{the cycle through which data and instructions are processed}."
+    },
+    {
+      "type": "sub-official",
+      "text": "The architecture uses a system of components including: [KEYWORD: Program Counter (PC)]{a component in the CPU that stores the address of the next instruction to be processed}, [KEYWORD: Memory Address Register (MAR)]{a component in the CPU that holds the address of the data or instruction to be located in RAM}, [KEYWORD: Memory Data Register (MDR)]{a component in the CPU that holds the data or instruction that are fetched from RAM}, [KEYWORD: Current Instruction Register (CIR)]{a register that stores the current instruction being decoded and executed}, Arithmetic Logic Unit (ALU), [KEYWORD: Accumulator (ACC)]{a register that is built into the ALU that stores the result of any interim calculations}, Control Unit (CU), and the [KEYWORD: system clock]{produces timing signals on the control bus to ensure synchronisation takes place}."
+    },
+    {
+      "type": "sub-official",
+      "text": "The CPU connects to memory and devices using three main [KEYWORD: system buses]{a connection between major components in a computer that can carry data, addresses or control signals}:\n  - [KEYWORD: Address bus]{wires used for the transmission of addresses between components in a computer}: sends memory locations in one direction ([KEYWORD: unidirectional]{can travel in one direction only; used to describe data})\n  - [KEYWORD: Data bus]{wires used for the transmission of data and instructions between components in a computer}: sends and receives data ([KEYWORD: bidirectional]{can travel in both directions; used to describe data})\n  - [KEYWORD: Control bus]{wires used for the transmission of control signals between components in a computer}: sends control signals (usually bidirectional)"
+    },
+    {
+      "type": "official",
+      "text": "The Fetch stage involves several steps:\n  - The PC stores the address of the next instruction and sends it to the MAR using the address bus.\n  - The instruction at that address is copied from [KEYWORD: immediate access store (IAS)]{memory that holds all data and programs needed to be accessed by the control unit} into the MDR.\n  - The MDR passes the instruction to the CIR, where it is ready to be decoded.\n  - The PC is incremented by 1 to point to the next instruction."
+    },
+    {
+      "type": "official",
+      "text": "In the Decode stage, the CIR uses the instruction set to decode the instruction so the CPU understands what to do."
+    },
+    {
+      "type": "official",
+      "text": "In the Execute stage, the CU sends control signals to carry out the decoded instruction. If calculations are needed, the ALU performs them using the ACC."
+    },
+    {
+      "type": "example",
+      "text": "Reading from RAM:\n  MAR holds address 1111 0001 → RAM sends data 0101 1011 to MDR.\n  Why it matters: Shows how CPUs find and process instructions step-by-step."
+    },
+    {
+      "type": "fun",
+      "text": "Think of the fetch-decode-execute cycle like ordering pizza: You look up the pizza (fetch), read the recipe (decode), and cook it (execute). The CPU does this millions of times per second - but sadly, no pizza at the end."
+    }
+  ],
+  "🔹 3.1c: Core, Cache, and Clock - Factors Affecting Performance": [
+    {
+      "type": "official",
+      "text": "CPU performance is about how quickly the CPU can carry out instructions, and it's affected by three main things: [KEYWORD: clock speed]{the number of fetch-decode-execute cycles that can be performed in a second}, number of [KEYWORD: cores]{the part of the CPU that contains all the components that are used to perform the fetch-decode-execute cycle}, and size of [KEYWORD: cache]{a type of storage that is built into the CPU, to store the most frequently used data and instructions}."
+    },
+    {
+      "type": "official",
+      "text": "The clock speed is measured in gigahertz (GHz) and tells how many [KEYWORD: clock cycles]{clock speeds are measured in terms of GHz; this is the vibrational frequency of the system clock which sends out pulses along the control bus} can be completed per second. A faster clock can increase processing speed but may also cause overheating or errors if pushed beyond safe limits ([KEYWORD: overclocking]{changing the clock speed of a system clock to a value higher than the factory/recommended setting})."
+    },
+    {
+      "type": "example",
+      "text": "Example: Increasing clock speed from 2.4 GHz to 3.5 GHz improves CPU performance by allowing more instructions per second to be executed, speeding up processing and improving responsiveness."
+    },
+    {
+      "type": "official",
+      "text": "Cores are individual processors within the CPU. More cores allow more instructions to be processed at the same time."
+    },
+    {
+      "type": "sub-official",
+      "text": "A [KEYWORD: dual-core]{a CPU containing two cores} CPU can process two instructions at once; a [KEYWORD: quad-core]{a CPU containing four cores} can do four, allowing multitasking."
+    },
+    {
+      "type": "sub-official",
+      "text": "However, more cores don’t always double performance because the CPU must coordinate communication between cores."
+    },
+    {
+      "type": "official",
+      "text": "Cache is high-speed memory inside the CPU that stores frequently used data and instructions."
+    },
+    {
+      "type": "sub-official",
+      "text": "Using cache is faster than accessing RAM, so more cache generally means better performance-up to a point."
+    },
+    {
+      "type": "example",
+      "text": "A 2.4 GHz dual-core CPU processes 4.8 billion instructions/second:\n  Calculation: 2.4 billion cycles/core × 2 cores = 4.8 billion.\n  Why it matters: Shows how cores and speed multiply performance."
+    },
+    {
+      "type": "fun",
+      "text": "More cores in a CPU are like more chefs in a kitchen - they can cook faster, but only if they don’t bump into each other. And cache is like a spice rack on the counter - faster than running to the pantry (RAM)!"
+    }
+  ],
+  "🔹 3.1d: Instruction Set": [
+    {
+      "type": "official",
+      "text": "An [KEYWORD: instruction set]{a set of commands that can be processed by a certain CPU} is a list of all low-level machine code commands a CPU can understand and execute."
+    },
+    {
+      "type": "sub-official",
+      "text": "Each instruction consists of an [KEYWORD: opcode]{part of a machine code instruction that identifies what action the CPU has to perform} (the action to be performed) and an [KEYWORD: operand]{part of a machine code instruction that identifies what data is to be used} (the data or location the action applies to)."
+    },
+    {
+      "type": "sub-official",
+      "text": "Software written in high-level programming languages is translated into these low-level instructions by compilers or interpreters."
+    },
+    {
+      "type": "example",
+      "text": "The X86 instruction set (used in Intel CPUs) allows different computers to run the same software."
+    },
+    {
+      "type": "fun",
+      "text": "An instruction set is like a language your CPU speaks. If you shout “Wash the dishes!” at your toaster, it won’t respond - wrong instruction set. CPUs need the right opcodes to do the job!"
+    }
+  ],
+  "🔹 3.1e: Embedded Systems": [
+    {
+      "type": "official",
+      "text": "An embedded system is a computer system built into a larger device to perform one specific, dedicated function."
+    },
+    {
+      "type": "sub-official",
+      "text": "Most embedded systems are not easy to reprogram and are designed to carry out their specific tasks reliably without frequent updates."
+    },
+    {
+      "type": "sub-official",
+      "text": "Embedded systems may include microcontrollers (with CPU, RAM, ROM on a chip), microprocessors (CPU only), or SoC (System on Chip) that combines everything."
+    },
+    {
+      "type": "official",
+      "text": "Embedded systems are used in devices like washing machines, GPS units, security alarms, vending machines, lighting systems, and medical equipment."
+    },
+    {
+      "type": "sub-official",
+      "text": "They may take input from sensors (e.g., temperature, pressure), process it, and give outputs such as displaying information or controlling motors."
+    },
+    {
+      "type": "official",
+      "text": "Some embedded systems are programmable (software can be updated), while others are fixed and need replacement if outdated."
+    },
+    {
+      "type": "example",
+      "text": "A car’s ABS braking system:\n  Inputs: Sensors detecting wheel speed.\n  Output: Adjusts brake pressure instantly."
+    },
+    {
+      "type": "official",
+      "text": "Embedded systems are used in devices like washing machines, GPS units, security alarms, vending machines, lighting systems, and medical equipment."
+    },
+    {
+      "type": "example",
+      "text": "Example: A vending machine uses sensors to read coin values and temperatures and actuators to release snacks. All of this is controlled by an embedded system, making the machine work automatically."
+    },
+    {
+      "type": "example",
+      "text": "Example: A smartwatch is not a general-purpose computer because it is built for limited, specific functions like fitness tracking or notifications and cannot run a wide range of software like a laptop or desktop computer."
+    },
+    {
+      "type": "fun",
+      "text": "An embedded system is like that friend who only talks about one thing - cars, games, or cake. They’re great at that one thing, but don’t expect them to help with your math homework."
+    }
+  ]
+}

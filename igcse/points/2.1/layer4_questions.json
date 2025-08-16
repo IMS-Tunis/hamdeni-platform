@@ -1,14 +1,66 @@
 [
   {
-    "question": "Explain what is meant by a validation test in computer science education.",
-    "answer": "A validation test checks that students have understood the material and are ready to progress."
+    "question": "2 Data can be transmitted from one device to another.\n(b) Data is broken down into smaller units to be transmitted from one device to another.\nGive the name of the unit that data is broken down into.",
+    "answer": "Packet"
   },
   {
-    "question": "State one advantage of practicing with past paper questions before an exam.",
-    "answer": "Past paper questions familiarize students with the exam style and improve confidence."
+    "question": "2 The artist compresses the image file before uploading it to their website. Users can download the image file from the website to print as a poster.\n(d) (i) Explain how a file is broken down into packets and transmitted over a network.",
+    "answer": "Any three from:\n• Data is split into fixed size packets  \n• The data is the payload  \n• Each packet is given a header  \n• … example of header data e.g. Destination IP, packet number, hop number  \n• Each packet has a trailer  \n• … example of trailer data e.g. error checking method  \n\nAny three from:\n• Router directs each packet towards its destination  \n• Routes selects the most efficient path  \n• Each packet can take a different path  \n• Packets can arrive out of order  \n• … after the last packet has arrived, they are reordered"
   },
   {
-    "question": "Give an example of a simple binary operation.",
-    "answer": "Adding two 1-bit binary numbers, e.g. 1 + 1 = 10."
+    "question": "The structure of a packet of data has three elements. One element is the packet header.\n(i) Identify two items of data contained in a packet header.",
+    "answer": "Any two from:\n e.g.\n• Destination IP/address  \n• Packet number  \n• Originators IP/address  \n• Error detection method"
+  },
+  {
+    "question": "The structure of a packet of data has three elements. One element is the packet header.\n(ii) Identify the two other elements of a packet.",
+    "answer": "• Payload  \n• Trailer"
+  },
+  {
+    "question": "4 Data packets are transmitted across a network from one computer to another computer.\n(a) Describe the structure of a data packet.",
+    "answer": "Any three from:\n• A packet is split into three different sections  \n• … the header  \n• … the payload  \n• … the trailer"
+  },
+  {
+    "question": "7 Data is transmitted using the internet.\n(b) The data is transmitted using packet switching.\n(i) Identify two items of data contained in a packet header.",
+    "answer": "Any two from:\n• Destination IP/address  \n• Packet number  \n• Originator’s/senders (IP) address  \n• Error detection method"
+  },
+  {
+    "question": "4 A company decides to create a network for its devices.\n(a) An employee sends an email to another employee. The email is broken down into packets.\nDescribe the structure of a packet of data for the email.",
+    "answer": "Any four from:\n• The data packet has three sections\n• It has a packet header …\n• … that contains data such as the destination address\n• It has a payload …\n• … that contains the main data for the email\n• It has a trailer …\n• … that contains data such as the error detection system used"
+  },
+  {
+    "question": "(e) The report is broken down into packets to be emailed.\n(i) Circle three items of data that can be found in the packet header.\ntrailer    originator’s address    payload\ninterrupt    input    operating system\ndestination address    antivirus    packet number",
+    "answer": "• originator’s address\n• destination address\n• packet number"
+  },
+  {
+    "question": "2 A student has a sound file that is too large to be stored on their external secondary storage device. The student compresses the sound file to make the file size smaller.\n(c) The student sends the sound file to a friend. The file is transmitted across a network that uses packet switching.\n(ii) Explain how the file is transmitted using packet switching.",
+    "answer": "Any five from:\n• Data is broken/split/divided into packets  \n• Each packet (could) take a different route  \n• A router controls the route/path a packet takes  \n• … selecting the shortest/fastest available route/path  \n• Packets may arrive out of order  \n• Once the last packet has arrived, packets are reordered  \n• If a packet is missing/corrupted, it is requested again"
+  },
+  {
+    "question": "(i) Describe how the photographs would be transmitted using serial data transmission.",
+    "answer": "Two from:\n• Data is sent one bit at a time  \n• A single wire is used"
+  },
+  {
+    "question": "6 The table contains descriptions about data transmission methods.\nComplete the table by identifying which data transmission methods are described.\n\nData transmission method  Description\n\n............................................................  Data is transmitted down a single wire, one bit at a time, in one direction only.\n\n............................................................  Data is transmitted down multiple wires, multiple bits at a time, in both directions, but only one direction at a time.\n\n............................................................  Data is transmitted down a single wire, one bit at a time, in both directions at the same time.\n\n............................................................  Data is transmitted down multiple wires, multiple bits at a time, in one direction only.",
+    "answer": "serial simplex — Data is transmitted down a single wire, one bit at a time, in one direction only.\nparallel half-duplex — Data is transmitted down multiple wires, multiple bits at a time, in both directions, but only one direction at a time.\nserial full-duplex — Data is transmitted down a single wire, one bit at a time, in both directions at the same time.\nparallel simplex — Data is transmitted down multiple wires, multiple bits at a time, in one direction only."
+  },
+  {
+    "question": "(b) Computer A needs to be directly connected to a router that is located in a different room.\n(i) Tick (✓) one box to identify whether serial data transmission or parallel data transmission is more suitable for this connection.\nExplain the reasons for your choice.",
+    "answer": "No mark for choice.\nThree from for justification that matches choice.\n\nSerial\n• Data arrives in order sent // does not need reordering  \n• Less likely to experience interference  \n• … less likely to have errors  \n• Can transmit over a longer distance (i.e. another room)  \n• Still fast transmission…  \n• …sufficient for this purpose\n\nParallel\n• Faster transmission speed than serial  \n• … faster response to requests  \n• Very long connection not needed   \n• …next room is (likely) within distance for parallel  \n• … unlikely to error/arrive out of sequence/skew"
+  },
+  {
+    "question": "4 Data packets are transmitted across a network from one computer to another computer.\n(c) Serial data transmission is used to transmit the data packets across the network.\nExplain why serial data transmission is used to transmit the data packets.",
+    "answer": "Any three from:\n• The network may be spread over a long distance …  \n• … so it is more reliable  \n• Bits will be sent/arrive in sequence  \n• …so bits less likely to be skewed  \n• Less crosstalk/interference  \n• … so less likely to have errors  \n• The data may not need to be transmitted at a fast speed // data transmission speed of serial is adequate  \n• The cables in the network only use serial transmission"
+  },
+  {
+    "question": "4 A company decides to create a network for its devices.\n(b)(i) The company decides to use parallel full-duplex data transmission to send the data across the network.\nExplain the reasons why the company have chosen this method of data transmission.",
+    "answer": "Any four from:\n• It sends the data multiple bits at the same time // It uses multiple wires\n• … so the transmission speed of the data will be fast\n• Data may not need to travel a long distance\n• … as the devices are all within a single room\n• It sends data in both directions at the same time\n• … so users on the network can send data to each other with no delay"
+  },
+  {
+    "question": "4 A company decides to create a network for its devices.\n(b)(ii) Give two drawbacks of the company using this method of data transmission.",
+    "answer": "Any two from:\n• More interference/crosstalk (due to multiple wires)\n• Data may be skewed (due to multiple bits at a time) // bits may arrive out of order\n• More chance of data collisions (as data sent in both directions at the same time)\n• More chance of error in the data"
+  },
+  {
+    "question": "5 (b) After a barcode is scanned, data is sent to a stock control system to update the stock value stored for that product. The data is sent to the stock control system using serial simplex data transmission.\n(ii) Explain why serial simplex is the most appropriate method of data transmission for this purpose.",
+    "answer": "Any three from:\n• The stock control system may be a long distance away\n• … parallel should not be used in long distance transmission // Serial is more reliable for long distance transmission\n• The data does not need to be sent quickly\n• … the increased speed of parallel is not needed\n• … as only small amounts of data need to be sent\n• The bits are sent/arrived in order\n• … the data will not be skewed // the data could be skewed if parallel was used\n• … there will be no data collisions\n• There will be less interference/crosstalk (due to single wire)\n• … there will be fewer errors in the data\n• No need for a reply/response from stock control system\n• … half-duplex/full-duplex is not necessary as only one way transmission needed"
   }
 ]

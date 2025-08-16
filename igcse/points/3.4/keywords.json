@@ -1,0 +1,46 @@
+{
+  "3.4a: Understand that a computer needs a network interface card (NIC) to access a network": [
+    {
+      "term": "network",
+      "definition": "computers and devices that are joined together using cables or wireless technology."
+    },
+    {
+      "term": "transmission media",
+      "definition": "the cables that are used to transfer data in a network."
+    },
+    {
+      "term": "network interface card (NIC)",
+      "definition": "the component in a computer that is used to connect it to a network."
+    }
+  ],
+  "3.4b: Understand the purpose and structure of a media access control (MAC) address": [
+    {
+      "term": "MAC address",
+      "definition": "the unique address that is given to a NIC by the manufacturer."
+    }
+  ],
+  "3.4c: Understand IP addresses and their types": [
+    {
+      "term": "static IP address",
+      "definition": "an IP address that doesn’t change."
+    },
+    {
+      "term": "dynamic IP address",
+      "definition": "an IP address that can change each time the device connects to a network."
+    },
+    {
+      "term": "dynamic host configuration protocol (DHCP)",
+      "definition": "a server that automatically provides and assigns an IP address."
+    }
+  ],
+  "3.4d: Describe the role of a router in a network": [
+    {
+      "term": "data packet",
+      "definition": "a unit of data that is used to transmit data across a network."
+    },
+    {
+      "term": "router",
+      "definition": "a device that enables data packets to be moved between different networks, for example, to join a LAN to a WAN."
+    }
+  ]
+}

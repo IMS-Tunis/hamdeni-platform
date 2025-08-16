@@ -1,14 +1,66 @@
 [
   {
-    "question": "Explain what is meant by a validation test in computer science education.",
-    "answer": "A validation test checks that students have understood the material and are ready to progress."
+    "question": "Describe the role of the CPU in the computer.",
+    "answer": "• Controls all the other parts of the computer\n• Executes programs / instructions\n• Fetches, decodes and executes instructions\n• Carries out processing / arithmetic and logic operations\n(Max 2 marks)"
   },
   {
-    "question": "State one advantage of practicing with past paper questions before an exam.",
-    "answer": "Past paper questions familiarize students with the exam style and improve confidence."
+    "question": "Describe the role of the microprocessor in the system and how it checks whether the parking cost has been paid.",
+    "answer": "• Microprocessor checks if sensor is activated (1)\n• Microprocessor compares time the car has been parked against time paid (1)\n• If time parked > time paid, then trigger signal to output (e.g. barrier/alert) (1)\n(Max 3 marks)"
   },
   {
-    "question": "Give an example of a simple binary operation.",
-    "answer": "Adding two 1-bit binary numbers, e.g. 1 + 1 = 10."
+    "question": "State the name of the CPU component that sends signals to manage the fetch-decode-execute cycle.",
+    "answer": "• Control unit"
+  },
+  {
+    "question": "Describe the role of the MDR in the fetch-decode-execute cycle.",
+    "answer": "• Stores data that has just been fetched from memory (1)\n• Holds data that is to be sent to memory (1)"
+  },
+  {
+    "question": "Identify three other registers in the CPU.",
+    "answer": "Any three from:\n• Program Counter (PC)\n• Memory Address Register (MAR)\n• Current Instruction Register (CIR)\n• Accumulator (ACC)"
+  },
+  {
+    "question": "(i) State the purpose of a register.\n(ii) Give three CPU registers.\n(iii) Describe the purpose of the ALU.",
+    "answer": "(i) Temporary data store / stores data or instruction being processed\n(ii) Any three from: MAR, MDR, CIR, PC, ACC\n(iii) Performs arithmetic and logic operations"
+  },
+  {
+    "question": "Describe the role of the MAR.",
+    "answer": "• Stores the address of the location in memory where data or an instruction is to be fetched or stored"
+  },
+  {
+    "question": "Explain why a different CPU can increase performance.",
+    "answer": "• Higher clock speed – more instructions per second\n• More cores – multiple instructions processed simultaneously\n• Larger cache – more data stored closer to CPU\n(Any two for max 2)"
+  },
+  {
+    "question": "Explain the purpose of cache in the CPU.",
+    "answer": "• Stores frequently used instructions or data\n• Reduces time needed to access memory\n• Speeds up processing"
+  },
+  {
+    "question": "Explain the effect of increasing clock speed from 2.4 GHz to 3.5 GHz on CPU performance.",
+    "answer": "• Higher clock speed allows more instructions per second to be executed\n• Speeds up processing\n• Increases overall performance"
+  },
+  {
+    "question": "State the name of the list of machine code commands processed by the CPU.",
+    "answer": "• Instruction set"
+  },
+  {
+    "question": "Define the term instruction set.",
+    "answer": "• The complete set of instructions understood/executed by a CPU\n• Written in machine code / binary\n• Instructions used in programs\n(Max 2 marks)"
+  },
+  {
+    "question": "Give two characteristics of an embedded system.",
+    "answer": "• Dedicated to one task\n• Built into the device\n• Cannot be easily reprogrammed"
+  },
+  {
+    "question": "Circle three examples of an embedded system.",
+    "answer": "Correct answers:\n• Microwave\n• Washing machine\n• Traffic lights\n(Award 1 mark for all 3 circled correctly)"
+  },
+  {
+    "question": "State what is meant by an embedded system.",
+    "answer": "• A computer system that performs a dedicated function\n• Built into a larger device/system"
+  },
+  {
+    "question": "Explain why a smartwatch is not a general-purpose computer.",
+    "answer": "• Designed for specific functions\n• Limited capability compared to PCs\n• Cannot run a wide range of software"
   }
 ]

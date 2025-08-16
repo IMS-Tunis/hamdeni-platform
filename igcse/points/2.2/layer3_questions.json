@@ -1,20 +1,103 @@
 [
-  {
-    "point_id": "2.2",
-    "question_number": 1,
-    "question": "State one benefit of using binary in computers.",
-    "mark_scheme": "Binary is simple for electronic circuits, representing two states such as on/off."
-  },
-  {
-    "point_id": "2.2",
-    "question_number": 2,
-    "question": "Define the term 'protocol' in networking.",
-    "mark_scheme": "A protocol is a set of rules that allow devices to communicate."
-  },
-  {
-    "point_id": "2.2",
-    "question_number": 3,
-    "question": "Explain the purpose of an IP address.",
-    "mark_scheme": "It uniquely identifies a device on a network."
-  }
+{
+"point_id": "2.2a",
+"question_number": 1,
+"question": "State three types of errors that can occur during data transmission and explain why it is necessary to check for errors.",
+"mark_scheme": "Answer:\n(State: express in clear terms)\nData loss: some data is missing after transmission.\nData gain: extra data is added during transmission.\nData change: some data is altered or corrupted during transmission.\nError checking is necessary because corrupted data cannot be correctly interpreted by computers; exact, error-free transmission is required for accurate processing."
+},
+{
+"point_id": "2.2a",
+"question_number": 2,
+"question": "Explain why error checking is necessary for computers but not always for humans.",
+"mark_scheme": "Answer:\n(Explain: set out purposes or reasons / make relationships evident)\nComputers require exact, error-free data to execute instructions correctly. Humans can often infer intended meaning from imperfect or scrambled text, but computers do not perform such contextual interpretation."
+},
+{
+"point_id": "2.2b",
+"question_number": 3,
+"question": "Describe how parity check works, including the use of odd and even parity, parity bits, and parity block.",
+"mark_scheme": "Answer:\n(Describe: state the points of a topic / give characteristics and main features)\nA parity bit is added to each byte so that the total number of 1-bits is odd (odd parity) or even (even parity) as agreed by sender and receiver. After reception the receiver recounts and flags an error if the rule is broken. A parity block arranges bytes in a grid and applies parity across rows and columns; the parity byte carries the vertical parity bits. If one row and one column fail parity, their intersection locates the bit in error, which is then corrected or the block retransmitted."
+},
+{
+"point_id": "2.2b",
+"question_number": 4,
+"question": "For each given data pattern, give the even-parity bit: 1100011, 0000000, 1010101.",
+"mark_scheme": "Answer:\n(Calculate: work out from given facts, figures or information)\n1100011 → three 1s → parity bit 1.\n0000000 → zero 1s → parity bit 0.\n1010101 → four 1s → parity bit 0."
+},
+{
+"point_id": "2.2b",
+"question_number": 5,
+"question": "Explain one limitation of single-byte parity checks.",
+"mark_scheme": "Answer:\n(Explain: set out purposes or reasons)\nIf an even number of bits are flipped during transmission, the parity appears correct and the error is not detected."
+},
+{
+"point_id": "2.2b",
+"question_number": 6,
+"question": "Outline the process of checksum error detection.",
+"mark_scheme": "Answer:\n(Outline: set out main points)\nThe sender calculates a checksum from a data block using an agreed method and transmits it with the block. The receiver recalculates the checksum from the received data and compares the two values; a mismatch indicates an error and the block is re-sent."
+},
+{
+"point_id": "2.2b",
+"question_number": 7,
+"question": "Describe how an echo check can be used to detect errors in data transmission and mention one limitation.",
+"mark_scheme": "Answer:\n(Describe: state the points of a topic / give characteristics and main features)\nThe receiver sends the received data back to the sender, which compares the echo with the original; a difference indicates an error. Limitation: a difference cannot show whether the error occurred on the forward path or on the return path."
+},
+{
+"point_id": "2.2c",
+"question_number": 8,
+"question": "Describe how a check digit is used to detect errors during data entry and give two examples of its use.",
+"mark_scheme": "Answer:\n(Describe: state the points of a topic / give characteristics and main features)\nA check digit is calculated from the other digits and stored as the final digit. On entry, the digit is recalculated and compared to detect errors such as wrong digits, transpositions, or missing or extra digits. Examples: ISBN and product barcodes."
+},
+{
+"point_id": "2.2c",
+"question_number": 9,
+"question": "Describe how an ISBN-13 check digit is generated.",
+"mark_scheme": "Answer:\n(Describe: state the points of a topic / give characteristics and main features)\nCount positions from the left starting at 1. Add the odd-position digits. Add the even-position digits and multiply that sum by 3. Add the two results. Find the remainder after division by 10. If the remainder is 0, the check digit is 0; otherwise the check digit is 10 minus the remainder."
+},
+{
+"point_id": "2.2c",
+"question_number": 10,
+"question": "Calculate the ISBN-13 check digit for 978034098382.",
+"mark_scheme": "Answer:\n(Calculate: work out from given facts, figures or information)\nOdd-position sum: 36.\nEven-position sum × 3: 25 × 3 = 75.\nTotal 111; 111 mod 10 = 1; check digit = 10 − 1 = 9.\nFull ISBN-13: 9780340983829."
+},
+{
+"point_id": "2.2c",
+"question_number": 11,
+"question": "Verify the ISBN-13 9780340983829 by recalculation.",
+"mark_scheme": "Answer:\n(Explain: set out purposes or reasons / make the relationships between things evident)\nOdd-position sum including the check digit: 45.\nEven-position sum × 3: 25 × 3 = 75.\nTotal 120; 120 mod 10 = 0, so the code is valid."
+},
+{
+"point_id": "2.2c",
+"question_number": 12,
+"question": "Calculate the modulo-11 check digit for 4156710 using weights 8 to 2.",
+"mark_scheme": "Answer:\n(Calculate: work out from given facts, figures or information)\nWeighted sum: (8×4) + (7×1) + (6×5) + (5×6) + (4×7) + (3×1) + (2×0) = 130.\n130 mod 11 = 9, so the check digit is 11 − 9 = 2.\nComplete code: 41567102."
+},
+{
+"point_id": "2.2c",
+"question_number": 13,
+"question": "Verify the modulo-11 code 41567102 using weights 8 to 1.",
+"mark_scheme": "Answer:\n(Explain: set out purposes or reasons / make the relationships between things evident)\nWeighted sum: (8×4) + (7×1) + (6×5) + (5×6) + (4×7) + (3×1) + (2×0) + (1×2) = 132.\n132 mod 11 = 0, so the code is valid."
+},
+{
+"point_id": "2.2d",
+"question_number": 14,
+"question": "Describe Automatic Repeat Request and the roles of acknowledgements and a timeout.",
+"mark_scheme": "Answer:\n(Describe: state the points of a topic / give characteristics and main features)\nARQ sends a packet and starts a timer. The receiver returns a positive acknowledgement if error-free or a negative acknowledgement if errors are found. A negative acknowledgement or expiry of the timeout causes retransmission until success or a retry limit is reached."
+},
+{
+"point_id": "2.2d",
+"question_number": 15,
+"question": "Explain the difference between ARQ with positive acknowledgement and ARQ with negative acknowledgement.",
+"mark_scheme": "Answer:\n(Explain: set out purposes or reasons / make the relationships between things evident)\nPositive acknowledgement: the receiver confirms only when data is correct; absence before timeout triggers resend.\nNegative acknowledgement: the receiver sends a message only when it detects an error; the sender resends on receipt of that message, using timeout to avoid waiting indefinitely."
+},
+{
+"point_id": "2.2d",
+"question_number": 16,
+"question": "Compare parity check, checksum, and echo check in terms of what is sent in addition to the data.",
+"mark_scheme": "Answer:\n(Compare: identify or comment on similarities and differences)\nParity check sends one parity bit per byte.\nChecksum sends a calculated value per block.\nEcho check returns a copy of the received data to the sender."
+}
 ]
+
+
+
+
+

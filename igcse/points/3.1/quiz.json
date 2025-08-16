@@ -2,101 +2,218 @@
   "questions": [
     {
       "type": "mcq",
-      "question": "What is the main reason computers use binary to represent all data?",
+      "question": "What is the definition of central processing unit (CPU)?",
       "options": [
-        "Binary numbers are easier for humans to read",
-        "Computers use logic gates that only understand ON and OFF states",
-        "It uses less power",
-        "Binary numbers are shorter than decimal numbers"
+        "a user interface for managing system resources",
+        "a high-speed storage device external to the CPU",
+        "a component in a computer system that processes data and instructions",
+        "software used to translate high-level code"
       ],
-      "answer": "Computers use logic gates that only understand ON and OFF states"
+      "answer": "a component in a computer system that processes data and instructions"
     },
     {
       "type": "mcq",
-      "question": "In an 8-bit binary number, what does the leftmost bit represent?",
+      "question": "In smaller electronic systems like washing machines or traffic lights, what component performs similar functions to a CPU?",
       "options": [
-        "Least Significant Bit",
-        "The parity bit",
-        "Most Significant Bit",
-        "The hexadecimal value"
+        "Control unit",
+        "Microprocessor",
+        "Register",
+        "System clock"
       ],
-      "answer": "Most Significant Bit"
+      "answer": "Microprocessor"
     },
     {
       "type": "mcq",
-      "question": "Which of the following is a hexadecimal digit?",
+      "question": "What is the definition of microprocessor?",
       "options": [
-        "8",
-        "G",
-        "H",
-        "Q"
+        "a device used to cool down the CPU",
+        "software used to translate high-level code",
+        "a security system protecting against malware",
+        "an integrated circuit that is able to perform many of the functions of a CPU"
       ],
-      "answer": "8"
+      "answer": "an integrated circuit that is able to perform many of the functions of a CPU"
+    },
+    {
+      "type": "fill_blank",
+      "question": "The three key parts of the CPU are the control unit (CU), the arithmetic and logic unit (ALU), and ______.",
+      "answer": "registers"
     },
     {
       "type": "mcq",
-      "question": "What is the maximum value that can be represented in an 8-bit binary number?",
+      "question": "The von Neumann architecture introduced which key concept in the 1940s?",
       "options": [
-        "255",
-        "256",
-        "128",
-        "1024"
+        "The concept of multiple processors working together",
+        "The concept of the stored program",
+        "The concept of wireless data transmission",
+        "The concept of graphical user interfaces"
       ],
-      "answer": "255"
-    },
-    {
-      "type": "fill_blank",
-      "question": "The process of moving all bits in a binary number to the left or right and filling the emptied spaces with zeros is called a __________ shift.",
-      "answer": "Logical"
-    },
-    {
-      "type": "fill_blank",
-      "question": "In binary addition, if the result is too large for the register to hold, this is called an __________ error.",
-      "answer": "Overflow"
-    },
-    {
-      "type": "fill_blank",
-      "question": "Each hexadecimal digit can be represented by exactly ___ binary bits.",
-      "answer": "4"
-    },
-    {
-      "type": "true_false",
-      "question": "Digital data can take any value, just like analogue data.",
-      "answer": "False"
-    },
-    {
-      "type": "true_false",
-      "question": "In two’s complement, the most significant bit represents the sign of the number.",
-      "answer": "True"
-    },
-    {
-      "type": "true_false",
-      "question": "The denary number system is also known as base 16.",
-      "answer": "False"
+      "answer": "The concept of the stored program"
     },
     {
       "type": "match",
-      "question": "Match the term with its correct definition:",
+      "question": "Match each CPU component with its correct function:",
       "pairs": {
-        "Register": "Used to temporarily hold binary data",
-        "Logic gate": "Basic building block for processing digital data",
-        "Two’s complement": "Method to represent negative binary"
+        "Memory Address Register (MAR)": "Holds the address of the data or instruction to be located in RAM",
+        "Memory Data Register (MDR)": "Holds the data or instruction that are fetched from RAM",
+        "Current Instruction Register (CIR)": "Stores the current instruction being decoded and executed",
+        "Accumulator (ACC)": "Stores the result of any interim calculations"
+      }
+    },
+    {
+      "type": "true_false",
+      "question": "The control bus is always unidirectional.",
+      "answer": "False"
+    },
+    {
+      "type": "mcq",
+      "question": "What is the definition of instruction set?",
+      "options": [
+        "a security system protecting against malware",
+        "a user interface for managing system resources",
+        "a set of commands that can be processed by a certain CPU",
+        "a high-speed storage device external to the CPU"
+      ],
+      "answer": "a set of commands that can be processed by a certain CPU"
+    },
+    {
+      "type": "fill_blank",
+      "question": "The ______ cycle is the process through which data and instructions are processed, and after fetching an instruction, the PC is ______ by 1.",
+      "answer": "fetch-decode-execute (FDE), incremented"
+    },
+    {
+      "type": "true_false",
+      "question": "The system clock synchronises component operations using control signals.",
+      "answer": "True"
+    },
+    {
+      "type": "mcq",
+      "question": "Clock speed, measured in gigahertz, determines:",
+      "options": [
+        "Number of cores in the CPU",
+        "Cache size available",
+        "How many fetch-decode-execute cycles can be performed per second",
+        "Instruction set complexity"
+      ],
+      "answer": "How many fetch-decode-execute cycles can be performed per second"
+    },
+    {
+      "type": "mcq",
+      "question": "What is a quad core CPU?",
+      "options": [
+        "a device used to cool down the CPU",
+        "a CPU containing four cores that can process four instructions simultaneously",
+        "a user interface for managing system resources",
+        "a high-speed storage device external to the CPU"
+      ],
+      "answer": "a CPU containing four cores that can process four instructions simultaneously"
+    },
+    {
+      "type": "mcq",
+      "question": "What is cache in relation to CPU performance?",
+      "options": [
+        "External storage connected to the motherboard",
+        "High-speed memory inside the CPU that stores frequently used data and instructions",
+        "A cooling system for the processor",
+        "A backup power supply for the CPU"
+      ],
+      "answer": "High-speed memory inside the CPU that stores frequently used data and instructions"
+    },
+    {
+      "type": "fill_blank",
+      "question": "The three main factors affecting CPU performance are clock speed, number of cores, and size of ______.",
+      "answer": "cache"
+    },
+    {
+      "type": "mcq",
+      "question": "An instruction set consists of what type of commands?",
+      "options": [
+        "High-level programming language commands",
+        "Low-level machine code commands",
+        "Natural language commands",
+        "Graphical interface commands"
+      ],
+      "answer": "Low-level machine code commands"
+    },
+    {
+      "type": "match",
+      "question": "Match each component with its definition:",
+      "pairs": {
+        "Opcode": "Part of a machine code instruction that identifies what action the CPU has to perform",
+        "Operand": "Part of a machine code instruction that identifies what data is to be used"
       }
     },
     {
       "type": "fill_blank",
-      "question": "Convert the binary number 1101 to denary: __________",
-      "answer": "13"
+      "question": "A machine code instruction consists of an ______ (identifies the action) and an ______ (identifies the data/location).",
+      "answer": "opcode, operand"
+    },
+    {
+      "type": "mcq",
+      "question": "What is the function of an opcode in machine code?",
+      "options": [
+        "part of the CPU that stores address",
+        "a keyword used by programmers",
+        "part of a machine code instruction that identifies what action the CPU has to perform",
+        "the instruction used to end a program"
+      ],
+      "answer": "part of a machine code instruction that identifies what action the CPU has to perform"
+    },
+    {
+      "type": "mcq",
+      "question": "What is the role of a compiler in a computer system?",
+      "options": [
+        "executes all instructions in RAM",
+        "controls program flow",
+        "translates high-level code into low-level machine instructions",
+        "runs without translation"
+      ],
+      "answer": "translates high-level code into low-level machine instructions"
+    },
+    {
+      "type": "mcq",
+      "question": "What is the primary characteristic of an embedded system?",
+      "options": [
+        "It can be easily reprogrammed for multiple functions",
+        "It is a computer system built into a larger device to perform one specific, dedicated function",
+        "It requires frequent software updates to operate",
+        "It only works with external computer connections"
+      ],
+      "answer": "It is a computer system built into a larger device to perform one specific, dedicated function"
+    },
+    {
+      "type": "true_false",
+      "question": "Most embedded systems are not easy to reprogram.",
+      "answer": "True"
     },
     {
       "type": "fill_blank",
-      "question": "What is the hexadecimal equivalent of the denary number 15? __________",
-      "answer": "F"
+      "question": "SoC stands for __________, which combines everything into a single integrated system.",
+      "answer": "System on Chip"
+    },
+    {
+      "type": "mcq",
+      "question": "What type of input/output might an embedded system in a vending machine use?",
+      "options": [
+        "Inputs: barcode reader; Outputs: screen",
+        "Inputs: coin sensors; Outputs: motors or actuators",
+        "Inputs: internet router; Outputs: camera",
+        "Inputs: stylus; Outputs: touchscreen"
+      ],
+      "answer": "Inputs: coin sensors; Outputs: motors or actuators"
+    },
+    {
+      "type": "match",
+      "question": "Match the embedded system component to its description:",
+      "pairs": {
+        "Microcontroller": "CPU, RAM, ROM on one chip",
+        "Microprocessor": "CPU only",
+        "SoC (System on Chip)": "Combines all components (CPU, RAM, etc.)"
+      }
     },
     {
       "type": "fill_blank",
-      "question": "What is the binary value for the hexadecimal digit C? __________",
-      "answer": "1100"
+      "question": "Embedded systems are designed to perform a single ______ function.",
+      "answer": "dedicated"
     }
   ]
 }

@@ -1,14 +1,66 @@
 [
   {
-    "question": "Explain what is meant by a validation test in computer science education.",
-    "answer": "A validation test checks that students have understood the material and are ready to progress."
+    "question": "(a) Explain how the data might have errors after transmission.",
+    "answer": "Any three from:\nData could be lost\nData could be gained/added\nData could be changed\nBits reassembled wrong\nInterference\nCrosstalk\nData collisions\nData packets timeout\nNetwork infected with malware"
   },
   {
-    "question": "State one advantage of practicing with past paper questions before an exam.",
-    "answer": "Past paper questions familiarize students with the exam style and improve confidence."
+    "question": "Give one reason an error may occur when data is transmitted.",
+    "answer": "Any one from:\nNoise/interference\nSignal attenuation\nSignal amplification\nDropped packets/collisions\nHardware error/ ports/cables disconnected/broken\nSoftware errors/bugs"
   },
   {
-    "question": "Give an example of a simple binary operation.",
-    "answer": "Adding two 1-bit binary numbers, e.g. 1 + 1 = 10."
+    "question": "(i) The bytes need to be sent using an even parity byte check.\n\nComplete the parity bit for each byte.\nParity \nbit\nByte A\n1\n1\n0\n0\n0\n1\n1\nByte B\n0\n0\n0\n0\n0\n0\n0",
+    "answer": "One mark each:\n\n0 1 1 0 0 0 1 1\n\n0 0 0 0 0 0 0 0"
+  },
+  {
+    "question": "(ii) A parity block check can be used instead of a parity byte check.\n\nExplain how a parity block check might detect an error in transmission that would not be detected by a parity byte check.",
+    "answer": "One mark each:\n\nIn parity check, interchange of bits will not be detected // Parity check cannot detect even number of changes // Parity check cannot detect error if parity stays correct …\n\n…the (possible) position of all changes will be highlighted // will identify the horizontal and vertical position of all differences/changes"
+  },
+  {
+    "question": "(iii) The data was sent using an even parity block check. One of the bits has been transmitted incorrectly.\n+------------+------+------+------+------+------+------+------+\n|            | Bit 1| Bit 2| Bit 3| Bit 4| Bit 5| Bit 6| Bit 7|\n+------------+------+------+------+------+------+------+------+\n| Byte 0     | 1    | 1    | 1    | 0    | 1    | 0    | 0    |\n| Byte 1     | 0    | 0    | 1    | 0    | 0    | 1    | 0    |\n| Byte 2     | 1    | 0    | 1    | 1    | 0    | 0    | 0    |\n| Byte 3     | 1    | 1    | 0    | 0    | 1    | 1    | 1    |\n| Byte 4     | 1    | 0    | 1    | 0    | 0    | 0    | 1    |\n| Byte 5     | 0    | 0    | 0    | 0    | 0    | 0    | 0    |\n| Byte 6     | 0    | 1    | 1    | 1    | 1    | 0    | 0    |\n+------------+------+------+------+------+------+------+------+\n| Parity byte| 0    | 1    | 1    | 0    | 1    | 0    | 1    |\n+------------+------+------+------+------+------+------+------+\nIdentify the bit number and the byte number of the incorrect bit.",
+    "answer": "One mark each:\n\nBit 6\n\nByte 4"
+  },
+  {
+    "question": "(i) Describe the role of the self-driving tractor and the farmer’s computer in the echo check.",
+    "answer": "Any four from: \nThe data is transmitted from the tractor to the farmer’s computer\nThe same data is transmitted back to the tractor\nThe tractor compares the data it sent to the data it received back\nIf the data is the same then there are no errors\nIf the data is different then an error has occurred and the data is re-sent"
+  },
+  {
+    "question": "Another method of error checking is a parity block check.\n\nThe table shows 7 bytes that are transmitted using odd parity. The parity bit has been completed for each byte.\n\nComplete the parity byte for the data.\nparity \nbit bit 7 bit 6 bit 5 bit 4 bit 3 bit 2 bit 1\nbyte 1 1 1 0 0 1 1 1 0\nbyte 2 1 0 0 0 0 1 1 0\nbyte 3 0 1 0 0 0 0 0 0\nbyte 4 0 1 0 0 1 1 1 1\nbyte 5 1 0 0 0 0 0 0 0\nbyte 6 0 1 1 1 1 1 1 1\nbyte 7 1 1 0 0 1 1 0 1\nparity \nbyte",
+    "answer": "One mark for each correctly input 7 bits\nOne mark for correct parity byte for the data transmitted using odd parity\nCorrect parity byte: 00100101"
+  },
+  {
+    "question": "Complete the table by giving the correct error detection method for each statement.\n\nerror detection method\nstatement\n……………… An odd or even process can be used.\n……………… A value is calculated from the data, using an algorithm. This happens before and after the data is transmitted.\n……………… A copy of the data is sent back to the sender by the receiver.",
+    "answer": "parity (check/bit/byte/block)\nchecksum\necho check"
+  },
+  {
+    "question": "Explain how the odd parity check detects errors.",
+    "answer": "Any four from:\nThe number of 1 s/0 s are counted\nA parity bit is added to each byte/7 bits before transmission\n… to make the sum of the bits/1 or 0 s odd\nThe parity bit is transmitted with the byte\nOnce the data is received the parity of the byte is recalculated\nIf the two do not match there is an error in the byte\nTwo parity bits could both be changed in such a way that the byte appears to be correct but has an error"
+  },
+  {
+    "question": "Explain how the echo check is used to check for errors in the email data.",
+    "answer": "Any four from:\nThe same data is transmitted back to the device that sent it\nThe data received is compared to the data that was sent\nIf the data is identical then there are no errors\nIf the data is not identical an error has occurred and the data is resent"
+  },
+  {
+    "question": "Explain why the values not matching would show an error has occurred.",
+    "answer": "Because the checksum is calculated before and after transmission\nIf the data changes during transmission the checksum value will also change\nIf the checksum values are not identical then an error has occurred"
+  },
+  {
+    "question": "Complete the table by giving the correct error detection method for the statement:\n\n……………… A value is appended to data that has been calculated using the data. This value is checked on data entry.",
+    "answer": "check digit"
+  },
+  {
+    "question": "Explain how the barcode scanning system operates to check for errors.",
+    "answer": "Any four from:\nThe digits are read / scanned\nThe (check digit) is calculated using the digits\nThe calculated value is compared to the check digit\nIf they are the same there are no errors\nIf they are not the same then there are errors\nThe barcode / data is re-scanned\nThe data is rejected"
+  },
+  {
+    "question": "Complete the table by giving the correct error detection method for the statement:\n\n……………… Acknowledgement and timeout are used.",
+    "answer": "automatic repeat query/request // ARQ"
+  },
+  {
+    "question": "Explain how an ARQ operates using a positive acknowledgement method.",
+    "answer": "Any five from:\nTimer starts when data is sent to the receiver\nReceiver sends a positive acknowledgement when data is received without errors\nThe acknowledgement is sent to the sender\nIf the acknowledgement is received before the timer ends, the next packet of data is sent\nIf not, then the data is re-sent"
+  },
+  {
+    "question": "The error detection system uses an odd parity check and a positive automatic repeat query (ARQ).\n\nDescribe how the error detection system operates to check for errors.",
+    "answer": "Any six from:\nOdd parity:\nThe number of 1s/0s are counted\nA parity bit is added to each byte/7 bits before transmission\n… to make the sum of the bits/1 or 0s odd\nThe parity bit is transmitted with the byte\nOnce the data is received the parity of the byte is recalculated\nIf the two do not match there is an error in the byte\nARQ positive acknowledgement:\nTimer starts when data is sent to the receiver\nReceiver sends a positive acknowledgement when data is received without errors\nThe acknowledgement is sent to the sender\nIf the acknowledgement is received before the timer ends, the next packet of data is sent\nIf not, then the data is re-sent"
   }
 ]

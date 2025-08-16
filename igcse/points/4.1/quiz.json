@@ -2,101 +2,140 @@
   "questions": [
     {
       "type": "mcq",
-      "question": "What is the main reason computers use binary to represent all data?",
-      "options": [
-        "Binary numbers are easier for humans to read",
-        "Computers use logic gates that only understand ON and OFF states",
-        "It uses less power",
-        "Binary numbers are shorter than decimal numbers"
-      ],
-      "answer": "Computers use logic gates that only understand ON and OFF states"
-    },
-    {
-      "type": "mcq",
-      "question": "In an 8-bit binary number, what does the leftmost bit represent?",
-      "options": [
-        "Least Significant Bit",
-        "The parity bit",
-        "Most Significant Bit",
-        "The hexadecimal value"
-      ],
-      "answer": "Most Significant Bit"
-    },
-    {
-      "type": "mcq",
-      "question": "Which of the following is a hexadecimal digit?",
-      "options": [
-        "8",
-        "G",
-        "H",
-        "Q"
-      ],
-      "answer": "8"
-    },
-    {
-      "type": "mcq",
-      "question": "What is the maximum value that can be represented in an 8-bit binary number?",
-      "options": [
-        "255",
-        "256",
-        "128",
-        "1024"
-      ],
-      "answer": "255"
+      "question": "Which of the following best describes system software?",
+      "options": [],
+      "answer": "B) Software that manages hardware and provides a platform for other software"
     },
     {
       "type": "fill_blank",
-      "question": "The process of moving all bits in a binary number to the left or right and filling the emptied spaces with zeros is called a __________ shift.",
-      "answer": "Logical"
+      "question": "__________ are programs that enable peripherals to communicate with the operating system.",
+      "answer": "Device drivers"
     },
     {
-      "type": "fill_blank",
-      "question": "In binary addition, if the result is too large for the register to hold, this is called an __________ error.",
-      "answer": "Overflow"
-    },
-    {
-      "type": "fill_blank",
-      "question": "Each hexadecimal digit can be represented by exactly ___ binary bits.",
-      "answer": "4"
-    },
-    {
-      "type": "true_false",
-      "question": "Digital data can take any value, just like analogue data.",
-      "answer": "False"
-    },
-    {
-      "type": "true_false",
-      "question": "In two’s complement, the most significant bit represents the sign of the number.",
-      "answer": "True"
-    },
-    {
-      "type": "true_false",
-      "question": "The denary number system is also known as base 16.",
-      "answer": "False"
+      "type": "mcq",
+      "question": "Which of these is NOT an example of application software?",
+      "options": [],
+      "answer": "C) Device driver"
     },
     {
       "type": "match",
-      "question": "Match the term with its correct definition:",
-      "pairs": {
-        "Register": "Used to temporarily hold binary data",
-        "Logic gate": "Basic building block for processing digital data",
-        "Two’s complement": "Method to represent negative binary"
-      }
+      "question": "Match the terms",
+      "pairs": {}
+    },
+    {
+      "type": "true_false",
+      "question": "Without software, computer hardware can still perform useful tasks.",
+      "answer": "False"
+    },
+    {
+      "type": "mcq",
+      "question": "Which of the following is NOT a main function of an operating system?",
+      "options": [],
+      "answer": "B) Providing web search engines"
+    },
+    {
+      "type": "mcq",
+      "question": "Which interface uses visual elements like windows and icons?",
+      "options": [],
+      "answer": "C) Graphical User Interface"
+    },
+    {
+      "type": "mcq",
+      "question": "A Command Line Interface (CLI) is best suited for which type of user?",
+      "options": [],
+      "answer": "B) Advanced users who need precise control"
+    },
+    {
+      "type": "mcq",
+      "question": "Which feature of an OS allows multiple applications to run at the same time?",
+      "options": [],
+      "answer": "B) Multitasking"
     },
     {
       "type": "fill_blank",
-      "question": "Convert the binary number 1101 to denary: __________",
-      "answer": "13"
+      "question": "The operating system manages memory by controlling data movement between RAM and permanent storage, ensuring applications have enough resources.",
+      "answer": "memory"
     },
     {
       "type": "fill_blank",
-      "question": "What is the hexadecimal equivalent of the denary number 15? __________",
-      "answer": "F"
+      "question": "The OS manages __________ by creating, deleting, copying, moving, and organizing files and folders.",
+      "answer": "files"
     },
     {
       "type": "fill_blank",
-      "question": "What is the binary value for the hexadecimal digit C? __________",
-      "answer": "1100"
+      "question": "The operating system manages __________ accounts, access rights, antivirus, firewalls, and system updates.",
+      "answer": "user"
+    },
+    {
+      "type": "mcq",
+      "question": "The BIOS is an example of:",
+      "options": [],
+      "answer": "D) Firmware"
+    },
+    {
+      "type": "fill_blank",
+      "question": "Firmware is typically stored in __________ memory.",
+      "answer": "Read-Only"
+    },
+    {
+      "type": "mcq",
+      "question": "What is the first program executed when a computer starts?",
+      "options": [],
+      "answer": "D) Bootstrap program"
+    },
+    {
+      "type": "mcq",
+      "question": "What is the first thing that the processor does when an interrupt occurs?",
+      "options": [],
+      "answer": "A) Finishes the current fetch-decode-execute cycle, then checks the interrupt priority queue"
+    },
+    {
+      "type": "fill_blank",
+      "question": "An interrupt is handled by saving the task status, executing the appropriate __________, then restoring the original process.",
+      "answer": "Interrupt Service Routine (ISR)"
+    },
+    {
+      "type": "true_false",
+      "question": "Interrupts always have the same priority level, regardless of the source.",
+      "answer": "False"
+    },
+    {
+      "type": "fill_blank",
+      "question": "An __________ is a signal that temporarily halts the processor's task to execute a specific routine.",
+      "answer": "Interrupt"
+    },
+    {
+      "type": "mcq",
+      "question": "Which of the following is NOT listed as a function managed by the OS under system security?",
+      "options": [],
+      "answer": "c) Creating spreadsheets"
+    },
+    {
+      "type": "mcq",
+      "question": "Which of the following would likely have the HIGHEST interrupt priority?",
+      "options": [],
+      "answer": "c) A hardware failure"
+    },
+    {
+      "type": "fill_blank",
+      "question": "__________ programs carry out maintenance tasks such as virus checking, backups, disk repair, file compression, and security management.",
+      "answer": "Utility"
+    },
+    {
+      "type": "fill_blank",
+      "question": "A __________ Interface requires users to type exact text commands and is suitable for advanced users needing precise system control.",
+      "answer": "Command Line Interface (CLI)"
+    },
+    {
+      "type": "true_false",
+      "question": "RAM (Random Access Memory) is a type of permanent storage used by the operating system.",
+      "answer": "False"
+    },
+    {
+      "type": "mcq",
+      "question": "Which of the following is an example of a software interrupt?",
+      "options": [],
+      "answer": "c) Division by zero"
     }
   ]
 }

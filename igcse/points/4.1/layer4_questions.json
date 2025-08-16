@@ -1,14 +1,38 @@
 [
   {
-    "question": "Explain what is meant by a validation test in computer science education.",
-    "answer": "A validation test checks that students have understood the material and are ready to progress."
+    "question": "Describe the difference between system software and application software. Give an example of each software in your answer.",
+    "answer": "System software provides the services that the computer requires (e.g., operating system, utility software).\nApplication software provides the services that the user requires (e.g., word processor, spreadsheet).\nAny two valid examples of each category.\n(Award 1 mark for difference + 1 mark for valid example of each type)"
   },
   {
-    "question": "State one advantage of practicing with past paper questions before an exam.",
-    "answer": "Past paper questions familiarize students with the exam style and improve confidence."
+    "question": "Complete the statements about different types of software.",
+    "answer": "System\nApplication\nOperating\nHardware\n(1 mark for each correct term in the correct place)"
   },
   {
-    "question": "Give an example of a simple binary operation.",
-    "answer": "Adding two 1-bit binary numbers, e.g. 1 + 1 = 10."
+    "question": "Complete the table by writing each missing OS function name and description.",
+    "answer": "Managing memory: allocates memory to processes, prevents two processes accessing the same memory\nPlatform for running applications: allows application software to run on the computer\nManaging peripherals: allocates data to buffers, transmits data to hardware, receives data from hardware\n(1 mark each for correct function and description)"
+  },
+  {
+    "question": "Describe what is meant by managing memory.",
+    "answer": "Allocating memory to different processes\nPreventing processes accessing each other’s memory\nFreeing up memory when processes complete\n(Award up to 2 marks for valid points)"
+  },
+  {
+    "question": "Identify the type of software that manages inputs and outputs for the computer.",
+    "answer": "Operating system // system software\n(1 mark)"
+  },
+  {
+    "question": "The mobile telephone has an operating system. Describe the purpose of the operating system.",
+    "answer": "It performs the basic functions of a computer\nIt manages the hardware\nIt provides a platform to run software\nIt provides a user interface\nPerforms tasks such as file management, multitasking\n(Award up to 3 marks for valid points)"
+  },
+  {
+    "question": "State the purpose of firmware.",
+    "answer": "Permanently store instructions (in ROM)\nStores instructions to boot up/start up the computer\nProvides the operating system with a platform to run on\nControls/manages communication with hardware\n(Award 1 mark for any valid point)"
+  },
+  {
+    "question": "Give one example of firmware.",
+    "answer": "Bootstrap\nBootloader\nBIOS\nOperating system (in embedded system)\n(Award 1 mark for any valid example)"
+  },
+  {
+    "question": "The OS handles interrupts:\n(i) State the purpose of an interrupt\n(ii) Identify one input device and one example of an interrupt it can generate\n(iii) Explain how the processor manages the current program and the interrupt.",
+    "answer": "(i): To indicate that something requires the attention of the processor/OS/CPU\n(ii): Keyboard → key pressed // Mouse → moved/clicked (1 mark for valid input device and matching interrupt)\n(iii):\nInterrupt is given priority and placed in interrupt queue\nProcessor finishes current FDE cycle for program\nProcessor checks interrupt priority queue\nIf higher priority, current process is stored on stack\nSource of interrupt is checked and appropriate ISR called\nISR handles the interrupt and resolves it\nProcessor retrieves previous process from stack and continues\n(Award up to 7 marks total across parts)"
   }
 ]

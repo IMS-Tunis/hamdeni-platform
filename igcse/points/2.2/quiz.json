@@ -2,101 +2,113 @@
   "questions": [
     {
       "type": "mcq",
-      "question": "What is the main reason computers use binary to represent all data?",
+      "question": "What are the possible ways data can be affected during network transmission?",
       "options": [
-        "Binary numbers are easier for humans to read",
-        "Computers use logic gates that only understand ON and OFF states",
-        "It uses less power",
-        "Binary numbers are shorter than decimal numbers"
+        "Only corrupted or lost",
+        "Corrupted, lost, gained, or changed",
+        "Only changed or gained",
+        "Corrupted, changed, or duplicated"
       ],
-      "answer": "Computers use logic gates that only understand ON and OFF states"
+      "answer": "Corrupted, lost, gained, or changed"
     },
     {
       "type": "mcq",
-      "question": "In an 8-bit binary number, what does the leftmost bit represent?",
+      "question": "Which pair lists two problems explicitly mentioned as reasons for error checking?",
       "options": [
-        "Least Significant Bit",
-        "The parity bit",
-        "Most Significant Bit",
-        "The hexadecimal value"
+        "Duplicated packets and encryption failures",
+        "Corrupted data and lost data",
+        "Compression artifacts and routing loops",
+        "Power loss and cabling faults"
       ],
-      "answer": "Most Significant Bit"
+      "answer": "Corrupted data and lost data"
     },
     {
       "type": "mcq",
-      "question": "Which of the following is a hexadecimal digit?",
+      "question": "According to the notes, the primary purpose of error checking is to",
       "options": [
-        "8",
-        "G",
-        "H",
-        "Q"
+        "detect problems caused during transmission.",
+        "compress data for faster delivery.",
+        "allocate network bandwidth fairly.",
+        "encrypt data to maintain secrecy."
       ],
-      "answer": "8"
+      "answer": "detect problems caused during transmission."
     },
     {
       "type": "mcq",
-      "question": "What is the maximum value that can be represented in an 8-bit binary number?",
+      "question": "Which statement correctly defines odd and even parity in the context of a parity check?",
       "options": [
-        "255",
-        "256",
-        "128",
-        "1024"
+        "Odd parity means the number of 1s is even; even parity means the number of 1s is odd.",
+        "Odd parity means the total number of 1s is odd; even parity means the total number of 1s is even.",
+        "Odd parity and even parity both require the same total number of 1s.",
+        "Odd parity applies only to blocks, not single bytes."
       ],
-      "answer": "255"
+      "answer": "Odd parity means the total number of 1s is odd; even parity means the total number of 1s is even."
     },
     {
-      "type": "fill_blank",
-      "question": "The process of moving all bits in a binary number to the left or right and filling the emptied spaces with zeros is called a __________ shift.",
-      "answer": "Logical"
-    },
-    {
-      "type": "fill_blank",
-      "question": "In binary addition, if the result is too large for the register to hold, this is called an __________ error.",
-      "answer": "Overflow"
-    },
-    {
-      "type": "fill_blank",
-      "question": "Each hexadecimal digit can be represented by exactly ___ binary bits.",
-      "answer": "4"
-    },
-    {
-      "type": "true_false",
-      "question": "Digital data can take any value, just like analogue data.",
-      "answer": "False"
-    },
-    {
-      "type": "true_false",
-      "question": "In two’s complement, the most significant bit represents the sign of the number.",
-      "answer": "True"
-    },
-    {
-      "type": "true_false",
-      "question": "The denary number system is also known as base 16.",
-      "answer": "False"
+      "type": "mcq",
+      "question": "What is a stated limitation of a single-byte parity check?",
+      "options": [
+        "It cannot detect any single-bit error.",
+        "It cannot be used with even parity.",
+        "If an even number of bits are in error, the overall parity can remain the same and the error may not be detected.",
+        "It cannot be recalculated at the receiver."
+      ],
+      "answer": "If an even number of bits are in error, the overall parity can remain the same and the error may not be detected."
     },
     {
       "type": "match",
-      "question": "Match the term with its correct definition:",
+      "question": "Match each method to its defining description.",
       "pairs": {
-        "Register": "Used to temporarily hold binary data",
-        "Logic gate": "Basic building block for processing digital data",
-        "Two’s complement": "Method to represent negative binary"
+        "parity block": "A horizontal and vertical parity check used together to identify the bit in error, after which that bit is corrected or the block re-sent",
+        "checksum": "A verification value calculated using an agreed method, sent with the data, and recomputed at the receiver to verify the block",
+        "echo check": "Data sent back by the receiver for comparison; a match suggests correct transmission, a difference indicates an error"
       }
     },
     {
-      "type": "fill_blank",
-      "question": "Convert the binary number 1101 to denary: __________",
-      "answer": "13"
+      "type": "match",
+      "question": "Match each data entry error type to its description.",
+      "pairs": {
+        "wrong digits": "A digit is entered incorrectly or replaced by another digit",
+        "transpositions of two digits": "Two adjacent digits are swapped during entry",
+        "missing or extra digits": "A digit is omitted or an additional digit is inserted"
+      }
+    },
+    {
+      "type": "mcq",
+      "question": "What is the primary purpose of a check digit?",
+      "options": [
+        "To encrypt sensitive data",
+        "To detect errors in data entry",
+        "To compress data for storage",
+        "To speed up data transmission"
+      ],
+      "answer": "To detect errors in data entry"
     },
     {
       "type": "fill_blank",
-      "question": "What is the hexadecimal equivalent of the denary number 15? __________",
-      "answer": "F"
+      "question": "Automatic repeat request uses an _____ from the receiver to confirm that data was delivered correctly.",
+      "answer": "acknowledgement"
     },
     {
-      "type": "fill_blank",
-      "question": "What is the binary value for the hexadecimal digit C? __________",
-      "answer": "1100"
+      "type": "mcq",
+      "question": "What does a timeout represent in ARQ?",
+      "options": [
+        "The time taken to send the data",
+        "The time allowed to elapse before an acknowledgement is received",
+        "The maximum data block length allowed",
+        "The delay before starting a transmission"
+      ],
+      "answer": "The time allowed to elapse before an acknowledgement is received"
+    },
+    {
+      "type": "match",
+      "question": "Match each step in the automatic repeat request process to its description.",
+      "pairs": {
+        "start timer on send": "The sender transmits a packet and begins measuring a waiting period",
+        "positive acknowledgement received": "The sender is informed that delivery was successful",
+        "timeout expires": "No confirmation arrives within the waiting period",
+        "re-send packet": "The sender transmits the same packet again"
+      }
     }
   ]
 }

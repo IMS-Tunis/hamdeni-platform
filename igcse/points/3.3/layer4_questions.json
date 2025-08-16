@@ -1,14 +1,30 @@
 [
   {
-    "question": "Explain what is meant by a validation test in computer science education.",
-    "answer": "A validation test checks that students have understood the material and are ready to progress."
+    "question": "Explain why a computer needs RAM.",
+    "answer": "To store data currently in use\n\nTo store currently running programs / instructions\n\nVolatile memory — data is lost when power is off"
   },
   {
-    "question": "State one advantage of practicing with past paper questions before an exam.",
-    "answer": "Past paper questions familiarize students with the exam style and improve confidence."
+    "question": "Give one example of primary storage and explain its purpose.",
+    "answer": "Example: RAM / ROM (1)\n\nPurpose: stores data / instructions temporarily or permanently (1)"
   },
   {
-    "question": "Give an example of a simple binary operation.",
-    "answer": "Adding two 1-bit binary numbers, e.g. 1 + 1 = 10."
+    "question": "State the purpose of secondary storage.",
+    "answer": "To store data and programs long term / when the computer is switched off"
+  },
+  {
+    "question": "One type of secondary storage is optical. Circle three examples of optical storage.\nread only memory (ROM)\nsecure digital (SD) card\ncompact disk (CD)\nhard disk drive (HDD)\ndigital versatile disk (DVD)\nBlu-ray disk\nuniversal serial bus (USB) drive\nsolid-state drive (SSD)",
+    "answer": "CD\n\nDVD\n\nBlu-ray disk"
+  },
+  {
+    "question": "Explain what is meant by virtual memory.",
+    "answer": "Memory that uses part of the secondary storage as if it were RAM (1)\n\nUsed when RAM is full (1)"
+  },
+  {
+    "question": "State what is meant by cloud storage.",
+    "answer": "Storage of data on remote servers accessed via the internet"
+  },
+  {
+    "question": "Give one advantage and one disadvantage of using cloud storage instead of local storage.",
+    "answer": "Advantage: Can access files from anywhere with internet access\n\nDisadvantage: Requires internet connection / security concerns"
   }
 ]

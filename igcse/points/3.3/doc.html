@@ -2,144 +2,306 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>1.1 Number Systems</title>
-  <link rel="stylesheet" href="igcse-style.css">
+  <title>IGCSE Computer Science - 3.3 Data Storage</title>
+  <link rel="stylesheet" href="../igcse-style.css">
 </head>
 <body>
-   <div class="container">
-    <h1>Number Systems</h1>
-    <div class="subtitle">IGCSE CS theory notes, prepared by Dr. Hamdeni</div>
 
-    <div class="section">
-      <h2>1.1 Understand how and why computers use binary to represent all forms of data</h2>
+<div class="container">
 
-    </div>
-
-    <div class="section">
-      <h2>1.2 (a) Understand the denary, binary and hexadecimal number systems</h2>
-      <ul>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Base-10, digits 0–9">Denary</span> is used in everyday life, with each place increasing by powers of 10.</span></li>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Base-2, digits 0 and 1">Binary</span> is used by computers, with each place increasing by powers of 2.</span></li>
-        <li><span class="official-note">The <span class="keyword" data-tooltip="The leftmost bit in a binary number, which has the highest value">MSB</span> (Most Significant Bit) is the leftmost bit.</span></li>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Base-16, digits 0–9 and A–F">Hexadecimal</span> is closely related to binary; each hex digit is 4 bits.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">The denary number 25177 = 2×10000 + 5×1000 + 1×100 + 7×10 + 7×1.</div></li>
-        <li><div class="example-box">Binary 11101110 = 128+64+32+8+4+2 = 238 (denary).</div></li>
-        <li><div class="example-box">Hex digit A = 10, F = 15 (denary).</div></li>
-        <li><div class="example-box">1010 (binary) = A (hex) = 10 (denary).</div></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.2 (b) Convert between number systems</h2>
-      <ul>
-        <li><span class="official-note">To convert binary to denary: add up the values of all positions where there is a 1.</span></li>
-        <li><span class="official-note">To convert denary to binary: subtract the largest possible powers of 2, or divide by 2 and record remainders.</span></li>
-        <li><span class="official-note">Successive division by 2 and reading remainders from bottom to top gives the binary value.</span></li>
-        <li><span class="official-note">You can convert up to 16-bit binary numbers for this syllabus.</span></li>
-        <li><span class="official-note">To convert binary to hexadecimal: group bits from the right in sets of four, pad with zeros to the left if needed.</span></li>
-        <li><span class="official-note">To convert hexadecimal to binary: write each hex digit as 4 bits.</span></li>
-        <li><span class="official-note">To convert hexadecimal to denary: convert hex to binary, then binary to denary.</span></li>
-        <li><span class="official-note">To convert denary to hexadecimal: convert to binary, group in 4s, convert each group to hex.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">011110001011 = 1024+512+256+128+8+2+1 = 1931 (denary).</div></li>
-        <li><div class="example-box">Denary 142: 142 ÷ 2 repeatedly gives remainders 1 0 0 0 1 1 1 0 (read bottom to top: 10001110).</div></li>
-        <li><div class="example-box">Denary 13 → 8+4+0+1 = 13 → 1101 (binary).</div></li>
-        <li><div class="example-box">1000001111101 → 0010 0001 1111 1101 → 21FD (hex).</div></li>
-        <li><div class="example-box">Hex SE (S=5, E=14): 0101 1110 (binary).</div></li>
-        <li><div class="example-box">Hex 2 1 F D → 0010 0001 1111 1101 (binary).</div></li>
-        <li><div class="example-box">Hex SE = 64+16+8+4+2 = 94 (denary).</div></li>
-        <li><div class="example-box">Denary 201: binary 11001001 → 1100 (C), 1001 (9) → hex C9.</div></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.3 Understand how and why hexadecimal is used as a beneficial method of data representation</h2>
-      <ul>
-        <li><span class="official-note">Hexadecimal is shorter and easier to read and write than binary; simplifies debugging and error detection.</span></li>
-        <li><span class="official-note">Programmers find it easier to compare and spot differences in hexadecimal than in long binary strings.</span></li>
-        <li><span class="official-note">Common uses for hexadecimal: HTML colours, MAC addresses, assembly/machine code, memory dumps, debugging, error codes, and IP addresses.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">Comparing 10011100101110111000111011100010111101011010 (binary) vs. 9CBB8EE2F5A (hex).</div></li>
-        <li><div class="example-box"><span class="keyword" data-tooltip="Unique device identifier, written in hexadecimal">MAC address</span>: e.g., 00-1C-B3-4F-25-FE.</div></li>
-        <li><span class="fun-tip">Hex makes large binary numbers easier for humans to read and spot mistakes quickly!</span></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.4 (a) Add two positive 8-bit binary integers</h2>
-      <ul>
-        <li><span class="official-note">Binary addition rules: 0+0=0; 1+0/0+1=1; 1+1=0 (carry 1); 1+1+1=1 (carry 1).</span></li>
-        <li><span class="official-note">Carry values work like in denary addition—add rightmost columns first, carry left if needed.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">00100111 + 01001010 = 01110001 (binary addition).</div></li>
-        <li><div class="example-box">126 (01111110) + 62 (00111110) = 188 (10111100).</div></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.4 (b) Understand the concept of overflow and why it occurs in binary addition</h2>
-      <ul>
-        <li><span class="official-note"><span class="keyword" data-tooltip="When a calculation exceeds the maximum storable value in the register">Overflow error</span> occurs when a result is too big for the register.</span></li>
-        <li><span class="official-note">For an 8-bit register, the maximum value is 255 (11111111). A result with a 9th bit is overflow.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">Adding 01101110 + 11011110 = (1)01001100, the leading (1) is overflow.</div></li>
-        <li><span class="fun-tip">If your answer has more bits than allowed, that extra leftmost bit is overflow—the computer can't fit it!</span></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.5 Perform a logical binary shift on a positive 8-bit binary integer and understand the effect</h2>
-      <ul>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Moving all bits left (×2) or right (÷2); zero fills empty place">Logical shift</span>: move all bits left (multiply by 2) or right (divide by 2); zeros fill empty spots.</span></li>
-        <li><span class="official-note">Bits shifted out are lost; zeros fill the emptied places.</span></li>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Left-most">Most significant bit</span></li>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Right-most">Least significant bit</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">Left shift: 00010101 → 00101010 (21×2=42).</div></li>
-        <li><div class="example-box">Left shift 2: 00010101 → 01010100 (21×4=84).</div></li>
-        <li><div class="example-box">Right shift: 11001000 → 01100100 (200÷2=100).</div></li>
-        <li><div class="example-box">Shift 10101010 one place left: 01010100.</div></li>
-        <li><span class="fun-tip">Each left shift doubles your number—each right shift halves it (if you don't lose important bits)!</span></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.6 Use the two’s complement number system to represent positive and negative 8-bit binary integers</h2>
-      <ul>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Method to represent negative binary numbers; left-most bit is the sign (–128 for 8 bits)">Two’s complement</span> lets you use the same binary system for positive and negative numbers.</span></li>
-        <li><span class="official-note">In 8-bit two’s complement, the range is –128 to +127.</span></li>
-        <li><span class="official-note">To write a positive number, use normal binary (sign bit 0).</span></li>
-        <li><span class="official-note">To write a negative number:<br>
-            1. Write positive binary.<br>
-            2. Invert all bits left of the first 1 from the right (or invert all bits and add 1).<br>
-            3. Make sure the MSB is 1.
-          </span>
-        </li>
-        <li><span class="official-note">For negative values, sum bits using –128 as the left-most.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">38 = 00100110 (two’s complement).</div></li>
-        <li><div class="example-box">–67: 01000011 → invert → 10111100 → add 1 = 10111101.</div></li>
-        <li><div class="example-box">10111010 = –128 + 32 + 16 + 8 + 2 = –70.</div></li>
-        <li><span class="fun-tip">To get a negative number: "Flip all the bits and add one!" (That’s the computer’s trick.)</span></li>
-      </ul>
-    </div>
-
+<div class="header-container">
+<img src="../syllabus.png" alt="Syllabus Update" class="top-right-icon">
+  <div class="title-row">
+    <h1 class="section-title">3.3 Data Storage</h1>
+  </div>
+  <div class="title-underline"></div>
+  <p class="section-subtitle">Computer Science IGCSE notes, prepared by Dr. Hamdeni</p>
+</div>
+  <div class="section">
+    <h2>3.3a: Primary storage: RAM and ROM</h2>
+    <ul>
+      <li><span class="official-note"><span class="keyword" data-tooltip="a type of storage that is directly accessed by the CPU.">primary storage</span> is the part of a computer’s <span class="keyword" data-tooltip="the devices within the computer that are directly accessible by the CPU; there are two types of memory – RAM and ROM; memory is different to hard disk drives, for example, which are known as storage devices">memory</span> that can be accessed directly by the CPU through a direct connection.</span>
+        <ul>
+          <li><span class="official-note">It includes two main types: <span class="keyword" data-tooltip="primary memory that can be written to or read from">random access memory (RAM)</span> and <span class="keyword" data-tooltip="primary memory that cannot be written to (changed) and can only be read">read only memory (ROM)</span>.</span></li>
+        </ul>
+      </li>
+      <li><span class="official-note">RAM is a <span class="keyword" data-tooltip="describes memory that loses its contents when the power is turned off">volatile</span> type of storage, which means that all data is lost when the power is turned off.</span>
+        <ul>
+          <li><span class="official-note">It can be read from and written to, and both the user and the computer can change its contents.</span></li>
+          <li><span class="official-note">It stores data, files, and parts of programs or the operating system that are currently in use.</span></li>
+          <li><span class="official-note">The larger the size of RAM, the faster the computer can work because it needs to access slower <span class="keyword" data-tooltip="a type of storage that is designed to store data permanently, until it is deleted by the user.">secondary storage</span> less often.</span></li>
+          <li><span class="official-note">RAM can be upgraded by adding more RAM components when the computer supports expansion.</span></li>
+          <li><span class="official-note">RAM allows any memory location to be accessed directly and quickly, which is why it is faster than secondary storage.</span></li>
+        </ul>
+      </li>
+      <li><span class="official-note">Two main types of RAM exist: dynamic RAM (DRAM) and static RAM (SRAM).</span>
+        <ul>
+          <li><span class="official-note">DRAM stores each bit of data in a tiny capacitor, with a <span class="keyword" data-tooltip="a device that acts as a switch or gate for electronic signals.">transistor</span> controlling reading and writing. It must be refreshed regularly to keep its data.</span></li>
+          <li><span class="official-note">SRAM uses flip flops to store each bit of data, does not need refreshing, and is faster than DRAM.</span></li>
+          <li><span class="official-note">DRAM is cheaper and has higher capacity, so it is used for main memory. SRAM is used for very fast memory areas such as the CPU cache.</span></li>
+        </ul>
+      </li>
+      <li><span class="official-note">ROM is a non volatile type of storage, meaning it keeps its contents when power is turned off.</span>
+        <ul>
+          <li><span class="official-note">Its contents are fixed and cannot normally be changed by the user or by applications.</span></li>
+          <li><span class="official-note">It is used to store start up instructions, such as the bootstrap and the BIOS, which the computer needs when it is first switched on.</span></li>
+        </ul>
+      </li>
+      <li><span class="official-note">Key differences between RAM and ROM are:</span>
+        <ul>
+          <li><span class="official-note">RAM is temporary, volatile, and can be written to and read from.</span></li>
+          <li><span class="official-note">ROM is permanent, non volatile, and can only be read.</span></li>
+          <li><span class="official-note">RAM stores working data, while ROM stores fixed data needed for starting the system.</span></li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="no-bullets">
+      <li><div class="example-box">Remote controlled toy car: In such a device, ROM can store factory settings and basic control routines, while RAM can temporarily store instructions received from the remote control. This shows why devices need both fixed start up data and temporary working memory.</div></li>
+      <li><span class="fun-tip">Think of RAM like your desk space — the bigger it is, the more papers you can spread out without having to constantly go to the filing cabinet.</span></li>
+      <li>
+        <div class="button-group">
+          <button class="keyword-button" onclick="openPopupK('3.3a')">
+            🔑 View Keywords on This Topic 🔑
+          </button>
+          <button class="exam-button" onclick="openPopupQ('3.3a')">
+            👁️ Quick Look at Exam Questions on This Topic 👁️
+          </button>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="section">
+    <h2>3.3b: Secondary storage</h2>
+    <ul>
+      <li><span class="official-note">Secondary storage refers to storage devices that are not directly accessed by the CPU.</span>
+        <ul>
+          <li><span class="official-note">Data and instructions from secondary storage must first be transferred into primary storage before processing.</span></li>
+          <li><span class="official-note">Secondary storage can be internal or external to the computer.</span></li>
+        </ul>
+      </li>
+      <li><span class="official-note">Secondary storage is non volatile, keeping data even when the power is switched off.</span></li>
+      <li><span class="official-note">It can store more data than primary storage, but it is slower to access.</span>
+        <ul>
+          <li><span class="official-note">All applications, the operating system, and user files such as documents, photos, and music are stored on secondary storage.</span></li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="no-bullets">
+      <li><div class="example-box">Saving to a USB memory stick: Files saved to a USB stick remain available after unplugging it, while unsaved work in RAM is lost when power is off. This illustrates non volatility of secondary storage.</div></li>
+      <li><span class="fun-tip">Secondary storage is like a giant basement: you can keep everything there for years, but it takes longer to climb down and find it compared to grabbing something from your desk (RAM).</span></li>
+      <li>
+        <div class="button-group">
+          <button class="keyword-button" onclick="openPopupK('3.3b')">
+            🔑 View Keywords on This Topic 🔑
+          </button>
+          <button class="exam-button" onclick="openPopupQ('3.3b')">
+            👁️ Quick Look at Exam Questions on This Topic 👁️
+          </button>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="section">
+    <h2>3.3c: Magnetic, optical, and solid state storage</h2>
+    <ul>
+      <li><span class="official-note"><span class="keyword" data-tooltip="a type of secondary storage that uses the properties of magnetism to store data.">magnetic storage</span> uses magnetism to store data on spinning circular disks called platters.</span>
+        <ul>
+          <li><span class="official-note">Platters spin at high speed, and read or write heads with electromagnets move across the surfaces to store or retrieve data.</span></li>
+          <li><span class="official-note">The surfaces are organised into tracks and sectors, with each sector holding a fixed amount of data.</span></li>
+          <li><span class="official-note">A magnetised spot represents binary 1, and a demagnetised spot represents binary 0.</span></li>
+        </ul>
+      </li>
+      <li><span class="official-note">Hard disk drives are a common type of magnetic storage.</span>
+        <ul>
+          <li><span class="official-note">They can suffer from latency, the delay while the disk rotates the required data under the read or write head.</span></li>
+          <li><span class="official-note">Files can become fragmented, with parts stored in non adjacent sectors, slowing down access. Defragmentation software can rearrange the data to speed things up.</span></li>
+        </ul>
+      </li>
+      <li><span class="official-note"><span class="keyword" data-tooltip="a type of secondary storage that uses lasers to store data.">optical storage</span> uses laser light to read and write data on circular discs.</span>
+        <ul>
+          <li><span class="official-note">Data is stored as pits and lands along a single spiral track from the centre of the disc to the edge.</span></li>
+          <li><span class="official-note">CDs and DVDs use a red laser, while Blu ray discs use a blue laser with a shorter wavelength, allowing smaller pits and higher capacity.</span></li>
+          <li><span class="official-note">DVDs can be dual layer, with two recording layers separated by a spacer to increase storage capacity. Blu ray discs can be single or dual layer, with capacities up to 50 GB.</span></li>
+          <li><span class="official-note">Laser wavelengths and format examples: CD uses red light at about 780 nm, DVD uses red light at about 650 nm, and Blu ray uses blue light at about 405 nm. The shorter wavelength allows more data to fit.</span></li>
+        </ul>
+      </li>
+      <li><span class="official-note">Solid state storage has no moving parts and uses <span class="keyword" data-tooltip="an electronic circuit, where transistors are set on a semiconductor material, such as silicon.">semiconductor chips</span> to store data.</span>
+        <ul>
+          <li><span class="official-note">Data is stored in <span class="keyword" data-tooltip="the intersection of the rows and columns of transistors in solid-state storage.">cell</span> made of transistors arranged in a grid, with each cell containing a <span class="keyword" data-tooltip="a component that controls the flow of electric current.">control gate</span> and a <span class="keyword" data-tooltip="a component that can store electrical charge.">floating gate</span> separated by a dielectric layer.</span></li>
+          <li><span class="official-note">The floating gate holds an electrical charge for binary 1 or no charge for binary 0.</span></li>
+          <li><span class="official-note">Solid state storage can use NAND or NOR structures to connect the cells.</span></li>
+          <li><span class="official-note">Solid state storage is non volatile; it keeps data even when power is off.</span></li>
+        </ul>
+      </li>
+      <li><span class="official-note">Examples of solid state storage devices include solid state drives and USB flash drives.</span></li>
+      <li><span class="official-note">Advantages of solid state drives over hard disk drives include:</span>
+        <ul>
+          <li><span class="official-note">Faster access speeds and no rotational latency.</span></li>
+          <li><span class="official-note">Greater reliability because there are no moving parts.</span></li>
+          <li><span class="official-note">Lower power use and cooler operation, suitable for laptops.</span></li>
+          <li><span class="official-note">Lighter weight and smaller size.</span></li>
+        </ul>
+      </li>
+      <li><span class="official-note">A disadvantage of solid state drives is limited write endurance.</span>
+        <ul>
+          <li><span class="official-note">Data must be erased before rewriting to the same location.</span></li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="no-bullets">
+      <li><div class="example-box">SSD vs HDD in one sentence: Because SSDs use floating gate transistors and no moving parts, they are typically faster and lighter than hard disk drives.</div></li>
+      <li><span class="fun-tip">SSDs are like superhero messengers — they run everywhere instantly without waiting for elevators or spinning disks.</span></li>
+      <li>
+        <div class="button-group">
+          <button class="keyword-button" onclick="openPopupK('3.3c')">
+            🔑 View Keywords on This Topic 🔑
+          </button>
+          <button class="exam-button" onclick="openPopupQ('3.3c')">
+            👁️ Quick Look at Exam Questions on This Topic 👁️
+          </button>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="section">
+    <h2>3.3d: Virtual memory</h2>
+    <ul>
+      <li><span class="official-note"><span class="keyword" data-tooltip="a type of memory that can be used as an extension to the RAM.">virtual memory</span> is created when part of a computer’s hard disk drive or solid state drive is used as an extension of RAM.</span>
+        <ul>
+          <li><span class="official-note">It is used when RAM becomes full, allowing more programs to run at the same time.</span></li>
+        </ul>
+      </li>
+      <li><span class="official-note">Data that is not immediately needed in RAM is moved to virtual memory in units called <span class="keyword" data-tooltip="a unit of data.">page</span>.</span>
+        <ul>
+          <li><span class="official-note">When the data is needed again, it is moved back into RAM.</span></li>
+        </ul>
+      </li>
+      <li><span class="official-note">Benefits of virtual memory include:</span>
+        <ul>
+          <li><span class="official-note">Ability to run programs larger than the available physical RAM.</span></li>
+          <li><span class="official-note">More efficient use of RAM by moving unused data out temporarily.</span></li>
+          <li><span class="official-note">Reduced need to install extra RAM.</span></li>
+        </ul>
+      </li>
+      <li><span class="official-note">Drawbacks of using hard disk based virtual memory include slower performance because of disk thrashing.</span>
+        <ul>
+          <li><span class="official-note">Disk thrashing occurs when frequent swapping between RAM and virtual memory causes a high number of read or write movements, reducing processing speed.</span></li>
+          <li><span class="official-note">Excessive swapping, called disk thrashing, can also shorten the life of mechanical drives.</span></li>
+          <li><span class="official-note">Using a solid state drive instead of a hard disk for virtual memory can reduce thrashing.</span></li>
+          <li><span class="official-note">Adding more RAM or using a solid state drive can reduce virtual memory problems.</span></li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="no-bullets">
+      <li><div class="example-box">Five program scenario: If five programs fill RAM, the least recently needed data can be paged to virtual memory so a new task can start without a crash. When that data is needed again, its page returns to RAM.</div></li>
+      <li><span class="fun-tip">Virtual memory is like borrowing your neighbor’s garage when yours is full — convenient, but walking back and forth takes extra time.</span></li>
+      <li>
+        <div class="button-group">
+          <button class="keyword-button" onclick="openPopupK('3.3d')">
+            🔑 View Keywords on This Topic 🔑
+          </button>
+          <button class="exam-button" onclick="openPopupQ('3.3d')">
+            👁️ Quick Look at Exam Questions on This Topic 👁️
+          </button>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="section">
+    <h2>3.3e: Cloud storage</h2>
+    <ul>
+      <li><span class="official-note"><span class="keyword" data-tooltip="data storage that is owned by a third party and accessed by the user, using the internet.">cloud storage</span> stores data on remote <span class="keyword" data-tooltip="a component that acts as a central resource for the storage of data and applications or for providing a service.">server</span> owned and maintained by a hosting company.</span>
+        <ul>
+          <li><span class="official-note">Data is often stored on multiple servers to ensure it can still be accessed during maintenance or in case of hardware failure.</span></li>
+          <li><span class="official-note">Cloud servers are often in large, secure data centers and operate 24/7.</span></li>
+        </ul>
+      </li>
+      <li><span class="official-note">Three main types of cloud storage are:</span>
+        <ul>
+          <li><span class="official-note">Public cloud, where the provider and the customer are different organisations.</span></li>
+          <li><span class="official-note">Private cloud, a dedicated storage environment within a company infrastructure.</span></li>
+          <li><span class="official-note">Hybrid cloud, a combination of public and private cloud systems.</span></li>
+        </ul>
+      </li>
+      <li><span class="official-note">Advantages of cloud storage include:</span>
+        <ul>
+          <li><span class="official-note">Data can be accessed from anywhere with an internet connection.</span></li>
+          <li><span class="official-note">There is no need to carry physical storage devices.</span></li>
+          <li><span class="official-note">Cloud storage offers remote backups that help with disaster recovery.</span></li>
+          <li><span class="official-note">Storage space can be scaled up or down easily.</span></li>
+          <li><span class="official-note">Cloud providers handle security and backups.</span></li>
+        </ul>
+      </li>
+      <li><span class="official-note">Disadvantages of cloud storage include:</span>
+        <ul>
+          <li><span class="official-note">Dependence on internet speed and stability.</span></li>
+          <li><span class="official-note">Possible ongoing costs for large storage or high data transfer.</span></li>
+          <li><span class="official-note">Risks from security breaches, hacking, or provider failure.</span></li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="no-bullets">
+      <li><div class="example-box">Google Drive accessibility: Photos saved to a cloud service such as Google Drive can be viewed on any device that signs in, while photos stored only on a local phone are not available on other devices without copying.</div></li>
+      <li><span class="fun-tip">Cloud storage is like having a magical backpack — you can open it from anywhere in the world, but only if there’s Wi-Fi in the air.</span></li>
+      <li>
+        <div class="button-group">
+          <button class="keyword-button" onclick="openPopupK('3.3e')">
+            🔑 View Keywords on This Topic 🔑
+          </button>
+          <button class="exam-button" onclick="openPopupQ('3.3e')">
+            👁️ Quick Look at Exam Questions on This Topic 👁️
+          </button>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="section">
+    <h2>3.3f: Advantages and disadvantages of cloud vs local storage</h2>
+    <ul>
+      <li><span class="official-note">Advantages of cloud storage over local storage include:</span>
+        <ul>
+          <li><span class="official-note">Access from any location with internet access.</span></li>
+          <li><span class="official-note">No need to buy and maintain physical storage hardware.</span></li>
+          <li><span class="official-note">Easier recovery after a disaster.</span></li>
+        </ul>
+      </li>
+      <li><span class="official-note">Disadvantages of cloud storage compared to local storage include:</span>
+        <ul>
+          <li><span class="official-note">No access to data without internet.</span></li>
+          <li><span class="official-note">Possible security and privacy concerns.</span></li>
+          <li><span class="official-note">Potential ongoing costs.</span></li>
+        </ul>
+      </li>
+      <li><span class="official-note">Advantages of local storage compared to cloud storage include:</span>
+        <ul>
+          <li><span class="official-note">Full control over security and backups.</span></li>
+          <li><span class="official-note">No ongoing costs for storage services in local storage.</span></li>
+          <li><span class="official-note">No internet is needed to access the data.</span></li>
+        </ul>
+      </li>
+      <li><span class="official-note">Disadvantages of local storage compared to cloud storage include:</span>
+        <ul>
+          <li><span class="official-note">Cost of buying and maintaining hardware.</span></li>
+          <li><span class="official-note">Storage space is fixed and may be unused if needs decrease.</span></li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="no-bullets">
+      <li><span class="fun-tip">Choosing between cloud and local storage is like deciding between eating at a restaurant (cloud — convenient but depends on service) and cooking at home (local — full control but more effort).</span></li>
+      <li>
+        <div class="button-group">
+          <button class="keyword-button" onclick="openPopupK('3.3f')">
+            🔑 View Keywords on This Topic 🔑
+          </button>
+          <button class="exam-button" onclick="openPopupQ('3.3f')">
+            👁️ Quick Look at Exam Questions on This Topic 👁️
+          </button>
+        </div>
+      </li>
+    </ul>
   </div>
 
-    <script>
-    window.addEventListener('load', function() {
-      var height = document.body.scrollHeight;
-      window.parent.postMessage({type: 'resize', height: height}, '*');
-    });
-    </script>
-  </div>
+</div>
+  <script src="popup-script.js"></script>
 </body>
 </html>

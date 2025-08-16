@@ -1,14 +1,38 @@
 [
   {
-    "question": "Explain what is meant by a validation test in computer science education.",
-    "answer": "A validation test checks that students have understood the material and are ready to progress."
+    "question": "State the purpose of encrypting data.",
+    "answer": "If the data is intercepted, it cannot be understood"
   },
   {
-    "question": "State one advantage of practicing with past paper questions before an exam.",
-    "answer": "Past paper questions familiarize students with the exam style and improve confidence."
+    "question": "Give the purpose of encryption.",
+    "answer": "Any one from:\n• To help keep the data secure\n• To make the data meaningless"
   },
   {
-    "question": "Give an example of a simple binary operation.",
-    "answer": "Adding two 1-bit binary numbers, e.g. 1 + 1 = 10."
+    "question": "The web browser uses the secure socket layer (SSL) protocol to transmit personal data securely over the internet.\nState how the SSL protocol secures the data for transmission.",
+    "answer": "Any one from:\n• It encrypts it\n• Uses digital certificates"
+  },
+  {
+    "question": "Give one reason why the email data is encrypted.",
+    "answer": "Any one from:\n• To keep it secure\n• The data is sensitive/confidential\n• To make it meaningless"
+  },
+  {
+    "question": "Describe the differences between symmetric and asymmetric encryption.",
+    "answer": "Four from:\n• Symmetric has a shared key…\n• … to encrypt and decrypt\n• Both the sender and receiver know the key\n• Asymmetric has different keys // a public key and a private key\n• …public to encrypt the data and private to decrypt\n• …anyone can know the public key but only those intended know the private key"
+  },
+  {
+    "question": "Data is encrypted to keep it safe during transmission.\nComplete the paragraph about asymmetric encryption.\nUse the terms from the list.\nSome of the terms in the list will not be used. You should only use a term once.\n\nasymmetric    certificate    cipher text\ndecrypted    encrypted    parallel key    plain text    private key\nprotected    public key    serial key    symmetric\n\n.............................................................. is encrypted into ..............................................................\nusing a .............................................................. . The encrypted data is then transmitted from the\nsender to the receiver. The encrypted data is then decrypted using a\n.............................................................. .",
+    "answer": "• plain text\n• cipher text\n• public key\n• private key"
+  },
+  {
+    "question": "Explain how data is encrypted using symmetric encryption.",
+    "answer": "Data is encrypted and decrypted using the same key (1 mark)\nAny three from:\n• Plain text is encrypted into cipher text // cipher text is decrypted into plain text\n• Data is encrypted using an algorithm …\n• …  that uses a key\n• The key can be generated using an algorithm\n• The key is transmitted to the receiver"
+  },
+  {
+    "question": "Give one similarity between symmetric encryption and asymmetric encryption.",
+    "answer": "Any one from:\n• They both use a key\n• They both scramble the data // both make the data meaningless\n• They both turn plain text into cypher text"
+  },
+  {
+    "question": "Give two differences between symmetric encryption and asymmetric encryption.",
+    "answer": "Any two from:\n• Symmetric uses one/public key whereas asymmetric uses two/public and private keys\n• Symmetric decrypts the data using the same key whereas asymmetric decrypts the data using a different key\n• Symmetric is less secure than asymmetric"
   }
 ]

@@ -2,101 +2,129 @@
   "questions": [
     {
       "type": "mcq",
-      "question": "What is the main reason computers use binary to represent all data?",
+      "question": "What is the Internet?",
       "options": [
-        "Binary numbers are easier for humans to read",
-        "Computers use logic gates that only understand ON and OFF states",
-        "It uses less power",
-        "Binary numbers are shorter than decimal numbers"
+        "A collection of websites accessible through browsers",
+        "A global system of interconnected computer networks",
+        "A service that provides email and chat functionality",
+        "A protocol for secure data transmission"
       ],
-      "answer": "Computers use logic gates that only understand ON and OFF states"
+      "answer": "A global system of interconnected computer networks"
     },
     {
       "type": "mcq",
-      "question": "In an 8-bit binary number, what does the leftmost bit represent?",
+      "question": "Which component is NOT typically found in a URL structure?",
       "options": [
-        "Least Significant Bit",
-        "The parity bit",
-        "Most Significant Bit",
-        "The hexadecimal value"
+        "Protocol",
+        "Domain name",
+        "Cookie data",
+        "File name"
       ],
-      "answer": "Most Significant Bit"
+      "answer": "Cookie data"
     },
     {
       "type": "mcq",
-      "question": "Which of the following is a hexadecimal digit?",
+      "question": "What is the primary difference between HTTP and HTTPS?",
       "options": [
-        "8",
-        "G",
-        "H",
-        "Q"
+        "HTTP is faster than HTTPS",
+        "HTTPS uses encryption to protect data transmission",
+        "HTTP works with more browsers than HTTPS",
+        "HTTPS requires special domain names"
       ],
-      "answer": "8"
+      "answer": "HTTPS uses encryption to protect data transmission"
     },
     {
       "type": "mcq",
-      "question": "What is the maximum value that can be represented in an 8-bit binary number?",
+      "question": "What does DNS stand for and what is its function?",
       "options": [
-        "255",
-        "256",
-        "128",
-        "1024"
+        "Digital Network Security - protects websites from hackers",
+        "Data Navigation System - organizes website content",
+        "Domain Name System - converts domain names into IP addresses",
+        "Dynamic Network Structure - connects multiple servers"
       ],
-      "answer": "255"
+      "answer": "Domain Name System - converts domain names into IP addresses"
     },
     {
-      "type": "fill_blank",
-      "question": "The process of moving all bits in a binary number to the left or right and filling the emptied spaces with zeros is called a __________ shift.",
-      "answer": "Logical"
+      "type": "mcq",
+      "question": "Which browser feature temporarily stores page data for faster loading?",
+      "options": [
+        "Bookmark",
+        "Cache",
+        "Cookie",
+        "Tab"
+      ],
+      "answer": "Cache"
     },
     {
-      "type": "fill_blank",
-      "question": "In binary addition, if the result is too large for the register to hold, this is called an __________ error.",
-      "answer": "Overflow"
-    },
-    {
-      "type": "fill_blank",
-      "question": "Each hexadecimal digit can be represented by exactly ___ binary bits.",
-      "answer": "4"
+      "type": "mcq",
+      "question": "What type of cookie is deleted when the browser is closed?",
+      "options": [
+        "Persistent cookie",
+        "Secure cookie",
+        "Session cookie",
+        "Encrypted cookie"
+      ],
+      "answer": "Session cookie"
     },
     {
       "type": "true_false",
-      "question": "Digital data can take any value, just like analogue data.",
+      "question": "The World Wide Web and the Internet are the same thing.",
       "answer": "False"
     },
     {
       "type": "true_false",
-      "question": "In two’s complement, the most significant bit represents the sign of the number.",
+      "question": "A Certificate Authority is an organization that checks and approves websites for digital certificates.",
       "answer": "True"
     },
     {
       "type": "true_false",
-      "question": "The denary number system is also known as base 16.",
+      "question": "Standard HTTP provides adequate protection for sensitive information like passwords during transmission.",
       "answer": "False"
     },
     {
+      "type": "true_false",
+      "question": "A web browser and a search engine serve the same function.",
+      "answer": "False"
+    },
+    {
+      "type": "true_false",
+      "question": "TLS is a newer and more secure version of SSL.",
+      "answer": "True"
+    },
+    {
+      "type": "fill_blank",
+      "question": "A __________ is a text-based address that identifies the location of a web page or file on the internet.",
+      "answer": "URL"
+    },
+    {
+      "type": "fill_blank",
+      "question": "The process where a browser interprets HTML and CSS to display a visual webpage is called __________.",
+      "answer": "Rendering"
+    },
+    {
+      "type": "fill_blank",
+      "question": "__________ cookies are stored on the computer's hard drive until they expire or are deleted.",
+      "answer": "Persistent"
+    },
+    {
       "type": "match",
-      "question": "Match the term with its correct definition:",
+      "question": "Match each web technology with its primary function:",
       "pairs": {
-        "Register": "Used to temporarily hold binary data",
-        "Logic gate": "Basic building block for processing digital data",
-        "Two’s complement": "Method to represent negative binary"
+        "HTML": "Structures web content",
+        "CSS": "Controls visual layout",
+        "JavaScript": "Adds interactivity",
+        "HTTPS": "Provides secure transmission"
       }
     },
     {
-      "type": "fill_blank",
-      "question": "Convert the binary number 1101 to denary: __________",
-      "answer": "13"
-    },
-    {
-      "type": "fill_blank",
-      "question": "What is the hexadecimal equivalent of the denary number 15? __________",
-      "answer": "F"
-    },
-    {
-      "type": "fill_blank",
-      "question": "What is the binary value for the hexadecimal digit C? __________",
-      "answer": "1100"
+      "type": "match",
+      "question": "Match each browser feature with its description:",
+      "pairs": {
+        "Address Bar": "Where you type a URL",
+        "Bookmark": "Saves links to favourite sites",
+        "User History": "Stores previously visited websites",
+        "Hyperlinks": "Links that connect web pages"
+      }
     }
   ]
 }

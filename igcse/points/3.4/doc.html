@@ -2,144 +2,126 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>1.1 Number Systems</title>
-  <link rel="stylesheet" href="igcse-style.css">
+  <title>IGCSE Computer Science - 3.4 Network hardware</title>
+  <link rel="stylesheet" href="../igcse-style.css">
 </head>
 <body>
-   <div class="container">
-    <h1>Number Systems</h1>
-    <div class="subtitle">IGCSE CS theory notes, prepared by Dr. Hamdeni</div>
 
-    <div class="section">
-      <h2>1.1 Understand how and why computers use binary to represent all forms of data</h2>
-
+<div class="container">
+  <div class="header-container">
+    <img src="../syllabus.png" alt="Syllabus Update" class="top-right-icon">
+    <div class="title-row">
+      <h1 class="section-title">3.4 Network hardware</h1>
     </div>
-
-    <div class="section">
-      <h2>1.2 (a) Understand the denary, binary and hexadecimal number systems</h2>
-      <ul>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Base-10, digits 0–9">Denary</span> is used in everyday life, with each place increasing by powers of 10.</span></li>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Base-2, digits 0 and 1">Binary</span> is used by computers, with each place increasing by powers of 2.</span></li>
-        <li><span class="official-note">The <span class="keyword" data-tooltip="The leftmost bit in a binary number, which has the highest value">MSB</span> (Most Significant Bit) is the leftmost bit.</span></li>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Base-16, digits 0–9 and A–F">Hexadecimal</span> is closely related to binary; each hex digit is 4 bits.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">The denary number 253.47 = 2×10000 + 5×1000 + 1×100 + 7×10 + 7×1.</div></li>
-        <li><div class="example-box">Binary 11101110 = 128+64+32+8+4+2 = 238 (denary).</div></li>
-        <li><div class="example-box">Hex digit A = 10, F = 15 (denary).</div></li>
-        <li><div class="example-box">1010 (binary) = A (hex) = 10 (denary).</div></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.2 (b) Convert between number systems</h2>
-      <ul>
-        <li><span class="official-note">To convert binary to denary: add up the values of all positions where there is a 1.</span></li>
-        <li><span class="official-note">To convert denary to binary: subtract the largest possible powers of 2, or divide by 2 and record remainders.</span></li>
-        <li><span class="official-note">Successive division by 2 and reading remainders from bottom to top gives the binary value.</span></li>
-        <li><span class="official-note">You can convert up to 16-bit binary numbers for this syllabus.</span></li>
-        <li><span class="official-note">To convert binary to hexadecimal: group bits from the right in sets of four, pad with zeros to the left if needed.</span></li>
-        <li><span class="official-note">To convert hexadecimal to binary: write each hex digit as 4 bits.</span></li>
-        <li><span class="official-note">To convert hexadecimal to denary: convert hex to binary, then binary to denary.</span></li>
-        <li><span class="official-note">To convert denary to hexadecimal: convert to binary, group in 4s, convert each group to hex.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">011110001011 = 1024+512+256+128+8+2+1 = 1931 (denary).</div></li>
-        <li><div class="example-box">Denary 142: 142 ÷ 2 repeatedly gives remainders 1 0 0 0 1 1 1 0 (read bottom to top: 10001110).</div></li>
-        <li><div class="example-box">Denary 13 → 8+4+0+1 = 13 → 1101 (binary).</div></li>
-        <li><div class="example-box">1000001111101 → 0010 0001 1111 1101 → 21FD (hex).</div></li>
-        <li><div class="example-box">Hex SE (S=5, E=14): 0101 1110 (binary).</div></li>
-        <li><div class="example-box">Hex 2 1 F D → 0010 0001 1111 1101 (binary).</div></li>
-        <li><div class="example-box">Hex SE = 64+16+8+4+2 = 94 (denary).</div></li>
-        <li><div class="example-box">Denary 201: binary 11001001 → 1100 (C), 1001 (9) → hex C9.</div></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.3 Understand how and why hexadecimal is used as a beneficial method of data representation</h2>
-      <ul>
-        <li><span class="official-note">Hexadecimal is shorter and easier to read and write than binary; simplifies debugging and error detection.</span></li>
-        <li><span class="official-note">Programmers find it easier to compare and spot differences in hexadecimal than in long binary strings.</span></li>
-        <li><span class="official-note">Common uses for hexadecimal: HTML colours, MAC addresses, assembly/machine code, memory dumps, debugging, error codes, and IP addresses.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">Comparing 10011100101110111000111011100010111101011010 (binary) vs. 9CBB8EE2F5A (hex).</div></li>
-        <li><div class="example-box"><span class="keyword" data-tooltip="Unique device identifier, written in hexadecimal">MAC address</span>: e.g., 00-1C-B3-4F-25-FE.</div></li>
-        <li><span class="fun-tip">Hex makes large binary numbers easier for humans to read and spot mistakes quickly!</span></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.4 (a) Add two positive 8-bit binary integers</h2>
-      <ul>
-        <li><span class="official-note">Binary addition rules: 0+0=0; 1+0/0+1=1; 1+1=0 (carry 1); 1+1+1=1 (carry 1).</span></li>
-        <li><span class="official-note">Carry values work like in denary addition—add rightmost columns first, carry left if needed.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">00100111 + 01001010 = 01110001 (binary addition).</div></li>
-        <li><div class="example-box">126 (01111110) + 62 (00111110) = 188 (10111100).</div></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.4 (b) Understand the concept of overflow and why it occurs in binary addition</h2>
-      <ul>
-        <li><span class="official-note"><span class="keyword" data-tooltip="When a calculation exceeds the maximum storable value in the register">Overflow error</span> occurs when a result is too big for the register.</span></li>
-        <li><span class="official-note">For an 8-bit register, the maximum value is 255 (11111111). A result with a 9th bit is overflow.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">Adding 01101110 + 11011110 = (1)01001100, the leading (1) is overflow.</div></li>
-        <li><span class="fun-tip">If your answer has more bits than allowed, that extra leftmost bit is overflow—the computer can't fit it!</span></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.5 Perform a logical binary shift on a positive 8-bit binary integer and understand the effect</h2>
-      <ul>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Moving all bits left (×2) or right (÷2); zero fills empty place">Logical shift</span>: move all bits left (multiply by 2) or right (divide by 2); zeros fill empty spots.</span></li>
-        <li><span class="official-note">Bits shifted out are lost; zeros fill the emptied places.</span></li>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Left-most">Most significant bit</span></li>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Right-most">Least significant bit</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">Left shift: 00010101 → 00101010 (21×2=42).</div></li>
-        <li><div class="example-box">Left shift 2: 00010101 → 01010100 (21×4=84).</div></li>
-        <li><div class="example-box">Right shift: 11001000 → 01100100 (200÷2=100).</div></li>
-        <li><div class="example-box">Shift 10101010 one place left: 01010100.</div></li>
-        <li><span class="fun-tip">Each left shift doubles your number—each right shift halves it (if you don't lose important bits)!</span></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.6 Use the two’s complement number system to represent positive and negative 8-bit binary integers</h2>
-      <ul>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Method to represent negative binary numbers; left-most bit is the sign (–128 for 8 bits)">Two’s complement</span> lets you use the same binary system for positive and negative numbers.</span></li>
-        <li><span class="official-note">In 8-bit two’s complement, the range is –128 to +127.</span></li>
-        <li><span class="official-note">To write a positive number, use normal binary (sign bit 0).</span></li>
-        <li><span class="official-note">To write a negative number:<br>
-            1. Write positive binary.<br>
-            2. Invert all bits left of the first 1 from the right (or invert all bits and add 1).<br>
-            3. Make sure the MSB is 1.
-          </span>
-        </li>
-        <li><span class="official-note">For negative values, sum bits using –128 as the left-most.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">38 = 00100110 (two’s complement).</div></li>
-        <li><div class="example-box">–67: 01000011 → invert → 10111100 → add 1 = 10111101.</div></li>
-        <li><div class="example-box">10111010 = –128 + 32 + 16 + 8 + 2 = –70.</div></li>
-        <li><span class="fun-tip">To get a negative number: "Flip all the bits and add one!" (That’s the computer’s trick.)</span></li>
-      </ul>
-    </div>
-
+    <div class="title-underline"></div>
+    <p class="section-subtitle">Computer Science IGCSE notes, prepared by Dr. Hamdeni</p>
   </div>
-
-    <script>
-    window.addEventListener('load', function() {
-      var height = document.body.scrollHeight;
-      window.parent.postMessage({type: 'resize', height: height}, '*');
-    });
-    </script>
+  <div class="section">
+    <h2>3.4a: Network interface card (NIC) and MAC address at manufacture</h2>
+    <ul>
+      <li><span class="official-note">A <span class="keyword" data-tooltip="the component in a computer that is used to connect it to a network.">network interface card (NIC)</span> is required for a device to connect to a <span class="keyword" data-tooltip="computers and devices that are joined together using cables or wireless technology.">network</span>; it stores a media access control (MAC) address assigned at manufacture. </span>
+        <ul>
+          <li><span class="official-note">A NIC can be wired or wireless. </span></li>
+          <li><span class="official-note">It establishes the physical connection and transmits and receives data. </span></li>
+          <li><span class="official-note">It converts between network data and computer-readable data. </span></li>
+          <li><span class="official-note">The NIC enables network connectivity so that DHCP on the <span class="keyword" data-tooltip="a device that enables data packets to be moved between different networks, for example, to join a LAN to a WAN.">router</span> or the ISP can assign an IP address to the device. </span></li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="no-bullets">
+      <li><div class="example-box">Data sent on the network includes the device MAC address so the sender can be identified. </div></li>
+      <li><div class="example-box">Wireless NIC: a laptop uses a wireless network interface card to connect to a home network without a cable. </div></li>
+      <li><span class="fun-tip">Think of the NIC as your device’s network passport. It carries your identity (the MAC address) and lets you enter the network. </span></li>
+      <div class="button-group">
+        <button class="keyword-button" onclick="openPopupK('3.4a')">
+          🔑 View Keywords on This Topic 🔑
+        </button>
+        <button class="exam-button" onclick="openPopupQ('3.4a')">
+          👁️ Quick Look at Exam Questions on This Topic 👁️
+        </button>
+      </div>
+    </ul>
   </div>
+  <div class="section">
+    <h2>3.4b: Media access control (MAC) address and its structure</h2>
+    <ul>
+      <li><span class="official-note">A media access control (MAC) address uniquely identifies a device and is assigned by the manufacturer. </span>
+        <ul>
+          <li><span class="official-note">Structure: the address contains a manufacturer code and a device serial code. </span></li>
+          <li><span class="official-note">Format: six pairs written in hexadecimal, separated by colons or dashes. </span></li>
+          <li><span class="official-note">Length: a <span class="keyword" data-tooltip="the unique address that is given to a NIC by the manufacturer.">MAC address</span> is 48 bits long, which equals twelve hexadecimal digits. </span></li>
+          <li><span class="official-note">Property: a MAC address is normally unchanged, known as a universally administered address (UAA), but it can be altered in some cases using a locally administered address (LAA). </span></li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="no-bullets">
+      <li><div class="example-box">Example MAC: 34:4D:EA:89:75:B2 shows six hexadecimal pairs separated by colons. </div></li>
+      <div class="button-group">
+        <button class="keyword-button" onclick="openPopupK('3.4b')">
+          🔑 View Keywords on This Topic 🔑
+        </button>
+        <button class="exam-button" onclick="openPopupQ('3.4b')">
+          👁️ Quick Look at Exam Questions on This Topic 👁️
+        </button>
+      </div>
+    </ul>
+  </div>
+  <div class="section">
+    <h2>3.4c: Internet protocol (IP) address; types; IPv4 vs IPv6</h2>
+    <ul>
+      <li><span class="official-note">An internet protocol (IP) address is used to locate a device on a network and is allocated by the network. </span>
+        <ul>
+          <li><span class="official-note">IPv4 uses 32 bits and is written as four numbers separated by full stops; IPv6 uses 128 bits and is written in hexadecimal groups separated by colons. </span></li>
+        </ul>
+      </li>
+      <li><span class="official-note">IP addresses can be static or dynamic. </span>
+        <ul>
+          <li><span class="official-note">A <span class="keyword" data-tooltip="an IP address that can change each time the device connects to a network.">dynamic IP address</span> can change each time the device connects to the network. </span></li>
+          <li><span class="official-note">IPv4 number range: each of the four numbers is from 0 to 255. </span></li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="no-bullets">
+      <li><div class="example-box">IPv4 12.244.233.165 uses four numbers with full stops; IPv6 2001:0db8:0000:0000:0000:ff00:0042:7879 uses hexadecimal groups with colons. </div></li>
+      <li><div class="example-box">Valid IPv4 selection: among 110:255:2:1, 1.30.2FF.A9, 3.162.74.3, and 8.0.257.6.8, only 3.162.74.3 is valid because each section must be a number from 0 to 255 and the format must contain exactly four numbers separated by full stops. </div></li>
+      <li><div class="example-box">IPv4 validity check: 10.245.3.99 has four numbers separated by full stops and each number is between 0 and 255, so it is valid. </div></li>
+      <li><div class="example-box">Static IP in practice: a website server may use a static IPv4 address so users can always reach the same address. </div></li>
+      <li><span class="fun-tip">An IP address is like where you live. Static IP is a fixed home address, dynamic IP is a hotel room that can change the next time you visit. </span></li>
+      <div class="button-group">
+        <button class="keyword-button" onclick="openPopupK('3.4c')">
+          🔑 View Keywords on This Topic 🔑
+        </button>
+        <button class="exam-button" onclick="openPopupQ('3.4c')">
+          👁️ Quick Look at Exam Questions on This Topic 👁️
+        </button>
+      </div>
+    </ul>
+  </div>
+  <div class="section">
+    <h2>3.4d: Role of a router in a network</h2>
+    <ul>
+      <li><span class="official-note">A router reads a destination address and forwards data to the correct destination; it connects a local network to the internet. </span>
+        <ul>
+          <li><span class="official-note">On a local network, the router can assign IP addresses to devices. </span></li>
+          <li><span class="official-note">Forwarding on a local network can use MAC addresses; forwarding to the internet uses IP addresses. </span></li>
+          <li><span class="official-note">In packet switching, routers make per-packet, per-hop forwarding decisions. Different packets can take different paths when routing information indicates a more efficient path. </span></li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="no-bullets">
+      <li><div class="example-box">Home network: devices connect to the router, which forwards data and can assign local IP addresses.</div></li>
+      <li><span class="fun-tip">A router works like a post office sorter. It reads the destination and sends each parcel on a good route, switching paths when another route is faster.</span></li>
+      <div class="button-group">
+        <button class="keyword-button" onclick="openPopupK('3.4d')">
+          🔑 View Keywords on This Topic 🔑
+        </button>
+        <button class="exam-button" onclick="openPopupQ('3.4d')">
+          👁️ Quick Look at Exam Questions on This Topic 👁️
+        </button>
+      </div>
+    </ul>
+  </div>
+</div>
+  <script src="popup-script.js"></script>
 </body>
 </html>

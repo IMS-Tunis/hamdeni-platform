@@ -2,101 +2,132 @@
   "questions": [
     {
       "type": "mcq",
-      "question": "What is the main reason computers use binary to represent all data?",
+      "question": "Which statement correctly describes a NIC?",
       "options": [
-        "Binary numbers are easier for humans to read",
-        "Computers use logic gates that only understand ON and OFF states",
-        "It uses less power",
-        "Binary numbers are shorter than decimal numbers"
+        "Component that establishes the physical connection, transmits and receives data",
+        "Device that connects a local network to the internet",
+        "Service that assigns IP addresses on the local network",
+        "Identifier that is 48 bits long for a device"
       ],
-      "answer": "Computers use logic gates that only understand ON and OFF states"
-    },
-    {
-      "type": "mcq",
-      "question": "In an 8-bit binary number, what does the leftmost bit represent?",
-      "options": [
-        "Least Significant Bit",
-        "The parity bit",
-        "Most Significant Bit",
-        "The hexadecimal value"
-      ],
-      "answer": "Most Significant Bit"
-    },
-    {
-      "type": "mcq",
-      "question": "Which of the following is a hexadecimal digit?",
-      "options": [
-        "8",
-        "G",
-        "H",
-        "Q"
-      ],
-      "answer": "8"
-    },
-    {
-      "type": "mcq",
-      "question": "What is the maximum value that can be represented in an 8-bit binary number?",
-      "options": [
-        "255",
-        "256",
-        "128",
-        "1024"
-      ],
-      "answer": "255"
+      "answer": "Component that establishes the physical connection, transmits and receives data"
     },
     {
       "type": "fill_blank",
-      "question": "The process of moving all bits in a binary number to the left or right and filling the emptied spaces with zeros is called a __________ shift.",
-      "answer": "Logical"
-    },
-    {
-      "type": "fill_blank",
-      "question": "In binary addition, if the result is too large for the register to hold, this is called an __________ error.",
-      "answer": "Overflow"
-    },
-    {
-      "type": "fill_blank",
-      "question": "Each hexadecimal digit can be represented by exactly ___ binary bits.",
-      "answer": "4"
+      "question": "The ________ is required for a device to connect to a network and stores a MAC address assigned at manufacture.",
+      "answer": "network interface card (NIC)"
     },
     {
       "type": "true_false",
-      "question": "Digital data can take any value, just like analogue data.",
-      "answer": "False"
-    },
-    {
-      "type": "true_false",
-      "question": "In two’s complement, the most significant bit represents the sign of the number.",
+      "question": "The NIC converts between network data and computer-readable data.",
       "answer": "True"
     },
     {
-      "type": "true_false",
-      "question": "The denary number system is also known as base 16.",
-      "answer": "False"
-    },
-    {
       "type": "match",
-      "question": "Match the term with its correct definition:",
+      "question": "Match each item to its role.",
       "pairs": {
-        "Register": "Used to temporarily hold binary data",
-        "Logic gate": "Basic building block for processing digital data",
-        "Two’s complement": "Method to represent negative binary"
+        "NIC": "Component that connects a computer to a network and stores a MAC address assigned at manufacture",
+        "Network": "Devices and computers joined together using cables or wireless technology",
+        "Router": "Device that enables data packets to move between networks and can assign IP addresses via DHCP"
       }
     },
     {
-      "type": "fill_blank",
-      "question": "Convert the binary number 1101 to denary: __________",
-      "answer": "13"
+      "type": "mcq",
+      "question": "Which statement about a MAC address is correct?",
+      "options": [
+        "It is allocated by the network whenever a device connects",
+        "It uniquely identifies a device and is assigned by the manufacturer",
+        "It consists of four numbers from 0 to 255 separated by full stops",
+        "It uses 128 bits written in hexadecimal groups separated by colons"
+      ],
+      "answer": "It uniquely identifies a device and is assigned by the manufacturer"
     },
     {
       "type": "fill_blank",
-      "question": "What is the hexadecimal equivalent of the denary number 15? __________",
-      "answer": "F"
+      "question": "A ________ is 48 bits long, which equals twelve hexadecimal digits.",
+      "answer": "MAC address"
+    },
+    {
+      "type": "mcq",
+      "question": "Which describes the structure or format of a MAC address?",
+      "options": [
+        "Six pairs written in hexadecimal, separated by colons or dashes",
+        "Eight hexadecimal groups separated by colons",
+        "Four decimal numbers separated by full stops",
+        "A device serial code only, which changes dynamically"
+      ],
+      "answer": "Six pairs written in hexadecimal, separated by colons or dashes"
+    },
+    {
+      "type": "true_false",
+      "question": "A MAC address is normally unchanged (universally administered address, UAA) but can be altered in some cases using a locally administered address (LAA).",
+      "answer": "True"
+    },
+    {
+      "type": "mcq",
+      "question": "Which comparison of IP versions is correct?",
+      "options": [
+        "IPv4 uses 128 bits and IPv6 uses 32 bits",
+        "IPv4 uses four numbers separated by full stops; IPv6 uses hexadecimal groups separated by colons",
+        "IPv4 and IPv6 are both written as six hexadecimal pairs",
+        "IPv4 and IPv6 are both allocated by the manufacturer"
+      ],
+      "answer": "IPv4 uses four numbers separated by full stops; IPv6 uses hexadecimal groups separated by colons"
     },
     {
       "type": "fill_blank",
-      "question": "What is the binary value for the hexadecimal digit C? __________",
-      "answer": "1100"
+      "question": "A ________ can change each time the device connects to the network.",
+      "answer": "dynamic IP address"
+    },
+    {
+      "type": "true_false",
+      "question": "Each of the four numbers in an IPv4 address is from 0 to 255.",
+      "answer": "True"
+    },
+    {
+      "type": "mcq",
+      "question": "Which statement about an IP address is correct?",
+      "options": [
+        "It is allocated by the network and used to locate a device on a network",
+        "It is assigned by the manufacturer and uniquely identifies the device hardware",
+        "It is 48 bits long and written as six pairs in hexadecimal",
+        "It is normally unchanged and known as a UAA"
+      ],
+      "answer": "It is allocated by the network and used to locate a device on a network"
+    },
+    {
+      "type": "mcq",
+      "question": "Which best states the router’s role?",
+      "options": [
+        "Converts between network data and computer-readable data",
+        "Reads a destination address, forwards data to the correct destination, and connects a local network to the internet",
+        "Assigns a 48-bit address to each device at manufacture",
+        "Defines the 0 to 255 range used in IPv4"
+      ],
+      "answer": "Reads a destination address, forwards data to the correct destination, and connects a local network to the internet"
+    },
+    {
+      "type": "true_false",
+      "question": "On a local network, the router can assign IP addresses to devices.",
+      "answer": "True"
+    },
+    {
+      "type": "match",
+      "question": "Match forwarding context to the addressing method used.",
+      "pairs": {
+        "Forwarding on a local network": "Can use MAC addresses",
+        "Forwarding to the internet": "Uses IP addresses"
+      }
+    },
+    {
+      "type": "mcq",
+      "question": "Which statement about packet switching is correct?",
+      "options": [
+        "Routers make per-packet, per-hop decisions; different packets can take different paths when a more efficient path is indicated",
+        "Routers always keep all packets on a single path",
+        "Packet switching requires IPv6 and cannot operate with IPv4",
+        "Packet switching assigns device serial codes during forwarding"
+      ],
+      "answer": "Routers make per-packet, per-hop decisions; different packets can take different paths when a more efficient path is indicated"
     }
   ]
 }

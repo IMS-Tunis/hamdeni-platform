@@ -1,14 +1,66 @@
 [
   {
-    "question": "Explain what is meant by a validation test in computer science education.",
-    "answer": "A validation test checks that students have understood the material and are ready to progress."
+    "question": "6 A user wants to connect their computer to a network.\n(a) (i) Identify the component in the computer that is needed to access a network.",
+    "answer": "Network interface card/controller // NIC // WNIC"
   },
   {
-    "question": "State one advantage of practicing with past paper questions before an exam.",
-    "answer": "Past paper questions familiarize students with the exam style and improve confidence."
+    "question": "(a) The computer has a network interface card (NIC) that has a media access control (MAC) address.\n(i) One purpose of the NIC is to provide the computer with a MAC address.\nDescribe the other purposes of the NIC.",
+    "answer": "Any two from:\n• Transmit/send data to the network/devices // Receive data from the network/devices\n• To allow a physical connection\n• Convert network data so it can be understood by the computer\n• Convert computer data to be transmitted over the network\n• To be assigned an IP address"
   },
   {
-    "question": "Give an example of a simple binary operation.",
-    "answer": "Adding two 1-bit binary numbers, e.g. 1 + 1 = 10."
+    "question": "(a) (ii) Identify the type of address that is allocated to the component by the manufacturer, which is used to uniquely identify the device.",
+    "answer": "Media access control/MAC address // MAC"
+  },
+  {
+    "question": "(a) (ii) Identify three characteristics of a MAC address.",
+    "answer": "Any three from:\n• (Represented) in hexadecimal\n• Numbers are separated by colons/hyphens\n• Six groups of digits\n• Sets of 2-digit/8-bit (hex) numbers // 48 bits // 12-digits\n• Contains manufacturer ID and unique device number\n• Static address // cannot be changed"
+  },
+  {
+    "question": "7 A computer has both a media access control (MAC) address and an internet protocol (IP) address.\n(a) Tick (✓) one box to show which of the statements is correct about the MAC address.\nA It is assigned by the manufacturer.\nB It is assigned by a router.\nC It can be static or dynamic.\nD It is made up of three different parts.",
+    "answer": "A"
+  },
+  {
+    "question": "(b) A dynamic internet protocol (IP) address is allocated to the computer when it is connected to the network.\n(ii) Describe what is meant by a dynamic IP address.",
+    "answer": "Three from:\n• It can be used to uniquely identify a device (on a network)\n• It can change …\n• … each time the device is connected to the network"
+  },
+  {
+    "question": "(b) The network allocates an internet protocol (IP) address to the computer.\n(i) Tick (✓) one box to identify a valid IPv4 address.",
+    "answer": "C"
+  },
+  {
+    "question": "(b) An IP address can have an IPv4 or IPv6 format.\n(i) Give an example of an IP address that has an IPv4 format.",
+    "answer": "An IP address that has numerical values separated by dots that follows the format with a max value of 255 in any xxx\nxxx.xxx.xxx.xxx\nExample: 10.245.3.99"
+  },
+  {
+    "question": "8.(b) Describe the characteristics of an IPv4 address.",
+    "answer": "Any two from:\n• Numbers separated by dots\n• Can have numbers (in any field) from 0 to 255\n• 32-bit value\n• Consists of 4 numbers\n• xxx.xxx.xxx.xxx"
+  },
+  {
+    "question": "(b) A dynamic internet protocol (IP) address is allocated to the computer when it is connected to the network.\n(i) Identify the device on the network that can connect multiple devices and automatically assign them an IP address.",
+    "answer": "Router"
+  },
+  {
+    "question": "7 Data is transmitted using the Internet.\n(b) (ii) Give the purpose of a router in the packet-switching process.",
+    "answer": "Any one from:\n• Control the route the packet takes\n• Send each packet towards its destination\n• Choose more efficient route"
+  },
+  {
+    "question": "4 Data is transmitted across the Internet.\n(b) Packet switching is used to transmit the data packets across the network.\nIdentify the device that controls which path is taken by each data packet.",
+    "answer": "Router"
+  },
+  {
+    "question": "4 Data is transmitted across the Internet.\n(b) Packet switching is used to transmit the data packets across the network.\nIdentify the device that controls which path is taken by each data packet.",
+    "answer": "Router"
+  },
+  {
+    "question": "(b) The network allocates an internet protocol (IP) address to the computer.\n(ii) Identify the device in a network that can automatically assign an IP address to a computer, each time the computer connects to the network.",
+    "answer": "Router"
+  },
+  {
+    "question": "8 A computer is connected to a network and assigned an IPv4 address.\n(a) Tick (✓) one box to show which device would assign the IPv4 address to the computer.\nA Domain name server (DNS)\nB Network interface card (NIC)\nC Router\nD Web server",
+    "answer": "C"
+  },
+  {
+    "question": "Complete the table to give the missing term or description for the internet terms.\n... the address given to a device when it connects to the internet.",
+    "answer": "IP (address)"
   }
 ]

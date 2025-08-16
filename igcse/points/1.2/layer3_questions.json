@@ -1,20 +1,98 @@
 [
-  {
-    "point_id": "1.2",
-    "question_number": 1,
-    "question": "State one benefit of using binary in computers.",
-    "mark_scheme": "Binary is simple for electronic circuits, representing two states such as on/off."
-  },
-  {
-    "point_id": "1.2",
-    "question_number": 2,
-    "question": "Define the term 'protocol' in networking.",
-    "mark_scheme": "A protocol is a set of rules that allow devices to communicate."
-  },
-  {
-    "point_id": "1.2",
-    "question_number": 3,
-    "question": "Explain the purpose of an IP address.",
-    "mark_scheme": "It uniquely identifies a device on a network."
-  }
+{
+"point_id": "1.2",
+"question_number": 1,
+"question": "State what is meant by a character set and how text is represented in a computer.",
+"mark_scheme": "Answer:\n(State: express in clear terms)\nA character set is a defined list of characters where each character is assigned a fixed binary code so that computers can store and process text as binary."
+},
+{
+"point_id": "1.2",
+"question_number": 2,
+"question": "Define ASCII and Unicode.",
+"mark_scheme": "Answer:\n(Define: give precise meaning)\nASCII is a character set for common English characters, historically using 7 bits and commonly stored as 1 byte. Unicode is a standard character set that supports a much wider range of characters and languages and can use multiple bytes per character."
+},
+{
+"point_id": "1.2",
+"question_number": 3,
+"question": "Compare ASCII and Unicode in terms of coverage and storage requirements.",
+"mark_scheme": "Answer:\n(Compare: identify/comment on similarities and/or differences)\nBoth map characters to codes. ASCII covers a basic English set with one byte per character, while Unicode supports many more characters across languages and may require more than one byte per character."
+},
+{
+"point_id": "1.2",
+"question_number": 4,
+"question": "Identify which bit differs between uppercase and lowercase letters in ASCII.",
+"mark_scheme": "Answer:\n(Identify: name/select/recognise)\nThe sixth bit differs when comparing lowercase and uppercase forms of the same letter."
+},
+{
+"point_id": "1.2",
+"question_number": 5,
+"question": "Explain how to decode a short ASCII binary message given as a bit stream.",
+"mark_scheme": "Answer:\n(Explain: set out purposes or reasons / make the relationships between things evident / provide why and/or how and support with relevant evidence)\nSplit the bit stream into 8-bit chunks, convert each chunk to its character using the ASCII table, then join the characters to form the message."
+},
+{
+"point_id": "1.2",
+"question_number": 6,
+"question": "Describe sampling and the roles of sample rate and sample resolution in recording sound.",
+"mark_scheme": "Answer:\n(Describe: state the points of a topic / give characteristics and main features)\nSampling measures the sound wave amplitude at regular time intervals and stores each measurement in binary. Sample rate is the number of samples per second. Sample resolution is the number of bits per sample. Increasing either can improve accuracy but increases file size."
+},
+{
+"point_id": "1.2",
+"question_number": 7,
+"question": "Calculate how many samples are taken in 2 seconds at a sample rate of 44.1 kHz.",
+"mark_scheme": "Answer:\n(Calculate: work out from given facts, figures or information)\nSamples = 44,100 samples per second × 2 seconds = 88,200 samples."
+},
+{
+"point_id": "1.2",
+"question_number": 8,
+"question": "Describe how a bitmap image is represented in a computer and define pixel, resolution, and colour depth.",
+"mark_scheme": "Answer:\n(Describe: state the points of a topic / give characteristics and main features)\nA bitmap image is a two-dimensional matrix of pixels. A pixel is the smallest picture element storing one colour value. Resolution is width × height in pixels. Colour depth is the number of bits per pixel."
+},
+{
+"point_id": "1.2",
+"question_number": 9,
+"question": "Calculate the total number of pixels in an image of 4096 by 3072 pixels.",
+"mark_scheme": "Answer:\n(Calculate: work out from given facts, figures or information)\nPixels = 4096 × 3072 = 12,582,912 pixels."
+},
+{
+"point_id": "1.2",
+"question_number": 10,
+"question": "Calculate the uncompressed file size of a 4096 × 3072 image stored at 24-bit colour depth.",
+"mark_scheme": "Answer:\n(Calculate: work out from given facts, figures or information)\n(Assume no headers, metadata, or compression.)\nFile size = width × height × bytes per pixel = 4096 × 3072 × (24 ÷ 8) = 37,748,736 bytes."
+},
+{
+"point_id": "1.2",
+"question_number": 11,
+"question": "Outline the role of image metadata and give one example.",
+"mark_scheme": "Answer:\n(Outline: set out main points)\nMetadata supports correct reconstruction and management of the image. Examples include width and height stored with the file."
+},
+{
+"point_id": "1.2",
+"question_number": 12,
+"question": "Explain why a low-resolution version of an image can appear pixelated compared with a high-resolution version.",
+"mark_scheme": "Answer:\n(Explain: set out purposes or reasons / make the relationships between things evident / provide why and/or how and support with relevant evidence)\nLower resolution uses fewer, larger pixels to approximate detail, so edges and curves appear blocky. Higher resolution reduces this effect by providing more pixels."
+},
+{
+"point_id": "1.2",
+"question_number": 13,
+"question": "Describe how increasing image resolution affects image quality and file size.",
+"mark_scheme": "Answer:\n(Describe: state the points of a topic / give characteristics and main features)\nHigher resolution provides more detail and smoother edges. File size increases because more pixel data are stored."
+},
+{
+"point_id": "1.2",
+"question_number": 14,
+"question": "State what happens to file size when colour depth is increased.",
+"mark_scheme": "Answer:\n(State: express in clear terms)\nFile size increases because each pixel is stored using more bits."
+},
+{
+"point_id": "1.2",
+"question_number": 15,
+"question": "Explain how a black and white bitmap image can be stored using binary.",
+"mark_scheme": "Answer:\n(Explain: set out purposes or reasons / make the relationships between things evident / provide why and/or how and support with relevant evidence)\nUse one bit per pixel to represent two colours, for example 0 for white and 1 for black, arranged in a grid using the stored width and height."
+},
+{
+"point_id": "1.2",
+"question_number": 16,
+"question": "A sound sample uses a 16-bit resolution. Calculate the number of possible amplitude values.",
+"mark_scheme": "Answer:\n(Calculate: work out from given facts, figures or information)\nNumber of values = 2^16 = 65,536."
+}
 ]

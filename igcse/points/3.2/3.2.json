@@ -1,0 +1,556 @@
+{
+  "3.2a: Input Devices": [
+    {
+      "type": "official",
+      "text": "An input device is a piece of hardware that allows data to be entered into a computer system."
+    },
+    {
+      "type": "sub-official",
+      "text": "The data entered may be in different forms, such as text, images, sound, or movement."
+    },
+    {
+      "type": "sub-official",
+      "text": "Input devices are essential for sending information into the computer so it can be processed."
+    },
+    {
+      "type": "sub-official",
+      "text": "Some input devices are used by humans (e.g., keyboard), while others like sensors are automatic and work in real-time environments."
+    },
+    {
+      "type": "official",
+      "text": "A [KEYWORD: barcode]{a series of dark and light lines of varying thickness used to represent data; the code has to be scanned using laser or LED light source} scanner is used to read barcodes made of dark and light parallel lines that represent digits using specific patterns."
+    },
+    {
+      "type": "sub-official",
+      "text": "Each digit has a unique pattern of thick and thin lines; digits on the left and right of the barcode use different codes to support two-way scanning."
+    },
+    {
+      "type": "sub-official",
+      "text": "When scanned, the barcode reflects red light differently between dark and light areas, which is captured by sensors and turned into digital data."
+    },
+    {
+      "type": "sub-official",
+      "text": "The barcode is looked up in a stock database where its record includes item name, price, quantity, and reorder level."
+    },
+    {
+      "type": "sub-official",
+      "text": "Barcode systems update stock levels and trigger automatic reordering when stock is low."
+    },
+    {
+      "type": "example",
+      "text": "In supermarkets, barcode scanners are used to identify products during checkout. Each scan decreases the stock level in the database. When it reaches the reorder level, new stock is ordered automatically."
+    },
+    {
+      "type": "official",
+      "text": "A QR code (Quick Response code) is a square-shaped matrix of black and white blocks that can hold much more data than a traditional barcode."
+    },
+    {
+      "type": "sub-official",
+      "text": "A QR code can store up to 4296 characters or 7089 digits, including web addresses or phone numbers."
+    },
+    {
+      "type": "sub-official",
+      "text": "It includes three large alignment squares in the corners to help the scanner determine the position and angle of the code."
+    },
+    {
+      "type": "sub-official",
+      "text": "QR codes are often scanned using smartphone or tablet cameras, and decoded by QR applications into readable information."
+    },
+    {
+      "type": "sub-official",
+      "text": "QR codes use built-in error-checking so they are more reliable than traditional barcodes even if damaged."
+    },
+    {
+      "type": "example",
+      "text": "A QR code can link to a product website. When scanned by a mobile phone, it opens a webpage instantly without typing the URL. This is commonly used in advertisements, boarding passes, or menus."
+    },
+    {
+      "type": "official",
+      "text": "A digital camera captures light using a lens and a light-sensitive array of pixels called a CCD (charge-coupled device)."
+    },
+    {
+      "type": "sub-official",
+      "text": "Each pixel converts light into an electric signal, which is sent to an analogue-to-digital converter (ADC) to create a digital image."
+    },
+    {
+      "type": "sub-official",
+      "text": "Digital cameras also measure colour using 24-bit RGB: 8 bits each for red, green, and blue levels."
+    },
+    {
+      "type": "sub-official",
+      "text": "More pixels mean higher image resolution and larger file size; quality also depends on the lens and [KEYWORD: sensor]{a type of input device that is used to capture data from its immediate environment.}."
+    },
+    {
+      "type": "sub-official",
+      "text": "Images can be transferred to computers using USB or Bluetooth and stored in formats like JPEG or RAW."
+    },
+    {
+      "type": "example",
+      "text": "When a photo is taken, the CCD captures brightness and colour of each pixel, like an orange pixel with values red=215, green=165, blue=40. This data is converted to binary and stored as a digital image."
+    },
+    {
+      "type": "official",
+      "text": "A keyboard is the most common method of entering text into a computer or device."
+    },
+    {
+      "type": "sub-official",
+      "text": "Pressing a key completes a circuit that the CPU detects and matches to a character using its ASCII value."
+    },
+    {
+      "type": "sub-official",
+      "text": "Keyboards can be wired or wireless; virtual keyboards exist on phones and tablets using touch screens."
+    },
+    {
+      "type": "sub-official",
+      "text": "Repetitive use of keyboards may cause injuries such as RSI (repetitive strain injury), but ergonomic keyboards help reduce strain."
+    },
+    {
+      "type": "example",
+      "text": "When the letter ‘H’ is pressed, it completes a circuit that sends a signal to the computer, which uses a lookup table to match the signal to the ASCII code for 'H'."
+    },
+    {
+      "type": "official",
+      "text": "A microphone captures sound by detecting air vibrations and converting them into an electric signal."
+    },
+    {
+      "type": "sub-official",
+      "text": "Inside the microphone, a vibrating diaphragm causes a coil to move in a magnetic field, generating a current."
+    },
+    {
+      "type": "sub-official",
+      "text": "This analogue signal is then converted to digital using an analogue-to-digital converter (ADC) before the computer can store or process it."
+    },
+    {
+      "type": "sub-official",
+      "text": "Microphones can be built into the device or connected externally via USB or Bluetooth."
+    },
+    {
+      "type": "example",
+      "text": "Saying “hut” into a microphone produces air vibrations that are turned into electric signals, then digitized into binary so the computer can store or edit the sound."
+    },
+    {
+      "type": "official",
+      "text": "An [KEYWORD: optical mouse]{a pointing device that uses a red LED to track the movement of the device and then relays its coordinates to a computer} detects movement by capturing multiple images per second of the surface below it."
+    },
+    {
+      "type": "sub-official",
+      "text": "A red LED reflects light from the surface; a CMOS sensor reads the pattern and a processor calculates movement."
+    },
+    {
+      "type": "sub-official",
+      "text": "Optical mice are more reliable than mechanical ones and can be used on most flat surfaces."
+    },
+    {
+      "type": "sub-official",
+      "text": "Wireless optical mice use Bluetooth, but wired ones avoid signal loss and don’t need batteries."
+    },
+    {
+      "type": "official",
+      "text": "Scanners convert physical documents or 3D objects into digital images for storage or processing."
+    },
+    {
+      "type": "sub-official",
+      "text": "2D scanners use a CCD and light to scan flat pages, producing JPEG or editable text files using OCR ([KEYWORD: optical character recognition]{technology that can convert hard copy text or images into a digital format to be stored in a computer memory})."
+    },
+    {
+      "type": "sub-official",
+      "text": "3D scanners scan solid objects across x, y, and z dimensions, producing 3D models for CAD design or 3D printing."
+    },
+    {
+      "type": "sub-official",
+      "text": "2D scanners are often used in airports to match passport photos with live images using face recognition software."
+    },
+    {
+      "type": "sub-official",
+      "text": "The process of 2D scanning involves shining a light on the document, then using mirrors and lenses to reflect the image onto sensors, which convert it into digital format."
+    },
+    {
+      "type": "example",
+      "text": "At airport immigration, a 2D scanner reads the passport photo and compares it with a real-time camera photo using software that measures face features like eye distance and jawline."
+    },
+    {
+      "type": "official",
+      "text": "A [KEYWORD: touch screen]{a screen that allows the user to select or manipulate a screen image using the touch of a finger or stylus; touch screens most frequently use capacitive, infra-red or resistive technology} is an input device that detects user interaction through direct touch on the display surface."
+    },
+    {
+      "type": "sub-official",
+      "text": "Capacitive screens use a conductive layer that detects changes in electric fields caused by fingers or special styluses."
+    },
+    {
+      "type": "sub-official",
+      "text": "In a capacitive touchscreen, the screen stores electrical charge and detects coordinates when a finger touches the screen and completes the circuit."
+    },
+    {
+      "type": "sub-official",
+      "text": "Infrared screens detect when a beam of light is interrupted by touch."
+    },
+    {
+      "type": "sub-official",
+      "text": "Resistive screens consist of two layers that create a circuit when pressed together."
+    },
+    {
+      "type": "sub-official",
+      "text": "Touch screens are used in mobile phones, tablets, ATMs, and kiosks to allow direct interaction without a keyboard or mouse."
+    },
+    {
+      "type": "example",
+      "text": "Projective capacitive screens used in modern smartphones allow multi-touch gestures (like zoom or scroll) and work with gloved hands or styluses."
+    }
+  ],
+  "3.2b: Output Devices": [
+    {
+      "type": "official",
+      "text": "An [KEYWORD: output device]{a device that can be used to obtain the results of data that has been processed.} is hardware that shows or plays the result of the computer’s processing."
+    },
+    {
+      "type": "sub-official",
+      "text": "Output can be in the form of text, images, sound, or physical actions."
+    },
+    {
+      "type": "sub-official",
+      "text": "These devices allow the system to communicate with the user or another system."
+    },
+    {
+      "type": "sub-official",
+      "text": "Some output devices create visible displays (like screens), while others perform physical tasks (like actuators)."
+    },
+    {
+      "type": "official",
+      "text": "An [KEYWORD: actuator]{an output device that converts electrical energy into mechanical movement} is a mechanical component that performs an action, such as moving a part or turning something on or off."
+    },
+    {
+      "type": "sub-official",
+      "text": "Actuators are often used in systems that need physical changes, like controlling valves or motors."
+    },
+    {
+      "type": "sub-official",
+      "text": "A solenoid is one type of actuator that creates motion using magnetic fields."
+    },
+    {
+      "type": "sub-official",
+      "text": "Solenoids can produce linear or rotary motion depending on their construction."
+    },
+    {
+      "type": "sub-official",
+      "text": "Actuators receive signals from the microprocessor and respond by carrying out actions such as turning on a motor, opening a valve, or switching on lights."
+    },
+    {
+      "type": "example",
+      "text": "In an automated irrigation system, an actuator can open or close a water valve when triggered by the system."
+    },
+    {
+      "type": "official",
+      "text": "Projectors are used to display digital output on large screens and come in two main types: DLP (digital light processing) and LCD (liquid crystal display)."
+    },
+    {
+      "type": "sub-official",
+      "text": "DLP projectors use a chip with thousands of tiny mirrors (DMD) that reflect light to form an image."
+    },
+    {
+      "type": "sub-official",
+      "text": "DLP mirrors tilt toward or away from light to produce light or dark pixels and switch rapidly to create greyscale and colour."
+    },
+    {
+      "type": "sub-official",
+      "text": "LCD projectors use coloured mirrors and separate LCD panels for red, green, and blue. These combine to form a full-colour image."
+    },
+    {
+      "type": "sub-official",
+      "text": "DLP projectors are known for high contrast and reliability; LCD projectors give better colour detail and energy efficiency."
+    },
+    {
+      "type": "example",
+      "text": "In a classroom, LCD projectors are often used for presentations because they show sharp and colourful images on a whiteboard."
+    },
+    {
+      "type": "official",
+      "text": "Inkjet printers spray tiny droplets of liquid ink onto paper using either [KEYWORD: thermal bubble]{inkjet printer technology whereby tiny resistors create heat and form an ink bubble which is ejected onto paper in an inkjet printer} or piezoelectric methods."
+    },
+    {
+      "type": "sub-official",
+      "text": "A thermal bubble printer heats the ink to form bubbles that force ink onto the page."
+    },
+    {
+      "type": "sub-official",
+      "text": "A piezoelectric printer uses vibrating crystals to eject ink droplets."
+    },
+    {
+      "type": "sub-official",
+      "text": "Inkjet printers are ideal for printing photos or small documents in colour."
+    },
+    {
+      "type": "sub-official",
+      "text": "The print head in an inkjet printer moves back and forth across the paper, precisely controlling where each droplet of ink lands to form the image or text."
+    },
+    {
+      "type": "example",
+      "text": "When printing a colour photo, the inkjet printer uses four colours (cyan, magenta, yellow, black) and mixes them in precise amounts to form different shades."
+    },
+    {
+      "type": "official",
+      "text": "Laser printers use dry toner powder and static electricity to produce fast and high-quality printed pages."
+    },
+    {
+      "type": "sub-official",
+      "text": "A rotating drum is charged and then scanned by a laser to remove charge in the shape of the image."
+    },
+    {
+      "type": "sub-official",
+      "text": "Toner powder sticks to the charged areas, then is transferred to paper using opposite charges."
+    },
+    {
+      "type": "sub-official",
+      "text": "A heated roller called a fuser melts the toner to make the print permanent."
+    },
+    {
+      "type": "sub-official",
+      "text": "Laser printers are typically used in offices due to their high printing speed, cost-efficiency over time, and ability to handle large print volumes."
+    },
+    {
+      "type": "example",
+      "text": "Laser printers are used in offices to print hundreds of pages quickly, such as documents or flyers."
+    },
+    {
+      "type": "official",
+      "text": "A 3D printer creates solid objects by adding material layer by layer, based on a digital design."
+    },
+    {
+      "type": "sub-official",
+      "text": "The process starts with a CAD (computer-aided design) model that is converted into a printable format."
+    },
+    {
+      "type": "sub-official",
+      "text": "[KEYWORD: Direct 3D printing]{a 3D printing technique in which the print head moves in the x, y and z directions} uses inkjet-like movement to build the object vertically."
+    },
+    {
+      "type": "sub-official",
+      "text": "[KEYWORD: Binder 3D printing]{a 3D printing method that uses a two-stage pass; the first stage uses dry powder and second stage uses a binding agent} sprays powder, then a glue layer to solidify it."
+    },
+    {
+      "type": "sub-official",
+      "text": "3D printers use materials like resin, metal powder, or plastic, and may require post-processing such as curing or cleaning."
+    },
+    {
+      "type": "example",
+      "text": "A prosthetic limb cover can be made using a 3D printer by layering powdered plastic and binding it into a custom-fit shape based on a scan of the user’s leg."
+    },
+    {
+      "type": "official",
+      "text": "Display screens can be LED, LCD, or OLED depending on how they produce images."
+    },
+    {
+      "type": "sub-official",
+      "text": "LED screens use red, green, and blue light-emitting diodes. Brightness is controlled by the current, allowing vivid colours."
+    },
+    {
+      "type": "sub-official",
+      "text": "LCD screens use liquid crystals and need backlighting, usually with LEDs, to display the image."
+    },
+    {
+      "type": "sub-official",
+      "text": "OLED screens use organic compounds that emit light when powered and do not need backlighting."
+    },
+    {
+      "type": "sub-official",
+      "text": "OLED screens are flexible, thin, and use less power, which makes them ideal for smart devices and modern TVs."
+    },
+    {
+      "type": "example",
+      "text": "A curved OLED TV uses organic layers to produce bright colours and deep contrast without needing a separate light source."
+    },
+    {
+      "type": "official",
+      "text": "A [KEYWORD: loudspeaker]{an output device that converts electric current into sound} is an output device that produces sound by converting electric signals into air vibrations."
+    },
+    {
+      "type": "sub-official",
+      "text": "A DAC (digital-to-analogue converter) turns digital audio files into analogue electrical signals."
+    },
+    {
+      "type": "sub-official",
+      "text": "These signals are amplified to a strong current and sent to a speaker cone."
+    },
+    {
+      "type": "sub-official",
+      "text": "The vibrating cone moves air to create sound waves that humans can hear."
+    },
+    {
+      "type": "sub-official",
+      "text": "Sound output may also be delivered through headphones, which use similar principles as loudspeakers but are designed for personal listening."
+    },
+    {
+      "type": "example",
+      "text": "When a song is played on a computer, the audio file is converted to an electric current, sent through an amplifier, and used to move the speaker cone to produce music."
+    }
+  ],
+  "3.2c: Sensors": [
+    {
+      "type": "official",
+      "text": "A sensor is a special input device that detects physical changes in the environment and sends that information to a computer system."
+    },
+    {
+      "type": "sub-official",
+      "text": "Sensors detect changes such as temperature, light, pressure, or movement and send continuous signals, not only when changes happen."
+    },
+    {
+      "type": "sub-official",
+      "text": "The data captured by sensors is analogue, meaning it has many possible values and needs to be converted to digital using an ADC (analogue-to-digital converter)."
+    },
+    {
+      "type": "sub-official",
+      "text": "In control systems, feedback is used: the output affects the next sensor reading, creating a loop that adjusts the system automatically."
+    },
+    {
+      "type": "sub-official",
+      "text": "Sensors do not make decisions—they simply send data to a microprocessor which then determines the appropriate action."
+    },
+    {
+      "type": "example",
+      "text": "In a smart greenhouse, a temperature sensor checks the air temperature and sends data to a microprocessor. If it's too hot, a fan is activated. The new temperature is then measured again, continuing the loop."
+    },
+    {
+      "type": "official",
+      "text": "Sensors are used in both monitoring systems (which observe and report) and control systems (which take action)."
+    },
+    {
+      "type": "sub-official",
+      "text": "Monitoring systems only report when something is out of range, like a hospital monitor alerting a nurse."
+    },
+    {
+      "type": "sub-official",
+      "text": "Control systems adjust devices to bring the situation back to a desired level, like an air conditioner turning on when it's too hot."
+    },
+    {
+      "type": "sub-official",
+      "text": "Monitoring systems can alert users when abnormal values are detected, while control systems use sensor data to automatically adjust the output to maintain desired conditions."
+    },
+    {
+      "type": "example",
+      "text": "A thermostat uses a temperature sensor to maintain a set room temperature. If the room is too cold, it turns on the heating."
+    },
+    {
+      "type": "official",
+      "text": "Different types of sensors are used for specific applications:"
+    },
+    {
+      "type": "official",
+      "text": "Temperature sensors measure heat levels."
+    },
+    {
+      "type": "sub-official",
+      "text": "Used in greenhouses, heating systems, and industrial processes."
+    },
+    {
+      "type": "sub-official",
+      "text": "Can also be used in medical applications like digital thermometers or body temperature monitoring systems."
+    },
+    {
+      "type": "official",
+      "text": "Moisture and humidity sensors detect water levels in air or soil."
+    },
+    {
+      "type": "sub-official",
+      "text": "Used in agriculture, food factories, and microchip manufacturing."
+    },
+    {
+      "type": "official",
+      "text": "Light sensors measure brightness and trigger actions."
+    },
+    {
+      "type": "sub-official",
+      "text": "Used in automatic streetlights or headlamps on cars."
+    },
+    {
+      "type": "sub-official",
+      "text": "Light sensors are also used in alarm systems or display brightness control."
+    },
+    {
+      "type": "official",
+      "text": "Infrared sensors detect invisible IR radiation."
+    },
+    {
+      "type": "sub-official",
+      "text": "Active sensors detect broken beams; passive sensors detect heat."
+    },
+    {
+      "type": "official",
+      "text": "Pressure sensors measure force from solids, liquids, or gases."
+    },
+    {
+      "type": "sub-official",
+      "text": "Used in weighing systems and safety checks."
+    },
+    {
+      "type": "official",
+      "text": "Acoustic sensors detect sound."
+    },
+    {
+      "type": "sub-official",
+      "text": "Used in security alarms or machinery fault detection."
+    },
+    {
+      "type": "official",
+      "text": "Gas sensors detect oxygen or carbon dioxide levels."
+    },
+    {
+      "type": "sub-official",
+      "text": "Used in pollution monitoring or car emissions."
+    },
+    {
+      "type": "sub-official",
+      "text": "Gas sensors can also be used in safety systems to detect leaks in factories or households."
+    },
+    {
+      "type": "official",
+      "text": "pH sensors measure how acidic or alkaline a substance is."
+    },
+    {
+      "type": "sub-official",
+      "text": "Used in soil testing and chemical plants."
+    },
+    {
+      "type": "official",
+      "text": "Magnetic field sensors detect changes in magnetic strength."
+    },
+    {
+      "type": "sub-official",
+      "text": "Used in CD players, mobile phones, and braking systems."
+    },
+    {
+      "type": "official",
+      "text": "Accelerometers detect motion or changes in velocity."
+    },
+    {
+      "type": "sub-official",
+      "text": "Used in airbag systems and phone screen rotation."
+    },
+    {
+      "type": "official",
+      "text": "Proximity sensors detect nearby objects without touching them."
+    },
+    {
+      "type": "sub-official",
+      "text": "Used in mobile phones to turn off the screen when near the ear."
+    },
+    {
+      "type": "sub-official",
+      "text": "Proximity sensors are also used in parking systems to detect obstacles and alert drivers."
+    },
+    {
+      "type": "official",
+      "text": "Flow sensors measure how much gas or liquid is moving."
+    },
+    {
+      "type": "sub-official",
+      "text": "Used in hospital devices and pipe flow systems."
+    },
+    {
+      "type": "official",
+      "text": "Level sensors check liquid levels in tanks or containers."
+    },
+    {
+      "type": "sub-official",
+      "text": "Used in fuel tanks, medicine production, and leak detection."
+    }
+  ]
+}

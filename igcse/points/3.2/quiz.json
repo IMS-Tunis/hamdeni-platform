@@ -2,101 +2,262 @@
   "questions": [
     {
       "type": "mcq",
-      "question": "What is the main reason computers use binary to represent all data?",
+      "question": "Which definition best matches the term 'barcode'?",
       "options": [
-        "Binary numbers are easier for humans to read",
-        "Computers use logic gates that only understand ON and OFF states",
-        "It uses less power",
-        "Binary numbers are shorter than decimal numbers"
+        "a type of input device that is used to capture data from its immediate environment.",
+        "technology that can convert hard copy text or images into a digital format to be stored in a computer memory",
+        "a series of dark and light lines of varying thickness used to represent data; the code has to be scanned using laser or LED light source",
+        "a pointing device that uses a red LED to track the movement of the device and then relays its coordinates to a computer"
       ],
-      "answer": "Computers use logic gates that only understand ON and OFF states"
+      "answer": "a series of dark and light lines of varying thickness used to represent data; the code has to be scanned using laser or LED light source"
     },
     {
       "type": "mcq",
-      "question": "In an 8-bit binary number, what does the leftmost bit represent?",
+      "question": "Which definition best matches the term 'sensor'?",
       "options": [
-        "Least Significant Bit",
-        "The parity bit",
-        "Most Significant Bit",
-        "The hexadecimal value"
+        "technology that can convert hard copy text or images into a digital format to be stored in a computer memory",
+        "a type of input device that is used to capture data from its immediate environment.",
+        "a pointing device that uses a red LED to track the movement of the device and then relays its coordinates to a computer",
+        "a series of dark and light lines of varying thickness used to represent data; the code has to be scanned using laser or LED light source"
       ],
-      "answer": "Most Significant Bit"
+      "answer": "a type of input device that is used to capture data from its immediate environment."
+    },
+    {
+      "type": "fill_blank",
+      "question": "A _______ scanner is used to read barcodes made of dark and light parallel lines that represent digits using specific patterns.",
+      "answer": "barcode"
     },
     {
       "type": "mcq",
-      "question": "Which of the following is a hexadecimal digit?",
+      "question": "What component in a digital camera converts light into an electrical signal?",
       "options": [
-        "8",
-        "G",
-        "H",
-        "Q"
+        "DLP chip",
+        "CCD (charge-coupled device)",
+        "Solenoid",
+        "OLED panel"
       ],
-      "answer": "8"
+      "answer": "CCD (charge-coupled device)"
     },
     {
       "type": "mcq",
-      "question": "What is the maximum value that can be represented in an 8-bit binary number?",
+      "question": "Which of the following input devices works by detecting air vibrations and converting them into an electric signal?",
       "options": [
-        "255",
-        "256",
-        "128",
-        "1024"
+        "Keyboard",
+        "Microphone",
+        "Touch screen",
+        "Barcode scanner"
       ],
-      "answer": "255"
+      "answer": "Microphone"
+    },
+    {
+      "type": "mcq",
+      "question": "Which technology is used by most touch screens to detect user interaction by changes in electric fields?",
+      "options": [
+        "Infrared",
+        "Resistive",
+        "Capacitive",
+        "Piezoelectric"
+      ],
+      "answer": "Capacitive"
+    },
+    {
+      "type": "mcq",
+      "question": "Which scanning technology can convert hard copy text or images into a digital format for computer storage?",
+      "options": [
+        "CMOS",
+        "OCR",
+        "DLP",
+        "Solenoid"
+      ],
+      "answer": "OCR"
     },
     {
       "type": "fill_blank",
-      "question": "The process of moving all bits in a binary number to the left or right and filling the emptied spaces with zeros is called a __________ shift.",
-      "answer": "Logical"
+      "question": "In a keyboard, pressing a key completes a circuit that the CPU detects and matches to a character using its _______ value.",
+      "answer": "ASCII"
     },
     {
       "type": "fill_blank",
-      "question": "In binary addition, if the result is too large for the register to hold, this is called an __________ error.",
-      "answer": "Overflow"
-    },
-    {
-      "type": "fill_blank",
-      "question": "Each hexadecimal digit can be represented by exactly ___ binary bits.",
-      "answer": "4"
-    },
-    {
-      "type": "true_false",
-      "question": "Digital data can take any value, just like analogue data.",
-      "answer": "False"
-    },
-    {
-      "type": "true_false",
-      "question": "In two’s complement, the most significant bit represents the sign of the number.",
-      "answer": "True"
-    },
-    {
-      "type": "true_false",
-      "question": "The denary number system is also known as base 16.",
-      "answer": "False"
+      "question": "An _______ mouse is a pointing device that uses a red LED to track movement and relays its coordinates to the computer.",
+      "answer": "optical"
     },
     {
       "type": "match",
-      "question": "Match the term with its correct definition:",
+      "question": "Match the device to its primary function",
       "pairs": {
-        "Register": "Used to temporarily hold binary data",
-        "Logic gate": "Basic building block for processing digital data",
-        "Two’s complement": "Method to represent negative binary"
+        "2D Scanner": "Converts physical documents into digital images",
+        "QR Code": "Can hold thousands of characters or digits in a square-shaped block matrix",
+        "Barcode Scanner": "Used to read lines representing digits with a laser or LED",
+        "Digital Camera": "Captures images by converting light through a lens and sensor"
       }
     },
     {
-      "type": "fill_blank",
-      "question": "Convert the binary number 1101 to denary: __________",
-      "answer": "13"
+      "type": "mcq",
+      "question": "What is the primary function of the alignment squares in QR codes?",
+      "options": [
+        "To store the main data content",
+        "To provide error-checking capabilities",
+        "To help the scanner determine position and angle",
+        "To increase storage capacity to 7089 digits"
+      ],
+      "answer": "To help the scanner determine position and angle"
+    },
+    {
+      "type": "mcq",
+      "question": "In digital cameras, what converts the electric signal from pixels into a digital image?",
+      "options": [
+        "CCD (charge-coupled device)",
+        "ADC (analogue-to-digital converter)",
+        "RGB color system",
+        "USB transfer protocol"
+      ],
+      "answer": "ADC (analogue-to-digital converter)"
+    },
+    {
+      "type": "mcq",
+      "question": "Which definition best matches the term 'output device'?",
+      "options": [
+        "a device that can be used to obtain the results of data that has been processed.",
+        "inkjet printer technology whereby tiny resistors create heat and form an ink bubble which is ejected onto paper in an inkjet printer",
+        "a 3D printing technique in which the print head moves in the x, y and z directions",
+        "a 3D printing method that uses a two-stage pass; the first stage uses dry powder and second stage uses a binding agent"
+      ],
+      "answer": "a device that can be used to obtain the results of data that has been processed."
+    },
+    {
+      "type": "mcq",
+      "question": "Which definition best matches the term 'actuator'?",
+      "options": [
+        "inkjet printer technology whereby tiny resistors create heat and form an ink bubble which is ejected onto paper in an inkjet printer",
+        "a 3D printing technique in which the print head moves in the x, y and z directions",
+        "a device that can be used to obtain the results of data that has been processed.",
+        "an output device that converts electrical energy into mechanical movement"
+      ],
+      "answer": "an output device that converts electrical energy into mechanical movement"
+    },
+    {
+      "type": "mcq",
+      "question": "Which projection technology uses thousands of tiny mirrors to reflect light and form an image?",
+      "options": [
+        "LCD",
+        "DLP",
+        "LED",
+        "OLED"
+      ],
+      "answer": "DLP"
+    },
+    {
+      "type": "mcq",
+      "question": "Which method is NOT used by 3D printers according to the notes?",
+      "options": [
+        "Binder 3D printing",
+        "Direct 3D printing",
+        "Piezoelectric 3D printing",
+        "The use of CAD models"
+      ],
+      "answer": "Piezoelectric 3D printing"
+    },
+    {
+      "type": "mcq",
+      "question": "How does a thermal bubble inkjet printer form an image on paper?",
+      "options": [
+        "Vibrating crystals spray ink",
+        "Ink bubbles are created by heat and ejected",
+        "Dry toner is fused with heat",
+        "Liquid crystals modulate light"
+      ],
+      "answer": "Ink bubbles are created by heat and ejected"
     },
     {
       "type": "fill_blank",
-      "question": "What is the hexadecimal equivalent of the denary number 15? __________",
-      "answer": "F"
+      "question": "A _______ converts electric current into sound, producing output by vibrating a cone to move air.",
+      "answer": "loudspeaker"
     },
     {
       "type": "fill_blank",
-      "question": "What is the binary value for the hexadecimal digit C? __________",
-      "answer": "1100"
+      "question": "_______ screens use organic compounds that emit light when powered and do not need backlighting.",
+      "answer": "OLED"
+    },
+    {
+      "type": "fill_blank",
+      "question": "__________ is inkjet printer technology whereby tiny resistors create heat and form an ink bubble which is ejected onto paper.",
+      "answer": "thermal bubble"
+    },
+    {
+      "type": "mcq",
+      "question": "In laser printers, what makes the print permanent on paper?",
+      "options": [
+        "Static electricity charging the drum",
+        "Toner powder sticking to charged areas",
+        "A heated roller called a fuser melting the toner",
+        "Laser scanning to remove charge patterns"
+      ],
+      "answer": "A heated roller called a fuser melting the toner"
+    },
+    {
+      "type": "match",
+      "question": "Match the output device to its technology or method",
+      "pairs": {
+        "Inkjet Printer": "Uses vibrating crystals or heat to eject ink droplets",
+        "Laser Printer": "Uses dry toner powder and static electricity",
+        "OLED Screen": "Uses organic compounds that emit light when powered",
+        "Actuator": "Converts electrical energy into mechanical movement"
+      }
+    },
+    {
+      "type": "mcq",
+      "question": "What does an analogue-to-digital converter (ADC) do in the context of sensor data?",
+      "options": [
+        "Converts digital signals to mechanical movement",
+        "Converts analogue data from sensors into digital data",
+        "Converts text into speech signals",
+        "Converts images to electric signals"
+      ],
+      "answer": "Converts analogue data from sensors into digital data"
+    },
+    {
+      "type": "mcq",
+      "question": "Which type of sensor is used in greenhouses, heating systems, and digital thermometers?",
+      "options": [
+        "Pressure sensor",
+        "Temperature sensor",
+        "pH sensor",
+        "Infrared sensor"
+      ],
+      "answer": "Temperature sensor"
+    },
+    {
+      "type": "fill_blank",
+      "question": "A _______ sensor measures how acidic or alkaline a substance is and is used in soil testing.",
+      "answer": "pH"
+    },
+    {
+      "type": "fill_blank",
+      "question": "Sensors do not make decisions; they simply send data to a _______ for processing and action.",
+      "answer": "microprocessor"
+    },
+    {
+      "type": "mcq",
+      "question": "Which statement best describes how sensors work in feedback control systems?",
+      "options": [
+        "Sensors make independent decisions and adjust outputs directly",
+        "Sensors detect changes and send data to microprocessors for decision-making",
+        "Sensors only work when environmental changes exceed preset thresholds",
+        "Sensors convert digital signals to analogue for continuous monitoring"
+      ],
+      "answer": "Sensors detect changes and send data to microprocessors for decision-making"
+    },
+    {
+      "type": "match",
+      "question": "Match each sensor type with its primary application",
+      "pairs": {
+        "Gas sensor": "Detects leaks or measures oxygen/carbon dioxide levels",
+        "Proximity sensor": "Detects nearby objects in parking or mobile phone screens",
+        "Accelerometer": "Detects motion changes in airbag systems",
+        "Light sensor": "Triggers automatic streetlights",
+        "pH sensor": "Measures acidity in soil testing",
+        "Flow sensor": "Measures gas or liquid movement in hospital devices"
+      }
     }
   ]
 }

@@ -1,14 +1,42 @@
 [
   {
-    "question": "Explain what is meant by a validation test in computer science education.",
-    "answer": "A validation test checks that students have understood the material and are ready to progress."
+    "question": "A supermarket self-checkout system uses a touchscreen to allow customers to interact with the system. Explain how a capacitive touchscreen works.",
+    "answer": "screen is made up of layers of glass\nwhen finger touches the screen\ncurrent flows from one layer to another\nlocation of touch is determined by sensors\nuse of a grid/coordinates to determine the touch\nonly works with finger (or stylus with electric charge)"
   },
   {
-    "question": "State one advantage of practicing with past paper questions before an exam.",
-    "answer": "Past paper questions familiarize students with the exam style and improve confidence."
+    "question": "A 2D scanner is used to scan barcodes. Describe how a 2D scanner works.",
+    "answer": "light source (illuminates the image)\nsensor captures reflected light\nlenses focus the image\nscanned image is converted into digital form\nsoftware processes the image\nsoftware identifies data/patterns/QR code/barcode\ndata is output to computer/device"
   },
   {
-    "question": "Give an example of a simple binary operation.",
-    "answer": "Adding two 1-bit binary numbers, e.g. 1 + 1 = 10."
+    "question": "Describe how a QR code scanner is used in a self-service system.",
+    "answer": "scanner emits light to illuminate code\nsensor captures the reflected light\nimage is focused using lenses\nsoftware converts image into binary data\ndata is interpreted by software\nused to identify product or access information"
+  },
+  {
+    "question": "Explain how a DLP projector works.",
+    "answer": "uses millions of tiny mirrors\nmirrors reflect light towards or away from lens\nspinning colour wheel adds colour\nlight source shines onto DLP chip\nimage is projected onto screen"
+  },
+  {
+    "question": "Describe how a 3D printer would be used to create a prototype of a product.",
+    "answer": "design created using CAD software\ndesign converted into digital instructions (e.g. STL file)\nprinter builds object layer by layer\nmolten material (e.g. plastic/resin) is extruded\nlayers are added until object is complete\nused to make prototype before final version"
+  },
+  {
+    "question": "A laser printer is used in a school. Describe how it works.",
+    "answer": "drum is given a static charge\nlaser beam removes charge in pattern of image\ncharged toner particles attracted to drum\ntoner transferred to paper\nheat used to fuse toner to paper"
+  },
+  {
+    "question": "A smart home system uses a light sensor and a motion sensor to control lights. Explain how these sensors work together.",
+    "answer": "light sensor detects ambient light level\nmotion sensor detects movement in room\nif light level is low AND movement is detected\nsystem turns on the lights\nlights turn off after period of no movement"
+  },
+  {
+    "question": "A gas sensor is used to detect carbon monoxide in a home. Describe how this sensor works and why it is used.",
+    "answer": "gas sensor detects presence/concentration of gas\nproduces signal when gas is present\nsignal sent to microprocessor\nsystem triggers alarm if gas exceeds threshold\nused to detect dangerous gases / prevent poisoning"
+  },
+  {
+    "question": "A patient monitoring system uses temperature and pressure sensors. Explain why both are used and the type of data each captures.",
+    "answer": "temperature sensor detects body temperature\npressure sensor detects blood pressure\neach sensor provides specific type of data\nallows monitoring of patient’s vital signs\nensures timely alerts for abnormal readings"
+  },
+  {
+    "question": "A weather station uses a humidity sensor and a moisture sensor. Explain how these sensors work and when they would be used.",
+    "answer": "humidity sensor detects water vapour in air\nmoisture sensor detects water content in soil\ndata used to monitor weather or soil conditions\nused in agriculture / environmental systems"
   }
 ]

@@ -1,0 +1,48 @@
+{
+  "1.2a: Text representation": [
+    {
+      "term": "character set",
+      "definition": "it contains all the characters that are in that character set and the binary value that is assigned to each character."
+    },
+    {
+      "term": "ASCII code",
+      "definition": "a character set for all the characters on a standard keyboard and control codes"
+    },
+    {
+      "term": "Unicode",
+      "definition": "a character set which represents all the languages of the world (the first 128 characters are the same as ASCII code)"
+    }
+  ],
+  "1.2b: Sound representation": [
+    {
+      "term": "sound sampling",
+      "definition": "a little piece of sound that is recorded at regular time intervals."
+    },
+    {
+      "term": "sample rate",
+      "definition": "the number of samples recorded each second."
+    },
+    {
+      "term": "sample resolution",
+      "definition": "the number of bits that are used to record each sound sample."
+    }
+  ],
+  "1.2c: Image representation": [
+    {
+      "term": "pixel",
+      "definition": "a very small dot of colour that is displayed with many others to create an image."
+    },
+    {
+      "term": "resolution",
+      "definition": "the dimensions of an image."
+    },
+    {
+      "term": "colour depth",
+      "definition": "the number of bits that are used to create each colour in an image"
+    },
+    {
+      "term": "metadata",
+      "definition": "additional data that is stored with an image that can provide information such as the dimensions of the image and the time and date the image was taken."
+    }
+  ]
+}

@@ -1,102 +1,304 @@
 {
   "questions": [
     {
-      "type": "mcq",
-      "question": "What is the main reason computers use binary to represent all data?",
-      "options": [
-        "Binary numbers are easier for humans to read",
-        "Computers use logic gates that only understand ON and OFF states",
-        "It uses less power",
-        "Binary numbers are shorter than decimal numbers"
-      ],
-      "answer": "Computers use logic gates that only understand ON and OFF states"
-    },
-    {
-      "type": "mcq",
-      "question": "In an 8-bit binary number, what does the leftmost bit represent?",
-      "options": [
-        "Least Significant Bit",
-        "The parity bit",
-        "Most Significant Bit",
-        "The hexadecimal value"
-      ],
-      "answer": "Most Significant Bit"
-    },
-    {
-      "type": "mcq",
-      "question": "Which of the following is a hexadecimal digit?",
-      "options": [
-        "8",
-        "G",
-        "H",
-        "Q"
-      ],
-      "answer": "8"
-    },
-    {
-      "type": "mcq",
-      "question": "What is the maximum value that can be represented in an 8-bit binary number?",
-      "options": [
-        "255",
-        "256",
-        "128",
-        "1024"
-      ],
-      "answer": "255"
+      "type": "fill_blank",
+      "question": "• A _____ is a type of programming language that uses words similar to human language, such as \"if\", \"print\", or \"input\". These languages are designed to be easy to understand, write, and debug.",
+      "answer": "high-level language"
     },
     {
       "type": "fill_blank",
-      "question": "The process of moving all bits in a binary number to the left or right and filling the emptied spaces with zeros is called a __________ shift.",
-      "answer": "Logical"
+      "question": "– They are often _____, meaning they can run on different types of computers.",
+      "answer": "portable"
     },
     {
       "type": "fill_blank",
-      "question": "In binary addition, if the result is too large for the register to hold, this is called an __________ error.",
-      "answer": "Overflow"
+      "question": "– Examples of _____ include LDA (load), ADD (add), and STO (store), each of which performs a specific operation on memory or data.",
+      "answer": "mnemonics"
     },
     {
       "type": "fill_blank",
-      "question": "Each hexadecimal digit can be represented by exactly ___ binary bits.",
-      "answer": "4"
+      "question": "– Interpreters are often used during development because they allow real-time testing and _____.",
+      "answer": "debugging"
+    },
+    {
+      "type": "mcq",
+      "question": "What is the main purpose of a compiler?",
+      "answer": "To translate high-level code into machine code all at once.",
+      "options": [
+        "To translate high-level code into machine code all at once.",
+        "To execute each line of code one at a time.",
+        "To debug a program during its execution.",
+        "To write mnemonics in low-level programs."
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "– A _____ program can run without needing the compiler or the original source code, making it suitable for distribution.",
+      "answer": "executable"
+    },
+    {
+      "type": "fill_blank",
+      "question": "– The built-in _____ in an IDE works together with tools like error diagnostics, version control, and code navigation to help programming.",
+      "answer": "translator"
+    },
+    {
+      "type": "fill_blank",
+      "question": "– **_____** suggests keywords or variables while typing.",
+      "answer": "auto-completion"
+    },
+    {
+      "type": "fill_blank",
+      "question": "– **_____** fixes common typing or syntax mistakes.",
+      "answer": "auto-correction"
+    },
+    {
+      "type": "fill_blank",
+      "question": "– **_____** formats code and uses colors to make it easier to read.",
+      "answer": "prettyprinting"
+    },
+    {
+      "type": "mcq",
+      "question": "Which of the following is a typical feature of an IDE?",
+      "answer": "Code editor",
+      "options": [
+        "Code editor",
+        "Spreadsheet viewer",
+        "Video editor",
+        "3D renderer"
+      ]
     },
     {
       "type": "true_false",
-      "question": "Digital data can take any value, just like analogue data.",
+      "question": "Assembly language is an example of a high-level programming language.",
       "answer": "False"
     },
     {
+      "type": "mcq",
+      "question": "What are mnemonics in assembly language?",
+      "answer": "Short commands like LDA, ADD, and STO that represent instructions",
+      "options": [
+        "Error messages displayed during program execution",
+        "Short commands like LDA, ADD, and STO that represent instructions",
+        "High-level programming constructs",
+        "Binary code sequences"
+      ]
+    },
+    {
       "type": "true_false",
-      "question": "In two’s complement, the most significant bit represents the sign of the number.",
+      "question": "Assembly language can be executed directly by the computer without any translation.",
+      "answer": "False"
+    },
+    {
+      "type": "fill_blank",
+      "question": "An _____________ is a program used to convert assembly language instructions into machine code.",
+      "answer": "assembler"
+    },
+    {
+      "type": "mcq",
+      "question": "How does a compiler handle syntax errors during translation?",
+      "answer": "It stops and produces an error report with line numbers and error types",
+      "options": [
+        "It corrects the errors automatically and continues",
+        "It stops and produces an error report with line numbers and error types",
+        "It skips the errors and creates a partial executable",
+        "It translates the program and reports errors later"
+      ]
+    },
+    {
+      "type": "mcq",
+      "question": "Which translator is specifically designed for assembly language programs?",
+      "answer": "Assembler",
+      "options": [
+        "Compiler",
+        "Interpreter",
+        "Assembler",
+        "Debugger"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "A _____________ translates the entire program written in a high-level language into machine code all at once.",
+      "answer": "compiler"
+    },
+    {
+      "type": "mcq",
+      "question": "Why are interpreters more helpful during program development?",
+      "answer": "They allow programs to be debugged and tested quickly by running code line by line",
+      "options": [
+        "They create faster executable files",
+        "They protect source code from copying",
+        "They allow programs to be debugged and tested quickly by running code line by line",
+        "They work without requiring additional software"
+      ]
+    },
+    {
+      "type": "true_false",
+      "question": "Compiled programs require the original source code and compiler to run after compilation.",
+      "answer": "False"
+    },
+    {
+      "type": "mcq",
+      "question": "What is a key advantage of using a compiler when a program is finished and ready for distribution?",
+      "answer": "It creates an executable that runs faster and protects the source code",
+      "options": [
+        "It allows testing of incomplete programs",
+        "It enables quick debugging and error fixing",
+        "It creates an executable that runs faster and protects the source code",
+        "It requires the interpreter software to run"
+      ]
+    },
+    {
+      "type": "mcq",
+      "question": "What is the primary purpose of an Integrated Development Environment (IDE)?",
+      "answer": "To help programmers write, test, and run programs",
+      "options": [
+        "To run completed programs for end users",
+        "To help programmers write, test, and run programs",
+        "To convert assembly language to machine code",
+        "To store and distribute executable files"
+      ]
+    },
+    {
+      "type": "mcq",
+      "question": "What debugging capability allows programmers to examine the exact location where logic errors occur?",
+      "answer": "Step-by-step (line-by-line) execution",
+      "options": [
+        "Auto-completion of code",
+        "Error diagnostics during typing",
+        "Step-by-step (line-by-line) execution",
+        "Version control tracking"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "A code _____________ in the IDE allows the programmer to type and edit code directly.",
+      "answer": "editor"
+    },
+    {
+      "type": "mcq",
+      "question": "Which of the following statements about a high-level language is TRUE?",
+      "answer": "It uses words similar to human language like “if” and “print”.",
+      "options": [
+        "It requires detailed knowledge of the computer's hardware.",
+        "It uses words similar to human language like “if” and “print”.",
+        "It produces programs that run only on one specific type of computer.",
+        "Programs written are generally harder to maintain over time."
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "The programmer must define and manage the memory addresses of variables manually in [_______]{code written in mnemonics that allows direct manipulation of the hardware. It must be converted into binary code to run.}.",
+      "answer": "assembly language"
+    },
+    {
+      "type": "mcq",
+      "question": "Which statement about assembly language is CORRECT?",
+      "answer": "It allows precise control over hardware behavior and requires translation by an assembler.",
+      "options": [
+        "One assembly instruction is often mapped to many machine code instructions.",
+        "Assembly language can be directly executed by the computer hardware.",
+        "It allows precise control over hardware behavior and requires translation by an assembler.",
+        "Assembly language does not require knowledge of special hardware registers like the accumulator."
+      ]
+    },
+    {
+      "type": "mcq",
+      "question": "Which of the following is NOT a characteristic of a compiler?",
+      "answer": "It runs one instruction at a time and stops at first error.",
+      "options": [
+        "It translates the entire program into machine code at once.",
+        "It creates an executable file if there are no syntax errors.",
+        "It runs one instruction at a time and stops at first error.",
+        "It stops and reports errors with line numbers and types."
+      ]
+    },
+    {
+      "type": "mcq",
+      "question": "Why do interpreters generally make programs run slower than compilers?",
+      "answer": "Because they translate and run the program’s instructions every time the program is executed.",
+      "options": [
+        "Because they create executable files each time.",
+        "Because they translate and run the program’s instructions every time the program is executed.",
+        "Because they skip error detection for faster execution.",
+        "Because they translate the whole program before running it."
+      ]
+    },
+    {
+      "type": "mcq",
+      "question": "Which of the following is a disadvantage of using a compiler during development?",
+      "answer": "It takes more time to write, debug, and compile the program.",
+      "options": [
+        "Programs run slower because they are translated repeatedly.",
+        "It takes more time to write, debug, and compile the program.",
+        "It allows testing only incomplete programs.",
+        "Programmers cannot debug programs with a compiler."
+      ]
+    },
+    {
+      "type": "true_false",
+      "question": "Interpreted programs require the interpreter program every time they run.",
       "answer": "True"
     },
     {
-      "type": "true_false",
-      "question": "The denary number system is also known as base 16.",
-      "answer": "False"
+      "type": "fill_blank",
+      "question": "The [_______]{a feature of an IDE that allows a program to be run and lets the user interact with the program.} shows the program’s output while it runs.",
+      "answer": "runtime environment"
     },
     {
-      "type": "match",
-      "question": "Match the term with its correct definition:",
+      "type": "mcq",
+      "question": "Why are IDEs useful for programmers when writing code?",
+      "answer": "They detect and correct errors early and suggest fixes while typing.",
+      "options": [
+        "They automatically compile code into machine code without errors.",
+        "They detect and correct errors early and suggest fixes while typing.",
+        "They run code faster than compilers.",
+        "They remove the need to understand programming languages."
+      ]
+    },
+    {
+      "type": "mcq",
+      "question": "Which characteristic applies to high-level languages?",
+      "answer": "Programs are easier to maintain",
+      "options": [
+        "Requires hardware knowledge",
+        "Not portable",
+        "Programs are easier to maintain",
+        "Tied to specific machine architecture"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "Assembly language requires programmers to manually manage __________ addresses, increasing precision but also complexity.",
+      "answer": "memory"
+    },
+    {
+      "type": "matching",
+      "question": "Match the translator to its function:\n\nA. Compiler\nB. Interpreter\n\n1. Translates entire program at once\n2. Runs code line by line, useful for debugging",
+      "answer": "A-1, B-2",
       "pairs": {
-        "Register": "Used to temporarily hold binary data",
-        "Logic gate": "Basic building block for processing digital data",
-        "Two’s complement": "Method to represent negative binary"
+        "Compiler": "1",
+        "Interpreter": "2"
       }
     },
     {
       "type": "fill_blank",
-      "question": "Convert the binary number 1101 to denary: __________",
-      "answer": "13"
+      "question": "Compiled programs run faster because they do not need __________ every time they execute.",
+      "answer": "retranslation"
     },
     {
-      "type": "fill_blank",
-      "question": "What is the hexadecimal equivalent of the denary number 15? __________",
-      "answer": "F"
+      "type": "true_false",
+      "question": "All IDEs support multiple programming languages (e.g., PyCharm works for Python and Java).",
+      "answer": "False"
     },
     {
-      "type": "fill_blank",
-      "question": "What is the binary value for the hexadecimal digit C? __________",
-      "answer": "1100"
+      "type": "matching",
+      "question": "Match IDE features to their functions:\n\nA. Error diagnostics\nB. Prettyprinting\nC. Version control\n\n1. Displays code with colors/formatting for readability\n2. Shows mistakes during typing\n3. Tracks code changes for collaboration",
+      "answer": "A-2, B-1, C-3",
+      "pairs": {
+        "Error diagnostics": "2",
+        "Prettyprinting": "1",
+        "Version control": "3"
+      }
     }
   ]
 }

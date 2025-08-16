@@ -1,0 +1,250 @@
+{
+  "4.1a": [
+    {
+      "type": "official",
+      "text": "[KEYWORD: Software]{a series of instructions written in a programming language that performs a function} is a set of instructions that tells a computer what to do and allows the user to do useful tasks on devices such as PCs, laptops, tablets, or mobile phones."
+    },
+    {
+      "type": "sub-official",
+      "text": "Without [KEYWORD: software]{a series of instructions written in a programming language that performs a function}, the hardware itself cannot do anything meaningful."
+    },
+    {
+      "type": "official",
+      "text": "There are two main types of software: system software and [KEYWORD: application software]{software that allows the user to perform a useful task}."
+    },
+    {
+      "type": "sub-official",
+      "text": "[KEYWORD: System software]{a type of software that manages the hardware and software in a computer} manages the running of hardware and other software and provides a platform on which other software can run. It ensures that hardware and software work properly together and maintains efficiency."
+    },
+    {
+      "type": "sub-official",
+      "text": "[KEYWORD: Application software]{software that allows the user to perform a useful task} allows users to perform specific tasks like writing letters or analyzing data. It can be a single program or a suite."
+    },
+    {
+      "type": "official",
+      "text": "Typical examples of [KEYWORD: system software]{a type of software that manages the hardware and software in a computer} include:"
+    },
+    {
+      "type": "sub-official",
+      "text": "Device [KEYWORD: drivers]{a program that controls a device, for example, a printer or a keyboard} enable [KEYWORD: peripherals]{a hardware device, used to input, store or output data from a computer, that is not directly part of the computer itself} to communicate with the operating system."
+    },
+    {
+      "type": "sub-official",
+      "text": "Utility programs carry out maintenance tasks such as virus checking, backups, disk repair, file compression, and [KEYWORD: security management]{the part of an operating system that ensures the integrity, confidentiality and availability of data}."
+    },
+    {
+      "type": "sub-official",
+      "text": "The operating system manages basic functions like input/output, error handling, running programs, and security."
+    },
+    {
+      "type": "example",
+      "text": "Defragmentation: A defragmenter rearranges fragmented file pieces so that they are stored contiguously on a disk. This reduces the movement of the disk's read-write head, which improves file access speed and overall computer performance."
+    },
+    {
+      "type": "example",
+      "text": "Example: Using a Printer — When you plug in a new printer, the device driver (system software) ensures the OS and printer can communicate, letting applications print."
+    },
+    {
+      "type": "official",
+      "text": "Typical examples of [KEYWORD: application software]{software that allows the user to perform a useful task} include:"
+    },
+    {
+      "type": "sub-official",
+      "text": "[KEYWORD: Word processors]{a type of application software that allows the user to create text-based documents} create and edit text documents, allowing tools like formatting, spell checking, and importing images."
+    },
+    {
+      "type": "sub-official",
+      "text": "[KEYWORD: Spreadsheets]{a type of application software that performs calculations on data} organize numerical data into rows and columns, performing calculations using formulas and providing graphs."
+    },
+    {
+      "type": "sub-official",
+      "text": "[KEYWORD: Databases]{an example of application software to store and manipulate data} store and analyze data using tables, allowing users to query, modify, and report on the data."
+    },
+    {
+      "type": "sub-official",
+      "text": "[KEYWORD: Web browsers]{a piece of software that retrieves and displays web pages} retrieve, display, and navigate web pages."
+    },
+    {
+      "type": "example",
+      "text": "Common applications like word processors or web browsers can run on various devices such as PCs, tablets, or smartphones, performing the same basic tasks across different platforms."
+    },
+    {
+      "type": "fun",
+      "text": "Think of system software as the “invisible stage crew” of a play. They handle lights, curtains, and props (hardware and drivers) so the actors (applications) can perform for the audience (you) without any chaos. Without the stage crew, the actors would be standing in the dark, confused!"
+    }
+  ],
+  "4.1b": [
+    {
+      "type": "official",
+      "text": "An operating system (OS) is [KEYWORD: system software]{a type of software that manages the hardware and software in a computer} that lets users interact with hardware and manages computer operations. Examples include Windows, Mac OS, Android, and iOS."
+    },
+    {
+      "type": "official",
+      "text": "The OS provides a user [KEYWORD: interface]{the method by which a user communicates with a computer} allowing data input and output. There are different types of interfaces:"
+    },
+    {
+      "type": "sub-official",
+      "text": "A Graphical User [KEYWORD: Interface]{the method by which a user communicates with a computer} (GUI) uses visual elements like windows, icons, menus, and pointers, making it easy and intuitive for beginners."
+    },
+    {
+      "type": "sub-official",
+      "text": "A [KEYWORD: Command Line Interface]{a type of operating system where the user types commands} (CLI) requires users to type exact text commands, suitable for advanced users needing precise system control."
+    },
+    {
+      "type": "sub-official",
+      "text": "A [KEYWORD: Natural Language Interface]{a type of operating system that allows the user to type or speak commands} allows users to type or speak normally, and the OS interprets these commands without requiring exact syntax."
+    },
+    {
+      "type": "example",
+      "text": "Voice assistants like Amazon's Alexa or Apple's Siri allow users to speak normal commands, interpreting the spoken words to carry out tasks without requiring technical commands or syntax knowledge."
+    },
+    {
+      "type": "official",
+      "text": "The operating system manages files, including creating, opening, deleting, renaming, copying, moving, and organizing files and folders."
+    },
+    {
+      "type": "official",
+      "text": "The OS manages peripherals through device drivers, [KEYWORD: software]{a series of instructions written in a programming language that performs a function} that translates data between the hardware and OS. Without drivers, peripherals cannot function properly."
+    },
+    {
+      "type": "official",
+      "text": "The OS manages memory by controlling data movement between RAM (Random Access Memory, a type of temporary storage) and permanent storage, ensuring applications have enough memory, and preventing memory conflicts."
+    },
+    {
+      "type": "sub-official",
+      "text": "Managing memory involves allocating memory to different processes, preventing processes from accessing each other’s memory, and freeing up memory when processes complete."
+    },
+    {
+      "type": "example",
+      "text": "Memory conflict prevention: The OS stops a game and a word processor from overwriting each other’s data in RAM."
+    },
+    {
+      "type": "official",
+      "text": "The OS manages [KEYWORD: multitasking]{a function that allows a computer to process more than one task/process at a time} by allowing multiple applications to run simultaneously, allocating resources efficiently, and switching tasks as needed."
+    },
+    {
+      "type": "fun",
+      "text": "Imagine your OS as a super-busy party host. It takes coats (stores files), introduces guests (connects devices), stops arguments (memory conflicts), and ensures everyone gets a slice of cake (CPU time). And when the music stops suddenly, that’s an “interrupt” telling the host to fix the speaker!"
+    },
+    {
+      "type": "official",
+      "text": "The [KEYWORD: OS]{a program that manages the computer, allows the user to communicate with the computer, and allows software to be run} manages system security, user accounts, and access rights. It applies updates, manages antivirus [KEYWORD: software]{a series of instructions written in a programming language that performs a function}, firewalls, user permissions, and data protection."
+    },
+    {
+      "type": "sub-official",
+      "text": "The OS also helps recover data if files become lost or corrupted, thanks to built-in backup and restore tools."
+    },
+    {
+      "type": "official",
+      "text": "The OS provides a platform for running applications by loading applications into memory and managing their execution."
+    }
+  ],
+  "4.1c": [
+    {
+      "type": "official",
+      "text": "Applications run on the operating system; the operating system runs on firmware; firmware is loaded through a [KEYWORD: bootstrap]{the first commands loaded when a computer starts, it checks hardware and loads the firmware} process when the computer starts."
+    },
+    {
+      "type": "official",
+      "text": "Firmware is [KEYWORD: software]{a series of instructions written in a programming language that performs a function} stored permanently in Read-Only Memory (ROM), a type of memory whose contents cannot be easily altered. Firmware is executed when the computer starts to locate and load the OS."
+    },
+    {
+      "type": "sub-official",
+      "text": "[KEYWORD: Firmware]{a program that provides low level control for devices} stores instructions to start the computer (boot up), provides the operating system with a platform to run on, and manages communication with hardware."
+    },
+    {
+      "type": "example",
+      "text": "Examples of firmware include the Bootstrap program, Bootloader, BIOS, and operating systems in embedded devices."
+    },
+    {
+      "type": "official",
+      "text": "The [KEYWORD: BIOS]{a program that provides low level control for devices} (Basic Input/Output System) is [KEYWORD: firmware]{a program that provides low level control for devices} stored in EEPROM (Electrically Erasable Programmable Read-Only Memory, a type of memory that can be reprogrammed with electrical charge). BIOS provides low-level control for hardware devices and loads the OS when the computer starts."
+    },
+    {
+      "type": "official",
+      "text": "The [KEYWORD: bootstrap]{the first commands loaded when a computer starts, it checks hardware and loads the firmware} program is the first program executed when starting a computer, checking hardware components, and loading firmware."
+    },
+    {
+      "type": "sub-official",
+      "text": "On phones and tablets, the OS is stored in solid-state memory, not a hard drive, but the startup process is similar."
+    },
+    {
+      "type": "fun",
+      "text": "Booting up your computer is like waking up a sleepy robot. First, its “alarm clock” (bootstrap) nudges it awake. Then, the robot remembers basic routines (firmware), and finally, it puts on clothes and starts working (OS loads and applications run)."
+    }
+  ],
+  "4.1d": [
+    {
+      "type": "official",
+      "text": "An [KEYWORD: interrupt]{a signal sent to the processor to tell it that its attention is required} is a signal from hardware or software that temporarily stops a processor’s current task to handle the interrupt."
+    },
+    {
+      "type": "official",
+      "text": "Interrupts can be categorized into [KEYWORD: software]{a series of instructions written in a programming language that performs a function} and hardware interrupts:"
+    },
+    {
+      "type": "sub-official",
+      "text": "A common hardware [KEYWORD: interrupt]{a signal sent to the processor to tell it that its attention is required} example is pressing a key on the keyboard or clicking/moving a mouse."
+    },
+    {
+      "type": "example",
+      "text": "Example: Keyboard Interrupt — When you press a key, the keyboard sends an interrupt so the CPU can display the character."
+    },
+    {
+      "type": "sub-official",
+      "text": "[KEYWORD: Software]{a series of instructions written in a programming language that performs a function} interrupts examples include division by zero, simultaneous memory access by processes, or software requesting user input."
+    },
+    {
+      "type": "sub-official",
+      "text": "Hardware [KEYWORD: interrupts]{a signal sent to the processor to tell it that its attention is required} examples include pressing keyboard keys, mouse clicks, hardware errors, or connecting new devices."
+    },
+    {
+      "type": "official",
+      "text": "Interrupts have different priority levels. High-priority interrupts (e.g., hardware failures) are addressed immediately, whereas low-priority interrupts (e.g., key presses) are queued."
+    },
+    {
+      "type": "official",
+      "text": "When an [KEYWORD: interrupt]{a signal sent to the processor to tell it that its attention is required} occurs:"
+    },
+    {
+      "type": "sub-official",
+      "text": "It is placed in the [KEYWORD: interrupt priority]{the priority assigned to an interrupt are given a priority so that the microprocessor knows which one needs to be serviced first and which interrupts are to be dealt with quickly} queue. The processor finishes its current fetch-decode-execute cycle and then checks the queue."
+    },
+    {
+      "type": "sub-official",
+      "text": "If a higher priority [KEYWORD: interrupt]{a signal sent to the processor to tell it that its attention is required} is detected, the current process is saved on the stack, the interrupt source is checked, and the appropriate Interrupt Service Routine (ISR) is called."
+    },
+    {
+      "type": "sub-official",
+      "text": "Once the ISR completes, the processor retrieves the previous process from the stack and continues execution."
+    },
+    {
+      "type": "sub-official",
+      "text": "The processor saves the current task status (program counter and registers)."
+    },
+    {
+      "type": "sub-official",
+      "text": "It executes the [KEYWORD: interrupt]{a signal sent to the processor to tell it that its attention is required} service routine (ISR) to address the interrupt."
+    },
+    {
+      "type": "sub-official",
+      "text": "After completion, it restores the saved status to continue the interrupted task."
+    },
+    {
+      "type": "official",
+      "text": "[KEYWORD: Buffers]{a memory area used to store data temporarily} are temporary memory storage used alongside interrupts to manage data transfer between fast and slow devices, allowing smoother [KEYWORD: multitasking]{a function that allows a computer to process more than one task/process at a time}."
+    },
+    {
+      "type": "example",
+      "text": "Buffer use: When downloading media while playing it simultaneously, buffers temporarily store incoming data. This ensures continuous playback even if data arrives unevenly, providing a smooth user experience."
+    },
+    {
+      "type": "example",
+      "text": "Printing process: Printing uses buffers to temporarily store print data and interrupts to manage data flow. This allows the processor to perform other tasks while the printer processes data, avoiding idle processor time and enhancing efficiency."
+    },
+    {
+      "type": "fun",
+      "text": "Interrupts are like someone shouting “Pizza delivery!” during a boring lecture. The teacher (CPU) pauses the topic, checks the door, handles the delivery (ISR), and then goes back to teaching as if nothing happened."
+    }
+  ]
+}

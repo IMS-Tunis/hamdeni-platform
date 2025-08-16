@@ -1,0 +1,140 @@
+{
+  "3.1a": [
+    {
+      "term": "central processing unit (CPU)",
+      "definition": "a component in a computer system that processes data and instructions"
+    },
+    {
+      "term": "microprocessor",
+      "definition": "an integrated circuit that is able to perform many of the functions of a CPU"
+    }
+  ],
+  "3.1b": [
+    {
+      "term": "fetch-decode-execute cycle",
+      "definition": "the cycle through which data and instructions are processed"
+    },
+    {
+      "term": "von Neumann architecture",
+      "definition": "a type of computer architecture which introduced the concept of the stored program in the 1940s"
+    },
+    {
+      "term": "integrated circuit",
+      "definition": "usually a chip made from a semiconductor material which carries out the same tasks as a larger circuit made from individual components"
+    },
+    {
+      "term": "program counter (PC)",
+      "definition": "a component in the CPU that stores the address of the next instruction to be processed"
+    },
+    {
+      "term": "memory address register (MAR)",
+      "definition": "a component in the CPU that holds the address of the data or instruction to be located in RAM"
+    },
+    {
+      "term": "address bus",
+      "definition": "wires used for the transmission of addresses between components in a computer"
+    },
+    {
+      "term": "memory data register (MDR)",
+      "definition": "a component in the CPU that holds the data or instruction that are fetched from RAM"
+    },
+    {
+      "term": "data bus",
+      "definition": "wires used for the transmission of data and instructions between components in a computer"
+    },
+    {
+      "term": "current instruction register (CIR)",
+      "definition": "a register that stores the current instruction being decoded and executed"
+    },
+    {
+      "term": "control unit",
+      "definition": "the component in the CPU that controls all the operations in the CPU"
+    },
+    {
+      "term": "system clock",
+      "definition": "produces timing signals on the control bus to ensure synchronisation takes place"
+    },
+    {
+      "term": "immediate access store (IAS)",
+      "definition": "memory that holds all data and programs needed to be accessed by the control unit"
+    },
+    {
+      "term": "register",
+      "definition": "a temporary component in the CPU which can be general or specific in its use"
+    },
+    {
+      "term": "system buses",
+      "definition": "a connection between major components in a computer that can carry data, addresses or control signals"
+    },
+    {
+      "term": "unidirectional",
+      "definition": "can travel in one direction only; used to describe data"
+    },
+    {
+      "term": "bidirectional",
+      "definition": "can travel in both directions; used to describe data"
+    },
+    {
+      "term": "arithmetic logic unit (ALU)",
+      "definition": "the component in the CPU that performs all the mathematical and logical operations required when processing data and instructions"
+    },
+    {
+      "term": "accumulator (ACC)",
+      "definition": "a register that is built into the ALU that stores the result of any interim calculations"
+    },
+    {
+      "term": "control bus",
+      "definition": "wires used for the transmission of control signals between components in a computer"
+    }
+  ],
+  "3.1c": [
+    {
+      "term": "core",
+      "definition": "the part of the CPU that contains all the components that are used to perform the fetch-decode-execute cycle"
+    },
+    {
+      "term": "clock speed",
+      "definition": "the number of fetch-decode-execute cycles that can be performed in a second"
+    },
+    {
+      "term": "cache",
+      "definition": "a type of storage that is built into the CPU, to store the most frequently used data and instructions"
+    },
+    {
+      "term": "overclocking",
+      "definition": "changing the clock speed of a system clock to a value higher than the factory/recommended setting"
+    },
+    {
+      "term": "dual core",
+      "definition": "a CPU containing two cores"
+    },
+    {
+      "term": "quad core",
+      "definition": "a CPU containing four cores"
+    },
+    {
+      "term": "clock cycle",
+      "definition": "clock speeds are measured in terms of GHz; this is the vibrational frequency of the system clock which sends out pulses along the control bus"
+    }
+  ],
+  "3.1d": [
+    {
+      "term": "instruction set",
+      "definition": "a set of commands that can be processed by a certain CPU"
+    },
+    {
+      "term": "opcode",
+      "definition": "part of a machine code instruction that identifies what action the CPU has to perform"
+    },
+    {
+      "term": "operand",
+      "definition": "part of a machine code instruction that identifies what data is to be used"
+    }
+  ],
+  "3.1e": [
+    {
+      "term": "embedded system",
+      "definition": "a computer system that performs a dedicated function"
+    }
+  ]
+}

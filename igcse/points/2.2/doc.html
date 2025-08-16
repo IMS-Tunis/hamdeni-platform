@@ -1,145 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>1.1 Number Systems</title>
-  <link rel="stylesheet" href="igcse-style.css">
+  <title>IGCSE Computer Science: 2.2 Methods of error detection</title>
+  <link rel="stylesheet" href="../igcse-style.css">
 </head>
 <body>
-   <div class="container">
-    <h1>Number Systems</h1>
-    <div class="subtitle">IGCSE CS theory notes, prepared by Dr. Hamdeni</div>
 
-    <div class="section">
-      <h2>1.1 Understand how and why computers use binary to represent all forms of data</h2>
 
-    </div>
-
-    <div class="section">
-      <h2>1.2 (a) Understand the denary, binary and hexadecimal number systems</h2>
-      <ul>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Base-10, digits 0–9">Denary</span> is used in everyday life, with each place increasing by powers of 10.</span></li>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Base-2, digits 0 and 1">Binary</span> is used by computers, with each place increasing by powers of 2.</span></li>
-        <li><span class="official-note">The <span class="keyword" data-tooltip="The leftmost bit in a binary number, which has the highest value">MSB</span> (Most Significant Bit) is the leftmost bit.</span></li>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Base-16, digits 0–9 and A–F">Hexadecimal</span> is closely related to binary; each hex digit is 4 bits.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">The denary number 25177 = 2×10000 + 5×1000 + 1×100 + 7×10 + 7×1.</div></li>
-        <li><div class="example-box">Binary 11101110 = 128+64+32+8+4+2 = 238 (denary).</div></li>
-        <li><div class="example-box">Hex digit A = 10, F = 15 (denary).</div></li>
-        <li><div class="example-box">1010 (binary) = A (hex) = 10 (denary).</div></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.2 (b) Convert between number systems</h2>
-      <ul>
-        <li><span class="official-note">To convert binary to denary: add up the values of all positions where there is a 1.</span></li>
-        <li><span class="official-note">To convert denary to binary: subtract the largest possible powers of 2, or divide by 2 and record remainders.</span></li>
-        <li><span class="official-note">Successive division by 2 and reading remainders from bottom to top gives the binary value.</span></li>
-        <li><span class="official-note">You can convert up to 16-bit binary numbers for this syllabus.</span></li>
-        <li><span class="official-note">To convert binary to hexadecimal: group bits from the right in sets of four, pad with zeros to the left if needed.</span></li>
-        <li><span class="official-note">To convert hexadecimal to binary: write each hex digit as 4 bits.</span></li>
-        <li><span class="official-note">To convert hexadecimal to denary: convert hex to binary, then binary to denary.</span></li>
-        <li><span class="official-note">To convert denary to hexadecimal: convert to binary, group in 4s, convert each group to hex.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">011110001011 = 1024+512+256+128+8+2+1 = 1931 (denary).</div></li>
-        <li><div class="example-box">Denary 142: 142 ÷ 2 repeatedly gives remainders 1 0 0 0 1 1 1 0 (read bottom to top: 10001110).</div></li>
-        <li><div class="example-box">Denary 13 → 8+4+0+1 = 13 → 1101 (binary).</div></li>
-        <li><div class="example-box">1000001111101 → 0010 0001 1111 1101 → 21FD (hex).</div></li>
-        <li><div class="example-box">Hex SE (S=5, E=14): 0101 1110 (binary).</div></li>
-        <li><div class="example-box">Hex 2 1 F D → 0010 0001 1111 1101 (binary).</div></li>
-        <li><div class="example-box">Hex SE = 64+16+8+4+2 = 94 (denary).</div></li>
-        <li><div class="example-box">Denary 201: binary 11001001 → 1100 (C), 1001 (9) → hex C9.</div></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.3 Understand how and why hexadecimal is used as a beneficial method of data representation</h2>
-      <ul>
-        <li><span class="official-note">Hexadecimal is shorter and easier to read and write than binary; simplifies debugging and error detection.</span></li>
-        <li><span class="official-note">Programmers find it easier to compare and spot differences in hexadecimal than in long binary strings.</span></li>
-        <li><span class="official-note">Common uses for hexadecimal: HTML colours, MAC addresses, assembly/machine code, memory dumps, debugging, error codes, and IP addresses.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">Comparing 10011100101110111000111011100010111101011010 (binary) vs. 9CBB8EE2F5A (hex).</div></li>
-        <li><div class="example-box"><span class="keyword" data-tooltip="Unique device identifier, written in hexadecimal">MAC address</span>: e.g., 00-1C-B3-4F-25-FE.</div></li>
-        <li><span class="fun-tip">Hex makes large binary numbers easier for humans to read and spot mistakes quickly!</span></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.4 (a) Add two positive 8-bit binary integers</h2>
-      <ul>
-        <li><span class="official-note">Binary addition rules: 0+0=0; 1+0/0+1=1; 1+1=0 (carry 1); 1+1+1=1 (carry 1).</span></li>
-        <li><span class="official-note">Carry values work like in denary addition—add rightmost columns first, carry left if needed.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">00100111 + 01001010 = 01110001 (binary addition).</div></li>
-        <li><div class="example-box">126 (01111110) + 62 (00111110) = 188 (10111100).</div></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.4 (b) Understand the concept of overflow and why it occurs in binary addition</h2>
-      <ul>
-        <li><span class="official-note"><span class="keyword" data-tooltip="When a calculation exceeds the maximum storable value in the register">Overflow error</span> occurs when a result is too big for the register.</span></li>
-        <li><span class="official-note">For an 8-bit register, the maximum value is 255 (11111111). A result with a 9th bit is overflow.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">Adding 01101110 + 11011110 = (1)01001100, the leading (1) is overflow.</div></li>
-        <li><span class="fun-tip">If your answer has more bits than allowed, that extra leftmost bit is overflow—the computer can't fit it!</span></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.5 Perform a logical binary shift on a positive 8-bit binary integer and understand the effect</h2>
-      <ul>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Moving all bits left (×2) or right (÷2); zero fills empty place">Logical shift</span>: move all bits left (multiply by 2) or right (divide by 2); zeros fill empty spots.</span></li>
-        <li><span class="official-note">Bits shifted out are lost; zeros fill the emptied places.</span></li>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Left-most">Most significant bit</span></li>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Right-most">Least significant bit</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">Left shift: 00010101 → 00101010 (21×2=42).</div></li>
-        <li><div class="example-box">Left shift 2: 00010101 → 01010100 (21×4=84).</div></li>
-        <li><div class="example-box">Right shift: 11001000 → 01100100 (200÷2=100).</div></li>
-        <li><div class="example-box">Shift 10101010 one place left: 01010100.</div></li>
-        <li><span class="fun-tip">Each left shift doubles your number—each right shift halves it (if you don't lose important bits)!</span></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.6 Use the two’s complement number system to represent positive and negative 8-bit binary integers</h2>
-      <ul>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Method to represent negative binary numbers; left-most bit is the sign (–128 for 8 bits)">Two’s complement</span> lets you use the same binary system for positive and negative numbers.</span></li>
-        <li><span class="official-note">In 8-bit two’s complement, the range is –128 to +127.</span></li>
-        <li><span class="official-note">To write a positive number, use normal binary (sign bit 0).</span></li>
-        <li><span class="official-note">To write a negative number:<br>
-            1. Write positive binary.<br>
-            2. Invert all bits left of the first 1 from the right (or invert all bits and add 1).<br>
-            3. Make sure the MSB is 1.
-          </span>
-        </li>
-        <li><span class="official-note">For negative values, sum bits using –128 as the left-most.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">38 = 00100110 (two’s complement).</div></li>
-        <li><div class="example-box">–67: 01000011 → invert → 10111100 → add 1 = 10111101.</div></li>
-        <li><div class="example-box">10111010 = –128 + 32 + 16 + 8 + 2 = –70.</div></li>
-        <li><span class="fun-tip">To get a negative number: "Flip all the bits and add one!" (That’s the computer’s trick.)</span></li>
-      </ul>
-    </div>
-
+<div class="container">
+<div class="header-container">
+<img src="../syllabus.png" alt="Syllabus Update" class="top-right-icon">
+  <div class="title-row">
+    <h1 class="section-title">2.2 Methods of error detection</h1>
   </div>
+  <div class="title-underline"></div>
+  <p class="section-subtitle">Computer Science IGCSE notes, prepared by Dr. Hamdeni</p>
+</div>
 
-    <script>
-    window.addEventListener('load', function() {
-      var height = document.body.scrollHeight;
-      window.parent.postMessage({type: 'resize', height: height}, '*');
-    });
-    </script>
+  <div class="section">
+    <h2>2.2a: Understand the need to check for errors after data transmission and how these errors can occur</h2>
+    <ul>
+      <li><span class="official-note">Data sent across a network can be corrupted, lost, gained, or changed during transmission, so error checking is necessary to detect problems.</span>
+        <ul>
+          <li><span class="official-note">Interference during transmission can cause errors, so checking is required to detect them.</span></li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="no-bullets">
+      <li><div class="example-box">Example: scrambled text and computers. A short sentence with letters scrambled may still be readable by a human, but a computer cannot interpret corrupted data. This shows why exact, error-free transmission is important for machines.</div></li>
+      <li><span class="fun-tip">Think of sending a box of cookies: data loss is missing cookies, data gain is extra crumbs that do not belong, and data change is a cookie turned into a cracker. A computer cannot guess the original recipe, so we must check the box when it arrives.</span></li>
+      <li>
+        <div class="button-group">
+          <button class="keyword-button" onclick="openPopupK('2.2a')">
+            🔑 View Keywords on This Topic 🔑
+          </button>
+          <button class="exam-button" onclick="openPopupQ('2.2a')">
+            👁️ Quick Look at Exam Questions on This Topic 👁️
+          </button>
+        </div>
+      </li>
+    </ul>
   </div>
+  <div class="section">
+    <h2>2.2b: Describe the processes involved in parity check, checksum, and echo check</h2>
+    <ul>
+      <li><span class="official-note"><span class="keyword" data-tooltip="a method used to check if data has been transferred correctly; it makes use of even parity (an even number of 1-bits) or odd parity (an odd number of 1-bits)">parity check</span> adds a <span class="keyword" data-tooltip="a bit (either 0 or 1) added to a byte of data in the most significant bit position; this ensures that the byte follows the correct even parity or odd parity protocol">parity bit</span> so that the total number of 1 bits in each byte follows an agreed rule of odd parity or even parity. In this context, a byte is formed by 7 data bits plus 1 parity bit, for a total of 8 bits. The receiver counts the 1s and flags an error if the parity rule is broken.</span>
+        <ul>
+          <li><span class="official-note">Odd parity means the total number of 1s is odd, and even parity means the total number of 1s is even.</span></li>
+          <li><span class="official-note">Agreement and checking process: before transmission, the sender and receiver agree which parity type will be used, and after transmission the receiver recalculates parity to check for errors.</span></li>
+          <li><span class="official-note">Limitation of single-byte parity: if an even number of bits are flipped during transmission, the overall parity can remain the same and the error may not be detected.</span></li>
+          <li><span class="official-note"><span class="keyword" data-tooltip="a horizontal and vertical parity check on a block of data being transmitted">parity block</span> check: arrange bytes in a grid and apply parity across rows (horizontal) and columns (vertical) using a <span class="keyword" data-tooltip="an extra byte of data sent at the end of a parity block; it is composed of the parity bits generated from a vertical parity check of the data block">parity byte</span>. If one row and one column fail parity, their intersection identifies the bit in error; correct that bit or re-send the block.</span></li>
+        </ul>
+      </li>
+      <li><span class="official-note"><span class="keyword" data-tooltip="a verification method used to check if data transferred has been altered or corrupted; calculated from the block of data of data being sent; the checksum value is sent after each data block">checksum</span> calculates a value from a block of data before transmission and sends it with the data. The receiver recalculates the checksum from the received block and compares the two values. A mismatch indicates an error and the data is re-sent.</span>
+        <ul>
+          <li><span class="official-note">Agreed method: the checksum is calculated using an algorithm agreed by the sender and receiver, and the same agreed method is used again at the receiver to verify the block.</span></li>
+        </ul>
+      </li>
+      <li><span class="official-note"><span class="keyword" data-tooltip="a method used to check if data has been transferred correctly; data is sent to a receiver and then immediately sent back to the sender; the sender then checks if the received data matches the sent data">echo check</span> sends the received data back to the sender. The sender compares the echo to the original. A match suggests correct transmission, and a difference indicates an error.</span>
+        <ul>
+          <li><span class="official-note">Limitation: if the original and echoed data differ, it is not known whether the error occurred on the way to the receiver or on the way back.</span></li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="no-bullets">
+      <li><div class="example-box">Example: even-parity mismatch. Sent byte 01011100 has four 1s, which is even. If the receiver gets 01001100, it has three 1s, which is odd. Because even parity was agreed, the mismatch in the count of 1s indicates an error.</div></li>
+      <li><div class="example-box">Example: setting even parity on single bytes. If Byte A has data bits 1100011 (three 1s), the even parity bit is 1 to make four 1s in total; if Byte B has data bits 0000000 (zero 1s), the even parity bit is 0 to keep the count of 1s even.</div></li>
+      <li><span class="fun-tip">On a class trip, the teacher keeps the headcount even or odd. The parity bit is the helper who joins or sits out to make the total match the rule. With block parity, students stand in a grid so checking rows and columns reveals the exact person out of place.</span></li>
+      <li><div class="example-box">Example: echo in practice. A self-driving tractor sends its status data to the farmer’s computer; the computer returns an exact copy (echo). If the echo matches the original, transmission is assumed correct; if not, an error is flagged and the data is re-sent.</div></li>
+      <li>
+        <div class="button-group">
+          <button class="keyword-button" onclick="openPopupK('2.2b')">
+            🔑 View Keywords on This Topic 🔑
+          </button>
+          <button class="exam-button" onclick="openPopupQ('2.2b')">
+            👁️ Quick Look at Exam Questions on This Topic 👁️
+          </button>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="section">
+    <h2>2.2c: Describe how a check digit is used to detect errors in data entry and identify examples of use</h2>
+    <ul>
+      <li><span class="official-note">A <span class="keyword" data-tooltip="an additional digit appended to a number to check if the entered number is error-free; check digit is a data entry check and not a data transmission check">check digit</span> is calculated from the other digits in a code and stored as the final digit. When the code is entered or scanned, the check digit is recalculated and compared to the stored value to detect entry errors.</span>
+        <ul>
+          <li><span class="official-note">Check digits are used in barcodes and International Standard Book Numbers.</span></li>
+          <li><span class="official-note">Common data entry errors detected include wrong digits, transpositions of two digits, and missing or extra digits.</span></li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="no-bullets">
+      <li><div class="example-box">Example: ISBN-13 check digit. Add the digits in the odd positions. Add three times the digits in the even positions. Sum these results and take the remainder when divided by 10. If the remainder is zero, the check digit is 0. Otherwise it is 10 minus the remainder. For 978034098382, the remainder is 1, so the check digit is 9 and the full code is 9780340983829. Verification repeats the process including the check digit and expects a remainder of 0.</div></li>
+      <li><div class="example-box">Example: modulo-11 method. Multiply each digit by a weight from 8 down to 2, add the products, divide by 11, and use 11 minus the remainder as the check digit, using X if the remainder is 10. For the base 4156710 the total is 130, the remainder is 9, so the check digit is 2. Verification with weights 8 down to 1 gives a remainder of 0.</div></li>
+      <li><span class="fun-tip">The check digit is like a quick maths riddle at the supermarket. If the totals do not add up when the last digit is checked, the till asks for a rescan because a digit was entered wrongly.</span></li>
+      <li>
+        <div class="button-group">
+          <button class="keyword-button" onclick="openPopupK('2.2c')">
+            🔑 View Keywords on This Topic 🔑
+          </button>
+          <button class="exam-button" onclick="openPopupQ('2.2c')">
+            👁️ Quick Look at Exam Questions on This Topic 👁️
+          </button>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="section">
+    <h2>2.2d: Describe how an automatic repeat request can be used to establish that data is received without error</h2>
+    <ul>
+      <li><span class="official-note">Automatic repeat request uses <span class="keyword" data-tooltip="a message sent to the receiver indicating that data has been received correctly (used in the ARQ error detection method)">acknowledgement</span>, which are messages that confirm whether reception succeeded, and a <span class="keyword" data-tooltip="the time interval allowed to elapse before an acknowledgement is received (in the ARQ error detection method)">timeout</span>, which is the maximum waiting time for an acknowledgement, to ensure that data is delivered correctly and to trigger re-transmission when necessary.</span>
+        <ul>
+          <li><span class="official-note">Operational flow: if a positive acknowledgement is received, delivery is confirmed. If a negative acknowledgement is received or the timeout expires, the sender re-sends the packet.</span></li>
+          <li><span class="official-note">Start timer on send: when a packet is transmitted, a timer starts immediately; if the acknowledgement does not arrive before the timer expires, the sender automatically retransmits the packet.</span></li>
+          <li><span class="official-note">Retries continue until a positive acknowledgement is received or a preset retry limit is reached.</span></li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="no-bullets">
+      <li><span class="fun-tip">ARQ works like a walkie-talkie exchange: “Message received OK.” If there is silence, the sender repeats the message after waiting a short time, until the confirmation is heard.</span></li>
+      <li>
+        <div class="button-group">
+          <button class="keyword-button" onclick="openPopupK('2.2d')">
+            🔑 View Keywords on This Topic 🔑
+          </button>
+          <button class="exam-button" onclick="openPopupQ('2.2d')">
+            👁️ Quick Look at Exam Questions on This Topic 👁️
+          </button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+  <script src="popup-script.js"></script>
 </body>
 </html>

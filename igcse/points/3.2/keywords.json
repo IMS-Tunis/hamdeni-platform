@@ -1,0 +1,108 @@
+{
+  "3.2a": [
+    {
+      "term": "barcode",
+      "definition": "a series of dark and light lines of varying thickness used to represent data; the code has to be scanned using laser or LED light source"
+    },
+    {
+      "term": "quick response (QR) code",
+      "definition": "a matrix of dark and light squares which represent data; the pattern can be read and interpreted using a smartphone camera and QR app"
+    },
+    {
+      "term": "charge couple device (CCD)",
+      "definition": "a light sensitive cell made up of millions of tiny sensors acting as photodiodes"
+    },
+    {
+      "term": "virtual keyboard",
+      "definition": "an onscreen keyboard which uses the features of the touch screen to emulate a physical keyboard"
+    },
+    {
+      "term": "touch screen",
+      "definition": "a screen that allows the user to select or manipulate a screen image using the touch of a finger or stylus; touch screens most frequently use capacitive, infra-red or resistive technology"
+    },
+    {
+      "term": "repetitive strain injury (RSI)",
+      "definition": "pain felt in the muscles, nerves and tendons caused by a repetitive action (for example, excessive clicking of a mouse button over a period of time)"
+    },
+    {
+      "term": "optical mouse",
+      "definition": "a pointing device that uses a red LED to track the movement of the device and then relays its coordinates to a computer"
+    },
+    {
+      "term": "complementary metal oxide semi-conductor (CMOS)",
+      "definition": "a chip that generates an electric current (or pulses) when light falls on its surface"
+    },
+    {
+      "term": "optical character recognition",
+      "definition": "technology that can convert hard copy text or images into a digital format to be stored in a computer memory"
+    },
+    {
+      "term": "capacitive touch screen",
+      "definition": "a type of touch screen that uses the change in the screen’s capacitance (the ability to store an electrical charge) when it is touched by a finger or stylus"
+    },
+    {
+      "term": "infra-red touch screen",
+      "definition": "a type of touch screen that uses infra-red beams and sensors to detect where the screen has been touched"
+    },
+    {
+      "term": "resistive touch screen",
+      "definition": "a type of touch screen that uses two conductive layers which make contact where the screen has been touched"
+    },
+    {
+      "term": "ADC (analogue to digital converter)",
+      "definition": "a device that converts analogue data (for example, data read from sensors) into a form understood by a computer"
+    }
+  ],
+  "3.2b": [
+    {
+      "term": "output device",
+      "definition": "a device that can be used to obtain the results of data that has been processed."
+    },
+    {
+      "term": "actuator",
+      "definition": "an output device that converts electrical energy into mechanical movement"
+    },
+    {
+      "term": "DAC (digital to analogue converter)",
+      "definition": "device that converts digital data into electric currents that can drive motors, actuators and relays, for example"
+    },
+    {
+      "term": "digital micromirror device (DMD)",
+      "definition": "a chip that uses millions of tiny mirrors on its surface to create a video display"
+    },
+    {
+      "term": "thermal bubble",
+      "definition": "inkjet printer technology whereby tiny resistors create heat and form an ink bubble which is ejected onto paper in an inkjet printer"
+    },
+    {
+      "term": "piezoelectric crystal",
+      "definition": "a crystal located in an ink reservoir within an inkjet printer; the crystal vibrates and forces ink out onto paper"
+    },
+    {
+      "term": "direct 3D printing",
+      "definition": "a 3D printing technique in which the print head moves in the x, y and z directions"
+    },
+    {
+      "term": "binder 3D printing",
+      "definition": "a 3D printing method that uses a two-stage pass; the first stage uses dry powder and second stage uses a binding agent"
+    },
+    {
+      "term": "organic LED (OLED)",
+      "definition": "a light-emitting diode that uses the movement of electrons between a cathode and an anode to produce an on-screen image; it generates its own light so no backlighting is required"
+    },
+    {
+      "term": "loudspeaker",
+      "definition": "an output device that converts electric current into sound"
+    }
+  ],
+  "3.2c": [
+    {
+      "term": "sensor",
+      "definition": "a type of input device that is used to capture data from its immediate environment."
+    },
+    {
+      "term": "automated system",
+      "definition": "a system that is designed to operate without the need for any human intervention."
+    }
+  ]
+}

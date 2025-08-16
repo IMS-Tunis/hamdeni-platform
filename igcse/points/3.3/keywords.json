@@ -1,0 +1,106 @@
+{
+  "3.3a": [
+    {
+      "term": "primary storage",
+      "definition": "a type of storage that is directly accessed by the CPU."
+    },
+    {
+      "term": "memory",
+      "definition": "the devices within the computer that are directly accessible by the CPU; there are two types of memory – RAM and ROM; memory is different to hard disk drives, for example, which are known as storage devices"
+    },
+    {
+      "term": "random access memory (RAM)",
+      "definition": "primary memory that can be written to or read from"
+    },
+    {
+      "term": "read only memory (ROM)",
+      "definition": "primary memory that cannot be written to (changed) and can only be read"
+    },
+    {
+      "term": "volatile",
+      "definition": "describes memory that loses its contents when the power is turned off"
+    }
+  ],
+  "3.3b": [
+    {
+      "term": "secondary storage",
+      "definition": "a type of storage that is designed to store data permanently, until it is deleted by the user."
+    }
+  ],
+  "3.3c": [
+    {
+      "term": "magnetic storage",
+      "definition": "a type of secondary storage that uses the properties of magnetism to store data."
+    },
+    {
+      "term": "optical storage",
+      "definition": "a type of secondary storage that uses lasers to store data."
+    },
+    {
+      "term": "solid-state storage",
+      "definition": "a type of secondary storage that uses transistors to store data."
+    },
+    {
+      "term": "semiconductor chips",
+      "definition": "an electronic circuit, where transistors are set on a semiconductor material, such as silicon."
+    },
+    {
+      "term": "cell",
+      "definition": "the intersection of the rows and columns of transistors in solid-state storage."
+    },
+    {
+      "term": "transistor",
+      "definition": "a device that acts as a switch or gate for electronic signals."
+    },
+    {
+      "term": "control gate",
+      "definition": "a component that controls the flow of electric current."
+    },
+    {
+      "term": "floating gate",
+      "definition": "a component that can store electrical charge."
+    },
+    {
+      "term": "dual layering",
+      "definition": "using two recording layers in storage media such as DVDs and some Blu-rays"
+    },
+    {
+      "term": "SSD endurance",
+      "definition": "the total guaranteed number of times data can be written to or read from a solid state drive (SSD) in its usable life cycle"
+    }
+  ],
+  "3.3d": [
+    {
+      "term": "virtual memory",
+      "definition": "a type of memory that can be used as an extension to the RAM."
+    },
+    {
+      "term": "page",
+      "definition": "a unit of data."
+    },
+    {
+      "term": "disk thrashing (HDD)",
+      "definition": "a problem in a hard disk drive (HDD) caused by excessive swapping in and out of data causing a high rate of head movements during virtual memory operations"
+    },
+    {
+      "term": "thrash point",
+      "definition": "the point at which the execution of a program comes to a halt because the system is so busy moving data in and out of memory rather than actually executing the program"
+    }
+  ],
+  "3.3e": [
+    {
+      "term": "cloud storage",
+      "definition": "data storage that is owned by a third party and accessed by the user, using the internet."
+    },
+    {
+      "term": "server",
+      "definition": "a component that acts as a central resource for the storage of data and applications or for providing a service."
+    }
+  ],
+  "3.3f": [
+    {
+      "term": "data redundancy",
+      "definition": "the unnecessary storing of the same data on several storage devices at the same time"
+    }
+  ]
+}

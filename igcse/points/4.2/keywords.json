@@ -1,0 +1,94 @@
+{
+  "4.2a": [
+    {
+      "term": "high-level language",
+      "definition": "a type of programming language that uses English-like commands."
+    },
+    {
+      "term": "low-level language",
+      "definition": "a language closer to the machine's language, this could be assembly language or binary code."
+    },
+    {
+      "term": "portable",
+      "definition": "a program that can be run on different types and manufacturers of computers."
+    },
+    {
+      "term": "non portable",
+      "definition": "a program that cannot be run on different types and manufacturers of computers."
+    }
+  ],
+  "4.2b": [
+    {
+      "term": "machine code",
+      "definition": "binary code, an example of a low-level language."
+    },
+    {
+      "term": "assembly language",
+      "definition": "code written in mnemonics that allows direct manipulation of the hardware. It must be converted into binary code to run."
+    },
+    {
+      "term": "mnemonic",
+      "definition": "instruction code used in assembly language."
+    }
+  ],
+  "4.2c": [
+    {
+      "term": "translator",
+      "definition": "converts a program written in a high-level language program into machine code"
+    },
+    {
+      "term": "assembler",
+      "definition": "converts assembly language into machine code."
+    },
+    {
+      "term": "interpreter",
+      "definition": "a computer program that analyses and executes a program written in a high-level language line by line"
+    },
+    {
+      "term": "compiler",
+      "definition": "a computer program that translates a source program written in a high-level language to machine code"
+    },
+    {
+      "term": "executable file",
+      "definition": "a file produced by a compiler that can be run independent of translator software and does not include the source code."
+    }
+  ],
+  "4.2e": [
+    {
+      "term": "Integrated Development Environment (IDE)",
+      "definition": "a piece of software that allows a user to write, test and run program code."
+    },
+    {
+      "term": "editor",
+      "definition": "a feature of an IDE that allows the user to enter and amend program code."
+    },
+    {
+      "term": "auto-completion",
+      "definition": "a feature of an editor that gives the user options when they start typing a command."
+    },
+    {
+      "term": "auto-correction",
+      "definition": "a feature of an editor that identifies spelling errors and changes them."
+    },
+    {
+      "term": "prettyprint",
+      "definition": "a feature of an editor that changes the colour of text, for example, to highlight key words."
+    },
+    {
+      "term": "prettyprinting",
+      "definition": "displaying source code using different colours and formatting, which make the code easier to read and understand"
+    },
+    {
+      "term": "run-time environment",
+      "definition": "a feature of an IDE that allows a program to be run and lets the user interact with the program."
+    },
+    {
+      "term": "report window",
+      "definition": "a separate window in the runtime environment of an IDE that shows the contents of variables during the execution of a program"
+    },
+    {
+      "term": "debugging",
+      "definition": "finding errors in a computer program by running or tracing the program"
+    }
+  ]
+}

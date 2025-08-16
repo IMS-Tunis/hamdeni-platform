@@ -2,101 +2,172 @@
   "questions": [
     {
       "type": "mcq",
-      "question": "What is the main reason computers use binary to represent all data?",
+      "question": "Which of the following best describes primary storage?",
       "options": [
-        "Binary numbers are easier for humans to read",
-        "Computers use logic gates that only understand ON and OFF states",
-        "It uses less power",
-        "Binary numbers are shorter than decimal numbers"
+        "A storage area used exclusively for backups and archives",
+        "A type of storage that is directly accessed by the CPU through a direct connection",
+        "A storage device used for long-term retention of files only",
+        "A storage medium accessed through the internet only"
       ],
-      "answer": "Computers use logic gates that only understand ON and OFF states"
-    },
-    {
-      "type": "mcq",
-      "question": "In an 8-bit binary number, what does the leftmost bit represent?",
-      "options": [
-        "Least Significant Bit",
-        "The parity bit",
-        "Most Significant Bit",
-        "The hexadecimal value"
-      ],
-      "answer": "Most Significant Bit"
-    },
-    {
-      "type": "mcq",
-      "question": "Which of the following is a hexadecimal digit?",
-      "options": [
-        "8",
-        "G",
-        "H",
-        "Q"
-      ],
-      "answer": "8"
-    },
-    {
-      "type": "mcq",
-      "question": "What is the maximum value that can be represented in an 8-bit binary number?",
-      "options": [
-        "255",
-        "256",
-        "128",
-        "1024"
-      ],
-      "answer": "255"
+      "answer": "A type of storage that is directly accessed by the CPU through a direct connection"
     },
     {
       "type": "fill_blank",
-      "question": "The process of moving all bits in a binary number to the left or right and filling the emptied spaces with zeros is called a __________ shift.",
-      "answer": "Logical"
-    },
-    {
-      "type": "fill_blank",
-      "question": "In binary addition, if the result is too large for the register to hold, this is called an __________ error.",
-      "answer": "Overflow"
-    },
-    {
-      "type": "fill_blank",
-      "question": "Each hexadecimal digit can be represented by exactly ___ binary bits.",
-      "answer": "4"
-    },
-    {
-      "type": "true_false",
-      "question": "Digital data can take any value, just like analogue data.",
-      "answer": "False"
-    },
-    {
-      "type": "true_false",
-      "question": "In two’s complement, the most significant bit represents the sign of the number.",
-      "answer": "True"
-    },
-    {
-      "type": "true_false",
-      "question": "The denary number system is also known as base 16.",
-      "answer": "False"
+      "question": "______ is a volatile type of storage that loses its contents when the power is turned off.",
+      "answer": "RAM"
     },
     {
       "type": "match",
-      "question": "Match the term with its correct definition:",
+      "question": "Match each memory type with its main characteristic.",
       "pairs": {
-        "Register": "Used to temporarily hold binary data",
-        "Logic gate": "Basic building block for processing digital data",
-        "Two’s complement": "Method to represent negative binary"
+        "DRAM": "Uses capacitors and needs refreshing",
+        "SRAM": "Uses flip flops, no refreshing, faster",
+        "ROM": "Fixed contents, stores start-up instructions"
       }
     },
     {
       "type": "fill_blank",
-      "question": "Convert the binary number 1101 to denary: __________",
-      "answer": "13"
+      "question": "The speed of a computer increases with larger __________ because it reduces access to slower secondary storage.",
+      "answer": "RAM"
     },
     {
       "type": "fill_blank",
-      "question": "What is the hexadecimal equivalent of the denary number 15? __________",
-      "answer": "F"
+      "question": "Data and instructions from secondary storage must first be transferred into ______ before they are processed by the CPU.",
+      "answer": "primary storage"
+    },
+    {
+      "type": "mcq",
+      "question": "Which of the following is true about secondary storage?",
+      "options": [
+        "It is volatile and stores temporary data",
+        "It is accessed directly by the CPU",
+        "It stores larger amounts of data than primary storage and retains data without power",
+        "It only stores programs currently in use"
+      ],
+      "answer": "It stores larger amounts of data than primary storage and retains data without power"
+    },
+    {
+      "type": "mcq",
+      "question": "Which of the following statements about solid state drives (SSDs) and hard disk drives (HDDs) is correct?",
+      "options": [
+        "SSDs have unlimited write endurance and higher rotational latency than HDDs",
+        "SSDs are faster and more reliable, but have limited write endurance",
+        "HDDs are faster and more reliable, but have limited write endurance",
+        "HDDs consume less power and have no moving parts"
+      ],
+      "answer": "SSDs are faster and more reliable, but have limited write endurance"
+    },
+    {
+      "type": "mcq",
+      "question": "What causes latency in hard disk drives?",
+      "options": [
+        "The delay while data is read or written using lasers",
+        "The delay caused by moving platters rotating the needed data under the read/write head",
+        "The time taken to erase data before rewriting",
+        "Data fragmentation increasing write endurance"
+      ],
+      "answer": "The delay caused by moving platters rotating the needed data under the read/write head"
+    },
+    {
+      "type": "match",
+      "question": "Match each solid state storage component with its function.",
+      "pairs": {
+        "Cell": "Basic storage unit in a transistor grid",
+        "Control gate": "Controls electric current flow",
+        "Floating gate": "Stores electrical charge"
+      }
+    },
+    {
+      "type": "match",
+      "question": "Match each storage type with its characteristic.",
+      "pairs": {
+        "Magnetic storage": "Uses magnetism to store data on spinning platters",
+        "Optical storage": "Uses laser light to read and write data on discs, with pits and lands",
+        "Solid state storage": "Has no moving parts and uses semiconductor chips"
+      }
+    },
+    {
+      "type": "mcq",
+      "question": "What is a key disadvantage of SSDs compared to HDDs?",
+      "options": [
+        "Higher power consumption",
+        "Limited write endurance",
+        "Slower access speeds",
+        "Larger physical size"
+      ],
+      "answer": "Limited write endurance"
+    },
+    {
+      "type": "mcq",
+      "question": "Virtual memory is created when:",
+      "options": [
+        "The CPU cache is expanded",
+        "A portion of the hard disk or SSD is used as an extension of RAM",
+        "The BIOS loads before the OS",
+        "The ROM stores temporary program data"
+      ],
+      "answer": "A portion of the hard disk or SSD is used as an extension of RAM"
     },
     {
       "type": "fill_blank",
-      "question": "What is the binary value for the hexadecimal digit C? __________",
-      "answer": "1100"
+      "question": "In virtual memory, data not immediately needed in RAM is moved in units called ______.",
+      "answer": "pages"
+    },
+    {
+      "type": "mcq",
+      "question": "Which of the following is a drawback of using hard disk based virtual memory?",
+      "options": [
+        "Increased processing speed",
+        "Disk thrashing due to frequent swapping",
+        "Reduced ability to run large programs",
+        "No need for RAM"
+      ],
+      "answer": "Disk thrashing due to frequent swapping"
+    },
+    {
+      "type": "fill_blank",
+      "question": "Cloud storage stores data on remote ______ and comes in three main types: public cloud, private cloud, and ______.",
+      "answer": "servers, hybrid cloud"
+    },
+    {
+      "type": "mcq",
+      "question": "Which is an advantage of cloud storage?",
+      "options": [
+        "Access without internet connection",
+        "No ongoing costs for storage",
+        "Ability to scale storage space easily",
+        "Full control over data security by the user"
+      ],
+      "answer": "Ability to scale storage space easily"
+    },
+    {
+      "type": "mcq",
+      "question": "Which of the following is a disadvantage of cloud storage?",
+      "options": [
+        "Dependence on internet speed and stability",
+        "No possible security risks",
+        "Requires buying and maintaining physical hardware",
+        "Cannot be scaled to meet demand"
+      ],
+      "answer": "Dependence on internet speed and stability"
+    },
+    {
+      "type": "fill_blank",
+      "question": "A __________ cloud is a dedicated storage environment within a company\u2019s infrastructure.",
+      "answer": "private"
+    },
+    {
+      "type": "match",
+      "question": "Match the storage type to its characteristic.",
+      "pairs": {
+        "Cloud storage": "Requires internet for access",
+        "Local storage": "Full user control over security; Fixed hardware capacity"
+      }
+    },
+    {
+      "type": "fill_blank",
+      "question": "A disadvantage of local storage compared to cloud storage is the cost of buying and maintaining ______.",
+      "answer": "hardware"
     }
   ]
 }

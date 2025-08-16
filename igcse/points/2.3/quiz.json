@@ -2,101 +2,95 @@
   "questions": [
     {
       "type": "mcq",
-      "question": "What is the main reason computers use binary to represent all data?",
+      "question": "Which statement best describes the effect of encryption on intercepted network data?",
       "options": [
-        "Binary numbers are easier for humans to read",
-        "Computers use logic gates that only understand ON and OFF states",
-        "It uses less power",
-        "Binary numbers are shorter than decimal numbers"
+        "It converts plaintext into unreadable ciphertext so only the intended recipient can make sense of it.",
+        "It stops interception itself.",
+        "It replaces the need for authentication with digital certificates.",
+        "It turns ciphertext back to plaintext without a key."
       ],
-      "answer": "Computers use logic gates that only understand ON and OFF states"
-    },
-    {
-      "type": "mcq",
-      "question": "In an 8-bit binary number, what does the leftmost bit represent?",
-      "options": [
-        "Least Significant Bit",
-        "The parity bit",
-        "Most Significant Bit",
-        "The hexadecimal value"
-      ],
-      "answer": "Most Significant Bit"
-    },
-    {
-      "type": "mcq",
-      "question": "Which of the following is a hexadecimal digit?",
-      "options": [
-        "8",
-        "G",
-        "H",
-        "Q"
-      ],
-      "answer": "8"
-    },
-    {
-      "type": "mcq",
-      "question": "What is the maximum value that can be represented in an 8-bit binary number?",
-      "options": [
-        "255",
-        "256",
-        "128",
-        "1024"
-      ],
-      "answer": "255"
-    },
-    {
-      "type": "fill_blank",
-      "question": "The process of moving all bits in a binary number to the left or right and filling the emptied spaces with zeros is called a __________ shift.",
-      "answer": "Logical"
-    },
-    {
-      "type": "fill_blank",
-      "question": "In binary addition, if the result is too large for the register to hold, this is called an __________ error.",
-      "answer": "Overflow"
-    },
-    {
-      "type": "fill_blank",
-      "question": "Each hexadecimal digit can be represented by exactly ___ binary bits.",
-      "answer": "4"
-    },
-    {
-      "type": "true_false",
-      "question": "Digital data can take any value, just like analogue data.",
-      "answer": "False"
-    },
-    {
-      "type": "true_false",
-      "question": "In two’s complement, the most significant bit represents the sign of the number.",
-      "answer": "True"
-    },
-    {
-      "type": "true_false",
-      "question": "The denary number system is also known as base 16.",
-      "answer": "False"
+      "answer": "It converts plaintext into unreadable ciphertext so only the intended recipient can make sense of it."
     },
     {
       "type": "match",
-      "question": "Match the term with its correct definition:",
+      "question": "Match each term to its description.",
       "pairs": {
-        "Register": "Used to temporarily hold binary data",
-        "Logic gate": "Basic building block for processing digital data",
-        "Two’s complement": "Method to represent negative binary"
+        "plaintext": "original readable data",
+        "ciphertext": "unreadable output after encryption",
+        "key": "value used with the algorithm to scramble and later to decrypt",
+        "SSL": "protocol that protects data in transit by combining encryption with digital certificates for authentication"
       }
     },
     {
-      "type": "fill_blank",
-      "question": "Convert the binary number 1101 to denary: __________",
-      "answer": "13"
+      "type": "mcq",
+      "question": "According to the notes, what does encryption do regarding interception?",
+      "options": [
+        "It completely prevents interception of data.",
+        "It reduces the impact of interception but does not stop interception itself.",
+        "It increases transmission speed to avoid interception.",
+        "It creates multiple copies of data to confuse interceptors."
+      ],
+      "answer": "It reduces the impact of interception but does not stop interception itself."
+    },
+    {
+      "type": "mcq",
+      "question": "Which sequence correctly describes symmetric encryption in practice?",
+      "options": [
+        "Encrypt plaintext with a shared key; send ciphertext; provide the same shared key to the receiver in a separate message; the receiver uses that key to decrypt.",
+        "Encrypt with the recipient’s public key; the recipient decrypts with a private key.",
+        "Encrypt without any key; the receiver derives a key from the ciphertext.",
+        "Publish a private key for many senders; decrypt with the same public key."
+      ],
+      "answer": "Encrypt plaintext with a shared key; send ciphertext; provide the same shared key to the receiver in a separate message; the receiver uses that key to decrypt."
+    },
+    {
+      "type": "mcq",
+      "question": "What is identified as the main drawback of symmetric encryption?",
+      "options": [
+        "The single shared key must be transmitted to the receiver, creating a risk of interception.",
+        "It requires two related keys, increasing complexity.",
+        "It cannot convert plaintext into ciphertext.",
+        "It eliminates the need to keep any key secret."
+      ],
+      "answer": "The single shared key must be transmitted to the receiver, creating a risk of interception."
+    },
+    {
+      "type": "mcq",
+      "question": "Which communication step set reflects asymmetric encryption?",
+      "options": [
+        "The sender obtains the recipient’s public key and encrypts the plaintext; the recipient uses their private key to decrypt the received ciphertext.",
+        "The sender generates a shared key and sends it with the ciphertext; the recipient uses the shared key to decrypt.",
+        "The sender publishes a private key for many senders; recipients use the public key to decrypt.",
+        "The sender and recipient exchange the same shared key and both decrypt with the public key."
+      ],
+      "answer": "The sender obtains the recipient’s public key and encrypts the plaintext; the recipient uses their private key to decrypt the received ciphertext."
+    },
+    {
+      "type": "mcq",
+      "question": "Why was asymmetric encryption designed according to the notes?",
+      "options": [
+        "To process data faster than symmetric encryption.",
+        "To use fewer computational resources.",
+        "To overcome the key sharing risk in symmetric encryption.",
+        "To encrypt larger files more efficiently."
+      ],
+      "answer": "To overcome the key sharing risk in symmetric encryption."
+    },
+    {
+      "type": "mcq",
+      "question": "Which statement reflects the security comparison stated in the notes?",
+      "options": [
+        "Symmetric approaches are generally less secure than asymmetric approaches because a single shared key must be distributed.",
+        "Symmetric approaches are more secure because they do not use keys.",
+        "Asymmetric approaches are less secure because they rely on digital certificates.",
+        "Both approaches are equally secure because they use the same key."
+      ],
+      "answer": "Symmetric approaches are generally less secure than asymmetric approaches because a single shared key must be distributed."
     },
     {
       "type": "fill_blank",
-      "question": "What is the hexadecimal equivalent of the denary number 15? __________",
-      "answer": "F"
-    },
-    {
-      "type": "fill_blank",
-      "question": "What is the binary value for the hexadecimal digit C? __________",
-      "answer": "1100"
+      "question": "In asymmetric encryption, many senders can use the same _____ key to encrypt, but only the _____ key owner can decrypt.",
+      "answer": "public; private"
     }
   ]
 }

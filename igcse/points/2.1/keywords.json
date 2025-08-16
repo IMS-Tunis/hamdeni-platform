@@ -1,0 +1,86 @@
+{
+  "2.1a: subsection a": [
+    {
+      "term": "packet",
+      "definition": "a small unit of data."
+    }
+  ],
+  "2.1b: subsection b": [
+    {
+      "term": "packet header",
+      "definition": "a section of a packet of data that contains information about the contents of the packet and its destination."
+    },
+    {
+      "term": "payload",
+      "definition": "the actual data being carried in a data packet."
+    },
+    {
+      "term": "packet trailer",
+      "definition": "a section of a packet of data that contains information about any error checking methods that may be used."
+    },
+    {
+      "term": "internet protocol (IP) address",
+      "definition": "the unique address that is given to a device when it is connected to a network."
+    }
+  ],
+  "2.1c: subsection c": [
+    {
+      "term": "packet switching",
+      "definition": "a method of transmitting data packets across a network. Each data packet is able to take an individual pathway across the network."
+    }
+  ],
+  "2.1d: subsection d": [
+    {
+      "term": "serial data transmission",
+      "definition": "a transmission method where data is sent one bit at a time down a single wire."
+    },
+    {
+      "term": "parallel data transmission",
+      "definition": "a transmission method where data is sent multiple bits at a time down multiple wires."
+    },
+    {
+      "term": "simplex",
+      "definition": "a transmission method where data is transmitted in a single direction only."
+    },
+    {
+      "term": "half-duplex",
+      "definition": "a transmission method where data is transmitted in both directions, but only one direction at a time."
+    },
+    {
+      "term": "full-duplex",
+      "definition": "a transmission method where data is transmitted in both directions at the same time."
+    }
+  ],
+  "2.1e: subsection e": [
+    {
+      "term": "interference",
+      "definition": "disruption, such as electromagnetism, to data when it is transmitted."
+    },
+    {
+      "term": "skewed (data)",
+      "definition": "data that arrives at the destination with the bits no longer synchronised."
+    }
+  ],
+  "2.1f: subsection f": [
+    {
+      "term": "USB",
+      "definition": "an industry standard that is used to transmit data."
+    },
+    {
+      "term": "USB port",
+      "definition": "a socket that is a part of a device or computer that enables you to insert a USB cable."
+    },
+    {
+      "term": "USB cable",
+      "definition": "a type of transmission media that uses the USB method to transmit data."
+    },
+    {
+      "term": "USB connection",
+      "definition": "a collective name for using a USB cable plugged into a USB port to transfer data from one device to another."
+    },
+    {
+      "term": "USB device",
+      "definition": "the name of a device that plugs into a USB port on a computer."
+    }
+  ]
+}

@@ -1,102 +1,251 @@
 {
   "questions": [
     {
-      "type": "mcq",
-      "question": "What is the main reason computers use binary to represent all data?",
-      "options": [
-        "Binary numbers are easier for humans to read",
-        "Computers use logic gates that only understand ON and OFF states",
-        "It uses less power",
-        "Binary numbers are shorter than decimal numbers"
-      ],
-      "answer": "Computers use logic gates that only understand ON and OFF states"
-    },
-    {
-      "type": "mcq",
-      "question": "In an 8-bit binary number, what does the leftmost bit represent?",
-      "options": [
-        "Least Significant Bit",
-        "The parity bit",
-        "Most Significant Bit",
-        "The hexadecimal value"
-      ],
-      "answer": "Most Significant Bit"
-    },
-    {
-      "type": "mcq",
-      "question": "Which of the following is a hexadecimal digit?",
-      "options": [
-        "8",
-        "G",
-        "H",
-        "Q"
-      ],
-      "answer": "8"
-    },
-    {
-      "type": "mcq",
-      "question": "What is the maximum value that can be represented in an 8-bit binary number?",
-      "options": [
-        "255",
-        "256",
-        "128",
-        "1024"
-      ],
-      "answer": "255"
-    },
-    {
       "type": "fill_blank",
-      "question": "The process of moving all bits in a binary number to the left or right and filling the emptied spaces with zeros is called a __________ shift.",
-      "answer": "Logical"
+      "question": "Data sent over long distances is divided into small units called ________ to make transmission easier to control.",
+      "answer": "packets"
     },
     {
-      "type": "fill_blank",
-      "question": "In binary addition, if the result is too large for the register to hold, this is called an __________ error.",
-      "answer": "Overflow"
-    },
-    {
-      "type": "fill_blank",
-      "question": "Each hexadecimal digit can be represented by exactly ___ binary bits.",
-      "answer": "4"
+      "type": "mcq",
+      "question": "Which statement is supported by the notes about using packets?",
+      "options": [
+        "Packets force data to use a single fixed route end-to-end",
+        "Packets allow different routes to be used if one route is unsuitable",
+        "Packets remove the need to reassemble data at the destination",
+        "Packets require one continuous data stream for reliability"
+      ],
+      "answer": "Packets allow different routes to be used if one route is unsuitable"
     },
     {
       "type": "true_false",
-      "question": "Digital data can take any value, just like analogue data.",
-      "answer": "False"
-    },
-    {
-      "type": "true_false",
-      "question": "In two’s complement, the most significant bit represents the sign of the number.",
+      "question": "Packets are reassembled at the destination into the original message.",
       "answer": "True"
     },
     {
       "type": "true_false",
-      "question": "The denary number system is also known as base 16.",
-      "answer": "False"
+      "question": "Datagrams is another word for packets.",
+      "answer": "True"
     },
     {
       "type": "match",
-      "question": "Match the term with its correct definition:",
+      "question": "Match each packet part to its role.",
       "pairs": {
-        "Register": "Used to temporarily hold binary data",
-        "Logic gate": "Basic building block for processing digital data",
-        "Two’s complement": "Method to represent negative binary"
+        "Header": "Contains addressing and control information, including information about any error-checking methods that may be used",
+        "Payload": "Actual data carried by the packet; size is not fixed and depends on technology or protocol",
+        "Trailer": "Marks the end; includes an error-detection value that the receiver recomputes"
       }
     },
     {
       "type": "fill_blank",
-      "question": "Convert the binary number 1101 to denary: __________",
-      "answer": "13"
+      "question": "The __________ contains source/destination IP addresses and sequencing information, while the __________ is the actual data being carried.",
+      "answer": "packet header, payload"
+    },
+    {
+      "type": "mcq",
+      "question": "What happens when the hop limit in a packet header reaches zero before delivery?",
+      "options": [
+        "The packet is automatically resent with a new limit",
+        "The packet is discarded",
+        "The packet is converted to a different protocol",
+        "The packet bypasses all remaining routers"
+      ],
+      "answer": "The packet is discarded"
     },
     {
       "type": "fill_blank",
-      "question": "What is the hexadecimal equivalent of the denary number 15? __________",
-      "answer": "F"
+      "question": "The __________ marks the end of the packet and includes error-checking methods such as cyclic redundancy check (CRC).",
+      "answer": "trailer"
+    },
+    {
+      "type": "mcq",
+      "question": "Which header details are listed in the notes in addition to IP addresses?",
+      "options": [
+        "Only the actual data being transmitted",
+        "Error checking methods and end-of-packet markers",
+        "Protocol identification and sequencing information",
+        "The total size of all packets in the transmission"
+      ],
+      "answer": "Protocol identification and sequencing information"
     },
     {
       "type": "fill_blank",
-      "question": "What is the binary value for the hexadecimal digit C? __________",
-      "answer": "1100"
+      "question": "________ switching is a method of transmitting data packets independently along network paths, then placing them back in the correct order at the destination using header information.",
+      "answer": "packet"
+    },
+    {
+      "type": "mcq",
+      "question": "How do routers choose the next route for packets according to the notes?",
+      "options": [
+        "They always use the absolute shortest path available",
+        "They randomly select from available paths",
+        "They choose based on current conditions such as queue lengths, selecting a shortest available path",
+        "They follow a predetermined sequence set by the sender"
+      ],
+      "answer": "They choose based on current conditions such as queue lengths, selecting a shortest available path"
+    },
+    {
+      "type": "true_false",
+      "question": "Packets can arrive out of order, and the destination system reorders them correctly.",
+      "answer": "True"
+    },
+    {
+      "type": "mcq",
+      "question": "Which is listed as a drawback or overhead of packet switching in the notes?",
+      "options": [
+        "It ties up a single dedicated line for the whole message",
+        "It removes all delays caused by reordering",
+        "It can introduce delays from reordering and challenges for real-time streaming",
+        "It prevents retransmission of missing or corrupted packets"
+      ],
+      "answer": "It can introduce delays from reordering and challenges for real-time streaming"
+    },
+    {
+      "type": "mcq",
+      "question": "What happens when a packet is missing or corrupted at the destination?",
+      "options": [
+        "The entire message is discarded and must be resent",
+        "The destination requests that specific packet again",
+        "The missing packet is ignored and the message continues",
+        "A new route is automatically established for all future packets"
+      ],
+      "answer": "The destination requests that specific packet again"
+    },
+    {
+      "type": "match",
+      "question": "Match each mode to its direction property.",
+      "pairs": {
+        "simplex": "One direction only from sender to receiver",
+        "half-duplex": "Both directions, but not at the same time",
+        "full-duplex": "Both directions at the same time"
+      }
+    },
+    {
+      "type": "mcq",
+      "question": "Which statement matches the notes?",
+      "options": [
+        "Serial sends several bits at the same time over multiple wires",
+        "Parallel sends one bit at a time over a single wire or channel",
+        "Serial sends one bit at a time over a single wire or channel",
+        "Parallel guarantees long-distance reliability at lower data rates than serial"
+      ],
+      "answer": "Serial sends one bit at a time over a single wire or channel"
+    },
+    {
+      "type": "fill_blank",
+      "question": "In the notes, ________ transmission sends several bits at the same time over multiple wires, for example a byte.",
+      "answer": "parallel"
+    },
+    {
+      "type": "mcq",
+      "question": "Which transmission method allows bidirectional communication but not simultaneously?",
+      "options": [
+        "Simplex",
+        "Full-duplex",
+        "Parallel",
+        "Half-duplex"
+      ],
+      "answer": "Half-duplex"
+    },
+    {
+      "type": "mcq",
+      "question": "Which mode allows data to be sent in both directions at the same time?",
+      "options": [
+        "simplex",
+        "half-duplex",
+        "full-duplex",
+        "parallel"
+      ],
+      "answer": "full-duplex"
+    },
+    {
+      "type": "mcq",
+      "question": "Which choice fits the notes for long-distance links with lower cost and maintained synchronisation at lower data rates?",
+      "options": [
+        "Parallel transmission",
+        "Serial transmission",
+        "Full-duplex only",
+        "Half-duplex only"
+      ],
+      "answer": "Serial transmission"
+    },
+    {
+      "type": "fill_blank",
+      "question": "According to the notes, ________ transmission is preferred for short distances and time-critical tasks because it is faster, but it needs more hardware and is therefore more expensive.",
+      "answer": "parallel"
+    },
+    {
+      "type": "true_false",
+      "question": "The notes say that parallel is generally less expensive than serial for long-distance transmission.",
+      "answer": "False"
+    },
+    {
+      "type": "mcq",
+      "question": "Which feature is explicitly listed as a benefit in the notes?",
+      "options": [
+        "Guaranteed faster file transfer than Ethernet",
+        "Provision of a +5 volt power supply through the cable",
+        "Unlimited cable length without signal loss",
+        "No need to share bandwidth between connected devices"
+      ],
+      "answer": "Provision of a +5 volt power supply through the cable"
+    },
+    {
+      "type": "mcq",
+      "question": "What is a listed benefit of USB automatic device detection?",
+      "options": [
+        "It reduces cable length requirements",
+        "It provides setup without manual configuration",
+        "It increases data transfer speeds",
+        "It eliminates the need for power supply"
+      ],
+      "answer": "It provides setup without manual configuration"
+    },
+    {
+      "type": "fill_blank",
+      "question": "For error handling, the USB protocol requires the sender to re-send data until errors are detected to be absent, so that the final received data is ________.",
+      "answer": "error-free"
+    },
+    {
+      "type": "fill_blank",
+      "question": "USB uses __________ data transfer and can operate in half-duplex or __________ modes.",
+      "answer": "serial, full-duplex"
+    },
+    {
+      "type": "mcq",
+      "question": "Which statement from the notes describes USB-C?",
+      "options": [
+        "A legacy connector that is not backward compatible",
+        "A 24-pin symmetrical connector that can be inserted either way and remains backward compatible when a suitable adaptor is used",
+        "A connector limited to one orientation and incompatible with older USB devices",
+        "A connector that carries no power"
+      ],
+      "answer": "A 24-pin symmetrical connector that can be inserted either way and remains backward compatible when a suitable adaptor is used"
+    },
+    {
+      "type": "match",
+      "question": "Match each statement to category.",
+      "pairs": {
+        "Range of transfer speeds, for example up to Gbps": "Benefit",
+        "File transfer that can be slower than Ethernet on comparable systems": "Drawback",
+        "Standardised connector types": "Benefit",
+        "Bandwidth is shared among attached devices": "Drawback"
+      }
+    },
+    {
+      "type": "mcq",
+      "question": "What power delivery capability does USB-C support according to the notes?",
+      "options": [
+        "Up to about 50 watts at 10 volts",
+        "Up to about 100 watts at 20 volts",
+        "Up to about 200 watts at 40 volts",
+        "Fixed 5 volts only like standard USB"
+      ],
+      "answer": "Up to about 100 watts at 20 volts"
+    },
+    {
+      "type": "true_false",
+      "question": "USB-C supports high-resolution video such as 4K while remaining backward compatible when a suitable adaptor is used.",
+      "answer": "True"
     }
   ]
 }

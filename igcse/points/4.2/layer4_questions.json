@@ -1,14 +1,58 @@
 [
   {
-    "question": "Explain what is meant by a validation test in computer science education.",
-    "answer": "A validation test checks that students have understood the material and are ready to progress."
+    "question": "Describe what is meant by a low-level language.",
+    "answer": "Language that is difficult for a programmer to understand / not close to natural language\nLanguage that is machine dependent / machine specific\nLanguage that has to be converted to machine code before it can be used"
   },
   {
-    "question": "State one advantage of practicing with past paper questions before an exam.",
-    "answer": "Past paper questions familiarize students with the exam style and improve confidence."
+    "question": "Give two reasons why the programmer would choose to write the computer program in a low-level language instead of a high-level language.",
+    "answer": "Faster to execute\nTakes up less memory\nTo directly manipulate hardware\nTo make use of special machine instructions"
   },
   {
-    "question": "Give an example of a simple binary operation.",
-    "answer": "Adding two 1-bit binary numbers, e.g. 1 + 1 = 10."
+    "question": "Machine code is one type of low-level language.\nIdentify one other type of low-level language.\nIdentify the translator that is needed for the type of low-level language you have identified.",
+    "answer": "Assembly (language)\nAssembler"
+  },
+  {
+    "question": "If the programmer chooses a high-level language, they can use a compiler or an interpreter to translate the high-level language into a low-level language.\nDescribe the operation of a compiler and of an interpreter.",
+    "answer": "Compiler: Translates the whole program into machine code / low-level language at once\nCreates an executable file\nWill only run if there are no (syntax) errors\nInterpreter: Translates the program into machine code / low-level language line by line\nRuns the program one line at a time / will stop when there is an error"
+  },
+  {
+    "question": "Describe how the compiler translates the computer program.",
+    "answer": "The compiler translates the high-level language (program) into machine code / low-level language\nThe whole program is translated at once"
+  },
+  {
+    "question": "Describe how the compiler reports errors.",
+    "answer": "The compiler produces an error report\nThe compiler identifies the line number and type of error"
+  },
+  {
+    "question": "One translator converts and executes the code line by line.\nIdentify which type of translator would do this.",
+    "answer": "Interpreter"
+  },
+  {
+    "question": "One translator creates an error report displaying all the errors in the code before it can be executed.\nIdentify which type of translator would do this.",
+    "answer": "Compiler"
+  },
+  {
+    "question": "One translator creates an executable file.\nIdentify which type of translator would do this.",
+    "answer": "Compiler"
+  },
+  {
+    "question": "A high-level language can be translated into a low-level language, using a compiler or an interpreter.\nDescribe the advantages of using an interpreter instead of a compiler during software development.",
+    "answer": "Errors are shown as each line is executed\nGood for testing and debugging\nFaster to test sections of code\nEasier to test programs as code is being written"
+  },
+  {
+    "question": "Integrated development environments (IDEs) provide translators.\nIdentify three other common functions of an IDE.",
+    "answer": "Editor\nDebugger\nError diagnostics\nRun-time environment\nAuto-complete\nBracket matching\nVersion control"
+  },
+  {
+    "question": "The programmer uses an integrated development environment (IDE) to create the computer program.\nOne function of the IDE is that it has the built-in compiler.\nGive three other common functions of an IDE.",
+    "answer": "Run-time environment\nEditor\nError diagnostics\nTranslator\nAuto-complete\nVersion control"
+  },
+  {
+    "question": "Describe three other ways the IDE can help the programmer.",
+    "answer": "Any three from:\nAuto-complete\nEditor\nDebugging\nRun-time environment\nBracket matching\nVersion control\nTranslator / compiler / interpreter\nError diagnostics"
+  },
+  {
+    "question": "Explain the purpose of the IDE.",
+    "answer": "To help the programmer write the code\nTo help the programmer test the code\nTo help the programmer debug the code"
   }
 ]

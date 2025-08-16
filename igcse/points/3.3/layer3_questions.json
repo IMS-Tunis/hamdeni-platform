@@ -1,20 +1,176 @@
 [
-  {
-    "point_id": "3.3",
-    "question_number": 1,
-    "question": "State one benefit of using binary in computers.",
-    "mark_scheme": "Binary is simple for electronic circuits, representing two states such as on/off."
-  },
-  {
-    "point_id": "3.3",
-    "question_number": 2,
-    "question": "Define the term 'protocol' in networking.",
-    "mark_scheme": "A protocol is a set of rules that allow devices to communicate."
-  },
-  {
-    "point_id": "3.3",
-    "question_number": 3,
-    "question": "Explain the purpose of an IP address.",
-    "mark_scheme": "It uniquely identifies a device on a network."
-  }
+{
+"point_id": "3.3a",
+"question_number": 1,
+"question": "Define primary storage and identify its two main types.",
+"mark_scheme": "Answer:\n(Define: give precise meaning)\nPrimary storage is storage directly accessed by the CPU; its two main types are random access memory and read only memory."
+},
+{
+"point_id": "3.3a",
+"question_number": 2,
+"question": "Describe two characteristics of RAM and two characteristics of ROM.",
+"mark_scheme": "Answer:\n(Describe: state the points of a topic / give characteristics and main features)\nRAM: volatile; stores data, files, and parts of programs or the operating system currently in use.\nROM: non-volatile; stores fixed start-up instructions such as the bootstrap and BIOS."
+},
+{
+"point_id": "3.3a",
+"question_number": 3,
+"question": "Compare DRAM and SRAM by giving three differences.",
+"mark_scheme": "Answer:\n(Compare: identify/comment on similarities and/or differences)\nDRAM stores bits in capacitors and must be refreshed; it is cheaper and offers higher capacity.\nSRAM uses flip-flops, needs no refresh, and is faster, so it is used for cache."
+},
+{
+"point_id": "3.3a",
+"question_number": 4,
+"question": "Explain why increasing the size of RAM can improve a computer’s performance.",
+"mark_scheme": "Answer:\n(Explain: set out purposes or reasons / make the relationships between things evident / provide why and/or how and support with relevant evidence)\nIncreasing RAM reduces accesses to slower secondary storage as RAM fills, which improves overall operation speed."
+},
+{
+"point_id": "3.3c",
+"question_number": 5,
+"question": "Describe how data is stored and accessed on a hard disk drive.",
+"mark_scheme": "Answer:\n(Describe: state the points of a topic / give characteristics and main features)\nData is stored magnetically as 1s and 0s on spinning platters arranged in tracks and sectors; read/write heads with electromagnets move across platters to access data."
+},
+{
+"point_id": "3.3c",
+"question_number": 6,
+"question": "Explain fragmentation and the role of defragmentation software.",
+"mark_scheme": "Answer:\n(Explain: set out purposes or reasons / make the relationships between things evident / provide why and/or how and support with relevant evidence)\nAs files are edited and deleted, sectors can become non-adjacent, slowing access; defragmentation software rearranges sectors to improve performance."
+},
+{
+"point_id": "3.3c",
+"question_number": 7,
+"question": "Describe how data is stored on optical media.",
+"mark_scheme": "Answer:\n(Describe: state the points of a topic / give characteristics and main features)\nA laser reads and writes pits and lands along a single spiral track from the centre to the edge of the spinning disc; CDs and DVDs use a red laser, while Blu-ray uses a blue laser."
+},
+{
+"point_id": "3.3c",
+"question_number": 8,
+"question": "Explain the principle of solid state storage at the cell level.",
+"mark_scheme": "Answer:\n(Explain: set out purposes or reasons / make the relationships between things evident / provide why and/or how and support with relevant evidence)\nSolid state storage has no moving parts; data is stored as charge in floating-gate transistors controlled by a control gate within NAND or NOR structures, forming non-volatile, rewritable memory."
+},
+{
+"point_id": "3.3c",
+"question_number": 9,
+"question": "State two advantages and one disadvantage of SSDs compared to HDDs.",
+"mark_scheme": "Answer:\n(State: express in clear terms)\nAdvantages: faster data access; more reliable because there are no moving parts.\nDisadvantage: limited write endurance requiring erase before rewrite."
+},
+{
+"point_id": "3.3d",
+"question_number": 10,
+"question": "Define virtual memory and state when it is used.",
+"mark_scheme": "Answer:\n(Define: give precise meaning)\nVirtual memory uses space on a hard disk drive or solid state drive as an extension of RAM and is used when processes exceed available physical RAM."
+},
+{
+"point_id": "3.3d",
+"question_number": 11,
+"question": "Explain disk thrashing in virtual memory and give two ways to reduce it.",
+"mark_scheme": "Answer:\n(Explain: set out purposes or reasons / make the relationships between things evident / provide why and/or how and support with relevant evidence)\nDisk thrashing is the very high rate of storage access caused by frequent swapping between RAM and virtual memory, which greatly reduces processing speed. It can be reduced by installing more RAM and by using an SSD instead of an HDD for virtual memory."
+},
+{
+"point_id": "3.3e",
+"question_number": 12,
+"question": "Define cloud storage and list the three common deployment types.",
+"mark_scheme": "Answer:\n(Define: give precise meaning)\nCloud storage is data stored on remote servers owned and managed by a hosting company; the three types are public cloud, private cloud, and hybrid cloud."
+},
+{
+"point_id": "3.3e",
+"question_number": 13,
+"question": "Give two advantages and two disadvantages of using cloud storage.",
+"mark_scheme": "Answer:\n(Give: produce an answer from a given source or recall/memory)\nAdvantages: access from anywhere with an internet connection; remote backups and scalable capacity.\nDisadvantages: dependence on internet stability and speed; potential ongoing costs and security risks."
+},
+{
+"point_id": "3.3e",
+"question_number": 14,
+"question": "Compare cloud storage with local storage by giving one advantage of each over the other.",
+"mark_scheme": "Answer:\n(Compare: identify/comment on similarities and/or differences)\nCloud over local: managed remote infrastructure and data redundancy ease recovery and maintenance.\nLocal over cloud: full control without reliance on a third-party provider or internet connectivity."
+},
+{
+"point_id": "3.3a",
+"question_number": 15,
+"question": "Identify whether RAM and ROM are primary or secondary storage, and state what each stores.",
+"mark_scheme": "Answer:\n(Identify: name/select/recognise; State: express in clear terms)\nBoth are primary storage. RAM stores data and programs currently in use; ROM stores start-up programs such as the bootstrap and BIOS."
+},
+{
+"point_id": "3.3c",
+"question_number": 16,
+"question": "Explain why SSDs reduce latency compared to HDDs.",
+"mark_scheme": "Answer:\n(Explain: set out purposes or reasons / make the relationships between things evident / provide why and/or how and support with relevant evidence)\nSSDs have no moving parts, so data is retrieved at a consistent rate without rotational delay, removing latency inherent in spinning disks."
+},
+{
+"point_id": "3.3d",
+"question_number": 17,
+"question": "Outline how paging supports virtual memory.",
+"mark_scheme": "Answer:\n(Outline: set out main points)\nMemory management moves fixed-length blocks called pages between RAM and the HDD/SSD, enabling programs larger than physical memory to execute at the cost of slower access."
+},
+{
+"point_id": "3.3c",
+"question_number": 18,
+"question": "Describe the structure of data on HDD platters.",
+"mark_scheme": "Answer:\n(Describe: state the points of a topic / give characteristics and main features)\nData is arranged into tracks and sectors on the magnetic surfaces of the platters; each sector stores a fixed number of bytes."
+},
+{
+"point_id": "3.3c",
+"question_number": 19,
+"question": "Explain why optical media typically do not replace HDDs as primary storage.",
+"mark_scheme": "Answer:\n(Explain: set out purposes or reasons / make the relationships between things evident / provide why and/or how and support with relevant evidence)\nOptical discs are mainly for distribution or archiving using pits and lands read by lasers; they do not replace HDDs because typical capacities and speeds are insufficient for primary storage."
+},
+{
+"point_id": "3.3a",
+"question_number": 20,
+"question": "Justify the use of SRAM for CPU cache despite its higher cost.",
+"mark_scheme": "Answer:\n(Justify: support a case with evidence/argument)\nSRAM is much faster and does not require refreshing, matching the speed needs of cache memory, whereas DRAM is slower and must be refreshed."
+},
+{
+"point_id": "3.3a",
+"question_number": 21,
+"question": "Describe the function of ROM in a remote-controlled toy car.",
+"mark_scheme": "Answer:\n(Describe: state the points of a topic / give characteristics and main features)\nROM stores factory settings such as remote-control frequencies and start-up routines; RAM temporarily stores data or instructions received from the remote control."
+},
+{
+"point_id": "3.3b",
+"question_number": 22,
+"question": "State two characteristics of secondary storage.",
+"mark_scheme": "Answer:\n(State: express in clear terms)\nNon-volatile; not directly addressable by the CPU, so data must be loaded into primary memory before processing."
+},
+{
+"point_id": "3.3b",
+"question_number": 23,
+"question": "Identify an example of secondary storage and describe one advantage it offers.",
+"mark_scheme": "Answer:\n(Identify: name/select/recognise; Describe: state the points of a topic / give characteristics and main features)\nExample: USB flash memory stick.\nAdvantage: very small and lightweight, suitable for transferring files between computers."
+},
+{
+"point_id": "3.3e",
+"question_number": 24,
+"question": "Compare public and private cloud storage.",
+"mark_scheme": "Answer:\n(Compare: identify/comment on similarities and/or differences)\nPublic cloud: provider and customer are different organisations; resources are shared across customers.\nPrivate cloud: dedicated environment for a single organisation, typically behind a company firewall."
+},
+{
+"point_id": "3.3a",
+"question_number": 25,
+"question": "State what is meant by volatile storage.",
+"mark_scheme": "Answer:\n(State: express in clear terms)\nVolatile storage describes memory that loses its contents when power is turned off."
+},
+{
+"point_id": "3.3b",
+"question_number": 26,
+"question": "Explain why secondary storage is needed if a computer already has RAM and ROM.",
+"mark_scheme": "Answer:\n(Explain: set out purposes or reasons / make the relationships between things evident / provide why and/or how and support with relevant evidence)\nSecondary storage is required to store applications, data, and files permanently and in larger capacity than primary memory; it is non-volatile and can be removable for transfer or backup."
+},
+{
+"point_id": "3.3c",
+"question_number": 27,
+"question": "Define magnetic storage.",
+"mark_scheme": "Answer:\n(Define: give precise meaning)\nMagnetic storage is a type of secondary storage that uses the properties of magnetism to store data."
+},
+{
+"point_id": "3.3c",
+"question_number": 28,
+"question": "Define optical storage.",
+"mark_scheme": "Answer:\n(Define: give precise meaning)\nOptical storage is a type of secondary storage that uses lasers to store and retrieve data."
+},
+{
+"point_id": "3.3c",
+"question_number": 29,
+"question": "Define solid state storage.",
+"mark_scheme": "Answer:\n(Define: give precise meaning)\nSolid state storage is a type of secondary storage with no moving parts that uses semiconductor chips and transistors to store data."
+}
 ]

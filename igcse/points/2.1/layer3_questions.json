@@ -1,20 +1,68 @@
 [
-  {
-    "point_id": "2.1",
-    "question_number": 1,
-    "question": "State one benefit of using binary in computers.",
-    "mark_scheme": "Binary is simple for electronic circuits, representing two states such as on/off."
-  },
-  {
-    "point_id": "2.1",
-    "question_number": 2,
-    "question": "Define the term 'protocol' in networking.",
-    "mark_scheme": "A protocol is a set of rules that allow devices to communicate."
-  },
-  {
-    "point_id": "2.1",
-    "question_number": 3,
-    "question": "Explain the purpose of an IP address.",
-    "mark_scheme": "It uniquely identifies a device on a network."
-  }
+{
+"point_id": "2.1",
+"question_number": 1,
+"question": "Explain why messages are split into packets and how packet switching operates, including why packets may arrive out of order.",
+"mark_scheme": "(Explain: set out purposes or reasons / make the relationships between things evident / provide why and/or how and support with relevant evidence)\nMessages are divided into packets so they can be managed efficiently and routed independently. Each packet is forwarded according to its header information along available paths. Because different packets may take different routes, they can arrive out of order; the destination uses sequence information to reassemble the original message."
+},
+{
+"point_id": "2.1",
+"question_number": 2,
+"question": "Identify the three main sections of a data packet and describe one purpose of each.",
+"mark_scheme": "(Identify: name/select/recognise)\n(Describe: state the points of a topic / give characteristics and main features)\nHeader: carries addressing and control information such as source, destination, and sequence number.\nPayload: the actual data being transmitted.\nTrailer: includes error-checking data, for example a CRC value, and marks the end of the packet."
+},
+{
+"point_id": "2.1",
+"question_number": 3,
+"question": "Describe the role of routers during packet switching.",
+"mark_scheme": "(Describe: state the points of a topic / give characteristics and main features)\nA router reads the packet header and forwards the packet to an appropriate next node toward the destination, taking current network conditions into account."
+},
+{
+"point_id": "2.1",
+"question_number": 4,
+"question": "Compare serial and parallel transmission with respect to distance, speed, and synchronisation, and explain why data skew can occur in parallel links.",
+"mark_scheme": "(Compare: identify/comment on similarities and/or differences)\n(Explain: set out purposes or reasons / make the relationships between things evident / provide why and/or how and support with relevant evidence)\nSerial sends one bit at a time on a single channel, maintains synchronisation, and is better for longer distances but usually has a lower data rate. Parallel sends multiple bits simultaneously on several channels, giving higher data rates over short distances but poorer performance over long distances. In parallel links, small differences in path length and greater susceptibility to interference cause some bits to arrive at different times, producing data skew."
+},
+{
+"point_id": "2.1",
+"question_number": 5,
+"question": "Describe simplex, half-duplex, and full-duplex transmission, giving one example for each.",
+"mark_scheme": "(Describe: state the points of a topic / give characteristics and main features)\nSimplex: one-way only, for example keyboard to computer.\nHalf-duplex: both directions but not at the same time, for example walkie-talkie.\nFull-duplex: both directions simultaneously, for example home broadband upload and download."
+},
+{
+"point_id": "2.1",
+"question_number": "6a",
+"question": "Assess the most appropriate transmission choice for a 100-metre computer-to-server link that must upload and download at the same time, and justify your answer.",
+"mark_scheme": "(Assess: make an informed judgement)\n(Justify: support a case with evidence/argument)\nSerial full-duplex: maintains synchronisation over longer distances and supports simultaneous two-way transfer."
+},
+{
+"point_id": "2.1",
+"question_number": "6b",
+"question": "Assess the most appropriate transmission choice for a computer sending print data to a printer 3 metres away, as quickly as possible, and justify your answer.",
+"mark_scheme": "(Assess: make an informed judgement)\n(Justify: support a case with evidence/argument)\nParallel (simplex) to the printer: higher data rate over the short distance typical of device interconnects."
+},
+{
+"point_id": "2.1",
+"question_number": 7,
+"question": "Identify and describe two methods of error checking used in data transmission other than CRC.",
+"mark_scheme": "(Identify: name/select/recognise)\n(Describe: state the points of a topic / give characteristics and main features)\nParity check: adds a parity bit according to an agreed rule and the receiver verifies parity.\nChecksum: computes a value from a block of data that the receiver recomputes and compares; a mismatch prompts re-send."
+},
+{
+"point_id": "2.1",
+"question_number": 8,
+"question": "Give two benefits and one drawback of using a USB connection.",
+"mark_scheme": "(Give: produce an answer from a given source or recall/memory)\nBenefits: automatic device detection and driver setup; keyed connector that fits only one way.\nDrawback: standard cable length is about 5 metres unless hubs are used."
+},
+{
+"point_id": "2.1",
+"question_number": 9,
+"question": "Complete the sentence: Data sent over a network in small units called _____ can travel different _____ to their destination, where they are _____ to recreate the original message.",
+"mark_scheme": "(Complete: add information to an incomplete diagram or table)\npackets; routes; reassembled."
+},
+{
+"point_id": "2.1",
+"question_number": 10,
+"question": "Assess one advantage and one drawback of packet switching for real-time communication.",
+"mark_scheme": "(Assess: make an informed judgement)\nAdvantage: routing can avoid failed or congested lines without reserving a dedicated path.\nDrawback: variable delays and reordering can disrupt time-sensitive streams."
+}
 ]

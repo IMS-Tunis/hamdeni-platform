@@ -2,144 +2,236 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>1.1 Number Systems</title>
-  <link rel="stylesheet" href="igcse-style.css">
+  <title>IGCSE Computer Science - 4.2 Programming Concepts</title>
+  <link rel="stylesheet" href="../igcse-style.css">
 </head>
 <body>
-   <div class="container">
-    <h1>Number Systems</h1>
-    <div class="subtitle">IGCSE CS theory notes, prepared by Dr. Hamdeni</div>
 
-    <div class="section">
-      <h2>1.1 Understand how and why computers use binary to represent all forms of data</h2>
-
+<div class="container">
+  <div class="header-container">
+    <img src="../syllabus.png" alt="Syllabus Update" class="top-right-icon">
+    <div class="title-row">
+      <h1 class="section-title">4.2 Programming Concepts</h1>
     </div>
-
-    <div class="section">
-      <h2>1.2 (a) Understand the denary, binary and hexadecimal number systems</h2>
-      <ul>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Base-10, digits 0–9">Denary</span> is used in everyday life, with each place increasing by powers of 10.</span></li>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Base-2, digits 0 and 1">Binary</span> is used by computers, with each place increasing by powers of 2.</span></li>
-        <li><span class="official-note">The <span class="keyword" data-tooltip="The leftmost bit in a binary number, which has the highest value">MSB</span> (Most Significant Bit) is the leftmost bit.</span></li>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Base-16, digits 0–9 and A–F">Hexadecimal</span> is closely related to binary; each hex digit is 4 bits.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">The denary number 25177 = 2×10000 + 5×1000 + 1×100 + 7×10 + 7×1.</div></li>
-        <li><div class="example-box">Binary 11101110 = 128+64+32+8+4+2 = 238 (denary).</div></li>
-        <li><div class="example-box">Hex digit A = 10, F = 15 (denary).</div></li>
-        <li><div class="example-box">1010 (binary) = A (hex) = 10 (denary).</div></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.2 (b) Convert between number systems</h2>
-      <ul>
-        <li><span class="official-note">To convert binary to denary: add up the values of all positions where there is a 1.</span></li>
-        <li><span class="official-note">To convert denary to binary: subtract the largest possible powers of 2, or divide by 2 and record remainders.</span></li>
-        <li><span class="official-note">Successive division by 2 and reading remainders from bottom to top gives the binary value.</span></li>
-        <li><span class="official-note">You can convert up to 16-bit binary numbers for this syllabus.</span></li>
-        <li><span class="official-note">To convert binary to hexadecimal: group bits from the right in sets of four, pad with zeros to the left if needed.</span></li>
-        <li><span class="official-note">To convert hexadecimal to binary: write each hex digit as 4 bits.</span></li>
-        <li><span class="official-note">To convert hexadecimal to denary: convert hex to binary, then binary to denary.</span></li>
-        <li><span class="official-note">To convert denary to hexadecimal: convert to binary, group in 4s, convert each group to hex.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">011110001011 = 1024+512+256+128+8+2+1 = 4.2 (denary).</div></li>
-        <li><div class="example-box">Denary 142: 142 ÷ 2 repeatedly gives remainders 1 0 0 0 1 1 1 0 (read bottom to top: 10001110).</div></li>
-        <li><div class="example-box">Denary 13 → 8+4+0+1 = 13 → 1101 (binary).</div></li>
-        <li><div class="example-box">1000001111101 → 0010 0001 1111 1101 → 21FD (hex).</div></li>
-        <li><div class="example-box">Hex SE (S=5, E=14): 0101 1110 (binary).</div></li>
-        <li><div class="example-box">Hex 2 1 F D → 0010 0001 1111 1101 (binary).</div></li>
-        <li><div class="example-box">Hex SE = 64+16+8+4+2 = 94 (denary).</div></li>
-        <li><div class="example-box">Denary 201: binary 11001001 → 1100 (C), 1001 (9) → hex C9.</div></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.3 Understand how and why hexadecimal is used as a beneficial method of data representation</h2>
-      <ul>
-        <li><span class="official-note">Hexadecimal is shorter and easier to read and write than binary; simplifies debugging and error detection.</span></li>
-        <li><span class="official-note">Programmers find it easier to compare and spot differences in hexadecimal than in long binary strings.</span></li>
-        <li><span class="official-note">Common uses for hexadecimal: HTML colours, MAC addresses, assembly/machine code, memory dumps, debugging, error codes, and IP addresses.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">Comparing 10011100101110111000111011100010111101011010 (binary) vs. 9CBB8EE2F5A (hex).</div></li>
-        <li><div class="example-box"><span class="keyword" data-tooltip="Unique device identifier, written in hexadecimal">MAC address</span>: e.g., 00-1C-B3-4F-25-FE.</div></li>
-        <li><span class="fun-tip">Hex makes large binary numbers easier for humans to read and spot mistakes quickly!</span></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.4 (a) Add two positive 8-bit binary integers</h2>
-      <ul>
-        <li><span class="official-note">Binary addition rules: 0+0=0; 1+0/0+1=1; 1+1=0 (carry 1); 1+1+1=1 (carry 1).</span></li>
-        <li><span class="official-note">Carry values work like in denary addition—add rightmost columns first, carry left if needed.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">00100111 + 01001010 = 01110001 (binary addition).</div></li>
-        <li><div class="example-box">126 (01111110) + 62 (00111110) = 188 (10111100).</div></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.4 (b) Understand the concept of overflow and why it occurs in binary addition</h2>
-      <ul>
-        <li><span class="official-note"><span class="keyword" data-tooltip="When a calculation exceeds the maximum storable value in the register">Overflow error</span> occurs when a result is too big for the register.</span></li>
-        <li><span class="official-note">For an 8-bit register, the maximum value is 255 (11111111). A result with a 9th bit is overflow.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">Adding 01101110 + 11011110 = (1)01001100, the leading (1) is overflow.</div></li>
-        <li><span class="fun-tip">If your answer has more bits than allowed, that extra leftmost bit is overflow—the computer can't fit it!</span></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.5 Perform a logical binary shift on a positive 8-bit binary integer and understand the effect</h2>
-      <ul>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Moving all bits left (×2) or right (÷2); zero fills empty place">Logical shift</span>: move all bits left (multiply by 2) or right (divide by 2); zeros fill empty spots.</span></li>
-        <li><span class="official-note">Bits shifted out are lost; zeros fill the emptied places.</span></li>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Left-most">Most significant bit</span></li>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Right-most">Least significant bit</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">Left shift: 00010101 → 00101010 (21×2=42).</div></li>
-        <li><div class="example-box">Left shift 2: 00010101 → 01010100 (21×4=84).</div></li>
-        <li><div class="example-box">Right shift: 11001000 → 01100100 (200÷2=100).</div></li>
-        <li><div class="example-box">Shift 10101010 one place left: 01010100.</div></li>
-        <li><span class="fun-tip">Each left shift doubles your number—each right shift halves it (if you don't lose important bits)!</span></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.6 Use the two’s complement number system to represent positive and negative 8-bit binary integers</h2>
-      <ul>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Method to represent negative binary numbers; left-most bit is the sign (–128 for 8 bits)">Two’s complement</span> lets you use the same binary system for positive and negative numbers.</span></li>
-        <li><span class="official-note">In 8-bit two’s complement, the range is –128 to +127.</span></li>
-        <li><span class="official-note">To write a positive number, use normal binary (sign bit 0).</span></li>
-        <li><span class="official-note">To write a negative number:<br>
-            1. Write positive binary.<br>
-            2. Invert all bits left of the first 1 from the right (or invert all bits and add 1).<br>
-            3. Make sure the MSB is 1.
-          </span>
-        </li>
-        <li><span class="official-note">For negative values, sum bits using –128 as the left-most.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">38 = 00100110 (two’s complement).</div></li>
-        <li><div class="example-box">–67: 01000011 → invert → 10111100 → add 1 = 10111101.</div></li>
-        <li><div class="example-box">10111010 = –128 + 32 + 16 + 8 + 2 = –70.</div></li>
-        <li><span class="fun-tip">To get a negative number: "Flip all the bits and add one!" (That’s the computer’s trick.)</span></li>
-      </ul>
-    </div>
-
+    <div class="title-underline"></div>
+    <p class="section-subtitle">Computer Science IGCSE notes, prepared by Dr. Hamdeni</p>
   </div>
 
-    <script>
+  <!-- Section 4.2a -->
+  <div class="section">
+    <h2>4.2a: High-level and low-level languages</h2>
+    <ul>
+      <li>
+        <span class="official-note">A <span class="keyword" data-tooltip="a type of programming language that uses English-like commands.">high-level language</span> is a type of programming language that uses words similar to human language, such as "if", "print", or "input". These languages are designed to be easy to understand, write, and debug.</span>
+        <ul>
+          <li>High-level languages do not require knowledge of the computer’s hardware or instruction set.</li>
+          <li>They are often <span class="keyword" data-tooltip="a program that can be run on different types and manufacturers of computers.">portable</span>, meaning they can run on different types of computers.</li>
+          <li>Portable programs run on different computers without modification, because the high-level language is not tied to a specific machine architecture.</li>
+          <li>Programs written in high-level languages are generally easier to maintain over time.</li>
+          <li>Once you learn one high-level language, many of the same programming techniques apply to others like Python, Java, Visual Basic, or Pascal.</li>
+        </ul>
+      </li>
+      <li>
+        <span class="official-note">A <span class="keyword" data-tooltip="a language closer to the machine's language, this could be assembly language or binary code.">low-level language</span> is closer to the computer's own language and is harder for humans to read and write.</span>
+        <ul>
+          <li>Low-level languages include machine code (binary) and <span class="keyword" data-tooltip="code written in mnemonics that allows direct manipulation of the hardware. It must be converted into binary code to run.">assembly language</span> (mnemonics).</li>
+          <li>These languages are specific to a computer's hardware and cannot easily be used on other systems.</li>
+          <li>They allow direct manipulation of the hardware, which can lead to faster and smaller programs.</li>
+          <li>Reasons to use a low-level language include faster execution, smaller memory use, and the ability to directly control hardware or use special machine instructions.</li>
+          <li>However, low-level programs take more time to develop and are more difficult to debug.</li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="no-bullets">
+      <li><div class="example-box">Example: High-Level vs Low-Level Code<br>The high-level instruction `Sum := FirstNumber + SecondNumber` is simple and clear. In assembly language, the same task might require:<br>```<br>LDA First<br>ADD Second<br>STO Sum<br>```<br>In <span class="keyword" data-tooltip="binary code, an example of a low-level language.">machine code</span>, this would become a set of binary or hexadecimal instructions like `0001 00010010`. This shows how high-level code is much easier to read and write.</div></li>
+      <li><span class="fun-tip">Think of high-level languages like giving instructions to a friend: “Make me a sandwich.” Low-level languages are like saying, “Take two slices of bread, open the peanut butter jar, use a knife...” : more precise, but definitely more work!</span></li>
+    </ul>
+    <div class="button-group">
+      <button class="keyword-button" onclick="openPopupK('4.2a')">
+        🔑 View Keywords on This Topic 🔑
+      </button>
+      <button class="exam-button" onclick="openPopupQ('4.2a')">
+        👁️ Quick Look at Exam Questions on This Topic 👁️
+      </button>
+    </div>
+  </div>
+
+  <!-- Section 4.2b -->
+  <div class="section">
+    <h2>4.2b: Assembly language and assembler</h2>
+    <ul>
+      <li>
+        <span class="official-note">Assembly language is a type of low-level programming language that uses short commands (called mnemonics) to represent instructions.</span>
+        <ul>
+          <li>Examples of <span class="keyword" data-tooltip="instruction code used in assembly language.">mnemonics</span> include LDA (load), ADD (add), and STO (store), each of which performs a specific operation on memory or data.</li>
+          <li>To understand and use assembly language, the programmer needs to know what each mnemonic means and how the hardware works.</li>
+          <li>Understanding assembly often requires knowledge of hardware parts like the accumulator, which is a special register used to temporarily store values during calculations.</li>
+          <li>Assembly language allows more control over memory use and performance, which can be useful for fast or memory-efficient programs.</li>
+          <li>In most cases, one assembly instruction is directly mapped to one machine code instruction, giving the programmer precise control over hardware behavior.</li>
+          <li>Assembly language must be translated into machine code before it can be executed.</li>
+          <li>In assembly language, the programmer must define and manage the memory addresses of variables manually, which offers precision but increases complexity.</li>
+        </ul>
+      </li>
+      <li><span class="official-note">A program called an assembler is used to convert assembly language instructions into machine code.</span></li>
+    </ul>
+    <ul class="no-bullets">
+      <li><div class="example-box">Example: Adding Numbers in Assembly<br>The following three assembly commands perform the same task as `Sum := FirstNumber + SecondNumber` in a high-level language:<br>```<br>LDA First<br>ADD Second<br>STO Sum<br>```<br>This shows how a single high-level command might require multiple assembly instructions.</div></li>
+      <li><span class="fun-tip">If assembly language were a dance routine, mnemonics would be the choreographer’s shorthand: “LDA” means “Step left and pose!” It’s more readable than binary, but you still need to know the moves!</span></li>
+      <li><div class="example-box">Example: High-Level Code in Python : `print("Hello!")` is easy to write and understand. It uses an English-like word, making programming feel more natural for beginners.</div></li>
+    </ul>
+    <div class="button-group">
+      <button class="keyword-button" onclick="openPopupK('4.2b')">
+        🔑 View Keywords on This Topic 🔑
+      </button>
+      <button class="exam-button" onclick="openPopupQ('4.2b')">
+        👁️ Quick Look at Exam Questions on This Topic 👁️
+      </button>
+    </div>
+  </div>
+
+  <!-- Section 4.2c -->
+  <div class="section">
+    <h2>4.2c: Compilers and interpreters</h2>
+    <ul>
+      <li>
+        <span class="official-note">Computers only understand machine code, so programs written by humans must be translated before they can run.</span>
+        <ul>
+          <li>A translator is a utility program that converts human-readable code into machine code.</li>
+          <li>Translators are categorized as compilers, interpreters, or assemblers, depending on the type of source code and how the translation occurs.</li>
+        </ul>
+      </li>
+      <li>
+        <span class="official-note">A compiler translates the entire program written in a high-level language into machine code all at once.</span>
+        <ul>
+          <li>If there are syntax errors, the <span class="keyword" data-tooltip="a computer program that translates a source program written in a high-level language to machine code">compiler</span> stops and produces an error report.</li>
+          <li>A compiler will only create an executable if there are no syntax errors in the program.</li>
+          <li>The error report from a compiler usually includes the line numbers and the type of each error.</li>
+          <li>If there are no errors, it creates an <span class="keyword" data-tooltip="a file produced by a compiler that can be run independent of translator software and does not include the source code.">executable file</span> that can be run repeatedly without translating again. This file is ready for distribution and doesn't need the compiler or source code to run.</li>
+          <li>Compiled programs do not need the source code or compiler to run, and the code is protected from being edited.</li>
+        </ul>
+      </li>
+      <li>
+        <span class="official-note">An interpreter translates and runs one instruction at a time from a high-level language.</span>
+        <ul>
+          <li>If there is a syntax error, it stops immediately and shows an error message.</li>
+          <li>Interpreted programs need to be translated every time they are run, which makes them slower.</li>
+          <li>Interpreters are often used during development because they allow real-time testing and <span class="keyword" data-tooltip="finding errors in a computer program by running or tracing the program">debugging</span>.</li>
+        </ul>
+      </li>
+      <li><span class="official-note">An assembler is used to translate programs written in assembly language into machine code.</span></li>
+    </ul>
+    <ul class="no-bullets">
+      <li><div class="example-box">Example: Interpreter vs Compiler Error Reporting : When using an interpreter, the program stops at the first error, allowing immediate fixes. A compiler checks the whole program and shows a list of all errors at once. This means interpreters are more useful during debugging, while compilers are more efficient for finished programs.</div></li>
+      <li><div class="example-box">Example: Compiler Output : A high-level command like `Sum := First + Second` may be translated to:<br>```<br>0001 00010010  ; load<br>0100 00010011  ; add<br>```<br>This shows how multiple binary instructions are produced from a single high-level line.</div></li>
+      <li><span class="fun-tip">A compiler is like baking a cake and handing someone the finished product. An interpreter is like showing up with the ingredients and making the cake in front of them : every time they ask for a slice!</span></li>
+      <li><div class="example-box">Example: One Instruction, Two Translators<br>If a program contains `Sum := FirstNumber + SecondNumber`, a compiler will convert the entire code into binary once. An <span class="keyword" data-tooltip="a computer program that analyses and executes a program written in a high-level language line by line">interpreter</span> will instead read and run this line each time the program is used, making it slower but useful during testing.</div></li>
+    </ul>
+    <div class="button-group">
+      <button class="keyword-button" onclick="openPopupK('4.2c')">
+        🔑 View Keywords on This Topic 🔑
+      </button>
+      <button class="exam-button" onclick="openPopupQ('4.2c')">
+        👁️ Quick Look at Exam Questions on This Topic 👁️
+      </button>
+    </div>
+  </div>
+
+  <!-- Section 4.2d -->
+  <div class="section">
+    <h2>4.2d: Advantages and disadvantages of compiler vs interpreter</h2>
+    <ul>
+      <li>
+        <span class="official-note">Interpreters are more helpful during program development.</span>
+        <ul>
+          <li>They allow programs to be debugged and tested more quickly by running code line by line.</li>
+          <li>The programmer can fix problems as they appear and continue testing from the same point.</li>
+          <li>Interpreted programs are easier to edit and test before they are finished.</li>
+          <li>Interpreters allow testing of incomplete programs, which helps developers find and fix errors early, even before the whole program is finished.</li>
+          <li>An interpreter is useful for debugging because it allows the programmer to test small parts of the code quickly and fix problems as they appear.</li>
+          <li>However, they require the interpreter software each time the program runs, and they are slower because they are retranslated every time.</li>
+        </ul>
+      </li>
+      <li>
+        <span class="official-note">Compilers are more useful when the program is finished and ready for sharing or selling.</span>
+        <ul>
+          <li>The compiler translates the entire program into machine code and creates an executable file.</li>
+          <li>The executable runs faster and does not need the compiler or source code to run.</li>
+          <li>A <span class="keyword" data-tooltip="a file produced by a compiler that can be run independent of translator software and does not include the source code.">executable</span> program can run without needing the compiler or the original source code, making it suitable for distribution.</li>
+          <li>The executable file protects the source code from copying or editing.</li>
+          <li>However, it takes more time to write, debug, and compile the program during development.</li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="no-bullets">
+      <li><div class="example-box">Example: Using Translator Tools for a Game<br>Saria uses an interpreter while writing a game to test and fix each part quickly. When she finishes, she compiles it into an executable file to send to users. The compiled version is faster, works without extra software, and hides the source code.</div></li>
+      <li><span class="fun-tip">Using a compiler during development is like wrapping a present without checking what’s inside : risky! An interpreter lets you peek inside after every step, so surprises are less likely.</span></li>
+    </ul>
+    <div class="button-group">
+      <button class="keyword-button" onclick="openPopupK('4.2d')">
+        🔑 View Keywords on This Topic 🔑
+      </button>
+      <button class="exam-button" onclick="openPopupQ('4.2d')">
+        👁️ Quick Look at Exam Questions on This Topic 👁️
+      </button>
+    </div>
+  </div>
+
+  <!-- Section 4.2e -->
+  <div class="section">
+    <h2>4.2e: Role and functions of an IDE</h2>
+    <ul>
+      <li>
+        <span class="official-note">An Integrated Development Environment (IDE) is software that helps programmers write, test, and run programs.</span>
+        <ul>
+          <li>Some IDEs support one programming language (like PyCharm for Python), while others support many (like Visual Studio).</li>
+          <li>A code <span class="keyword" data-tooltip="a feature of an IDE that allows the user to enter and amend program code.">editor</span> in the IDE allows the programmer to type and edit code directly.</li>
+          <li>The IDE includes a translator (compiler or interpreter) so the program can be run and tested.</li>
+          <li>The built-in <span class="keyword" data-tooltip="converts a program written in a high-level language program into machine code">translator</span> in an IDE works together with tools like error diagnostics, version control, and code navigation to help programming.</li>
+        </ul>
+      </li>
+      <li>
+        <span class="official-note">Most IDEs also include debugging tools to help find and fix errors.</span>
+        <ul>
+          <li>A <span class="keyword" data-tooltip="a feature of an IDE that allows a program to be run and lets the user interact with the program.">runtime environment</span> shows the program’s output while it runs.</li>
+          <li>A debugger can:<br>- run the program line by line (single stepping)</li>
+          <li>IDEs allow step-by-step (line-by-line) execution, which helps identify the exact location where logic errors occur during runtime.<br>- stop the program at chosen points (breakpoints)<br>- display current variable values (watch window)</li>
+        </ul>
+      </li>
+      <li><span class="official-note">Many modern IDEs include version control tools, which allow programmers to track changes to their code, undo mistakes, and collaborate with others more easily.</span></li>
+      <li>
+        <span class="official-note">IDEs also help while writing code by detecting and correcting errors early.</span>
+        <ul>
+          <li>**Error diagnostics** shows mistakes as you type and may suggest fixes.</li>
+          <li>**<span class="keyword" data-tooltip="a feature of an editor that gives the user options when they start typing a command.">auto-completion</span>** suggests keywords or variables while typing.</li>
+          <li>**<span class="keyword" data-tooltip="a feature of an editor that identifies spelling errors and changes them.">auto-correction</span>** fixes common typing or syntax mistakes.</li>
+          <li>**Auto-documentation** explains the purpose of different parts of code.</li>
+          <li>IDEs may include extra features like bracket matching, version control systems, or auto-documentation tools to manage code changes and formatting.</li>
+          <li>**<span class="keyword" data-tooltip="displaying source code using different colours and formatting, which make the code easier to read and understand">prettyprinting</span>** formats code and uses colors to make it easier to read.</li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="no-bullets">
+      <li><div class="example-box">Example: Multi-language IDE : Visual Studio supports C++, C#, and Python, while PyCharm focuses only on Python. This shows how some IDEs are designed for flexibility, while others are optimized for one language.</div></li>
+      <li><div class="example-box">Example: IDE Auto-Correction : If you mistype `prin`, the IDE suggests `print()` and may fix the typo automatically. This helps reduce errors and saves time.</div></li>
+      <li><div class="example-box">Example: Features of a Modern IDE<br>In Visual Studio, the code editor shows suggestions as you type (auto-completion), underlines mistakes in red (error diagnostics), and offers fixes (auto-correction). The debugger lets you step through the program and see what values are stored in each variable.</div></li>
+      <li><span class="fun-tip">IDEs are like smart kitchens for coders : they suggest recipes (auto-completion), stop you if you mix up sugar and salt (error diagnostics), and even help you clean up after (auto-formatting)!</span></li>
+    </ul>
+    <div class="button-group">
+      <button class="keyword-button" onclick="openPopupK('4.2e')">
+        🔑 View Keywords on This Topic 🔑
+      </button>
+      <button class="exam-button" onclick="openPopupQ('4.2e')">
+        👁️ Quick Look at Exam Questions on This Topic 👁️
+      </button>
+    </div>
+  </div>
+
+  <script src="popup-script.js"></script>
+  <script>
     window.addEventListener('load', function() {
       var height = document.body.scrollHeight;
       window.parent.postMessage({type: 'resize', height: height}, '*');
     });
-    </script>
-  </div>
+  </script>
 </body>
 </html>

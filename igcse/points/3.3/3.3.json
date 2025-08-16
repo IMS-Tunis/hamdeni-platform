@@ -1,0 +1,438 @@
+{
+  "3.3a: Primary storage: RAM and ROM": [
+    {
+      "type": "official",
+      "text": "[KEYWORD: primary storage]{a type of storage that is directly accessed by the CPU.} is the part of a computer’s [KEYWORD: memory]{the devices within the computer that are directly accessible by the CPU; there are two types of memory – RAM and ROM; memory is different to hard disk drives, for example, which are known as storage devices} that can be accessed directly by the CPU through a direct connection."
+    },
+    {
+      "type": "sub-official",
+      "text": "It includes two main types: [KEYWORD: random access memory (RAM)]{primary memory that can be written to or read from} and [KEYWORD: read only memory (ROM)]{primary memory that cannot be written to (changed) and can only be read}."
+    },
+    {
+      "type": "official",
+      "text": "RAM is a [KEYWORD: volatile]{describes memory that loses its contents when the power is turned off} type of storage, which means that all data is lost when the power is turned off."
+    },
+    {
+      "type": "sub-official",
+      "text": "It can be read from and written to, and both the user and the computer can change its contents."
+    },
+    {
+      "type": "sub-official",
+      "text": "It stores data, files, and parts of programs or the operating system that are currently in use."
+    },
+    {
+      "type": "sub-official",
+      "text": "The larger the size of RAM, the faster the computer can work because it needs to access slower [KEYWORD: secondary storage]{a type of storage that is designed to store data permanently, until it is deleted by the user.} less often."
+    },
+    {
+      "type": "fun",
+      "text": "Think of RAM like your desk space — the bigger it is, the more papers you can spread out without having to constantly go to the filing cabinet."
+    },
+    {
+      "type": "sub-official",
+      "text": "RAM can be upgraded by adding more RAM components when the computer supports expansion."
+    },
+    {
+      "type": "sub-official",
+      "text": "RAM allows any memory location to be accessed directly and quickly, which is why it is faster than secondary storage."
+    },
+    {
+      "type": "official",
+      "text": "Two main types of RAM exist: dynamic RAM (DRAM) and static RAM (SRAM)."
+    },
+    {
+      "type": "sub-official",
+      "text": "DRAM stores each bit of data in a tiny capacitor, with a [KEYWORD: transistor]{a device that acts as a switch or gate for electronic signals.} controlling reading and writing. It must be refreshed regularly to keep its data."
+    },
+    {
+      "type": "sub-official",
+      "text": "SRAM uses flip flops to store each bit of data, does not need refreshing, and is faster than DRAM."
+    },
+    {
+      "type": "sub-official",
+      "text": "DRAM is cheaper and has higher capacity, so it is used for main memory. SRAM is used for very fast memory areas such as the CPU cache."
+    },
+    {
+      "type": "official",
+      "text": "ROM is a non volatile type of storage, meaning it keeps its contents when power is turned off."
+    },
+    {
+      "type": "sub-official",
+      "text": "Its contents are fixed and cannot normally be changed by the user or by applications."
+    },
+    {
+      "type": "sub-official",
+      "text": "It is used to store start up instructions, such as the bootstrap and the BIOS, which the computer needs when it is first switched on."
+    },
+    {
+      "type": "official",
+      "text": "Key differences between RAM and ROM are:"
+    },
+    {
+      "type": "sub-official",
+      "text": "RAM is temporary, volatile, and can be written to and read from."
+    },
+    {
+      "type": "sub-official",
+      "text": "ROM is permanent, non volatile, and can only be read."
+    },
+    {
+      "type": "sub-official",
+      "text": "RAM stores working data, while ROM stores fixed data needed for starting the system."
+    },
+    {
+      "type": "example",
+      "text": "Remote controlled toy car: In such a device, ROM can store factory settings and basic control routines, while RAM can temporarily store instructions received from the remote control. This shows why devices need both fixed start up data and temporary working memory."
+    }
+  ],
+  "3.3b: Secondary storage": [
+    {
+      "type": "official",
+      "text": "Secondary storage refers to storage devices that are not directly accessed by the CPU."
+    },
+    {
+      "type": "sub-official",
+      "text": "Data and instructions from secondary storage must first be transferred into primary storage before processing."
+    },
+    {
+      "type": "sub-official",
+      "text": "Secondary storage can be internal or external to the computer."
+    },
+    {
+      "type": "official",
+      "text": "Secondary storage is non volatile, keeping data even when the power is switched off."
+    },
+    {
+      "type": "official",
+      "text": "It can store more data than primary storage, but it is slower to access."
+    },
+    {
+      "type": "sub-official",
+      "text": "All applications, the operating system, and user files such as documents, photos, and music are stored on secondary storage."
+    },
+    {
+      "type": "example",
+      "text": "Saving to a USB memory stick: Files saved to a USB stick remain available after unplugging it, while unsaved work in RAM is lost when power is off. This illustrates non volatility of secondary storage."
+    },
+    {
+      "type": "fun",
+      "text": "Secondary storage is like a giant basement: you can keep everything there for years, but it takes longer to climb down and find it compared to grabbing something from your desk (RAM)."
+    }
+  ],
+  "3.3c: Magnetic, optical, and solid state storage": [
+    {
+      "type": "official",
+      "text": "[KEYWORD: magnetic storage]{a type of secondary storage that uses the properties of magnetism to store data.} uses magnetism to store data on spinning circular disks called platters."
+    },
+    {
+      "type": "sub-official",
+      "text": "Platters spin at high speed, and read or write heads with electromagnets move across the surfaces to store or retrieve data."
+    },
+    {
+      "type": "sub-official",
+      "text": "The surfaces are organised into tracks and sectors, with each sector holding a fixed amount of data."
+    },
+    {
+      "type": "sub-official",
+      "text": "A magnetised spot represents binary 1, and a demagnetised spot represents binary 0."
+    },
+    {
+      "type": "official",
+      "text": "Hard disk drives are a common type of magnetic storage."
+    },
+    {
+      "type": "sub-official",
+      "text": "They can suffer from latency, the delay while the disk rotates the required data under the read or write head."
+    },
+    {
+      "type": "sub-official",
+      "text": "Files can become fragmented, with parts stored in non adjacent sectors, slowing down access. Defragmentation software can rearrange the data to speed things up."
+    },
+    {
+      "type": "official",
+      "text": "[KEYWORD: optical storage]{a type of secondary storage that uses lasers to store data.} uses laser light to read and write data on circular discs."
+    },
+    {
+      "type": "sub-official",
+      "text": "Data is stored as pits and lands along a single spiral track from the centre of the disc to the edge."
+    },
+    {
+      "type": "sub-official",
+      "text": "CDs and DVDs use a red laser, while Blu ray discs use a blue laser with a shorter wavelength, allowing smaller pits and higher capacity."
+    },
+    {
+      "type": "sub-official",
+      "text": "DVDs can be dual layer, with two recording layers separated by a spacer to increase storage capacity. Blu ray discs can be single or dual layer, with capacities up to 50 GB."
+    },
+    {
+      "type": "sub-official",
+      "text": "Laser wavelengths and format examples: CD uses red light at about 780 nm, DVD uses red light at about 650 nm, and Blu ray uses blue light at about 405 nm. The shorter wavelength allows more data to fit."
+    },
+    {
+      "type": "official",
+      "text": "Solid state storage has no moving parts and uses [KEYWORD: semiconductor chips]{an electronic circuit, where transistors are set on a semiconductor material, such as silicon.} to store data."
+    },
+    {
+      "type": "sub-official",
+      "text": "Data is stored in [KEYWORD: cell]{the intersection of the rows and columns of transistors in solid-state storage.} made of transistors arranged in a grid, with each cell containing a [KEYWORD: control gate]{a component that controls the flow of electric current.} and a [KEYWORD: floating gate]{a component that can store electrical charge.} separated by a dielectric layer."
+    },
+    {
+      "type": "sub-official",
+      "text": "The floating gate holds an electrical charge for binary 1 or no charge for binary 0."
+    },
+    {
+      "type": "sub-official",
+      "text": "Solid state storage can use NAND or NOR structures to connect the cells."
+    },
+    {
+      "type": "sub-official",
+      "text": "Solid state storage is non volatile; it keeps data even when power is off."
+    },
+    {
+      "type": "fun",
+      "text": "SSDs are like superhero messengers — they run everywhere instantly without waiting for elevators or spinning disks."
+    },
+    {
+      "type": "official",
+      "text": "Examples of solid state storage devices include solid state drives and USB flash drives."
+    },
+    {
+      "type": "official",
+      "text": "Advantages of solid state drives over hard disk drives include:"
+    },
+    {
+      "type": "sub-official",
+      "text": "Faster access speeds and no rotational latency."
+    },
+    {
+      "type": "sub-official",
+      "text": "Greater reliability because there are no moving parts."
+    },
+    {
+      "type": "sub-official",
+      "text": "Lower power use and cooler operation, suitable for laptops."
+    },
+    {
+      "type": "sub-official",
+      "text": "Lighter weight and smaller size."
+    },
+    {
+      "type": "example",
+      "text": "SSD vs HDD in one sentence: Because SSDs use floating gate transistors and no moving parts, they are typically faster and lighter than hard disk drives."
+    },
+    {
+      "type": "official",
+      "text": "A disadvantage of solid state drives is limited write endurance."
+    },
+    {
+      "type": "sub-official",
+      "text": "Data must be erased before rewriting to the same location."
+    }
+  ],
+  "3.3d: Virtual memory": [
+    {
+      "type": "official",
+      "text": "[KEYWORD: virtual memory]{a type of memory that can be used as an extension to the RAM.} is created when part of a computer’s hard disk drive or solid state drive is used as an extension of RAM."
+    },
+    {
+      "type": "sub-official",
+      "text": "It is used when RAM becomes full, allowing more programs to run at the same time."
+    },
+    {
+      "type": "fun",
+      "text": "Virtual memory is like borrowing your neighbor’s garage when yours is full — convenient, but walking back and forth takes extra time."
+    },
+    {
+      "type": "official",
+      "text": "Data that is not immediately needed in RAM is moved to virtual memory in units called [KEYWORD: page]{a unit of data.}."
+    },
+    {
+      "type": "sub-official",
+      "text": "When the data is needed again, it is moved back into RAM."
+    },
+    {
+      "type": "official",
+      "text": "Benefits of virtual memory include:"
+    },
+    {
+      "type": "sub-official",
+      "text": "Ability to run programs larger than the available physical RAM."
+    },
+    {
+      "type": "sub-official",
+      "text": "More efficient use of RAM by moving unused data out temporarily."
+    },
+    {
+      "type": "sub-official",
+      "text": "Reduced need to install extra RAM."
+    },
+    {
+      "type": "official",
+      "text": "Drawbacks of using hard disk based virtual memory include slower performance because of disk thrashing."
+    },
+    {
+      "type": "sub-official",
+      "text": "Disk thrashing occurs when frequent swapping between RAM and virtual memory causes a high number of read or write movements, reducing processing speed."
+    },
+    {
+      "type": "sub-official",
+      "text": "Excessive swapping, called disk thrashing, can also shorten the life of mechanical drives."
+    },
+    {
+      "type": "sub-official",
+      "text": "Using a solid state drive instead of a hard disk for virtual memory can reduce thrashing."
+    },
+    {
+      "type": "sub-official",
+      "text": "Adding more RAM or using a solid state drive can reduce virtual memory problems."
+    },
+    {
+      "type": "example",
+      "text": "Five program scenario: If five programs fill RAM, the least recently needed data can be paged to virtual memory so a new task can start without a crash. When that data is needed again, its page returns to RAM."
+    }
+  ],
+  "3.3e: Cloud storage": [
+    {
+      "type": "official",
+      "text": "[KEYWORD: cloud storage]{data storage that is owned by a third party and accessed by the user, using the internet.} stores data on remote [KEYWORD: server]{a component that acts as a central resource for the storage of data and applications or for providing a service.} owned and maintained by a hosting company."
+    },
+    {
+      "type": "sub-official",
+      "text": "Data is often stored on multiple servers to ensure it can still be accessed during maintenance or in case of hardware failure."
+    },
+    {
+      "type": "sub-official",
+      "text": "Cloud servers are often in large, secure data centers and operate 24/7."
+    },
+    {
+      "type": "fun",
+      "text": "Cloud storage is like having a magical backpack — you can open it from anywhere in the world, but only if there’s Wi-Fi in the air."
+    },
+    {
+      "type": "official",
+      "text": "Three main types of cloud storage are:"
+    },
+    {
+      "type": "sub-official",
+      "text": "Public cloud, where the provider and the customer are different organisations."
+    },
+    {
+      "type": "sub-official",
+      "text": "Private cloud, a dedicated storage environment within a company infrastructure."
+    },
+    {
+      "type": "sub-official",
+      "text": "Hybrid cloud, a combination of public and private cloud systems."
+    },
+    {
+      "type": "official",
+      "text": "Advantages of cloud storage include:"
+    },
+    {
+      "type": "sub-official",
+      "text": "Data can be accessed from anywhere with an internet connection."
+    },
+    {
+      "type": "sub-official",
+      "text": "There is no need to carry physical storage devices."
+    },
+    {
+      "type": "sub-official",
+      "text": "Cloud storage offers remote backups that help with disaster recovery."
+    },
+    {
+      "type": "sub-official",
+      "text": "Storage space can be scaled up or down easily."
+    },
+    {
+      "type": "sub-official",
+      "text": "Cloud providers handle security and backups."
+    },
+    {
+      "type": "official",
+      "text": "Disadvantages of cloud storage include:"
+    },
+    {
+      "type": "sub-official",
+      "text": "Dependence on internet speed and stability."
+    },
+    {
+      "type": "sub-official",
+      "text": "Possible ongoing costs for large storage or high data transfer."
+    },
+    {
+      "type": "sub-official",
+      "text": "Risks from security breaches, hacking, or provider failure."
+    },
+    {
+      "type": "example",
+      "text": "Google Drive accessibility: Photos saved to a cloud service such as Google Drive can be viewed on any device that signs in, while photos stored only on a local phone are not available on other devices without copying."
+    }
+  ],
+  "3.3f: Advantages and disadvantages of cloud vs local storage": [
+    {
+      "type": "official",
+      "text": "Advantages of cloud storage over local storage include:"
+    },
+    {
+      "type": "sub-official",
+      "text": "Access from any location with internet access."
+    },
+    {
+      "type": "sub-official",
+      "text": "No need to buy and maintain physical storage hardware."
+    },
+    {
+      "type": "sub-official",
+      "text": "Easier recovery after a disaster."
+    },
+    {
+      "type": "official",
+      "text": "Disadvantages of cloud storage compared to local storage include:"
+    },
+    {
+      "type": "sub-official",
+      "text": "No access to data without internet."
+    },
+    {
+      "type": "sub-official",
+      "text": "Possible security and privacy concerns."
+    },
+    {
+      "type": "sub-official",
+      "text": "Potential ongoing costs."
+    },
+    {
+      "type": "official",
+      "text": "Advantages of local storage compared to cloud storage include:"
+    },
+    {
+      "type": "sub-official",
+      "text": "Full control over security and backups."
+    },
+    {
+      "type": "sub-official",
+      "text": "No ongoing costs for storage services in local storage."
+    },
+    {
+      "type": "sub-official",
+      "text": "No internet is needed to access the data."
+    },
+    {
+      "type": "official",
+      "text": "Disadvantages of local storage compared to cloud storage include:"
+    },
+    {
+      "type": "sub-official",
+      "text": "Cost of buying and maintaining hardware."
+    },
+    {
+      "type": "sub-official",
+      "text": "Storage space is fixed and may be unused if needs decrease."
+    },
+    {
+      "type": "fun",
+      "text": "Choosing between cloud and local storage is like deciding between eating at a restaurant (cloud — convenient but depends on service) and cooking at home (local — full control but more effort)."
+    }
+  ]
+}

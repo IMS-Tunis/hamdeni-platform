@@ -1,20 +1,62 @@
 [
-  {
-    "point_id": "2.3",
-    "question_number": 1,
-    "question": "State one benefit of using binary in computers.",
-    "mark_scheme": "Binary is simple for electronic circuits, representing two states such as on/off."
-  },
-  {
-    "point_id": "2.3",
-    "question_number": 2,
-    "question": "Define the term 'protocol' in networking.",
-    "mark_scheme": "A protocol is a set of rules that allow devices to communicate."
-  },
-  {
-    "point_id": "2.3",
-    "question_number": 3,
-    "question": "Explain the purpose of an IP address.",
-    "mark_scheme": "It uniquely identifies a device on a network."
-  }
+{
+"point_id": "2.3",
+"question_number": 1,
+"question": "Explain what encryption is and its purpose when transmitting data.",
+"mark_scheme": "Answer 1:\n(Explain: set out purposes or reasons / make the relationships between things evident / provide why and/or how and support with relevant evidence)\nEncryption transforms readable plaintext into unreadable ciphertext using an algorithm and key so that only an authorised party can recover the original data; during transmission, its purpose is to maintain confidentiality so intercepted data is meaningless without the correct key."
+},
+{
+"point_id": "2.3",
+"question_number": 2,
+"question": "Define plaintext and ciphertext.",
+"mark_scheme": "Answer 2:\n(Define: give precise meaning)\nPlaintext is the original readable data before encryption; ciphertext is the unreadable data produced after encryption."
+},
+{
+"point_id": "2.3",
+"question_number": 3,
+"question": "Explain how symmetric encryption works and why it creates a key-distribution risk.",
+"mark_scheme": "Answer 3:\n(Explain: set out purposes or reasons / make the relationships between things evident / provide why and/or how and support with relevant evidence)\nSymmetric encryption uses a single shared secret key for both encryption and decryption. Because the same key must be provided to the receiver, distributing or storing this key introduces a single point of vulnerability if it is intercepted."
+},
+{
+"point_id": "2.3",
+"question_number": 4,
+"question": "Describe how asymmetric encryption works and the roles of the public and private keys.",
+"mark_scheme": "Answer 4:\n(Describe: state the points of a topic / give characteristics and main features)\nAsymmetric encryption uses a mathematically linked key pair. The public key is shared openly for others to encrypt data to the owner; the private key is kept secret and is used by the owner to decrypt the resulting ciphertext."
+},
+{
+"point_id": "2.3",
+"question_number": 5,
+"question": "Compare symmetric and asymmetric encryption in terms of key use and security.",
+"mark_scheme": "Answer 5:\n(Compare: identify/comment on similarities and/or differences)\nBoth convert plaintext to ciphertext and back, but symmetric encryption requires distributing one shared secret key, creating a distribution risk, while asymmetric encryption avoids transmitting a secret by using a public key for encryption and a private key for decryption."
+},
+{
+"point_id": "2.3",
+"question_number": 6,
+"question": "Explain why encryption does not stop data interception.",
+"mark_scheme": "Answer 6:\n(Explain: set out purposes or reasons / make the relationships between things evident / provide why and/or how and support with relevant evidence)\nEncryption protects content by scrambling it; it does not block the act of intercepting network traffic. Intercepted ciphertext remains unreadable without the correct key."
+},
+{
+"point_id": "2.3",
+"question_number": 7,
+"question": "Identify two examples of sensitive data that should be encrypted in transit.",
+"mark_scheme": "Answer 7:\n(Identify: name/select/recognise)\n1) Credit card or bank details. 2) Medical records or legal documents."
+},
+{
+"point_id": "2.3",
+"question_number": 8,
+"question": "Outline how SSL uses encryption and digital certificates during transmission.",
+"mark_scheme": "Answer 8:\n(Outline: set out main points)\nSSL is a security protocol that uses encryption together with digital certificates to provide authentication during data transmission."
+},
+{
+"point_id": "2.3",
+"question_number": 9,
+"question": "Explain how asymmetric encryption supports one-to-many communication and why this suits online banking; include how the recipient uses keys to decrypt.",
+"mark_scheme": "Answer 9:\n(Explain: set out purposes or reasons / make the relationships between things evident / provide why and/or how and support with relevant evidence)\nA recipient publishes a public key so many senders can encrypt messages to that recipient without sharing a secret key. This model suits online banking because customers can encrypt using the bank’s public key and only the bank’s private key can decrypt. Operationally, the sender encrypts with the recipient’s public key and the recipient applies the matching private key to decrypt."
+},
+{
+"point_id": "2.3",
+"question_number": 10,
+"question": "Explain why symmetric encryption may still be used in limited contexts.",
+"mark_scheme": "Answer 10:\n(Explain: set out purposes or reasons / make the relationships between things evident / provide why and/or how and support with relevant evidence)\nSymmetric encryption is simple and efficient, and may be appropriate for encrypting locally stored data or data of lower sensitivity where the exposure to key interception is limited."
+}
 ]

@@ -2,144 +2,187 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>1.1 Number Systems</title>
-  <link rel="stylesheet" href="igcse-style.css">
+  <title>IGCSE Computer Science - 3.1 Computer Architecture</title>
+  <link rel="stylesheet" href="../igcse-style.css">
 </head>
 <body>
-   <div class="container">
-    <h1>Number Systems</h1>
-    <div class="subtitle">IGCSE CS theory notes, prepared by Dr. Hamdeni</div>
-
-    <div class="section">
-      <h2>1.1 Understand how and why computers use binary to represent all forms of data</h2>
-
-    </div>
-
-    <div class="section">
-      <h2>1.2 (a) Understand the denary, binary and hexadecimal number systems</h2>
-      <ul>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Base-10, digits 0–9">Denary</span> is used in everyday life, with each place increasing by powers of 10.</span></li>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Base-2, digits 0 and 1">Binary</span> is used by computers, with each place increasing by powers of 2.</span></li>
-        <li><span class="official-note">The <span class="keyword" data-tooltip="The leftmost bit in a binary number, which has the highest value">MSB</span> (Most Significant Bit) is the leftmost bit.</span></li>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Base-16, digits 0–9 and A–F">Hexadecimal</span> is closely related to binary; each hex digit is 4 bits.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">The denary number 25177 = 2×10000 + 5×1000 + 1×100 + 7×10 + 7×1.</div></li>
-        <li><div class="example-box">Binary 11101110 = 128+64+32+8+4+2 = 238 (denary).</div></li>
-        <li><div class="example-box">Hex digit A = 10, F = 15 (denary).</div></li>
-        <li><div class="example-box">1010 (binary) = A (hex) = 10 (denary).</div></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.2 (b) Convert between number systems</h2>
-      <ul>
-        <li><span class="official-note">To convert binary to denary: add up the values of all positions where there is a 1.</span></li>
-        <li><span class="official-note">To convert denary to binary: subtract the largest possible powers of 2, or divide by 2 and record remainders.</span></li>
-        <li><span class="official-note">Successive division by 2 and reading remainders from bottom to top gives the binary value.</span></li>
-        <li><span class="official-note">You can convert up to 16-bit binary numbers for this syllabus.</span></li>
-        <li><span class="official-note">To convert binary to hexadecimal: group bits from the right in sets of four, pad with zeros to the left if needed.</span></li>
-        <li><span class="official-note">To convert hexadecimal to binary: write each hex digit as 4 bits.</span></li>
-        <li><span class="official-note">To convert hexadecimal to denary: convert hex to binary, then binary to denary.</span></li>
-        <li><span class="official-note">To convert denary to hexadecimal: convert to binary, group in 4s, convert each group to hex.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">011110001011 = 1024+512+256+128+8+2+1 = 1931 (denary).</div></li>
-        <li><div class="example-box">Denary 142: 142 ÷ 2 repeatedly gives remainders 1 0 0 0 1 1 1 0 (read bottom to top: 10001110).</div></li>
-        <li><div class="example-box">Denary 13 → 8+4+0+1 = 13 → 1101 (binary).</div></li>
-        <li><div class="example-box">1000001111101 → 0010 0001 1111 1101 → 21FD (hex).</div></li>
-        <li><div class="example-box">Hex SE (S=5, E=14): 0101 1110 (binary).</div></li>
-        <li><div class="example-box">Hex 2 1 F D → 0010 0001 1111 1101 (binary).</div></li>
-        <li><div class="example-box">Hex SE = 64+16+8+4+2 = 94 (denary).</div></li>
-        <li><div class="example-box">Denary 201: binary 11001001 → 1100 (C), 1001 (9) → hex C9.</div></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.3 Understand how and why hexadecimal is used as a beneficial method of data representation</h2>
-      <ul>
-        <li><span class="official-note">Hexadecimal is shorter and easier to read and write than binary; simplifies debugging and error detection.</span></li>
-        <li><span class="official-note">Programmers find it easier to compare and spot differences in hexadecimal than in long binary strings.</span></li>
-        <li><span class="official-note">Common uses for hexadecimal: HTML colours, MAC addresses, assembly/machine code, memory dumps, debugging, error codes, and IP addresses.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">Comparing 10011100101110111000111011100010111101011010 (binary) vs. 9CBB8EE2F5A (hex).</div></li>
-        <li><div class="example-box"><span class="keyword" data-tooltip="Unique device identifier, written in hexadecimal">MAC address</span>: e.g., 00-1C-B3-4F-25-FE.</div></li>
-        <li><span class="fun-tip">Hex makes large binary numbers easier for humans to read and spot mistakes quickly!</span></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.4 (a) Add two positive 8-bit binary integers</h2>
-      <ul>
-        <li><span class="official-note">Binary addition rules: 0+0=0; 1+0/0+1=1; 1+1=0 (carry 1); 1+1+1=1 (carry 1).</span></li>
-        <li><span class="official-note">Carry values work like in denary addition—add rightmost columns first, carry left if needed.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">00100111 + 01001010 = 01110001 (binary addition).</div></li>
-        <li><div class="example-box">126 (01111110) + 62 (00111110) = 188 (10111100).</div></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.4 (b) Understand the concept of overflow and why it occurs in binary addition</h2>
-      <ul>
-        <li><span class="official-note"><span class="keyword" data-tooltip="When a calculation exceeds the maximum storable value in the register">Overflow error</span> occurs when a result is too big for the register.</span></li>
-        <li><span class="official-note">For an 8-bit register, the maximum value is 255 (11111111). A result with a 9th bit is overflow.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">Adding 01101110 + 11011110 = (1)01001100, the leading (1) is overflow.</div></li>
-        <li><span class="fun-tip">If your answer has more bits than allowed, that extra leftmost bit is overflow—the computer can't fit it!</span></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.5 Perform a logical binary shift on a positive 8-bit binary integer and understand the effect</h2>
-      <ul>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Moving all bits left (×2) or right (÷2); zero fills empty place">Logical shift</span>: move all bits left (multiply by 2) or right (divide by 2); zeros fill empty spots.</span></li>
-        <li><span class="official-note">Bits shifted out are lost; zeros fill the emptied places.</span></li>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Left-most">Most significant bit</span></li>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Right-most">Least significant bit</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">Left shift: 00010101 → 00101010 (21×2=42).</div></li>
-        <li><div class="example-box">Left shift 2: 00010101 → 01010100 (21×4=84).</div></li>
-        <li><div class="example-box">Right shift: 11001000 → 01100100 (200÷2=100).</div></li>
-        <li><div class="example-box">Shift 10101010 one place left: 01010100.</div></li>
-        <li><span class="fun-tip">Each left shift doubles your number—each right shift halves it (if you don't lose important bits)!</span></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.6 Use the two’s complement number system to represent positive and negative 8-bit binary integers</h2>
-      <ul>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Method to represent negative binary numbers; left-most bit is the sign (–128 for 8 bits)">Two’s complement</span> lets you use the same binary system for positive and negative numbers.</span></li>
-        <li><span class="official-note">In 8-bit two’s complement, the range is –128 to +127.</span></li>
-        <li><span class="official-note">To write a positive number, use normal binary (sign bit 0).</span></li>
-        <li><span class="official-note">To write a negative number:<br>
-            1. Write positive binary.<br>
-            2. Invert all bits left of the first 1 from the right (or invert all bits and add 1).<br>
-            3. Make sure the MSB is 1.
-          </span>
-        </li>
-        <li><span class="official-note">For negative values, sum bits using –128 as the left-most.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">38 = 00100110 (two’s complement).</div></li>
-        <li><div class="example-box">–67: 01000011 → invert → 10111100 → add 1 = 10111101.</div></li>
-        <li><div class="example-box">10111010 = –128 + 32 + 16 + 8 + 2 = –70.</div></li>
-        <li><span class="fun-tip">To get a negative number: "Flip all the bits and add one!" (That’s the computer’s trick.)</span></li>
-      </ul>
-    </div>
-
+<div class="container">
+<div class="header-container">
+<img src="../syllabus.png" alt="Syllabus Update" class="top-right-icon">
+  <div class="title-row">
+    <h1 class="section-title">3.1 Computer Architecture</h1>
   </div>
+  <div class="title-underline"></div>
+  <p class="section-subtitle">Computer Science IGCSE notes, prepared by Dr. Hamdeni</p>
+</div>
 
-    <script>
-    window.addEventListener('load', function() {
-      var height = document.body.scrollHeight;
-      window.parent.postMessage({type: 'resize', height: height}, '*');
-    });
-    </script>
-  </div>
+<div class="section">
+  <h2>3.1a: Role of the CPU and Microprocessor</h2>
+  <ul>
+    <li><span class="official-note">The <span class="keyword" data-tooltip="a component in a computer system that processes data and instructions">central processing unit (CPU)</span>, also called a <span class="keyword" data-tooltip="an integrated circuit that is able to perform many of the functions of a CPU">microprocessor</span> or processor, is the main part of the computer that processes all data and instructions, similar to the brain in a human body.</span>
+    <ul>
+      <li><span class="official-note">It is found in all modern devices like PCs, tablets, and smartphones, often built into a single <span class="keyword" data-tooltip="usually a chip made from a semiconductor material which carries out the same tasks as a larger circuit made from individual components">integrated circuit</span>.</span></li>
+      <li><span class="official-note">The CPU usually contains three key parts: the <span class="keyword" data-tooltip="the component in the CPU that controls all the operations in the CPU">control unit</span> (CU), the <span class="keyword" data-tooltip="the component in the CPU that performs all the mathematical and logical operations required when processing data and instructions">arithmetic and logic unit (ALU)</span>, and <span class="keyword" data-tooltip="a temporary component in the CPU which can be general or specific in its use">registers</span> connected through buses.</span></li>
+    </ul>
+  </li>
+    <li><span class="official-note">In smaller electronic systems, like washing machines or traffic lights, a similar component called a microprocessor is used.</span>
+    <ul>
+      <li><span class="official-note">These microprocessors are part of <span class="keyword" data-tooltip="a computer system that performs a dedicated function">embedded systems</span>, which are designed to carry out one specific task rather than multiple ones.</span></li>
+    </ul>
+  </li>
+  </ul>
+<ul class="no-bullets">
+<li><div class="example-box">A washing machine uses a microprocessor to control dedicated tasks like selecting and executing wash cycles.</div></li>
+<li><span class="fun-tip">If your brain had a CPU, it would be like your personal assistant - sorting tasks, solving math, and making sure you don’t forget lunch. A washing machine’s microprocessor is like a helper that just knows how to do laundry - nothing else!</span></li>
+<li><div class="example-box">Example: In a parking system, a microprocessor checks if a sensor is activated, compares how long a car has been parked against the time paid, and sends a signal to an output device (like a barrier) if the time is exceeded.</div></li>
+  <div class="button-group">
+          <button class="keyword-button" onclick="openPopupK('3.1a')">
+            🔑 View Keywords on This Topic 🔑
+          </button>
+          <button class="exam-button" onclick="openPopupQ('3.1a')">
+            👁️ Quick Look at Exam Questions on This Topic 👁️
+          </button>
+        </div>
+</ul>
+</div>
+<div class="section">
+  <h2>3.1b: Von Neumann Architecture, CPU Components, FDE Cycle</h2>
+  <ul>
+    <li><span class="official-note">The <span class="keyword" data-tooltip="a type of computer architecture which introduced the concept of the stored program in the 1940s">Von Neumann architecture</span> is a design model where both data and programs are stored in memory and processed by a central CPU using a repeated <span class="keyword" data-tooltip="the cycle through which data and instructions are processed">Fetch–Decode–Execute (FDE) cycle</span>.</span>
+    <ul>
+      <li><span class="official-note">The architecture uses a system of components including: <span class="keyword" data-tooltip="a component in the CPU that stores the address of the next instruction to be processed">Program Counter (PC)</span>, <span class="keyword" data-tooltip="a component in the CPU that holds the address of the data or instruction to be located in RAM">Memory Address Register (MAR)</span>, <span class="keyword" data-tooltip="a component in the CPU that holds the data or instruction that are fetched from RAM">Memory Data Register (MDR)</span>, <span class="keyword" data-tooltip="a register that stores the current instruction being decoded and executed">Current Instruction Register (CIR)</span>, Arithmetic Logic Unit (ALU), <span class="keyword" data-tooltip="a register that is built into the ALU that stores the result of any interim calculations">Accumulator (ACC)</span>, Control Unit (CU), and the <span class="keyword" data-tooltip="produces timing signals on the control bus to ensure synchronisation takes place">system clock</span>.</span></li>
+      <li><span class="official-note">The CPU connects to memory and devices using three main <span class="keyword" data-tooltip="a connection between major components in a computer that can carry data, addresses or control signals">system buses</span>:
+  - <span class="keyword" data-tooltip="wires used for the transmission of addresses between components in a computer">Address bus</span>: sends memory locations in one direction (<span class="keyword" data-tooltip="can travel in one direction only; used to describe data">unidirectional</span>)
+  - <span class="keyword" data-tooltip="wires used for the transmission of data and instructions between components in a computer">Data bus</span>: sends and receives data (<span class="keyword" data-tooltip="can travel in both directions; used to describe data">bidirectional</span>)
+  - <span class="keyword" data-tooltip="wires used for the transmission of control signals between components in a computer">Control bus</span>: sends control signals (usually bidirectional)</span></li>
+    </ul>
+  </li>
+    <li><span class="official-note">The Fetch stage involves several steps:
+  - The PC stores the address of the next instruction and sends it to the MAR using the address bus.
+  - The instruction at that address is copied from <span class="keyword" data-tooltip="memory that holds all data and programs needed to be accessed by the control unit">immediate access store (IAS)</span> into the MDR.
+  - The MDR passes the instruction to the CIR, where it is ready to be decoded.
+  - The PC is incremented by 1 to point to the next instruction.</span>
+  </li>
+    <li><span class="official-note">In the Decode stage, the CIR uses the instruction set to decode the instruction so the CPU understands what to do.</span>
+  </li>
+    <li><span class="official-note">In the Execute stage, the CU sends control signals to carry out the decoded instruction. If calculations are needed, the ALU performs them using the ACC.</span>
+  </li>
+  </ul>
+<ul class="no-bullets">
+<li><div class="example-box">Reading from RAM:
+  MAR holds address 1111 0001 → RAM sends data 0101 1011 to MDR.
+  Why it matters: Shows how CPUs find and process instructions step-by-step.</div></li>
+<li><span class="fun-tip">Think of the fetch-decode-execute cycle like ordering pizza: You look up the pizza (fetch), read the recipe (decode), and cook it (execute). The CPU does this millions of times per second - but sadly, no pizza at the end.</span></li>
+  <div class="button-group">
+          <button class="keyword-button" onclick="openPopupK('3.1b')">
+            🔑 View Keywords on This Topic 🔑
+          </button>
+          <button class="exam-button" onclick="openPopupQ('3.1b')">
+            👁️ Quick Look at Exam Questions on This Topic 👁️
+          </button>
+        </div>
+</ul>
+</div>
+<div class="section">
+  <h2>🔹 3.1c: Core, Cache, and Clock - Factors Affecting Performance</h2>
+  <ul>
+    <li><span class="official-note">CPU performance is about how quickly the CPU can carry out instructions, and it's affected by three main things: <span class="keyword" data-tooltip="the number of fetch-decode-execute cycles that can be performed in a second">clock speed</span>, number of <span class="keyword" data-tooltip="the part of the CPU that contains all the components that are used to perform the fetch-decode-execute cycle">cores</span>, and size of <span class="keyword" data-tooltip="a type of storage that is built into the CPU, to store the most frequently used data and instructions">cache</span>.</span>
+  </li>
+    <li><span class="official-note">The clock speed is measured in gigahertz (GHz) and tells how many <span class="keyword" data-tooltip="clock speeds are measured in terms of GHz; this is the vibrational frequency of the system clock which sends out pulses along the control bus">clock cycles</span> can be completed per second. A faster clock can increase processing speed but may also cause overheating or errors if pushed beyond safe limits (<span class="keyword" data-tooltip="changing the clock speed of a system clock to a value higher than the factory/recommended setting">overclocking</span>).</span>
+  </li>
+    <li><span class="official-note">Cores are individual processors within the CPU. More cores allow more instructions to be processed at the same time.</span>
+    <ul>
+      <li><span class="official-note">A <span class="keyword" data-tooltip="a CPU containing two cores">dual-core</span> CPU can process two instructions at once; a <span class="keyword" data-tooltip="a CPU containing four cores">quad-core</span> can do four, allowing multitasking.</span></li>
+      <li><span class="official-note">However, more cores don’t always double performance because the CPU must coordinate communication between cores.</span></li>
+    </ul>
+  </li>
+    <li><span class="official-note">Cache is high-speed memory inside the CPU that stores frequently used data and instructions.</span>
+    <ul>
+      <li><span class="official-note">Using cache is faster than accessing RAM, so more cache generally means better performance-up to a point.</span></li>
+    </ul>
+  </li>
+  </ul>
+<ul class="no-bullets">
+<li><div class="example-box">Example: Increasing clock speed from 2.4 GHz to 3.5 GHz improves CPU performance by allowing more instructions per second to be executed, speeding up processing and improving responsiveness.</div></li>
+<li><div class="example-box">A 2.4 GHz dual-core CPU processes 4.8 billion instructions/second:
+  Calculation: 2.4 billion cycles/core × 2 cores = 4.8 billion.
+  Why it matters: Shows how cores and speed multiply performance.</div></li>
+<li><span class="fun-tip">More cores in a CPU are like more chefs in a kitchen - they can cook faster, but only if they don’t bump into each other. And cache is like a spice rack on the counter - faster than running to the pantry (RAM)!</span></li>
+  <div class="button-group">
+          <button class="keyword-button" onclick="openPopupK('🔹 3.1c')">
+            🔑 View Keywords on This Topic 🔑
+          </button>
+          <button class="exam-button" onclick="openPopupQ('🔹 3.1c')">
+            👁️ Quick Look at Exam Questions on This Topic 👁️
+          </button>
+        </div>
+</ul>
+</div>
+<div class="section">
+  <h2>🔹 3.1d: Instruction Set</h2>
+  <ul>
+    <li><span class="official-note">An <span class="keyword" data-tooltip="a set of commands that can be processed by a certain CPU">instruction set</span> is a list of all low-level machine code commands a CPU can understand and execute.</span>
+    <ul>
+      <li><span class="official-note">Each instruction consists of an <span class="keyword" data-tooltip="part of a machine code instruction that identifies what action the CPU has to perform">opcode</span> (the action to be performed) and an <span class="keyword" data-tooltip="part of a machine code instruction that identifies what data is to be used">operand</span> (the data or location the action applies to).</span></li>
+      <li><span class="official-note">Software written in high-level programming languages is translated into these low-level instructions by compilers or interpreters.</span></li>
+    </ul>
+  </li>
+  </ul>
+<ul class="no-bullets">
+<li><div class="example-box">The X86 instruction set (used in Intel CPUs) allows different computers to run the same software.</div></li>
+<li><span class="fun-tip">An instruction set is like a language your CPU speaks. If you shout “Wash the dishes!” at your toaster, it won’t respond - wrong instruction set. CPUs need the right opcodes to do the job!</span></li>
+  <div class="button-group">
+          <button class="keyword-button" onclick="openPopupK('🔹 3.1d')">
+            🔑 View Keywords on This Topic 🔑
+          </button>
+          <button class="exam-button" onclick="openPopupQ('🔹 3.1d')">
+            👁️ Quick Look at Exam Questions on This Topic 👁️
+          </button>
+        </div>
+</ul>
+</div>
+<div class="section">
+  <h2>🔹 3.1e: Embedded Systems</h2>
+  <ul>
+    <li><span class="official-note">An embedded system is a computer system built into a larger device to perform one specific, dedicated function.</span>
+    <ul>
+      <li><span class="official-note">Most embedded systems are not easy to reprogram and are designed to carry out their specific tasks reliably without frequent updates.</span></li>
+      <li><span class="official-note">Embedded systems may include microcontrollers (with CPU, RAM, ROM on a chip), microprocessors (CPU only), or SoC (System on Chip) that combines everything.</span></li>
+    </ul>
+  </li>
+    <li><span class="official-note">Embedded systems are used in devices like washing machines, GPS units, security alarms, vending machines, lighting systems, and medical equipment.</span>
+    <ul>
+      <li><span class="official-note">They may take input from sensors (e.g., temperature, pressure), process it, and give outputs such as displaying information or controlling motors.</span></li>
+    </ul>
+  </li>
+    <li><span class="official-note">Some embedded systems are programmable (software can be updated), while others are fixed and need replacement if outdated.</span>
+  </li>
+    <li><span class="official-note">Embedded systems are used in devices like washing machines, GPS units, security alarms, vending machines, lighting systems, and medical equipment.</span>
+  </li>
+  </ul>
+<ul class="no-bullets">
+<li><div class="example-box">A car’s ABS braking system:
+  Inputs: Sensors detecting wheel speed.
+  Output: Adjusts brake pressure instantly.</div></li>
+<li><div class="example-box">Example: A vending machine uses sensors to read coin values and temperatures and actuators to release snacks. All of this is controlled by an embedded system, making the machine work automatically.</div></li>
+<li><div class="example-box">Example: A smartwatch is not a general-purpose computer because it is built for limited, specific functions like fitness tracking or notifications and cannot run a wide range of software like a laptop or desktop computer.</div></li>
+<li><span class="fun-tip">An embedded system is like that friend who only talks about one thing - cars, games, or cake. They’re great at that one thing, but don’t expect them to help with your math homework.</span></li>
+  <div class="button-group">
+          <button class="keyword-button" onclick="openPopupK('🔹 3.1e')">
+            🔑 View Keywords on This Topic 🔑
+          </button>
+          <button class="exam-button" onclick="openPopupQ('🔹 3.1e')">
+            👁️ Quick Look at Exam Questions on This Topic 👁️
+          </button>
+        </div>
+</ul>
+</div>
+<script src="popup-script.js"></script>
+<script>
+  window.addEventListener('load', function() {
+    var height = document.body.scrollHeight;
+    window.parent.postMessage({type: 'resize', height: height}, '*');
+  });
+</script>
 </body>
 </html>

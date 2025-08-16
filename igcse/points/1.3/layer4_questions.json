@@ -1,14 +1,110 @@
 [
   {
-    "question": "Explain what is meant by a validation test in computer science education.",
-    "answer": "A validation test checks that students have understood the material and are ready to progress."
+    "question": "Data storage is measured using binary denominations.\nComplete each conversion.\n8 bytes = .............................. nibbles\n512 kibibytes (KiB) = .............................. mebibytes (MiB)\n4 gibibytes (GiB) = .............................. mebibytes (MiB)\n1 exbibyte (EiB) = .............................. pebibytes (PiB)",
+    "answer": "One mark each:\n8 bytes = 16 nibbles\n512 KiB = 0.5 MiB\n4 GiB = 4096 MiB\n1 EiB = 1024 PiB"
   },
   {
-    "question": "State one advantage of practicing with past paper questions before an exam.",
-    "answer": "Past paper questions familiarize students with the exam style and improve confidence."
+    "question": "State how many bytes there are in a kibibyte (KiB).",
+    "answer": "1024"
   },
   {
-    "question": "Give an example of a simple binary operation.",
-    "answer": "Adding two 1-bit binary numbers, e.g. 1 + 1 = 10."
+    "question": "Give the name of the data storage measurement that is equal to 8 bits.",
+    "answer": "byte"
+  },
+  {
+    "question": "State how many bits there are in a kibibyte (KiB).",
+    "answer": "8192"
+  },
+  {
+    "question": "Give the name of the data storage measurement that is equal to 1024 gibibytes (GiB).",
+    "answer": "tebibyte"
+  },
+  {
+    "question": "State how many bits there are in a byte.",
+    "answer": "8"
+  },
+  {
+    "question": "State how many kibibytes (KiB) there are in 2 mebibytes (MiB).",
+    "answer": "2048"
+  },
+  {
+    "question": "Identify the unit of data that is equal to 4 bits.",
+    "answer": "nibble"
+  },
+  {
+    "question": "Identify the name of the smallest unit of measurement of data.",
+    "answer": "bit"
+  },
+  {
+    "question": "State how many nibbles there are in 2 bytes.",
+    "answer": "4"
+  },
+  {
+    "question": "Tick (✓) one box to show which of the following is the largest unit of data storage.\nA tebibyte (TiB)\nB pebibyte (PiB)\nC mebibyte (MiB)\nD gibibyte (GiB)",
+    "answer": "B"
+  },
+  {
+    "question": "Give one reason why a file is compressed.",
+    "answer": "To reduce the bandwidth needed for transmission //\nTo reduce the storage space required //\nTo make it quicker to transfer/transmit"
+  },
+  {
+    "question": "A text file can be compressed using lossless compression.\n(i) State what effect this has on the file size.",
+    "answer": "File size reduced"
+  },
+  {
+    "question": "Give two reasons why the text file may have been compressed.",
+    "answer": "Any two from:\nLess storage space is required\nLess bandwidth required\nFaster transmission / shorter transmission time"
+  },
+  {
+    "question": "One benefit for compressing the image is to reduce the storage space it uses.\nGive two other benefits of compressing the image.",
+    "answer": "Any two from:\nLess bandwidth needed to transmit\nTakes less time to transmit\nMore files can be sent in one go"
+  },
+  {
+    "question": "Give three benefits of reducing the size of a file for storage and transmission.",
+    "answer": "Any three from:\nTakes up less/costs less storage\nLess bandwidth transmission required\nFaster/quicker uploads/downloads/transmission\nMore files can be sent as email attachment at same time"
+  },
+  {
+    "question": "State what is meant by file compression.",
+    "answer": "Reducing the size of a file"
+  },
+  {
+    "question": "Give one benefit of compressing the file for storage.",
+    "answer": "It will take up less storage space"
+  },
+  {
+    "question": "State the effect the compression has on the report file.",
+    "answer": "The file size will be reduced"
+  },
+  {
+    "question": "Give two benefits of compressing the report file before emailing it.",
+    "answer": "Any two from:\nTakes less time to transmit\nLess bandwidth required to transmit\nMore files can be sent as email attachment at same time"
+  },
+  {
+    "question": "Explain the reasons why the artist chose lossless compression instead of lossy compression to compress this image file.",
+    "answer": "Any three from:\nNo/all data is not permanently removed when using lossless compression\nIt will be a smaller amount of compression compared to lossy but still reduces the original file size\nIt is able to make an identical copy of the original image file"
+  },
+  {
+    "question": "Identify one lossless method of compressing an image. Describe your chosen method.",
+    "answer": "Any two from:\nRun length encoding – replaces runs/series of repeating characters/symbols with a single value, that character/symbol and the number of times it occurred\nGIF – uses LZW\nPNG – compresses using DEFLATE algorithm"
+  },
+  {
+    "question": "Describe how lossless compression compresses the text file.",
+    "answer": "e.g. (using RLE or Huffman)\nData in initial text document analysed to find frequently used patterns/words/characters\nA dictionary/tree of patterns or words or characters built with shorter codes for most common patterns/etc\nRebuild the text by filling in the codes"
+  },
+  {
+    "question": "The musician compresses the sound file using lossless compression instead of lossy compression. Explain why the musician would choose to use lossless compression instead of lossy compression.",
+    "answer": "Any three from:\nThey want to be able to edit/manipulate the track without it losing any quality\nThey want the highest sound quality, with no loss in quality\nUsing lossy compression would reduce the quality\nUsing lossy will permanently remove data"
+  },
+  {
+    "question": "The band wants to compress the sound file, but they do not want any data to be permanently removed. Identify the compression method that should be used.",
+    "answer": "Lossless"
+  },
+  {
+    "question": "The photographer compresses the image using a method that permanently reduces the colour depth and resolution of the image. Identify which compression method the photographer uses.",
+    "answer": "Lossy"
+  },
+  {
+    "question": "Give two types of compression that can be used to reduce the size of a file.",
+    "answer": "Lossy\nLossless"
   }
 ]
