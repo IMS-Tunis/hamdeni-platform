@@ -253,6 +253,9 @@
 
           if (doc) {
             const frame = document.getElementById("doc-frame");
+            frame.addEventListener("load", function() {
+              this.style.height = this.contentWindow.document.documentElement.scrollHeight + "px";
+            });
             frame.src = doc.url;
           }
 
