@@ -1,5 +1,5 @@
 {
-  "1.3a: Understand how data storage is measured": [
+  "1.3a": [
     { "term": "bit", "definition": "the basic computing element that is either 0 or 1, and is formed from the words Binary digit" },
     { "term": "sampling resolution", "definition": "the number of bits used to represent sound amplitude in digital sound recording (also known as bit depth)" },
     { "term": "colour depth", "definition": "the number of bits used to represent the colours of a pixel" }
