@@ -73,11 +73,6 @@
       "answer": "True"
     },
     {
-      "type": "fill_blank",
-      "question": "Artificial intelligence is used to simulate intelligent human __________.",
-      "answer": "behavior"
-    },
-    {
       "type": "true_false",
       "question": "Expert systems can provide biased decisions because they rely on human input.",
       "answer": "False. They offer unbiased decisions based purely on logic."
