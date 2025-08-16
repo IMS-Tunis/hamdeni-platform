@@ -50,6 +50,26 @@ function startQuiz(questions) {
   container.appendChild(submit);
 }
 
+function withinOneEdit(a, b) {
+  a = a.toLowerCase();
+  b = b.toLowerCase();
+  if (a === b) return true;
+  const lenA = a.length, lenB = b.length;
+  if (Math.abs(lenA - lenB) > 1) return false;
+  let i = 0, j = 0, edits = 0;
+  while (i < lenA && j < lenB) {
+    if (a[i] === b[j]) { i++; j++; }
+    else {
+      if (++edits > 1) return false;
+      if (lenA > lenB) i++;
+      else if (lenB > lenA) j++;
+      else { i++; j++; }
+    }
+  }
+  if (i < lenA || j < lenB) edits++;
+  return edits <= 1;
+}
+
 function checkAnswers(questions) {
   let correct = 0;
   const result = document.getElementById("quiz-result");
@@ -63,7 +83,7 @@ function checkAnswers(questions) {
       isCorrect = val === q.answer;
     } else if (q.type === "fill_blank") {
       const val = document.querySelector(`input[name="q${i}"]`).value.trim();
-      isCorrect = val.toLowerCase() === q.answer.toLowerCase();
+      isCorrect = withinOneEdit(val, q.answer);
     } else if (q.type === "match") {
       const pairs = Object.entries(q.pairs);
       isCorrect = pairs.every(([key, correct], j) =>
