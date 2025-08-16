@@ -109,7 +109,10 @@
       "section": "1.1e",
       "type": "fill_blank",
       "question": "A _____ _____ shifts bits left or right and fills emptied positions with zeros.",
-      "answer": "logical shift"
+      "answer": [
+        "logical",
+        "shift"
+      ]
     },
     {
       "section": "1.1e",
