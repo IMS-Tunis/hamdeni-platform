@@ -32,8 +32,7 @@
       "type": "fill_blank",
       "question": "_____ is a base-10 number system that uses the values 0-9, and a _____ is the basic computing element that is either 0 or 1.",
       "answer": [
-        "denary",
-        "bit"
+        "denary", "bit"
       ]
     },
     {
@@ -62,12 +61,6 @@
         "It replaces binary inside the computer"
       ],
       "answer": "It is shorter than binary and easier for humans to read, write, and check"
-    },
-    {
-      "section": "1.1c",
-      "type": "fill_blank",
-      "question": "Hexadecimal is commonly used to write device _____ addresses.",
-      "answer": "hardware"
     },
     {
       "section": "1.1d",
@@ -110,8 +103,7 @@
       "type": "fill_blank",
       "question": "A _____ _____ shifts bits left or right and fills emptied positions with zeros.",
       "answer": [
-        "logical",
-        "shift"
+        "logical","shift"
       ]
     },
     {
