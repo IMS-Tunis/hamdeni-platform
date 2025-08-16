@@ -1,5 +1,5 @@
 {
-  "1.1a: binary representation, logic gates, registers": [
+  "1.1a": [
     {
       "term": "analogue data",
       "definition": "a continuous stream of data that is processed by humans."
@@ -17,7 +17,7 @@
       "definition": "a small component in a computer system that is used to temporarily store data."
     }
   ],
-  "1.1b: number systems and conversions": [
+  "1.1b": [
     {
       "term": "bit",
       "definition": "the basic computing element that is either 0 or 1, and is formed from the words Binary digit"
