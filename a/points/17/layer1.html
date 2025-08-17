@@ -78,7 +78,6 @@
       width: 35%;
       margin: 20px auto;
       padding-bottom: 20px;
-      border-bottom: 1px solid #ccc;
     }
 
     iframe {
@@ -164,7 +163,26 @@
       color: #333;
       font-size: 0.95em;
     }
-  </style>
+      .action-card {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px;
+      border-radius: 12px;
+      border: 2px solid transparent;
+      background: linear-gradient(#ffffff, #ffffff) padding-box,
+                  linear-gradient(135deg, #003366, #00bfff) border-box;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .section-divider {
+      height: 4px;
+      width: 100%;
+      margin: 40px 0;
+      background: linear-gradient(to right, #003366, #00bfff, #003366);
+      border-radius: 2px;
+    }
+
+</style>
 </head>
 <body>
   <header>
@@ -196,17 +214,20 @@
   <iframe id="doc-frame" class="official-doc" scrolling="no" ></iframe>
   </main>
 
-  <div class="actions">
+  <div class="action-card">
+      <div class="actions">
     <button class="highlight-button btn-clear" onclick="markClear()">✅ Notes are clear</button>
     <button class="highlight-button btn-help" onclick="showHelp()">🆘 Need help</button>
     <button class="highlight-button btn-confused" onclick="markConfused()">😕 I'm confused</button>
   </div>
+    </div>
 
   <div id="help-section">
     <textarea id="unclear" rows="4" cols="60" placeholder="Describe what you need help with..."></textarea><br />
     <button class="highlight-button" onclick="submitHelp()">Submit Help Request</button>
   </div>
-  <div id="video-section" class="videos" style="display:none;">
+  <div class="section-divider"></div>
+    <div id="video-section" class="videos" style="display:none;">
     <div class="section-title">🎥 Additional Resources</div>
     <div id="videos-container"></div>
   </div>
