@@ -4,10 +4,14 @@
       "url": "doc.html"
     },
     "videos": [
-      {
-        "title": "Intro to File Organization",
-        "iframe": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/_kxf_Ztyfq8?si=MLHDXWn83dJ0HDnX\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
-      }
-    ]
+{
+"title": "61. CAMBRIDGE IGCSE (0478-0984) 5.2 Digital currencies",
+"iframe": "<iframe width="560" height="315" src="https://www.youtube.com/embed/Twq3ACry00o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>"
+},
+{
+"title": "Cambridge IGCSE Computer Science - TEXTBOOK ACTIVITY 5.2 - Understanding the Blockchain",
+"iframe": "<iframe width="560" height="315" src="https://www.youtube.com/embed/tLSNoQ46sEg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>"
+}
+]
   }
 }
