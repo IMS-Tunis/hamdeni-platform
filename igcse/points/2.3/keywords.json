@@ -1,5 +1,5 @@
 {
-  "2.3a: Understand the need for and purpose of encryption when transmitting data": [
+  "2.3a": [
     {
       "term": "eavesdropper",
       "definition": "another name for a hacker who intercepts data being transmitted on a wired or wireless network"
@@ -9,7 +9,7 @@
       "definition": "a method of securing data for storage or transmission that scrambles it and makes it meaningless"
     }
   ],
-  "2.3b: Understand how data is encrypted using symmetric and asymmetric encryption": [
+  "2.3b": [
     {
       "term": "asymmetric encryption",
       "definition": "a type of encryption that uses two different keys to encrypt and decrypt data"
