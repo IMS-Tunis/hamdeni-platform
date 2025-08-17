@@ -38,6 +38,23 @@ body {
   font-size: 0.9em;
   cursor: pointer;
 }
+
+/* Action buttons section */
+.actions {
+  text-align: center !important;
+  margin: 30px auto !important;
+  padding: 20px !important;
+  border: 2px solid #003366 !important;
+  border-radius: 8px !important;
+  width: fit-content !important;
+  background-color: #ffffff !important;
+}
+
+/* Additional resources separator */
+#video-section {
+  border-top: 2px solid #003366;
+  padding-top: 20px;
+}
 .right-status div {
   margin-left: 10px;
   font-size: 0.8em;
