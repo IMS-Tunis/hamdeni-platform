@@ -1,11 +1,11 @@
 {
-  "2.1a: subsection a": [
+  "2.1a": [
     {
       "term": "packet",
       "definition": "a small unit of data."
     }
   ],
-  "2.1b: subsection b": [
+  "2.1b": [
     {
       "term": "packet header",
       "definition": "a section of a packet of data that contains information about the contents of the packet and its destination."
@@ -23,13 +23,13 @@
       "definition": "the unique address that is given to a device when it is connected to a network."
     }
   ],
-  "2.1c: subsection c": [
+  "2.1c": [
     {
       "term": "packet switching",
       "definition": "a method of transmitting data packets across a network. Each data packet is able to take an individual pathway across the network."
     }
   ],
-  "2.1d: subsection d": [
+  "2.1d": [
     {
       "term": "serial data transmission",
       "definition": "a transmission method where data is sent one bit at a time down a single wire."
@@ -51,7 +51,7 @@
       "definition": "a transmission method where data is transmitted in both directions at the same time."
     }
   ],
-  "2.1e: subsection e": [
+  "2.1e": [
     {
       "term": "interference",
       "definition": "disruption, such as electromagnetism, to data when it is transmitted."
@@ -61,7 +61,7 @@
       "definition": "data that arrives at the destination with the bits no longer synchronised."
     }
   ],
-  "2.1f: subsection f": [
+  "2.1f": [
     {
       "term": "USB",
       "definition": "an industry standard that is used to transmit data."

@@ -138,7 +138,7 @@
     },
     {
       "term": "Digital Certificate",
-      "definition": "A file proving the website\u2019s identity"
+      "definition": "A file proving the website’s identity"
     },
     {
       "term": "Certificate Authority",
@@ -252,7 +252,7 @@
   "5.1f": [
     {
       "term": "Cookie",
-      "definition": "A small file stored on a user\u2019s device by a website"
+      "definition": "A small file stored on a user’s device by a website"
     },
     {
       "term": "Web Server",
@@ -272,7 +272,7 @@
     },
     {
       "term": "Persistent Cookie",
-      "definition": "A cookie stored on the computer\u2019s hard drive until it expires or is deleted"
+      "definition": "A cookie stored on the computer’s hard drive until it expires or is deleted"
     },
     {
       "term": "Cookies",
