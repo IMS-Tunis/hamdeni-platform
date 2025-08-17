@@ -39,13 +39,13 @@
       "definition": "a method of representing negative numbers in binary; when applied to an 8-bit system, the left-most bit (most significant bit) is given the value –128"
     }
   ],
-  "1.1d: binary addition and overflow": [
+  "1.1d": [
     {
       "term": "overflow error",
       "definition": "a type of error that occurs when a number larger than a register can store is generated."
     }
   ],
-  "1.1e: logical binary shifts": [
+  "1.1e": [
     {
       "term": "logical shift",
       "definition": "an operation that shifts bits to the left or right in a register; any bits shifted out of a register (left or right) are replaced with zeroes"

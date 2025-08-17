@@ -1,47 +1,23 @@
 {
-  "2.2a: Understanding error detection needs": [
+  "2.2a": [
     {
       "term": "eavesdropper",
       "definition": "another name for a hacker who intercepts data being transmitted on a wired or wireless network"
     }
   ],
-  "2.2b: Parity check methods": [
-    {
-      "term": "parity check",
-      "definition": "a method used to check if data has been transferred correctly; it makes use of even parity (an even number of 1-bits) or odd parity (an odd number of 1-bits)"
-    },
-    {
-      "term": "parity bit",
-      "definition": "a bit (either 0 or 1) added to a byte of data in the most significant bit position; this ensures that the byte follows the correct even parity or odd parity protocol"
-    },
-    {
-      "term": "parity block",
-      "definition": "a horizontal and vertical parity check on a block of data being transmitted"
-    },
-    {
-      "term": "parity byte",
-      "definition": "an extra byte of data sent at the end of a parity block; it is composed of the parity bits generated from a vertical parity check of the data block"
-    }
-  ],
-  "2.2b: Checksum method": [
-    {
-      "term": "checksum",
-      "definition": "a verification method used to check if data transferred has been altered or corrupted; calculated from the block of data of data being sent; the checksum value is sent after each data block"
-    }
-  ],
-  "2.2b: Echo check method": [
+  "2.2b": [
     {
       "term": "echo check",
       "definition": "a method used to check if data has been transferred correctly; data is sent to a receiver and then immediately sent back to the sender; the sender then checks if the received data matches the sent data"
     }
   ],
-  "2.2c: Check digits for data entry": [
+  "2.2c": [
     {
       "term": "check digit",
       "definition": "an additional digit appended to a number to check if the entered number is error-free; check digit is a data entry check and not a data transmission check"
     }
   ],
-  "2.2d: Automatic Repeat Query (ARQ)": [
+  "2.2d": [
     {
       "term": "automatic repeat request (ARQ)",
       "definition": "a method of checking transmitted data for errors; it makes use of acknowledgement and timeout to automatically request re-sending of data if the time interval before positive acknowledgement is too long"
