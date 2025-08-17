@@ -4,10 +4,10 @@
       "url": "doc.html"
     },
     "videos": [
-{
-"title": "70. CAMBRIDGE IGCSE (0478-0984) 6.2 Roles that robots can perform",
-"iframe": "<iframe width="560" height="315" src="https://www.youtube.com/embed/U70nr2bRxAE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>"
-}
-]
+      {
+        "title": "70. CAMBRIDGE IGCSE (0478-0984) 6.2 Roles that robots can perform",
+        "iframe": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/U70nr2bRxAE\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      }
+    ]
   }
 }

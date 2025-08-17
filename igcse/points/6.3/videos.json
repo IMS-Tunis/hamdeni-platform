@@ -4,10 +4,10 @@
       "url": "doc.html"
     },
     "videos": [
-{
-"title": "72. CAMBRIDGE IGCSE (0478-0984) 6.3 Basic operations and components of AI systems",
-"iframe": "<iframe width="560" height="315" src="https://www.youtube.com/embed/T-X2VhfIzCw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>"
-}
-]
+      {
+        "title": "72. CAMBRIDGE IGCSE (0478-0984) 6.3 Basic operations and components of AI systems",
+        "iframe": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/T-X2VhfIzCw\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      }
+    ]
   }
 }

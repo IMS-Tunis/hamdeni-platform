@@ -4,30 +4,30 @@
       "url": "doc.html"
     },
     "videos": [
-{
-"title": "55. CAMBRIDGE IGCSE (0478-0984) 5.1 Difference between the internet and the world wide web",
-"iframe": "<iframe width="560" height="315" src="https://www.youtube.com/embed/re7mZQa92_g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>"
-},
-{
-"title": "56. CAMBRIDGE IGCSE (0478-0984) 5.1 Uniform resource locator (URL)",
-"iframe": "<iframe width="560" height="315" src="https://www.youtube.com/embed/xR0AkZiP1x4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>"
-},
-{
-"title": "57. CAMBRIDGE IGCSE (0478-0984) 5.1 HTTP and HTTPS",
-"iframe": "<iframe width="560" height="315" src="https://www.youtube.com/embed/uj06meqOpqo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>"
-},
-{
-"title": "58. CAMBRIDGE IGCSE (0478-0984) 5.1 Web browsers",
-"iframe": "<iframe width="560" height="315" src="https://www.youtube.com/embed/EeLEyx9WDac" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>"
-},
-{
-"title": "59. CAMBRIDGE IGCSE (0478-0984) 5.1 How web pages are located",
-"iframe": "<iframe width="560" height="315" src="https://www.youtube.com/embed/AFBdc6SA854" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>"
-},
-{
-"title": "60. CAMBRIDGE IGCSE (0478-0984) 5.1 Cookies",
-"iframe": "<iframe width="560" height="315" src="https://www.youtube.com/embed/pEriZbFOyGc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>"
-}
-]
+      {
+        "title": "55. CAMBRIDGE IGCSE (0478-0984) 5.1 Difference between the internet and the world wide web",
+        "iframe": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/re7mZQa92_g\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      {
+        "title": "56. CAMBRIDGE IGCSE (0478-0984) 5.1 Uniform resource locator (URL)",
+        "iframe": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/xR0AkZiP1x4\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      {
+        "title": "57. CAMBRIDGE IGCSE (0478-0984) 5.1 HTTP and HTTPS",
+        "iframe": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/uj06meqOpqo\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      {
+        "title": "58. CAMBRIDGE IGCSE (0478-0984) 5.1 Web browsers",
+        "iframe": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/EeLEyx9WDac\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      {
+        "title": "59. CAMBRIDGE IGCSE (0478-0984) 5.1 How web pages are located",
+        "iframe": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/AFBdc6SA854\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      {
+        "title": "60. CAMBRIDGE IGCSE (0478-0984) 5.1 Cookies",
+        "iframe": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/pEriZbFOyGc\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      }
+    ]
   }
 }
