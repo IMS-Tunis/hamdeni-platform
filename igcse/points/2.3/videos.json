@@ -4,10 +4,10 @@
       "url": "doc.html"
     },
     "videos": [
-      {
-        "title": "Intro to File Organization",
-        "iframe": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/_kxf_Ztyfq8?si=MLHDXWn83dJ0HDnX\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
-      }
-    ]
+{
+"title": "Unit 2 Lesson 5 - Encryption - Symmetric and Asymmetric",
+"iframe": "<iframe width="560" height="315" src="https://www.youtube.com/embed/v8x_M3Im6wI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>"
+}
+]
   }
 }

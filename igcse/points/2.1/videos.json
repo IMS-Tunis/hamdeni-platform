@@ -4,10 +4,18 @@
       "url": "doc.html"
     },
     "videos": [
-      {
-        "title": "Intro to File Organization",
-        "iframe": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/_kxf_Ztyfq8?si=MLHDXWn83dJ0HDnX\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
-      }
-    ]
+{
+"title": "2.1.1 Packet Structure - Paper 1",
+"iframe": "<iframe width="560" height="315" src="https://www.youtube.com/embed/ejEHkT6GP5A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>"
+},
+{
+"title": "2.1.2 Simplex, half and full duplex, Serial & parallel transmission - paper 1",
+"iframe": "<iframe width="560" height="315" src="https://www.youtube.com/embed/SZTeUQGd3M4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>"
+},
+{
+"title": "2.1.1 USB (Universal Serial Bus) - paper 1",
+"iframe": "<iframe width="560" height="315" src="https://www.youtube.com/embed/vp9tkahobn8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>"
+}
+]
   }
 }

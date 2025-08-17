@@ -4,10 +4,18 @@
       "url": "doc.html"
     },
     "videos": [
-      {
-        "title": "Intro to File Organization",
-        "iframe": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/_kxf_Ztyfq8?si=MLHDXWn83dJ0HDnX\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
-      }
-    ]
+{
+"title": "12. CAMBRIDGE IGCSE (0478-0984) 1.3 Units of data storage",
+"iframe": "<iframe width="560" height="315" src="https://www.youtube.com/embed/2PRhtyT0SiU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>"
+},
+{
+"title": "13. CAMBRIDGE IGCSE (0478-0984) 1.3 Calculating the size of an image and sound file",
+"iframe": "<iframe width="560" height="315" src="https://www.youtube.com/embed/0U2qdvYiAkM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>"
+},
+{
+"title": "14. CAMBRIDGE IGCSE (0478-0984) 1.3 Compression",
+"iframe": "<iframe width="560" height="315" src="https://www.youtube.com/embed/29kUfFIlVJA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>"
+}
+]
   }
 }
