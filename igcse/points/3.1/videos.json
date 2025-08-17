@@ -4,10 +4,26 @@
       "url": "doc.html"
     },
     "videos": [
-      {
-        "title": "Intro to File Organization",
-        "iframe": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/_kxf_Ztyfq8?si=MLHDXWn83dJ0HDnX\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
-      }
-    ]
+{
+"title": "25. CAMBRIDGE IGCSE (0478-0984) 3.1 The role of the central processing unit",
+"iframe": "<iframe width="560" height="315" src="https://www.youtube.com/embed/clL1AuQNHmQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>"
+},
+{
+"title": "27. CAMBRIDGE IGCSE (0478-0984) 3.1 Von Neumann architecture",
+"iframe": "<iframe width="560" height="315" src="https://www.youtube.com/embed/C0Pch0zpsT4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>"
+},
+{
+"title": "28. CAMBRIDGE IGCSE (0478-0984) 3.1 Fetch-decode-execute cycle",
+"iframe": "<iframe width="560" height="315" src="https://www.youtube.com/embed/8Qx6Dr_aKXs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>"
+},
+{
+"title": "29. CAMBRIDGE IGCSE (0478-0984) 3.1 The common characteristics of CPU's",
+"iframe": "<iframe width="560" height="315" src="https://www.youtube.com/embed/F0ZQQLPCWH8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>"
+},
+{
+"title": "31. CAMBRIDGE IGCSE (0478-0984) 3.1 Embedded systems",
+"iframe": "<iframe width="560" height="315" src="https://www.youtube.com/embed/NwGQLfEBr5E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>"
+}
+]
   }
 }
