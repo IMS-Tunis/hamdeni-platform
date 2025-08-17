@@ -4,22 +4,22 @@
       "url": "doc.html"
     },
     "videos": [
-{
-"title": "51. CAMBRIDGE IGCSE (0478-0984) 4.2 High-level and low-level languages",
-"iframe": "<iframe width="560" height="315" src="https://www.youtube.com/embed/O8-XzWy2JtA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>"
-},
-{
-"title": "52. CAMBRIDGE IGCSE (0478-0984) 4.2 Assembly language",
-"iframe": "<iframe width="560" height="315" src="https://www.youtube.com/embed/ZcvcrLyQTVs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>"
-},
-{
-"title": "53. CAMBRIDGE IGCSE (0478-0984) 4.2 Compilers and interpreters",
-"iframe": "<iframe width="560" height="315" src="https://www.youtube.com/embed/c1nisKE8ln4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>"
-},
-{
-"title": "54. CAMBRIDGE IGCSE (0478-0984) 4.2 Integrated development environments (IDEs)",
-"iframe": "<iframe width="560" height="315" src="https://www.youtube.com/embed/kea1M_DUV1o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>"
-}
-]
+      {
+        "title": "51. CAMBRIDGE IGCSE (0478-0984) 4.2 High-level and low-level languages",
+        "iframe": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/O8-XzWy2JtA\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      {
+        "title": "52. CAMBRIDGE IGCSE (0478-0984) 4.2 Assembly language",
+        "iframe": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/ZcvcrLyQTVs\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      {
+        "title": "53. CAMBRIDGE IGCSE (0478-0984) 4.2 Compilers and interpreters",
+        "iframe": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/c1nisKE8ln4\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      {
+        "title": "54. CAMBRIDGE IGCSE (0478-0984) 4.2 Integrated development environments (IDEs)",
+        "iframe": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/kea1M_DUV1o\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      }
+    ]
   }
 }

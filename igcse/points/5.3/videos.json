@@ -4,18 +4,18 @@
       "url": "doc.html"
     },
     "videos": [
-{
-"title": "63. CAMBRIDGE IGCSE (0478-0984) 5.3 Cybersecurity threats - Forms of attack",
-"iframe": "<iframe width="560" height="315" src="https://www.youtube.com/embed/l27QDW-i3DY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>"
-},
-{
-"title": "64. CAMBRIDGE IGCSE (0478-0984) 5.3 Cybersecurity threats - Malware",
-"iframe": "<iframe width="560" height="315" src="https://www.youtube.com/embed/v4pyOmtAyyE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>"
-},
-{
-"title": "66. CAMBRIDGE IGCSE (0478-0984) 5.3 Protecting digital systems and data from threats",
-"iframe": "<iframe width="560" height="315" src="https://www.youtube.com/embed/Q8b_TKhsawY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>"
-}
-]
+      {
+        "title": "63. CAMBRIDGE IGCSE (0478-0984) 5.3 Cybersecurity threats - Forms of attack",
+        "iframe": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/l27QDW-i3DY\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      {
+        "title": "64. CAMBRIDGE IGCSE (0478-0984) 5.3 Cybersecurity threats - Malware",
+        "iframe": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/v4pyOmtAyyE\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      {
+        "title": "66. CAMBRIDGE IGCSE (0478-0984) 5.3 Protecting digital systems and data from threats",
+        "iframe": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/Q8b_TKhsawY\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      }
+    ]
   }
 }
