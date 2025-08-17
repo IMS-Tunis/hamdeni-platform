@@ -5,10 +5,6 @@
     },
     "videos": [
       {
-        "title": "Intro to File Organization",
-        "iframe": "<iframe width='560' height='315' src='https://www.youtube.com/embed/_kxf_Ztyfq8?si=MLHDXWn83dJ0HDnX' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe>"
-      },
-      {
         "title": "6. CAMBRIDGE IGCSE (0478-0984) 1.1 Adding two positive 8-bit binary integers",
         "iframe": "<iframe width='560' height='315' src='https://www.youtube.com/embed/mQx_B7YNRbI' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe>"
       },
