@@ -166,7 +166,9 @@ exportBtn.addEventListener('click', async () => {
   doc.setFontSize(4.1);
   const pdfTitle = username ? `${username}'s Layer 3 Reflection Notes` : 'Layer 3 Reflection Notes';
   doc.text(pdfTitle, 10, 20);
-  let y = 30;
+  const margin = 20;
+  const pageHeight = doc.internal.pageSize.getHeight();
+  let y = margin + 10;
   (data || []).forEach(row => {
     const text = `Q${row.question_number} (${new Date(row.corrected_at || row.submitted_at).toLocaleString()})`;
     doc.text(text, 10, y);
