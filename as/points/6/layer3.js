@@ -4,6 +4,7 @@ const username = localStorage.getItem('username');
 const studentName = localStorage.getItem('student_name');
 const platform = localStorage.getItem('platform');
 const pointId = '6';
+const progressKey = `layer3-progress-${pointId}`;
 
 const questionContainer = document.getElementById('questions-container');
 const notesList = document.getElementById('notes-list');
@@ -83,6 +84,7 @@ async function updateProgress() {
 
 async function render() {
   const saved = await loadSaved();
+  const lastCompleted = parseInt(localStorage.getItem(progressKey) || '0', 10);
   fetch('layer3_questions.json')
     .then(r => r.json())
     .then(questions => {
@@ -127,6 +129,10 @@ async function render() {
             student_answer: ans,
             submitted_at: new Date().toISOString()
           }, { onConflict: ['username','point_id','question_number'] });
+          localStorage.setItem(progressKey, q.question_number);
+          if (q.question_number >= totalQuestions) {
+            localStorage.removeItem(progressKey);
+          }
         });
 
         saveBtn.addEventListener('click', async () => {
@@ -150,6 +156,13 @@ async function render() {
         questionContainer.appendChild(wrapper);
       });
       checkAllNotesSaved();
+      const answered = Object.keys(saved).length;
+      if (answered >= totalQuestions) {
+        localStorage.removeItem(progressKey);
+      } else if (lastCompleted && lastCompleted < totalQuestions) {
+        const next = document.querySelector(`[data-q="${lastCompleted + 1}"]`);
+        if (next) next.scrollIntoView({ behavior: 'smooth' });
+      }
     });
 }
 
@@ -163,7 +176,7 @@ exportBtn.addEventListener('click', async () => {
   if (error) return console.error('Fetch notes error', error);
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF();
-  doc.setFontSize(6);
+  doc.setFontSize(18);
   const pdfTitle = username ? `${username}'s Layer 3 Reflection Notes` : 'Layer 3 Reflection Notes';
   doc.text(pdfTitle, 10, 20);
   const margin = 20;
@@ -173,7 +186,7 @@ exportBtn.addEventListener('click', async () => {
     const text = `Q${row.question_number} (${new Date(row.corrected_at || row.submitted_at).toLocaleString()})`;
     doc.text(text, 10, y);
     y += 6;
-    const split = doc.splitTextToSize(row.correction_note || '', 60);
+    const split = doc.splitTextToSize(row.correction_note || '', 180);
     doc.text(split, 10, y);
     y += split.length * 6 + 4;
   });
