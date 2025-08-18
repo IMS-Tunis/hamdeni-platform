@@ -122,13 +122,18 @@ async function render() {
           btn.disabled = true;
           textarea.disabled = true;
           ms.style.display = 'block';
-          await supabase.from(tableName('layer3')).upsert({
+          const { data, error } = await supabase.from(tableName('layer3')).upsert({
             username,
             point_id: pointId.toLowerCase(),
             question_number: q.question_number,
             student_answer: ans,
             submitted_at: new Date().toISOString()
           }, { onConflict: ['username','point_id','question_number'] });
+          if (error || !data?.length) {
+            console.error('Save answer error', error);
+            alert('Failed to save answer.');
+            return;
+          }
           localStorage.setItem(progressKey, q.question_number);
           if (q.question_number >= totalQuestions) {
             localStorage.removeItem(progressKey);
@@ -138,7 +143,7 @@ async function render() {
         saveBtn.addEventListener('click', async () => {
           const note = noteTA.value.trim();
           if (!note) return;
-          await supabase.from(tableName('layer3')).upsert({
+          const { data, error } = await supabase.from(tableName('layer3')).upsert({
             username,
             point_id: pointId.toLowerCase(),
             question_number: q.question_number,
@@ -146,6 +151,11 @@ async function render() {
             correction_note: note,
             corrected_at: new Date().toISOString()
           }, { onConflict: ['username','point_id','question_number'] });
+          if (error || !data?.length) {
+            console.error('Save note error', error);
+            alert('Failed to save note.');
+            return;
+          }
           addNoteToReview(q.question_number, note, new Date());
           savedNotes.add(q.question_number);
           checkAllNotesSaved();
