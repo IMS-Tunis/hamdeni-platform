@@ -4,6 +4,7 @@ const username = localStorage.getItem('username');
 const studentName = localStorage.getItem('student_name');
 const platform = localStorage.getItem('platform');
 const pointId = '16.1';
+const progressKey = `layer3-progress-${pointId}`;
 
 const questionContainer = document.getElementById('questions-container');
 const notesList = document.getElementById('notes-list');
@@ -83,6 +84,7 @@ async function updateProgress() {
 
 async function render() {
   const saved = await loadSaved();
+  const lastCompleted = parseInt(localStorage.getItem(progressKey) || '0', 10);
   fetch('layer3_questions.json')
     .then(r => r.json())
     .then(questions => {
@@ -127,6 +129,10 @@ async function render() {
             student_answer: ans,
             submitted_at: new Date().toISOString()
           }, { onConflict: ['username','point_id','question_number'] });
+          localStorage.setItem(progressKey, q.question_number);
+          if (q.question_number >= totalQuestions) {
+            localStorage.removeItem(progressKey);
+          }
         });
 
         saveBtn.addEventListener('click', async () => {
@@ -150,6 +156,13 @@ async function render() {
         questionContainer.appendChild(wrapper);
       });
       checkAllNotesSaved();
+      const answered = Object.keys(saved).length;
+      if (answered >= totalQuestions) {
+        localStorage.removeItem(progressKey);
+      } else if (lastCompleted && lastCompleted < totalQuestions) {
+        const next = document.querySelector(`[data-q="${lastCompleted + 1}"]`);
+        if (next) next.scrollIntoView({ behavior: 'smooth' });
+      }
     });
 }
 
