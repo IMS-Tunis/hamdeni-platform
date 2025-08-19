@@ -92,8 +92,21 @@
     }
 
     .actions {
-      text-align: center;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
       margin-top: 30px;
+    }
+
+    .help-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #help-section {
+      display: none;
+      margin-top: 10px;
     }
 
     .highlight-button {
@@ -217,15 +230,16 @@
   <div class="action-card">
       <div class="actions">
     <button class="highlight-button btn-clear" onclick="markClear()">✅ Notes are clear</button>
-    <button class="highlight-button btn-help" onclick="showHelp()">🆘 Need help</button>
+    <div class="help-wrapper">
+      <button class="highlight-button btn-help" onclick="showHelp()">🆘 Need help</button>
+      <div id="help-section">
+        <textarea id="unclear" rows="4" cols="60" placeholder="Describe what you need help with..."></textarea><br />
+        <button class="highlight-button" onclick="submitHelp()">Submit Help Request</button>
+      </div>
+    </div>
     <button class="highlight-button btn-confused" onclick="markConfused()">😕 I'm confused</button>
   </div>
     </div>
-
-  <div id="help-section">
-    <textarea id="unclear" rows="4" cols="60" placeholder="Describe what you need help with..."></textarea><br />
-    <button class="highlight-button" onclick="submitHelp()">Submit Help Request</button>
-  </div>
   <div class="section-divider"></div>
     <div id="video-section" class="videos" style="display:none;">
     <div class="section-title">🎥 Additional Resources</div>
@@ -386,7 +400,8 @@
   window.markConfused = markConfused;
 
   function showHelp() {
-    document.getElementById("help-section").style.display = "block";
+    const section = document.getElementById("help-section");
+    section.style.display = section.style.display === "block" ? "none" : "block";
   }
   window.showHelp = showHelp;
 
