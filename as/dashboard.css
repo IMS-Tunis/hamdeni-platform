@@ -500,19 +500,6 @@ body {
   line-height: 18px;
 }
 
-/* Layer 4 question/answer column separation */
-.qa-row {
-  display: flex;
-}
-
-.qa-question {
-  border-right: 1px solid #e0e0e0;
-}
-
-.qa-answer {
-  background-color: #f9f9f9;
-}
-
 /* Navigation buttons shared across layers */
 .nav-btn {
   padding: 10px 20px;
