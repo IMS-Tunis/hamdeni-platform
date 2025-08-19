@@ -4,22 +4,22 @@
       "url": "doc.html"
     },
     "videos": [
-{
-"title": "20. CAMBRIDGE IGCSE (0478-0984) 2.2 The need for error checking",
-"iframe": "<iframe width="560" height="315" src="https://www.youtube.com/embed/ckvEN_JyiKE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>"
-},
-{
-"title": "21. CAMBRIDGE IGCSE (0478-0984) 2.2 Error detection methods",
-"iframe": "<iframe width="560" height="315" src="https://www.youtube.com/embed/TEICs3IaKF4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>"
-},
-{
-"title": "22. CAMBRIDGE IGCSE (0478-0984) 2.2 Check digits",
-"iframe": "<iframe width="560" height="315" src="https://www.youtube.com/embed/p60du0zr_H0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>"
-},
-{
-"title": "23. CAMBRIDGE IGCSE (0478-0984) 2.2 Automatic Repeat Query (ARQ)",
-"iframe": "<iframe width="560" height="315" src="https://www.youtube.com/embed/SqTS3ZIbwIA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>"
-}
-]
+      {
+        "title": "20. CAMBRIDGE IGCSE (0478-0984) 2.2 The need for error checking",
+        "iframe": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/ckvEN_JyiKE\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      {
+        "title": "21. CAMBRIDGE IGCSE (0478-0984) 2.2 Error detection methods",
+        "iframe": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/TEICs3IaKF4\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      {
+        "title": "22. CAMBRIDGE IGCSE (0478-0984) 2.2 Check digits",
+        "iframe": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/p60du0zr_H0\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      {
+        "title": "23. CAMBRIDGE IGCSE (0478-0984) 2.2 Automatic Repeat Query (ARQ)",
+        "iframe": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/SqTS3ZIbwIA\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      }
+    ]
   }
 }

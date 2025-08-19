@@ -17,11 +17,16 @@ export const supabase = createClient(SUPABASE_URL, SUPABASE_KEY, {
 
 export function tableName(base) {
   const platform = localStorage.getItem('platform');
-  const prefix = {
+  const prefixMap = {
     A_Level: 'a_',
     AS_Level: 'as_',
     IGCSE: 'igcse_'
-  }[platform] || 'a_';
+  };
+  const prefix = prefixMap[platform];
+  if (!prefix) {
+    alert('Unable to determine platform. Please select a platform before saving.');
+    throw new Error('Unknown platform: ' + platform);
+  }
   return `${prefix}${base}`;
 }
 

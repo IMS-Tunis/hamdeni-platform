@@ -4,6 +4,7 @@ const username = localStorage.getItem('username');
 const studentName = localStorage.getItem('student_name');
 const platform = localStorage.getItem('platform');
 const pointId = '13.2';
+const progressKey = `layer3-progress-${pointId}`;
 
 const questionContainer = document.getElementById('questions-container');
 const notesList = document.getElementById('notes-list');
@@ -83,6 +84,7 @@ async function updateProgress() {
 
 async function render() {
   const saved = await loadSaved();
+  const lastCompleted = parseInt(localStorage.getItem(progressKey) || '0', 10);
   fetch('layer3_questions.json')
     .then(r => r.json())
     .then(questions => {
@@ -120,19 +122,28 @@ async function render() {
           btn.disabled = true;
           textarea.disabled = true;
           ms.style.display = 'block';
-          await supabase.from(tableName('layer3')).upsert({
+          const { data, error } = await supabase.from(tableName('layer3')).upsert({
             username,
             point_id: pointId.toLowerCase(),
             question_number: q.question_number,
             student_answer: ans,
             submitted_at: new Date().toISOString()
           }, { onConflict: ['username','point_id','question_number'] });
+          if (error || !data?.length) {
+            console.error('Save answer error', error);
+            alert('Failed to save answer.');
+            return;
+          }
+          localStorage.setItem(progressKey, q.question_number);
+          if (q.question_number >= totalQuestions) {
+            localStorage.removeItem(progressKey);
+          }
         });
 
         saveBtn.addEventListener('click', async () => {
           const note = noteTA.value.trim();
           if (!note) return;
-          await supabase.from(tableName('layer3')).upsert({
+          const { data, error } = await supabase.from(tableName('layer3')).upsert({
             username,
             point_id: pointId.toLowerCase(),
             question_number: q.question_number,
@@ -140,6 +151,11 @@ async function render() {
             correction_note: note,
             corrected_at: new Date().toISOString()
           }, { onConflict: ['username','point_id','question_number'] });
+          if (error || !data?.length) {
+            console.error('Save note error', error);
+            alert('Failed to save note.');
+            return;
+          }
           addNoteToReview(q.question_number, note, new Date());
           savedNotes.add(q.question_number);
           checkAllNotesSaved();
@@ -150,6 +166,13 @@ async function render() {
         questionContainer.appendChild(wrapper);
       });
       checkAllNotesSaved();
+      const answered = Object.keys(saved).length;
+      if (answered >= totalQuestions) {
+        localStorage.removeItem(progressKey);
+      } else if (lastCompleted && lastCompleted < totalQuestions) {
+        const next = document.querySelector(`[data-q="${lastCompleted + 1}"]`);
+        if (next) next.scrollIntoView({ behavior: 'smooth' });
+      }
     });
 }
 
@@ -166,12 +189,22 @@ exportBtn.addEventListener('click', async () => {
   doc.setFontSize(18);
   const pdfTitle = username ? `${username}'s Layer 3 Reflection Notes` : 'Layer 3 Reflection Notes';
   doc.text(pdfTitle, 10, 20);
-  let y = 30;
+  const margin = 20;
+  const pageHeight = doc.internal.pageSize.getHeight();
+  let y = margin + 10;
   (data || []).forEach(row => {
+    if (y > pageHeight - margin) {
+      doc.addPage();
+      y = margin;
+    }
     const text = `Q${row.question_number} (${new Date(row.corrected_at || row.submitted_at).toLocaleString()})`;
     doc.text(text, 10, y);
     y += 6;
     const split = doc.splitTextToSize(row.correction_note || '', 180);
+    if (y + split.length * 6 > pageHeight - margin) {
+      doc.addPage();
+      y = margin;
+    }
     doc.text(split, 10, y);
     y += split.length * 6 + 4;
   });
