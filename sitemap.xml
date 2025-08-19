@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://hamdeni-cs.tn/</loc></url>
-  <url><loc>https://hamdeni-cs.tn/igcse/computer-science-0478/</loc></url>
-  <url><loc>https://hamdeni-cs.tn/as-level/computer-science-9618/</loc></url>
-  <url><loc>https://hamdeni-cs.tn/a-level/computer-science-9618/</loc></url>
+  <url>
+    <loc>https://hamdeni-cs.tn/</loc>
+  </url>
+  <url>
+    <loc>https://hamdeni-cs.tn/igcse/computer-science-0478/</loc>
+  </url>
+  <url>
+    <loc>https://hamdeni-cs.tn/as-level/computer-science-9618/</loc>
+  </url>
+  <url>
+    <loc>https://hamdeni-cs.tn/a-level/computer-science-9618/</loc>
+  </url>
 </urlset>
