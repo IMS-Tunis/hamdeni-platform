@@ -14,7 +14,7 @@
     {
       "type": "fill_blank",
       "question": "The ________ is required for a device to connect to a network and stores a MAC address assigned at manufacture.",
-      "answer": "network interface card (NIC)"
+      "answer": "network interface card"
     },
     {
       "type": "true_false",
