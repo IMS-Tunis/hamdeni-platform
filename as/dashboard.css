@@ -44,15 +44,16 @@ body {
   text-align: center !important;
   margin: 30px auto !important;
   padding: 20px !important;
-  border: 2px solid #003366 !important;
-  border-radius: 8px !important;
+  border: 2px solid transparent !important;
+  border-radius: 12px !important;
   width: fit-content !important;
-  background-color: #ffffff !important;
+  background: linear-gradient(#ffffff, #ffffff) padding-box,
+              linear-gradient(135deg, #00bfff, #003366) border-box !important;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1) !important;
 }
 
 /* Additional resources separator */
 #video-section {
-  border-top: 2px solid #003366;
   padding-top: 20px;
 }
 .right-status div {
