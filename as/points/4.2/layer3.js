@@ -122,14 +122,14 @@ async function render() {
           btn.disabled = true;
           textarea.disabled = true;
           ms.style.display = 'block';
-          const { data, error } = await supabase.from(tableName('layer3')).upsert({
+          const { error } = await supabase.from(tableName('layer3')).upsert({
             username,
             point_id: pointId.toLowerCase(),
             question_number: q.question_number,
             student_answer: ans,
             submitted_at: new Date().toISOString()
           }, { onConflict: ['username','point_id','question_number'] });
-          if (error || !data?.length) {
+          if (error) {
             console.error('Save answer error', error);
             alert('Failed to save answer.');
             return;
@@ -143,7 +143,7 @@ async function render() {
         saveBtn.addEventListener('click', async () => {
           const note = noteTA.value.trim();
           if (!note) return;
-          const { data, error } = await supabase.from(tableName('layer3')).upsert({
+          const { error } = await supabase.from(tableName('layer3')).upsert({
             username,
             point_id: pointId.toLowerCase(),
             question_number: q.question_number,
@@ -151,7 +151,7 @@ async function render() {
             correction_note: note,
             corrected_at: new Date().toISOString()
           }, { onConflict: ['username','point_id','question_number'] });
-          if (error || !data?.length) {
+          if (error) {
             console.error('Save note error', error);
             alert('Failed to save note.');
             return;
