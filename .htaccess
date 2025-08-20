@@ -1,2 +1,1 @@
-# Permanent redirect old IGCSE 0478 page to dashboard
 Redirect 301 /igcse/computer-science-0478/ /igcse/dashboard.html
