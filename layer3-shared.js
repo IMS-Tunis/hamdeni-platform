@@ -144,18 +144,25 @@ export default function initLayer3(pointId, options = {}) {
             btn.disabled = true;
             textarea.disabled = true;
             ms.style.display = 'block';
-            const { data, error } = await supabase.from(tableName('layer3')).upsert({
-              username,
-              point_id: pointId.toLowerCase(),
-              question_number: q.question_number,
-              student_answer: ans,
-              submitted_at: new Date().toISOString()
-            }, { onConflict: ['username','point_id','question_number'] });
-            if (error || !data?.length) {
+            const { data, error } = await supabase
+              .from(tableName('layer3'))
+              .upsert(
+                {
+                  username,
+                  point_id: pointId.toLowerCase(),
+                  question_number: q.question_number,
+                  student_answer: ans,
+                  submitted_at: new Date().toISOString()
+                },
+                { onConflict: ['username','point_id','question_number'] }
+              )
+              .select();
+            if (error) {
               console.error('Save answer error', error);
               alert('Failed to save answer.');
               return;
             }
+            console.log('Saved answer', data);
             localStorage.setItem(progressKey, q.question_number);
             if (q.question_number >= totalQuestions) {
               localStorage.removeItem(progressKey);
@@ -165,19 +172,26 @@ export default function initLayer3(pointId, options = {}) {
           saveBtn.addEventListener('click', async () => {
             const note = noteTA.value.trim();
             if (!note) return;
-            const { data, error } = await supabase.from(tableName('layer3')).upsert({
-              username,
-              point_id: pointId.toLowerCase(),
-              question_number: q.question_number,
-              student_answer: textarea.value.trim(),
-              correction_note: note,
-              corrected_at: new Date().toISOString()
-            }, { onConflict: ['username','point_id','question_number'] });
-            if (error || !data?.length) {
+            const { data, error } = await supabase
+              .from(tableName('layer3'))
+              .upsert(
+                {
+                  username,
+                  point_id: pointId.toLowerCase(),
+                  question_number: q.question_number,
+                  student_answer: textarea.value.trim(),
+                  correction_note: note,
+                  corrected_at: new Date().toISOString()
+                },
+                { onConflict: ['username','point_id','question_number'] }
+              )
+              .select();
+            if (error) {
               console.error('Save note error', error);
               alert('Failed to save note.');
               return;
             }
+            console.log('Saved note', data);
             addNoteToReview(q.question_number, note);
             savedNotes.add(q.question_number);
             checkAllNotesSaved();
