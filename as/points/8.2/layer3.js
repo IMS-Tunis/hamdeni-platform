@@ -131,6 +131,8 @@ async function render() {
           }, { onConflict: ['username','point_id','question_number'] });
           if (error || !data?.length) {
             console.error('Save answer error', error);
+            textarea.disabled = false;
+            btn.disabled = false;
             alert('Failed to save answer.');
             return;
           }
@@ -153,6 +155,8 @@ async function render() {
           }, { onConflict: ['username','point_id','question_number'] });
           if (error || !data?.length) {
             console.error('Save note error', error);
+            noteTA.disabled = false;
+            saveBtn.disabled = false;
             alert('Failed to save note.');
             return;
           }
