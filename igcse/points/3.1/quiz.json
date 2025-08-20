@@ -77,8 +77,8 @@
     },
     {
       "type": "fill_blank",
-      "question": "The ______ cycle is the process through which data and instructions are processed, and after fetching an instruction, the PC is ______ by 1.",
-      "answer": "fetch-decode-execute (FDE), incremented"
+      "question": "The [____] cycle is the process through which data and instructions are processed, and after fetching an instruction, the PC is incremented by 1.",
+      "answer": "fetch-decode-execute (FDE)"
     },
     {
       "type": "true_false",
@@ -144,8 +144,8 @@
     },
     {
       "type": "fill_blank",
-      "question": "A machine code instruction consists of an ______ (identifies the action) and an ______ (identifies the data/location).",
-      "answer": "opcode, operand"
+      "question": "A machine code instruction consists of an [____] (identifies the action) and an operand (identifies the data/location).",
+      "answer": "opcode"
     },
     {
       "type": "mcq",

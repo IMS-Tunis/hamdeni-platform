@@ -38,8 +38,8 @@
     },
     {
       "type": "fill_blank",
-      "question": "The sample rate is the number of ______ taken each second, measured in ______.",
-      "answer": "samples; hertz"
+      "question": "The sample rate is the number of samples taken each second, measured in [____].",
+      "answer": "hertz"
     },
     {
       "type": "match",
@@ -72,8 +72,8 @@
     },
     {
       "type": "fill_blank",
-      "question": "Image resolution is the number of pixels in the image, given by its ______ multiplied by its ______.",
-      "answer": "width; height"
+      "question": "Image resolution is the number of pixels in the image, given by its [____] multiplied by its height.",
+      "answer": "width"
     }
   ]
 }

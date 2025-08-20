@@ -13,8 +13,8 @@
     },
     {
       "type": "fill_blank",
-      "question": "Digital currency works like regular money but is exchanged __________ between computers over the __________.",
-      "answer": "electronically, internet"
+      "question": "Digital currency works like regular money but is exchanged electronically between computers over the [____].",
+      "answer": "internet"
     },
     {
       "type": "true_false",

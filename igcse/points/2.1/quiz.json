@@ -37,8 +37,8 @@
     },
     {
       "type": "fill_blank",
-      "question": "The __________ contains source/destination IP addresses and sequencing information, while the __________ is the actual data being carried.",
-      "answer": "packet header, payload"
+      "question": "The [____] contains source/destination IP addresses and sequencing information, while the payload is the actual data being carried.",
+      "answer": "packet header"
     },
     {
       "type": "mcq",
@@ -207,8 +207,8 @@
     },
     {
       "type": "fill_blank",
-      "question": "USB uses __________ data transfer and can operate in half-duplex or __________ modes.",
-      "answer": "serial, full-duplex"
+      "question": "USB uses [____] data transfer and can operate in half-duplex or full-duplex modes.",
+      "answer": "serial"
     },
     {
       "type": "mcq",

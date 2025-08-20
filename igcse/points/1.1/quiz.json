@@ -9,11 +9,8 @@
     {
       "section": "1.1a",
       "type": "fill_blank",
-      "question": "In binary hardware, OFF is represented by _____ and ON is represented by _____.",
-      "answer": [
-        "0",
-        "1"
-      ]
+      "question": "In binary hardware, OFF is represented by [____] and ON is represented by 1.",
+      "answer": "0"
     },
     {
       "section": "1.1a",
@@ -30,10 +27,8 @@
     {
       "section": "1.1b",
       "type": "fill_blank",
-      "question": "_____ is a base-10 number system that uses the values 0-9, and a _____ is the basic computing element that is either 0 or 1.",
-      "answer": [
-        "denary", "bit"
-      ]
+      "question": "[____] is a base-10 number system that uses the values 0-9, and a bit is the basic computing element that is either 0 or 1.",
+      "answer": "denary"
     },
     {
       "section": "1.1b",
@@ -101,10 +96,8 @@
     {
       "section": "1.1e",
       "type": "fill_blank",
-      "question": "A _____ _____ shifts bits left or right and fills emptied positions with zeros.",
-      "answer": [
-        "logical","shift"
-      ]
+      "question": "A [____] shifts bits left or right and fills emptied positions with zeros.",
+      "answer": "logical shift"
     },
     {
       "section": "1.1e",

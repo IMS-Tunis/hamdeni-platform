@@ -89,8 +89,8 @@
     },
     {
       "type": "fill_blank",
-      "question": "In asymmetric encryption, many senders can use the same _____ key to encrypt, but only the _____ key owner can decrypt.",
-      "answer": "public; private"
+      "question": "In asymmetric encryption, many senders can use the same [____] key to encrypt, but only the private key owner can decrypt.",
+      "answer": "public"
     }
   ]
 }
