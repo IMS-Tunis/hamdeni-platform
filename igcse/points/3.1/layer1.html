@@ -75,7 +75,7 @@
     }
 
     #video-section {
-      width: 35%;
+      width: 90%;
       margin: 20px auto;
       padding-bottom: 20px;
     }
@@ -89,6 +89,33 @@
 
     .videos iframe {
       height: 250px;
+    }
+
+    .resources-grid {
+      display: flex;
+      gap: 20px;
+    }
+
+    .videos-column, .extras-column {
+      flex: 1;
+    }
+
+    .extras-column {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .placeholder {
+      background: #f0f0f0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 20px;
+      text-align: center;
+      height: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .actions {
@@ -230,7 +257,15 @@
   <div class="section-divider"></div>
     <div id="video-section" class="videos" style="display:none;">
     <div class="section-title">🎥 Additional Resources</div>
-    <div id="videos-container"></div>
+    <div class="resources-grid">
+      <div class="videos-column">
+        <div id="videos-container"></div>
+      </div>
+      <div class="extras-column">
+        <div class="placeholder" id="mind-map-placeholder">🧠 Mind Map (coming soon)</div>
+        <div class="placeholder" id="references-placeholder">📚 Reference Documents (coming soon)</div>
+      </div>
+    </div>
   </div>
 
 
