@@ -1,92 +1,82 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Cambridge IGCSE Computer Science 0478 | hamdeni-cs.tn</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="IGCSE Computer Science 0478 resources on hamdeni-cs.tn.">
   <link rel="canonical" href="https://hamdeni-cs.tn/igcse/dashboard.html">
-  <meta property="og:title" content="Cambridge IGCSE Computer Science 0478 - Notes, Past Papers, Mark Schemes">
-  <meta property="og:description" content="Syllabus-aligned notes, past papers, mark schemes, and study guidance for 0478.">
-  <meta property="og:url" content="https://hamdeni-cs.tn/igcse/dashboard.html">
-  <meta property="og:type" content="website">
-  <style>
-    body {font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; color: #111;}
-    header, main, footer {max-width: 960px; margin: 0 auto; padding: 16px;}
-    header h1 {margin: 16px 0 8px;}
-    section {margin: 24px 0;}
-    ul {margin: 8px 0 0 20px;}
-    a {text-decoration: underline;}
-    .card {border: 1px solid #ddd; padding: 12px; border-radius: 6px; margin-top: 12px;}
-  </style>
+  <link rel="stylesheet" href="./dashboard.css"/>
 </head>
 <body>
-<nav aria-label="Breadcrumb">
-  <ol>
-    <li><a href="/igcse/">IGCSE</a></li>
-    <li aria-current="page">Computer Science 0478</li>
-  </ol>
-</nav>
-<header>
-  <h1>Cambridge IGCSE Computer Science 0478</h1>
-  <p>This page provides curriculum-aligned materials for Cambridge IGCSE Computer Science 0478, including a brief syllabus overview, structured notes, past papers, mark schemes, and study guidance.</p>
-</header>
-<main>
-  <section id="syllabus-overview" class="card">
-    <h2>Syllabus overview</h2>
-    <p>Core areas include data representation, computer systems, networks and internet technologies, cybersecurity, algorithms and programming, and databases.</p>
-    <p><a href="https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-igcse-computer-science-0478/" rel="nofollow">Official syllabus reference</a></p>
+
+<!-- ✅ TOP BANNER -->
+<img src="./images/header_bg.png" alt="Header Banner" class="header-background" />
+
+<!-- ✅ One unified row with left and right sides -->
+<div class="header-row" style="display: flex; justify-content: space-between; align-items: flex-start; padding: 20px 30px; gap: 20px; flex-wrap: wrap;">
+
+  <!-- Left: Home, Guest, Progress Bar -->
+  <div style="display: flex; flex-direction: column; gap: 10px;">
+    <div style="display: flex; gap: 15px; align-items: center;">
+      <button id="home-btn" class="styled-button home">🏠 Home</button>
+      <div id="student-name-bar" style="font-weight: bold; font-size: 1.2em;">Guest Mode</div>
+    </div>
+    <div class="general-progress-wrapper">
+      <div class="general-progress-label">GENERAL PROGRESS</div>
+        <div class="general-progress-bar">
+          <div class="general-progress-fill">0%</div>
+          <div class="general-progress-max">100%</div>
+        </div>
+    </div>
+  </div>
+
+  <!-- Right: Login -->
+  <div class="form-box">
+    <div class="login-row">
+      <input type="text" id="username" placeholder="Username" />
+      <input type="password" id="password" placeholder="Password" />
+      <button id="login-btn" class="styled-button">Login</button>
+      <button id="logout-btn" class="styled-button logout">Logout</button>
+    </div>
+    <div class="contact-info">
+      Contact <a href="mailto:chams-eddine.hemdani@tn.maarifschools.org">chams-eddine.hemdani@tn.maarifschools.org</a> for sign up.
+    </div>
+  </div>
+</div>
+
+<!-- ✅ Main Content -->
+<main class="dashboard">
+  <section class="theory-column">
+    <div class="section-header">
+      <img src="./images/advanced_theory.png" alt="Advanced Theory" class="section-title" style="transform: scale(1.3); transform-origin: center;"/>
+    </div>
+    <div id="theory-points" class="theory-wrapper"></div>
+    <img src="./images/approved_banner.png" class="footer-image" alt="Approved"/>
   </section>
-  <section id="notes" class="card">
-    <h2>Notes by topic</h2>
-    <ul>
-      <li><a href="/igcse/computer-science-0478/notes/">0478 notes index - by section</a></li>
-      <li><a href="/igcse/computer-science-0478/notes/3-1-computer-architecture/">Computer architecture</a></li>
-      <li><a href="/igcse/computer-science-0478/notes/5-1-internet-and-www/">The Internet and the World Wide Web</a></li>
-      <li><a href="/igcse/computer-science-0478/notes/5-3-cyber-security/">Cyber security</a></li>
-    </ul>
-  </section>
-  <section id="past-papers" class="card">
-    <h2>Past papers and mark schemes</h2>
-    <ul>
-      <li><a href="/igcse/computer-science-0478/past-papers/">Past papers index</a></li>
-      <li><a href="/igcse/computer-science-0478/past-papers/2024/">2024 series</a></li>
-      <li><a href="/igcse/computer-science-0478/past-papers/2023/">2023 series</a></li>
-    </ul>
-  </section>
-  <section id="study-guidance" class="card">
-    <h2>Study guidance</h2>
-    <ul>
-      <li>Use topic notes first, then attempt past-paper questions under timed conditions.</li>
-      <li>Focus on command words such as define, describe, explain, evaluate.</li>
-      <li>Track weak areas and revisit the corresponding notes and worked examples.</li>
-    </ul>
-  </section>
-  <section id="faq" class="card">
-    <h2>Frequently asked questions</h2>
-    <details>
-      <summary>Is this aligned with Cambridge IGCSE 0478</summary>
-      <p>Yes. The structure and examples are matched to the 0478 specification.</p>
-    </details>
-    <details>
-      <summary>Are notes and papers updated regularly</summary>
-      <p>Yes. New series are added as they become available.</p>
-    </details>
+
+  <section class="levels-column">
+    <div class="section-header">
+      <img src="./images/programming_skills.png" alt="Programming Skills" class="section-title"/>
+    </div>
+    <div id="programming-levels" class="levels-wrapper"></div>
+    <img src="./images/certificate.png" class="certificate-image" alt="Certificate"/>
   </section>
 </main>
+
+<div class="centered-check">
+  <img src="./images/progress_inspired_2.png" alt="Progress Completed">
+</div>
+
+<!-- ✅ Scripts -->
+<script type="module" src="./dashboard.js"></script>
+<script type="module" src="./modules/theoryRenderer.js"></script>
+<script type="module" src="./modules/levelRenderer.js"></script>
+<script type="module" src="./modules/supabase.js"></script>
+
 <footer>
-  <p>© <span id="y"></span> hamdeni-cs.tn</p>
+  &copy; 2025 Dr. Hamdeni Computer Science Platform. All rights reserved.
 </footer>
-<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
-<script type="application/ld+json">
-{
- "@context": "https://schema.org",
- "@type": "BreadcrumbList",
- "itemListElement": [
-  {"@type":"ListItem","position":1,"name":"IGCSE","item":"https://hamdeni-cs.tn/igcse/"},
-  {"@type":"ListItem","position":2,"name":"Computer Science 0478","item":"https://hamdeni-cs.tn/igcse/dashboard.html"}
- ]
-}
-</script>
+
 </body>
 </html>
