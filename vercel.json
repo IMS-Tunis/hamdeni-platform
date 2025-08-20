@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/igcse/computer-science-0478/",
+      "destination": "/igcse/dashboard.html",
+      "permanent": true
+    }
+  ]
+}
