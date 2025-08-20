@@ -77,7 +77,7 @@ async function updateProgress() {
       .upsert(
         { username, point_id: pointId.toLowerCase(), reached_layer: 3 },
         { onConflict: ['username', 'point_id'] }
-      );
+      ).select();
     if (error) console.error('Upsert error:', error);
   }
 }
@@ -128,7 +128,7 @@ async function render() {
             question_number: q.question_number,
             student_answer: ans,
             submitted_at: new Date().toISOString()
-          }, { onConflict: ['username','point_id','question_number'] });
+          }, { onConflict: ['username','point_id','question_number'] }).select();
           if (error) {
             console.error('Save answer error', error);
             alert('Failed to save answer.');
@@ -150,7 +150,7 @@ async function render() {
             student_answer: textarea.value.trim(),
             correction_note: note,
             corrected_at: new Date().toISOString()
-          }, { onConflict: ['username','point_id','question_number'] });
+          }, { onConflict: ['username','point_id','question_number'] }).select();
           if (error) {
             console.error('Save note error', error);
             alert('Failed to save note.');
