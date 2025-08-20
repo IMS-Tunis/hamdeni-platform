@@ -45,6 +45,8 @@ async function loadSaved() {
 
 function addNoteToReview(qNum, note, time) {
   if (!note) return;
+          noteTA.disabled = true;
+          saveBtn.disabled = true;
   const li = document.createElement('li');
   li.textContent = `Q${qNum}: ${note}`;
   notesList.appendChild(li);
@@ -145,6 +147,8 @@ async function render() {
         saveBtn.addEventListener('click', async () => {
           const note = noteTA.value.trim();
           if (!note) return;
+          noteTA.disabled = true;
+          saveBtn.disabled = true;
           const { data, error } = await supabase.from(tableName('layer3')).upsert({
             username,
             point_id: pointId.toLowerCase(),
