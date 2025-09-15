@@ -1,14 +1,94 @@
 [
   {
-    "question": "Explain what is meant by a validation test in computer science education.",
-    "answer": "A validation test checks that students have understood the material and are ready to progress."
+    "question": "Describe the purpose of a user-defined data type.",
+    "answer": "One mark per correct point:\n• To create a new data type\n• To give identifier to the data type"
   },
   {
-    "question": "State one advantage of practicing with past paper questions before an exam.",
-    "answer": "Past paper questions familiarize students with the exam style and improve confidence."
+    "question": "A record is a user-defined composite data type.\nExplain what is meant by a user-defined composite data type.\nInclude an example of another user-defined composite data type in your answer.",
+    "answer": "Any two from\n• A data type constructed by a programmer // not a primitive data type\n• A data type that references at least one other data type…\n• … the data types can be primitive, or user defined\n\nOne mark for an example\n• Class / object / set"
   },
   {
-    "question": "Give an example of a simple binary operation.",
-    "answer": "Adding two 1-bit binary numbers, e.g. 1 + 1 = 10."
+    "question": "A record is a user-defined composite data type.\nExplain what is meant by a user-defined composite data type.\nInclude an example of another user-defined composite data type in your answer.",
+    "answer": "Any two from\n• A data type constructed by a programmer // not a primitive data type\n• A data type that references at least one other data type…\n• … the data types can be primitive, or user defined\n\nOne mark for an example\n• Class / object / set"
+  },
+  {
+    "question": "Define, using pseudocode, the following enumerated data types:\n(i) SchoolDay to hold data about the days students are usually in school.",
+    "answer": "TYPE SchoolDay = (Monday, Tuesday, Wednesday, Thursday, Friday)"
+  },
+  {
+    "question": "Define, using pseudocode, the following enumerated data types:\n(ii) WeekEnd to hold data about the days that are not school days.",
+    "answer": "TYPE WeekEnd = (Saturday, Sunday)"
+  },
+  {
+    "question": "Define, using pseudocode, the enumerated data type Parts to hold the following values: Monitor, CPU, SSD, HDD, LaserPrinter, Keyboard, Mouse.",
+    "answer": "TYPE Parts = (Monitor, CPU, SSD, HDD, LaserPrinter, Keyboard, Mouse)"
+  },
+  {
+    "question": "Define, using pseudocode, a pointer type SelectParts that points to the enumerated type Parts.",
+    "answer": "TYPE SelectParts = ^Parts"
+  },
+  {
+    "question": "Write code to create an enumerated data type called Aircraft to represent the five types of plane used: C300, C350, D242, E757, X380.",
+    "answer": "TYPE Aircraft = (C300, C350, D242, E757, X380)"
+  },
+  {
+    "question": "Define, using pseudocode, the composite data type ClubMeet. This will hold data about club members that includes:\n• first name and last name\n• the two days they attend:\n  ○ one on a school day\n  ○ one not on a school day.\nUse the enumerated types you created in part (b).",
+    "answer": "Example answer\nTYPE ClubMeet\n   DECLARE FirstName : STRING\n   DECLARE LastName : STRING\n   DECLARE Schoolday : SchoolDay\n   DECLARE Weekend : WeekEnd\nENDTYPE"
+  },
+  {
+    "question": "Write pseudocode to create a record type called Flight. The Flight data type has the following attributes:\n• FlightNumber stores the flight number which is an integer\n• FlightTime stores the number of minutes which is an integer\n• StartLocation stores the starting location which is a string\n• EndLocation stores the ending location which is a string\n• Plane stores the type of plane which is an Aircraft type.",
+    "answer": "TYPE Flight\nDECLARE FlightNumber : INTEGER // stores the flight number\nDECLARE FlightTime : INTEGER // stores the number of minutes\nDECLARE StartLocation : STRING // stores the starting location\nDECLARE EndLocation : STRING // stores the ending location\nDECLARE Plane : Aircraft // stores the type of plane\nENDTYPE"
+  },
+  {
+    "question": "(i) Declare a variable named Flight1 that stores data about a flight using the Flight record type.",
+    "answer": "DECLARE Flight1 : Flight"
+  },
+  {
+    "question": "(ii) Store the following details in Flight1:\n• Flight number 7837\n• Start location Berlin\n• End location London\n• Flight time 110 minutes\n• Plane D242.\n\n[Answer format: write five assignment statements using dot notation with the exact field names from the Flight record; use quoted strings for text values and integers for numbers.]",
+    "answer": "One mark for each point of the following for the correct assignment/inputs\nFlight1.FlightNumber 7837\nFlight1.StartLocation \"Berlin\"\nFlight1.EndLocation \"London\"\nFlight1.FlightTime 110\nFlight1.Plane D242"
+  },
+  {
+    "question": "Explain the difference between non-composite and composite data types.",
+    "answer": "One mark per mark point (Max 2)\nnon-composite data types\nMP1 Non-composite data types can both be user-defined or primitive\nMP2 Non-composite data types do not refer to other data types in their definition / contain one data type in their definition\nMP3 Non-composite data types can be primitive/enumerated/pointer\n\nOne mark per mark point (Max 2)\ncomposite data types\nMP4 Composite data types can be user-defined or primitive\nMP5 Composite data types refer to other data types in their definition/contain more than one data type in their definition\nMP6 Composite data types can be record/set/class"
+  },
+  {
+    "question": "Declare the record data type FootballClub with the following fields and data types:\nTeamName : STRING\nDateOfJoining : DATE\nMainTelephone : STRING\nManagerName : STRING\nNumberOfMembers : INTEGER\nLeaguePosition : INTEGER.",
+    "answer": "Example answer\nTYPE FootballClub\n    DECLARE TeamName : STRING\n    DECLARE DateOfJoining : DATE\n    DECLARE MainTelephone : STRING\n    DECLARE ManagerName : STRING\n    DECLARE NumberOfMembers : INTEGER\n    DECLARE LeaguePosition : INTEGER\nENDTYPE"
+  },
+  {
+    "question": "Describe a set user-defined data type.",
+    "answer": "One mark per mark point (Max 3)\nMP1 A set user-defined data type is a composite data type\nMP2 … which includes a list of unordered elements\nMP3 Set theory operations, such as intersection and union, can be applied to these elements\nMP4 A set data type includes the type of data/data type it uses as part of its definition\nMP5 All the elements are of the same data type."
+  },
+  {
+    "question": "Declare the pseudocode for the set user-defined data type SymbolSet and use it to define a set called Operators that contains the following elements: '+', '–', '*', '/', '^'.",
+    "answer": "Example answers\nTYPE SymbolSet = SET OF CHAR\n\nDEFINE Operators ('+', '–', '*', '/', '^') : SymbolSet\n\nTYPE Operators = SET OF CHAR\n\nDEFINE SymbolSet ('+', '–', '*', '/', '^') : Operators"
+  },
+  {
+    "question": "Complete the class diagram for Pet to show:\n• two properties and the data type for each property\n• two methods:\n  ○ a method to create a Pet object that assigns the new Pet with a unique identifier and a date of registration\n  ○ a method that returns the Pet name and the owner’s telephone number\n• a relationship between the Vet and Pet classes that indicates each Pet is registered to exactly one Vet.\n\n[Answer format: list two properties with their data types; list two methods with parameter lists and return types; then state the relationship in text using UML-style cardinality. Drawings are not required.]",
+    "answer": "Two marks per correct point (Max 6)\nExample answers\nproperties\n• PetName, PetType, OwnerTel : STRING\n• UniqueID : INTEGER\n• regDate : DATE\nmethods\n• method to create // assign ID number // record date of registration\n• method // return pet name // return owner's telephone number\nrelationship\n• based on UML notation near the association: – 1 // Cardinality near Vet class: 1 // Cardinality near Pet class: – // A line connecting Vet to Pet"
+  },
+  {
+    "question": "Write pseudocode statements to assign:\n• A Level Computer Science to Title of LibraryBook\n• FALSE to Fiction of LibraryBook.",
+    "answer": "LibraryBook.Title  \"A Level Computer Science\"\nLibraryBook.Fiction  FALSE"
+  },
+  {
+    "question": "Write pseudocode statements to assign:\n• A Level Computer Science to Title of LibraryBook\n• FALSE to Fiction of LibraryBook.",
+    "answer": "LibraryBook.Title  \"A Level Computer Science\"\nLibraryBook.Fiction  FALSE"
+  },
+  {
+    "question": "The type definition for LibraryRecord is changed.\n(i) The value for NumberOfCopies must be between 1 and 10 inclusive.\nWrite the updated line of pseudocode from the type definition of LibraryRecord to implement the change.",
+    "answer": "DECLARE NumberOfCopies : 1 .. 10"
+  },
+  {
+    "question": "The type definition for LibraryRecord is changed.\n(ii) Every copy of every book is now uniquely identified by an accession number, AccessionNumber, as it is added to the library. Each library record will include one or more accession numbers. Each accession number is an integer.\nWrite the extra line of pseudocode needed in the type definition of LibraryRecord.",
+    "answer": "DECLARE AccessionNumber : ARRAY[1:NumberOfCopies] OF INTEGER"
+  },
+  {
+    "question": "The type definition for LibraryRecord is changed.\n(i) The value for NumberOfCopies must be between 1 and 10 inclusive.\nWrite the updated line of pseudocode from the type definition of LibraryRecord to implement the change.",
+    "answer": "DECLARE NumberOfCopies : 1 .. 10"
+  },
+  {
+    "question": "The type definition for LibraryRecord is changed.\n(ii) Every copy of every book is now uniquely identified by an accession number, AccessionNumber, as it is added to the library. Each library record will include one or more accession numbers. Each accession number is an integer.\nWrite the extra line of pseudocode needed in the type definition of LibraryRecord.",
+    "answer": "DECLARE AccessionNumber : ARRAY[1:NumberOfCopies] OF INTEGER"
   }
 ]

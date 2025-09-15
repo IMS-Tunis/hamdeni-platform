@@ -1,0 +1,37 @@
+{
+  "13.1a: Show understanding of why user-defined types are necessary": [
+    {
+      "term": "User-defined data type",
+      "definition": "where the programmer includes the definition in the program"
+    }
+  ],
+  "13.1b: Define and use non-composite types (including enumerated, pointer)": [
+    {
+      "term": "Non-composite data type",
+      "definition": "a data type defined without reference to another data type"
+    },
+    {
+      "term": "Enumerated data type",
+      "definition": "a non-composite user-defined data type for which the definition identifies all possible values"
+    },
+    {
+      "term": "Pointer variable",
+      "definition": "one for which the value is the address in memory of a different variable"
+    }
+  ],
+  "13.1c: Define and use composite data types (including set, record and class/object)": [
+    {
+      "term": "Set",
+      "definition": "a collection of data items that lacks any structure; contains no duplicates and has a number of defined operations that can be performed on it"
+    },
+    {
+      "term": "Record",
+      "definition": "a collection of fields containing data values"
+    },
+    {
+      "term": "Binary file",
+      "definition": "a file designed for storing data to be used by a computer program"
+    }
+  ],
+  "13.1d: Choose and design an appropriate user-defined data type for a given problem": []
+}

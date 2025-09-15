@@ -1,0 +1,82 @@
+13.1 User-defined data types — Consolidated theory notes derived from verified Q/A pairs
+
+
+13.1.1 Understanding why user-defined types are necessary
+
+1. A user-defined data type allows a programmer to create a new data type and assign it an identifier, so that programs can represent domain-specific structures directly.
+Accepted points:
+• To create a new data type
+• To give identifier to the data type
+2. A user-defined composite data type is constructed by a programmer and references at least one other data type, which can be primitive or user defined; valid examples include a class, an object, or a set.
+Key points:
+• Constructed by a programmer (not primitive)
+• References one or more other data types
+• Example: class / object / set
+3. A user-defined composite data type is constructed by a programmer and references at least one other data type, which can be primitive or user defined; valid examples include a class, an object, or a set.
+Key points:
+• Constructed by a programmer (not primitive)
+• References one or more other data types
+• Example: class / object / set
+
+13.1.2 Non-composite user-defined types (enumerated, pointer)
+
+4. In pseudocode, the enumerated type SchoolDay is declared as: TYPE SchoolDay = (Monday, Tuesday, Wednesday, Thursday, Friday).
+5. In pseudocode, the enumerated type WeekEnd is declared as: TYPE WeekEnd = (Saturday, Sunday).
+6. In pseudocode, the enumerated type Parts is declared as: TYPE Parts = (Monitor, CPU, SSD, HDD, LaserPrinter, Keyboard, Mouse).
+7. In pseudocode, a pointer type that points to Parts is declared as: TYPE SelectParts = ^Parts.
+8. In pseudocode, the enumerated type Aircraft is declared as: TYPE Aircraft = (C300, C350, D242, E757, X380).
+
+13.1.3 Composite user-defined types (set, record, class/object) and usage
+
+9. A suitable composite record type for club members can be declared as:
+TYPE ClubMeet
+   DECLARE FirstName : STRING
+   DECLARE LastName : STRING
+   DECLARE Schoolday : SchoolDay
+   DECLARE Weekend : WeekEnd
+ENDTYPE
+10. A suitable record type for flights can be declared as:
+TYPE Flight
+DECLARE FlightNumber : INTEGER // stores the flight number
+DECLARE FlightTime : INTEGER // stores the number of minutes
+DECLARE StartLocation : STRING // stores the starting location
+DECLARE EndLocation : STRING // stores the ending location
+DECLARE Plane : Aircraft // stores the type of plane
+ENDTYPE
+11. A variable that stores one Flight record is declared as: DECLARE Flight1 : Flight.
+12. The following assignments store the details in Flight1:
+Flight1.FlightNumber 7837
+Flight1.StartLocation "Berlin"
+Flight1.EndLocation "London"
+Flight1.FlightTime 110
+Flight1.Plane D242
+13. Non-composite data types can be primitive or user-defined and do not refer to other data types in their definition (examples include primitive, enumerated, and pointer types), whereas composite data types can be primitive or user-defined and refer to more than one data type in their definition (examples include record, set, and class).
+14. A suitable declaration for the record type FootballClub is:
+TYPE FootballClub
+    DECLARE TeamName : STRING
+    DECLARE DateOfJoining : DATE
+    DECLARE MainTelephone : STRING
+    DECLARE ManagerName : STRING
+    DECLARE NumberOfMembers : INTEGER
+    DECLARE LeaguePosition : INTEGER
+ENDTYPE
+15. A set user-defined data type is a composite data type that includes an unordered collection of elements of the same data type; set-theory operations such as intersection and union apply, and the element type is specified in the data type’s definition.
+16. Example declarations for a character set include:
+TYPE SymbolSet = SET OF CHAR
+DEFINE Operators ('+', '–', '*', '/', '^') : SymbolSet
+TYPE Operators = SET OF CHAR
+DEFINE SymbolSet ('+', '–', '*', '/', '^') : Operators
+17. A suitable class design for Pet includes properties such as PetName, PetType, OwnerTel (STRING), UniqueID (INTEGER), and regDate (DATE); methods include one to create a Pet that assigns a unique ID and records the registration date, and another that returns the Pet name and the owner’s telephone number; the relationship to Vet follows UML-style cardinality with one Vet associated to each Pet (1:1).
+18. The assignments to set fields in LibraryBook are:
+LibraryBook.Title  "A Level Computer Science"
+LibraryBook.Fiction  FALSE
+19. The assignments to set fields in LibraryBook are:
+LibraryBook.Title  "A Level Computer Science"
+LibraryBook.Fiction  FALSE
+
+13.1.4 Choosing and designing an appropriate user-defined type
+
+20. A range restriction in the type definition sets the field as: DECLARE NumberOfCopies : 1 .. 10.
+21. The array of accession numbers is defined as: DECLARE AccessionNumber : ARRAY[1:NumberOfCopies] OF INTEGER.
+22. A range restriction in the type definition sets the field as: DECLARE NumberOfCopies : 1 .. 10.
+23. The array of accession numbers is defined as: DECLARE AccessionNumber : ARRAY[1:NumberOfCopies] OF INTEGER.

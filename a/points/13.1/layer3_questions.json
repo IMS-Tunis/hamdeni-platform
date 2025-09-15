@@ -1,20 +1,158 @@
 [
   {
     "point_id": "13.1",
-    "question_number": 1,
-    "question": "State one benefit of using binary in computers.",
-    "mark_scheme": "Binary is simple for electronic circuits, representing two states such as on/off."
+    "question_number": "1a",
+    "question": "Using the pseudocode declarations below, identify\ni) an enumerated data type [1]\nii) a composite data type [1]\niii) a non-composite user-defined data type from the declarations above [1]\niv) a user-defined data type [1]\n\nTYPE Tseason = (Spring, Summer, Autumn, Winter)\nTYPE\nTJournalRecord\n    DECLARE title : STRING\n    DECLARE author : STRING\n    DECLARE publisher : STRING\n    DECLARE noPages : INTEGER\n    DECLARE season : Tseason\nENDTYPE",
+    "mark_scheme": "Answer (parts i–iv):\n(Identify: name/select/recognise)\ni) Tseason\nii) TJournalRecord\niii) Tseason\niv) Tseason or TJournalRecord"
   },
   {
     "point_id": "13.1",
-    "question_number": 2,
-    "question": "Define the term 'protocol' in networking.",
-    "mark_scheme": "A protocol is a set of rules that allow devices to communicate."
+    "question_number": "1b",
+    "question": "Write pseudocode to declare a variable Journal of type TJournalRecord and assign the values below. [3]\nTitle – Spring Flowers; Author – H Williams; Publisher – XYZ Press; Number of pages – 40; Season – Spring",
+    "mark_scheme": "Answer (part b):\n(Write: write an answer in a specific way)\nDECLARE Journal : TJournalRecord\nSET Journal.title     = \"Spring Flowers\"\nSET Journal.author    = \"H Williams\"\nSET Journal.publisher = \"XYZ Press\"\nSET Journal.noPages   = 40\nSET Journal.season    = Spring"
   },
   {
     "point_id": "13.1",
-    "question_number": 3,
-    "question": "Explain the purpose of an IP address.",
-    "mark_scheme": "It uniquely identifies a device on a network."
+    "question_number": "2a",
+    "question": "A programmer may choose to use a user-defined data type when writing a program.\n\na) Give an example of a non-composite user-defined data type and explain why its use by a programmer is different to the use of an in-built data type. [3]",
+    "mark_scheme": "Answer (part a):\n(Give: produce an answer from a given source or recall/memory) (Explain: set out purposes or reasons / make the relationships between things evident / provide why and/or how and support with relevant evidence)\nExample:\nTYPE TGrade = (A, B, C, D, E, F)\nA user-defined type restricts values to a specific, problem-driven set, whereas an in-built type is predefined and general purpose."
+  },
+  {
+    "point_id": "13.1",
+    "question_number": "2b(i)",
+    "question": "A program is to be written to handle data relating to the animals kept in a zoo. The programmer chooses to use a record user-defined data type.\n\ni) Explain what a record user-defined data type is. [2]",
+    "mark_scheme": "Answer (part b-i):\n(Explain: set out purposes or reasons / make the relationships between things evident / provide why and/or how and support with relevant evidence)\nA record is a composite user-defined type that groups named fields, each possibly with a different data type, into one structure."
+  },
+  {
+    "point_id": "13.1",
+    "question_number": "2b(ii)",
+    "question": "A program is to be written to handle data relating to the animals kept in a zoo. The programmer chooses to use a record user-defined data type.\n\nii) Explain the advantage of using a record user-defined data type. [2]",
+    "mark_scheme": "Answer (part b-ii):\n(Explain: set out purposes or reasons / make the relationships between things evident / provide why and/or how and support with relevant evidence)\nIt keeps related items together under one name, improving clarity and enabling the whole structure to be passed as a single argument."
+  },
+  {
+    "point_id": "13.1",
+    "question_number": "2b(iii)",
+    "question": "A program is to be written to handle data relating to the animals kept in a zoo. The programmer chooses to use a record user-defined data type.\n\niii) Write pseudocode for the definition of a record type to store: animal name, animal age, number in zoo and location in the zoo. [5]",
+    "mark_scheme": "Answer (part b-iii):\n(Write: write an answer in a specific way)\nTYPE AnimalRecord\n    DECLARE name        : STRING\n    DECLARE ageYears    : INTEGER\n    DECLARE countInZoo  : INTEGER\n    DECLARE location    : STRING\nENDTYPE"
+  },
+  {
+    "point_id": "13.1",
+    "question_number": "3a(i)",
+    "question": "A particular programming language allows the programmer to define their own data types. ThisDate is an example of a user-defined structured data type.\n\nTYPE ThisDate\nDECLARE ThisDay   : (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,\n                     14, 15, 16, 17, 18, 19, 20, 21, 22, 23,\n                     24, 25, 26, 27, 28, 29, 30, 31)\nDECLARE ThisMonth : (Jan, Feb, Mar, Apr, May, Jun, Jul, Aug,\n                     Sep, Oct, Nov, Dec)\nDECLARE ThisYear  : INTEGER\nENDTYPE\n\nA variable of this new type is declared as follows:\nDECLARE DateOfBirth : ThisDate\n\ni) Name the non-composite data type used in the ThisDay and ThisMonth declarations. [1]",
+    "mark_scheme": "Answer (part a-i):\n(Identify: name/select/recognise)\nEnumerated type."
+  },
+  {
+    "point_id": "13.1",
+    "question_number": "3a(ii)",
+    "question": "Using the ThisDate type defined above and the declaration:\nDECLARE DateOfBirth : ThisDate\n\nii) Name the data type of ThisDate. [1]",
+    "mark_scheme": "Answer (part a-ii):\n(Identify: name/select/recognise)\nRecord (user-defined composite structured type)."
+  },
+  {
+    "point_id": "13.1",
+    "question_number": "3a(iii)",
+    "question": "Using the ThisDate type defined above and the declaration:\nDECLARE DateOfBirth : ThisDate\n\niii) The month value of DateOfBirth needs to be assigned to the variable MyMonthOfBirth. Write the required statement. [1]",
+    "mark_scheme": "Answer (part a-iii):\n(Write: write an answer in a specific way)\nSET MyMonthOfBirth = DateOfBirth.ThisMonth"
+  },
+  {
+    "point_id": "13.1",
+    "question_number": "3b(i)",
+    "question": "Annual rainfall data from a number of locations are to be processed in a program. The following data are to be stored: location name; height above sea level (metres, integer); total rainfall for each month (centimetres to 1 decimal place).\nA user-defined, composite data type is needed. The programmer chooses LocationRainfall as the name of this data type.\n\ni) Write the definition for the data type LocationRainfall. [5]",
+    "mark_scheme": "Answer (part b-i):\n(Write: write an answer in a specific way)\nTYPE LocationRainfall\n    DECLARE locationName    : STRING\n    DECLARE heightMetres    : INTEGER\n    DECLARE monthlyRainfall : ARRAY[1:12] OF REAL   // 1 decimal place\nENDTYPE"
+  },
+  {
+    "point_id": "13.1",
+    "question_number": "4a(i)",
+    "question": "Consider the following pseudocode type declarations:\nTYPE\nTDirections = (North, East, South, West)\nTYPE\nTDirections = (East, North, South, West)\n\na) These are examples of a particular data type.\ni) Name this data type.",
+    "mark_scheme": "Answer:\n(Identify: name/select/recognise)\na-i) Enumerated type."
+  },
+  {
+    "point_id": "13.1",
+    "question_number": "4a(ii)",
+    "question": "Consider the following pseudocode type declarations:\nTYPE\nTDirections = (North, East, South, West)\nTYPE\nTDirections = (East, North, South, West)\n\na) These are examples of a particular data type.\nii) To which general category of data type do these belong?",
+    "mark_scheme": "Answer:\n(Identify: name/select/recognise)\na-ii) Non-composite user-defined data type."
+  },
+  {
+    "point_id": "13.1",
+    "question_number": "4b",
+    "question": "Consider the following pseudocode type declarations:\nTYPE\nTDirections = (North, East, South, West)\nTYPE\nTDirections = (East, North, South, West)\n\nb) In the context of data types, what does the term ordinal mean?",
+    "mark_scheme": "Answer:\n(Define: give precise meaning)\nb) Ordinal means the values have a defined order so they can be compared, indexed, or stepped through by successor/predecessor."
+  },
+  {
+    "point_id": "13.1",
+    "question_number": "4c",
+    "question": "Consider the following pseudocode type declarations:\nTYPE\nTDirections = (North, East, South, West)\nTYPE\nTDirections = (East, North, South, West)\n\nc) Explain why only one of the two definitions given could make effective use of the ordinal property defined by the type declaration.",
+    "mark_scheme": "Answer:\n(Explain: set out purposes or reasons / make the relationships between things evident / provide why and/or how and support with relevant evidence)\nc) The first declaration orders directions in the natural clockwise sequence North, East, South, West, so ordinal stepping (for example, “turn right”) maps to the next value modulo 4. The second declaration starts at East and breaks the intended sequence, so ordinal stepping would not correspond to meaningful compass movements."
+  },
+  {
+    "point_id": "13.1",
+    "question_number": "5",
+    "question": "Match each phrase with the correct description.\n\nPhrases:\n1) Non-composite data type\n2) Enumerated data type\n3) Ordinal values\n4) Operations possible on set types\n5) Pointer type\n6) Record data type\n\nDescriptions:\nA) union or intersection\nB) has a definition which does not involve a reference to another type\nC) may be used to construct dynamically varying data structures\nD) defines a list of possible values\nE) contains a fixed number of components, possibly of different types\nF) have an implied order of values",
+    "mark_scheme": "Answer:\n(Draw: draw a line to match a term with a description)\n1 → B\n2 → D\n3 → F\n4 → A\n5 → C\n6 → E"
+  },
+  {
+    "point_id": "13.1",
+    "question_number": "6",
+    "question": "State two reasons why a programmer might create a user-defined data type instead of using only built-in types.",
+    "mark_scheme": "Answer:\n(State: express in clear terms)\n1) To match the program’s data requirements exactly when built-in types are not sufficient.\n2) To organise complex data clearly, improving readability and maintainability."
+  },
+  {
+    "point_id": "13.1",
+    "question_number": "7",
+    "question": "Define an enumerated type to represent the traffic-light states and declare a variable set to Amber.",
+    "mark_scheme": "Answer:\n(Define: give precise meaning)\nTYPE TLight = (Red, Amber, Green)\nDECLARE currentLight : TLight\nSET currentLight = Amber"
+  },
+  {
+    "point_id": "13.1",
+    "question_number": "8",
+    "question": "Explain why an enumerated type is a non-composite user-defined type.",
+    "mark_scheme": "Answer:\n(Explain: set out purposes or reasons / make the relationships between things evident / provide why and/or how and support with relevant evidence)\nIts definition lists every valid value directly and does not refer to any other type; therefore it is not built from other types."
+  },
+  {
+    "point_id": "13.1",
+    "question_number": "9",
+    "question": "Demonstrate, in steps, how a pointer to an integer can be used to double the value 100.",
+    "mark_scheme": "Answer:\n(Demonstrate: show how or give an example)\n1) Declare a pointer that can point to an INTEGER.\n2) Declare an INTEGER aNumber and set aNumber = 100.\n3) Store the location of aNumber in the pointer.\n4) Read through the pointer and compute 2 × the referenced value to obtain 200."
+  },
+  {
+    "point_id": "13.1",
+    "question_number": "10",
+    "question": "Describe what a record user-defined type is and give a short example of suitable fields.",
+    "mark_scheme": "Answer:\n(Describe: state the points of a topic / give characteristics and main features)\nA record is a composite type whose fields are chosen to match the problem domain, with each field possibly of a different type. Example Book fields: Title (STRING), Author (STRING), Pages (INTEGER)."
+  },
+  {
+    "point_id": "13.1",
+    "question_number": "11",
+    "question": "Compare a record with a class/object as composite user-defined types.",
+    "mark_scheme": "Answer:\n(Compare: identify/comment on similarities and/or differences)\nSimilarity: both group named data.\nDifference: a record groups fields only, while a class groups fields and also methods that operate on those fields."
+  },
+  {
+    "point_id": "13.1",
+    "question_number": "12",
+    "question": "Suggest the most appropriate user-defined type for each scenario and justify briefly.\nA) A fixed list of allowable discount codes.\nB) Information stored for each house for sale.\nC) Storing the locations of integer values in memory.",
+    "mark_scheme": "Answer:\n(Suggest: apply knowledge and understanding to situations where there are a range of valid responses in order to make proposals)\nA) Enumerated type, because valid values are a fixed list.\nB) Record, because several labelled pieces of data are stored together.\nC) Pointer type, because the addresses of values must be stored."
+  },
+  {
+    "point_id": "13.1",
+    "question_number": "13",
+    "question": "Complete the results of these set operations, given Vowels = {a, e, i, o, u}.\nA) {a, e} ∪ {e, i} = ?\nB) {a, e} ∩ {e, i} = ?",
+    "mark_scheme": "Answer:\n(Complete: add information to an incomplete diagram or table)\nA) {a, e, i}\nB) {e}"
+  },
+  {
+    "point_id": "13.1",
+    "question_number": "14",
+    "question": "Outline how a range restriction can be expressed when designing a user-defined type, and give one example.",
+    "mark_scheme": "Answer:\n(Outline: set out main points)\nState the allowed values in the type’s design or documentation. Example: NumberOfCopies is any integer from 1 to 10 inclusive."
+  },
+  {
+    "point_id": "13.1",
+    "question_number": "15",
+    "question": "Explain how the implied order of an enumerated type can be used in a program.",
+    "mark_scheme": "Answer:\n(Explain: set out purposes or reasons / make the relationships between things evident / provide why and/or how and support with relevant evidence)\nBecause the values have an inherent order, comparisons and stepping operations are meaningful, such as moving to the next value to model a state change."
+  },
+  {
+    "point_id": "13.1",
+    "question_number": "16",
+    "question": "Identify whether each definition is composite or non-composite.\nA) TYPE TSeason = (Spring, Summer, Autumn, Winter)\nB) TYPE Flight WITH fields FlightNumber, StartLocation, EndLocation, FlightTime\nC) Vowels = {a, e, i, o, u}",
+    "mark_scheme": "Answer:\n(Identify: name/select/recognise)\nA) Non-composite (enumerated)\nB) Composite (record)\nC) Composite (set)"
   }
 ]
