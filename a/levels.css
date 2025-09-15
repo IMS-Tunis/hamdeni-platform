@@ -1,0 +1,572 @@
+
+/* igcse-algo-notes.css */
+/* Core palette */
+:root{
+  --primary:#153f71;
+  --accent:#00a3b4;
+  --text:#222;
+  --muted:#555;
+  --ex-bg:#e9f6f8;
+  --ex-border:#00a3b4;
+  --rule:#e6e6e6;
+}
+
+/* Base */
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:Calibri, Arial, Helvetica, sans-serif;
+  color:var(--text);
+  line-height:1.6;
+  background:#fff;
+}
+
+
+/* Layout */
+.container{max-width:920px;margin:28px auto;padding:0 16px}
+
+/* Table of contents */
+.toc{
+  border:1px solid var(--rule);
+  border-left:4px solid var(--accent);
+  background:#fafafa;
+  padding:12px 16px;
+  margin-bottom:24px;
+}
+.toc ol{margin:6px 0 0 18px}
+.toc a{color:var(--primary);text-decoration:none}
+.toc a:hover{text-decoration:underline}
+
+/* Sections */
+.section{margin:28px 0;padding-bottom:10px;border-bottom:1px solid var(--rule)}
+.section h2{
+  color:var(--primary);
+  font-size:20px;
+  margin:0 0 10px;
+  padding-bottom:6px;
+  border-bottom:2px solid var(--primary);
+}
+
+/* Bullets */
+.bullets{margin:8px 0 0 22px}
+.bullets > li{margin:8px 0}
+/* True sub-bullets appear as nested ul */
+.bullets ul{
+  list-style-type:circle;
+  margin:6px 0 10px 20px;
+  color:var(--muted);
+}
+.bullets ul li{margin:6px 0}
+
+/* Example callouts */
+.example{
+  margin:12px 0;
+  padding:12px 14px;
+  background:var(--ex-bg);
+  border:1px solid #bfecef;
+  border-left:6px solid var(--ex-border);
+  border-radius:6px;
+}
+.example .title{font-weight:700;color:var(--accent);margin-bottom:6px}
+.example p{margin:6px 0 0}
+
+/* Footer */
+.footer{
+  text-align:center;
+  color:#777;
+  font-size:12px;
+  padding:22px 0;
+  margin-top:20px;
+  border-top:1px solid var(--rule);
+}
+/* Pseudocode layout */
+.pseudocode {
+  margin: 1rem 0;
+}
+.pc-line {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  /* keep both parts on one visual row when possible */
+  flex-wrap: nowrap;
+}
+.pc-comment {
+  flex: 0 0 40%;
+  font-style: normal;        /* comment not italic */
+  opacity: 0.85;             /* visually distinct */
+}
+.pc-code {
+  flex: 1 1 auto;
+  white-space: pre-wrap;     /* preserve indentation */
+}
+.pc-code em {
+  font-style: italic;        /* code in italic as required */
+}
+
+/* Example blocks */
+.example {
+  margin: 0.75rem 0 1rem 0;
+}
+.example .title {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+/* Lists inside bullets */
+ul.bullets > li > ul {
+  margin-top: 0.25rem;
+}
+
+/* CTA button */
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 999px;
+  padding: 0.65rem 1.1rem;
+  font-weight: 600;
+}
+.btn-cta {
+  background: #16a34a;   /* green */
+  color: #ffffff;
+  border: 1px solid rgba(22, 163, 74, 0.2);
+  box-shadow: 0 1px 2px rgba(2, 6, 23, 0.08);
+}
+.btn-cta:hover,
+.btn-cta:focus {
+  background: #15803d;   /* darker green */
+  color: #ffffff;
+}
+.btn-cta:focus {
+  outline: 3px solid #f59e0b;  /* accessible focus */
+  outline-offset: 2px;
+}
+
+/* === PSEUDOCODE TOOLTIP COMMENTS ======================================= */
+/* The HTML uses: <div class="pseudocode"><div class="pc-line">
+   <span class="comment" data-tooltip="..."><em>VERBATIM CODE</em></span></div></div> */
+
+/* Make each pseudocode line stack cleanly */
+.pseudocode .pc-line + .pc-line {
+  margin-top: 0.35rem;
+}
+
+/* Ensure the verbatim code keeps indentation and remains italic */
+.pseudocode .comment em {
+  white-space: pre-wrap;   /* preserve indentation and allow wrap */
+  font-style: italic;      /* required by the spec */
+}
+
+/* Base hook for tooltip carrier */
+.comment[data-tooltip] {
+  position: relative;
+  cursor: help;            /* indicates more info is available */
+  border-bottom: 1px dotted var(--rule);
+}
+
+/* Tooltip bubble */
+.comment[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 0;
+  top: calc(100% + 6px);
+  z-index: 50;
+  padding: 8px 10px;
+  max-width: 520px;
+  background: rgba(17, 24, 39, 0.98);   /* near-black for contrast */
+  color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 6px 22px rgba(2, 6, 23, 0.18);
+  line-height: 1.35;
+  font-size: 0.92rem;
+  white-space: normal;     /* allow wrapping inside tooltip */
+  opacity: 0;
+  transform: translateY(4px);
+  pointer-events: none;    /* tooltip doesn't steal hover */
+  transition: opacity .15s ease, transform .15s ease;
+}
+
+/* Optional arrow */
+.comment[data-tooltip]::before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: calc(100% + 2px);
+  border-width: 6px 6px 0 6px;
+  border-style: solid;
+  border-color: rgba(17, 24, 39, 0.98) transparent transparent transparent;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity .15s ease, transform .15s ease;
+}
+
+/* Show tooltip on hover; :active helps on touch */
+.comment[data-tooltip]:hover::after,
+.comment[data-tooltip]:hover::before,
+.comment[data-tooltip]:active::after,
+.comment[data-tooltip]:active::before {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* If a pseudocode line is too close to the bottom edge, flip the tooltip up.
+   Add class="flip" to the span when needed (optional manual control). */
+.comment.flip[data-tooltip]::after {
+  top: auto;
+  bottom: calc(100% + 6px);
+}
+.comment.flip[data-tooltip]::before {
+  top: auto;
+  bottom: calc(100% + 2px);
+  border-width: 0 6px 6px 6px;
+  border-color: transparent transparent rgba(17,24,39,0.98) transparent;
+}
+
+/* Pseudocode line spacing */
+.pseudocode .pc-line {
+  line-height: 1;      /* lower than the browser default to tighten lines */
+  margin: 0 0 2px 0;     /* small vertical gap between lines */
+}
+
+/* Optional: make the block itself a bit tighter */
+.pseudocode {
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+/* === Pseudocode modern frame - overrides (append at end) === */
+.pseudocode {
+  background: linear-gradient(180deg, #ffffff, #f8fbfd);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--accent);
+  border-radius: 10px;
+  box-shadow: 0 1px 2px rgba(2, 6, 23, 0.06), 0 6px 18px rgba(2, 6, 23, 0.04);
+
+  /* indent the whole block */
+  margin: 10px 0 14px 1.75rem;
+  padding: 12px 16px;
+  overflow-x: auto;
+}
+
+.pseudocode::before {
+  content: "Pseudocode";
+  display: inline-block;
+  position: relative;
+  top: -6px;
+
+  padding: 2px 8px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+
+  color: var(--muted);
+  background: #fff;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+}
+
+/* tighter lines inside the block */
+.pseudocode .pc-line {
+  line-height: 1.05;
+  margin: 0 0 2px 0;
+}
+
+/* keep code readable in a monospace italic face */
+.pseudocode em {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: #0f172a;
+}
+
+/* visual indentation spans used in the HTML */
+.pseudocode .indent {
+  display: inline-block;
+  width: 1.25rem;   /* ≈ two spaces */
+}
+
+/* subtle underline cue for tooltip targets */
+.pseudocode .comment {
+  border-bottom: 1px dotted var(--rule);
+}
+
+/* === Pseudocode: remove scrollbars and keep wrapping === */
+.pseudocode {
+  overflow: visible;            /* override any previous overflow */
+}
+
+/* ensure long tokens wrap if needed without adding a scrollbar */
+.pseudocode .comment em {
+  white-space: pre-wrap;        /* keep your line breaks and spaces */
+  overflow-wrap: anywhere;      /* allow break inside long tokens when necessary */
+}
+
+/* === Tooltip: make the bubble wider and less constrained === */
+.comment[data-tooltip]::after {
+  width: clamp(480px, 60vw, 900px);  /* wider bubble that scales with viewport */
+  max-width: none;                   /* remove the old 520px cap */
+}
+
+/* === Tooltip width moderation (override last) === */
+.comment[data-tooltip]::after {
+  /* shrink-to-fit the text, but keep reasonable bounds */
+  width: auto;                 /* ignore any fixed width set earlier */
+  inline-size: fit-content;    /* size to content */
+  max-inline-size: clamp(36ch, 48vw, 62ch);  /* cap width: ~36–62 characters */
+  min-inline-size: 28ch;       /* avoid ultra-thin bubbles on desktop */
+
+  /* keep text readable and wrapping */
+  white-space: normal;
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}
+
+/* On small screens, let the bubble breathe without forcing a minimum */
+@media (max-width: 640px) {
+  .comment[data-tooltip]::after {
+    max-inline-size: 90vw;     /* near edge-to-edge if needed */
+    min-inline-size: 0;        /* no enforced minimum on mobile */
+  }
+}
+
+
+
+/* ===== Video card: compact, centered, light-pink theme ===== */
+:root{
+  --video-w: 400px;        /* player width (change once to scale all) */
+  --frame-padding: 12px;   /* outer frame padding */
+  --media-padding: 8px;    /* inner padding around iframe */
+}
+
+/* Base video card */
+.example.video{
+  border: 1px solid var(--frame-border, #e0e0e0);
+  background: var(--frame-bg, #f9fafb);
+  border-radius: 8px;
+  padding: var(--frame-padding);
+  margin: 16px auto;                                /* center horizontally */
+  max-width: calc(var(--video-w) + 2 * var(--frame-padding)); /* a bit wider than video */
+}
+
+/* Title and media areas */
+.example.video .title{
+  font-weight: 600;
+  margin-bottom: 8px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  text-align: center;
+  background: var(--frame-title-bg, #f0f0f0);
+}
+.example.video .media{
+  display: flex;
+  justify-content: center;                          /* center the iframe */
+  padding: var(--media-padding);
+  background: var(--frame-media-bg, #ffffff);
+  border-radius: 6px;
+}
+
+/* Player size (keeps 16:9) */
+.example.video iframe{
+  width: var(--video-w);
+  max-width: 100%;                                  /* shrink on small screens */
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: 6px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+}
+
+/* Light-pink theme variant */
+.example.video.video-pink{
+  --frame-border: #F5A3C7;
+  --frame-bg: #FDE7F3;
+  --frame-title-bg: #FBD0E2;
+  --frame-media-bg: #FFF0F6;
+}
+
+
+/* === Header: compact, centered, and aligned with EXAMPLE styling === */
+.header{
+  background: #153f71;                         /* same bg as .example */
+  border-bottom: 1px solid #bfecef;                 /* matches example border */
+  box-shadow: 0 1px 2px rgba(2, 6, 23, 0.04);
+  margin-bottom: 2px;
+}
+
+/* Remove default container vertical margins only inside header */
+.header > .container{
+  margin: 0 auto;                                   /* override global .container margin */
+  padding: 1px 2px;                                /* compact vertical padding */
+}
+
+.header .header-bar{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 2px 0;                                   /* tighter top bar */
+}
+
+.header .brand{
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  text-decoration: none;
+  color: var(--primary);
+}
+.header .brand-logo{
+  width: 150px;
+  object-fit: contain;
+  border-radius: 2px;
+}
+.header .brand-name{ font-weight: 600; }
+
+/* Center the title and reduce vertical space */
+.header .header-main{
+  text-align: center;
+  padding: 1px 0 2px;                              /* compact block */
+}
+.header .header-main h1{
+  margin: 1px 0 1px;
+  color: #ffffff;
+  font-size: clamp(22px, 2.6vw, 30px);              /* slightly smaller to reduce height */
+  line-height: 1.2;
+}
+.header .header-main p{
+  margin: 0;
+  color: #aaaaaa;
+  font-size: 0.98rem;
+}
+
+/* Home button: compact variant reusing existing .btn */
+.btn.btn-home{
+  background: #ffffff;
+  color: #153f71;
+  border: 1px solid rgba(21, 63, 113, 0.18);
+  padding: 0.5rem 0.9rem;                           /* slimmer */
+}
+.btn.btn-home:hover,
+.btn.btn-home:focus{
+  background: #00a3b4;
+  color: #ffffff;
+}
+
+/* Small screens */
+@media (max-width: 560px){
+  .header .header-bar{ flex-wrap: wrap; }
+  .header .btn.btn-home{ width: 100%; text-align: center; }
+}
+
+/* Header spacing reduction overrides */
+.header {
+    padding: 10px 0 !important; /* Reduced from default padding */
+    margin: 0 !important;
+}
+
+.header .container {
+    padding: 0 !important;
+    margin: 0 auto !important;
+}
+
+.header-bar {
+    margin: 0 !important;
+    padding: 8px 0 !important; /* Minimal padding for breathing room */
+    align-items: center;
+    min-height: auto !important;
+}
+
+.header-main {
+    margin: 5px 0 !important; /* Minimal vertical margin */
+    padding: 0 !important;
+}
+
+.header-main h1 {
+    margin: 0 0 3px 0 !important; /* Remove default h1 margins */
+    padding: 0 !important;
+    line-height: 1.2 !important; /* Tighter line height */
+}
+
+.header-main p {
+    margin: 0 !important; /* Remove default p margins */
+    padding: 0 !important;
+    line-height: 1.3 !important;
+}
+
+.brand {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.brand-logo {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.btn-home {
+    margin: 0 !important;
+    padding: 8px 16px !important; /* Keep some padding for the button itself */
+}
+
+/* ===== Header compactness & Home button (final overrides) ===== */
+
+/* shrink vertical space */
+.header{ padding: 0px 0 !important; }
+
+/* make the top bar as tight as possible */
+.header .header-bar{ padding:0 !important; margin:0 !important; min-height:auto !important; }
+
+/* reduce logo width so it doesn’t force extra height */
+.header .brand-logo{ width:140px !important; }
+
+/* remove vertical gaps around the title block */
+.header .header-main{ margin:0 !important; padding:0 !important; }
+.header .header-main h1{
+  margin:0 !important;
+  padding:0 !important;
+  line-height:1.5 !important;
+  font-size:clamp(20px,2.1vw,26px) !important;   /* smaller title to shorten header */
+}
+.header .header-main p{
+  margin:0 !important;
+  padding:0 !important;
+  line-height:1.5 !important;
+  font-size:0.95rem !important;
+}
+
+/* modern Home button with icon */
+.btn.btn-home{
+  display:inline-flex !important;
+  align-items:center !important;
+  gap:8px !important;
+  padding:6px 12px !important;
+  background:#ffffff !important;
+  color:#153f71 !important;
+  border:1px solid rgba(21,63,113,0.18) !important;
+  border-radius:999px !important;
+  box-shadow:0 1px 2px rgba(2,6,23,0.08) !important;
+  text-decoration:none !important;
+  font-weight:700 !important;
+}
+.btn.btn-home svg{ width:18px; height:18px; flex:0 0 auto; }
+.btn.btn-home:hover{ background:#00a3b4 !important; color:#ffffff !important; border-color:transparent !important; transform:translateY(-1px); }
+.btn.btn-home:active{ transform:none; }
+
+/* Override: show Python label on all code callouts */
+.pseudocode::before { content: "Python Code"; }
+
+/* Make the title block sit between logo and Home button on the same row */
+.header .header-bar .header-main { flex: 1; text-align: center; }
+
+
+/* Two videos side by side on wide screens, stack on small screens */
+.video-row{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+.video-row .example.video{
+  --video-w: 360px;         /* a bit narrower to fit two cards */
+  flex: 1 1 380px;          /* grow, but break nicely when space is tight */
+  margin: 8px 0;
+}
