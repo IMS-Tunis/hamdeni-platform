@@ -1,85 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Level 1</title>
-  <link rel="stylesheet" href="../dashboard.css" />
-  <style>
-    .level-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 15px 30px;
-      background: linear-gradient(90deg, #003366, #005b99);
-      color: #fff;
-      flex-wrap: wrap;
-    }
-    .level-header .logo {
-      height: 60px;
-    }
-    .header-center {
-      text-align: center;
-      flex: 1;
-    }
-    .header-center h1 {
-      margin: 0;
-      font-size: 2em;
-    }
-    .header-center h2 {
-      margin: 5px 0 0;
-      font-size: 1.3em;
-      color: #ffeb3b;
-    }
-    .info-line {
-      margin-top: 5px;
-      font-size: 0.9em;
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      color: #f0f0f0;
-    }
-  </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Level 1: Overview and Setup</title>
+  <link rel="stylesheet" href="../levels.css" />
 </head>
 <body>
-  <header class="level-header">
-    <div class="header-left">
-      <a href="../dashboard.html">
-        <img src="../../images/maarifLOGO.png" alt="Maarif Logo" class="logo" />
+
+  <div class="header">
+  <div class="container">
+    <div class="header-bar">
+      <a class="brand" href="../../dashboard.html" aria-label="Home">
+        <img src="../logo.png" alt="Logo" class="brand-logo" />
+      </a>
+
+      <!-- Title block moved into the same row -->
+      <div class="header-main">
+        <h1>Level 1: Overview and Setup</h1>
+        <p>IGCSE Computer Science (0478): student notes, prepared by Dr. Hamdeni</p>
+      </div>
+
+      <a class="btn btn-home" href="../../dashboard.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M12 3l9 8h-3v9h-5v-6H11v6H6v-9H3l9-8z"/>
+        </svg>
+        Home
       </a>
     </div>
-    <div class="header-center">
-      <h1>Programming Level 1</h1>
-      <h2 id="level-title">Introduction</h2>
-      <div class="info-line">
-        <span id="student-name"></span>
-        <span id="platform-name"></span>
+  </div>
+</div>
+
+
+
+
+  <main>
+    <div class="container">
+
+      <!-- Table of contents -->
+      <nav class="toc">
+        <h2>Contents</h2>
+        <ol>
+          <li><a href="#s1">1. Overview of Python</a></li>
+          <li><a href="#s2">2. Installing Python</a></li>
+          <li><a href="#s3">3. Setting Up a Development Environment</a></li>
+          <li><a href="#s4">4. Writing Your First Python Program</a></li>
+          <li><a href="#s5">5. Basic Syntax and Structure</a></li>
+        </ol>
+      </nav>
+
+      <!-- Section 1 -->
+      <div class="section" id="s1">
+        <h2>1. Overview of Python</h2>
+        <ul class="bullets">
+          <li>Python is a high-level, interpreted programming language known for its simplicity and readability.</li>
+          <li>It is widely used for web development, data analysis, artificial intelligence, scientific computing, and many other applications.</li>
+          <li>Python's syntax emphasizes readability and allows programmers to express concepts in fewer lines of code compared to languages like C++ or Java.</li>
+        </ul>
+      </div>
+
+      <!-- Section 2 -->
+      <div class="section" id="s2">
+        <h2>2. Installing Python</h2>
+        <p>To start programming in Python, you need to install Python on your computer. Follow these steps to install Python:</p>
+        <ol class="bullets">
+          <li><strong>Download the Installer:</strong> Visit the official Python website at <code>python.org</code> and download the latest version of Python for your operating system (Windows, macOS, or Linux).</li>
+          <li><strong>Run the Installer:</strong> Open the downloaded file and follow the installation instructions. Make sure to check the option to add Python to your system PATH.</li>
+          <li><strong>Verify Installation:</strong> Open a command prompt (Windows) and type <code>python --version</code> to verify the installation. You should see the version of Python you installed.</li>
+        </ol>
+      </div>
+
+      <!-- Section 3 -->
+      <div class="section" id="s3">
+        <h2>3. Setting Up a Development Environment</h2>
+        <p>A good development environment helps you write and manage your code efficiently. You can use text editors like Notepad++ or more advanced Integrated Development Environments (IDEs) like PyCharm, Visual Studio Code, or Jupyter Notebook.</p>
+        <ul class="bullets">
+          <li><strong>PyCharm:</strong> A powerful IDE specifically for Python development. It offers many features such as code completion, debugging, and project management.</li>
+          <li><strong>Visual Studio Code:</strong> A lightweight but powerful source code editor that supports Python through extensions.</li>
+          <li><strong>Jupyter Notebook:</strong> An open-source web application that allows you to create and share documents containing live code, equations, visualizations, and narrative text.</li>
+        </ul>
+      </div>
+
+      <!-- Section 4 -->
+      <div class="section" id="s4">
+        <h2>4. Writing Your First Python Program</h2>
+        <p>Let's write and run a simple Python program that prints "Hello, World!" to the console. This will help you understand the basic structure of a Python script.</p>
+        <ol class="bullets">
+          <li>Open your text editor or IDE.</li>
+          <li>Write the following code:</li>
+        </ol>
+
+        <!-- Example 1 -->
+        <div class="example">
+          <div class="title"><strong>Example 1:</strong> Hello World</div>
+          <div class="pseudocode">
+            <div class="pc-line">
+              <span class="comment" data-tooltip="Output text to the console">
+                <em>print("Hello, World!")</em>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <ol class="bullets" start="3">
+          <li>Save the file with a <code>.py</code> extension, for example, <code>hello.py</code>.</li>
+          <li>Run the program: If you are using a command prompt or terminal, navigate to the directory where you saved the file and type <code>python hello.py</code>.</li>
+        </ol>
+
+        <p>You should see the output:</p>
+        <div class="example">
+          <div class="pseudocode">
+            <div class="pc-line"><span class="comment"><em>Hello, World!</em></span></div>
+          </div>
+        </div>
+
+        <!-- Video -->
+        <div class="example video">
+          <div class="title">Hello World in Python (Short)</div>
+          <div class="media">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/3cVAHD4mi30" title="Hello World in Python (Short)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 5 -->
+      <div class="section" id="s5">
+        <h2>5. Basic Syntax and Structure</h2>
+        <p>Python programs are written as plain text and saved with a <code>.py</code> extension. Here are some key points about Python syntax and structure:</p>
+
+        <ul class="bullets">
+          <li><strong>Indentation:</strong> Python uses indentation to define blocks of code. Indentation must be consistent throughout your code.</li>
+        </ul>
+
+ <ul class="bullets">
+          <li><strong>Comments:</strong> Use the # symbol to add comments to your code. Comments are ignored by the interpreter.</li>
+        </ul>
+
+
+        <!-- Example 2 -->
+        <div class="example">
+          <div class="title"><strong>Example 2:</strong> Comments</div>
+          <div class="pseudocode">
+            <div class="pc-line"><span class="comment" data-tooltip="Single-line comment starts with #"><em># This is a comment</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="Inline comment after the statement"><em>print("Hello, World!")  # This is an inline comment</em></span></div>
+          </div>
+        </div>
+
+        <ul class="bullets">
+          <li><strong>Variables:</strong> Variables store data. Python is dynamically typed. Use descriptive names that start with a letter or underscore. Avoid starting with a digit or other symbols.</li>
+        </ul>
+
+        <!-- Example 3 -->
+        <div class="example">
+          <div class="title"><strong>Example 3:</strong> Variables</div>
+          <div class="pseudocode">
+            <div class="pc-line"><span class="comment" data-tooltip="Assign a string to a variable"><em>message = "Hello, World!"</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="Print the variable value"><em>print(message)</em></span></div>
+          </div>
+        </div>
+
+        <ul class="bullets">
+          <li><strong>Basic Data Types:</strong> Common data types in Python include integers, floats, strings, and booleans.</li>
+        </ul>
+
+        <!-- Example 4 -->
+        <div class="example">
+          <div class="title"><strong>Example 4:</strong> Basic Data Types</div>
+          <div class="pseudocode">
+            <div class="pc-line"><span class="comment"><em>age = 25          # Integer</em></span></div>
+            <div class="pc-line"><span class="comment"><em>price = 19.99     # Float</em></span></div>
+            <div class="pc-line"><span class="comment"><em>name = "Alice"    # String</em></span></div>
+            <div class="pc-line"><span class="comment"><em>is_student = True # Boolean</em></span></div>
+          </div>
+        </div>
+
+        <!-- Videos -->
+<div class="video-row">
+  <div class="example video">
+    <div class="title">Indentation | Simple Tutorial</div>
+    <div class="media">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/C5HM9xglP08"
+              title="Indentation | Simple Tutorial | #Shorts" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <div class="example video">
+    <div class="title">How To Comment in Python</div>
+    <div class="media">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/t3AlGnGs5ZQ"
+              title="How To Comment in Python #shorts" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+
+
+      <!-- Call to exercises -->
+      <p style="text-align:center; margin:20px 0;">
+        <a class="btn btn-cta" href="./exercises1.html">Go to Exercises</a>
+      </p>
+
+      <div class="footer">
+        &copy; 2025 Dr. Hamdeni. All rights reserved.
       </div>
     </div>
-    <div class="header-right">
-      <img src="../../images/cambridge.png" alt="Cambridge Logo" class="logo" />
-    </div>
-  </header>
-  <main style="padding:20px;text-align:center;">
-    <p>Content for Level 1 goes here.</p>
-    <iframe 
-      src="https://pseudocode.pro/editor" 
-      width="50%" 
-      height="400px" 
-      frameborder="0"
-      style="border: 1px solid #ccc; border-radius: 8px;">
-    </iframe>
   </main>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const sName = localStorage.getItem('student_name');
-      if (sName) {
-        document.getElementById('student-name').textContent = '👤 ' + sName;
-      }
-      const platform = localStorage.getItem('platform');
-      if (platform) {
-        document.getElementById('platform-name').textContent = '🎓 Platform: ' + platform;
-      }
-    });
-  </script>
 </body>
 </html>
