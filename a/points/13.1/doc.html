@@ -1,145 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>1.1 Number Systems</title>
-  <link rel="stylesheet" href="igcse-style.css">
-</head>
-<body>
-   <div class="container">
-    <h1>Number Systems</h1>
-    <div class="subtitle">IGCSE CS theory notes, prepared by Dr. Hamdeni</div>
-
-    <div class="section">
-      <h2>1.1 Understand how and why computers use binary to represent all forms of data</h2>
-
+  <head>
+    <meta charset="utf-8" />
+    <title>IGCSE Computer Science - 13.1 User-defined data types</title>
+    <link href="../igcse-style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header-container">
+        <img alt="Syllabus Update" class="top-right-icon" src="../syllabus.png" />
+        <div class="title-row">
+          <h1 class="section-title">13.1 User-defined data types</h1>
+        </div>
+        <div class="title-underline"></div>
+        <p class="section-subtitle">Computer Science IGCSE notes, prepared by Dr. Hamdeni</p>
+      </div>
+      <div class="section">
+        <h2>13.1a: Show understanding of why user-defined types are necessary</h2>
+        <h4>What is a user-defined data type?</h4>
+        <ul>
+          <li>
+            <span class="official-note">A <span class="keyword" data-tooltip="a data type for which the programmer has included the definition in the program">user-defined data type</span> is created by the programmer so the program’s data matches its requirements exactly. </span>
+            <ul>
+              <li>
+                <span class="official-note">After defining the type, the programmer can declare variables of that type and use it.</span>
+              </li>
+            </ul>
+          </li>
+          <ul class="no-bullets">
+            <li>
+              <div class="example-box">Using user-defined data type to restrict allowed day values <br />Imagine we need a day value that accepts only real days. <br />The seven days can be defined as a type listing Monday to Sunday. <br />A variable today uses this type, and setting today = Wednesday is valid. <br />Result: values outside the list are rejected. </div>
+            </li>
+          </ul>
+          <li>
+            <span class="official-note">User-defined types fall into two families. A non-composite type is defined without referring to any other type. A composite type is defined with reference to at least one other type. Details about these two families will be in next sections.</span>
+          </li>
+        </ul>
+        <h4>Why user-defined types are necessary</h4>
+        <ul>
+          <li>
+            <span class="official-note">User-defined types are necessary when built-in types are not sufficient to express the program’s specific data or constraints.</span>
+            <ul>
+              <li>
+                <span class="official-note">Defining a type lets the programmer state exactly which values and structure are allowed.</span>
+              </li>
+              <li>
+                <span class="official-note">User-defined types add flexibility and help organize complex data, which can improve code readability and maintainability.</span>
+              </li>
+            </ul>
+          </li>
+          <ul class="no-bullets">
+            <li>
+              <span class="fun-tip">Built-in types are standard compartments. A user-defined type is a suitcase you redesign to fit your items exactly.</span>
+            </li>
+          </ul>
+        </ul>
+        <ul class="no-bullets">
+          <div class="button-group">
+            <button class="keyword-button" onclick="openPopupK('13.1a')">🔑 View Keywords on This Topic 🔑</button>
+            <button class="exam-button" onclick="openPopupQ('13.1a')">👁️ Quick Look at Exam Questions on This Topic 👁️</button>
+          </div>
+        </ul>
+      </div>
+      <div class="section">
+        <h2>13.1b: Define and use non-composite types including enumerated, pointer</h2>
+        <ul>
+          <li>
+            <span class="official-note">A <span class="keyword" data-tooltip="a data type defined without reference to another data type">non-composite user-defined type</span> is defined without reference to any other type. Two examples of non-composite user-defined types in the syllabus are the enumerated type and the pointer type. </span>
+          </li>
+        </ul>
+        <h4>Pointer types</h4>
+        <ul>
+          <li>
+            <span class="official-note">
+              <span class="keyword" data-tooltip="one for which the value is the address in memory of a different variable">Pointer type</span> stores the memory location of a value. To read through a pointer, go to that location and fetch the value. </span>
+            <ul>
+              <li>
+                <span class="official-note">The pointer’s definition states the type it points to. You can declare a pointer, store a location in it, and read the value via the pointer.</span>
+              </li>
+              <li>
+                <span class="official-note">Pointers let programs refer to values indirectly, which is useful when building data structures that can grow or shrink while the program runs.</span>
+              </li>
+            </ul>
+          </li>
+          <ul class="no-bullets">
+            <li>
+              <div class="example-box">Pointer pseudocode <br />TYPE TIntPointer = ^INTEGER <br />DECLARE MyPointer : TIntPointer </div>
+            </li>
+          </ul>
+        </ul>
+        <h4>Enumerated types</h4>
+        <ul>
+          <li>
+            <span class="official-note">
+              <span class="keyword" data-tooltip="a non-composite user-defined data type for which the definition identifies all possible values">Enumerated type</span> is a type where all possible values are explicitly listed by the programmer with an implied order. You can later declare variables of this type. </span>
+            <ul>
+              <li>
+                <span class="official-note">Because there is an order, the program can compare listed values, such as checking whether one value comes after another in the sequence.</span>
+              </li>
+            </ul>
+          </li>
+          <ul class="no-bullets">
+            <li>
+              <div class="example-box">Enumeration pseudocode <br />To represent days of the week using an enumerated type: <br />TYPE TDays = (Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) <br />DECLARE Today: TDays <br />Today = Wednesday </div>
+            </li>
+            <li>
+              <div class="example-box">Seasons enumeration pseudocode <br />TYPE Season = (Spring, Summer, Autumn, Winter) </div>
+            </li>
+            <li>
+              <div class="example-box">Pointer usage with an enumeration <br />TYPE Season = (Spring, Summer, Autumn, Winter) <br />DECLARE ThisSeason : Season <br />DECLARE NextSeason : Season <br />DECLARE MyPointer : TIntPointer <br />ThisSeason ← Spring <br />MyPointer ← ^ThisSeason <br />NextSeason ← MyPointer^ + 1 <br />Result: NextSeason becomes the value immediately after ThisSeason in the enumeration order. </div>
+            </li>
+            <li>
+              <span class="fun-tip">An enumeration is like a short menu. You must choose one listed dish. A pointer is like the table number that tells you where the dish is, not the dish itself.</span>
+            </li>
+          </ul>
+        </ul>
+        <ul class="no-bullets">
+          <div class="button-group">
+            <button class="keyword-button" onclick="openPopupK('13.1b')">🔑 View Keywords on This Topic 🔑</button>
+            <button class="exam-button" onclick="openPopupQ('13.1b')">👁️ Quick Look at Exam Questions on This Topic 👁️</button>
+          </div>
+        </ul>
+      </div>
+      <div class="section">
+        <h2>13.1c: Define and use composite data types including set, record and class/object</h2>
+        <ul>
+          <li>
+            <span class="official-note">
+              <span class="keyword" data-tooltip="a data type constructed using several of the basic data types">A composite user-defined type</span> is defined with reference to at least one other type. Composite user-defined types include sets, records, and classes (objects). </span>
+          </li>
+        </ul>
+        <h4>Records</h4>
+        <ul>
+          <li>
+            <span class="official-note">
+              <span class="keyword" data-tooltip="a composite data type comprising several related items that may be of different data types.">A record</span> groups named fields that match the program’s data. </span>
+            <ul>
+              <li>
+                <span class="official-note">Each field in a record can be of a different data type.</span>
+              </li>
+             
+            </ul>
+          </li>
+          <ul class="no-bullets">
+            <li>
+              <div class="example-box">Record for a flight <br />We want to design a flight as a record data type. We will declare the following fields: <br />FlightNumber (integer), FlightTime (minutes), StartLocation (text), EndLocation (text), Plane (code). <br />One example instance Flight1 has: <br />• FlightNumber = 7837 <br />• StartLocation = “Berlin” <br />• EndLocation = “London” <br />• FlightTime = 110 <br />• Plane = “D242”. </div>
+            </li>
+            <li>
+              <div class="example-box">Record pseudocode <br />TYPE StudentRecord <br />DECLARE LastName : STRING <br />DECLARE FirstName : STRING <br />DECLARE DateOfBirth : DATE <br />DECLARE YearGroup : INTEGER <br />DECLARE FormGroup : CHAR <br />ENDTYPE </div>
+            </li>
+           
+          </ul>
+        </ul>
+        <h4>Classes</h4>
+		<ul>
+		 <li>
+                <span class="official-note">A class groups properties (attributes) and methods (procedures or functions) that its objects can use.</span>
+              </li>
+			   </ul>
+			   <ul class="no-bullets">
+			   <li>
+              <div class="example-box">Simple class design (Pet) <br />Suppose we design a class Pet with properties PetName, PetType, OwnerTel (text), UniqueID (integer), regDate (date). <br />Methods include CreatePet, which assigns a unique ID and sets regDate, and GetContact, which returns PetName and OwnerTel. <br />This shows how a class combines data and behaviour. </div>
+            </li>
+			  </ul>
+			  
+        <h4>Sets</h4>
+        <ul>
+          <li>
+            <span class="official-note">
+              <span class="keyword" data-tooltip="a collection of data items that lacks any structure; contains no duplicates and has a number of defined operations that can be performed on it">Set</span>Set is an unordered collection. Use set operations to combine or compare sets. </span>
+            <ul>
+              <li>
+                <span class="official-note">Union combines two sets into one set that contains every element that appears in either set (no duplicates).</span>
+              </li>
+              <li>
+                <span class="official-note">Intersection keeps only the elements that are present in both sets.</span>
+              </li>
+              <li>
+                <span class="official-note">Each element in a set is unique; duplicates are not stored.</span>
+              </li>
+            </ul>
+          </li>
+          <ul class="no-bullets">
+            <li>
+              <div class="example-box">Set pseudocode <br />TYPE LetterSet = SET OF CHAR <br />DEFINE Vowels ('A','E','I','O','U') : LetterSet </div>
+            </li>
+          </ul>
+        </ul>
+        <ul class="no-bullets">
+          <div class="button-group">
+            <button class="keyword-button" onclick="openPopupK('13.1c')">🔑 View Keywords on This Topic 🔑</button>
+            <button class="exam-button" onclick="openPopupQ('13.1c')">👁️ Quick Look at Exam Questions on This Topic 👁️</button>
+          </div>
+        </ul>
+      </div>
+      <div class="section">
+        <h2>13.1d: Choose and design an appropriate user-defined data type for a given problem</h2>
+        <ul>
+          <li>
+            <span class="official-note">An appropriate user-defined type matches the scenario’s data:</span>
+            <ul>
+              <li>
+                <span class="official-note">Fixed, known list of values → choose an enumerated type.</span>
+              </li>
+              <li>
+                <span class="official-note">Several labelled pieces of data together → choose a record.</span>
+              </li>
+              <li>
+                <span class="official-note">Many similar items with actions → choose a class.</span>
+              </li>
+              <li>
+                <span class="official-note">Need unique membership checks and set operations → choose a set.</span>
+              </li>
+              <li>
+                <span class="official-note">Need to store a location (address) of a value → choose a pointer type.</span>
+              </li>
+            </ul>
+          </li>
+          <ul class="no-bullets">
+            <li>
+              <div class="example-box">Matching scenarios to types <br />A fixed set of colours to represent in a program: an enumeration suits this because it lists every allowed value. <br />Details about each house for sale: a record with one field per detail to keep related data together. <br />Storing locations of integer values in memory: a pointer type to hold the location of those values. </div>
+            </li>
+            <li>
+              <span class="fun-tip">If you can list every valid value, choose an enumeration. If you need several labelled pieces together, choose a record. If you will create many similar items with actions, choose a class. If you need unique membership checks, choose a set. If you need to store locations of values, choose a pointer.</span>
+            </li>
+          </ul>
+        </ul>
+        <ul class="no-bullets">
+          <div class="button-group">
+            <button class="keyword-button" onclick="openPopupK('13.1d')">🔑 View Keywords on This Topic 🔑</button>
+            <button class="exam-button" onclick="openPopupQ('13.1d')">👁️ Quick Look at Exam Questions on This Topic 👁️</button>
+          </div>
+        </ul>
+      </div>
     </div>
-
-    <div class="section">
-      <h2>1.2 (a) Understand the denary, binary and hexadecimal number systems</h2>
-      <ul>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Base-10, digits 0–9">Denary</span> is used in everyday life, with each place increasing by powers of 10.</span></li>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Base-2, digits 0 and 1">Binary</span> is used by computers, with each place increasing by powers of 2.</span></li>
-        <li><span class="official-note">The <span class="keyword" data-tooltip="The leftmost bit in a binary number, which has the highest value">MSB</span> (Most Significant Bit) is the leftmost bit.</span></li>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Base-16, digits 0–9 and A–F">Hexadecimal</span> is closely related to binary; each hex digit is 4 bits.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">The denary number 25177 = 2×10000 + 5×1000 + 1×100 + 7×10 + 7×1.</div></li>
-        <li><div class="example-box">Binary 11101110 = 128+64+32+8+4+2 = 238 (denary).</div></li>
-        <li><div class="example-box">Hex digit A = 10, F = 15 (denary).</div></li>
-        <li><div class="example-box">1010 (binary) = A (hex) = 10 (denary).</div></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.2 (b) Convert between number systems</h2>
-      <ul>
-        <li><span class="official-note">To convert binary to denary: add up the values of all positions where there is a 1.</span></li>
-        <li><span class="official-note">To convert denary to binary: subtract the largest possible powers of 2, or divide by 2 and record remainders.</span></li>
-        <li><span class="official-note">Successive division by 2 and reading remainders from bottom to top gives the binary value.</span></li>
-        <li><span class="official-note">You can convert up to 16-bit binary numbers for this syllabus.</span></li>
-        <li><span class="official-note">To convert binary to hexadecimal: group bits from the right in sets of four, pad with zeros to the left if needed.</span></li>
-        <li><span class="official-note">To convert hexadecimal to binary: write each hex digit as 4 bits.</span></li>
-        <li><span class="official-note">To convert hexadecimal to denary: convert hex to binary, then binary to denary.</span></li>
-        <li><span class="official-note">To convert denary to hexadecimal: convert to binary, group in 4s, convert each group to hex.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">011110001011 = 1024+512+256+128+8+2+1 = 1931 (denary).</div></li>
-        <li><div class="example-box">Denary 142: 142 ÷ 2 repeatedly gives remainders 1 0 0 0 1 1 1 0 (read bottom to top: 10001110).</div></li>
-        <li><div class="example-box">Denary 13 → 8+4+0+1 = 13 → 1101 (binary).</div></li>
-        <li><div class="example-box">1000001111101 → 0010 0001 1111 1101 → 21FD (hex).</div></li>
-        <li><div class="example-box">Hex SE (S=5, E=14): 0101 1110 (binary).</div></li>
-        <li><div class="example-box">Hex 2 1 F D → 0010 0001 1111 1101 (binary).</div></li>
-        <li><div class="example-box">Hex SE = 64+16+8+4+2 = 94 (denary).</div></li>
-        <li><div class="example-box">Denary 201: binary 11001001 → 1100 (C), 1001 (9) → hex C9.</div></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.3 Understand how and why hexadecimal is used as a beneficial method of data representation</h2>
-      <ul>
-        <li><span class="official-note">Hexadecimal is shorter and easier to read and write than binary; simplifies debugging and error detection.</span></li>
-        <li><span class="official-note">Programmers find it easier to compare and spot differences in hexadecimal than in long binary strings.</span></li>
-        <li><span class="official-note">Common uses for hexadecimal: HTML colours, MAC addresses, assembly/machine code, memory dumps, debugging, error codes, and IP addresses.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">Comparing 10011100101110111000111011100010111101011010 (binary) vs. 9CBB8EE2F5A (hex).</div></li>
-        <li><div class="example-box"><span class="keyword" data-tooltip="Unique device identifier, written in hexadecimal">MAC address</span>: e.g., 00-1C-B3-4F-25-FE.</div></li>
-        <li><span class="fun-tip">Hex makes large binary numbers easier for humans to read and spot mistakes quickly!</span></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.4 (a) Add two positive 8-bit binary integers</h2>
-      <ul>
-        <li><span class="official-note">Binary addition rules: 0+0=0; 1+0/0+1=1; 1+1=0 (carry 1); 1+1+1=1 (carry 1).</span></li>
-        <li><span class="official-note">Carry values work like in denary addition—add rightmost columns first, carry left if needed.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">00100111 + 01001010 = 01110001 (binary addition).</div></li>
-        <li><div class="example-box">126 (01111110) + 62 (00111110) = 188 (10111100).</div></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.4 (b) Understand the concept of overflow and why it occurs in binary addition</h2>
-      <ul>
-        <li><span class="official-note"><span class="keyword" data-tooltip="When a calculation exceeds the maximum storable value in the register">Overflow error</span> occurs when a result is too big for the register.</span></li>
-        <li><span class="official-note">For an 8-bit register, the maximum value is 255 (11111111). A result with a 9th bit is overflow.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">Adding 01101110 + 11011110 = (1)01001100, the leading (1) is overflow.</div></li>
-        <li><span class="fun-tip">If your answer has more bits than allowed, that extra leftmost bit is overflow—the computer can't fit it!</span></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.5 Perform a logical binary shift on a positive 8-bit binary integer and understand the effect</h2>
-      <ul>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Moving all bits left (×2) or right (÷2); zero fills empty place">Logical shift</span>: move all bits left (multiply by 2) or right (divide by 2); zeros fill empty spots.</span></li>
-        <li><span class="official-note">Bits shifted out are lost; zeros fill the emptied places.</span></li>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Left-most">Most significant bit</span></li>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Right-most">Least significant bit</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">Left shift: 00010101 → 00101010 (21×2=42).</div></li>
-        <li><div class="example-box">Left shift 2: 00010101 → 01010100 (21×4=84).</div></li>
-        <li><div class="example-box">Right shift: 11001000 → 01100100 (200÷2=100).</div></li>
-        <li><div class="example-box">Shift 10101010 one place left: 01010100.</div></li>
-        <li><span class="fun-tip">Each left shift doubles your number—each right shift halves it (if you don't lose important bits)!</span></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.6 Use the two’s complement number system to represent positive and negative 8-bit binary integers</h2>
-      <ul>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Method to represent negative binary numbers; left-most bit is the sign (–128 for 8 bits)">Two’s complement</span> lets you use the same binary system for positive and negative numbers.</span></li>
-        <li><span class="official-note">In 8-bit two’s complement, the range is –128 to +127.</span></li>
-        <li><span class="official-note">To write a positive number, use normal binary (sign bit 0).</span></li>
-        <li><span class="official-note">To write a negative number:<br>
-            1. Write positive binary.<br>
-            2. Invert all bits left of the first 1 from the right (or invert all bits and add 1).<br>
-            3. Make sure the MSB is 1.
-          </span>
-        </li>
-        <li><span class="official-note">For negative values, sum bits using –128 as the left-most.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">38 = 00100110 (two’s complement).</div></li>
-        <li><div class="example-box">–67: 01000011 → invert → 10111100 → add 1 = 10111101.</div></li>
-        <li><div class="example-box">10111010 = –128 + 32 + 16 + 8 + 2 = –70.</div></li>
-        <li><span class="fun-tip">To get a negative number: "Flip all the bits and add one!" (That’s the computer’s trick.)</span></li>
-      </ul>
-    </div>
-
-  </div>
-
-    <script>
-    window.addEventListener('load', function() {
-      var height = document.body.scrollHeight;
-      window.parent.postMessage({type: 'resize', height: height}, '*');
-    });
-    </script>
-  </div>
-</body>
+    <script src="popup-script.js"></script>
+  </body>
 </html>

@@ -1,0 +1,114 @@
+13.1a: Show understanding of why user-defined types are necessary
+
+## A user-defined data type is created by the programmer so the program’s data matches its requirements exactly. After defining the type, the programmer can declare variables of that type when the language supports it.
+
+#### The type definition creates a name (identifier) for the type that can be used later in declarations.
+
+#### User-defined types fall into two families. A non-composite type is defined without referring to any other type. A composite type is defined with reference to at least one other type.
+
+## User-defined types are necessary when built-in types are not sufficient to express the program’s specific data or constraints. Defining a type lets the programmer state exactly which values and structure are allowed.
+
+#### User-defined types add flexibility and help organise complex data, which can improve code readability and maintainability.
+
+[EXAMPLE] Example: Days of the week
+Define an enumerated type that lists Monday to Sunday. Declare a variable today and set today = Wednesday. This shows that the programmer lists all allowed values first, then uses only those values when assigning to variables.
+
+[FUN] Analogy: Custom suitcase
+Built-in types are standard compartments. A user-defined type is a suitcase you redesign to fit exactly your items, so nothing irrelevant fits and nothing essential is missing.
+
+
+
+13.1b: Define and use non-composite types including enumerated, pointer
+
+## A non-composite user-defined type is defined without reference to any other type.
+
+## Enumerated type
+An enumerated type is formed by listing all possible values. The values have an implied order, and variables can be declared using the type.
+#### Because there is an order, the program can compare listed values, such as checking whether one value comes after another in the sequence.
+
+[EXAMPLE] Example: Months enumeration
+Define an enumeration of the twelve months. Declare variables such as thisMonth and nextMonth of that type. Assign thisMonth = March. This shows that only the listed values are valid for those variables.
+
+## Pointer type
+A pointer type stores the location (address) where a value lives in memory. Reading through a pointer (dereference) means: go to that location and get the value. The pointer’s definition states the type of the value at that location, and the provided notation lets you declare a pointer, store a location in it, and read the value at that location.
+#### Pointers let programs refer to values indirectly, which is useful when building data structures that can grow or shrink while the program runs.
+
+[EXAMPLE] Example: Pointer idea in steps (language-neutral)
+1) Make a pointer that is allowed to point to an integer value.
+2) Create an integer value named aNumber and set it to 100.
+3) Store the location of aNumber inside the pointer.
+4) Read the value through the pointer and double it to get 200.
+This shows storing a location and then using that location to read the value.
+
+[EXAMPLE] Example: Pointer with an enumeration
+1) Use the Days enumeration (Monday…Sunday).
+2) Make a pointer that can point to a Day value.
+3) Set today to Wednesday and store the location of today in the pointer.
+4) Read the Day value through the pointer to confirm it is Wednesday.
+This shows a pointer working with a non-composite enumerated type.
+
+[FUN] Memory aid: Menu and table number
+An enumerated type is like a short menu where you must choose one listed dish. A pointer is like the table number that tells you where the dish is, not the dish itself.
+
+
+
+13.1c: Define and use composite data types including set, record and class/object
+
+## A composite user-defined type is defined with reference to at least one other type.
+
+#### Record
+A record is defined so that its fields match the program’s data requirements.
+#### Each field in a record can be of a different data type.
+
+#### Class
+A class is the data type used for objects. Objects are created from the class.
+#### A class groups properties (attributes) and methods (procedures or functions) that its objects can use.
+
+## Set type
+A set is an unordered collection. Set operations can be used to work with sets.
+#### Union combines two sets into one set that contains every element that appears in either set (no duplicates).
+#### Intersection keeps only the elements that are present in both sets.
+#### Each element in a set is unique; duplicates are not stored.
+
+[EXAMPLE] Example: Set of vowels
+Create a set named Vowels = {a, e, i, o, u}. Use a membership test to check whether a character is in Vowels. Use union and intersection with other character sets when combining or comparing groups of characters.
+
+[EXAMPLE] Example: Naming a set without code syntax
+Say “LetterSet is the set of uppercase letters”. You can then ask: “Is ‘Q’ in LetterSet?” and “What is the union of LetterSet with Vowels?” This avoids language-specific symbols while keeping the idea clear.
+
+[EXAMPLE] Example: Record for a flight (structure and values)
+Define a record type Flight with fields: FlightNumber (integer), FlightTime (minutes, integer), StartLocation (text), EndLocation (text), Plane (code).
+Create a value named Flight1 and set its fields as follows:
+• FlightNumber = 7837
+• StartLocation = “Berlin”
+• EndLocation = “London”
+• FlightTime = 110
+• Plane = “D242”
+This shows a composite record with fields of different types and how values are assigned to those fields.
+
+[EXAMPLE] Example: Simple class design (Pet)
+Properties: PetName, PetType, OwnerTel (text), UniqueID (integer), regDate (date)
+Methods: CreatePet assigns a unique ID and sets regDate; GetContact returns PetName and OwnerTel.
+This links the idea of a class to grouped properties and methods used by its objects.
+
+[FUN] Analogy: Form, blueprint, and basket
+A record is a filled-in form with named boxes. A class is the blank form plus instructions used to make many similar forms with actions. A set is a basket that refuses duplicates.
+
+
+
+13.1d: Choose and design an appropriate user-defined data type for a given problem
+
+## Choose the user-defined type that best matches the scenario’s data requirements. Give a clear reason that links the choice to those requirements.
+
+#### When all valid values form a fixed list known in advance, choose an enumerated type so that only those values can be used.
+
+#### A range restriction can state the allowed values in words. Example: “NumberOfCopies can be any whole number from 1 to 10 inclusive.” This expresses the allowed range directly in the design.
+
+[EXAMPLE] Example: Size derived from a field without code syntax
+Create a list named AccessionNumber that contains exactly NumberOfCopies items. If NumberOfCopies is 4, the list has 4 entries. This shows a design where the required size depends on a previously defined field.
+
+[EXAMPLE] Example: Matching scenarios to types
+For a fixed number of colours to choose from, use an enumerated type. For the data stored about each house for sale, use a record so each field matches the required details. For storing addresses of integer data in memory, use a pointer type.
+
+[FUN] Quick chooser
+If you can list every valid value, choose an enumeration. If you need several labelled pieces together, choose a record. If you will create many similar items with actions, choose a class. If you need unique membership checks, choose a set. If you need to store locations to values, choose a pointer.

@@ -2,101 +2,78 @@
   "questions": [
     {
       "type": "mcq",
-      "question": "What is the main reason computers use binary to represent all data?",
+      "question": "Why define a user-defined data type?",
       "options": [
-        "Binary numbers are easier for humans to read",
-        "Computers use logic gates that only understand ON and OFF states",
-        "It uses less power",
-        "Binary numbers are shorter than decimal numbers"
+        "To reuse built-in operators without change",
+        "To match the program’s specific data and constraints exactly",
+        "To avoid declaring variables altogether",
+        "To make the code run faster by default"
       ],
-      "answer": "Computers use logic gates that only understand ON and OFF states"
-    },
-    {
-      "type": "mcq",
-      "question": "In an 8-bit binary number, what does the leftmost bit represent?",
-      "options": [
-        "Least Significant Bit",
-        "The parity bit",
-        "Most Significant Bit",
-        "The hexadecimal value"
-      ],
-      "answer": "Most Significant Bit"
-    },
-    {
-      "type": "mcq",
-      "question": "Which of the following is a hexadecimal digit?",
-      "options": [
-        "8",
-        "G",
-        "H",
-        "Q"
-      ],
-      "answer": "8"
-    },
-    {
-      "type": "mcq",
-      "question": "What is the maximum value that can be represented in an 8-bit binary number?",
-      "options": [
-        "255",
-        "256",
-        "128",
-        "1024"
-      ],
-      "answer": "255"
-    },
-    {
-      "type": "fill_blank",
-      "question": "The process of moving all bits in a binary number to the left or right and filling the emptied spaces with zeros is called a __________ shift.",
-      "answer": "Logical"
-    },
-    {
-      "type": "fill_blank",
-      "question": "In binary addition, if the result is too large for the register to hold, this is called an __________ error.",
-      "answer": "Overflow"
-    },
-    {
-      "type": "fill_blank",
-      "question": "Each hexadecimal digit can be represented by exactly ___ binary bits.",
-      "answer": "4"
-    },
-    {
-      "type": "true_false",
-      "question": "Digital data can take any value, just like analogue data.",
-      "answer": "False"
-    },
-    {
-      "type": "true_false",
-      "question": "In two’s complement, the most significant bit represents the sign of the number.",
-      "answer": "True"
-    },
-    {
-      "type": "true_false",
-      "question": "The denary number system is also known as base 16.",
-      "answer": "False"
+      "answer": "To match the program’s specific data and constraints exactly"
     },
     {
       "type": "match",
-      "question": "Match the term with its correct definition:",
+      "question": "Match each term to its description.",
       "pairs": {
-        "Register": "Used to temporarily hold binary data",
-        "Logic gate": "Basic building block for processing digital data",
-        "Two’s complement": "Method to represent negative binary"
+        "user-defined data type": "Created by the programmer so data matches program requirements exactly",
+        "type definition": "Creates a name that can be used later in declarations",
+        "composite type": "Defined with reference to at least one other type",
+        "non-composite type": "Defined without reference to any other type"
+      }
+    },
+    {
+      "type": "match",
+      "question": "Match each concept to the description.",
+      "pairs": {
+        "enumerated type": "Listing all possible values for the type",
+        "pointer type": "Stores the location (address) where a value lives in memory",
+        "dereference": "Go to a stored location and get the value",
+        "implied order": "Comparison based on position in the listed sequence"
+      }
+    },
+    {
+      "type": "match",
+      "question": "Match the composite type to its defining feature.",
+      "pairs": {
+        "record": "Fields can be of different data types",
+        "class": "Groups properties and methods for objects",
+        "set": "Unordered collection with unique elements"
+      }
+    },
+    {
+      "type": "match",
+      "question": "Match each set operation to its result.",
+      "pairs": {
+        "union": "Combines two sets into one containing every element that appears in either set (no duplicates)",
+        "intersection": "Keeps only the elements present in both sets"
       }
     },
     {
       "type": "fill_blank",
-      "question": "Convert the binary number 1101 to denary: __________",
-      "answer": "13"
+      "question": "A ______ restriction states the allowed values in words, for example “1 to 10 inclusive.”",
+      "answer": "range"
     },
     {
-      "type": "fill_blank",
-      "question": "What is the hexadecimal equivalent of the denary number 15? __________",
-      "answer": "F"
+      "type": "mcq",
+      "question": "“In a design, AccessionNumber contains exactly NumberOfCopies items.” What design idea is illustrated?",
+      "options": [
+        "Automatic ordering of a set",
+        "Size derived from a field",
+        "Built-in type extension",
+        "Implicit pointer arithmetic"
+      ],
+      "answer": "Size derived from a field"
     },
     {
-      "type": "fill_blank",
-      "question": "What is the binary value for the hexadecimal digit C? __________",
-      "answer": "1100"
+      "type": "match",
+      "question": "Match the user-defined type to the scenario where it is the best choice.",
+      "pairs": {
+        "Record": "You need several labelled pieces of information together, like for a flight.",
+        "Class": "You will create many similar items that have associated actions.",
+        "Set": "You need to perform unique membership checks.",
+        "Pointer": "You need to store the memory locations of values.",
+        "Enumerated type": "All valid values form a fixed list known in advance."
+      }
     }
   ]
 }
