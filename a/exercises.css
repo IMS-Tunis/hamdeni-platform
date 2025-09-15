@@ -1,0 +1,499 @@
+/* exercises.css - final theme update
+   Requirements applied:
+   - Mark scheme background: #00a3b4
+   - All dark surfaces use:  #153f71
+   Only colors changed; layout/structure unchanged.
+*/
+
+:root{
+  /* Dark surfaces (page + sidebar) */
+  --bg:        #153f71;  /* page background */
+  --bg-elev:   #153f71;  /* sidebar / elevated panels */
+
+  /* Light exercise cards */
+  --card:      #f5f7fb;  /* near-white card surface */
+  --border:    #dbe5f1;  /* light card border */
+
+  /* Mark scheme surface */
+  --code:      #00a3b4;  /* REQUIRED: mark scheme background */
+
+  /* Text colors */
+  --text:      #eef6ff;  /* main text on dark */
+  --text-inv:  #0f172a;  /* text on light cards */
+  --muted:     #c6d2e3;  /* secondary on dark */
+  --muted-inv: #334155;  /* secondary on light cards */
+
+  /* Accents (kept consistent, work on both backgrounds) */
+  --accent:    #7aa2ff;  /* calm blue */
+  --accent-2:  #33d1a0;  /* soft mint */
+
+  /* Lines on dark */
+  --line-dark: rgba(255,255,255,.12);
+}
+
+*{ box-sizing:border-box }
+
+html,body{
+  height:100%;
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji","Segoe UI Emoji";
+}
+
+a{ color:inherit; text-decoration:none }
+
+/* Sidebar */
+.sidebar{
+  position:fixed; inset:0 auto 0 0; width:280px;
+  background:var(--bg-elev);
+  border-right:1px solid var(--line-dark);
+  display:flex; flex-direction:column; padding:16px 14px; gap:12px;
+}
+
+.brand{
+  display:flex; align-items:center; gap:12px;
+  padding:6px 6px 12px 6px;
+  border-bottom:1px solid var(--line-dark);
+}
+.logo{
+  width:44px; height:44px; border-radius:12px;
+  background:linear-gradient(135deg, var(--accent), var(--accent-2));
+  display:grid; place-items:center; font-weight:800; color:#0a0c10;
+}
+.brand-text .title{ font-weight:800; font-size:1.1rem; color:var(--text) }
+.brand-text .subtitle{ font-size:.86rem; color:var(--muted) }
+
+.nav{ overflow:auto; padding:6px 2px; flex:1 }
+.nav .nav-item{
+  display:block; padding:10px 12px; margin:4px 0;
+  border-radius:10px; color:var(--text); border:1px solid transparent;
+}
+.nav .nav-item:hover{
+  background:rgba(122,162,255,.14);
+  border-color:rgba(122,162,255,.34);
+}
+.nav .nav-item.active{
+  background:rgba(51,209,160,.18);
+  border-color:rgba(51,209,160,.40);
+}
+
+.sidebar-footer{
+  border-top:1px solid var(--line-dark);
+  padding-top:10px; display:flex; gap:10px; flex-wrap:wrap;
+}
+
+.btn{
+  cursor:pointer; border:1px solid var(--line-dark);
+  background:transparent; color:var(--text);
+  padding:8px 12px; border-radius:10px; font-weight:600; font-size:.9rem;
+}
+.btn:hover{ border-color:var(--accent) }
+.btn.ghost{ background:transparent }
+
+/* Main layout */
+.content{ margin-left:280px; min-height:100%; display:flex; flex-direction:column }
+
+.points-container{
+  padding:24px clamp(16px,4vw,48px);
+  display:grid; grid-template-columns:1fr; gap:18px;
+}
+
+/* Exercise cards */
+.card{
+  border:1px solid var(--border);
+  border-radius:14px;
+  background:var(--card);
+  color:var(--text-inv);
+  padding:16px;
+  display:grid; gap:12px;
+  box-shadow:0 2px 10px rgba(3,7,18,.08);
+}
+
+.card-header{
+  display:flex; justify-content:space-between; align-items:center; gap:8px;
+  border-bottom:1px dashed #cfd8e3; padding-bottom:8px;
+}
+.card-title{ font-weight:700; font-size:1.02rem; color:var(--text-inv) }
+
+/* Hide any residual meta completely */
+.meta{ display:none !important }
+
+/* Question text */
+.question{
+  white-space:pre-wrap; line-height:1.6; font-size:1rem; color:var(--text-inv);
+}
+
+/* Mark scheme block - REQUIRED teal background */
+.ms-wrap{
+  background:var(--code);        /* #00a3b4 */
+  color:#ffffff;
+  border:1px solid rgba(0,0,0,.06);
+  border-radius:10px; padding:12px; display:none;
+}
+.ms-wrap.show{ display:block }
+.ms-title{ color:#ffffff; font-weight:700; margin-bottom:6px }
+.ms{
+  margin:0 0 10px 0; white-space:pre-wrap;
+  font-family:"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size:.92rem; line-height:1.5; color:#ffffff;
+}
+
+/* Student explanation inside the mark-scheme block */
+.explain-title{ color:#ffffff; font-weight:700; margin:6px 0 4px 0 }
+.explain{ margin:0; color:#eaf7ff; line-height:1.6 }
+
+/* Improve contrast of the mark-scheme toggle on light cards */
+.card .btn{
+  background:#eef2f7;
+  color:#0f172a;
+  border-color:#cfd8e3;
+}
+.card .btn:hover{
+  background:#e6ebf3;
+  border-color:#b8c4d6;
+}
+
+/* Footer */
+.footer{
+  padding:18px clamp(16px,4vw,48px);
+  border-top:1px solid var(--line-dark);
+  color:var(--muted);
+  background:var(--bg-elev);
+  margin-top:auto;
+}
+
+/* Responsive */
+@media (max-width: 880px){
+  .sidebar{ position:static; width:auto; border-right:none; border-bottom:1px solid var(--line-dark) }
+  .content{ margin-left:0 }
+  .sidebar-footer{ justify-content:space-between }
+}
+/* Center and style the final CTA buttons */
+.content > .footer:last-of-type{
+  display: flex;                 /* overrides any inline display */
+  justify-content: center;       /* center horizontally */
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding-top: 24px;
+  padding-bottom: 32px;
+  background: transparent;       /* keep page background */
+  border-top: none;              /* remove divider line */
+}
+
+.content > .footer:last-of-type .btn{
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 12px 18px;
+  border-radius: 12px;
+  border: 0;
+  box-shadow: 0 6px 18px rgba(0,0,0,.15);
+  transition: transform .12s ease, box-shadow .12s ease, filter .12s ease;
+}
+
+/* Primary: I need help (uses your mark-scheme teal for emphasis) */
+.content > .footer:last-of-type .btn:first-child{
+  background: #00a3b4;
+  color: #ffffff;
+}
+
+/* Secondary: I'm ready for the test (uses your accent-2 mint) */
+.content > .footer:last-of-type .btn:last-child{
+  background: #33d1a0;           /* var(--accent-2) equivalent */
+  color: #0f172a;                /* dark text for contrast */
+}
+
+.content > .footer:last-of-type .btn:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(0,0,0,.22);
+  filter: brightness(1.02);
+}
+
+.content > .footer:last-of-type .btn:active{
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(0,0,0,.2);
+}
+
+/* Accessible focus ring */
+.content > .footer:last-of-type .btn:focus-visible{
+  outline: 3px solid #7aa2ff;    /* your --accent */
+  outline-offset: 2px;
+}
+
+/* Mobile: stack buttons neatly */
+@media (max-width: 520px){
+  .content > .footer:last-of-type{
+    gap: 12px;
+  }
+  .content > .footer:last-of-type .btn{
+    width: 100%;
+    max-width: 420px;
+  }
+}
+
+
+
+/* Modern Navigation Buttons Styling */
+.nav-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 10px;
+    margin: 6px 0;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    min-width: 140px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    width: 100px;
+}
+
+.nav-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.nav-button:hover::before {
+    opacity: 1;
+}
+
+.btn-outlined {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 2px solid;
+}
+
+.btn-theory-outlined {
+    border-color: #14b8a6;
+    color: #14b8a6;
+}
+
+.btn-theory-outlined:hover {
+    background: #14b8a6;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(20, 184, 166, 0.3);
+}
+
+.btn-home-outlined {
+    border-color: #3b82f6;
+    color: #3b82f6;
+}
+
+.btn-home-outlined:hover {
+    background: #3b82f6;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    min-width: 200px;
+}
+
+/* Layout container for proper positioning */
+.content-section {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2rem;
+    width: 100%;
+	border-bottom:1px solid var(--line-dark);
+}
+
+.footer {
+    flex: 1;
+}
+
+
+/* === APPEND: Mock Test modal components === */
+.mock-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.45);
+  z-index: 1000;
+}
+.mock-modal[aria-hidden="false"] { display: flex; }
+
+.mock-modal-card {
+  background: #fff;
+  width: min(720px, 92vw);
+  max-height: 85vh;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.mock-modal-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.mock-modal-body { padding: 16px 20px; overflow: auto; }
+.mock-modal-actions {
+  display: flex;
+  gap: 12px;
+  padding: 12px 20px;
+  border-top: 1px solid #eee;
+}
+.mock-close {
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  line-height: 1;
+}
+.mock-code {
+  font-family: monospace;
+  font-size: 0.95rem;
+  white-space: pre-wrap;
+  background: #f7f7f7;
+  border: 1px solid #eee;
+  padding: 10px 12px;
+  border-radius: 8px;
+}
+.mock-hidden { display: none; }
+
+/* Force black text inside the popup only */
+.mock-modal-card,
+.mock-modal-card * { color: #000 !important; }
+.mock-close { color: #000 !important; }  /* ensure the × is black */
+
+/* Give the middle CTA the same visual style as the left CTA */
+.content > .footer:last-of-type #openMockTest{
+  background: #00a3b4;   /* same as first-child rule */
+  color: #ffffff;
+}
+
+/* White text for the two action buttons in the modal */
+.mock-modal-actions.footer .btn,
+.mock-modal-actions.footer .btn.ghost,
+.mock-modal-actions.footer .btn:hover,
+.mock-modal-actions.footer .btn.ghost:hover,
+.mock-modal-actions.footer .btn:focus,
+.mock-modal-actions.footer .btn.ghost:focus {
+  color: #fff !important;
+}
+
+
+/* === Refined split-sidebar styles === */
+
+/* Make top block use the same background as the sidebar */
+.sidebar-top{
+  background: var(--bg-elev);            /* same as sidebar */
+  border: 1px solid var(--line-dark);
+  border-radius: 12px;
+  padding: 12px 12px 14px;
+  display: grid;
+  gap: 8px;
+}
+
+/* Center the title and place a thin border ABOVE it (under the logo) */
+.sidebar-title{
+  margin: 6px 0 0;
+  padding-top: 8px;
+  border-top: 1px solid var(--line-dark);  /* border above title */
+  text-align: center;                       /* centered title */
+  font-weight: 800;
+  font-size: 1.05rem;
+  letter-spacing: .2px;
+  color: var(--text);
+  line-height: 1.25;
+}
+
+/* No border between title and subtitle */
+.sidebar-subtitle{
+  margin: 4px 0 0;
+  padding-top: 0;
+  border: none;    
+ text-align: center;   /* ensure no top rule */
+  font-size: .92rem;
+  font-weight: 600;
+  color: var(--muted);
+  line-height: 1.35;
+}
+
+/* Keep logo centered */
+.brand-img{
+  display: block;
+  margin: 2px auto 4px;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Separation between the two categories remains */
+.sidebar-nav{
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 0px solid var(--line-dark);
+}
+
+/* Header is non-interactive */
+.sidebar-top, .sidebar-top *{
+  pointer-events: none;
+  user-select: text;
+}
+
+/* Ensure the lower block (nav+footer) fills the remaining height */
+.sidebar-nav{
+  display: flex;
+  flex-direction: column;
+  flex: 1;          /* take all remaining space in the sidebar */
+  min-height: 0;    /* critical for allowing children to shrink/scroll */
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--line-dark);
+}
+
+/* Make the exercise list the scrolling region */
+.nav{
+  flex: 1;          /* fill inside .sidebar-nav */
+  min-height: 0;    /* allow overflow */
+  overflow: auto;   /* show scrollbar when needed */
+  padding: 6px 2px; /* keep your existing padding */
+}
+
+/* Keep the header area non-interactive without affecting the rest */
+.sidebar-top, .sidebar-top *{
+  pointer-events: none;
+  user-select: text;
+}
+/* Re-enable pointer events for items that must be clickable */
+.sidebar-footer, .sidebar-footer *{ pointer-events: auto; }
+.nav, .nav *{ pointer-events: auto; }
+
+/* Disable programming ligatures only in code elements */
+pre, code, kbd, samp, pre code {
+  font-variant-ligatures: none;
+  -webkit-font-variant-ligatures: none;
+  font-feature-settings: "liga" 0, "clig" 0, "calt" 0, "dlig" 0;
+}
+
+/* Preserve spacing and line breaks in code blocks */
+pre, pre code {
+  white-space: pre;
+}
