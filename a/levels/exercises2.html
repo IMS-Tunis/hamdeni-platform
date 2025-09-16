@@ -1,0 +1,184 @@
+<!-- index.html (updated: top guidance in old grey style, not inside a question card) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Level 2 - I/O and Operations</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../exercises.css" />
+</head>
+<body>
+
+<aside class="sidebar" aria-label="Exercise navigation">
+  <!-- Top category: logo + header -->
+  <div class="sidebar-top">
+    <img src="../logo.png" alt="Logo" class="brand-img" width="220">
+    <h2 class="sidebar-title">Level 2</h2>
+    <p class="sidebar-subtitle">I/O and Operations</p>
+  </div>
+
+  <!-- Bottom category: exercises + controls -->
+  <div class="sidebar-nav">
+    <nav class="nav" id="nav"></nav>
+
+    <div class="sidebar-footer">
+      <button id="expandAll" class="btn ghost">Show all mark schemes</button>
+      <button id="collapseAll" class="btn ghost">Hide all mark schemes</button>
+    </div>
+  </div>
+</aside>
+
+
+
+
+
+  <main class="content">
+    <!-- Guidance moved to the beginning, using the same grey footer-style block -->
+	
+
+<div class="content-section">
+    <section class="footer" aria-label="Instructions" style="margin:0;">
+        <h2 style="margin:0 0 8px 0; font-size:1.05rem; font-weight:700;">Before you start</h2>
+        <ul style="margin:0; padding-left:2rem; font-size:small">
+            <li>Work through the exercises. Reveal the mark scheme when you are ready to check your answer.</li>
+            <li>The teacher is available to explain any exercises you did not understand.</li>
+            <li>When you are ready, inform the teacher to sit for the level pass test and unlock the next level.</li>
+        </ul>
+    </section>
+
+    <div class="button-container">
+        <a href="../dashboard.html" class="nav-button btn-outlined btn-home-outlined">🏠 Home</a>
+		<a href="level2.html" class="nav-button btn-outlined btn-theory-outlined">📚 Theory Notes</a>
+    </div>
+</div>
+	
+	
+    <!-- Exercises render here -->
+    <section id="pointsContainer" class="points-container" aria-live="polite"></section>
+
+    <!-- Action buttons at end of page -->
+    <footer class="footer" style="display:flex;gap:12px;align-items:center;">
+      <button class="btn" type="button">I need help</button>
+      <button class="btn" type="button">I'm ready for the test</button>
+    </footer>
+  </main>
+
+  <!-- Embedded JSON (MCQ formatted; CASE use explicit; expanded explanations) -->
+  <script id="data" type="application/json">
+{
+  "data": [
+    {
+      "point_id": "LEVEL_2.BASIC_IO_AND_OPERATORS",
+      "items": [
+        {
+          "question": "Q1. Age from birth year",
+          "question_self_contained": "Prompt the user for their birth year using `input()`, convert it to an integer, then compute and print the age using the fixed current year 2024.",
+          "mark_scheme_answer": "# INPUT: read birth year as text, then convert to integer\nbirth_year = int(input(\"Enter your birth year: \"))\n\n# PROCESS: compute age with the fixed current year 2024\nage = 2024 - birth_year\n\n# OUTPUT: show the computed age\nprint(\"Your age is:\", age)",
+          "explanation": "`input()` returns text, so `int(...)` converts it to an integer. Subtracting from 2024 gives the age. Printing displays the result."
+        },
+        {
+          "question": "Q2. Two-integer arithmetic summary",
+          "question_self_contained": "Read two integers using `input()` with `int(...)`. Print their sum, difference, product, quotient using `/`, and remainder using `%`.",
+          "mark_scheme_answer": "# INPUT: two integer operands\nnum1 = int(input(\"Enter the first integer: \"))\nnum2 = int(input(\"Enter the second integer: \"))\n\n# OUTPUT: arithmetic results\nprint(\"Sum:\", num1 + num2)\nprint(\"Difference:\", num1 - num2)\nprint(\"Product:\", num1 * num2)\nprint(\"Quotient:\", num1 / num2)  # regular division gives a float\nprint(\"Modulus:\", num1 % num2)   # remainder",
+          "explanation": "`/` performs regular division and returns a floating-point result. `%` returns the remainder."
+        },
+        {
+          "question": "Q3. Precedence vs parentheses",
+          "question_self_contained": "Compute and print the value of `10 + 5 * 2`, then use parentheses to change the order of evaluation and print the new result.",
+          "mark_scheme_answer": "# Without parentheses: multiplication before addition\nresult1 = 10 + 5 * 2    # 10 + 10 = 20\nprint(result1)\n\n# With parentheses: addition first\nresult2 = (10 + 5) * 2  # 15 * 2 = 30\nprint(result2)",
+          "explanation": "Multiplication has higher precedence than addition, so it happens first. Parentheses force addition to happen first."
+        },
+        {
+          "question": "Q4. Mixed operators with // and %",
+          "question_self_contained": "With `a = 15` and `b = 5`, evaluate `a + b * 2 - a // b + a % b` observing operator precedence, and print the result.",
+          "mark_scheme_answer": "a = 15\nb = 5\n# Evaluate in precedence order: * , // , % , then + and - left-to-right\nresult = a + b * 2 - a // b + a % b\nprint(result)  # 22",
+          "explanation": "`b * 2 = 10`, `a // b = 3`, `a % b = 0`. Then `15 + 10 - 3 + 0 = 22`."
+        },
+        {
+          "question": "Q5. Logical composition with comparisons",
+          "question_self_contained": "For `x = 10`, `y = 20`, `z = 5`, evaluate `(x > z) and (y < x + z) or (y == x + z * 3)` and print the boolean result.",
+          "mark_scheme_answer": "x = 10\ny = 20\nz = 5\n\nresult = (x > z) and (y < x + z) or (y == x + z * 3)\nprint(result)  # False",
+          "explanation": "`x > z` is `True`. `y < x + z` is `20 < 15`, so `False`. `True and False` is `False`. `z * 3 = 15`, so `x + z * 3 = 25`; `y == 25` is `False`. `False or False` is `False`."
+        },
+        {
+          "question": "Q6. Exponent, remainder, two divisions, and",
+          "question_self_contained": "Read three integers `a`, `b`, `c`. Print:\n\n1) `a ** c`\n2) `b % c`\n3) `a / b` and `a // b`\n4) `(a > b) and (b > c)`",
+          "mark_scheme_answer": "# INPUT\na = int(input(\"Enter the first integer (a): \"))\nb = int(input(\"Enter the second integer (b): \"))\nc = int(input(\"Enter the third integer (c): \"))\n\n# 1) exponentiation\nprint(\"a ** c:\", a ** c)\n\n# 2) modulus\nprint(\"b % c:\", b % c)\n\n# 3) division vs floor division\nprint(\"a / b:\", a / b)\nprint(\"a // b:\", a // b)\n\n# 4) combined logical condition\nprint(\"(a > b) and (b > c):\", (a > b) and (b > c))",
+          "explanation": "`**` raises to a power; `%` gives a remainder; `/` is regular division; `//` floors the result; `and` is true only if both comparisons are true."
+        },
+        {
+          "question": "Q7. Multiply, remainders, and/or/not",
+          "question_self_contained": "Read three integers `x`, `y`, `z`. Print:\n\n1) `x * z`\n2) `y % z`\n3) `x / y` and `x % y`\n4) The results of `(x < y) and (y <= z)`, `(x < y) or (y <= z)`, and `not (x < y)`",
+          "mark_scheme_answer": "# INPUT\nx = int(input(\"Enter the first integer (x): \"))\ny = int(input(\"Enter the second integer (y): \"))\nz = int(input(\"Enter the third integer (z): \"))\n\n# Arithmetic and modulus\nprint(\"x * z:\", x * z)\nprint(\"y % z:\", y % z)\n\n# Division and remainder\nprint(\"x / y:\", x / y)\nprint(\"x % y:\", x % y)\n\n# Logical evaluations including and, or, not\nprint(\"(x < y) and (y <= z):\", (x < y) and (y <= z))\nprint(\"(x < y) or (y <= z):\", (x < y) or (y <= z))\nprint(\"not (x < y):\", not (x < y))",
+          "explanation": "Shows multiplication, remainder, regular division, and three logical forms. `not` flips a boolean value."
+        },
+        {
+          "question": "Q8. Four-integer combined operations",
+          "question_self_contained": "Read four integers `x`, `y`, `z`, `w`. Print:\n\n1) `(x + y) ** z`\n2) `(x * z) % w`\n3) `(y + z) / x` and `(y + z) // x`\n4) Results of: `(x >= w) and (y <= z)` and `(w != z) or ((x + y) > (z * w))`",
+          "mark_scheme_answer": "# INPUT\nx = int(input(\"Enter the first integer (x): \"))\ny = int(input(\"Enter the second integer (y): \"))\nz = int(input(\"Enter the third integer (z): \"))\nw = int(input(\"Enter the fourth integer (w): \"))\n\n# Computations\nprint(\"(x + y) ** z:\", (x + y) ** z)\nprint(\"(x * z) % w:\", (x * z) % w)\n\nprint(\"(y + z) / x:\", (y + z) / x)\nprint(\"(y + z) // x:\", (y + z) // x)\n\n# Logical combinations\nprint(\"(x >= w) and (y <= z):\", (x >= w) and (y <= z))\nprint(\"(w != z) or ((x + y) > (z * w)):\", (w != z) or ((x + y) > (z * w)))",
+          "explanation": "Parentheses control evaluation; `**` exponentiates; `%` gives a remainder; `/` vs `//` shows floating vs floor division; logical results depend on comparisons combined with `and` or `or`."
+        },
+        {
+          "question": "N1. Comparison operators table",
+          "question_self_contained": "With `a = 7` and `b = 10`, evaluate and print all of the following in order:\n`a == b`, `a != b`, `a > b`, `a < b`, `a >= b`, `a <= b`.",
+          "mark_scheme_answer": "a = 7\nb = 10\nprint(a == b)  # False\nprint(a != b)  # True\nprint(a > b)   # False\nprint(a < b)   # True\nprint(a >= b)  # False\nprint(a <= b)  # True",
+          "explanation": "Each line compares `a` and `b` using a different comparison operator and prints the boolean result."
+        },
+        {
+          "question": "N2. Float input and floor division",
+          "question_self_contained": "Prompt for two numbers that may include decimals. Use `float(...)` to convert both. Print their sum and the result of floor division of the sum by `2` using `//`.",
+          "mark_scheme_answer": "# INPUT as floats (may include decimals)\nx = float(input(\"Enter a number (can be decimal): \"))\ny = float(input(\"Enter another number (can be decimal): \"))\n\n# Sum as float\ns = x + y\nprint(\"Sum:\", s)\n\n# Floor division by 2\nprint(\"Floor division of sum by 2:\", s // 2)",
+          "explanation": "`float(...)` accepts decimal input. `//` floors the numeric result. Floor division works with floats as well, returning the floor of the quotient."
+        }
+      ]
+    }
+  ]
+}
+
+
+  </script>
+
+<!-- APPEND: Mock Test modal -->
+<div id="mockTestModal" class="mock-modal" aria-hidden="true" role="dialog" aria-labelledby="mockTestTitle">
+  <div class="mock-modal-card">
+    <div class="mock-modal-header">
+      <h3 id="mockTestTitle" style="margin:0;">Mock Test</h3>
+      <button class="mock-close" id="closeMockTest" aria-label="Close">×</button>
+    </div>
+    <div class="mock-modal-body">
+      <!-- JSON will populate this code block with the question -->
+      <div class="mock-code" aria-label="Pseudocode"></div>
+
+      <div id="mockTestAnswer" class="mock-hidden" aria-live="polite">
+        <h4 style="margin:16px 0 8px 0;">Answer</h4>
+        <div class="mock-code"></div>
+        <p></p>
+      </div>
+    </div>
+    <div class="mock-modal-actions footer">
+      <button class="btn" id="toggleMockAnswer" type="button" aria-expanded="false" aria-controls="mockTestAnswer">Show answer</button>
+      <button class="btn ghost" id="dismissMockTest" type="button">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- APPEND: mock test JSON payload -->
+<script id="mockTestData" type="application/json">
+{
+  "mock_test": {
+    "title": "Mock Test - Level 2: Capstone integration",
+    "question": "Read three integers m, n, p. Compute and print, in order: 1) m ** 2 + n // p 2) (m + n) % p 3) ((m > n) and (n >= p)) or not (m == p) 4) ((m + n * p) // p) == (m // p + n)",
+    "question_self_contained": "Read three integers `m`, `n`, `p`. Compute and print, in order:\n1) `m ** 2 + n // p`\n2) `(m + n) % p`\n3) `((m > n) and (n >= p)) or not (m == p)`\n4) `((m + n * p) // p) == (m // p + n)`",
+    "mark_scheme_answer": "# INPUT\nm = int(input(\"Enter m: \"))\nn = int(input(\"Enter n: \"))\np = int(input(\"Enter p: \"))\n\n# 1) combines exponentiation and floor division\nprint(\"m**2 + n//p:\", m ** 2 + n // p)\n\n# 2) remainder after adding\nprint(\"(m + n) % p:\", (m + n) % p)\n\n# 3) mixed logical expression\nprint(\"((m > n) and (n >= p)) or not (m == p):\", ((m > n) and (n >= p)) or not (m == p))\n\n# 4) precedence and equivalence check\nleft = (m + n * p) // p       # multiplication before addition, then floor division\nright = (m // p) + n\nprint(\"((m + n*p)//p) == (m//p + n):\", left == right)",
+    "explanation": "Covers integer input and conversion, arithmetic precedence, floor division and modulus, and combined logical expressions, finishing with an equality check that tests understanding of precedence and division."
+  }
+}
+
+
+</script>
+  <script src="../exercises.js"></script>
+</body>
+</html>

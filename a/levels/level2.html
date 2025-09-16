@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Level 2: Basic I/O and Operators</title>
+  <link rel="stylesheet" href="../levels.css" />
+</head>
+<body>
+
+  <!-- Header aligned with existing CSS: logo | title | Home -->
+  <div class="header">
+    <div class="container">
+      <div class="header-bar">
+        <a class="brand" href="../../dashboard.html" aria-label="Home">
+          <img src="../logo.png" alt="Logo" class="brand-logo" />
+        </a>
+
+        <div class="header-main">
+          <h1>Level 2: Basic I/O and Operators</h1>
+          <p>IGCSE Computer Science (0478): student notes, prepared by Dr. Hamdeni</p>
+        </div>
+
+        <a class="btn btn-home" href="../dashboard.html">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M12 3l9 8h-3v9h-5v-6H11v6H6v-9H3l9-8z"/>
+          </svg>
+          Home
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <div class="container">
+
+      <!-- Table of contents -->
+      <nav class="toc">
+        <h2>Contents</h2>
+        <ol>
+          <li><a href="#s1">1. Basic I/O</a></li>
+          <li><a href="#s2">2. Operators</a></li>
+        </ol>
+      </nav>
+
+      <!-- ========================= -->
+      <!-- Section 1: Basic I/O     -->
+      <!-- ========================= -->
+      <div class="section" id="s1">
+        <h2>1. Basic I/O</h2>
+
+        <ul class="bullets">
+          <li><strong>Reading user input:</strong> <code>input()</code> captures text typed in the console. Its return value is always a string.</li>
+        </ul>
+        <div class="example">
+          <div class="title"><strong>Example 1:</strong> Read a name and greet</div>
+          <div class="pseudocode">
+            <div class="pc-line">
+              <span class="comment"
+                    data-tooltip="input shows the prompt and returns the typed characters as a string.">
+                <em>name = input("Enter your name: ")</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment"
+                    data-tooltip='print outputs to the console. With commas, Python inserts spaces between arguments automatically.'>
+                <em>print("Hello,", name)</em>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <ul class="bullets">
+          <li><strong>Converting input to numbers:</strong> use <code>int()</code> or <code>float()</code> when arithmetic is needed.</li>
+        </ul>
+        <div class="example">
+          <div class="title"><strong>Example 2:</strong> Convert input to integer</div>
+          <div class="pseudocode">
+            <div class="pc-line">
+              <span class="comment"
+                    data-tooltip="The inner input() returns a string, e.g., '18'. int(...) converts that string of digits to an integer value 18.">
+                <em>age = int(input("Enter your age: "))</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment"
+                    data-tooltip="The number stored in age is printed as part of the message.">
+                <em>print("You are", age, "years old.")</em>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <p><strong>Why convert input types?</strong> <code>input()</code> always returns a string, while arithmetic needs numeric types such as <code>int</code> or <code>float</code>.</p>
+
+        <!-- Video -->
+        <div class="example video">
+          <div class="title">input() returns string</div>
+          <div class="media">
+            <iframe width="560" height="315"
+              src="https://www.youtube.com/embed/WYmIGN1bjN8"
+              title="input() function in Python (returns string)" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================= -->
+      <!-- Section 2: Operators      -->
+      <!-- ========================= -->
+      <div class="section" id="s2">
+        <h2>2. Operators</h2>
+
+        <ul class="bullets">
+          <li><strong>Arithmetic operators:</strong> <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code> (modulus), <code>**</code> (power), <code>//</code> (floor division).</li>
+        </ul>
+        <div class="example">
+          <div class="title"><strong>Example A:</strong> Arithmetic operators</div>
+          <div class="pseudocode">
+            <div class="pc-line"><span class="comment" data-tooltip="Assign 10 to a and 3 to b."><em>a = 10</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="Variables can store integers, floats, strings, etc."><em>b = 3</em></span></div>
+
+            <div class="pc-line"><span class="comment" data-tooltip="+ adds numbers. 10 + 3 = 13."><em>print("Addition:", a + b)</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="- subtracts the right value from the left. 10 - 3 = 7."><em>print("Subtraction:", a - b)</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="* multiplies. 10 * 3 = 30."><em>print("Multiplication:", a * b)</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="/ performs true division and returns a float. 10 / 3 ≈ 3.3333."><em>print("Division:", a / b)</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="% gives the remainder of the division. 10 % 3 = 1."><em>print("Modulus:", a % b)</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="** raises to a power. 10**3 = 1000."><em>print("Exponentiation:", a ** b)</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="// divides then rounds down to an integer. 10 // 3 = 3."><em>print("Floor Division:", a // b)</em></span></div>
+          </div>
+        </div>
+
+        <p><strong>What is modulus?</strong> The operator <code>%</code> returns the remainder of a division, e.g., <code>10 % 3</code> is <code>1</code>.</p>
+        <p><strong>Division vs floor division:</strong> <code>/</code> returns a float; <code>//</code> returns the largest integer ≤ the exact quotient.</p>
+
+        <ul class="bullets">
+          <li><strong>Operator precedence:</strong> multiplication and division happen before addition and subtraction unless parentheses change the order.</li>
+        </ul>
+        <div class="example">
+          <div class="title"><strong>Example B:</strong> Operator precedence</div>
+          <div class="pseudocode">
+            <div class="pc-line"><span class="comment" data-tooltip="* has higher precedence than + so 5*2 is evaluated first. 10 + 10 = 20."><em>result = 10 + 5 * 2</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="Prints 20."><em>print(result)</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="Parentheses force addition first. (10 + 5) = 15; 15 * 2 = 30."><em>result = (10 + 5) * 2</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="Prints 30."><em>print(result)</em></span></div>
+          </div>
+        </div>
+
+        <ul class="bullets">
+          <li><strong>Comparison operators:</strong> test relationships and return booleans.</li>
+        </ul>
+        <div class="example">
+          <div class="title"><strong>Example C:</strong> Comparison operators</div>
+          <div class="pseudocode">
+            <div class="pc-line"><span class="comment" data-tooltip="Assign values for comparison."><em>a = 10</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="Assign values for comparison."><em>b = 5</em></span></div>
+
+            <div class="pc-line"><span class="comment" data-tooltip="== checks equality. 10 equals 5 is False."><em>print(a == b)  # False</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="!= checks inequality. 10 not equal to 5 is True."><em>print(a != b)  # True</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="&gt; greater than. 10 &gt; 5 is True."><em>print(a &gt; b)   # True</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="&lt; less than. 10 &lt; 5 is False."><em>print(a &lt; b)   # False</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="&gt;= greater or equal. 10 ≥ 5 is True."><em>print(a &gt;= b)  # True</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="&lt;= less or equal. 10 ≤ 5 is False."><em>print(a &lt;= b)  # False</em></span></div>
+          </div>
+        </div>
+
+        <ul class="bullets">
+          <li><strong>Logical operators:</strong> combine booleans to form complex conditions.</li>
+        </ul>
+        <div class="example">
+          <div class="title"><strong>Example D:</strong> Logical operators</div>
+          <div class="pseudocode">
+            <div class="pc-line"><span class="comment" data-tooltip="Booleans represent truth values."><em>x = True</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="Booleans represent truth values."><em>y = False</em></span></div>
+
+            <div class="pc-line"><span class="comment" data-tooltip="and returns True only if both operands are True."><em>print(x and y)  # False</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="or returns True if at least one operand is True."><em>print(x or y)   # True</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="not flips a truth value: not True becomes False."><em>print(not x)    # False</em></span></div>
+          </div>
+        </div>
+
+        <p><strong>Why use logical operators?</strong> They allow multiple conditions in one expression so programs can make richer decisions.</p>
+
+        <ul class="bullets">
+          <li><strong>Combining multiple conditions:</strong> use <code>and</code> and <code>or</code> for compound tests.</li>
+        </ul>
+        <div class="example">
+          <div class="title"><strong>Example E:</strong> Combining conditions</div>
+          <div class="pseudocode">
+            <div class="pc-line"><span class="comment" data-tooltip="Two variables used in the tests below."><em>age = 25</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="True indicates the person is a student."><em>is_student = True</em></span></div>
+
+            <div class="pc-line"><span class="comment" data-tooltip="Both parts must be True for and to be True. 25 &gt; 18 is True and is_student is True → overall True.">
+              <em>print(age &gt; 18 and is_student)  # True</em>
+            </span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="or is True if either part is True. age &lt; 18 is False but is_student is True → overall True.">
+              <em>print(age &lt; 18 or is_student)   # True</em>
+            </span></div>
+          </div>
+        </div>
+
+        <!-- Videos: arranged two per row -->
+        <div class="video-row">
+          <div class="example video">
+            <div class="title">Arithmetic operators (all seven)</div>
+            <div class="media">
+              <iframe width="560" height="315"
+                src="https://www.youtube.com/embed/s4UCHwWlxKE"
+                title="Arithmetic Operators in Python (Short)" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+          </div>
+
+          <div class="example video">
+            <div class="title">Division vs floor division</div>
+            <div class="media">
+              <iframe width="560" height="315"
+                src="https://www.youtube.com/embed/ekvuzV_Lieg"
+                title="/ vs // in Python (Short)" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+
+        <div class="video-row">
+          <div class="example video">
+            <div class="title">Operator precedence</div>
+            <div class="media">
+              <iframe width="560" height="315"
+                src="https://www.youtube.com/embed/ycsjulONhI4"
+                title="PEMDAS in Python (Short)" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+          </div>
+
+          <div class="example video">
+            <div class="title">Comparison operators</div>
+            <div class="media">
+              <iframe width="560" height="315"
+                src="https://www.youtube.com/embed/4ARJkGYa0Kg"
+                title="Comparison Operators in Python (Short)" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+
+        <div class="video-row">
+          <div class="example video">
+            <div class="title">Logical operators (and, or, not)</div>
+            <div class="media">
+              <iframe width="560" height="315"
+                src="https://www.youtube.com/embed/I5-sDzXMTfM"
+                title="Logical Operators in Python (Short)" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+          </div>
+
+          <div class="example video">
+            <div class="title">Combining multiple conditions</div>
+            <div class="media">
+              <iframe width="560" height="315"
+                src="https://www.youtube.com/embed/R5-NMAAl_Ms"
+                title="Check two conditions in if-statement (Python)" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p style="text-align:center; margin:20px 0;">
+        <a class="btn btn-cta" href="./exercises2.html">Go to Exercises</a>
+      </p>
+
+      <div class="footer">
+        &copy; 2025 Dr. Hamdeni. All rights reserved.
+      </div>
+    </div>
+  </main>
+</body>
+</html>
