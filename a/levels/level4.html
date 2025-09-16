@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Level 4: Loops and Control Flow</title>
+  <link rel="stylesheet" href="../levels.css" />
+</head>
+<body>
+
+  <!-- Header: logo | title | Home -->
+  <div class="header">
+    <div class="container">
+      <div class="header-bar">
+        <a class="brand" href="../../dashboard.html" aria-label="Home">
+          <img src="../logo.png" alt="Logo" class="brand-logo" />
+        </a>
+
+        <div class="header-main">
+          <h1>Level 4: Loops and Control Flow</h1>
+          <p>IGCSE Computer Science (0478): student notes, prepared by Dr. Hamdeni</p>
+        </div>
+
+        <a class="btn btn-home" href="../dashboard.html">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M12 3l9 8h-3v9h-5v-6H11v6H6v-9H3l9-8z"/>
+          </svg>
+          Home
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <div class="container">
+
+      <!-- Table of contents -->
+      <nav class="toc">
+        <h2>Contents</h2>
+        <ol>
+          <li><a href="#s1">1. For Loops</a></li>
+          <li><a href="#s2">2. While Loops</a></li>
+          <li><a href="#s3">3. Control Flow in Loops</a></li>
+        </ol>
+      </nav>
+
+      <!-- ===================== -->
+      <!-- 1. For Loops          -->
+      <!-- ===================== -->
+      <div class="section" id="s1">
+        <h2>1. For Loops</h2>
+
+        <ul class="bullets">
+          <li>A <code>for</code> loop repeats a block once for each item in a sequence such as a list, string, or a range of numbers.</li>
+        </ul>
+
+        <!-- Example 1: range(5) -->
+        <div class="example">
+          <div class="title"><strong>Example 1:</strong> Iterating over a range of numbers</div>
+          <div class="pseudocode">
+            <div class="pc-line">
+              <span class="comment"
+                    data-tooltip="range(5) produces 0,1,2,3,4. i takes each value in order.">
+                <em>for i in range(5):</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment"
+                    data-tooltip="Print the current value of i.">
+                <em>    print(i)</em>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Example 2: range with step -->
+        <div class="example">
+          <div class="title"><strong>Example 2:</strong> Counting down with a step value</div>
+          <div class="pseudocode">
+            <div class="pc-line">
+              <span class="comment"
+                    data-tooltip="range(start, stop, step). Here start=10, stop=0 (exclusive), step=-2 to count down.">
+                <em>for i in range(10, 0, -2):</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment"
+                    data-tooltip="Outputs 10, 8, 6, 4, 2 on separate lines.">
+                <em>    print(i)</em>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Example 3: iterate a list -->
+        <div class="example">
+          <div class="title"><strong>Example 3:</strong> Iterating over a list</div>
+          <div class="pseudocode">
+            <div class="pc-line">
+              <span class="comment" data-tooltip='A list of three string items.'>
+                <em>fruits = ["apple", "banana", "cherry"]</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment"
+                    data-tooltip="On each iteration fruit refers to the next item from the list.">
+                <em>for fruit in fruits:</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment"
+                    data-tooltip="Prints the current fruit name.">
+                <em>    print(fruit)</em>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Videos: wrap 3 cards, side-by-side on wide screens -->
+        <div class="video-row">
+          <div class="example video">
+            <div class="title">for loop with range basics</div>
+            <div class="media">
+              <iframe width="560" height="315"
+                src="https://www.youtube.com/embed/YhDI2btcWeU"
+                title="for Loop with range() Function in Python" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+          </div>
+
+          <div class="example video">
+            <div class="title">Negative step in range</div>
+            <div class="media">
+              <iframe width="560" height="315"
+                src="https://www.youtube.com/embed/kxjB75mMspk"
+                title="for Loop - Reversing a Range of Numbers" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+          </div>
+
+          <div class="example video">
+            <div class="title">Iterate over a list</div>
+            <div class="media">
+              <iframe width="560" height="315"
+                src="https://www.youtube.com/embed/E3zFEzwquSg"
+                title="Iterating through lists in Python" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===================== -->
+      <!-- 2. While Loops        -->
+      <!-- ===================== -->
+      <div class="section" id="s2">
+        <h2>2. While Loops</h2>
+
+        <ul class="bullets">
+          <li>A <code>while</code> loop repeats as long as its condition remains true.</li>
+        </ul>
+
+        <!-- Example 1: simple counter -->
+        <div class="example">
+          <div class="title"><strong>Example 1:</strong> Simple counter</div>
+          <div class="pseudocode">
+            <div class="pc-line">
+              <span class="comment" data-tooltip="Start counting from 1.">
+                <em>count = 1</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment" data-tooltip="Loop while the condition count ≤ 5 is True.">
+                <em>while count &lt;= 5:</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment" data-tooltip="Display the current count value.">
+                <em>    print(count)</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment" data-tooltip="Increase count by 1 so the loop progresses toward termination.">
+                <em>    count += 1</em>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Example 2: summing numbers -->
+        <div class="example">
+          <div class="title"><strong>Example 2:</strong> Sum numbers until a limit</div>
+          <div class="pseudocode">
+            <div class="pc-line"><span class="comment" data-tooltip="Accumulator starts at zero."><em>total = 0</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="Current number to add next."><em>number = 1</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="Repeat while number ≤ 5."><em>while number &lt;= 5:</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="Add the current number into the running total."><em>    total += number</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="Move to the next number."><em>    number += 1</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="After the loop finishes, print the result."><em>print("Sum:", total)</em></span></div>
+          </div>
+        </div>
+
+        <!-- Videos: two side by side -->
+        <div class="video-row">
+          <div class="example video">
+            <div class="title">while loop counter</div>
+            <div class="media">
+              <iframe width="560" height="315"
+                src="https://www.youtube.com/embed/OGFVKg8aRAM"
+                title="While Loops Tutorial 1 - Count to 100" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+          </div>
+
+          <div class="example video">
+            <div class="title">Summing with a while loop</div>
+            <div class="media">
+              <iframe width="560" height="315"
+                src="https://www.youtube.com/embed/DH8YH3CMuwM"
+                title="Sum of natural numbers using while loop" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- =============================== -->
+      <!-- 3. Control Flow in Loops        -->
+      <!-- =============================== -->
+      <div class="section" id="s3">
+        <h2>3. Control Flow in Loops</h2>
+
+        <ul class="bullets">
+          <li><code>break</code> stops the nearest loop immediately.</li>
+          <li><strong>Tip:</strong> use <code>for</code> when the number of iterations is known; use <code>while</code> when you loop until a condition is met.</li>
+        </ul>
+
+        <!-- Example: break in an input loop -->
+        <div class="example">
+          <div class="title"><strong>Example:</strong> Sentinel-controlled loop with break</div>
+          <div class="pseudocode">
+            <div class="pc-line">
+              <span class="comment" data-tooltip="while True creates an intentional infinite loop. We will exit with break.">
+                <em>while True:</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment" data-tooltip="Ask for a number. int(...) converts the input string to an integer.">
+                <em>    number = int(input("Enter a number (0 to quit): "))</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment" data-tooltip="0 is the sentinel value. When entered, the loop will terminate.">
+                <em>    if number == 0:</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment" data-tooltip="Exit the loop immediately.">
+                <em>        break</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment" data-tooltip="Otherwise, echo the value back to the user.">
+                <em>    print("You entered:", number)</em>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Video: single card -->
+        <div class="example video">
+          <div class="title">break statement only</div>
+          <div class="media">
+            <iframe width="560" height="315"
+              src="https://www.youtube.com/embed/-8w9IJHaI0c"
+              title="break statement in Python - Shorts" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+
+      <p style="text-align:center; margin:20px 0;">
+        <a class="btn btn-cta" href="./exercises4.html">Go to Exercises</a>
+      </p>
+
+      <div class="footer">
+        &copy; 2025 Dr. Hamdeni. All rights reserved.
+      </div>
+    </div>
+  </main>
+</body>
+</html>

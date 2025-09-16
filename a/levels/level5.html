@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Level 5: Working with Lists</title>
+  <link rel="stylesheet" href="../levels.css" />
+</head>
+<body>
+
+  <!-- Header: logo | title | Home -->
+  <div class="header">
+    <div class="container">
+      <div class="header-bar">
+        <a class="brand" href="../dashboard.html" aria-label="Home">
+          <img src="../logo.png" alt="Logo" class="brand-logo" />
+        </a>
+
+        <div class="header-main">
+          <h1>Level 5: Working with Lists</h1>
+          <p>IGCSE Computer Science (0478): student notes, prepared by Dr. Hamdeni</p>
+        </div>
+
+        <a class="btn btn-home" href="../../dashboard.html">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M12 3l9 8h-3v9h-5v-6H11v6H6v-9H3l9-8z"/>
+          </svg>
+          Home
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <div class="container">
+
+      <!-- Table of contents -->
+      <nav class="toc">
+        <h2>Contents</h2>
+        <ol>
+          <li><a href="#s1">1. Basic List Operations</a></li>
+          <li><a href="#s2">2. Traversing and Modifying Lists</a></li>
+          <li><a href="#s3">3. Working with Two-Dimensional Lists</a></li>
+          <li><a href="#s4">4. List Methods and Functions</a></li>
+        </ol>
+      </nav>
+
+      <!-- ============================== -->
+      <!-- 1. Basic List Operations       -->
+      <!-- ============================== -->
+      <div class="section" id="s1">
+        <h2>1. Basic List Operations</h2>
+
+        <ul class="bullets">
+          <li><strong>Declaring an empty list:</strong> uses <code>[]</code> to represent no elements.</li>
+        </ul>
+        <div class="example">
+          <div class="title"><strong>Example A -</strong> Declaring an empty list</div>
+          <div class="pseudocode">
+            <div class="pc-line"><span class="comment" data-tooltip="Creates a new list containing zero items."><em>my_list = []  # Creates an empty list</em></span></div>
+          </div>
+        </div>
+
+        <ul class="bullets">
+          <li><strong>Declaring a list with a specific size:</strong> multiply a one-element list to repeat a default value.</li>
+        </ul>
+        <div class="example">
+          <div class="title"><strong>Example B -</strong> Declaring a fixed-size list with default values</div>
+          <div class="pseudocode">
+            <div class="pc-line"><span class="comment" data-tooltip="Makes a list of length 10 where every slot initially holds None."><em>my_list = [None] * 10  # Creates a list with 10 None values</em></span></div>
+          </div>
+        </div>
+
+        <ul class="bullets">
+          <li><strong>Initializing with specific values:</strong> put the values directly between brackets.</li>
+        </ul>
+        <div class="example">
+          <div class="title"><strong>Example C -</strong> Initialize with given values</div>
+          <div class="pseudocode">
+            <div class="pc-line"><span class="comment" data-tooltip="Creates a list containing five integers in order."><em>my_list = [1, 2, 3, 4, 5]  # Creates a list with values 1 to 5</em></span></div>
+          </div>
+        </div>
+
+        <ul class="bullets">
+          <li><strong>Appending to the end:</strong> <code>append(x)</code> adds a single element at the tail.</li>
+        </ul>
+        <div class="example">
+          <div class="title"><strong>Example D -</strong> Append to end</div>
+          <div class="pseudocode">
+            <div class="pc-line"><span class="comment" data-tooltip="Start with three items."><em>my_list = [1, 2, 3]</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="Adds 6 to the rightmost end."><em>my_list.append(6)  # [1, 2, 3, 6]</em></span></div>
+          </div>
+        </div>
+
+        <ul class="bullets">
+          <li><strong>Inserting at a position:</strong> <code>insert(index, value)</code> places an element before the given index.</li>
+        </ul>
+        <div class="example">
+          <div class="title"><strong>Example E -</strong> Insert at a specific index</div>
+          <div class="pseudocode">
+            <div class="pc-line"><span class="comment" data-tooltip="Original list."><em>my_list = [1, 2, 3, 4]</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="Put 99 at index 2; existing items from index 2 move right."><em>my_list.insert(2, 99)  # [1, 2, 99, 3, 4]</em></span></div>
+          </div>
+        </div>
+
+        <ul class="bullets">
+          <li><strong>Removing values:</strong> <code>remove(x)</code> deletes the first occurrence of <code>x</code>.</li>
+        </ul>
+        <div class="example">
+          <div class="title"><strong>Example F -</strong> Remove first occurrence</div>
+          <div class="pseudocode">
+            <div class="pc-line"><span class="comment" data-tooltip="List with two 2 values."><em>my_list = [1, 2, 3, 2, 4]</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="Removes the first 2 only; the second 2 remains."><em>my_list.remove(2)  # [1, 3, 2, 4]</em></span></div>
+          </div>
+        </div>
+
+        <ul class="bullets">
+          <li><strong>Removing by index:</strong> <code>del list[i]</code> deletes without returning; <code>pop(i)</code> deletes and returns.</li>
+        </ul>
+        <div class="example">
+          <div class="title"><strong>Example G -</strong> Remove by index using del and pop</div>
+          <div class="pseudocode">
+            <div class="pc-line"><span class="comment" data-tooltip="Delete item at index 1."><em>my_list = [1, 3, 2, 4]</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="After deletion, indices shift left."><em>del my_list[1]              # removes item at index 1 -&gt; [1, 2, 4]</em></span></div>
+
+            <div class="pc-line"><span class="comment" data-tooltip="Reset to the original list."><em>my_list = [1, 3, 2, 4]</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="pop returns the removed value so you can use it later."><em>popped_element = my_list.pop(2)  # removes and returns element at index 2</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="Now my_list is [1, 3, 4] and popped_element equals 2."><em># my_list becomes [1, 3, 4]; popped_element == 2</em></span></div>
+          </div>
+        </div>
+
+        <ul class="bullets">
+          <li><strong>Combining lists:</strong> <code>+</code> concatenates two lists into a new one.</li>
+        </ul>
+        <div class="example">
+          <div class="title"><strong>Example H -</strong> Concatenate two lists</div>
+          <div class="pseudocode">
+            <div class="pc-line"><span class="comment" data-tooltip="First list."><em>list1 = [1, 2, 3]</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="Second list."><em>list2 = [4, 5, 6]</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="Creates a new list that contains all items from list1 followed by list2."><em>combined_list = list1 + list2  # [1, 2, 3, 4, 5, 6]</em></span></div>
+          </div>
+        </div>
+
+        <!-- Videos: arranged in rows -->
+        <div class="video-row">
+          <div class="example video">
+            <div class="title">Create an empty list</div>
+            <div class="media">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/NlMbdJCNJkY" title="How To Create An Empty List In Python (Shorts)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+
+          <div class="example video">
+            <div class="title">Append element to a list</div>
+            <div class="media">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/9dJZcNbBxyI" title="List Append Method in Python | #Minutecoding 33" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+
+          <div class="example video">
+            <div class="title">Insert element at index</div>
+            <div class="media">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/01Arma-ddWU" title="List Insert Method in Python | #Minutecoding 34" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+
+        <div class="video-row">
+          <div class="example video">
+            <div class="title">Remove first occurrence</div>
+            <div class="media">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/i-vcQLUDqiw" title="List Remove Function in Python | #Minutecoding 37" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+
+          <div class="example video">
+            <div class="title">pop by index</div>
+            <div class="media">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/jY77FvZNgQg" title="List Pop Function in Python | #Minutecoding 36" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+
+          <div class="example video">
+            <div class="title">Concatenate lists with +</div>
+            <div class="media">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/l-CNzSTyfFY" title="How do you concatenate two lists in Python? #shorts" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================================== -->
+      <!-- 2. Traversing and Modifying Lists    -->
+      <!-- ==================================== -->
+      <div class="section" id="s2">
+        <h2>2. Traversing and Modifying Lists</h2>
+
+        <ul class="bullets">
+          <li><strong>For-each traversal:</strong> the loop variable takes each element directly.</li>
+        </ul>
+        <div class="example">
+          <div class="title"><strong>Example A -</strong> Iterate over elements</div>
+          <div class="pseudocode">
+            <div class="pc-line"><span class="comment" data-tooltip="A list of five integers."><em>my_list = [1, 2, 3, 4, 5]</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="item becomes 1, then 2, then 3, etc."><em>for item in my_list:</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="Print the current element."><em>    print(item)</em></span></div>
+          </div>
+        </div>
+
+        <ul class="bullets">
+          <li><strong>Index-based traversal:</strong> use <code>range(len(list))</code> to access by position.</li>
+        </ul>
+        <div class="example">
+          <div class="title"><strong>Example B -</strong> Index-based traversal</div>
+          <div class="pseudocode">
+            <div class="pc-line"><span class="comment" data-tooltip="Same list as above."><em>my_list = [1, 2, 3, 4, 5]</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="range(len(my_list)) generates indices 0..4."><em>for i in range(len(my_list)):</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="Use the index i to access each element."><em>    print(my_list[i])</em></span></div>
+          </div>
+        </div>
+
+        <ul class="bullets">
+          <li><strong>Updating an element:</strong> assign a new value at a given index.</li>
+        </ul>
+        <div class="example">
+          <div class="title"><strong>Example C -</strong> Update by index</div>
+          <div class="pseudocode">
+            <div class="pc-line"><span class="comment" data-tooltip="Original list."><em>my_list = [1, 2, 3, 4]</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="Replace the third element (index 2) with 10."><em>my_list[2] = 10  # [1, 2, 10, 4]</em></span></div>
+          </div>
+        </div>
+
+        <!-- Videos -->
+        <div class="video-row">
+          <div class="example video">
+            <div class="title">Iterate over a list (for-each style)</div>
+            <div class="media">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/E3zFEzwquSg" title="Iterating through lists in Python #shorts" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+
+          <div class="example video">
+            <div class="title">Index-based traversal with range(len())</div>
+            <div class="media">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/Y1M3W7L00ag" title="For Loops &amp; List Length! range(len()) example #shorts" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================================= -->
+      <!-- 3. Working with Two-Dimensional Lists     -->
+      <!-- ========================================= -->
+      <div class="section" id="s3">
+        <h2>3. Working with Two-Dimensional Lists (2D Lists)</h2>
+
+        <ul class="bullets">
+          <li><strong>Declaring a 2D list:</strong> a list of lists, often used for matrices or grids.</li>
+        </ul>
+        <div class="example">
+          <div class="title"><strong>Example A -</strong> Create a 3x3 zero matrix</div>
+          <div class="pseudocode">
+            <div class="pc-line"><span class="comment" data-tooltip="Dimensions of the matrix."><em>rows, cols = 3, 3</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="List comprehension builds each row with cols zeros, repeated for rows."><em>matrix = [[0 for _ in range(cols)] for _ in range(rows)]  # 3x3 matrix of zeros</em></span></div>
+          </div>
+        </div>
+
+        <ul class="bullets">
+          <li><strong>Accessing and modifying:</strong> use <code>matrix[row][col]</code>.</li>
+        </ul>
+        <div class="example">
+          <div class="title"><strong>Example B -</strong> Access and modify an element</div>
+          <div class="pseudocode">
+            <div class="pc-line"><span class="comment" data-tooltip="Read the value from row 1, column 2 (zero-based indices)."><em>element = matrix[1][2]  # access row 1, col 2</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="Store 5 into that position."><em>matrix[1][2] = 5        # update that position to 5</em></span></div>
+          </div>
+        </div>
+
+        <ul class="bullets">
+          <li><strong>Traversing a 2D list:</strong> nested loops visit each element row by row.</li>
+        </ul>
+        <div class="example">
+          <div class="title"><strong>Example C -</strong> Traverse rows and columns</div>
+          <div class="pseudocode">
+            <div class="pc-line"><span class="comment" data-tooltip="Outer loop picks each row list."><em>for row in matrix:</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="Inner loop iterates through items in that row."><em>    for element in row:</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="Process the current element (here, just print)."><em>        print(element)</em></span></div>
+          </div>
+        </div>
+
+        <!-- Videos -->
+        <div class="video-row">
+          <div class="example video">
+            <div class="title">Create a 2D list (list of lists)</div>
+            <div class="media">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/rTXE-gri2sE" title="Create 2D Arrays in Python #shorts (list of lists concept)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+
+          <div class="example video">
+            <div class="title">Nested loops to traverse rows and columns</div>
+            <div class="media">
+              <iframe width="560" height="315" src="https://m.youtube.com/embed/Cd4_0Ix6Wvg" title="Nested loop traverses a 2D list (rows and columns) #shorts" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================================== -->
+      <!-- 4. List Methods and Functions     -->
+      <!-- ================================== -->
+      <div class="section" id="s4">
+        <h2>4. List Methods and Functions</h2>
+
+        <ul class="bullets">
+          <li><strong>len:</strong> number of items in a list or number of rows/columns in a 2D list.</li>
+        </ul>
+        <div class="example">
+          <div class="title"><strong>Example A -</strong> len on lists and 2D lists</div>
+          <div class="pseudocode">
+            <div class="pc-line"><span class="comment" data-tooltip="Three items, so len is 3."><em>my_list = [10, 20, 30]</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="Stores 3 in length."><em>length = len(my_list)         # 3</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="A 3x3 matrix."><em>matrix = [[1,2,3],[4,5,6],[7,8,9]]</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="Number of rows is 3."><em>num_rows = len(matrix)        # 3</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="Length of the first row gives number of columns, here 3."><em>num_columns = len(matrix[0])  # 3</em></span></div>
+          </div>
+        </div>
+
+        <ul class="bullets">
+          <li><strong>index:</strong> returns the position of the first matching value.</li>
+        </ul>
+        <div class="example">
+          <div class="title"><strong>Example B -</strong> index to find first occurrence</div>
+          <div class="pseudocode">
+            <div class="pc-line"><span class="comment" data-tooltip="Contains two 20 values."><em>my_list = [10, 20, 30, 20]</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="Returns 1 because the first 20 is at index 1."><em>index = my_list.index(20)  # -&gt; 1</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="If the value is missing, index raises ValueError (e.g., my_list.index(3))."><em># my_list.index(3) would raise ValueError</em></span></div>
+          </div>
+        </div>
+
+        <ul class="bullets">
+          <li><strong>Membership with in:</strong> checks if a value exists in the list.</li>
+        </ul>
+        <div class="example">
+          <div class="title"><strong>Example C -</strong> Membership test</div>
+          <div class="pseudocode">
+            <div class="pc-line"><span class="comment" data-tooltip="Odd numbers from 1 to 9."><em>my_list = [1, 3, 5, 7, 9]</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="Returns True if 5 is present."><em>if 5 in my_list:</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="Runs only when the condition above is True."><em>    print("5 is in the list")</em></span></div>
+          </div>
+        </div>
+
+        <ul class="bullets">
+          <li><strong>Negative indices:</strong> count from the end, where <code>-1</code> is the last element.</li>
+        </ul>
+        <div class="example">
+          <div class="title"><strong>Example D -</strong> Negative indices</div>
+          <div class="pseudocode">
+            <div class="pc-line"><span class="comment" data-tooltip="A four-item list."><em>my_list = [10, 20, 30, 40]</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="-1 gives the last value, here 40."><em>last_element = my_list[-1]  # 40</em></span></div>
+          </div>
+        </div>
+
+        <ul class="bullets">
+          <li><strong>Slicing:</strong> extract a sublist using <code>[start:end]</code>; end is exclusive.</li>
+        </ul>
+        <div class="example">
+          <div class="title"><strong>Example E -</strong> Slicing basics</div>
+          <div class="pseudocode">
+            <div class="pc-line"><span class="comment" data-tooltip="A six-item list."><em>my_list = [0, 1, 2, 3, 4, 5]</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="Takes items at indices 1,2,3."><em>sub_list = my_list[1:4]  # [1, 2, 3]</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="Strings support the same slicing rules."><em>word = "123456789"</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="Slice from index 0 up to but not including 1, yielding '1'."><em>print(word[0:1])  # "1"</em></span></div>
+          </div>
+        </div>
+
+        <ul class="bullets">
+          <li><strong>Omitted bounds:</strong> leaving start or end empty means from start or to end.</li>
+        </ul>
+        <div class="example">
+          <div class="title"><strong>Example F -</strong> Slicing with omitted bounds</div>
+          <div class="pseudocode">
+            <div class="pc-line"><span class="comment" data-tooltip="Original list."><em>my_list = [0, 1, 2, 3, 4, 5]</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="From index 1 to the end."><em>start_from_second = my_list[1:]  # [1, 2, 3, 4, 5]</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="From the beginning up to but not including index 3."><em>up_to_third = my_list[:3]        # [0, 1, 2]</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="Copy the whole list (shallow copy)."><em>full_list = my_list[:]           # [0, 1, 2, 3, 4, 5]</em></span></div>
+          </div>
+        </div>
+
+        <!-- Videos -->
+        <div class="video-row">
+          <div class="example video">
+            <div class="title">len on lists</div>
+            <div class="media">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/Ao9P6zTGMgQ" title="How to find the LENGTH of a Python List (len)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+
+          <div class="example video">
+            <div class="title">list.index method</div>
+            <div class="media">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/N4SoN3DZoWY" title="List index in Python | #Minutecoding 32" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+
+          <div class="example video">
+            <div class="title">Membership with in</div>
+            <div class="media">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/kabumou6PPY" title="Python in operator #shorts (membership check)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+
+        <div class="video-row">
+          <div class="example video">
+            <div class="title">Negative indexing</div>
+            <div class="media">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/zkp-7UQqDQg" title="Accessing List Elements using Negative Indexing" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+
+          <div class="example video">
+            <div class="title">Slicing start:end(:step)</div>
+            <div class="media">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/nq-M-1MkV4w" title="List Slicing in Python (includes start, stop semantics)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p style="text-align:center; margin:20px 0;">
+        <a class="btn btn-cta" href="./exercises5.html">Go to Exercises</a>
+      </p>
+
+      <div class="footer">
+        &copy; 2025 Dr. Hamdeni. All rights reserved.
+      </div>
+    </div>
+  </main>
+</body>
+</html>
