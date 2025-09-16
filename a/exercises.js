@@ -182,6 +182,34 @@
     return mid;
   }
 
+  function setupUnavailableNotice(){
+    var footer = qs('footer.footer'); if (!footer) return;
+    var btns = Array.prototype.slice.call(footer.querySelectorAll('button, a'));
+    var left = btns.find(b => /i need help/i.test(text(b)));
+    var right = btns.find(b => /i'?m ready for the test/i.test(text(b)));
+    var targets = [left, right].filter(Boolean);
+    if (targets.length === 0) return;
+
+    var messageId = 'ctaUnavailableNotice';
+    var message = qsid(messageId);
+    if (!message) {
+      message = document.createElement('p');
+      message.id = messageId;
+      message.className = 'action-unavailable-note';
+      message.textContent = 'Inform the teacher directly, this button is not implemented yet.';
+      message.setAttribute('role', 'status');
+      message.setAttribute('aria-live', 'polite');
+      message.hidden = true;
+      footer.appendChild(message);
+    }
+
+    targets.forEach(function(btn){
+      btn.addEventListener('click', function(){
+        if (message.hidden) message.hidden = false;
+      });
+    });
+  }
+
   function openModal(){
     var m = qsid('mockTestModal'); if(!m) return;
     m.setAttribute('aria-hidden','false');
@@ -227,6 +255,7 @@
 
   function init(){
     ensureMiddleButton();   // clones left button so style is identical
+    setupUnavailableNotice();
     populateFromJSON();     // fixes \n and \u2190 by using proper JSON escapes
     wireModal();
   }
