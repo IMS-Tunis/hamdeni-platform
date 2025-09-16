@@ -75,63 +75,63 @@
       "items": [
         {
           "question": "Q1. Age from birth year",
-          "question_self_contained": "Prompt the user for their birth year using `input()`, convert it to an integer, then compute and print the age using the fixed current year 2024.",
+          "question_self_contained": "Prompt the user for their birth year using <strong>input()</strong>, convert it to an integer, then compute and print the age using the fixed current year 2024.",
           "mark_scheme_answer": "# INPUT: read birth year as text, then convert to integer\nbirth_year = int(input(\"Enter your birth year: \"))\n\n# PROCESS: compute age with the fixed current year 2024\nage = 2024 - birth_year\n\n# OUTPUT: show the computed age\nprint(\"Your age is:\", age)",
-          "explanation": "`input()` returns text, so `int(...)` converts it to an integer. Subtracting from 2024 gives the age. Printing displays the result."
+          "explanation": "<strong>input()</strong> returns text, so <strong>int(...)</strong> converts it to an integer. Subtracting from 2024 gives the age. Printing displays the result."
         },
         {
           "question": "Q2. Two-integer arithmetic summary",
-          "question_self_contained": "Read two integers using `input()` with `int(...)`. Print their sum, difference, product, quotient using `/`, and remainder using `%`.",
+          "question_self_contained": "Read two integers using <strong>input()</strong> with <strong>int(...)</strong>. Print their sum, difference, product, quotient using <strong>/</strong>, and remainder using <strong>%</strong>.",
           "mark_scheme_answer": "# INPUT: two integer operands\nnum1 = int(input(\"Enter the first integer: \"))\nnum2 = int(input(\"Enter the second integer: \"))\n\n# OUTPUT: arithmetic results\nprint(\"Sum:\", num1 + num2)\nprint(\"Difference:\", num1 - num2)\nprint(\"Product:\", num1 * num2)\nprint(\"Quotient:\", num1 / num2)  # regular division gives a float\nprint(\"Modulus:\", num1 % num2)   # remainder",
-          "explanation": "`/` performs regular division and returns a floating-point result. `%` returns the remainder."
+          "explanation": "<strong>/</strong> performs regular division and returns a floating-point result. <strong>%</strong> returns the remainder."
         },
         {
           "question": "Q3. Precedence vs parentheses",
-          "question_self_contained": "Compute and print the value of `10 + 5 * 2`, then use parentheses to change the order of evaluation and print the new result.",
+          "question_self_contained": "Compute and print the value of <strong>10 + 5 * 2</strong>, then use parentheses to change the order of evaluation and print the new result.",
           "mark_scheme_answer": "# Without parentheses: multiplication before addition\nresult1 = 10 + 5 * 2    # 10 + 10 = 20\nprint(result1)\n\n# With parentheses: addition first\nresult2 = (10 + 5) * 2  # 15 * 2 = 30\nprint(result2)",
           "explanation": "Multiplication has higher precedence than addition, so it happens first. Parentheses force addition to happen first."
         },
         {
           "question": "Q4. Mixed operators with // and %",
-          "question_self_contained": "With `a = 15` and `b = 5`, evaluate `a + b * 2 - a // b + a % b` observing operator precedence, and print the result.",
+          "question_self_contained": "With <strong>a = 15</strong> and <strong>b = 5</strong>, evaluate <strong>a + b * 2 - a // b + a % b</strong> observing operator precedence, and print the result.",
           "mark_scheme_answer": "a = 15\nb = 5\n# Evaluate in precedence order: * , // , % , then + and - left-to-right\nresult = a + b * 2 - a // b + a % b\nprint(result)  # 22",
-          "explanation": "`b * 2 = 10`, `a // b = 3`, `a % b = 0`. Then `15 + 10 - 3 + 0 = 22`."
+          "explanation": "<strong>b * 2 = 10</strong>, <strong>a // b = 3</strong>, <strong>a % b = 0</strong>. Then <strong>15 + 10 - 3 + 0 = 22</strong>."
         },
         {
           "question": "Q5. Logical composition with comparisons",
-          "question_self_contained": "For `x = 10`, `y = 20`, `z = 5`, evaluate `(x > z) and (y < x + z) or (y == x + z * 3)` and print the boolean result.",
+          "question_self_contained": "For <strong>x = 10</strong>, <strong>y = 20</strong>, <strong>z = 5</strong>, evaluate <strong>(x > z) and (y < x + z) or (y == x + z * 3)</strong> and print the boolean result.",
           "mark_scheme_answer": "x = 10\ny = 20\nz = 5\n\nresult = (x > z) and (y < x + z) or (y == x + z * 3)\nprint(result)  # False",
-          "explanation": "`x > z` is `True`. `y < x + z` is `20 < 15`, so `False`. `True and False` is `False`. `z * 3 = 15`, so `x + z * 3 = 25`; `y == 25` is `False`. `False or False` is `False`."
+          "explanation": "<strong>x > z</strong> is <strong>True</strong>. <strong>y < x + z</strong> is <strong>20 < 15</strong>, so <strong>False</strong>. <strong>True and False</strong> is <strong>False</strong>. <strong>z * 3 = 15</strong>, so <strong>x + z * 3 = 25</strong>; <strong>y == 25</strong> is <strong>False</strong>. <strong>False or False</strong> is <strong>False</strong>."
         },
         {
           "question": "Q6. Exponent, remainder, two divisions, and",
-          "question_self_contained": "Read three integers `a`, `b`, `c`. Print:\n\n1) `a ** c`\n2) `b % c`\n3) `a / b` and `a // b`\n4) `(a > b) and (b > c)`",
+          "question_self_contained": "Read three integers <strong>a</strong>, <strong>b</strong>, <strong>c</strong>. Print:\n\n1) <strong>a ** c</strong>\n2) <strong>b % c</strong>\n3) <strong>a / b</strong> and <strong>a // b</strong>\n4) <strong>(a > b) and (b > c)</strong>",
           "mark_scheme_answer": "# INPUT\na = int(input(\"Enter the first integer (a): \"))\nb = int(input(\"Enter the second integer (b): \"))\nc = int(input(\"Enter the third integer (c): \"))\n\n# 1) exponentiation\nprint(\"a ** c:\", a ** c)\n\n# 2) modulus\nprint(\"b % c:\", b % c)\n\n# 3) division vs floor division\nprint(\"a / b:\", a / b)\nprint(\"a // b:\", a // b)\n\n# 4) combined logical condition\nprint(\"(a > b) and (b > c):\", (a > b) and (b > c))",
-          "explanation": "`**` raises to a power; `%` gives a remainder; `/` is regular division; `//` floors the result; `and` is true only if both comparisons are true."
+          "explanation": "<strong>**</strong> raises to a power; <strong>%</strong> gives a remainder; <strong>/</strong> is regular division; <strong>//</strong> floors the result; <strong>and</strong> is true only if both comparisons are true."
         },
         {
           "question": "Q7. Multiply, remainders, and/or/not",
-          "question_self_contained": "Read three integers `x`, `y`, `z`. Print:\n\n1) `x * z`\n2) `y % z`\n3) `x / y` and `x % y`\n4) The results of `(x < y) and (y <= z)`, `(x < y) or (y <= z)`, and `not (x < y)`",
+          "question_self_contained": "Read three integers <strong>x</strong>, <strong>y</strong>, <strong>z</strong>. Print:\n\n1) <strong>x * z</strong>\n2) <strong>y % z</strong>\n3) <strong>x / y</strong> and <strong>x % y</strong>\n4) The results of <strong>(x < y) and (y <= z)</strong>, <strong>(x < y) or (y <= z)</strong>, and <strong>not (x < y)</strong>",
           "mark_scheme_answer": "# INPUT\nx = int(input(\"Enter the first integer (x): \"))\ny = int(input(\"Enter the second integer (y): \"))\nz = int(input(\"Enter the third integer (z): \"))\n\n# Arithmetic and modulus\nprint(\"x * z:\", x * z)\nprint(\"y % z:\", y % z)\n\n# Division and remainder\nprint(\"x / y:\", x / y)\nprint(\"x % y:\", x % y)\n\n# Logical evaluations including and, or, not\nprint(\"(x < y) and (y <= z):\", (x < y) and (y <= z))\nprint(\"(x < y) or (y <= z):\", (x < y) or (y <= z))\nprint(\"not (x < y):\", not (x < y))",
-          "explanation": "Shows multiplication, remainder, regular division, and three logical forms. `not` flips a boolean value."
+          "explanation": "Shows multiplication, remainder, regular division, and three logical forms. <strong>not</strong> flips a boolean value."
         },
         {
           "question": "Q8. Four-integer combined operations",
-          "question_self_contained": "Read four integers `x`, `y`, `z`, `w`. Print:\n\n1) `(x + y) ** z`\n2) `(x * z) % w`\n3) `(y + z) / x` and `(y + z) // x`\n4) Results of: `(x >= w) and (y <= z)` and `(w != z) or ((x + y) > (z * w))`",
+          "question_self_contained": "Read four integers <strong>x</strong>, <strong>y</strong>, <strong>z</strong>, <strong>w</strong>. Print:\n\n1) <strong>(x + y) ** z</strong>\n2) <strong>(x * z) % w</strong>\n3) <strong>(y + z) / x</strong> and <strong>(y + z) // x</strong>\n4) Results of: <strong>(x >= w) and (y <= z)</strong> and <strong>(w != z) or ((x + y) > (z * w))</strong>",
           "mark_scheme_answer": "# INPUT\nx = int(input(\"Enter the first integer (x): \"))\ny = int(input(\"Enter the second integer (y): \"))\nz = int(input(\"Enter the third integer (z): \"))\nw = int(input(\"Enter the fourth integer (w): \"))\n\n# Computations\nprint(\"(x + y) ** z:\", (x + y) ** z)\nprint(\"(x * z) % w:\", (x * z) % w)\n\nprint(\"(y + z) / x:\", (y + z) / x)\nprint(\"(y + z) // x:\", (y + z) // x)\n\n# Logical combinations\nprint(\"(x >= w) and (y <= z):\", (x >= w) and (y <= z))\nprint(\"(w != z) or ((x + y) > (z * w)):\", (w != z) or ((x + y) > (z * w)))",
-          "explanation": "Parentheses control evaluation; `**` exponentiates; `%` gives a remainder; `/` vs `//` shows floating vs floor division; logical results depend on comparisons combined with `and` or `or`."
+          "explanation": "Parentheses control evaluation; <strong>**</strong> exponentiates; <strong>%</strong> gives a remainder; <strong>/</strong> vs <strong>//</strong> shows floating vs floor division; logical results depend on comparisons combined with <strong>and</strong> or <strong>or</strong>."
         },
         {
           "question": "N1. Comparison operators table",
-          "question_self_contained": "With `a = 7` and `b = 10`, evaluate and print all of the following in order:\n`a == b`, `a != b`, `a > b`, `a < b`, `a >= b`, `a <= b`.",
+          "question_self_contained": "With <strong>a = 7</strong> and <strong>b = 10</strong>, evaluate and print all of the following in order:\n<strong>a == b</strong>, <strong>a != b</strong>, <strong>a > b</strong>, <strong>a < b</strong>, <strong>a >= b</strong>, <strong>a <= b</strong>.",
           "mark_scheme_answer": "a = 7\nb = 10\nprint(a == b)  # False\nprint(a != b)  # True\nprint(a > b)   # False\nprint(a < b)   # True\nprint(a >= b)  # False\nprint(a <= b)  # True",
-          "explanation": "Each line compares `a` and `b` using a different comparison operator and prints the boolean result."
+          "explanation": "Each line compares <strong>a</strong> and <strong>b</strong> using a different comparison operator and prints the boolean result."
         },
         {
           "question": "N2. Float input and floor division",
-          "question_self_contained": "Prompt for two numbers that may include decimals. Use `float(...)` to convert both. Print their sum and the result of floor division of the sum by `2` using `//`.",
+          "question_self_contained": "Prompt for two numbers that may include decimals. Use <strong>float(...)</strong> to convert both. Print their sum and the result of floor division of the sum by <strong>2</strong> using <strong>//</strong>.",
           "mark_scheme_answer": "# INPUT as floats (may include decimals)\nx = float(input(\"Enter a number (can be decimal): \"))\ny = float(input(\"Enter another number (can be decimal): \"))\n\n# Sum as float\ns = x + y\nprint(\"Sum:\", s)\n\n# Floor division by 2\nprint(\"Floor division of sum by 2:\", s // 2)",
-          "explanation": "`float(...)` accepts decimal input. `//` floors the numeric result. Floor division works with floats as well, returning the floor of the quotient."
+          "explanation": "<strong>float(...)</strong> accepts decimal input. <strong>//</strong> floors the numeric result. Floor division works with floats as well, returning the floor of the quotient."
         }
       ]
     }
@@ -171,7 +171,7 @@
   "mock_test": {
     "title": "Mock Test - Level 2: Capstone integration",
     "question": "Read three integers m, n, p. Compute and print, in order: 1) m ** 2 + n // p 2) (m + n) % p 3) ((m > n) and (n >= p)) or not (m == p) 4) ((m + n * p) // p) == (m // p + n)",
-    "question_self_contained": "Read three integers `m`, `n`, `p`. Compute and print, in order:\n1) `m ** 2 + n // p`\n2) `(m + n) % p`\n3) `((m > n) and (n >= p)) or not (m == p)`\n4) `((m + n * p) // p) == (m // p + n)`",
+    "question_self_contained": "Read three integers <strong>m</strong>, <strong>n</strong>, <strong>p</strong>. Compute and print, in order:\n1) <strong>m ** 2 + n // p</strong>\n2) <strong>(m + n) % p</strong>\n3) <strong>((m > n) and (n >= p)) or not (m == p)</strong>\n4) <strong>((m + n * p) // p) == (m // p + n)</strong>",
     "mark_scheme_answer": "# INPUT\nm = int(input(\"Enter m: \"))\nn = int(input(\"Enter n: \"))\np = int(input(\"Enter p: \"))\n\n# 1) combines exponentiation and floor division\nprint(\"m**2 + n//p:\", m ** 2 + n // p)\n\n# 2) remainder after adding\nprint(\"(m + n) % p:\", (m + n) % p)\n\n# 3) mixed logical expression\nprint(\"((m > n) and (n >= p)) or not (m == p):\", ((m > n) and (n >= p)) or not (m == p))\n\n# 4) precedence and equivalence check\nleft = (m + n * p) // p       # multiplication before addition, then floor division\nright = (m // p) + n\nprint(\"((m + n*p)//p) == (m//p + n):\", left == right)",
     "explanation": "Covers integer input and conversion, arithmetic precedence, floor division and modulus, and combined logical expressions, finishing with an equality check that tests understanding of precedence and division."
   }
