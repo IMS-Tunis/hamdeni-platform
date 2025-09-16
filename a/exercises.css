@@ -389,6 +389,19 @@ a{ color:inherit; text-decoration:none }
   color: #ffffff;
 }
 
+.content > .footer:last-of-type .action-unavailable-note {
+  width: 100%;
+  margin: 8px 0 0;
+  font-size: 0.95rem;
+  color: #a94442;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.content > .footer:last-of-type .action-unavailable-note[hidden] {
+  display: none;
+}
+
 /* White text for the two action buttons in the modal */
 .mock-modal-actions.footer .btn,
 .mock-modal-actions.footer .btn.ghost,
