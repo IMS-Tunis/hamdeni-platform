@@ -2,144 +2,123 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>1.1 Number Systems</title>
-  <link rel="stylesheet" href="igcse-style.css">
+  <title>IGCSE Computer Science - 13.2 File organisation and access</title>
+  <link rel="stylesheet" href="../igcse-style.css">
 </head>
 <body>
-   <div class="container">
-    <h1>Number Systems</h1>
-    <div class="subtitle">IGCSE CS theory notes, prepared by Dr. Hamdeni</div>
-
-    <div class="section">
-      <h2>1.1 Understand how and why computers use binary to represent all forms of data</h2>
-
-    </div>
-
-    <div class="section">
-      <h2>1.2 (a) Understand the denary, binary and hexadecimal number systems</h2>
-      <ul>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Base-10, digits 0–9">Denary</span> is used in everyday life, with each place increasing by powers of 10.</span></li>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Base-2, digits 0 and 1">Binary</span> is used by computers, with each place increasing by powers of 2.</span></li>
-        <li><span class="official-note">The <span class="keyword" data-tooltip="The leftmost bit in a binary number, which has the highest value">MSB</span> (Most Significant Bit) is the leftmost bit.</span></li>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Base-16, digits 0–9 and A–F">Hexadecimal</span> is closely related to binary; each hex digit is 4 bits.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">The denary number 25177 = 2×10000 + 5×1000 + 1×100 + 7×10 + 7×1.</div></li>
-        <li><div class="example-box">Binary 11101110 = 128+64+32+8+4+2 = 238 (denary).</div></li>
-        <li><div class="example-box">Hex digit A = 10, F = 15 (denary).</div></li>
-        <li><div class="example-box">1010 (binary) = A (hex) = 10 (denary).</div></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.2 (b) Convert between number systems</h2>
-      <ul>
-        <li><span class="official-note">To convert binary to denary: add up the values of all positions where there is a 1.</span></li>
-        <li><span class="official-note">To convert denary to binary: subtract the largest possible powers of 2, or divide by 2 and record remainders.</span></li>
-        <li><span class="official-note">Successive division by 2 and reading remainders from bottom to top gives the binary value.</span></li>
-        <li><span class="official-note">You can convert up to 16-bit binary numbers for this syllabus.</span></li>
-        <li><span class="official-note">To convert binary to hexadecimal: group bits from the right in sets of four, pad with zeros to the left if needed.</span></li>
-        <li><span class="official-note">To convert hexadecimal to binary: write each hex digit as 4 bits.</span></li>
-        <li><span class="official-note">To convert hexadecimal to denary: convert hex to binary, then binary to denary.</span></li>
-        <li><span class="official-note">To convert denary to hexadecimal: convert to binary, group in 4s, convert each group to hex.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">011110001011 = 1024+512+256+128+8+2+1 = 1931 (denary).</div></li>
-        <li><div class="example-box">Denary 142: 142 ÷ 2 repeatedly gives remainders 1 0 0 0 1 1 1 0 (read bottom to top: 10001110).</div></li>
-        <li><div class="example-box">Denary 13 → 8+4+0+1 = 13 → 1101 (binary).</div></li>
-        <li><div class="example-box">1000001111101 → 0010 0001 1111 1101 → 21FD (hex).</div></li>
-        <li><div class="example-box">Hex SE (S=5, E=14): 0101 1110 (binary).</div></li>
-        <li><div class="example-box">Hex 2 1 F D → 0010 0001 1111 1101 (binary).</div></li>
-        <li><div class="example-box">Hex SE = 64+16+8+4+2 = 94 (denary).</div></li>
-        <li><div class="example-box">Denary 201: binary 11001001 → 1100 (C), 1001 (9) → hex C9.</div></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.3 Understand how and why hexadecimal is used as a beneficial method of data representation</h2>
-      <ul>
-        <li><span class="official-note">Hexadecimal is shorter and easier to read and write than binary; simplifies debugging and error detection.</span></li>
-        <li><span class="official-note">Programmers find it easier to compare and spot differences in hexadecimal than in long binary strings.</span></li>
-        <li><span class="official-note">Common uses for hexadecimal: HTML colours, MAC addresses, assembly/machine code, memory dumps, debugging, error codes, and IP addresses.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">Comparing 10011100101110111000111011100010111101011010 (binary) vs. 9CBB8EE2F5A (hex).</div></li>
-        <li><div class="example-box"><span class="keyword" data-tooltip="Unique device identifier, written in hexadecimal">MAC address</span>: e.g., 00-1C-B3-4F-25-FE.</div></li>
-        <li><span class="fun-tip">Hex makes large binary numbers easier for humans to read and spot mistakes quickly!</span></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.4 (a) Add two positive 8-bit binary integers</h2>
-      <ul>
-        <li><span class="official-note">Binary addition rules: 0+0=0; 1+0/0+1=1; 1+1=0 (carry 1); 1+1+1=1 (carry 1).</span></li>
-        <li><span class="official-note">Carry values work like in denary addition—add rightmost columns first, carry left if needed.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">00100111 + 01001010 = 01110001 (binary addition).</div></li>
-        <li><div class="example-box">126 (01111110) + 62 (00111110) = 188 (10111100).</div></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.4 (b) Understand the concept of overflow and why it occurs in binary addition</h2>
-      <ul>
-        <li><span class="official-note"><span class="keyword" data-tooltip="When a calculation exceeds the maximum storable value in the register">Overflow error</span> occurs when a result is too big for the register.</span></li>
-        <li><span class="official-note">For an 8-bit register, the maximum value is 255 (11111111). A result with a 9th bit is overflow.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">Adding 01101110 + 11011110 = (1)01001100, the leading (1) is overflow.</div></li>
-        <li><span class="fun-tip">If your answer has more bits than allowed, that extra leftmost bit is overflow—the computer can't fit it!</span></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.5 Perform a logical binary shift on a positive 8-bit binary integer and understand the effect</h2>
-      <ul>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Moving all bits left (×2) or right (÷2); zero fills empty place">Logical shift</span>: move all bits left (multiply by 2) or right (divide by 2); zeros fill empty spots.</span></li>
-        <li><span class="official-note">Bits shifted out are lost; zeros fill the emptied places.</span></li>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Left-most">Most significant bit</span></li>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Right-most">Least significant bit</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">Left shift: 00010101 → 00101010 (21×2=42).</div></li>
-        <li><div class="example-box">Left shift 2: 00010101 → 01010100 (21×4=84).</div></li>
-        <li><div class="example-box">Right shift: 11001000 → 01100100 (200÷2=100).</div></li>
-        <li><div class="example-box">Shift 10101010 one place left: 01010100.</div></li>
-        <li><span class="fun-tip">Each left shift doubles your number—each right shift halves it (if you don't lose important bits)!</span></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.6 Use the two’s complement number system to represent positive and negative 8-bit binary integers</h2>
-      <ul>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Method to represent negative binary numbers; left-most bit is the sign (–128 for 8 bits)">Two’s complement</span> lets you use the same binary system for positive and negative numbers.</span></li>
-        <li><span class="official-note">In 8-bit two’s complement, the range is –128 to +127.</span></li>
-        <li><span class="official-note">To write a positive number, use normal binary (sign bit 0).</span></li>
-        <li><span class="official-note">To write a negative number:<br>
-            1. Write positive binary.<br>
-            2. Invert all bits left of the first 1 from the right (or invert all bits and add 1).<br>
-            3. Make sure the MSB is 1.
-          </span>
-        </li>
-        <li><span class="official-note">For negative values, sum bits using –128 as the left-most.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">38 = 00100110 (two’s complement).</div></li>
-        <li><div class="example-box">–67: 01000011 → invert → 10111100 → add 1 = 10111101.</div></li>
-        <li><div class="example-box">10111010 = –128 + 32 + 16 + 8 + 2 = –70.</div></li>
-        <li><span class="fun-tip">To get a negative number: "Flip all the bits and add one!" (That’s the computer’s trick.)</span></li>
-      </ul>
-    </div>
-
+<div class="container">
+<div class="header-container">
+<img src="../syllabus.png" alt="Syllabus Update" class="top-right-icon">
+  <div class="title-row">
+    <h1 class="section-title">the main title of the syllabus</h1>
   </div>
-
-    <script>
-    window.addEventListener('load', function() {
-      var height = document.body.scrollHeight;
-      window.parent.postMessage({type: 'resize', height: height}, '*');
-    });
-    </script>
+  <div class="title-underline"></div>
+  <p class="section-subtitle">Computer Science IGCSE notes, prepared by Dr. Hamdeni</p>
+</div>
+  <div class="section">
+    <h2>13.2a. File organization methods</h2>
+    <ul>
+      <li><span class="official-note"> Computers store information as data in files, stored as records, and efficient retrieval requires that these files are organised using different methods. These files can be organised in serial, sequential or random method:</span>
+      </li>
+      <li><span class="official-note"><span class="keyword" data-tooltip="A method of file organisation in which records of data are physically stored in a file, one after another, in the order they were added to the file.">Serial file organisation:</span></span>
+          <ul>
+            <li><span class="official-note">Records are stored one after another in the order they are added, typically in chronological order.</span></li>
+            <li><span class="official-note">New records are appended to the end of the file.</span></li>
+            <li><span class="official-note">Access is sequential from the physical start of the file to the end.</span></li>
+          </ul>
+      </li>
+      <li><span class="official-note"><span class="keyword" data-tooltip="A method of file organisation in which records of data are physically stored in a file, one after another, in a given order.">Sequential file organisation:</span></span>
+          <ul>
+            <li><span class="official-note">Records are stored in a defined order by a key field or by an index derived from a key.</span></li>
+            <li><span class="official-note">New records are inserted in the correct position to preserve the key order.</span></li>
+            <li><span class="official-note">Read and write operations proceed in the order of the key or index.</span></li>
+            <li><span class="official-note">Searching can terminate early when the current record’s key exceeds the target key.<br></span></li>
+          </ul>
+      </li>
+      <li><span class="official-note"><span class="keyword" data-tooltip="A method of file access in which a record can be physically found in a file without physically reading other records.">Random (Direct) File Organization:</span>.</span>
+          <ul>
+            <li><span class="official-note">The computer chooses a position for each record using a short calculation on the record’s key, so the record can be reached quickly later.<br></span></li>
+          </ul>
+      </li>
+      <li><span class="official-note">Choosing File Organization and Access Methods:</span>
+          <ul>
+            <li><span class="official-note">Serial files: suitable for sequential processing such as transaction logs or batch runs.</span></li>
+            <li><span class="official-note">Sequential files: appropriate when processing in key order is required, for example billing systems or sorted reports.</span></li>
+            <li><span class="official-note">Random (or Direct) access files: preferred when fast access to individual records is needed, for example customer databases with frequent updates.<br><br><br></span></li>
+          </ul>
+      </li>
+    </ul>
+    <ul class="no-bullets">
+      <li><span class="fun-tip">Analogy: Serial is like a logbook you keep writing at the end, sequential is like a register sorted by ID so you slip each new entry into its place, and random or direct is like numbered lockers chosen by a code from the key so you can go straight to the right door.<br></span></li>
+      <div class="button-group">
+        <button class="keyword-button" onclick="openPopupK('13.2a. File organization methods')">
+          🔑 View Keywords on This Topic 🔑
+        </button>
+        <button class="exam-button" onclick="openPopupQ('13.2a. File organization methods')">
+          👁️ Quick Look at Exam Questions on This Topic 👁️
+        </button>
+      </div>
+    </ul>
   </div>
+  <div class="section">
+    <h2>13.2b.  File access methods</h2>
+    <ul>
+      <li><span class="official-note"> There are different methods of <span class="keyword" data-tooltip="The method used to physically find a record in the file.">file access</span>. We will consider two of them: sequential access and direct access.</span>
+      </li>
+      <li><span class="official-note"><span class="keyword" data-tooltip="A method of file access in which records are searched one after another from the physical start of the file until the required record is found.">Sequential access</span></span>
+          <ul>
+            <li><span class="official-note">Records are read one by one from the physical start until the target is found or end of file is reached.</span></li>
+            <li><span class="official-note">Used with serial and sequential files.</span></li>
+            <li><span class="official-note">In serial files, the search checks each chronologically stored record; in sequential files, keys are compared and the search may stop early once the current key exceeds the target.<br></span></li>
+          </ul>
+      </li>
+      <li><span class="official-note">Direct Access</span>
+          <ul>
+            <li><span class="official-note">Direct access jumps straight to a record’s position without reading earlier records.</span></li>
+            <li><span class="official-note">A sequential file can support direct jumps if it keeps a small lookup list called an index that tells where each key’s record is stored.</span></li>
+            <li><span class="official-note">Appropriate when rapid updates or retrievals of individual records are required, for example updating a customer’s details.</span></li>
+          </ul>
+      </li>
+    </ul>
+    <ul class="no-bullets">
+      <li><span class="fun-tip">Analogy: Sequential access is like reading a book from page 1 until you reach the needed page, while direct access is like using the index to jump straight to the exact page.<br><br><br></span></li>
+      <div class="button-group">
+        <button class="keyword-button" onclick="openPopupK('13.2b.  File access methods')">
+          🔑 View Keywords on This Topic 🔑
+        </button>
+        <button class="exam-button" onclick="openPopupQ('13.2b.  File access methods')">
+          👁️ Quick Look at Exam Questions on This Topic 👁️
+        </button>
+      </div>
+    </ul>
+  </div>
+  <div class="section">
+    <h2>13.2c. Hashing algorithms</h2>
+    <ul>
+      <li><span class="official-note"><span class="keyword" data-tooltip="A mathematical formula used to perform a calculation on the key field of the record; the result of the calculation gives the address where the record should be found.">Hashing algorithm</span> is a short calculation on the record’s key is used to choose a position in the file. This helps the program store the record and find it quickly later.</span>
+      </li>
+      <li><span class="official-note">If two different keys point to the same position, this is a <span class="keyword" data-tooltip="When the same address is calculated for different field values.">Collision</span>, so we need a simple rule to store and find both records:</span>
+          <ul>
+            <li><span class="official-note">1. Linear probing (called also <span class="keyword" data-tooltip="Store the record in the next free space when a collision occurs.">Open hash</span>): if the chosen position is taken, check the next position, and repeat until a free one is found.</span></li>
+            <li><span class="official-note">2. Chaining (called also <span class="keyword" data-tooltip="Keep a number of overflow addresses at the end of the file and store the record in the next free space in the overflow area.">Closed hash</span>: keep a small list at the chosen position that holds all records that mapped there.</span></li>
+          </ul>
+      </li>
+    </ul>
+    <ul class="no-bullets">
+      <li><div class="example-box">suppose positions are numbered 0 to 9.<br>	  A simple method is to divide the key by 10 and use the remainder as the position. <br> -Key 42 gives remainder 2, so it goes to position 2;<br> - key 15 gives remainder 5, so it goes to position 5. ==> If key 25 also gives remainder 5, either place it in the next free position (linear probing) or add it to the list at position 5 (chaining).</div></li>
+      <li><div class="example-box"> Simple Hashing Algorithm Using a Numeric Key Field<br>  chosen a number D, with the remainder determining the storage address in the file. For example, with D=1000:<br> 	• 0045 mod 1000 gives a remainder of 45 (address 45)<br> 	• 2005 mod 1000 gives a remainder of 5 (address 5)<br> • 3005 mod 1000 also gives a remainder of 5 (address 5) ==>Collision<br> Using a prime number for D is advantageous because it reduces the likelihood of collisions, especially when certain key values are more common, thereby preventing multiple records from hashing to the same address.</div></li>
+      <li><span class="fun-tip">Analogy: Assign students to rooms using student_number mod 10. If two map to room 3, you either try the next room until an empty one appears (linear probing) or keep a list of all students for room 3 on its door (chaining).</span></li>
+      <div class="button-group">
+        <button class="keyword-button" onclick="openPopupK('13.2c. Hashing algorithms')">
+          🔑 View Keywords on This Topic 🔑
+        </button>
+        <button class="exam-button" onclick="openPopupQ('13.2c. Hashing algorithms')">
+          👁️ Quick Look at Exam Questions on This Topic 👁️
+        </button>
+      </div>
+    </ul>
+  </div>
+</div>
+<script src="popup-script.js"></script>
 </body>
 </html>

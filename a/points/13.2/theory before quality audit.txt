@@ -1,0 +1,71 @@
+13.2a. File organization methods:
+
+•   Serial File Organization
+ ○  ## Records are stored one after another in the order they are added, typically in chronological order.
+ ○  ## New records are appended to the end of the file.
+ ○  ## Access is sequential from the physical start of the file to the end.
+ • [FUN] Analogy: Serial is like a logbook you keep writing at the end, sequential is like a register sorted by ID so you slip each new entry into its place, and random/direct is like numbered lockers chosen by a code from the key so you can go straight to the right door.
+
+•   Sequential File Organization
+ ○  ## Records are stored in a defined order by a key field or by an index derived from a key.
+ ○  ## New records are inserted in the correct position to preserve the key order.
+ ○  ## Read and write operations proceed in the order of the key or index.
+ ○  ## Searching can terminate early when the current record’s key exceeds the target key.
+
+•   Random (Direct) File Organization
+ ○  ## Records are stored at addresses computed from a key using a hashing algorithm, enabling rapid direct retrieval.
+
+<h4> Choosing File Organization and Access Methods </h4> 
+•   Serial files: suitable for sequential processing such as transaction logs or batch runs.
+ •   Sequential files: appropriate when processing in key order is required, for example billing cycles or sorted report generation. 
+ •   Random or direct access files: preferred when fast access to individual records is needed, for example customer databases with frequent updates.
+
+section 13.2a. in other words:
+1. In both serial and sequential files, records are stored one after another and accessed sequentially; serial files store records in chronological order with new records appended, whereas sequential files store records ordered by a key field with new records inserted in the correct position.
+2. In a sequential file, records are kept in the order of a key field or index; the key or index is used for reading and writing, and operations proceed in the order of that key or index.
+
+
+13.2b. File access methods:
+
+•   Sequential Access
+ ○  ## Records are read one by one from the physical start until the target is found or end of file is reached.
+ ○  ## Used with serial and sequential files.
+ ○  ## Efficient for full-file processing tasks, for example end-of-month runs.
+ ○  ## In serial files, the search checks each chronologically stored record; in sequential files, keys are compared and the search may stop early once the current key exceeds the target.
+
+•   Direct Access
+ ○  ## A specific record is accessed by computing or referencing its unique storage address without scanning other records.
+ ○  ## Typically used with random files; also possible when a sequential file is augmented with an index that supports direct lookup.
+ • [example] An index file stores pairs such as customer number and byte position of the record. The program looks up the key in the index and jumps directly to that byte position to read or update the record.
+ ○  ## Appropriate when rapid updates or retrievals of individual records are required, for example updating a customer’s details.
+ • [FUN] Analogy: Sequential access is like reading a book from page 1 until you reach the needed page, while direct access is like using the index to jump straight to the exact page.
+
+section 13.2b. in other words:
+3. When a record is referenced by a unique address on a disk-type storage medium, the appropriate method of file access is direct access.
+4. When data records are stored in ascending order of a key such as account number, the appropriate method of file access is sequential access.
+5. The sequential access method searches records one after another from the physical start of the file until the target record is found or the end of file is reached.
+6. For serial files, sequential access checks each chronologically stored record until the target is found or all have been checked; for sequentially organised files, records are stored by key field or index and the search compares the key, stopping when the target is found or when the current record’s key exceeds the target’s key.
+
+
+13.2c. Hashing algorithms:
+
+•   A hashing algorithm applies a mathematical function to a record’s key to compute its storage address for direct access.
+•   Used in random file organization and in direct access contexts; may also serve as a hash index overlay for ordered data.
+•   Collisions occur when different keys produce the same hash address so two records map to the same location and cannot share the same physical slot.
+ ○  ## Linear probing: advance from the original address to the next available free slot.
+ ○  ## Overflow area: place the colliding record in a designated overflow region and search it linearly when needed.
+ ○  ## Chaining: maintain a collection linked from the address so colliding items are stored and traversed via links.
+ • [FUN] Analogy: Assign students to rooms using student_number mod 10. If two map to room 3, you either try the next room until an empty one appears (linear probing), place extras on an overflow bench list (overflow area), or keep a list of all students for room 3 on its door (chaining).
+ ○  ## For non-numeric keys, a simple method sums the character codes of the key’s characters and then applies remainder division by the number of storage locations to obtain the address.
+
+
+• [example] Modulus-based hashing with a small table: using modulus 5, key 1029 maps to 1029 mod 5 = 4; key 7630 maps to 7630 mod 5 = 0.
+• [example] Simple numeric hashing with larger divisor: with D = 1000, 0045 mod 1000 → 45, 2005 mod 1000 → 5, 3005 mod 1000 → 5. Choosing a prime D often reduces clustering and collision likelihood when key patterns are common.
+• [example] Numeric hashing with collisions: with 2000 storage locations and address = key mod 2000, keys 3024 and 5024 both map to address 1024, demonstrating the need for a collision-handling method.
+
+7. In hashing for file access, the hash value can be calculated using a modulus function; for example, with modulus 5, the key 1029 maps to 4 and the key 7630 maps to 0.
+8. A collision in hashing occurs when two records’ key values produce the same hash value, so the location identified by the hashing algorithm may already be in use and two records cannot share the same address.
+9. Collisions when writing to a random file can be resolved by linear probing from the original hashed location to the first free slot, by storing the item in an overflow area searched linearly to the first free slot, or by chaining where each location references a collection of items that can be searched individually.
+10. A hashing algorithm in file access is a mathematical formula applied to a record’s key field in direct access methods on random or sequential files; the calculation yields the storage address where the record should be found or stored.
+11. When hashing identifies the same storage location for more than one record, typical remedies are linear progression to the next free memory space or use of an overflow area where the record is placed in the next available slot.
+

@@ -1,0 +1,30 @@
+13.3a Describe the format of binary floating-point numbers and effects of bit allocation
+1. In a floating point system with 11 bit mantissa and 5 bit exponent using two's complement for both fields, the largest positive normalised value uses mantissa 01111111111 and exponent 01111.
+2. Reallocating the same total number of bits by increasing mantissa bits and decreasing exponent bits increases precision and enables exact storage of values like 513 that otherwise cannot be represented with a 10 bit mantissa and 6 bit exponent two's complement format.
+
+13.3b Convert between binary floating point and denary and compute normalised representations
+1. In a system with 10 bit mantissa and 6 bit exponent using two's complement for both fields, the normalised floating point representation of −7.25 has mantissa 1000110000 and exponent 000011 after converting 7.25 to 111.01, normalising to 1.00011 × 2^3, and applying two's complement to the mantissa.
+2. In the same 10 bit mantissa and 6 bit exponent two's complement system, the binary floating point value with mantissa 1011000111 and exponent 000111 evaluates to −78.25 in denary.
+3. In a system with 12 bit mantissa and 4 bit exponent using two's complement for both fields, the normalised floating point representation of 1011100.011001 uses mantissa 010111000110 and exponent 0111.
+4. In a system with 11 bit mantissa and 5 bit exponent using two's complement for both fields, the binary floating point value with mantissa 10110010011 and exponent 01001 evaluates to −310.5 in denary.
+5. In a system with 10 bit mantissa and 6 bit exponent using two's complement for both fields, the normalised floating point representation of 0101010.111 uses mantissa 0101010111 and exponent 000110.
+6. In a system with 10 bit mantissa and 6 bit exponent using two's complement for both fields, the normalised floating point representation of −96.75 uses mantissa 1001111101 and exponent 000101.
+7. In a system with 10 bit mantissa and 6 bit exponent using two's complement for both fields, the normalised binary floating point representation of +201.125 uses mantissa 0110010010 and exponent 001000 after converting 201.125 to 11001001.001 and normalising to 1.1001001001 × 2^8.
+8. In the same 10 bit mantissa and 6 bit exponent two's complement system, the binary floating point value with mantissa 1010110011 and exponent 000101 evaluates to −333/512 in exact fractional form.
+9. In the same 10 bit mantissa and 6 bit exponent two's complement system, the normalised floating point value with mantissa 0100111100 and exponent 001001 evaluates to 316 in denary.
+10. In the same 10 bit mantissa and 6 bit exponent two's complement system, the normalised floating point representation of −102.75 uses mantissa 1001100101 and exponent 000111 after converting 102.75 to 10011001.01 and applying two's complement to the mantissa.
+11. In the same 10 bit mantissa and 6 bit exponent two's complement system, the normalised binary floating point representation of −25.3125 uses mantissa 1001101011 and exponent 000101 after converting 25.3125 to 11001.0101 and applying two's complement to the mantissa.
+
+13.3c Normalise floating point numbers and understand the purpose of normalisation
+1. Normalising a non normalised binary floating point number in a system with 10 bit mantissa and 6 bit exponent using two's complement requires shifting the mantissa six places to the left and increasing the exponent by six so that the most significant significant bit immediately follows the sign bit.
+2. Storing numbers in normalised form maximises precision for a fixed mantissa length, minimises leading zeros or ones, provides a unique canonical representation, and enables accurate storage of very large and very small values for a given bit allocation.
+3. In a system with 10 bit mantissa and 6 bit exponent using two's complement for both fields, the normalised floating point representation of 0.00000011010111 uses mantissa 0110101110 and exponent 111010 after moving the binary point to achieve normalisation.
+
+13.3d Consequences of approximation and conditions for underflow or overflow
+1. In a 10 bit mantissa and 6 bit exponent two's complement format, the denary value 513 cannot be stored accurately because it exceeds the maximum representable positive value with a 10 bit mantissa, which produces overflow.
+2. Underflow occurs after an arithmetic or logical operation when the magnitude of the result is smaller than the smallest non zero value representable in the available floating point format so that the stored value becomes zero or a denormal.
+
+13.3e Rounding and representation errors in binary floating point
+1. Storing 1011100.011001 as a floating point value with a 12 bit mantissa reduces precision because the least significant bits beyond the mantissa width are truncated or rounded during normalisation.
+2. The number 0101011.111001 cannot be represented exactly in a system with a 10 bit mantissa because its normalised form requires 13 significant bits, so truncating the least significant three bits causes loss of precision.
+3. Binary floating point approximates many real numbers because fractional values often have non terminating binary expansions, a fixed mantissa cannot capture all digits, and the stored fractional part is only as close as the bit length permits.

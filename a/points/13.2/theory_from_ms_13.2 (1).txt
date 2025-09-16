@@ -1,0 +1,18 @@
+13.2 File organisation and access — Theory notes
+
+13.2a
+1. In both serial and sequential files, records are stored one after another and accessed sequentially; serial files store records in chronological order with new records appended, whereas sequential files store records ordered by a key field with new records inserted in the correct position.
+2. In a sequential file, records are kept in the order of a key field or index; the key or index is used for reading and writing, and operations proceed in the order of that key or index.
+
+13.2b
+3. When a record is referenced by a unique address on a disk-type storage medium, the appropriate method of file access is direct access.
+4. When data records are stored in ascending order of a key such as account number, the appropriate method of file access is sequential access.
+5. The sequential access method searches records one after another from the physical start of the file until the target record is found or the end of file is reached.
+6. For serial files, sequential access checks each chronologically stored record until the target is found or all have been checked; for sequentially organised files, records are stored by key field or index and the search compares the key, stopping when the target is found or when the current record’s key exceeds the target’s key.
+
+13.2c
+7. In hashing for file access, the hash value can be calculated using a modulus function; for example, with modulus 5, the key 1029 maps to 4 and the key 7630 maps to 0.
+8. A collision in hashing occurs when two records’ key values produce the same hash value, so the location identified by the hashing algorithm may already be in use and two records cannot share the same address.
+9. Collisions when writing to a random file can be resolved by linear probing from the original hashed location to the first free slot, by storing the item in an overflow area searched linearly to the first free slot, or by chaining where each location references a collection of items that can be searched individually.
+10. A hashing algorithm in file access is a mathematical formula applied to a record’s key field in direct access methods on random or sequential files; the calculation yields the storage address where the record should be found or stored.
+11. When hashing identifies the same storage location for more than one record, typical remedies are linear progression to the next free memory space or use of an overflow area where the record is placed in the next available slot.

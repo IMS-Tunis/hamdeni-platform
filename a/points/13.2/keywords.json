@@ -1,0 +1,64 @@
+{
+  "13.2a: File organisation methods": [
+    {
+      "term": "Serial file organisation",
+      "definition": "A method of file organisation in which records of data are physically stored in a file, one after another, in the order they were added to the file."
+    },
+    {
+      "term": "Sequential file organisation",
+      "definition": "A method of file organisation in which records of data are physically stored in a file, one after another, in a given order."
+    },
+    {
+      "term": "Random file organisation",
+      "definition": "A method of file organisation in which records of data are physically stored in a file in any available position; the location of any record in the file is found by using a hashing algorithm on the key field of a record."
+    }
+  ],
+  "13.2b: File access methods": [
+    {
+      "term": "File access",
+      "definition": "The method used to physically find a record in the file."
+    },
+    {
+      "term": "Sequential access",
+      "definition": "A method of file access in which records are searched one after another from the physical start of the file until the required record is found."
+    },
+    {
+      "term": "Direct access",
+      "definition": "A method of file access in which a record can be physically found in a file without physically reading other records."
+    },
+    {
+      "term": "Index file (for direct access on a sequential file)",
+      "definition": "A separate index file with two fields per record: the key field value and the position of this key field value in the main file."
+    }
+  ],
+  "13.2c: Hashing algorithms": [
+    {
+      "term": "Hashing algorithm (file access)",
+      "definition": "A mathematical formula used to perform a calculation on the key field of the record; the result of the calculation gives the address where the record should be found."
+    },
+    {
+      "term": "Modular division hashing algorithm",
+      "definition": "Chooses a suitable number and divides this number by the key field value; the remainder identifies the address for storing the record."
+    },
+    {
+      "term": "Collision",
+      "definition": "When the same address is calculated for different field values."
+    },
+    {
+      "term": "Open hash (next free space)",
+      "definition": "Store the record in the next free space when a collision occurs."
+    },
+    {
+      "term": "Closed hash (overflow area)",
+      "definition": "Keep a number of overflow addresses at the end of the file and store the record in the next free space in the overflow area."
+    },
+    {
+      "term": "Linked list at each address (chaining)",
+      "definition": "Have a linked list accessible from each address to store colliding records."
+    },
+    {
+      "term": "ASCII-sum hashing for alphabetic keys",
+      "definition": "Look up the ASCII value for each character in the chosen field, add the values, and use the remainder from an integer division to calculate the address."
+    }
+  ]
+}

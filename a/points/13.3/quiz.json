@@ -1,102 +1,221 @@
 {
   "questions": [
     {
+      "id": 1,
+      "section": "13.3a",
       "type": "mcq",
-      "question": "What is the main reason computers use binary to represent all data?",
+      "question": "Which pairing best describes the roles of the two floating-point fields in this syllabus?",
       "options": [
-        "Binary numbers are easier for humans to read",
-        "Computers use logic gates that only understand ON and OFF states",
-        "It uses less power",
-        "Binary numbers are shorter than decimal numbers"
+        "Mantissa stores the scale, exponent stores the digits",
+        "Mantissa stores the significant digits, exponent stores the scale factor",
+        "Mantissa stores the sign only, exponent stores magnitude and digits",
+        "Both mantissa and exponent store only signs"
       ],
-      "answer": "Computers use logic gates that only understand ON and OFF states"
+      "answer": "Mantissa stores the significant digits, exponent stores the scale factor"
     },
     {
+      "id": 2,
+      "section": "13.3a",
       "type": "mcq",
-      "question": "In an 8-bit binary number, what does the leftmost bit represent?",
+      "question": "In this syllabus, how are the mantissa and exponent stored and interpreted?",
       "options": [
-        "Least Significant Bit",
-        "The parity bit",
-        "Most Significant Bit",
-        "The hexadecimal value"
+        "Sign-magnitude for both fields",
+        "Biased exponent and sign-magnitude mantissa",
+        "Two’s complement for both fields",
+        "Excess-K exponent and one’s-complement mantissa"
       ],
-      "answer": "Most Significant Bit"
+      "answer": "Two’s complement for both fields"
     },
     {
-      "type": "mcq",
-      "question": "Which of the following is a hexadecimal digit?",
-      "options": [
-        "8",
-        "G",
-        "H",
-        "Q"
-      ],
-      "answer": "8"
-    },
-    {
-      "type": "mcq",
-      "question": "What is the maximum value that can be represented in an 8-bit binary number?",
-      "options": [
-        "255",
-        "256",
-        "128",
-        "1024"
-      ],
-      "answer": "255"
-    },
-    {
+      "id": 3,
+      "section": "13.3a",
       "type": "fill_blank",
-      "question": "The process of moving all bits in a binary number to the left or right and filling the emptied spaces with zeros is called a __________ shift.",
-      "answer": "Logical"
+      "question": "The mantissa is read as a signed _____ fraction with the binary point immediately after the sign bit.",
+      "answer": "fixed-point"
     },
     {
-      "type": "fill_blank",
-      "question": "In binary addition, if the result is too large for the register to hold, this is called an __________ error.",
-      "answer": "Overflow"
+      "id": 4,
+      "section": "13.3a",
+      "type": "mcq",
+      "question": "Which statement correctly contrasts precision and range?",
+      "options": [
+        "More mantissa bits increase range, more exponent bits increase precision",
+        "More mantissa bits increase precision, more exponent bits increase range",
+        "More bits in either field increase both precision and range equally",
+        "Precision and range are unaffected by bit allocation"
+      ],
+      "answer": "More mantissa bits increase precision, more exponent bits increase range"
     },
     {
-      "type": "fill_blank",
-      "question": "Each hexadecimal digit can be represented by exactly ___ binary bits.",
-      "answer": "4"
-    },
-    {
-      "type": "true_false",
-      "question": "Digital data can take any value, just like analogue data.",
-      "answer": "False"
-    },
-    {
-      "type": "true_false",
-      "question": "In two’s complement, the most significant bit represents the sign of the number.",
-      "answer": "True"
-    },
-    {
-      "type": "true_false",
-      "question": "The denary number system is also known as base 16.",
-      "answer": "False"
-    },
-    {
+      "id": 5,
+      "section": "13.3a",
       "type": "match",
-      "question": "Match the term with its correct definition:",
+      "question": "Match each item to its effect.",
       "pairs": {
-        "Register": "Used to temporarily hold binary data",
-        "Logic gate": "Basic building block for processing digital data",
-        "Two’s complement": "Method to represent negative binary"
+        "Increase mantissa field length": "Higher precision",
+        "Increase exponent field length": "Larger representable range",
+        "Mantissa is read as": "Signed fixed-point fraction",
+        "Exponent sign bit equals 1": "Negative exponent"
       }
     },
     {
-      "type": "fill_blank",
-      "question": "Convert the binary number 1101 to denary: __________",
-      "answer": "13"
+      "id": 6,
+      "section": "13.3a",
+      "type": "true_false",
+      "question": "Changing the exponent changes the internal position of the mantissa’s binary point.",
+      "answer": "False"
     },
     {
+      "id": 7,
+      "section": "13.3b",
       "type": "fill_blank",
-      "question": "What is the hexadecimal equivalent of the denary number 15? __________",
-      "answer": "F"
+      "question": "Shifting the digits to achieve the target leading pattern for the mantissa is called _____.",
+      "answer": "normalisation"
     },
     {
-      "type": "fill_blank",
-      "question": "What is the binary value for the hexadecimal digit C? __________",
-      "answer": "1100"
+      "id": 8,
+      "section": "13.3b",
+      "type": "mcq",
+      "question": "When storing a negative value, at which point is the positive mantissa converted to two’s complement?",
+      "options": [
+        "Before the normalisation step",
+        "During the integer-part conversion",
+        "After the positive mantissa has been normalised and the exponent has been set",
+        "By making the exponent negative instead"
+      ],
+      "answer": "After the positive mantissa has been normalised and the exponent has been set"
+    },
+    {
+      "id": 9,
+      "section": "13.3b",
+      "type": "mcq",
+      "question": "Which decoding sequence aligns with the syllabus procedure?",
+      "options": [
+        "Read mantissa as unsigned, add exponent bias, then place the binary point arbitrarily",
+        "Decode exponent by two’s complement, decode mantissa as signed fixed-point, scale the mantissa by the exponent, then convert to denary",
+        "Convert to denary first, then determine mantissa and exponent signs",
+        "Only decode the mantissa; the exponent is implied by field width"
+      ],
+      "answer": "Decode exponent by two’s complement, decode mantissa as signed fixed-point, scale the mantissa by the exponent, then convert to denary"
+    },
+    {
+      "id": 10,
+      "section": "13.3b",
+      "type": "mcq",
+      "question": "Why does the normalisation shift count become the stored exponent?",
+      "options": [
+        "It preserves the location of the internal binary point in the mantissa",
+        "It records how far the point was moved so the original value can be recovered by scaling",
+        "It measures rounding error for later correction",
+        "It indicates whether the mantissa is positive or negative"
+      ],
+      "answer": "It records how far the point was moved so the original value can be recovered by scaling"
+    },
+    {
+      "id": 11,
+      "section": "13.3c",
+      "type": "mcq",
+      "question": "What is the purpose of normalisation in this syllabus?",
+      "options": [
+        "To change the numerical value",
+        "To shift the mantissa to a standard leading pattern and adjust the exponent so the overall value is unchanged",
+        "To zero the exponent so the mantissa holds the full value",
+        "To remove the sign information from the mantissa"
+      ],
+      "answer": "To shift the mantissa to a standard leading pattern and adjust the exponent so the overall value is unchanged"
+    },
+    {
+      "id": 12,
+      "section": "13.3c",
+      "type": "true_false",
+      "question": "For a negative stored mantissa in two’s complement, the target leading pattern has a set sign bit followed immediately by a zero bit.",
+      "answer": "True"
+    },
+    {
+      "id": 13,
+      "section": "13.3c",
+      "type": "match",
+      "question": "Match the mantissa shift to the required exponent adjustment to keep the value unchanged.",
+      "pairs": {
+        "Shift mantissa left by k": "Decrease exponent by k",
+        "Shift mantissa right by k": "Increase exponent by k"
+      }
+    },
+    {
+      "id": 14,
+      "section": "13.3c",
+      "type": "mcq",
+      "question": "When you make a normalised positive mantissa negative for storage, which quantity must remain unchanged?",
+      "options": [
+        "Sign bit of the mantissa",
+        "Field width of the mantissa",
+        "Exponent",
+        "Target leading pattern for positives"
+      ],
+      "answer": "Exponent"
+    },
+    {
+      "id": 15,
+      "section": "13.3d",
+      "type": "mcq",
+      "question": "What causes approximation in this format?",
+      "options": [
+        "Exponent field is too wide",
+        "Many denary fractions do not terminate in binary, so a fixed-length mantissa must round",
+        "Two’s complement cannot represent negative values",
+        "Normalisation removes significant digits by design"
+      ],
+      "answer": "Many denary fractions do not terminate in binary, so a fixed-length mantissa must round"
+    },
+    {
+      "id": 16,
+      "section": "13.3d",
+      "type": "mcq",
+      "question": "Which description aligns with the notes for underflow handling in this simplified model?",
+      "options": [
+        "The value wraps to the largest magnitude",
+        "The value becomes zero or a very tiny denormal value depending on the system",
+        "The sign is flipped and the magnitude retained",
+        "The mantissa is widened automatically"
+      ],
+      "answer": "The value becomes zero or a very tiny denormal value depending on the system"
+    },
+    {
+      "id": 17,
+      "section": "13.3d",
+      "type": "match",
+      "question": "Match each situation to the concept.",
+      "pairs": {
+        "Needed exponent more positive than allowed": "Overflow",
+        "Needed exponent more negative than allowed": "Underflow",
+        "Needs more significant binary digits than the mantissa field provides": "Precision limit"
+      }
+    },
+    {
+      "id": 18,
+      "section": "13.3e",
+      "type": "mcq",
+      "question": "What happens when the normalised mantissa requires more bits than the mantissa field allows?",
+      "options": [
+        "Extra most-significant bits are dropped, increasing magnitude",
+        "Extra least-significant bits are discarded or rounded according to a rule, storing the nearest representable value",
+        "Exponent is automatically reduced to fit the mantissa",
+        "The value is stored exactly using the exponent field"
+      ],
+      "answer": "Extra least-significant bits are discarded or rounded according to a rule, storing the nearest representable value"
+    },
+    {
+      "id": 19,
+      "section": "13.3e",
+      "type": "mcq",
+      "question": "Which statement correctly relates bit allocation to effects on values?",
+      "options": [
+        "More exponent bits reduce rounding error near any particular value",
+        "More mantissa bits shrink the spacing between representable fractions, bringing the stored value closer to the ideal",
+        "More mantissa bits expand the exponent range, improving overflow limits",
+        "Bit allocation does not affect either rounding error or range"
+      ],
+      "answer": "More mantissa bits shrink the spacing between representable fractions, bringing the stored value closer to the ideal"
     }
   ]
 }

@@ -1,145 +1,589 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>1.1 Number Systems</title>
-  <link rel="stylesheet" href="igcse-style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Floating-Point Theory - Interactive Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.5;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-left: 5px solid #3498db;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        .concept-block {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+
+        .standard-text {
+            font-size: 1.1em;
+            line-height: 1.4;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .example-container {
+            background: linear-gradient(135deg, #e3f2fd, #f3e5f5);
+            border-radius: 8px;
+            padding: 20px;
+            border-left: 4px solid #2196f3;
+        }
+
+        .example-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #1565c0;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .example-title:before {
+            content: "📝";
+            margin-right: 10px;
+            font-size: 1.3em;
+        }
+
+        .example-content {
+            font-size: 1em;
+            line-height: 1.3;
+            color: #37474f;
+        }
+
+        .toggle-btn {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.9em;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+        }
+
+        .toggle-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(255, 107, 107, 0.4);
+        }
+
+        .explanatory-example {
+            background: linear-gradient(135deg, #fff3e0, #fce4ec);
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 15px;
+            border-left: 4px solid #ff9800;
+            display: none;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        .explanatory-example.show {
+            display: block;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .explanatory-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #e65100;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+        }
+
+        .explanatory-title:before {
+            content: "💡";
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        .code {
+            background: #263238;
+            color: #4fc3f7;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+            overflow-x: auto;
+            border: 2px solid #37474f;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #ffeb3b, #ffc107);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .math {
+            font-weight: 600;
+            color: #7b1fa2;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .binary {
+            font-family: 'Courier New', monospace;
+            background: #e8f5e8;
+            padding: 2px 6px;
+            border-radius: 3px;
+            color: #2e7d32;
+            font-weight: 600;
+        }
+
+        .warning {
+            background: linear-gradient(135deg, #ffebee, #fce4ec);
+            border-left: 4px solid #f44336;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .info {
+            background: linear-gradient(135deg, #e3f2fd, #e1f5fe);
+            border-left: 4px solid #2196f3;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+    </style>
 </head>
 <body>
-   <div class="container">
-    <h1>Number Systems</h1>
-    <div class="subtitle">IGCSE CS theory notes, prepared by Dr. Hamdeni</div>
+    <div class="container">
+        <div class="header">
+            <h1>Binary Floating-Point Theory</h1>
+            <p>An Interactive Guide to Understanding Format, Conversions, and Approximations</p>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <h2 class="section-title">13.3a Format and Bit-Allocation Effects</h2>
+                
+                <div class="concept-block">
+                    <div class="standard-text">
+                        A binary floating-point number stores a real value <span class="math">N</span> using two fields called <span class="highlight">mantissa M</span> and <span class="highlight">exponent E</span>, and the rule is <span class="math">N = M × 2^E</span> where <span class="math">M</span> holds the significant binary digits and <span class="math">E</span> tells how far to move the binary point.
+                    </div>
+                    
+                    <div class="example-container">
+                        <div class="example-title">Example: Basic Floating-Point Calculation</div>
+                        <div class="example-content">
+                            Let the mantissa be <span class="math">M = 0.75</span> and the exponent be <span class="math">E = 3</span>.<br><br>
+                            Then <span class="math">N = 0.75 × 2³ = 0.75 × 8 = 6</span>.<br><br>
+                            In binary, <span class="binary">0.75 = 0.11₂</span> and moving the binary point three places to the right gives <span class="binary">110.0₂ = 6</span>.
+                        </div>
+                        <button class="toggle-btn" onclick="toggleExplanation(this)">Show Detailed Explanation</button>
+                        <div class="explanatory-example">
+                            <div class="explanatory-title">Detailed Explanation</div>
+                            Think of the mantissa as the digits and the exponent as the size control.<br><br>
+                            <span class="binary">0.75</span> is 3 quarters, and in binary <span class="binary">0.75 = 0.11₂</span> because <span class="binary">0.11₂ = 1/2 + 1/4 = 0.5 + 0.25</span>.<br><br>
+                            The exponent <span class="math">3</span> means "multiply by 2 three times," which is <span class="math">8</span>.<br><br>
+                            So the final value is <span class="math">0.75 × 8 = 6</span>.<br><br>
+                            The binary point moves three places to the right: <span class="binary">0.11₂ → 110.0₂</span>.
+                        </div>
+                    </div>
+                </div>
 
-    <div class="section">
-      <h2>1.1 Understand how and why computers use binary to represent all forms of data</h2>
+                <div class="concept-block">
+                    <div class="standard-text">
+                        Both <span class="math">M</span> and <span class="math">E</span> are signed values stored using <span class="highlight">two's complement</span> so that positive and negative magnitudes and positive and negative scales are possible.
+                    </div>
+                    
+                    <div class="example-container">
+                        <div class="example-title">Example: Two's Complement Decoding</div>
+                        <div class="example-content">
+                            Mantissa first, exponent second.<br><br>
+                            Take <span class="math">M = 1.010000000</span> (10-bit mantissa field, sign bit 1 so M is negative)<br>
+                            and <span class="math">E = 111101</span> (6-bit exponent field).<br><br>
+                            To decode E: since the leading bit is 1, it is negative;<br>
+                            invert <span class="binary">111101 → 000010</span>, add 1 → <span class="binary">000011</span>, so <span class="math">E = −3</span>.<br><br>
+                            The mantissa is negative because its sign bit is 1.
+                        </div>
+                        <button class="toggle-btn" onclick="toggleExplanation(this)">Show Detailed Explanation</button>
+                        <div class="explanatory-example">
+                            <div class="explanatory-title">Detailed Explanation</div>
+                            <span class="highlight">Two's complement rule:</span><br><br>
+                            • If the leftmost bit is 0, the stored number is already non-negative.<br>
+                            • If the leftmost bit is 1, the stored number is negative; to find how big it is, flip all the bits and add 1.<br><br>
+                            This rule is used for the exponent and for the mantissa field in this syllabus.<br><br>
+                            So <span class="binary">111101</span> for the exponent becomes <span class="math">−3</span>.<br><br>
+                            A mantissa that starts with 1 is a negative mantissa; flip and add 1 to find its magnitude.
+                        </div>
+                    </div>
+                </div>
 
+                <div class="concept-block">
+                    <div class="standard-text">
+                        The mantissa is read as a <span class="highlight">signed fixed-point fraction</span> with the binary point immediately after its sign bit so that the exponent <span class="math">E</span> can scale it up or down without changing its internal point.
+                    </div>
+                    
+                    <div class="example-container">
+                        <div class="example-title">Example: Fixed-Point Mantissa Reading</div>
+                        <div class="example-content">
+                            <span class="math">M = 0.1000000000</span> (10-bit mantissa field) represents <span class="math">0.5</span> because only the <span class="math">2⁻¹</span> place is 1.<br><br>
+                            Let <span class="math">E</span> be stored in 6 bits as <span class="binary">000010</span> (which is +2).<br><br>
+                            Then <span class="math">N = 0.5 × 2² = 2</span>.
+                        </div>
+                        <button class="toggle-btn" onclick="toggleExplanation(this)">Show Detailed Explanation</button>
+                        <div class="explanatory-example">
+                            <div class="explanatory-title">Detailed Explanation</div>
+                            <span class="highlight">Fixed-point</span> means the binary point is in a fixed place inside the mantissa field, just after the sign bit.<br><br>
+                            The first fractional position is worth <span class="math">1/2</span>, the next <span class="math">1/4</span>, then <span class="math">1/8</span>, and so on.<br><br>
+                            Here only the first fractional spot is 1, so <span class="math">M = 0.5</span>.<br><br>
+                            The exponent <span class="binary">000010</span> is <span class="math">+2</span>, so we multiply by 2 twice.<br><br>
+                            Shifting <span class="binary">0.1₂</span> two places right gives <span class="binary">10.0₂</span>, which equals <span class="math">2</span>.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="concept-block">
+                    <div class="standard-text">
+                        <span class="highlight">Bit allocation</span> controls behaviour: more mantissa bits increase <span class="highlight">precision</span> because more significant digits are kept, while more exponent bits increase <span class="highlight">range</span> because larger positive and negative powers of two become representable.
+                    </div>
+                    
+                    <div class="example-container">
+                        <div class="example-title">Example: Precision vs Range Comparison</div>
+                        <div class="example-content">
+                            <strong>Precision comparison:</strong> Approximate the same value with different mantissa lengths.<br><br>
+                            • With 8 mantissa bits keep <span class="binary">0.10110011₂ = 1/2 + 1/8 + 1/16 + 1/128 + 1/256 = 0.69921875</span><br><br>
+                            • With 12 mantissa bits keep <span class="binary">0.101100110011₂ = 0.69970703125</span><br><br>
+                            The 12-bit mantissa retains more detail and is closer to the true value.<br><br>
+                            <strong>Range comparison:</strong><br>
+                            • With a 4-bit two's-complement exponent you can store E from −8 to +7<br>
+                            • With an 8-bit two's-complement exponent you can store E from −128 to +127
+                        </div>
+                        <button class="toggle-btn" onclick="toggleExplanation(this)">Show Detailed Explanation</button>
+                        <div class="explanatory-example">
+                            <div class="explanatory-title">Detailed Explanation</div>
+                            More mantissa bits mean the "grid" of representable fractions is finer, so your stored value is closer to the real one.<br><br>
+                            More exponent bits mean you can scale much further up and down.<br><br>
+                            <span class="highlight">Precision and range are different knobs.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">13.3b Conversions Between Binary Floating-Point and Denary</h2>
+                
+                <div class="concept-block">
+                    <div class="standard-text">
+                        To convert a denary number to floating point, you first write the integer part in binary by <span class="highlight">repeated division by 2</span> and then write the fractional part in binary by <span class="highlight">repeated multiplication by 2</span> collecting the carries.
+                    </div>
+                    
+                    <div class="example-container">
+                        <div class="example-title">Example: Converting 5.5 to Binary Floating-Point</div>
+                        <div class="example-content">
+                            Convert 5.5 to binary and then to fields.<br><br>
+                            <strong>Integer part 5 by division:</strong><br>
+                            <div class="code">5 ÷ 2 = 2 r1<br>2 ÷ 2 = 1 r0<br>1 ÷ 2 = 0 r1<br>→ read upward gives 101₂</div>
+                            <strong>Fraction 0.5 by multiplication:</strong><br>
+                            <span class="math">0.5 × 2 = 1.0 → write 1 and stop → .1₂</span><br><br>
+                            <strong>Raw binary = <span class="binary">101.1₂</span></strong>
+                        </div>
+                        <button class="toggle-btn" onclick="toggleExplanation(this)">Show Detailed Explanation</button>
+                        <div class="explanatory-example">
+                            <div class="explanatory-title">Detailed Explanation</div>
+                            Division by 2 for the whole number gives you bits from least significant to most; read the remainders upward.<br><br>
+                            Multiplying the fraction by 2 tells you the next fractional bit:<br>
+                            • If the result is at least 1, write 1 and subtract 1<br>
+                            • If less than 1, write 0<br><br>
+                            Join the two to get the raw binary with one point in it.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="concept-block">
+                    <div class="standard-text">
+                        After you have the raw binary with a visible binary point you shift the digits so that the mantissa is <span class="highlight">normalised</span> to the required leading pattern and you record how many places you shifted as the exponent <span class="math">E</span>.
+                    </div>
+                    
+                    <div class="example-container">
+                        <div class="example-title">Example: Normalising 101.1₂</div>
+                        <div class="example-content">
+                            Normalise <span class="binary">101.1₂</span> to a mantissa and exponent.<br><br>
+                            We target a positive mantissa that begins <span class="binary">0.1xxxx</span>.<br><br>
+                            Move the point left three places: <span class="binary">101.1₂ → 0.1011₂</span> and set <span class="math">E = +3</span>.<br><br>
+                            If we store a 10-bit mantissa field, the mantissa bits become <span class="binary">0.1011000000</span><br>
+                            and the exponent field stores <span class="math">+3</span>.
+                        </div>
+                        <button class="toggle-btn" onclick="toggleExplanation(this)">Show Detailed Explanation</button>
+                        <div class="explanatory-example">
+                            <div class="explanatory-title">Detailed Explanation</div>
+                            The mantissa should start <span class="binary">0.1</span> for positives.<br><br>
+                            Count how many places you move the point to get that shape; that count is the exponent.<br><br>
+                            Here we moved left 3, so we compensate later by multiplying by <span class="math">2³</span> when we decode.<br><br>
+                            Padding the mantissa with trailing zeros fills the fixed field.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">13.3c Normalisation and Its Purpose</h2>
+                
+                <div class="concept-block">
+                    <div class="standard-text">
+                        <span class="highlight">Normalisation</span> is a tidy-up step that shifts the mantissa and adjusts the exponent so that the mantissa begins with a standard leading pattern while the overall value <span class="math">N = M × 2^E</span> stays unchanged.
+                    </div>
+                    
+                    <div class="example-container">
+                        <div class="example-title">Example: Normalising 0110.000₂</div>
+                        <div class="example-content">
+                            Normalise <span class="binary">0110.000₂</span> to a mantissa and exponent.<br><br>
+                            Raw fixed-point value is <span class="math">6</span>.<br><br>
+                            Move the point left 3 places to get <span class="binary">0.110000₂</span> and set <span class="math">E = +3</span>.<br><br>
+                            Normalised pair: <span class="math">M = 0.1100000000</span> (fill to 10 mantissa bits) and <span class="math">E = 000011</span> (+3).<br><br>
+                            Check: <span class="math">0.110000₂ × 2³ = 110.000₂ = 6</span>
+                        </div>
+                        <button class="toggle-btn" onclick="toggleExplanation(this)">Show Detailed Explanation</button>
+                        <div class="explanatory-example">
+                            <div class="explanatory-title">Detailed Explanation</div>
+                            Normalisation is a tidy rearrangement.<br><br>
+                            You squeeze the number so that the mantissa starts with <span class="binary">0.1</span> for positives, and you record the amount of squeezing in the exponent.<br><br>
+                            Multiply back by <span class="math">2^E</span> and you get the original number.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">13.3d Approximation, Overflow, and Underflow</h2>
+                
+                <div class="concept-block">
+                    <div class="standard-text">
+                        <span class="highlight">Approximation</span> appears because many decimal fractions like 0.1 do not end in binary so a fixed-length mantissa must round or cut the repeating tail and the stored value is only as accurate as the number of mantissa bits allows.
+                    </div>
+                    
+                    <div class="example-container">
+                        <div class="example-title">Example: Approximating 0.1 with Limited Precision</div>
+                        <div class="example-content">
+                            Approximate 0.1 with 8 mantissa bits in fixed-point.<br><br>
+                            Repeated multiply by 2 gives a repeating pattern <span class="binary">0011…</span><br>
+                            so <span class="math">0.1 ≈ 0.00011001₂</span> for the first 8 fractional bits.<br><br>
+                            Value = <span class="math">2⁻⁴ + 2⁻⁵ + 2⁻⁸ = 0.0625 + 0.03125 + 0.00390625 = 0.09765625</span><br><br>
+                            Absolute error ≈ <span class="math">0.00234375</span>
+                        </div>
+                        <button class="toggle-btn" onclick="toggleExplanation(this)">Show Detailed Explanation</button>
+                        <div class="explanatory-example">
+                            <div class="explanatory-title">Detailed Explanation</div>
+                            Use a familiar analogy. In denary, <span class="math">1 ÷ 3 = 0.333…</span> never ends, so we round it if we have limited space.<br><br>
+                            Similarly, <span class="math">0.1</span> in denary becomes a repeating pattern in binary and cannot fit exactly into a fixed number of bits.<br><br>
+                            With only 8 places we cut the tail and accept a small error.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="concept-block">
+                    <div class="standard-text">
+                        <span class="highlight">Overflow</span> happens when the true exponent needed for a value lies outside the allowed exponent range of the format so the number cannot be stored as a normalised value in that format.
+                    </div>
+                    
+                    <div class="example-container">
+                        <div class="example-title">Example: Overflow with 2⁴⁰</div>
+                        <div class="example-content">
+                            In a 10-bit mantissa and 6-bit exponent format, try to store <span class="math">2⁴⁰</span>.<br><br>
+                            The mantissa is <span class="binary">0.1₂</span> for a pure power of two and the exponent must be <span class="math">+40</span>.<br><br>
+                            But a 6-bit two's-complement exponent stores only <span class="math">−32</span> to <span class="math">+31</span>.<br><br>
+                            Since <span class="math">+40 > +31</span>, <span class="math">2⁴⁰</span> is not representable in normalised form.
+                        </div>
+                        <button class="toggle-btn" onclick="toggleExplanation(this)">Show Detailed Explanation</button>
+                        <div class="explanatory-example">
+                            <div class="explanatory-title">Detailed Explanation</div>
+                            The exponent is a signed integer with limited width.<br><br>
+                            If the value you want needs a larger exponent than you can store, you have overflow.<br><br>
+                            The mantissa could be perfect, but if E is outside the box, you cannot represent the number.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">13.3e Rounding and Representation Errors</h2>
+                
+                <div class="concept-block">
+                    <div class="standard-text">
+                        <span class="highlight">Rounding error</span> is introduced when the normalised mantissa requires more bits than the mantissa field allows and the extra least significant bits are discarded or rounded according to the chosen rule so the stored value becomes the nearest representable one.
+                    </div>
+                    
+                    <div class="example-container">
+                        <div class="example-title">Example: Rounding with Limited Mantissa Bits</div>
+                        <div class="example-content">
+                            Keep only 10 mantissa bits for <span class="binary">0.101100110011…</span><br><br>
+                            With 10 bits we store <span class="binary">0.1011001100₂</span>.<br><br>
+                            Value = <span class="math">2⁻¹ + 2⁻³ + 2⁻⁴ + 2⁻⁷ + 2⁻⁸ = 0.69921875</span><br><br>
+                            If we kept 12 bits we would have <span class="binary">0.101100110011₂ = 0.69970703125</span>,<br>
+                            which is closer to the true value.
+                        </div>
+                        <button class="toggle-btn" onclick="toggleExplanation(this)">Show Detailed Explanation</button>
+                        <div class="explanatory-example">
+                            <div class="explanatory-title">Detailed Explanation</div>
+                            The mantissa field is a fixed length.<br><br>
+                            If the true mantissa has more digits, the extra least-significant digits must be dropped or rounded.<br><br>
+                            Shorter mantissas give bigger steps between representable values, so the stored value sits further from the ideal.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info">
+                    <strong>Key Insight:</strong> A decimal fraction is exact in binary only when its simplest form has a denominator that is a power of two so values like 0.5 and 0.125 are exact while values like 0.1 and 0.3 must be rounded.
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Complete Step-by-Step Examples</h2>
+                
+                <div class="concept-block">
+                    <div class="example-container">
+                        <div class="example-title">Complete Example 1: Converting 2.5 (10M-6E format)</div>
+                        <div class="example-content">
+                            <strong>Step 1:</strong> Integer 2 = <span class="binary">10₂</span> and fraction 0.5 = <span class="binary">.1₂</span> so raw binary is <span class="binary">10.1₂</span><br>
+                            <strong>Step 2:</strong> Make the mantissa start at <span class="binary">0.1</span> by moving left 2 places: <span class="binary">0.101₂</span>, set <span class="math">E = +2</span><br>
+                            <strong>Step 3:</strong> Write mantissa <span class="binary">0.1010000000</span> in the 10-bit mantissa field and exponent +2 as <span class="binary">000010</span> in the 6-bit exponent field<br>
+                            <strong>Step 4:</strong> Stored value is <span class="binary">0.101₂ × 2² = 10.1₂ = 2.5</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="concept-block">
+                    <div class="example-container">
+                        <div class="example-title">Complete Example 2: Converting 201.125 (10M-6E format)</div>
+                        <div class="example-content">
+                            <strong>Step 1:</strong> Integer 201 = <span class="binary">11001001₂</span> and fraction 0.125 = <span class="binary">.001₂</span> so raw is <span class="binary">11001001.001₂</span><br>
+                            <strong>Step 2:</strong> Move left 8 places to <span class="binary">0.11001001001₂</span>, set <span class="math">E = +8</span><br>
+                            <strong>Step 3:</strong> Place <span class="binary">0.11001001001</span> in the mantissa field, trimming or rounding at the 10th mantissa bit; store <span class="math">E = +8</span> in the exponent field<br>
+                            <strong>Step 4:</strong> Stored pair represents approximately 201.125; any tiny difference comes from mantissa length
+                        </div>
+                    </div>
+                </div>
+
+                <div class="concept-block">
+                    <div class="example-container">
+                        <div class="example-title">Complete Example 3: Converting −7.25 (10M-6E format)</div>
+                        <div class="example-content">
+                            <strong>Step 1:</strong> Positive magnitude <span class="math">7.25 = 111.01₂</span><br>
+                            <strong>Step 2:</strong> Move left 3 places to <span class="binary">0.11101₂</span>, set <span class="math">E = +3</span><br>
+                            <strong>Step 3:</strong> Place <span class="binary">0.1110100000</span> in the 10-bit mantissa field, then convert the whole mantissa to two's complement to make it negative<br>
+                            <strong>Step 4:</strong> Keep <span class="math">E = +3</span> in the 6-bit exponent field. The value is <span class="math">N = (negative mantissa) × 2³ = −7.25</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="concept-block">
+                    <div class="example-container">
+                        <div class="example-title">Additional Example: Normalising Small Positive Mantissa</div>
+                        <div class="example-content">
+                            Normalising a small positive mantissa <span class="binary">0.0011100</span> with exponent 5<br>
+                            requires two left shifts to become <span class="binary">0.1110000</span><br>
+                            and requires changing the exponent to 3<br>
+                            so that the stored value is identical but precision is improved<br>
+                            because more leading mantissa bits are meaningful.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="concept-block">
+                    <div class="example-container">
+                        <div class="example-title">Additional Example: Precision Limitation with Integer 513</div>
+                        <div class="example-content">
+                            In the 10M-6E format some integers such as 513 cannot be exact<br>
+                            when the mantissa is too short because the mantissa cannot hold<br>
+                            all necessary significant bits and this limitation is different from overflow<br>
+                            because it is a precision limit rather than an exponent range limit.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <div class="section">
-      <h2>1.2 (a) Understand the denary, binary and hexadecimal number systems</h2>
-      <ul>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Base-10, digits 0–9">Denary</span> is used in everyday life, with each place increasing by powers of 10.</span></li>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Base-2, digits 0 and 1">Binary</span> is used by computers, with each place increasing by powers of 2.</span></li>
-        <li><span class="official-note">The <span class="keyword" data-tooltip="The leftmost bit in a binary number, which has the highest value">MSB</span> (Most Significant Bit) is the leftmost bit.</span></li>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Base-16, digits 0–9 and A–F">Hexadecimal</span> is closely related to binary; each hex digit is 4 bits.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">The denary number 25177 = 2×10000 + 5×1000 + 1×100 + 7×10 + 7×1.</div></li>
-        <li><div class="example-box">Binary 11101110 = 128+64+32+8+4+2 = 238 (denary).</div></li>
-        <li><div class="example-box">Hex digit A = 10, F = 15 (denary).</div></li>
-        <li><div class="example-box">1010 (binary) = A (hex) = 10 (denary).</div></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.2 (b) Convert between number systems</h2>
-      <ul>
-        <li><span class="official-note">To convert binary to denary: add up the values of all positions where there is a 1.</span></li>
-        <li><span class="official-note">To convert denary to binary: subtract the largest possible powers of 2, or divide by 2 and record remainders.</span></li>
-        <li><span class="official-note">Successive division by 2 and reading remainders from bottom to top gives the binary value.</span></li>
-        <li><span class="official-note">You can convert up to 16-bit binary numbers for this syllabus.</span></li>
-        <li><span class="official-note">To convert binary to hexadecimal: group bits from the right in sets of four, pad with zeros to the left if needed.</span></li>
-        <li><span class="official-note">To convert hexadecimal to binary: write each hex digit as 4 bits.</span></li>
-        <li><span class="official-note">To convert hexadecimal to denary: convert hex to binary, then binary to denary.</span></li>
-        <li><span class="official-note">To convert denary to hexadecimal: convert to binary, group in 4s, convert each group to hex.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">011110001011 = 1024+512+256+128+8+2+1 = 1931 (denary).</div></li>
-        <li><div class="example-box">Denary 142: 142 ÷ 2 repeatedly gives remainders 1 0 0 0 1 1 1 0 (read bottom to top: 10001110).</div></li>
-        <li><div class="example-box">Denary 13 → 8+4+0+1 = 13 → 1101 (binary).</div></li>
-        <li><div class="example-box">1000001111101 → 0010 0001 1111 1101 → 21FD (hex).</div></li>
-        <li><div class="example-box">Hex SE (S=5, E=14): 0101 1110 (binary).</div></li>
-        <li><div class="example-box">Hex 2 1 F D → 0010 0001 1111 1101 (binary).</div></li>
-        <li><div class="example-box">Hex SE = 64+16+8+4+2 = 94 (denary).</div></li>
-        <li><div class="example-box">Denary 201: binary 11001001 → 1100 (C), 1001 (9) → hex C9.</div></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.3 Understand how and why hexadecimal is used as a beneficial method of data representation</h2>
-      <ul>
-        <li><span class="official-note">Hexadecimal is shorter and easier to read and write than binary; simplifies debugging and error detection.</span></li>
-        <li><span class="official-note">Programmers find it easier to compare and spot differences in hexadecimal than in long binary strings.</span></li>
-        <li><span class="official-note">Common uses for hexadecimal: HTML colours, MAC addresses, assembly/machine code, memory dumps, debugging, error codes, and IP addresses.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">Comparing 10011100101110111000111011100010111101011010 (binary) vs. 9CBB8EE2F5A (hex).</div></li>
-        <li><div class="example-box"><span class="keyword" data-tooltip="Unique device identifier, written in hexadecimal">MAC address</span>: e.g., 00-1C-B3-4F-25-FE.</div></li>
-        <li><span class="fun-tip">Hex makes large binary numbers easier for humans to read and spot mistakes quickly!</span></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.4 (a) Add two positive 8-bit binary integers</h2>
-      <ul>
-        <li><span class="official-note">Binary addition rules: 0+0=0; 1+0/0+1=1; 1+1=0 (carry 1); 1+1+1=1 (carry 1).</span></li>
-        <li><span class="official-note">Carry values work like in denary addition—add rightmost columns first, carry left if needed.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">00100111 + 01001010 = 01110001 (binary addition).</div></li>
-        <li><div class="example-box">126 (01111110) + 62 (00111110) = 188 (10111100).</div></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.4 (b) Understand the concept of overflow and why it occurs in binary addition</h2>
-      <ul>
-        <li><span class="official-note"><span class="keyword" data-tooltip="When a calculation exceeds the maximum storable value in the register">Overflow error</span> occurs when a result is too big for the register.</span></li>
-        <li><span class="official-note">For an 8-bit register, the maximum value is 255 (11111111). A result with a 9th bit is overflow.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">Adding 01101110 + 11011110 = (1)01001100, the leading (1) is overflow.</div></li>
-        <li><span class="fun-tip">If your answer has more bits than allowed, that extra leftmost bit is overflow—the computer can't fit it!</span></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.5 Perform a logical binary shift on a positive 8-bit binary integer and understand the effect</h2>
-      <ul>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Moving all bits left (×2) or right (÷2); zero fills empty place">Logical shift</span>: move all bits left (multiply by 2) or right (divide by 2); zeros fill empty spots.</span></li>
-        <li><span class="official-note">Bits shifted out are lost; zeros fill the emptied places.</span></li>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Left-most">Most significant bit</span></li>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Right-most">Least significant bit</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">Left shift: 00010101 → 00101010 (21×2=42).</div></li>
-        <li><div class="example-box">Left shift 2: 00010101 → 01010100 (21×4=84).</div></li>
-        <li><div class="example-box">Right shift: 11001000 → 01100100 (200÷2=100).</div></li>
-        <li><div class="example-box">Shift 10101010 one place left: 01010100.</div></li>
-        <li><span class="fun-tip">Each left shift doubles your number—each right shift halves it (if you don't lose important bits)!</span></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>1.6 Use the two’s complement number system to represent positive and negative 8-bit binary integers</h2>
-      <ul>
-        <li><span class="official-note"><span class="keyword" data-tooltip="Method to represent negative binary numbers; left-most bit is the sign (–128 for 8 bits)">Two’s complement</span> lets you use the same binary system for positive and negative numbers.</span></li>
-        <li><span class="official-note">In 8-bit two’s complement, the range is –128 to +127.</span></li>
-        <li><span class="official-note">To write a positive number, use normal binary (sign bit 0).</span></li>
-        <li><span class="official-note">To write a negative number:<br>
-            1. Write positive binary.<br>
-            2. Invert all bits left of the first 1 from the right (or invert all bits and add 1).<br>
-            3. Make sure the MSB is 1.
-          </span>
-        </li>
-        <li><span class="official-note">For negative values, sum bits using –128 as the left-most.</span></li>
-      </ul>
-      <ul class="no-bullets">
-        <li><div class="example-box">38 = 00100110 (two’s complement).</div></li>
-        <li><div class="example-box">–67: 01000011 → invert → 10111100 → add 1 = 10111101.</div></li>
-        <li><div class="example-box">10111010 = –128 + 32 + 16 + 8 + 2 = –70.</div></li>
-        <li><span class="fun-tip">To get a negative number: "Flip all the bits and add one!" (That’s the computer’s trick.)</span></li>
-      </ul>
-    </div>
-
-  </div>
 
     <script>
-    window.addEventListener('load', function() {
-      var height = document.body.scrollHeight;
-      window.parent.postMessage({type: 'resize', height: height}, '*');
-    });
+        function toggleExplanation(button) {
+            const explanation = button.nextElementSibling;
+            
+            if (explanation && explanation.classList.contains('explanatory-example')) {
+                if (explanation.classList.contains('show')) {
+                    explanation.classList.remove('show');
+                    button.textContent = 'Show Detailed Explanation';
+                    button.style.background = 'linear-gradient(135deg, #ff6b6b, #ee5a24)';
+                } else {
+                    explanation.classList.add('show');
+                    button.textContent = 'Hide Detailed Explanation';
+                    button.style.background = 'linear-gradient(135deg, #4ecdc4, #44a08d)';
+                }
+            }
+        }
     </script>
-  </div>
 </body>
 </html>

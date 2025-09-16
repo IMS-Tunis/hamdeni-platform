@@ -2,101 +2,121 @@
   "questions": [
     {
       "type": "mcq",
-      "question": "What is the main reason computers use binary to represent all data?",
+      "question": "Which description best defines Serial File Organization?",
       "options": [
-        "Binary numbers are easier for humans to read",
-        "Computers use logic gates that only understand ON and OFF states",
-        "It uses less power",
-        "Binary numbers are shorter than decimal numbers"
+        "Records are stored one after another in the order they are added, typically in chronological order; new records are appended at the end",
+        "Records are stored in a defined order by a key field or an index derived from a key; new records are inserted to preserve the order",
+        "Records are stored at addresses computed from a key using a hashing algorithm, enabling rapid direct retrieval",
+        "Read and write operations proceed in the order of the key or index"
       ],
-      "answer": "Computers use logic gates that only understand ON and OFF states"
+      "answer": "Records are stored one after another in the order they are added, typically in chronological order; new records are appended at the end"
     },
     {
       "type": "mcq",
-      "question": "In an 8-bit binary number, what does the leftmost bit represent?",
+      "question": "Which statement is a key characteristic of Sequential File Organization?",
       "options": [
-        "Least Significant Bit",
-        "The parity bit",
-        "Most Significant Bit",
-        "The hexadecimal value"
+        "New records are appended to the end of the file",
+        "Searching can terminate early when the current record’s key exceeds the target key",
+        "Records are stored at addresses computed from a key using a hashing algorithm",
+        "Records are stored one after another in chronological order"
       ],
-      "answer": "Most Significant Bit"
-    },
-    {
-      "type": "mcq",
-      "question": "Which of the following is a hexadecimal digit?",
-      "options": [
-        "8",
-        "G",
-        "H",
-        "Q"
-      ],
-      "answer": "8"
-    },
-    {
-      "type": "mcq",
-      "question": "What is the maximum value that can be represented in an 8-bit binary number?",
-      "options": [
-        "255",
-        "256",
-        "128",
-        "1024"
-      ],
-      "answer": "255"
-    },
-    {
-      "type": "fill_blank",
-      "question": "The process of moving all bits in a binary number to the left or right and filling the emptied spaces with zeros is called a __________ shift.",
-      "answer": "Logical"
-    },
-    {
-      "type": "fill_blank",
-      "question": "In binary addition, if the result is too large for the register to hold, this is called an __________ error.",
-      "answer": "Overflow"
-    },
-    {
-      "type": "fill_blank",
-      "question": "Each hexadecimal digit can be represented by exactly ___ binary bits.",
-      "answer": "4"
-    },
-    {
-      "type": "true_false",
-      "question": "Digital data can take any value, just like analogue data.",
-      "answer": "False"
-    },
-    {
-      "type": "true_false",
-      "question": "In two’s complement, the most significant bit represents the sign of the number.",
-      "answer": "True"
-    },
-    {
-      "type": "true_false",
-      "question": "The denary number system is also known as base 16.",
-      "answer": "False"
+      "answer": "Searching can terminate early when the current record’s key exceeds the target key"
     },
     {
       "type": "match",
-      "question": "Match the term with its correct definition:",
+      "question": "Match each file organization to its defining property.",
       "pairs": {
-        "Register": "Used to temporarily hold binary data",
-        "Logic gate": "Basic building block for processing digital data",
-        "Two’s complement": "Method to represent negative binary"
+        "Serial": "Records stored one after another in chronological order",
+        "Sequential": "Records stored in a defined order by a key field or index",
+        "Random or Direct": "Records stored at addresses computed from a key using a hashing algorithm"
       }
     },
     {
-      "type": "fill_blank",
-      "question": "Convert the binary number 1101 to denary: __________",
-      "answer": "13"
+      "type": "match",
+      "question": "Match each file organization to a suitable application.",
+      "pairs": {
+        "Serial": "Sequential processing such as transaction logs or batch runs",
+        "Sequential": "Processing in key order such as billing cycles or sorted reports",
+        "Random or Direct": "Fast access to individual records such as customer databases with frequent updates"
+      }
+    },
+    {
+      "type": "mcq",
+      "question": "Which statement characterizes Sequential Access?",
+      "options": [
+        "Records are read one by one from the physical start until the target is found or end of file is reached",
+        "A specific record is accessed by computing or referencing its unique storage address",
+        "Appropriate when rapid updates or retrievals of individual records are required",
+        "Typically used with random files"
+      ],
+      "answer": "Records are read one by one from the physical start until the target is found or end of file is reached"
+    },
+    {
+      "type": "match",
+      "question": "Match each task to the appropriate access method.",
+      "pairs": {
+        "End-of-month full-file processing": "Sequential access",
+        "Updating a customer’s details": "Direct access",
+        "Reading until the target or end of file": "Sequential access"
+      }
+    },
+    {
+      "type": "mcq",
+      "question": "An index file stores pairs such as customer number and byte position. How is the record retrieved?",
+      "options": [
+        "Scan all records from the physical start",
+        "Insert the new record chronologically and rescan",
+        "Look up the key in the index and jump directly to that byte position",
+        "Recompute all keys using a different modulus"
+      ],
+      "answer": "Look up the key in the index and jump directly to that byte position"
+    },
+    {
+      "type": "mcq",
+      "question": "What does a hashing algorithm do in file access?",
+      "options": [
+        "Applies a mathematical function to a record’s key to compute its storage address for direct access",
+        "Sorts records in order of a key field or index",
+        "Stores records one after another in the order they are added",
+        "Reads records one by one from the physical start until the target is found"
+      ],
+      "answer": "Applies a mathematical function to a record’s key to compute its storage address for direct access"
     },
     {
       "type": "fill_blank",
-      "question": "What is the hexadecimal equivalent of the denary number 15? __________",
-      "answer": "F"
+      "question": "A _____ occurs when different keys produce the same hash address and map to the same location.",
+      "answer": "collision"
     },
     {
-      "type": "fill_blank",
-      "question": "What is the binary value for the hexadecimal digit C? __________",
-      "answer": "1100"
+      "type": "match",
+      "question": "Match each collision handling method to its description.",
+      "pairs": {
+        "Linear probing": "Advance from the original address to the next available free slot",
+        "Overflow area": "Place the item in a designated overflow region and search it linearly when needed",
+        "Chaining": "Maintain a collection linked from the address so colliding items are traversed via links"
+      }
+    },
+    {
+      "type": "mcq",
+      "question": "Using modulus 5, which pair shows correct hash values?",
+      "options": [
+        "1029 → 4 and 7630 → 0",
+        "1029 → 0 and 7630 → 4",
+        "1029 → 5 and 7630 → 1",
+        "1029 → 1 and 7630 → 5"
+      ],
+      "answer": "1029 → 4 and 7630 → 0"
+    },
+    {
+      "type": "mcq",
+      "question": "Which statement about choosing the divisor D in modulus-based hashing is explicitly stated in the notes?",
+      "options": [
+        "Choosing a prime D often reduces clustering and collision likelihood when key patterns are common",
+        "In random file organization, records are stored at addresses computed from a key using a hashing algorithm",
+        "Collisions occur when different keys produce the same hash address and cannot share the same physical slot",
+        "Linear probing advances from the original address to the next available free slot"
+      ],
+      "answer": "Choosing a prime D often reduces clustering and collision likelihood when key patterns are common"
     }
   ]
 }

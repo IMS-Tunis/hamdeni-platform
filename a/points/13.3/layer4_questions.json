@@ -1,14 +1,86 @@
 [
   {
-    "question": "Explain what is meant by a validation test in computer science education.",
-    "answer": "A validation test checks that students have understood the material and are ready to progress."
+    "question": "(System: mantissa 10 bits, exponent 6 bits, two's complement for both.)\nCalculate the normalised floating-point representation of -7.25 in this system.\nShow your working.",
+    "answer": "1(a) Working: one mark  for calculation of the mantissa and one mark  for\ncalculation or use of the exponent\n\nExponent: one from:\n= 0.11101 × 2^3 // 0.11101 × 2^11\n= 1.00011 × 2^3 // 1.00011 × 2^11\n= appropriate shifting of binary point for +7.25\n\nMantissa: one from:\n= 111.01 (conversion to binary +7.25 – 10 bits)\n= 0111010000 (mantissa 10 bits for +7.25)\n= 1000101111 (one’s complement mantissa for –7.25)\n= 1000110000 (two’s complement mantissa for –7.25)\n\nCorrect Answer (Max 1)\n\nMantissa    Exponent\n1 0 0 0 1 1 0 0 0 0    0 0 0 0 1 1\n\nClarification: Convert 7.25 to binary (111.01), normalise to 1.00011 × 2^3, then form two's complement for the mantissa and keep exponent = +3."
   },
   {
-    "question": "State one advantage of practicing with past paper questions before an exam.",
-    "answer": "Past paper questions familiarize students with the exam style and improve confidence."
+    "question": "(System: mantissa 10 bits, exponent 6 bits, two's complement for both.)\nCalculate the denary value of the given binary floating-point number.\nShow your working.\nGiven: Mantissa (10 bits)=1011000111, Exponent (6 bits)=000111.",
+    "answer": "1(b) One mark for working out the exponent\nOne mark for working out the mantissa\nOne mark for the correct answer\n\nExample answers\n• = 1.011000111 × 2^7 (exponent is 7)\n• = 10110001.11 // –128 + 32 + 16 + 1 + 0.5 + 0.25 // convert to positive 01001110.01 (and add a minus sign to the answer)\n• –78.25\n\nClarification: Exponent 000111 = +7. Interpret the signed mantissa (two's complement) and shift the binary point 7 places; evaluate the resulting signed value."
   },
   {
-    "question": "Give an example of a simple binary operation.",
-    "answer": "Adding two 1-bit binary numbers, e.g. 1 + 1 = 10."
+    "question": "(System: mantissa 10 bits, exponent 6 bits, two's complement for both.)\nThe given binary floating-point number is not normalised. Normalise the floating-point number.\nShow your working.\nGiven: Mantissa (10 bits)=0000000111, Exponent (6 bits)=100111.",
+    "answer": "1(c) One mark for working\nOne mark for correct mantissa\nOne mark for correct exponent\n\nExample answers\nNumber of places added to exponent for normalisation −6 for number to retain its value // mantissa moved 6 places left\n\nMantissa    Exponent\n0 1 1 1 0 0 0 0 0 0    1 0 0 0 0 1\n\nClarification: Shift mantissa left until it is normalised (MSB differs from the sign bit), and add the same number to the exponent."
+  },
+  {
+    "question": "(System: mantissa 10 bits, exponent 6 bits, two's complement for both.)\nThe denary number 513 cannot be stored accurately as a normalised floating-point number in this computer system.\n(i) Explain the reason for this.",
+    "answer": "1(d)(i) One mark for each correct marking point (Max 3)\n\n• Requires 11 bits / more than 10 bits to store (accurately) / reference to maximum (positive) number that can be stored = 511\n• Denary 513 in binary is 1000000001 // Normalised: 0.1000000001\n• Results in overflow\n\nClarification: With only 10 mantissa bits, 513 exceeds the representable positive range; attempting to store it causes overflow."
+  },
+  {
+    "question": "(System: mantissa 10 bits, exponent 6 bits, two's complement for both.)\nThe denary number 513 cannot be stored accurately as a normalised floating-point number in this computer system.\n(ii) Describe an alteration to the way floating-point numbers are stored to enable this number to be stored accurately using the same total number of bits.",
+    "answer": "1(d)(ii) One mark for each correct marking point (Max 2)\n\n• The number of bits for the mantissa must be increased\n• 11/12 bits mantissa and 5/4 bits exponent\n\nClarification: Reallocate bits from exponent to mantissa so precision (mantissa length) increases while total bit-length stays constant."
+  },
+  {
+    "question": "(System: mantissa 12 bits, exponent 4 bits, two's complement for both.)\n(i) Write the normalised floating-point representation of the following unsigned binary number using this system.\nNumber: 1011100.011001\nShow your working.",
+    "answer": "1(a)(i) One mark for each correct marking point (Max 2)\n\n• 010111000110 (correct mantissa)\n• 0111 (correct exponent)\n\nClarification: Move the binary point to get 1.011100011001 × 2^7, then store mantissa (12-bit, with sign) and exponent (4-bit two's complement)."
+  },
+  {
+    "question": "(System: mantissa 12 bits, exponent 4 bits, two's complement for both.)\n(ii) State the consequence of storing the binary number in part (a)(i) as a floating-point number in this system.\nJustify your answer.\n(Use the same number 1011100.011001.)",
+    "answer": "1(a)(ii) One mark for each correct consequence \nOne mark for each correct justification  \n Consequence \n• The precision/accuracy of the number would be reduced \n Justification \n• … because the least significant bits of the original number have been \ntruncated/lost // the original number had 13 bits / 14 bits with sign but the mantissa can only store 12 bits\n\nClarification: The mantissa field cannot hold all significant bits; rounding/truncation occurs when normalising to 12 mantissa bits."
+  },
+  {
+    "question": "Explain the reason why binary numbers are stored in normalised form.",
+    "answer": "1(b) One mark for each correct marking point ( Max 3) \n \n• To store the maximum range of numbers in the minimum number of bytes \n/ bits  \n• Normalisation minimises the number of leading zeros/ones represented \n• Maximising the number of significant bits // maximising the (potential) \nprecision / accuracy of the number for the given number of bits \n• … enables very large / small numbers to be stored with accuracy. \n• Avoids the possibility of many numbers having multiple representations. 3 \n\nClarification: Normalisation yields a unique canonical form that maximises precision for a fixed number of mantissa bits."
+  },
+  {
+    "question": "(System: mantissa 11 bits, exponent 5 bits, two's complement for both.)\nWrite the largest positive two's complement binary number that can be stored in this system.\nRespond using the layout Mantissa (11 bits) and Exponent (5 bits).",
+    "answer": "1(a)\n\nMantissa  Exponent\n0 1 1 1 1 1 1 1 1 1 1    0 1 1 1 1\n\nClarification: In normalised two's complement, the largest positive mantissa has sign bit 0 followed by all 1s; the exponent is the largest positive value."
+  },
+  {
+    "question": "(System: mantissa 11 bits, exponent 5 bits, two's complement for both.)\nCalculate the denary value of the given binary floating-point number.\nShow your working.\nGiven: Mantissa (11 bits)=10110010011, Exponent (5 bits)=01001.",
+    "answer": "1(b) Two marks for working\n• correct calculation of exponent seen\n• correct application of exponent to mantissa seen\n\nOne mark for correct answer\n\nWorking:\n= 1.0110010011 × 2^9 // exponent = 9\n= 1011001001.1 (moving bp 9 places to right) // evaluate two’s complement\nFor example: –512 + 128 + 64 + 8 + 1 + 0.5\n\nAnswer:\n\n–310.5 // –3101/2\n\nClarification: Interpret mantissa as a signed two's complement fraction, shift by exponent (9), then evaluate in denary."
+  },
+  {
+    "question": "State when underflow occurs in a binary floating-point system.",
+    "answer": "1(c) One mark per point\n\n• Following an arithmetic/logical operation\n• … the result is too small to be precisely represented in the available system // When the number of bits is not enough / too small for the computer’s allocated word size / to represent the binary number\n\nClarification: Magnitude is smaller than the smallest representable non-zero normalised value; stored result becomes zero (or denormal)."
+  },
+  {
+    "question": "(System: mantissa 10 bits, exponent 6 bits, two's complement for both.)\nWrite the normalised floating-point representation of the following binary number using this system:\nNumber: 0101010.111\nShow your working.\nRespond using Mantissa (10 bits) and Exponent (6 bits).",
+    "answer": "1(a)\n\nMantissa  Exponent\n0 1 0 1 0 1 0 1 1 1    0 0 0 1 1 0\n\nClarification: Move the binary point 6 places to the left to normalise (exponent +6), record mantissa and exponent in two's complement fields."
+  },
+  {
+    "question": "(System: mantissa 10 bits, exponent 6 bits, two's complement for both.)\nDescribe the reason why the normalised form of the following binary number cannot be represented accurately using this system:\nNumber: 0101011.111001",
+    "answer": "1(b) One mark per mark point (Max 3)\n\nMP1 the mantissa of the number would need to be 0.101011111001 / 13 bits / digits\nMP2 … it can only store 10 bits / digits\nMP3 The 3 least significant digits would be truncated\nMP4 … causing a loss of precision\n\nClarification: Normalising requires 13 significant bits but the mantissa field holds only 10, so rounding/truncation is inevitable."
+  },
+  {
+    "question": "(System: mantissa 10 bits, exponent 6 bits, two's complement for both.)\nWrite the normalised floating‑point representation of -96.75 in this system.\nShow your working.",
+    "answer": "1(a) One mark per mark point (Max 1)\n• conversion of −96.75 to binary e.g., positive 96.75, flip the bits + 1 to give 10011111.01\n// –128 + 16 + 8 + 4 + 2 + 1 + 0.25 / ¼ seen\n\nOne mark per mark point (Max 2)\n• correct mantissa\n• correct exponent\n\nMantissa    Exponent\n1 0 0 1 1 1 1 1 0 1    0 0 0 1 1 1\n\nClarification: Convert 96.75 to binary, form two's complement for the sign, normalise, and set exponent accordingly."
+  },
+  {
+    "question": "(System: mantissa 10 bits, exponent 6 bits, two's complement for both.)\nExplain why a binary representation is sometimes only an approximation to the real number it represents.",
+    "answer": "1(b) One mark per mark point ( Max 3 ) \nMP1 Real numbers (can) have a fractional part (such as 1/3 and ½) / (such \nas 0.4 and 0.25)  \nMP2 The fixed length of the storage means that you can’t store very large / \nvery small numbers  \nMP3 Binary numbers represent numbers based on powers of 2, with limited \nfractional representations such as 1/2, 1/4,  1/8, 1/16 , etc. \nMP4 It isn’t possible to store all fractions with the level of precision provided \nby this system  \nMP5 …the fractional part of the number is as close as possible within these \nconstraints.  3 \n\nClarification: Many decimal fractions have non‑terminating binary expansions (e.g., 0.1), so rounding is required with a fixed mantissa length."
+  },
+  {
+    "question": "(System: mantissa 10 bits, exponent 6 bits, two's complement for both.)\nCalculate the normalised binary floating‑point representation of +201.125 in this system.\nShow your working.\nRespond using Mantissa (10 bits) and Exponent (6 bits).",
+    "answer": "1(a) One mark per mark point (Max 1)\n• correct answer\n• statement regarding number losing precision/rounding error\n\nOne mark per mark point for working (Max 2)\n• number converted to binary 201.125 = 11001001.001\n// 128 + 64 + 8 + 1 + 0.125 / 1/8 seen\n• use of the exponent e.g. moving the binary point 8 places / × 2^8.\n\nMantissa  Exponent\n0 1 1 0 0 1 0 0 1 0    0 0 1 0 0 0\n\nClarification: Normalise 11001001.001 to 1.1001001001 × 2^8, then record mantissa and exponent in two's complement fields."
+  },
+  {
+    "question": "(System: mantissa 10 bits, exponent 6 bits, two's complement for both.)\nCalculate the denary value of the given binary floating‑point number.\nShow your working.\nGiven: Mantissa (10 bits)=1010110011, Exponent (6 bits)=000101.",
+    "answer": "1(b) One mark per mark point (Max 2)\n• application of exponent to go from 1.010110011 to 101011.0011 // × 2^5 // movement of binary point 5 places seen\n• –32 + 8 + 2 + 1 + .125 + .0625 // –32 + 8 + 2 + 1 + 1/8 + 1/16 seen\n// –1 + 1/4 + 1/16 + 1/32 + 1/256 + 1/512 // –1 + 179/512 // –333/512\n\nClarification: Exponent 000101 = +5; shift the signed mantissa accordingly and sum the powers of two (with sign) to get the denary value."
+  },
+  {
+    "question": "(System: mantissa 10 bits, exponent 6 bits, two's complement for both.)\nCalculate the denary value of the given normalised floating-point number.\nShow your working.\nGiven: Mantissa (10 bits)=0100111100, Exponent (6 bits)=001001.",
+    "answer": "1(a) One mark per mark point (Max 3)\nMP1 conversion of exponent 001001 to 9\nMP2 application of exponent to mantissa to go from 0.100111100 to 100111100 // 256 + 32 + 16 + 8 + 4 seen // 64/128 + 8/128 + 4/128 + 2/128 + 1/128 = 79/128 // 1/2 + 1/16 + 1/32 + 1/64 + 1/128 = 79/128\nMP3 correct answer = 316\n\nClarification: Exponent 001001 = +9; shift the mantissa left by 9 positions and evaluate the resulting unsigned magnitude."
+  },
+  {
+    "question": "(System: mantissa 10 bits, exponent 6 bits, two's complement for both.)\nCalculate the normalised floating-point representation of -102.75 in this system.\nShow your working.\nRespond using Mantissa (10 bits) and Exponent (6 bits).",
+    "answer": "1(b) One mark per mark point (Max 3)\nMP1 number converted to binary 10011001.01 // number converted to positive 102.75, reversed bits and 1 added. (0)1100110.11 ⇒ 10011001.00 ⇒ 10011001.01 // -128 + 16 + 8 + 1 + 0.25 = –102.75\nMP2 exponent = 7 // Moving binary point the correct number of places\nMP3 correct answer\n\nMantissa  Exponent\n1 0 0 1 1 0 0 1 0 1    0 0 0 1 1 1\n\nClarification: Convert 102.75 to binary, two's complement to represent the negative value, normalise, and set exponent = +7."
+  },
+  {
+    "question": "(System: mantissa 10 bits, exponent 6 bits, two's complement for both.)\nWrite the normalised floating-point representation of the following binary number using this system:\nNumber: 0.00000011010111\nRespond using Mantissa (10 bits) and Exponent (6 bits).",
+    "answer": "2(a) One mark per mark point\nMP1 Correct mantissa\nMP2 Correct exponent\n\nMantissa  Exponent\n0 1 1 0 1 0 1 1 1 0    1 1 1 0 1 0\n\nClarification: Move the binary point right to normalise, then record mantissa and exponent in two's complement fields."
+  },
+  {
+    "question": "(System: mantissa 10 bits, exponent 6 bits, two's complement for both.)\nCalculate the normalised binary floating‑point representation of -25.3125 in this system.\nShow your working.\nRespond using Mantissa (10 bits) and Exponent (6 bits).",
+    "answer": "2(b) One mark per mark point for working (Max 2)\n• number converted to binary e.g., positive binary version of 25.3125 = (0)11001.0101\n• two’s complement version\nbits flipped and 1 added = 100110.1011\n• -32 + 4 + 2 + 0.5 + 0.125 + 0.0625 // -32 + 4 + 2 + 1/2 + 1/8 + 1/16\n• movement of binary point seen (5 places)\n\nOne mark per mark point\n• correct mantissa\n• correct exponent\n\nMantissa  Exponent\n1 0 0 1 1 0 1 0 1 1    0 0 0 1 0 1\n\nClarification: Convert 25.3125 to binary, apply two's complement for negativity, normalise, and set exponent according to the shift."
   }
 ]

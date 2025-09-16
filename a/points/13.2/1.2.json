@@ -1,0 +1,112 @@
+{
+  "1.2a: Understand how and why a computer represents text and the use of character sets, including ASCII and Unicode": [
+    {
+      "type": "official",
+      "text": "Computers store and process text as binary. A [KEYWORD: character set]{it contains all the characters that are in that character set and the binary value that is assigned to each character.} is a defined list of characters where each character has a fixed binary code."
+    },
+    {
+      "type": "sub-official",
+      "text": "[KEYWORD: ASCII]{a character set for all the characters on a standard keyboard and control codes} (American Standard Code for Information Interchange) is a character set that assigns a unique code to common characters."
+    },
+    {
+      "type": "sub-official",
+      "text": "[KEYWORD: Unicode]{a character set which represents all the languages of the world (the first 128 characters are the same as ASCII code)} (standard character set) supports a much wider range of characters and languages than ASCII."
+    },
+    {
+      "type": "example",
+      "text": "ASCII case codes: Hex means hexadecimal notation used in character set tables. The letter A has the hexadecimal code 41 and the letter a has the hexadecimal code 61. This shows a consistent mapping between characters and their stored codes."
+    },
+    {
+      "type": "example",
+      "text": "ASCII in different number bases: The letter Q has denary code 81, and the letter N has the binary code 01001110. This illustrates that the same character mapping can be expressed in denary or in binary."
+    },
+    {
+      "type": "example",
+      "text": "Decoding a short ASCII binary message: Split the bit stream into 8-bit chunks, convert each chunk to its character using the ASCII table, and join them. For example, 01000011 01101111 01101101 […] 00100001. This produces a readable text message."
+    },
+    {
+      "type": "fun",
+      "text": "Character sets work like a bilingual dictionary: each entry on the left always points to one exact item on the right. ASCII and Unicode are different dictionaries, with Unicode having many more entries."
+    },
+    {
+      "type": "fun",
+      "text": "Unicode = emoji paradise 🎉 (but also supports languages like: العربية, 中国人, and Русский)"
+    }
+  ],
+  "1.2b: Understand how and why a computer represents sound, including the effects of the sample rate and sample resolution": [
+    {
+      "type": "official",
+      "text": "Sound is recorded by taking samples of the sound wave at set time intervals. Each sample is stored as a binary value so the computer can save and play back the sound."
+    },
+    {
+      "type": "sub-official",
+      "text": "[KEYWORD: Sampling]{a little piece of sound that is recorded at regular time intervals.} uses an analogue to digital converter to measure the sound wave amplitude at regular time intervals, and approximate amplitude values are stored in binary."
+    },
+    {
+      "type": "sub-official",
+      "text": "The [KEYWORD: sample rate]{the number of samples recorded each second.} is the number of samples taken each second, measured in hertz. Hertz means per second (1 Hz equals 1 sample per second). Increasing the sample rate captures the sound more accurately and increases the file size."
+    },
+    {
+      "type": "sub-official",
+      "text": "The [KEYWORD: sample resolution]{the number of bits that are used to record each sound sample.} is the number of bits used to store each sample. Using more bits allows more possible sample values and increases the file size."
+    },
+    {
+      "type": "example",
+      "text": "An audio CD uses a sample rate of 44.1 kHz and a 16-bit resolution. This means 44 100 samples are taken each second and each sample is stored using 16 bits, which produces a high quality recording and a larger file size."
+    },
+    {
+      "type": "fun",
+      "text": "Think of two tools: a fast stopwatch and a detailed ruler. The stopwatch speed is the sample rate; the ruler detail is the bit depth. Faster checks and finer measurements make the copy closer to the original sound, and the file size increases."
+    }
+  ],
+  "1.2c: Understand how and why a computer represents an image, including the effects of the resolution and colour depth": [
+    {
+      "type": "official",
+      "text": "A bitmap image is made of [KEYWORD: pixel]{a very small dot of colour that is displayed with many others to create an image.}. A pixel is the smallest image element of a single colour. In a black and white image, each pixel can be stored with a single bit that represents black or white."
+    },
+    {
+      "type": "sub-official",
+      "text": "Image files store [KEYWORD: metadata]{additional data that is stored with an image that can provide information such as the dimensions of the image and the time and date the image was taken.} such as width and height that helps software reconstruct the image correctly when it is displayed."
+    },
+    {
+      "type": "sub-official",
+      "text": "Image [KEYWORD: resolution]{the dimensions of an image.} is the number of pixels in the image, given by its width multiplied by its height. Here, resolution refers to the total number of pixels (width × height). Higher resolution shows more detail and increases the file size."
+    },
+    {
+      "type": "sub-official",
+      "text": "[KEYWORD: colour depth]{the number of bits that are used to create each colour in an image} is the number of bits used for each pixel. More bits allow more possible colours and increase the file size."
+    },
+    {
+      "type": "sub-official",
+      "text": "Increasing colour depth allows a greater range of colours and more detail, producing images that are closer to the original content."
+    },
+    {
+      "type": "example",
+      "text": "Pixel count from resolution: An image that is 4096 pixels wide and 3072 pixels high contains 4 096 × 3 072 = 12 582 912 pixels. This shows how resolution directly affects how much data must be stored."
+    },
+    {
+      "type": "example",
+      "text": "Reconstructing a small black and white image from bits: If an image is 9 pixels wide and 10 pixels high, and we are given a bit string where 1 means black and 0 means white, the computer fills pixels row by row using the width and height. This shows that knowing the dimensions lets the computer turn stored bits back into a visible image."
+    },
+    {
+      "type": "example",
+      "text": "File size using bytes per pixel: For an uncompressed raster image of 1000 × 1000 pixels with a colour depth of 2 bytes per pixel, the file size is 1000 × 1000 × 2 = 2 000 000 bytes."
+    },
+    {
+      "type": "example",
+      "text": "File size using bits to KiB: A 16-bit colour image with resolution 512 × 512 has size 512 × 512 × 16 ÷ 8 = 524 288 bytes, which equals 512 KiB (KiB means kibibytes)."
+    },
+    {
+      "type": "example",
+      "text": "Why low resolution looks pixelated? A high resolution image such as 4096 × 3072 has many pixels so edges look smooth. If the same picture is shown at a much lower resolution, there are fewer pixels to draw details and curved edges look blocky. This shows how resolution affects visual quality."
+    },
+    {
+      "type": "fun",
+      "text": "An image is a mosaic: resolution is how many tiles you have to build the picture, and colour depth is how many paint colours you may use for each tile."
+    },
+    {
+      "type": "fun",
+      "text": "Ever zoomed too far and saw Minecraft-style blocks? That’s pixelation!"
+    }
+  ]
+}
