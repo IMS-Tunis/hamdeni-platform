@@ -1,3 +1,37 @@
+const EXERCISE_ALLOWED_INLINE_TAGS = ['strong'];
+
+function escapeExerciseHTML(str){
+  return String(str).replace(/[&<>"']/g, s => ({
+    '&':'&amp;',
+    '<':'&lt;',
+    '>':'&gt;',
+    '"':'&quot;',
+    "'":'&#39;'
+  })[s]);
+}
+
+function formatMultiline(text){
+  const placeholders = [];
+  const input = text == null ? '' : String(text);
+  const withPlaceholders = input.replace(/<\/?([a-z0-9]+)>/gi, (match, tagName) => {
+    if (EXERCISE_ALLOWED_INLINE_TAGS.includes(tagName.toLowerCase())) {
+      const token = `__HTML_TAG_${placeholders.length}__`;
+      placeholders.push({ token, value: match });
+      return token;
+    }
+    return match;
+  });
+
+  let escaped = escapeExerciseHTML(withPlaceholders).replace(/\r?\n|\r/g, '<br>');
+
+  placeholders.forEach(({ token, value }) => {
+    const re = new RegExp(token, 'g');
+    escaped = escaped.replace(re, value);
+  });
+
+  return escaped;
+}
+
 (function(){
   const dataEl = document.getElementById('data');
   const raw = dataEl ? dataEl.textContent.trim() : '{}';
@@ -22,15 +56,6 @@
   const container = document.getElementById('pointsContainer');
   const expandAllBtn = document.getElementById('expandAll');
   const collapseAllBtn = document.getElementById('collapseAll');
-
-  function escapeHTML(str){
-    return String(str).replace(/[&<>"']/g, s => ({
-      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
-    })[s]);
-  }
-  function formatMultiline(text){
-    return escapeHTML(text).replace(/\n/g,'<br>');
-  }
   function hasExplanation(text){
     return typeof text === 'string' && text.trim() !== '';
   }
@@ -236,9 +261,9 @@
     var data; try { data = JSON.parse((raw.textContent || '').trim()); } catch(e){ return; }
     var mt = data.mock_test || {};
     var titleEl = qsid('mockTestTitle'); if(titleEl && mt.title) titleEl.textContent = mt.title;
-    var qCode = qs('#mockTestModal .mock-modal-body .mock-code'); if(qCode) qCode.textContent = mt.question_self_contained || mt.question || '';
+    var qCode = qs('#mockTestModal .mock-modal-body .mock-code'); if(qCode) qCode.innerHTML = formatMultiline(mt.question_self_contained || mt.question || '');
     var ansCode = qs('#mockTestAnswer .mock-code'); if(ansCode) ansCode.textContent = mt.mark_scheme_answer || '';
-    var ansP = qs('#mockTestAnswer p'); if(ansP) ansP.textContent = mt.explanation || '';
+    var ansP = qs('#mockTestAnswer p'); if(ansP) ansP.innerHTML = formatMultiline(mt.explanation || '');
   }
 
   function wireModal(){
@@ -288,8 +313,8 @@
     var aPre = document.querySelector('#mockTestAnswer .mock-code');
     var aP   = document.querySelector('#mockTestAnswer p');
 
-    if (qEl)  qEl.textContent  = deescape(mt.question_self_contained || mt.question || '');
+    if (qEl)  qEl.innerHTML    = formatMultiline(deescape(mt.question_self_contained || mt.question || ''));
     if (aPre) aPre.textContent = deescape(mt.mark_scheme_answer || '');
-    if (aP)   aP.textContent   = deescape(mt.explanation || '');
+    if (aP)   aP.innerHTML     = formatMultiline(deescape(mt.explanation || ''));
   } catch(e){ /* no-op */ }
 })();
