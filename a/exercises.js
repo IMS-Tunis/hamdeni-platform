@@ -28,8 +28,26 @@
       '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
     })[s]);
   }
+  const ALLOWED_INLINE_TAGS = ['strong'];
   function formatMultiline(text){
-    return escapeHTML(text).replace(/\n/g,'<br>');
+    const placeholders = [];
+    const withPlaceholders = String(text).replace(/<\/?([a-z0-9]+)>/gi, (match, tagName) => {
+      if (ALLOWED_INLINE_TAGS.includes(tagName.toLowerCase())) {
+        const token = `__HTML_TAG_${placeholders.length}__`;
+        placeholders.push({ token, value: match });
+        return token;
+      }
+      return match;
+    });
+
+    let escaped = escapeHTML(withPlaceholders).replace(/\n/g, '<br>');
+
+    placeholders.forEach(({ token, value }) => {
+      const re = new RegExp(token, 'g');
+      escaped = escaped.replace(re, value);
+    });
+
+    return escaped;
   }
   function hasExplanation(text){
     return typeof text === 'string' && text.trim() !== '';
