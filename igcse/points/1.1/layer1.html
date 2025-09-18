@@ -292,6 +292,7 @@
   const studentNameEl = document.getElementById("student-name");
   const platformEl = document.getElementById("platform-name");
   const actionsEl = document.querySelector(".actions");
+
   const isAuthenticated = Boolean(username && student_name);
 
   if (isAuthenticated) {
@@ -303,12 +304,14 @@
     }
     contentEl.style.display = "block";
     if (actionsEl) actionsEl.style.display = "flex";
+
   } else if (ALLOW_PUBLIC_ACCESS) {
     errorEl.style.display = "none";
     contentEl.style.display = "block";
     studentNameEl.textContent = "👤 Guest access";
     platformEl.style.display = "none";
     if (actionsEl) actionsEl.style.display = "none";
+
   } else {
     errorEl.style.display = "block";
     return;
