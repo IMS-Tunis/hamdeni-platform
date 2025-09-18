@@ -1,2 +1,2 @@
 import initLayer3 from '../../../layer3-shared.js';
-initLayer3('13.2');
+initLayer3('13.2', { guestAccess: true });

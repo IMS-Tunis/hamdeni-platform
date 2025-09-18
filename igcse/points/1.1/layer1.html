@@ -285,50 +285,70 @@
   const student_name = localStorage.getItem("student_name");
   const platform = localStorage.getItem("platform");
   const point_id = "1.1";
+  const ALLOW_PUBLIC_ACCESS = true;
 
-  if (!username || !student_name) {
-    document.getElementById("error-message").style.display = "block";
+  const errorEl = document.getElementById("error-message");
+  const contentEl = document.getElementById("content-area");
+  const studentNameEl = document.getElementById("student-name");
+  const platformEl = document.getElementById("platform-name");
+  const actionsEl = document.querySelector(".actions");
+  const isAuthenticated = Boolean(username && student_name);
+
+  if (isAuthenticated) {
+    studentNameEl.textContent = "👤 " + student_name;
+    if (platform) {
+      platformEl.textContent = "🎓 Platform: " + platform;
+    } else {
+      platformEl.style.display = "none";
+    }
+    contentEl.style.display = "block";
+    if (actionsEl) actionsEl.style.display = "flex";
+  } else if (ALLOW_PUBLIC_ACCESS) {
+    errorEl.style.display = "none";
+    contentEl.style.display = "block";
+    studentNameEl.textContent = "👤 Guest access";
+    platformEl.style.display = "none";
+    if (actionsEl) actionsEl.style.display = "none";
   } else {
-    document.getElementById("student-name").textContent = "👤 " + student_name;
-    document.getElementById("platform-name").textContent = "🎓 Platform: " + platform;
-    document.getElementById("content-area").style.display = "block";
-
-    fetch("../index.json")
-      .then(res => res.json())
-      .then(list => {
-        const found = list.find(p => p.id.toLowerCase() === point_id.toLowerCase());
-        if (found) {
-          document.getElementById("point-title").textContent = "📍 " + found.title;
-        }
-      });
-
-    fetch("videos.json")
-      .then(res => res.json())
-      .then(data => {
-        if (data[point_id]) {
-          const { videos = [], doc } = data[point_id];
-
-          if (doc) {
-            const frame = document.getElementById("doc-frame");
-            frame.addEventListener("load", function() {
-              this.style.height = this.contentWindow.document.documentElement.scrollHeight + "px";
-            });
-            frame.src = doc.url;
-          }
-
-          if (videos.length > 0) {
-            document.getElementById("video-section").style.display = "block";
-            const container = document.getElementById("videos-container");
-            videos.forEach(video => {
-              const wrapper = document.createElement("div");
-              wrapper.innerHTML = video.iframe;
-              wrapper.style.marginBottom = "20px";
-              container.appendChild(wrapper);
-            });
-          }
-        }
-      });
+    errorEl.style.display = "block";
+    return;
   }
+
+  fetch("../index.json")
+    .then(res => res.json())
+    .then(list => {
+      const found = list.find(p => p.id.toLowerCase() === point_id.toLowerCase());
+      if (found) {
+        document.getElementById("point-title").textContent = "📍 " + found.title;
+      }
+    });
+
+  fetch("videos.json")
+    .then(res => res.json())
+    .then(data => {
+      if (data[point_id]) {
+        const { videos = [], doc } = data[point_id];
+
+        if (doc) {
+          const frame = document.getElementById("doc-frame");
+          frame.addEventListener("load", function() {
+            this.style.height = this.contentWindow.document.documentElement.scrollHeight + "px";
+          });
+          frame.src = doc.url;
+        }
+
+        if (videos.length > 0) {
+          document.getElementById("video-section").style.display = "block";
+          const container = document.getElementById("videos-container");
+          videos.forEach(video => {
+            const wrapper = document.createElement("div");
+            wrapper.innerHTML = video.iframe;
+            wrapper.style.marginBottom = "20px";
+            container.appendChild(wrapper);
+          });
+        }
+      }
+    });
 
   async function updateProgress() {
     const platform = localStorage.getItem("platform");

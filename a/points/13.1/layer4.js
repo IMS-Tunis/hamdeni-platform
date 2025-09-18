@@ -7,12 +7,24 @@ const pointId = (location.pathname.split('/')
   .find(p => /^p\d+$/i.test(p)) || '13.1').toUpperCase();
 const readyKey = `${pointId.toLowerCase()}_layer4_ready`;
 
+const studentNameEl = document.getElementById('student-name');
+const platformEl = document.getElementById('platform-name');
+const isGuest = !(username && platform);
+
 document.getElementById('point-title').textContent = pointId;
-if (studentName) {
-  document.getElementById('student-name').textContent = '👤 ' + studentName;
+if (studentNameEl) {
+  if (studentName) {
+    studentNameEl.textContent = '👤 ' + studentName;
+  } else if (isGuest) {
+    studentNameEl.textContent = '👤 Guest access';
+  }
 }
-if (platform) {
-  document.getElementById('platform-name').textContent = '🎓 Platform: ' + platform;
+if (platformEl) {
+  if (platform) {
+    platformEl.textContent = '🎓 Platform: ' + platform;
+  } else if (isGuest) {
+    platformEl.style.display = 'none';
+  }
 }
 
 fetch('layer4_questions.json')
@@ -52,8 +64,10 @@ function renderQuestions(questions) {
 }
 
 async function markReady() {
+  if (isGuest) return;
+  const progressTable = tableName('theory_progress');
   const { data: existing } = await supabase
-    .from(tableName('theory_progress'))
+    .from(progressTable)
     .select('reached_layer')
     .eq('username', username)
     .eq('point_id', pointId.toLowerCase())
@@ -61,7 +75,7 @@ async function markReady() {
   const score = v => v === 'R' ? 4 : (parseInt(v, 10) || 0);
   let error = null;
   if (score(existing?.reached_layer) < 4) {
-    ({ error } = await supabase.from(tableName('theory_progress')).upsert({
+    ({ error } = await supabase.from(progressTable).upsert({
       username,
       point_id: pointId.toLowerCase(),
       reached_layer: 'R'
@@ -84,13 +98,18 @@ async function markReady() {
 const readyBtn = document.getElementById('ready-btn');
 const readyMsg = document.getElementById('ready-message');
 
-if (localStorage.getItem(readyKey)) {
+if (!isGuest && localStorage.getItem(readyKey)) {
   readyBtn.disabled = true;
   readyMsg.textContent = 'The teacher has been informed that you are ready for the test. You will sit for a validation test soon.';
   readyMsg.style.display = 'block';
 }
 
 readyBtn.addEventListener('click', () => {
+  if (isGuest) {
+    readyMsg.textContent = 'Please log in to notify the teacher that you are ready for the test.';
+    readyMsg.style.display = 'block';
+    return;
+  }
   readyBtn.disabled = true;
   markReady();
 });

@@ -22,35 +22,49 @@ import { supabase, tableName } from './supabaseClient.js';
  *   Path to the questions JSON relative to the HTML page.
  */
 export default function initLayer3(pointId, options = {}) {
-  const { questionsFile = 'layer3_questions.json' } = options;
+  const { questionsFile = 'layer3_questions.json', guestAccess = false } = options;
 
   const username = localStorage.getItem('username');
   const studentName = localStorage.getItem('student_name');
   const platform = localStorage.getItem('platform');
   const progressKey = `layer3-progress-${pointId}`;
+  const hasSupabaseCredentials = Boolean(username && platform);
+  const guestModeEnabled = guestAccess && !hasSupabaseCredentials;
 
   const questionContainer = document.getElementById('questions-container');
   const notesList = document.getElementById('notes-list');
   const exportBtn = document.getElementById('export-btn');
   const layer4Btn = document.getElementById('layer4-btn');
   const notesTitle = document.getElementById('notes-title');
+  const studentNameEl = document.getElementById('student-name');
+  const platformEl = document.getElementById('platform-name');
 
   let totalQuestions = 0;
   const savedNotes = new Set();
 
   if (username && notesTitle) {
     notesTitle.textContent = `📝 ${username}'s Notes`;
+  } else if (guestModeEnabled && notesTitle) {
+    notesTitle.textContent = '📝 Guest Notes (not saved)';
   }
-  if (studentName) {
-    document.getElementById('student-name').textContent = '👤 ' + studentName;
+  if (studentNameEl) {
+    if (studentName) {
+      studentNameEl.textContent = '👤 ' + studentName;
+    } else if (guestModeEnabled) {
+      studentNameEl.textContent = '👤 Guest access';
+    }
   }
-  if (platform) {
-    document.getElementById('platform-name').textContent = '🎓 Platform: ' + platform;
+  if (platformEl) {
+    if (platform) {
+      platformEl.textContent = '🎓 Platform: ' + platform;
+    } else if (guestModeEnabled) {
+      platformEl.style.display = 'none';
+    }
   }
   document.getElementById('point-title').textContent = pointId;
 
   async function loadSaved() {
-    if (!username) return {};
+    if (!username || guestModeEnabled) return {};
     const { data, error } = await supabase
       .from(tableName('layer3'))
       .select('*')
@@ -74,11 +88,16 @@ export default function initLayer3(pointId, options = {}) {
 
   function checkAllNotesSaved() {
     if (layer4Btn) {
-      layer4Btn.disabled = savedNotes.size < totalQuestions;
+      if (guestModeEnabled) {
+        layer4Btn.disabled = false;
+      } else {
+        layer4Btn.disabled = savedNotes.size < totalQuestions;
+      }
     }
   }
 
   async function updateProgress() {
+    if (guestModeEnabled) return;
     const tables = {
       A_Level: 'a_theory_progress',
       AS_Level: 'as_theory_progress',
@@ -141,9 +160,12 @@ export default function initLayer3(pointId, options = {}) {
           btn.addEventListener('click', async () => {
             const ans = textarea.value.trim();
             if (!ans) return;
+            ms.style.display = 'block';
+            if (guestModeEnabled) {
+              return;
+            }
             btn.disabled = true;
             textarea.disabled = true;
-            ms.style.display = 'block';
             const { data, error } = await supabase
               .from(tableName('layer3'))
               .upsert(
@@ -172,6 +194,10 @@ export default function initLayer3(pointId, options = {}) {
           saveBtn.addEventListener('click', async () => {
             const note = noteTA.value.trim();
             if (!note) return;
+            if (guestModeEnabled) {
+              alert('Please log in to save your note.');
+              return;
+            }
             const { data, error } = await supabase
               .from(tableName('layer3'))
               .upsert(
@@ -212,6 +238,10 @@ export default function initLayer3(pointId, options = {}) {
   }
 
   exportBtn.addEventListener('click', async () => {
+    if (guestModeEnabled) {
+      alert('Log in to export your notes.');
+      return;
+    }
     const { data, error } = await supabase
       .from(tableName('layer3'))
       .select('*')
