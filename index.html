@@ -33,11 +33,44 @@
         <img src="images/Picture1.png" alt="Dr. Hamdeni" class="teacher-img"/>
         <div class="title-block">
           <h1>Computer Science with Dr. Hamdeni</h1>
+		  <center><p class="platform-note">Educational Platform for Cambridge Computer Science Students.</p> </center>
+
           <ul class="platform-note">
-            <li>Educational Platform for Cambridge Computer Science Students.</li>
             <li>Platform access and teaching materials are accessible for all.</li>
             <li>Personalized follow-up and assignment corrections exclusively for IMST students.</li>
           </ul>
+		  
+		  <hr class="modern-divider">
+
+
+          <!-- Subtle feature chips (added) -->
+          <div class="features-strip" aria-label="Platform highlights">
+            <button type="button" class="feature-chip has-popover" aria-haspopup="dialog" aria-controls="chipPopover"
+              data-title="Everything in one place"
+              data-text="All the resources, a Cambridge computer science student needs, are collected together in one place."
+              data-img="images/feature-everything.png">
+              Everything in one place
+            </button>
+            <button type="button" class="feature-chip has-popover" aria-haspopup="dialog" aria-controls="chipPopover"
+              data-title="Formative assessment"
+              data-text="A higher level can be unlocked only after passing a checkpoint test to validate your current level."
+              data-img="images/feature-formative.png">
+              Formative assessment
+            </button>
+            <button type="button" class="feature-chip has-popover" aria-haspopup="dialog" aria-controls="chipPopover"
+              data-title="Effective differentiation"
+              data-text="Students can progress through the curriculum at their own pace and explore each syllabus point as deeply as they choose."
+              data-img="images/feature-differentiation.png">
+              Effective differentiation
+            </button>
+            <button type="button" class="feature-chip has-popover" aria-haspopup="dialog" aria-controls="chipPopover"
+              data-title="Custom follow-up"
+              data-text="Students and parents can see the current progress versus Cambridge exam readiness."
+              data-img="images/feature-followup.png">
+              Custom follow-up
+            </button>
+          </div>
+          <!-- End subtle feature chips -->
         </div>
       </div>
     </section>
@@ -82,7 +115,7 @@
 
 <script>
 console.log('[index] Ripple script loaded');
-document.querySelectorAll('.ripple-container').forEach(button => {
+document.querySelectorAll('.ripple-container, .ripple-button').forEach(button => {
   button.addEventListener('click', function(e) {
     try {
       const circle = document.createElement('span');
@@ -97,7 +130,111 @@ document.querySelectorAll('.ripple-container').forEach(button => {
     }
   });
 });
+
+// Image-capable popover for feature chips
+window.addEventListener('DOMContentLoaded', function() {
+  const chips = document.querySelectorAll('.feature-chip.has-popover');
+  const pop = document.getElementById('chipPopover');
+  const img = document.getElementById('chipPopoverImg');const text = document.getElementById('chipPopoverText');
+  const closeBtn = pop.querySelector('.chip-popover-close');
+  let activeChip = null;
+
+  function clamp(val, min, max){ return Math.min(Math.max(val, min), max); }
+
+  function openPopoverFor(chip) {
+    activeChip = chip;const x = chip.getAttribute('data-text') || '';
+    const src = chip.getAttribute('data-img') || '';text.textContent = x;
+
+    if (src) {
+      img.src = src;
+      img.alt = 'Feature illustration';
+      img.style.display = 'block';
+      pop.querySelector('.chip-popover-media').style.display = 'block';
+    } else {
+      img.removeAttribute('src');
+      img.alt = '';
+      img.style.display = 'none';
+      pop.querySelector('.chip-popover-media').style.display = 'none';
+    }
+
+    // Position near the chip
+    const rect = chip.getBoundingClientRect();
+    const popRect = pop.getBoundingClientRect();
+    const top = window.scrollY + rect.bottom + 10; // below the chip
+    const left = window.scrollX + clamp(rect.left + rect.width/2 - popRect.width/2, 8, window.innerWidth - popRect.width - 8);
+
+    pop.style.top = top + 'px';
+    pop.style.left = left + 'px';
+
+    pop.setAttribute('aria-hidden', 'false');
+    pop.classList.add('visible');
+  }
+
+  function closePopover() {
+    pop.setAttribute('aria-hidden', 'true');
+    pop.classList.remove('visible');
+    activeChip = null;
+  }
+
+  chips.forEach(chip => {
+    // Toggle on click; also open on keyboard activation (Enter/Space)
+    chip.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (activeChip === chip && pop.classList.contains('visible')) {
+        closePopover();
+      } else {
+        openPopoverFor(chip);
+      }
+    });
+
+    chip.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        if (activeChip === chip && pop.classList.contains('visible')) {
+          closePopover();
+        } else {
+          openPopoverFor(chip);
+        }
+      }
+    });
+
+    // Optional: open on hover for desktop
+    chip.addEventListener('mouseenter', () => {
+      openPopoverFor(chip);
+    });
+  });
+
+  closeBtn.addEventListener('click', closePopover);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closePopover(); });
+
+  // Click outside to close
+  document.addEventListener('click', (e) => {
+    if (!pop.contains(e.target) && ![...chips].some(ch => ch.contains(e.target))) {
+      closePopover();
+    }
+  });
+
+  // Reposition on resize/scroll if visible
+  window.addEventListener('resize', () => { if (activeChip) openPopoverFor(activeChip); });
+  window.addEventListener('scroll', () => { if (activeChip) openPopoverFor(activeChip); });
+});
+
 </script>
 
+
+  <!-- Reusable chip popover (supports images) -->
+  
+  <!-- Reusable chip popover (text first, then image; single column) -->
+  <div id="chipPopover" class="chip-popover" role="dialog" aria-hidden="true">
+    <button class="chip-popover-close" aria-label="Close">&times;</button>
+    <div class="chip-popover-content">
+      <div class="chip-popover-text">
+        <p id="chipPopoverText"></p>
+      </div>
+      <div class="chip-popover-media">
+        <img id="chipPopoverImg" alt="" />
+      </div>
+    </div>
+  </div>
 </body>
 </html>

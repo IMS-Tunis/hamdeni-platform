@@ -47,7 +47,7 @@ body {
   background: white;
   border: 2px solid #0093D0;
   border-radius: 16px;
-  padding: 30px;
+  padding: 1px 20px 30px 20px; /* top | right | bottom | left */
   margin-bottom: 10px !important;
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
   animation: fadeInDown 1.2s ease-in-out;
@@ -73,7 +73,7 @@ body {
 .title-block h1 {
   font-size: 2.8rem;
   color: #005DAA;
-  margin-bottom: 0.3em;
+  margin-bottom: 0.1em;
   animation: slideInRight 1.2s ease;
 }
 
@@ -85,9 +85,90 @@ body {
 
 .platform-note {
   font-size: 1.1rem;
+  margin-top: 0.1em;
   color: #006095;
   font-style: italic;
   animation: slideInRight 1.8s ease;
+}
+
+/* Subtle features strip (added) */
+.features-strip {
+	margin-top: 2em;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+  opacity: 0.95;
+}
+
+.feature-chip {
+  position: relative;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.92rem;
+  background: #edf6fb;
+  border: 1px solid #d8ebf6;
+  color: #235b76;
+  line-height: 1.2;
+  outline: none;
+  cursor: default;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+}
+
+.feature-chip:focus,
+.feature-chip:hover {
+  background: #e9f4fa;
+  border-color: #cde6f4;
+}
+
+.feature-chip:active {
+  transform: scale(0.98);
+}
+
+/* Accessible tooltip for full statements */
+.feature-chip[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  background: #003f63;
+  color: #ffffff;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  line-height: 1.25;
+  width: min(60ch, 320px);
+  max-width: 90vw;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 100;
+}
+
+.feature-chip[data-tooltip]::before {
+  content: "";
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-bottom-color: #003f63;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: 100;
+}
+
+.feature-chip:hover::after,
+.feature-chip:focus::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.feature-chip:hover::before,
+.feature-chip:focus::before {
+  opacity: 1;
 }
 
 .second-row {
@@ -106,7 +187,7 @@ body {
 .path-frame, .training-frame {
   border: 2px solid #cceeff;
   border-radius: 12px;
-  padding: 20px;
+  padding: 1px 1px 1px 1px; /* top | right | bottom | left */
   background: #ffffff;
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
   text-align: center;
@@ -438,6 +519,7 @@ footer {
   }
 
   .title-block h1 {
+	  margin-top: 0;
     font-size: 2rem;
   }
 
@@ -447,6 +529,14 @@ footer {
 
   .platform-note {
     font-size: 1rem;
+  }
+
+  .features-strip {
+    gap: 6px;
+  }
+
+  .feature-chip {
+    font-size: 0.9rem;
   }
 
   .double-column {
@@ -542,9 +632,9 @@ footer {
 /* Syllabus Update Badge - Front Layer */
 .syllabus-update-badge {
   position: fixed;
-  top: 50px; /* moved 20px up */
-  right: 0px; /* moved 10px to the right */
-  z-index: 1000; /* Ensures it appears above all other content */
+  top: 50px;
+  right: 0px;
+  z-index: 1000;
   width: 250px;
   height: 250px;
 }
@@ -553,12 +643,12 @@ footer {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2)); /* Adds visual depth */
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
   transition: transform 0.3s ease;
 }
 
 .syllabus-update-badge:hover img {
-  transform: scale(1.1); /* Scales slightly when hovered */
+  transform: scale(1.1);
 }
 
 /* Adjusts size for mobile devices */
@@ -574,4 +664,106 @@ footer {
     width: 50px;
     height: 50px;
   }
+}
+
+
+
+
+
+/* Image-capable popover: single-column, text then image (large) */
+.chip-popover {
+  position: absolute;
+  max-width: 300px;
+  background: #ffffff;
+  border: 1px solid #d8ebf6;
+  border-radius: 12px;
+  box-shadow: 0 14px 38px rgba(0,0,0,0.18);
+  padding: 14px 16px 16px 16px;
+  z-index: 10000;
+  transform: translateY(6px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.chip-popover.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.chip-popover::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 8px solid transparent;
+  border-bottom-color: #d8ebf6;
+}
+.chip-popover::after {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-bottom-color: #ffffff;
+}
+
+.chip-popover-content {
+  display: block;
+}
+
+.chip-popover-text p {
+  margin: 0 0 10px 0;
+  font-size: 1rem;
+  color: #234b6b;
+  line-height: 1.45;
+}
+
+.chip-popover-media {
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #f3faff;
+  border: 1px solid #e8f2f9;
+}
+
+.chip-popover-media img {
+  width: 95%;
+  height: auto;
+  max-height: 250px;
+  object-fit: contain;
+  display: block;
+}
+
+.chip-popover-close {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  appearance: none;
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  line-height: 1;
+  color: #5a7e92;
+  cursor: pointer;
+  border-radius: 6px;
+}
+.chip-popover-close:hover,
+.chip-popover-close:focus {
+  background: #f3faff;
+  outline: 2px solid transparent;
+}
+
+.modern-divider {
+  border: none;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #cddbe8, transparent);
+  margin: 20px auto;
+  width: 100%;
+   margin-top: 1.5em;
+   margin-bottom: 1.5em;
+  max-width: 800px;
 }
