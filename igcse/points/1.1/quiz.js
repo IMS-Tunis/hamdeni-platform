@@ -124,7 +124,7 @@ function checkAnswers(questions) {
     };
   } else {
     attempt++;
-    result.innerHTML = `<div class="retry-message">❌ ${correct}/${total} correct. Try again.</div>`;
+    result.innerHTML = `<div class="retry-message">You answered ${correct} out of ${total} questions correctly. To help you practice, only the questions you answered incorrectly are displayed. Please try them again.</div>`;
     startQuiz(incorrect);
   }
 }
