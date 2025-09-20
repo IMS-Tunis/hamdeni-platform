@@ -27,8 +27,6 @@
       "pairs": {
         "enumerated type": "Listing all possible values for the type",
         "pointer type": "Stores the location (address) where a value lives in memory",
-        "dereference": "Go to a stored location and get the value",
-        "implied order": "Comparison based on position in the listed sequence"
       }
     },
     {
@@ -47,22 +45,6 @@
         "union": "Combines two sets into one containing every element that appears in either set (no duplicates)",
         "intersection": "Keeps only the elements present in both sets"
       }
-    },
-    {
-      "type": "fill_blank",
-      "question": "A ______ restriction states the allowed values in words, for example “1 to 10 inclusive.”",
-      "answer": "range"
-    },
-    {
-      "type": "mcq",
-      "question": "“In a design, AccessionNumber contains exactly NumberOfCopies items.” What design idea is illustrated?",
-      "options": [
-        "Automatic ordering of a set",
-        "Size derived from a field",
-        "Built-in type extension",
-        "Implicit pointer arithmetic"
-      ],
-      "answer": "Size derived from a field"
     },
     {
       "type": "match",

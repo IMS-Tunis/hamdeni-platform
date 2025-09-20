@@ -323,3 +323,6 @@ li > ul > li .official-note {
   height: auto;
   z-index: 10;     /* ensure it sits above the text */
 }
+
+	.task-box h3,
+.task-box .mark-scheme { white-space: pre-line; }
