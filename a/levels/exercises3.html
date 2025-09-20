@@ -116,31 +116,25 @@
           "explanation": "Both conditions must be true simultaneously because of and."
         },
         {
-          "question": "Exercise 8: elif with Multiple Conditions",
-          "question_self_contained": "Use these exact rules:\n• total > 1000 → 20%\n• 500 ≤ total ≤ 1000 → 15%\n• 100 ≤ total < 500 → 10%\n• total < 100 → 0%",
-          "mark_scheme_answer": "total = float(input(\"Enter the total purchase amount: \"))\n\nif total > 1000:\n    discount = 0.20\nelif total >= 500:\n    discount = 0.15\nelif total >= 100:\n    discount = 0.10\nelse:\n    discount = 0.00\n\ntotal_after_discount = total - (total * discount)\nprint(\"Total amount after discount:\", total_after_discount)",
-          "explanation": "Conditions are ordered from highest band to lowest; first match applies and prevents overlap."
-        },
-        {
-          "question": "Exercise 9: Complex Condition",
+          "question": "Exercise 8: Complex Condition",
           "question_self_contained": "Prompt for an integer year.\nIf (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0) print Leap year; else print Not a leap year.",
           "mark_scheme_answer": "year = int(input(\"Enter a year: \"))\n\nif (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):\n    print(\"Leap year\")\nelse:\n    print(\"Not a leap year\")",
           "explanation": "The combined condition uses and and or to encode the exact rule given."
         },
         {
-          "question": "Exercise 10: Nested if-else and elif",
+          "question": "Exercise 9: Nested if-else and elif",
           "question_self_contained": "Prompt for age (int), experience (int), and degree (\"Yes\"/\"No\").\nDecide interview eligibility exactly by: age ≥ 18 and (experience ≥ 2 or degree == \"Yes\").",
           "mark_scheme_answer": "age = int(input(\"Enter your age: \"))\nexperience = int(input(\"Enter your years of experience: \"))\ndegree = input(\"Do you have a degree? (Yes/No): \")\n\nif age >= 18:\n    if experience >= 2 or degree == \"Yes\":\n        print(\"You qualify for the interview.\")\n    else:\n        print(\"You do not qualify for the interview.\")\nelse:\n    print(\"You are too young to apply.\")",
           "explanation": "Age is checked first; inside that block, experience or degree can satisfy the second requirement."
         },
         {
-          "question": "Exercise 11",
+          "question": "Exercise 10",
           "question_self_contained": "Prompt for an integer num.\nPrint whether it is positive, negative, or zero.\nIf positive, also print whether it is even or odd.\nFinally, always print Number analysis complete.",
           "mark_scheme_answer": "num = int(input(\"Enter a number: \"))\n\nif num > 0:\n    print(\"The number is positive.\")\n    if num % 2 == 0:\n        print(\"The number is even.\")\n    else:\n        print(\"The number is odd.\")\nelif num < 0:\n    print(\"The number is negative.\")\nelse:\n    print(\"The number is zero.\")\n\nprint(\"Number analysis complete.\")",
           "explanation": "The second, nested check runs only for positives. The final print runs regardless."
         },
         {
-          "question": "Exercise 12",
+          "question": "Exercise 11",
           "question_self_contained": "Prompt for age.\nIf age < 16, print You are too young to proceed.\nOtherwise ask license (\"Yes\"/\"No\") and apply the given rules.\nFinally, regardless of age, print Thank you for using the driving eligibility checker.",
           "mark_scheme_answer": "age = int(input(\"Enter your age: \"))\n\nif age < 16:\n    print(\"You are too young to proceed.\")\nelse:\n    has_license = input(\"Do you have a driving license? (Yes/No): \")\n    if age >= 18:\n        if has_license == \"Yes\":\n            print(\"You are eligible to drive.\")\n        else:\n            print(\"You need a driving license to drive.\")\n    else:  # 16 <= age < 18\n        if has_license == \"Yes\":\n            print(\"You are eligible for a learner's permit.\")\n        else:\n            print(\"You can apply for a learner's permit.\")\n\nprint(\"Thank you for using the driving eligibility checker.\")",
           "explanation": "The final print is outside the if/else, so it always runs. The nested checks occur only when age ≥ 16."
