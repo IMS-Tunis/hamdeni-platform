@@ -29,6 +29,17 @@ export default function initLayer3(pointId, options = {}) {
   const platform = localStorage.getItem('platform');
   const progressKey = `layer3-progress-${pointId}`;
 
+  if (!document.getElementById('layer3-question-style')) {
+    const style = document.createElement('style');
+    style.id = 'layer3-question-style';
+    style.textContent = `
+      .task-box h3 {
+        font-weight: 600;
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
   const questionContainer = document.getElementById('questions-container');
   const notesList = document.getElementById('notes-list');
   const exportBtn = document.getElementById('export-btn');
