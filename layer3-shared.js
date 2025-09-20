@@ -35,6 +35,110 @@ export default function initLayer3(pointId, options = {}) {
   const layer4Btn = document.getElementById('layer4-btn');
   const notesTitle = document.getElementById('notes-title');
 
+  const LAYER4_DISABLED_MESSAGE = 'finish all questions before moveing to layer 4';
+  const LAYER4_TOOLTIP_ID = 'layer4-disabled-tooltip';
+  let layer4Tooltip;
+  let layer4TooltipStyleApplied = false;
+
+  function ensureLayer4Tooltip() {
+    if (!layer4TooltipStyleApplied) {
+      const style = document.createElement('style');
+      style.textContent = `
+        .layer4-disabled-tooltip {
+          position: absolute;
+          background: rgba(17, 24, 39, 0.95);
+          color: #fff;
+          padding: 0.5rem 0.75rem;
+          border-radius: 0.5rem;
+          font-size: 0.85rem;
+          line-height: 1.3;
+          max-width: min(240px, calc(100vw - 2rem));
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.18);
+          opacity: 0;
+          transition: opacity 0.15s ease;
+          pointer-events: none;
+          z-index: 1000;
+        }
+        .layer4-disabled-tooltip.visible {
+          opacity: 1;
+        }
+      `;
+      document.head.appendChild(style);
+      layer4TooltipStyleApplied = true;
+    }
+    if (!layer4Tooltip) {
+      layer4Tooltip = document.getElementById(LAYER4_TOOLTIP_ID);
+    }
+    if (!layer4Tooltip) {
+      layer4Tooltip = document.createElement('div');
+      layer4Tooltip.id = LAYER4_TOOLTIP_ID;
+      layer4Tooltip.className = 'layer4-disabled-tooltip';
+      layer4Tooltip.textContent = LAYER4_DISABLED_MESSAGE;
+      layer4Tooltip.setAttribute('role', 'tooltip');
+      layer4Tooltip.setAttribute('aria-hidden', 'true');
+      layer4Tooltip.style.top = '-9999px';
+      layer4Tooltip.style.left = '-9999px';
+      document.body.appendChild(layer4Tooltip);
+    }
+    return layer4Tooltip;
+  }
+
+  function hideLayer4Tooltip() {
+    if (layer4Tooltip) {
+      layer4Tooltip.classList.remove('visible');
+      layer4Tooltip.setAttribute('aria-hidden', 'true');
+    }
+  }
+
+  function showLayer4Tooltip(target) {
+    const tooltip = ensureLayer4Tooltip();
+    tooltip.textContent = LAYER4_DISABLED_MESSAGE;
+    tooltip.style.top = '-9999px';
+    tooltip.style.left = '-9999px';
+    tooltip.classList.add('visible');
+    tooltip.setAttribute('aria-hidden', 'false');
+
+    const rect = target.getBoundingClientRect();
+    const scrollX = window.scrollX || window.pageXOffset;
+    const scrollY = window.scrollY || window.pageYOffset;
+    const tooltipRect = tooltip.getBoundingClientRect();
+    const viewportWidth = document.documentElement.clientWidth;
+    const viewportHeight = document.documentElement.clientHeight;
+
+    let top = rect.top + scrollY - tooltipRect.height - 12;
+    if (top < scrollY + 8) {
+      top = rect.bottom + scrollY + 12;
+    }
+
+    let left = rect.left + scrollX + (rect.width - tooltipRect.width) / 2;
+    const minLeft = scrollX + 8;
+    const maxLeft = scrollX + viewportWidth - tooltipRect.width - 8;
+    if (left < minLeft) left = minLeft;
+    if (left > maxLeft) left = maxLeft;
+
+    const maxTop = scrollY + viewportHeight - tooltipRect.height - 8;
+    if (top > maxTop) top = maxTop;
+
+    tooltip.style.top = `${top}px`;
+    tooltip.style.left = `${left}px`;
+  }
+
+  if (layer4Btn) {
+    ensureLayer4Tooltip();
+    layer4Btn.setAttribute('aria-describedby', LAYER4_TOOLTIP_ID);
+    layer4Btn.addEventListener('mouseenter', () => {
+      if (layer4Btn.disabled) {
+        showLayer4Tooltip(layer4Btn);
+      } else {
+        hideLayer4Tooltip();
+      }
+    });
+    layer4Btn.addEventListener('mouseleave', hideLayer4Tooltip);
+    layer4Btn.addEventListener('click', hideLayer4Tooltip);
+    window.addEventListener('scroll', hideLayer4Tooltip, true);
+    window.addEventListener('resize', hideLayer4Tooltip);
+  }
+
   let totalQuestions = 0;
   const savedNotes = new Set();
   const questionLabels = new Map();
@@ -114,7 +218,11 @@ export default function initLayer3(pointId, options = {}) {
 
   function checkAllNotesSaved() {
     if (layer4Btn) {
-      layer4Btn.disabled = savedNotes.size < totalQuestions;
+      const shouldDisable = savedNotes.size < totalQuestions;
+      layer4Btn.disabled = shouldDisable;
+      if (!shouldDisable) {
+        hideLayer4Tooltip();
+      }
     }
   }
 
