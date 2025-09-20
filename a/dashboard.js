@@ -29,6 +29,17 @@ async function updateGeneralProgress() {
 
   fill.style.width = percent + "%";
   fill.textContent = percent + "%";
+
+  fill.classList.remove("progress-low", "progress-medium", "progress-high");
+
+  let progressClass = "progress-low";
+  if (percent >= 67) {
+    progressClass = "progress-high";
+  } else if (percent >= 34) {
+    progressClass = "progress-medium";
+  }
+
+  fill.classList.add(progressClass);
   console.debug('[dashboard] Progress percent', percent);
 }
 

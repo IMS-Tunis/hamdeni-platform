@@ -29,11 +29,128 @@ export default function initLayer3(pointId, options = {}) {
   const platform = localStorage.getItem('platform');
   const progressKey = `layer3-progress-${pointId}`;
 
+  if (!document.getElementById('layer3-question-style')) {
+    const style = document.createElement('style');
+    style.id = 'layer3-question-style';
+    style.textContent = `
+      .task-box h3 {
+        font-weight: 600;
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
   const questionContainer = document.getElementById('questions-container');
   const notesList = document.getElementById('notes-list');
   const exportBtn = document.getElementById('export-btn');
   const layer4Btn = document.getElementById('layer4-btn');
   const notesTitle = document.getElementById('notes-title');
+
+  const LAYER4_DISABLED_MESSAGE = 'finish all questions before moveing to layer 4';
+
+  const LAYER4_TOOLTIP_ID = 'layer4-disabled-tooltip';
+  let layer4Tooltip;
+  let layer4TooltipStyleApplied = false;
+
+  function ensureLayer4Tooltip() {
+    if (!layer4TooltipStyleApplied) {
+      const style = document.createElement('style');
+      style.textContent = `
+        .layer4-disabled-tooltip {
+          position: absolute;
+          background: rgba(17, 24, 39, 0.95);
+          color: #fff;
+          padding: 0.5rem 0.75rem;
+          border-radius: 0.5rem;
+          font-size: 0.85rem;
+          line-height: 1.3;
+          max-width: min(240px, calc(100vw - 2rem));
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.18);
+          opacity: 0;
+          transition: opacity 0.15s ease;
+          pointer-events: none;
+          z-index: 1000;
+        }
+        .layer4-disabled-tooltip.visible {
+          opacity: 1;
+        }
+      `;
+      document.head.appendChild(style);
+      layer4TooltipStyleApplied = true;
+    }
+    if (!layer4Tooltip) {
+      layer4Tooltip = document.getElementById(LAYER4_TOOLTIP_ID);
+    }
+    if (!layer4Tooltip) {
+      layer4Tooltip = document.createElement('div');
+      layer4Tooltip.id = LAYER4_TOOLTIP_ID;
+      layer4Tooltip.className = 'layer4-disabled-tooltip';
+      layer4Tooltip.textContent = LAYER4_DISABLED_MESSAGE;
+      layer4Tooltip.setAttribute('role', 'tooltip');
+      layer4Tooltip.setAttribute('aria-hidden', 'true');
+      layer4Tooltip.style.top = '-9999px';
+      layer4Tooltip.style.left = '-9999px';
+      document.body.appendChild(layer4Tooltip);
+    }
+    return layer4Tooltip;
+  }
+
+  function hideLayer4Tooltip() {
+    if (layer4Tooltip) {
+      layer4Tooltip.classList.remove('visible');
+      layer4Tooltip.setAttribute('aria-hidden', 'true');
+    }
+  }
+
+  function showLayer4Tooltip(target) {
+    const tooltip = ensureLayer4Tooltip();
+    tooltip.textContent = LAYER4_DISABLED_MESSAGE;
+    tooltip.style.top = '-9999px';
+    tooltip.style.left = '-9999px';
+    tooltip.classList.add('visible');
+    tooltip.setAttribute('aria-hidden', 'false');
+
+    const rect = target.getBoundingClientRect();
+    const scrollX = window.scrollX || window.pageXOffset;
+    const scrollY = window.scrollY || window.pageYOffset;
+    const tooltipRect = tooltip.getBoundingClientRect();
+    const viewportWidth = document.documentElement.clientWidth;
+    const viewportHeight = document.documentElement.clientHeight;
+
+    let top = rect.top + scrollY - tooltipRect.height - 12;
+    if (top < scrollY + 8) {
+      top = rect.bottom + scrollY + 12;
+    }
+
+    let left = rect.left + scrollX + (rect.width - tooltipRect.width) / 2;
+    const minLeft = scrollX + 8;
+    const maxLeft = scrollX + viewportWidth - tooltipRect.width - 8;
+    if (left < minLeft) left = minLeft;
+    if (left > maxLeft) left = maxLeft;
+
+    const maxTop = scrollY + viewportHeight - tooltipRect.height - 8;
+    if (top > maxTop) top = maxTop;
+
+    tooltip.style.top = `${top}px`;
+    tooltip.style.left = `${left}px`;
+  }
+
+  if (layer4Btn) {
+    ensureLayer4Tooltip();
+    layer4Btn.setAttribute('aria-describedby', LAYER4_TOOLTIP_ID);
+    layer4Btn.addEventListener('mouseenter', () => {
+      if (layer4Btn.disabled) {
+        showLayer4Tooltip(layer4Btn);
+      } else {
+        hideLayer4Tooltip();
+      }
+    });
+    layer4Btn.addEventListener('mouseleave', hideLayer4Tooltip);
+    layer4Btn.addEventListener('click', hideLayer4Tooltip);
+    window.addEventListener('scroll', hideLayer4Tooltip, true);
+    window.addEventListener('resize', hideLayer4Tooltip);
+
+  }
 
   let totalQuestions = 0;
   const savedNotes = new Set();
@@ -114,7 +231,11 @@ export default function initLayer3(pointId, options = {}) {
 
   function checkAllNotesSaved() {
     if (layer4Btn) {
-      layer4Btn.disabled = savedNotes.size < totalQuestions;
+      const shouldDisable = savedNotes.size < totalQuestions;
+      layer4Btn.disabled = shouldDisable;
+      if (!shouldDisable) {
+        hideLayer4Tooltip();
+      }
     }
   }
 
@@ -268,31 +389,80 @@ export default function initLayer3(pointId, options = {}) {
     if (error) return console.error('Fetch notes error', error);
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
-    doc.setFontSize(18);
-    const pdfTitle = username ? `${username}'s Layer 3 Reflection Notes` : 'Layer 3 Reflection Notes';
-    doc.text(pdfTitle, 10, 20);
+    let pageWidth = doc.internal.pageSize.getWidth();
+    let pageHeight = doc.internal.pageSize.getHeight();
     const margin = 20;
-    const pageHeight = doc.internal.pageSize.getHeight();
-    let y = margin + 10;
-      (data || []).forEach(row => {
-        if (y > pageHeight - margin) {
-          doc.addPage();
-          y = margin;
-        }
+    const lineHeight = 7;
+    const bulletIndent = 6;
+    const pointTitleText = document.getElementById('point-title')?.textContent?.trim();
+    const normalizedPointTitle = pointTitleText || `Point ${pointId}`;
+    const pdfTitle = `Layer 3 Reflection Notes – ${normalizedPointTitle}`;
+
+    const drawHeader = (isFirstPage = false) => {
+      pageWidth = doc.internal.pageSize.getWidth();
+      pageHeight = doc.internal.pageSize.getHeight();
+      const titleSize = isFirstPage ? 20 : 16;
+      doc.setFont('Helvetica', 'bold');
+      doc.setFontSize(titleSize);
+      doc.setTextColor(20, 50, 90);
+      doc.text(pdfTitle, pageWidth / 2, margin, { align: 'center' });
+      doc.setDrawColor(20, 50, 90);
+      doc.setLineWidth(0.5);
+      doc.line(margin, margin + 4, pageWidth - margin, margin + 4);
+
+      let headerBottom = margin + 10;
+      if (username) {
+        doc.setFont('Helvetica', 'normal');
+        doc.setFontSize(11);
+        doc.setTextColor(100, 100, 100);
+        doc.text(`Student: ${username}`, pageWidth / 2, margin + 12, { align: 'center' });
+        headerBottom = margin + 20;
+      }
+
+      doc.setFont('Helvetica', 'normal');
+      doc.setFontSize(12);
+      doc.setTextColor(60, 60, 60);
+      return headerBottom + 6;
+    };
+
+    let y = drawHeader(true);
+    const printableNotes = (data || [])
+      .filter(row => (row?.correction_note || '').trim())
+      .sort((a, b) => (Number(a?.question_number) || 0) - (Number(b?.question_number) || 0));
+
+    if (!printableNotes.length) {
+      doc.text('No notes available for this point yet.', margin, y);
+    } else {
+      printableNotes.forEach(row => {
         const key = row?.question_number != null ? String(row.question_number) : '';
-        const label = questionLabels.get(key) || row.question_number;
-        const text = `Q${label} (${new Date(row.corrected_at || row.submitted_at).toLocaleString()})`;
-        doc.text(text, 10, y);
-        y += 6;
-        const split = doc.splitTextToSize(row.correction_note || '', 180);
-        if (y + split.length * 6 > pageHeight - margin) {
+        const label = questionLabels.get(key) || row.question_number || '';
+        const noteText = (row.correction_note || '').trim();
+        const wrapped = doc.splitTextToSize(noteText, pageWidth - margin * 2 - bulletIndent);
+        const blockHeight = lineHeight * (1 + wrapped.length) + 4;
+
+        if (y + blockHeight > pageHeight - margin) {
           doc.addPage();
-          y = margin;
+          y = drawHeader(false);
         }
-        doc.text(split, 10, y);
-        y += split.length * 6 + 4;
+
+        doc.setFont('Helvetica', 'bold');
+        doc.setFontSize(12);
+        doc.setTextColor(20, 50, 90);
+        const bulletLabel = label ? `• Q${label}` : '• Note';
+        doc.text(bulletLabel, margin, y);
+
+        doc.setFont('Helvetica', 'normal');
+        doc.setFontSize(12);
+        doc.setTextColor(60, 60, 60);
+        y += lineHeight;
+        doc.text(wrapped, margin + bulletIndent, y);
+        y += wrapped.length * lineHeight + 4;
       });
-    doc.save(`layer3_reflection_notes_${username}.pdf`);
+    }
+
+    const safePoint = (pointId || 'point').toString().replace(/[^a-z0-9]+/gi, '_');
+    const safeUser = (username || 'student').toString().replace(/[^a-z0-9]+/gi, '_');
+    doc.save(`layer3_reflection_notes_${safePoint}_${safeUser}.pdf`);
   });
 
   render();
