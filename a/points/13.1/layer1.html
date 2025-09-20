@@ -240,7 +240,7 @@
     ⚠️ You must be logged in to view this content.
   </div>
 
-  <main id="content-area" style="display: none;">
+  <main id="content-area">
   <iframe id="doc-frame" class="official-doc" scrolling="no" ></iframe>
   </main>
   <div class="actions">
@@ -281,63 +281,72 @@
 
   const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
-  const username = localStorage.getItem("username");
-  const student_name = localStorage.getItem("student_name");
-  const platform = localStorage.getItem("platform");
   const point_id = "13.1";
 
-  if (!username || !student_name) {
-    document.getElementById("error-message").style.display = "block";
-  } else {
-    document.getElementById("student-name").textContent = "👤 " + student_name;
-    document.getElementById("platform-name").textContent = "🎓 Platform: " + platform;
-    document.getElementById("content-area").style.display = "block";
+  const storedStudentName = localStorage.getItem("student_name");
+  const storedPlatform = localStorage.getItem("platform");
 
-    fetch("../index.json")
-      .then(res => res.json())
-      .then(list => {
-        const found = list.find(p => p.id.toLowerCase() === point_id.toLowerCase());
-        if (found) {
-          document.getElementById("point-title").textContent = "📍 " + found.title;
-        }
-      });
-
-    fetch("videos.json")
-      .then(res => res.json())
-      .then(data => {
-        if (data[point_id]) {
-          const { videos = [], doc } = data[point_id];
-
-          if (doc) {
-            const frame = document.getElementById("doc-frame");
-            frame.src = doc.url;
-            const height = 4750;
-            
-            
-          }
-
-          if (videos.length > 0) {
-            document.getElementById("video-section").style.display = "block";
-            const container = document.getElementById("videos-container");
-            videos.forEach(video => {
-              const wrapper = document.createElement("div");
-              wrapper.innerHTML = video.iframe;
-              wrapper.style.marginBottom = "20px";
-              container.appendChild(wrapper);
-            });
-          }
-        }
-      });
+  if (storedStudentName) {
+    document.getElementById("student-name").textContent = "👤 " + storedStudentName;
   }
 
-  async function updateProgress() {
-    const platform = localStorage.getItem("platform");
+  if (storedPlatform) {
+    document.getElementById("platform-name").textContent = "🎓 Platform: " + storedPlatform;
+  }
+
+  fetch("../index.json")
+    .then(res => res.json())
+    .then(list => {
+      const found = list.find(p => p.id.toLowerCase() === point_id.toLowerCase());
+      if (found) {
+        document.getElementById("point-title").textContent = "📍 " + found.title;
+      }
+    })
+    .catch(err => console.error("❌ Failed to load index.json", err));
+
+  fetch("videos.json")
+    .then(res => res.json())
+    .then(data => {
+      if (data[point_id]) {
+        const { videos = [], doc } = data[point_id];
+
+        if (doc?.url) {
+          const frame = document.getElementById("doc-frame");
+          frame.src = doc.url;
+        }
+
+        if (videos.length > 0) {
+          document.getElementById("video-section").style.display = "block";
+          const container = document.getElementById("videos-container");
+          videos.forEach(video => {
+            const wrapper = document.createElement("div");
+            wrapper.innerHTML = video.iframe;
+            wrapper.style.marginBottom = "20px";
+            container.appendChild(wrapper);
+          });
+        }
+      }
+    })
+    .catch(err => console.error("❌ Failed to load videos.json", err));
+
+  function ensureSession() {
     const username = localStorage.getItem("username");
+    const platform = localStorage.getItem("platform");
 
     if (!username || !platform) {
-      alert("❌ Missing student information. Please log in again.");
+      alert("👋 Please log in to interact with this content.");
+      return null;
+    }
+
+    return { username, platform };
+  }
+
+  async function updateProgress(session = ensureSession()) {
+    if (!session) {
       return false;
     }
+
+    const { username, platform } = session;
 
     const tables = {
       A_Level: 'a_theory_progress',
@@ -345,6 +354,11 @@
       IGCSE: 'igcse_theory_progress'
     };
     const table = tables[platform];
+
+    if (!table) {
+      console.warn("⚠️ Unknown platform, skipping progress update.");
+      return false;
+    }
 
     const { data: existing } = await supabase
       .from(table)
@@ -374,12 +388,23 @@
     return true;
   }
 
-  async function sendFeedback(feedback_type, comment = "") {
+  async function sendFeedback(feedback_type, comment = "", session = ensureSession()) {
+    if (!session) {
+      return false;
+    }
+
+    const { username, platform } = session;
     const feedbackTable = {
       A_Level: 'a_theory_feedback',
       AS_Level: 'as_theory_feedback',
       IGCSE: 'igcse_theory_feedback'
     }[platform];
+
+    if (!feedbackTable) {
+      console.warn("⚠️ Unknown platform, skipping feedback submission.");
+      return false;
+    }
+
     const fullFeedback = comment
       ? `${feedback_type}: ${comment}`
       : feedback_type;
@@ -398,25 +423,41 @@
       if (error) {
         console.error("❌ Feedback insert error:", error);
         alert(`❌ Failed to submit feedback: ${error.message}`);
+        return false;
       }
     } catch (err) {
       console.error("❌ Feedback insert error:", err);
       alert("❌ Failed to submit feedback.");
+      return false;
     }
+
+    return true;
   }
 
   async function markClear() {
-    if (await updateProgress()) {
-      await sendFeedback("clear");
-      window.location.href = "layer2.html";
+    const session = ensureSession();
+    if (!session) {
+      return;
+    }
+
+    if (await updateProgress(session)) {
+      if (await sendFeedback("clear", "", session)) {
+        window.location.href = "layer2.html";
+      }
     }
   }
   window.markClear = markClear;
 
   async function markConfused() {
-    if (await updateProgress()) {
-      await sendFeedback("confused");
-      window.location.href = "layer2.html";
+    const session = ensureSession();
+    if (!session) {
+      return;
+    }
+
+    if (await updateProgress(session)) {
+      if (await sendFeedback("confused", "", session)) {
+        window.location.href = "layer2.html";
+      }
     }
   }
   window.markConfused = markConfused;
@@ -434,9 +475,15 @@
       return;
     }
 
-    if (await updateProgress()) {
-      await sendFeedback("help", comment);
-      window.location.href = "layer2.html";
+    const session = ensureSession();
+    if (!session) {
+      return;
+    }
+
+    if (await updateProgress(session)) {
+      if (await sendFeedback("help", comment, session)) {
+        window.location.href = "layer2.html";
+      }
     }
   }
   window.submitHelp = submitHelp;
