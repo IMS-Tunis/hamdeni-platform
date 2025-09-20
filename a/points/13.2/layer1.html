@@ -122,7 +122,14 @@
       display: flex;
       justify-content: center;
       gap: 15px;
+      flex-wrap: wrap;
       margin-top: 30px;
+    }
+
+    .actions-heading {
+      flex-basis: 100%;
+      text-align: center;
+      margin: 0;
     }
 
     .help-wrapper {
@@ -245,6 +252,7 @@
   <iframe id="doc-frame" class="official-doc" scrolling="no" ></iframe>
   </main>
   <div class="actions">
+    <h2 class="actions-heading">Move to Layer 2</h2>
     <button class="highlight-button btn-clear" onclick="markClear()">✅ Notes are clear</button>
     <div class="help-wrapper">
       <button class="highlight-button btn-help" onclick="showHelp()">🆘 Need help</button>
