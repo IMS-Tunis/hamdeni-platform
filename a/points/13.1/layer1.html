@@ -294,12 +294,15 @@
   const storedStudentName = localStorage.getItem("student_name");
   const storedPlatform = localStorage.getItem("platform");
 
-  if (storedStudentName) {
-    document.getElementById("student-name").textContent = "👤 " + storedStudentName;
+  const studentNameEl = document.getElementById("student-name");
+  if (studentNameEl) {
+    studentNameEl.textContent = "👤 " + (storedStudentName || "Guest");
   }
 
-  if (storedPlatform) {
-    document.getElementById("platform-name").textContent = "🎓 Platform: " + storedPlatform;
+  const platformNameEl = document.getElementById("platform-name");
+  if (platformNameEl) {
+    const displayPlatform = storedPlatform || "A Level (Guest)";
+    platformNameEl.textContent = "🎓 Platform: " + displayPlatform;
   }
 
   fetch("../index.json")
@@ -342,16 +345,19 @@
     const platform = localStorage.getItem("platform");
 
     if (!username || !platform) {
-      alert("👋 Please log in to interact with this content.");
-      return null;
+      return { guest: true };
     }
 
-    return { username, platform };
+    return { guest: false, username, platform };
   }
 
   async function updateProgress(session = ensureSession()) {
     if (!session) {
       return false;
+    }
+
+    if (session.guest) {
+      return true;
     }
 
     const { username, platform } = session;
@@ -399,6 +405,10 @@
   async function sendFeedback(feedback_type, comment = "", session = ensureSession()) {
     if (!session) {
       return false;
+    }
+
+    if (session.guest) {
+      return true;
     }
 
     const { username, platform } = session;
