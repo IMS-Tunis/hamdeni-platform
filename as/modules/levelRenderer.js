@@ -33,8 +33,8 @@ export async function renderProgrammingLevels() {
   if (!Number.isFinite(reached)) {
     reached = 0;
   }
-  if (reached < 2) {
-    reached = 2;
+  if (reached < 1) {
+    reached = 1;
   }
 
   levels.forEach((level, index) => {
