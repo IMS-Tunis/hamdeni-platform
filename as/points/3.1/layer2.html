@@ -69,6 +69,45 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
+    .quiz-title {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin: 0 auto 15px;
+      padding: 16px 28px;
+      font-size: 2em;
+      font-weight: 700;
+      color: #003366;
+      background: linear-gradient(135deg, #eef5ff, #ffffff);
+      border-radius: 16px;
+      box-shadow: 0 10px 24px rgba(0, 51, 102, 0.12);
+      text-transform: none;
+      flex-wrap: wrap;
+      text-align: center;
+    }
+
+    .quiz-title-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+      font-size: 1.5em;
+    }
+
+    .quiz-title-text {
+      color: #003366;
+      background: linear-gradient(135deg, #1e90ff, #00b894);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 0.5px;
+    }
+
     .question {
       margin: 25px 0;
       padding: 20px;
@@ -213,7 +252,10 @@
   </div>
 
   <div class="container">
-    <h2>🧠 Quiz</h2>
+    <h2 class="quiz-title">
+      <span class="quiz-title-icon">🧠</span>
+      <span class="quiz-title-text">Quiz to master basic concepts</span>
+    </h2>
     <p>Answer all questions correctly to unlock the next layer.</p>
 
     <div id="quiz-container">
