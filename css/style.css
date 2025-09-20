@@ -187,6 +187,7 @@ body {
 .path-frame, .training-frame {
   border: 2px solid #cceeff;
   border-radius: 12px;
+
   padding: 1px 1px 1px 1px; /* top | right | bottom | left */
   background: #ffffff;
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
@@ -766,4 +767,19 @@ footer {
    margin-top: 1.5em;
    margin-bottom: 1.5em;
   max-width: 800px;
+}
+
+/* Force tighter spacing above the path and training sections */
+.main-content .double-column {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.main-content .path-frame,
+.main-content .training-frame {
+  margin-top: 5px !important;     /* tiny gap */
+  padding-top: 10px !important;   /* small breathing space */
+}
+.section-title {
+  margin-top: 5px !important;
 }
