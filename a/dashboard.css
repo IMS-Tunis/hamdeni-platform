@@ -781,17 +781,6 @@ body {
   line-height: 1.2;
 }
 
-/* Arrows between levels */
-.level-box:not(:last-child)::after {
-  content: "↓";
-  position: absolute;
-  bottom: -20px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 18px;
-  color: #aaa;
-}
-
 .arrow-img {
   width: 20px;
   height: auto;

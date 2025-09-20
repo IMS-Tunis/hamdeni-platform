@@ -417,16 +417,6 @@ body {
 .level-text {
   line-height: 1.2;
 }
-/* Arrows between levels */
-.level-box:not(:last-child)::after {
-  content: "↓";
-  position: absolute;
-  bottom: -20px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 18px;
-  color: #aaa;
-}
 /* Divider between left and right */
 .dashboard {
   display: flex;
@@ -465,21 +455,6 @@ body {
   background-color: #4CAF50;
   width: 0%;
   border-radius: 10px 0 0 10px;
-}
-/* Remove ↓ arrows and add nice connecting line */
-.level-box:not(:last-child)::after {
-  content: "";
-  position: absolute;
-  bottom: -25px;
-  left: 50%;
-  width: 2px;
-  height: 25px;
-  background-color: #ccc;
-  transform: translateX(-50%);
-}
-/* Remove old arrow line */
-.level-box::after {
-  display: none !important;
 }
 /* Insert PNG-based arrow between levels */
 .arrow-img {
