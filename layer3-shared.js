@@ -37,6 +37,33 @@ export default function initLayer3(pointId, options = {}) {
 
   let totalQuestions = 0;
   const savedNotes = new Set();
+  const questionLabels = new Map();
+  const DIGITS_ONLY = /^\d+$/;
+
+  function getQuestionKeys(questionNumber, index) {
+    const raw = typeof questionNumber === 'number'
+      ? questionNumber.toString()
+      : (questionNumber ?? '').toString().trim();
+    const fallback = (index + 1).toString();
+    const keys = [];
+    if (raw) keys.push(raw);
+    if (!DIGITS_ONLY.test(raw)) keys.push(fallback);
+    return Array.from(new Set(keys));
+  }
+
+  function getDisplayNumber(questionNumber, index) {
+    const raw = typeof questionNumber === 'number'
+      ? questionNumber.toString()
+      : (questionNumber ?? '').toString().trim();
+    return raw || (index + 1).toString();
+  }
+
+  function getDbQuestionNumber(questionNumber, index) {
+    const keys = getQuestionKeys(questionNumber, index);
+    const numeric = keys.find(key => DIGITS_ONLY.test(key));
+    const parsed = parseInt(numeric || (index + 1).toString(), 10);
+    return Number.isFinite(parsed) ? parsed : index + 1;
+  }
 
   if (username && notesTitle) {
     notesTitle.textContent = `📝 ${username}'s Notes`;
@@ -61,13 +88,26 @@ export default function initLayer3(pointId, options = {}) {
       return {};
     }
     const map = {};
-    (data || []).forEach(row => { map[row.question_number] = row; });
+    (data || []).forEach(row => {
+      const key = row?.question_number;
+      if (key !== undefined && key !== null) {
+        map[String(key)] = row;
+      }
+    });
     return map;
   }
 
   function addNoteToReview(qNum, note) {
     if (!note) return;
+    const existing = Array.from(notesList.children).find(
+      item => item.dataset?.question === qNum
+    );
+    if (existing) {
+      existing.textContent = `Q${qNum}: ${note}`;
+      return;
+    }
     const li = document.createElement('li');
+    li.dataset.question = qNum;
     li.textContent = `Q${qNum}: ${note}`;
     notesList.appendChild(li);
   }
@@ -108,19 +148,26 @@ export default function initLayer3(pointId, options = {}) {
     const saved = await loadSaved();
     const lastCompleted = parseInt(localStorage.getItem(progressKey) || '0', 10);
     fetch(questionsFile)
-      .then(r => r.json())
-      .then(questions => {
-        totalQuestions = questions.length;
-        questions.forEach(q => {
+        .then(r => r.json())
+        .then(questions => {
+          totalQuestions = questions.length;
+          questionLabels.clear();
+          questions.forEach((q, index) => {
+          const displayNumber = getDisplayNumber(q.question_number, index);
+          const dbQuestionNumber = getDbQuestionNumber(q.question_number, index);
+          const candidates = getQuestionKeys(q.question_number, index);
+          const savedRow = candidates
+            .map(key => saved[String(key)])
+            .find(Boolean) || {};
+          questionLabels.set(String(dbQuestionNumber), displayNumber);
           const wrapper = document.createElement('div');
           wrapper.className = 'task-box';
-          const savedRow = saved[q.question_number] || {};
           wrapper.innerHTML = `
-            <h3>Q${q.question_number}: ${q.question}</h3>
-            <textarea data-q="${q.question_number}" class="answer-text" placeholder="Your answer...">${savedRow.student_answer || ''}</textarea>
+            <h3>Q${displayNumber}: ${q.question}</h3>
+            <textarea data-q="${dbQuestionNumber}" class="answer-text" placeholder="Your answer...">${savedRow.student_answer || ''}</textarea>
             <button class="submit-btn">Submit Answer</button>
             <div class="mark-scheme" style="display:${savedRow.student_answer ? 'block' : 'none'};"><strong>Model Answer</strong>: ${q.mark_scheme}</div>
-            <textarea data-note="${q.question_number}" class="note-text" placeholder="Note what you missed in your answer, it will be saved as a personal note for future review.">${savedRow.correction_note || ''}</textarea>
+            <textarea data-note="${dbQuestionNumber}" class="note-text" placeholder="Note what you missed in your answer, it will be saved as a personal note for future review.">${savedRow.correction_note || ''}</textarea>
             <button class="save-note-btn">Save Note</button>
           `;
           const textarea = wrapper.querySelector('.answer-text');
@@ -134,8 +181,8 @@ export default function initLayer3(pointId, options = {}) {
             btn.disabled = true;
           }
           if (savedRow.correction_note) {
-            addNoteToReview(q.question_number, savedRow.correction_note);
-            savedNotes.add(q.question_number);
+            addNoteToReview(displayNumber, savedRow.correction_note);
+            savedNotes.add(displayNumber);
           }
 
           btn.addEventListener('click', async () => {
@@ -150,7 +197,7 @@ export default function initLayer3(pointId, options = {}) {
                 {
                   username,
                   point_id: pointId.toLowerCase(),
-                  question_number: q.question_number,
+                  question_number: dbQuestionNumber,
                   student_answer: ans,
                   submitted_at: new Date().toISOString()
                 },
@@ -163,8 +210,8 @@ export default function initLayer3(pointId, options = {}) {
               return;
             }
             console.log('Saved answer', data);
-            localStorage.setItem(progressKey, q.question_number);
-            if (q.question_number >= totalQuestions) {
+            localStorage.setItem(progressKey, String(dbQuestionNumber));
+            if (dbQuestionNumber >= totalQuestions) {
               localStorage.removeItem(progressKey);
             }
           });
@@ -178,7 +225,7 @@ export default function initLayer3(pointId, options = {}) {
                 {
                   username,
                   point_id: pointId.toLowerCase(),
-                  question_number: q.question_number,
+                  question_number: dbQuestionNumber,
                   student_answer: textarea.value.trim(),
                   correction_note: note,
                   corrected_at: new Date().toISOString()
@@ -192,8 +239,8 @@ export default function initLayer3(pointId, options = {}) {
               return;
             }
             console.log('Saved note', data);
-            addNoteToReview(q.question_number, note);
-            savedNotes.add(q.question_number);
+            addNoteToReview(displayNumber, note);
+            savedNotes.add(displayNumber);
             checkAllNotesSaved();
             alert('The note has been successfully saved in your personalized notebook.');
           });
@@ -227,22 +274,24 @@ export default function initLayer3(pointId, options = {}) {
     const margin = 20;
     const pageHeight = doc.internal.pageSize.getHeight();
     let y = margin + 10;
-    (data || []).forEach(row => {
-      if (y > pageHeight - margin) {
-        doc.addPage();
-        y = margin;
-      }
-      const text = `Q${row.question_number} (${new Date(row.corrected_at || row.submitted_at).toLocaleString()})`;
-      doc.text(text, 10, y);
-      y += 6;
-      const split = doc.splitTextToSize(row.correction_note || '', 180);
-      if (y + split.length * 6 > pageHeight - margin) {
-        doc.addPage();
-        y = margin;
-      }
-      doc.text(split, 10, y);
-      y += split.length * 6 + 4;
-    });
+      (data || []).forEach(row => {
+        if (y > pageHeight - margin) {
+          doc.addPage();
+          y = margin;
+        }
+        const key = row?.question_number != null ? String(row.question_number) : '';
+        const label = questionLabels.get(key) || row.question_number;
+        const text = `Q${label} (${new Date(row.corrected_at || row.submitted_at).toLocaleString()})`;
+        doc.text(text, 10, y);
+        y += 6;
+        const split = doc.splitTextToSize(row.correction_note || '', 180);
+        if (y + split.length * 6 > pageHeight - margin) {
+          doc.addPage();
+          y = margin;
+        }
+        doc.text(split, 10, y);
+        y += split.length * 6 + 4;
+      });
     doc.save(`layer3_reflection_notes_${username}.pdf`);
   });
 
