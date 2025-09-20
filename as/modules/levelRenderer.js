@@ -28,7 +28,14 @@ export async function renderProgrammingLevels() {
     return;
   }
 
-  const { levels: reached = 0 } = await fetchProgressCounts();
+  const progress = await fetchProgressCounts();
+  let reached = Number(progress?.levels ?? 0);
+  if (!Number.isFinite(reached)) {
+    reached = 0;
+  }
+  if (reached < 2) {
+    reached = 2;
+  }
 
   levels.forEach((level, index) => {
     console.debug('[levelRenderer] Creating level box', level.id);
