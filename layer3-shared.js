@@ -268,31 +268,80 @@ export default function initLayer3(pointId, options = {}) {
     if (error) return console.error('Fetch notes error', error);
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
-    doc.setFontSize(18);
-    const pdfTitle = username ? `${username}'s Layer 3 Reflection Notes` : 'Layer 3 Reflection Notes';
-    doc.text(pdfTitle, 10, 20);
+    let pageWidth = doc.internal.pageSize.getWidth();
+    let pageHeight = doc.internal.pageSize.getHeight();
     const margin = 20;
-    const pageHeight = doc.internal.pageSize.getHeight();
-    let y = margin + 10;
-      (data || []).forEach(row => {
-        if (y > pageHeight - margin) {
-          doc.addPage();
-          y = margin;
-        }
+    const lineHeight = 7;
+    const bulletIndent = 6;
+    const pointTitleText = document.getElementById('point-title')?.textContent?.trim();
+    const normalizedPointTitle = pointTitleText || `Point ${pointId}`;
+    const pdfTitle = `Layer 3 Reflection Notes – ${normalizedPointTitle}`;
+
+    const drawHeader = (isFirstPage = false) => {
+      pageWidth = doc.internal.pageSize.getWidth();
+      pageHeight = doc.internal.pageSize.getHeight();
+      const titleSize = isFirstPage ? 20 : 16;
+      doc.setFont('Helvetica', 'bold');
+      doc.setFontSize(titleSize);
+      doc.setTextColor(20, 50, 90);
+      doc.text(pdfTitle, pageWidth / 2, margin, { align: 'center' });
+      doc.setDrawColor(20, 50, 90);
+      doc.setLineWidth(0.5);
+      doc.line(margin, margin + 4, pageWidth - margin, margin + 4);
+
+      let headerBottom = margin + 10;
+      if (username) {
+        doc.setFont('Helvetica', 'normal');
+        doc.setFontSize(11);
+        doc.setTextColor(100, 100, 100);
+        doc.text(`Student: ${username}`, pageWidth / 2, margin + 12, { align: 'center' });
+        headerBottom = margin + 20;
+      }
+
+      doc.setFont('Helvetica', 'normal');
+      doc.setFontSize(12);
+      doc.setTextColor(60, 60, 60);
+      return headerBottom + 6;
+    };
+
+    let y = drawHeader(true);
+    const printableNotes = (data || [])
+      .filter(row => (row?.correction_note || '').trim())
+      .sort((a, b) => (Number(a?.question_number) || 0) - (Number(b?.question_number) || 0));
+
+    if (!printableNotes.length) {
+      doc.text('No notes available for this point yet.', margin, y);
+    } else {
+      printableNotes.forEach(row => {
         const key = row?.question_number != null ? String(row.question_number) : '';
-        const label = questionLabels.get(key) || row.question_number;
-        const text = `Q${label} (${new Date(row.corrected_at || row.submitted_at).toLocaleString()})`;
-        doc.text(text, 10, y);
-        y += 6;
-        const split = doc.splitTextToSize(row.correction_note || '', 180);
-        if (y + split.length * 6 > pageHeight - margin) {
+        const label = questionLabels.get(key) || row.question_number || '';
+        const noteText = (row.correction_note || '').trim();
+        const wrapped = doc.splitTextToSize(noteText, pageWidth - margin * 2 - bulletIndent);
+        const blockHeight = lineHeight * (1 + wrapped.length) + 4;
+
+        if (y + blockHeight > pageHeight - margin) {
           doc.addPage();
-          y = margin;
+          y = drawHeader(false);
         }
-        doc.text(split, 10, y);
-        y += split.length * 6 + 4;
+
+        doc.setFont('Helvetica', 'bold');
+        doc.setFontSize(12);
+        doc.setTextColor(20, 50, 90);
+        const bulletLabel = label ? `• Q${label}` : '• Note';
+        doc.text(bulletLabel, margin, y);
+
+        doc.setFont('Helvetica', 'normal');
+        doc.setFontSize(12);
+        doc.setTextColor(60, 60, 60);
+        y += lineHeight;
+        doc.text(wrapped, margin + bulletIndent, y);
+        y += wrapped.length * lineHeight + 4;
       });
-    doc.save(`layer3_reflection_notes_${username}.pdf`);
+    }
+
+    const safePoint = (pointId || 'point').toString().replace(/[^a-z0-9]+/gi, '_');
+    const safeUser = (username || 'student').toString().replace(/[^a-z0-9]+/gi, '_');
+    doc.save(`layer3_reflection_notes_${safePoint}_${safeUser}.pdf`);
   });
 
   render();
