@@ -29,6 +29,17 @@ export default function initLayer3(pointId, options = {}) {
   const platform = localStorage.getItem('platform');
   const progressKey = `layer3-progress-${pointId}`;
 
+  if (!document.getElementById('layer3-question-style')) {
+    const style = document.createElement('style');
+    style.id = 'layer3-question-style';
+    style.textContent = `
+      .task-box h3 {
+        font-weight: 600;
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
   const questionContainer = document.getElementById('questions-container');
   const notesList = document.getElementById('notes-list');
   const exportBtn = document.getElementById('export-btn');
@@ -36,6 +47,7 @@ export default function initLayer3(pointId, options = {}) {
   const notesTitle = document.getElementById('notes-title');
 
   const LAYER4_DISABLED_MESSAGE = 'finish all questions before moveing to layer 4';
+
   const LAYER4_TOOLTIP_ID = 'layer4-disabled-tooltip';
   let layer4Tooltip;
   let layer4TooltipStyleApplied = false;
@@ -137,6 +149,7 @@ export default function initLayer3(pointId, options = {}) {
     layer4Btn.addEventListener('click', hideLayer4Tooltip);
     window.addEventListener('scroll', hideLayer4Tooltip, true);
     window.addEventListener('resize', hideLayer4Tooltip);
+
   }
 
   let totalQuestions = 0;
