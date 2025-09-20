@@ -69,11 +69,11 @@
   },
   {
     "question": "Write pseudocode statements to assign:\n• A Level Computer Science to Title of LibraryBook\n• FALSE to Fiction of LibraryBook.",
-    "answer": "LibraryBook.Title  \"A Level Computer Science\"\nLibraryBook.Fiction  FALSE"
+    "answer": "LibraryBook.Title <-- \"A Level Computer Science\"\nLibraryBook.Fiction <-- FALSE"
   },
   {
     "question": "Write pseudocode statements to assign:\n• A Level Computer Science to Title of LibraryBook\n• FALSE to Fiction of LibraryBook.",
-    "answer": "LibraryBook.Title  \"A Level Computer Science\"\nLibraryBook.Fiction  FALSE"
+    "answer": "LibraryBook.Title <-- \"A Level Computer Science\"\nLibraryBook.Fiction <-- FALSE"
   },
   {
     "question": "The type definition for LibraryRecord is changed.\n(i) The value for NumberOfCopies must be between 1 and 10 inclusive.\nWrite the updated line of pseudocode from the type definition of LibraryRecord to implement the change.",

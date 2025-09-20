@@ -103,7 +103,7 @@
   },
   {
     "point_id": "13.1",
-    "question_number": "16",
+    "question_number": "11",
     "question": "Identify whether each definition is composite or non-composite.\nA) TYPE TSeason = (Spring, Summer, Autumn, Winter)\nB) TYPE Flight WITH fields FlightNumber, StartLocation, EndLocation, FlightTime\nC) Vowels = {a, e, i, o, u}",
     "mark_scheme": "A) Non-composite (enumerated)\nB) Composite (record)\nC) Composite (set)"
   }
