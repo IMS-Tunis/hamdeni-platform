@@ -22,7 +22,7 @@ body {
   display: block;
 }
 
-/* Modern Header Row */
+/* Modern Header Row - Specific to your structure */
 .header-row {
   display: flex;
   justify-content: space-between;
@@ -59,6 +59,8 @@ body {
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+
+/* ORIGINAL STYLES - Keep all existing functionality intact */
 
 /* Status Bar (Legacy Support) */
 .status-bar {
@@ -113,6 +115,138 @@ body {
   margin-left: 10px;
   font-size: 0.8em;
   color: #64748b;
+}
+
+/* Left Cluster Styling - Keep original */
+.left-cluster {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Original student label for other parts */
+.student-label {
+  background: #e3f2fd;
+  color: #2c3e50;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1.3em;
+  box-shadow: 0 0 5px rgba(0,0,0,0.08);
+}
+
+/* Original form box styles for other parts */
+.form-box:not(.header-row .form-box) {
+  background: #f8f9fa;
+  padding: 10px 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-start;
+}
+
+/* Original login row for other parts */
+.login-row:not(.header-row .login-row) {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Original contact info for other parts */
+.contact-info:not(.header-row .contact-info) {
+  font-size: 0.9em;
+  color: #444;
+  text-align: right;
+}
+
+.contact-info:not(.header-row .contact-info) a {
+  color: #0077cc;
+  text-decoration: none;
+}
+
+.contact-info:not(.header-row .contact-info) a:hover {
+  text-decoration: underline;
+}
+
+/* Original styled buttons for other parts */
+.styled-button:not(.header-row .styled-button) {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 5px;
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.styled-button:not(.header-row .styled-button):hover {
+  background-color: #388E3C;
+}
+
+.styled-button.logout:not(.header-row .styled-button.logout) {
+  background-color: #e53935;
+}
+
+.styled-button.logout:not(.header-row .styled-button.logout):hover {
+  background-color: #c62828;
+}
+
+.styled-button.home:not(.header-row .styled-button.home) {
+  background-color: #2196F3;
+}
+
+.styled-button.home:not(.header-row .styled-button.home):hover {
+  background-color: #1976D2;
+}
+
+/* Original progress wrapper for other parts */
+.general-progress-wrapper:not(.header-row .general-progress-wrapper) {
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  justify-content: center;
+}
+
+.general-progress-label:not(.header-row .general-progress-label) {
+  font-weight: bold;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.general-progress-bar:not(.header-row .general-progress-bar) {
+  flex-grow: 1;
+  height: 18px;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  min-width: 400px;
+}
+
+.general-progress-fill:not(.header-row .general-progress-fill) {
+  height: 100%;
+  width: 0%;
+  background-color: #4CAF50;
+  text-align: center;
+  color: white;
+  font-size: 12px;
+  line-height: 18px;
+  border-radius: 10px 0 0 10px;
+}
+
+.general-progress-max:not(.header-row .general-progress-max) {
+  position: absolute;
+  right: 8px;
+  top: 0;
+  font-size: 11px;
+  color: #333;
+  line-height: 18px;
 }
 
 /* Left Cluster Styling */
