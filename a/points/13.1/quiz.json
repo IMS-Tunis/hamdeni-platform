@@ -40,14 +40,6 @@
         },
         {
             "type": "match",
-            "question": "Match each set operation to its result.",
-            "pairs": {
-                "union": "Combines two sets into one containing every element that appears in either set (no duplicates)",
-                "intersection": "Keeps only the elements present in both sets"
-            }
-        },
-        {
-            "type": "match",
             "question": "Match the user-defined type to the scenario where it is the best choice.",
             "pairs": {
                 "Record": "You need several labelled pieces of information together, like for a flight.",
