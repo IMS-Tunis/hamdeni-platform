@@ -149,23 +149,42 @@
     }
 
     .submit-btn {
-      background: linear-gradient(135deg, #28a745, #5cd263);
+      background: linear-gradient(135deg, #2ecc71, #27ae60);
       color: #fff;
       border: none;
-      padding: 14px 28px;
-      font-size: 1.2em;
-      font-weight: bold;
-      border-radius: 30px;
+      padding: 14px 34px;
+      font-size: 1.1em;
+      font-weight: 600;
+      border-radius: 999px;
       cursor: pointer;
-      margin-top: 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-      transition: transform 0.2s, box-shadow 0.3s;
-      display: inline-block;
+      margin-top: 24px;
+      box-shadow: 0 16px 30px rgba(39, 174, 96, 0.35);
+      transition: transform 0.2s ease, box-shadow 0.3s ease, filter 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      letter-spacing: 0.03em;
     }
 
     .submit-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 20px 36px rgba(39, 174, 96, 0.45);
+      filter: brightness(1.05);
+    }
+
+    .submit-btn.retry {
+      background: linear-gradient(135deg, #ff6a3d, #ff2d55);
+      box-shadow: 0 16px 30px rgba(255, 45, 85, 0.35);
+    }
+
+    .submit-btn.retry:hover {
+      box-shadow: 0 20px 36px rgba(255, 45, 85, 0.45);
+      filter: brightness(1.05);
+    }
+
+    .submit-btn:focus-visible {
+      outline: 3px solid rgba(46, 204, 113, 0.4);
+      outline-offset: 4px;
     }
 
     .success-message, .retry-message {
