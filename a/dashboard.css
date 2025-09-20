@@ -315,8 +315,8 @@ body {
 }
 
 .header-background + .header-row .contact-info {
-  margin-top: 15px !important;
-  padding-top: 15px !important;
+  margin-top: 12px !important;
+  padding-top: 8px !important;
   border-top: 1px solid rgba(226, 232, 240, 0.5) !important;
   font-size: 13px !important;
   color: #64748b !important;
