@@ -35,6 +35,16 @@ export default function initLayer3(pointId, options = {}) {
   const layer4Btn = document.getElementById('layer4-btn');
   const notesTitle = document.getElementById('notes-title');
 
+  const LAYER4_DISABLED_MESSAGE = 'finish all questions before moveing to layer 4';
+
+  if (layer4Btn) {
+    layer4Btn.addEventListener('mouseenter', () => {
+      if (layer4Btn.disabled) {
+        alert(LAYER4_DISABLED_MESSAGE);
+      }
+    });
+  }
+
   let totalQuestions = 0;
   const savedNotes = new Set();
   const questionLabels = new Map();
