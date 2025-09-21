@@ -25,8 +25,15 @@ async function updateGeneralProgress() {
   const { points, levels, term1Grade } = await fetchProgressCounts();
 
   if (termGradeEl) {
-    const gradeValue = Math.max(0, Number(term1Grade) || 0);
-    termGradeEl.textContent = gradeValue.toString();
+    const numericGrade = Number(term1Grade);
+    const sanitizedGrade = Number.isFinite(numericGrade)
+      ? Math.min(100, Math.max(0, numericGrade))
+      : 0;
+    const formattedGrade = Number.isInteger(sanitizedGrade)
+      ? sanitizedGrade.toString()
+      : sanitizedGrade.toFixed(1);
+
+    termGradeEl.textContent = `${formattedGrade}%`;
   }
 
   const total = totalPoints + totalLevels;
