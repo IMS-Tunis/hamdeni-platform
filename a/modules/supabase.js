@@ -33,7 +33,7 @@ export async function fetchProgressCounts() {
   const username = localStorage.getItem('username');
   const platform = localStorage.getItem('platform');
 
-  if (!username || !platform) return { points: 0, levels: 0 };
+  if (!username || !platform) return { points: 0, levels: 0, term1Grade: 0 };
 
   const theoryTable = tableName(platform, 'theory');
   const levelTable = tableName(platform, 'programming');
@@ -58,19 +58,30 @@ export async function fetchProgressCounts() {
     const tData = await tRes.json();
     const lData = await lRes.json();
 
-    const passedPoints = tData.filter(r => r.reached_layer === '4').length;
+    const passedPoints = tData.filter(r => String(r.reached_layer) === '4').length;
+    const term1Grade = tData.reduce((total, record) => {
+      const reachedLayer = Number(record.reached_layer);
+      if (!Number.isFinite(reachedLayer)) return total;
+
+      let increment = 0;
+      if (reachedLayer >= 1) increment += 1;
+      if (reachedLayer >= 2) increment += 2;
+      if (reachedLayer >= 3) increment += 3;
+      if (reachedLayer >= 4) increment += 4;
+      return total + increment;
+    }, 0);
     let passedLevels = 0;
     if (platform === 'A_Level') {
       passedLevels = lData.length ? lData[0].reached_level : 0;
     } else {
       passedLevels = lData.filter(r => r.level_done).length;
     }
-    const result = { points: passedPoints, levels: passedLevels };
+    const result = { points: passedPoints, levels: passedLevels, term1Grade };
     console.log('[supabaseModule] Progress counts', result);
     return result;
   } catch (err) {
     console.error('❌ Failed fetching progress counts:', err);
-    return { points: 0, levels: 0 };
+    return { points: 0, levels: 0, term1Grade: 0 };
   }
 }
 
