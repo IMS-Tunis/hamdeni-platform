@@ -1,5 +1,5 @@
 {
-  "13.2a: File organisation methods": [
+  "13.2a": [
     {
       "term": "Serial file organisation",
       "definition": "A method of file organisation in which records of data are physically stored in a file, one after another, in the order they were added to the file."
@@ -13,7 +13,7 @@
       "definition": "A method of file organisation in which records of data are physically stored in a file in any available position; the location of any record in the file is found by using a hashing algorithm on the key field of a record."
     }
   ],
-  "13.2b: File access methods": [
+  "13.2b": [
     {
       "term": "File access",
       "definition": "The method used to physically find a record in the file."
@@ -31,7 +31,7 @@
       "definition": "A separate index file with two fields per record: the key field value and the position of this key field value in the main file."
     }
   ],
-  "13.2c: Hashing algorithms": [
+  "13.2": [
     {
       "term": "Hashing algorithm (file access)",
       "definition": "A mathematical formula used to perform a calculation on the key field of the record; the result of the calculation gives the address where the record should be found."
