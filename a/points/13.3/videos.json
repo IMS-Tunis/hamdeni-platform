@@ -5,8 +5,24 @@
     },
     "videos": [
       {
-        "title": "Intro to File Organization",
-        "iframe": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/_kxf_Ztyfq8?si=MLHDXWn83dJ0HDnX\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+        "title": "CIE 9618 A-Level Floating Point Binary Medley",
+        "iframe": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/L3XuVlB2UFA\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      {
+        "title": "9618 - A Level - Floating Point Representation (4 easy steps)",
+        "iframe": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/GyRVOqweHtY\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      {
+        "title": "Normalised Floating Point Binary Made Simple",
+        "iframe": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/ljRojiI3E3E\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      {
+        "title": "How to Normalise Floating Point Numbers",
+        "iframe": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/79EFWuWT7o8\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+      },
+      {
+        "title": "Mastering Floating Point Numbers - A Level Computer Science 9618 Paper 3",
+        "iframe": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/Ql0L82pfi_8\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
       }
     ]
   }
