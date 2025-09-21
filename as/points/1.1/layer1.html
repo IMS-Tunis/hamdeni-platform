@@ -300,59 +300,67 @@
   const studentNameEl = document.getElementById("student-name");
   const platformNameEl = document.getElementById("platform-name");
 
-  const displayName = student_name || "Guest";
-  if (displayName && studentNameEl) {
-    studentNameEl.textContent = "👤 " + displayName;
-  }
+  if (!username || !student_name) {
+    if (errorMessageEl) {
+      errorMessageEl.style.display = "block";
+    }
+    if (contentAreaEl) {
+      contentAreaEl.style.display = "none";
+    }
+  } else {
+    if (studentNameEl) {
+      studentNameEl.textContent = "👤 " + student_name;
+    }
 
-  const displayPlatform = platform || "AS Level (Guest)";
-  if (platformNameEl) {
-    platformNameEl.textContent = "🎓 Platform: " + displayPlatform;
-  }
+    if (platformNameEl) {
+      const displayPlatform = platform || "AS Level";
+      platformNameEl.textContent = "🎓 Platform: " + displayPlatform;
+    }
 
-  if (errorMessageEl) {
-    errorMessageEl.style.display = "none";
-  }
+    if (errorMessageEl) {
+      errorMessageEl.style.display = "none";
+    }
 
-  if (contentAreaEl) {
-    contentAreaEl.style.display = "block";
-  }
+    if (contentAreaEl) {
+      contentAreaEl.style.display = "block";
+    }
 
-  fetch("../index.json")
-    .then(res => res.json())
-    .then(list => {
-      const found = list.find(p => p.id.toLowerCase() === point_id.toLowerCase());
-      if (found) {
-        document.getElementById("point-title").textContent = "📍 " + found.title;
-      }
-    });
-
-  fetch("videos.json")
-    .then(res => res.json())
-    .then(data => {
-      if (data[point_id]) {
-        const { videos = [], doc } = data[point_id];
-
-        if (doc) {
-          const frame = document.getElementById("doc-frame");
-          frame.src = doc.url;
-          const height = 4750;
-
-
+    fetch("../index.json")
+      .then(res => res.json())
+      .then(list => {
+        const found = list.find(p => p.id.toLowerCase() === point_id.toLowerCase());
+        if (found) {
+          document.getElementById("point-title").textContent = "📍 " + found.title;
         }
+      });
 
-        if (videos.length > 0) {
-          document.getElementById("video-section").style.display = "block";
-          const container = document.getElementById("videos-container");
-          videos.forEach(video => {
-            const wrapper = document.createElement("div");
-            wrapper.innerHTML = video.iframe;
-            wrapper.style.marginBottom = "20px";
-            container.appendChild(wrapper);
-          });
+    fetch("videos.json")
+      .then(res => res.json())
+      .then(data => {
+        if (data[point_id]) {
+          const { videos = [], doc } = data[point_id];
+
+          if (doc) {
+            const frame = document.getElementById("doc-frame");
+            frame.src = doc.url;
+            const height = 4750;
+
+
+          }
+
+          if (videos.length > 0) {
+            document.getElementById("video-section").style.display = "block";
+            const container = document.getElementById("videos-container");
+            videos.forEach(video => {
+              const wrapper = document.createElement("div");
+              wrapper.innerHTML = video.iframe;
+              wrapper.style.marginBottom = "20px";
+              container.appendChild(wrapper);
+            });
+          }
         }
-      }
-    });
+      });
+  }
 
   async function updateProgress() {
     const platform = localStorage.getItem("platform");
