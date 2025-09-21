@@ -571,7 +571,7 @@
     <script>
         function toggleExplanation(button) {
             const explanation = button.nextElementSibling;
-            
+
             if (explanation && explanation.classList.contains('explanatory-example')) {
                 if (explanation.classList.contains('show')) {
                     explanation.classList.remove('show');
@@ -582,8 +582,18 @@
                     button.textContent = 'Hide Detailed Explanation';
                     button.style.background = 'linear-gradient(135deg, #4ecdc4, #44a08d)';
                 }
+
+                setTimeout(notifyParentHeight, 0);
             }
         }
+    </script>
+    <script>
+        function notifyParentHeight() {
+            const height = document.body.scrollHeight;
+            window.parent.postMessage({ type: 'resize', height }, '*');
+        }
+
+        window.addEventListener('load', notifyParentHeight);
     </script>
 </body>
 </html>
