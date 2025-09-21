@@ -797,7 +797,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  text-align: left;
+  text-align: center;
 }
 
 .level-box:hover {
@@ -823,6 +823,10 @@ body {
 
 .level-text {
   line-height: 1.2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .arrow-img {
