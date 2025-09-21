@@ -35,19 +35,21 @@ export async function fetchProgressCounts() {
 
   if (!username || !platform) return { points: 0, levels: 0, term1Grade: 0 };
 
+  const encodedUsername = encodeURIComponent(username);
+
   const theoryTable = tableName(platform, 'theory');
   const levelTable = tableName(platform, 'programming');
   const base = `${SUPABASE_URL}/rest/v1`;
 
   try {
     const [tRes, lRes] = await Promise.all([
-      fetch(`${base}/${theoryTable}?select=reached_layer&username=eq.${encodeURIComponent(username)}`, {
+      fetch(`${base}/${theoryTable}?select=reached_layer&username=eq.${encodedUsername}`, {
         headers: {
           apikey: SUPABASE_KEY,
           Authorization: 'Bearer ' + SUPABASE_KEY
         }
       }),
-      fetch(`${base}/${levelTable}?select=${platform === 'A_Level' ? 'reached_level' : 'level_done'}&username=eq.${encodeURIComponent(username)}`, {
+      fetch(`${base}/${levelTable}?select=${platform === 'A_Level' ? 'reached_level' : 'level_done'}&username=eq.${encodedUsername}`, {
         headers: {
           apikey: SUPABASE_KEY,
           Authorization: 'Bearer ' + SUPABASE_KEY
