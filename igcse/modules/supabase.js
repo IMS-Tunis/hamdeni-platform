@@ -47,7 +47,7 @@ export async function fetchProgressCounts() {
           Authorization: 'Bearer ' + SUPABASE_KEY
         }
       }),
-      fetch(`${base}/${levelTable}?select=${platform === 'A_Level' ? 'reached_level' : 'level_done'}&username=eq.${encodeURIComponent(username)}`, {
+      fetch(`${base}/${levelTable}?select=${platform === 'A_Level' || platform === 'IGCSE' ? 'reached_level' : 'level_done'}&username=eq.${encodeURIComponent(username)}`, {
         headers: {
           apikey: SUPABASE_KEY,
           Authorization: 'Bearer ' + SUPABASE_KEY
@@ -59,12 +59,9 @@ export async function fetchProgressCounts() {
     const lData = await lRes.json();
 
     const passedPoints = tData.filter(r => r.reached_layer === '4').length;
-    let passedLevels = 0;
-    if (platform === 'A_Level') {
-      passedLevels = lData.length ? lData[0].reached_level : 0;
-    } else {
-      passedLevels = lData.filter(r => r.level_done).length;
-    }
+    const rawReachedLevel = lData.length ? lData[0]?.reached_level ?? 0 : 0;
+    const numericReachedLevel = Number(rawReachedLevel);
+    const passedLevels = Number.isFinite(numericReachedLevel) ? numericReachedLevel : 0;
     const result = { points: passedPoints, levels: passedLevels };
     console.log('[supabaseModule] Progress counts', result);
     return result;
