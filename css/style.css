@@ -739,25 +739,6 @@ footer {
   display: block;
 }
 
-.chip-popover-close {
-  position: absolute;
-  top: 6px;
-  right: 8px;
-  appearance: none;
-  background: transparent;
-  border: none;
-  font-size: 22px;
-  line-height: 1;
-  color: #5a7e92;
-  cursor: pointer;
-  border-radius: 6px;
-}
-.chip-popover-close:hover,
-.chip-popover-close:focus {
-  background: #f3faff;
-  outline: 2px solid transparent;
-}
-
 .modern-divider {
   border: none;
   height: 2px;
