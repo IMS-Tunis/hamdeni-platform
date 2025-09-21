@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Level 0: Theory Foundations</title>
+  <link rel="stylesheet" href="../levels.css">
+</head>
+<body>
+<!-- Header -->
+<div class="header">
+  <div class="container">
+    <!-- Top bar: logo + brand on the left, Home on the right -->
+    <div class="header-bar">
+      <a class="brand" href="../../dashboard.html" aria-label="Go to dashboard">
+        <img src="../logo.png" alt="logo" class="brand-logo">
+      </a>
+	  <div class="header-main">
+      <h1>Level 0: Theory Foundations</h1>
+      <p>IGCSE Computer Science (0478): student notes, prepared by Dr. Hamdeni</p>
+    </div>
+     <a class="btn btn-home" href="../../dashboard.html" aria-label="Go to dashboard">
+  <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+    <path d="M3 10.5L12 3l9 7.5v9a1 1 0 0 1-1 1h-5.5a1 1 0 0 1-1-1v-5h-3v5a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-9zM5 11.1V19h3.5v-5a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v5H19v-7.9L12 5.6 5 11.1z"/>
+  </svg>
+  <span>Home</span>
+</a>
+
+    </div>
+
+    <!-- Centered title block -->
+    
+  </div>
+</div>
+
+  <div class="container">
+
+    <div class="toc">
+      <strong>Contents</strong>
+      <ol>
+        <li><a href="#s1">Understand each phase of the program development life cycle</a></li>
+        <li><a href="#s2">Understand that every computer system is made up of sub-systems, which are made up of further sub-systems</a></li>
+        <li><a href="#s3">Understand problem decomposition into Inputs, Processes, Outputs, Storage</a></li>
+        <li><a href="#s4">Understand the purpose of algorithms</a></li>
+        <li><a href="#s5">Understand and use different methods to design solutions</a></li>
+      </ol>
+    </div>
+
+    <!-- Section 1 -->
+    <div class="section" id="s1">
+      <h2>1. Understand each phase of the program development life cycle</h2>
+      <p>The program development life cycle is the standard process used to build software and it is composed of four steps  analysis, Design, Coding then Testing</p>
+
+      <ol class="bullets">
+        <li><strong>Analysis</strong> identifies the problem and produces a clear <strong>requirements specification</strong> (a short, written list of what the program must do and how it will be checked).
+          <ul>
+            <li><strong>Abstraction</strong> means keeping only essential details and removing non-essential information.</li>
+            <li><strong>Decomposition</strong> splits a large problem into smaller parts (sub-tasks or <strong>modules</strong>, where a module is a small part of a program that does one job, for example “calculate total”).</li>
+          </ul>
+          <div class="example">
+            <div class="title"><strong>Example: Abstraction in everyday life</strong></div>
+            <p>Think of maps for different purposes. A road map shows roads and junctions; a rail map shows lines and stations. Each map removes details that are not needed for its task so the essential information stands out.</p>
+          </div>
+          <div class="example">
+            <div class="title"><strong>Example: Decomposition of a routine</strong></div>
+            <p>Getting dressed can be broken into smaller, ordered steps:<br>
+            1) choose items<br>
+            2) remove current clothing if needed<br>
+            3) put on items in a sensible order.<br>
+            In code, these could be functions such as <em>chooseItems()</em> and <em>putOnShirt()</em>.</p>
+          </div>
+        </li>
+
+        <li><strong>Design</strong> plans the solution using the approved specification from analysis.
+          <ul>
+            <li>Decomposition continues to organise tasks and their interactions.</li>
+            <li>The design states <em>what</em> each part should do, <em>how</em> it should do it, and <em>how</em> parts fit together.</li>
+            <li>The design is recorded with <strong>structure diagrams</strong> (tree diagrams that show parts under the whole), <strong>flowcharts</strong> (diagrams of steps using standard shapes), and <strong>pseudocode</strong> (code-like English). These 3 tools will be the focus of all next levels.</li>
+          </ul>
+        </li>
+
+        <li><strong>Coding</strong> implements each module in a suitable programming language (like python, java or VB.NET) after the algorithms are designed.
+          <ul>
+            <li><strong>Iterative modular testing</strong> is carried out during development.</li>
+            <li>Code is amended until each module works as required.</li>
+          </ul>
+        </li>
+
+        <li><strong>Testing</strong> checks the completed program using varied test data to confirm correctness and that requirements are met.
+          <ul>
+            <li>Use <strong>normal</strong> (typical), <strong>abnormal</strong> (invalid), <strong>extreme</strong> (at the ends), and <strong>boundary</strong> test data (just inside/just outside the allowed limits).</li>
+            <li>Testing confirms that all tasks work together as designed.</li>
+          </ul>
+          <div class="example">
+            <div class="title"><strong>Example: Age input data sets</strong></div>
+            <p>Allowed whole numbers 10 to 100<br>
+            Normal: 10, 50, 100<br>
+            Abnormal: 9, −1, 101, "age"<br>
+            Extreme: 10 and 100<br>
+            Boundary pairs: 9 vs 10; 100 vs 101</p>
+          </div>
+          <div class="example">
+            <div class="title"><strong>Example: Password length data sets</strong></div>
+            <p>Minimum 8 characters<br>
+            Normal: "abcdefgh"<br>
+            Abnormal: "1234567"<br>
+            Extreme: exactly 8 characters<br>
+            Boundary pair: 7 vs 8 characters</p>
+          </div>
+        </li>
+      </ol>
+
+      <div class="example video video-pink">
+        <div class="title">  Program Development Life Cycle</div>
+        <div class="media">
+          <iframe src="https://www.youtube.com/embed/cY0GjVzmo8s" title="CAMBRIDGE IGCSE (0478-0984) 7 Software development life cycle" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 2 -->
+    <div class="section" id="s2">
+      <h2>2. Understand that every computer system is made up of sub-systems, which are made up of further sub-systems</h2>
+      <ul class="bullets">
+        <li>A computer system can be divided into <strong>sub-systems</strong> and then into smaller sub-systems until each unit performs a single, clear action.
+          <ul>
+            <li>A computer system typically involves <strong>hardware</strong>, <strong>software</strong>, <strong>data</strong>, <strong>communications</strong>, and <strong>people</strong> (users and technicians who operate or maintain the system).</li>
+            <li><strong>Top-down design</strong> means starting from the whole app, then splitting it into screens or features, and repeatedly splitting each feature until a single action remains, like “save file”.</li>
+            <li><strong>Structure diagrams</strong> show this hierarchy as a tree; each box can later become a subprogram, function, or procedure.</li>
+          </ul>
+          <div class="example">
+            <div class="title"><strong>Example: Calculator structure diagram</strong></div>
+            <p>This example shows a calculator represented in a structure diagram.</p>
+            <img src="calculator_structure_diagram.png" alt="Calculator structure diagram" width="600">
+          </div>
+        </li>
+      </ul>
+
+      <div class="example video video-pink">
+        <div class="title">  Computer sub-systems</div>
+        <div class="media">
+          <iframe src="https://www.youtube.com/embed/j51R215dNs0" title="CAMBRIDGE IGCSE (0478-0984) 7 Computer sub-systems" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 3 -->
+    <div class="section" id="s3">
+      <h2>3. Understand problem decomposition into Inputs, Processes, Outputs, Storage</h2>
+      <ul class="bullets">
+        <li>Problems can be decomposed into <strong>Inputs</strong>, <strong>Processes</strong>, <strong>Outputs</strong>, and <strong>Storage</strong> (IPOS).
+          <ul>
+            <li><strong>Inputs</strong>: data entered while the system runs.</li>
+            <li><strong>Processes</strong>: computations or decisions on current inputs and previously stored data.</li>
+            <li><strong>Outputs</strong>: information shown or printed for users.</li>
+            <li><strong>Storage</strong>: data kept for use during and after execution (variables, constants, arrays); <strong>persistent storage</strong> saves data in files on a device such as a hard drive, SSD, or USB stick.</li>
+          </ul>
+          <div class="example">
+            <div class="title"><strong>Example: Alarm app (IPOS)</strong></div>
+            <p>Input: set or clear alarm time; press snooze<br>
+            Process: check current time; manage snooze timing<br>
+            Output: play alarm sound<br>
+            Storage: store the alarm time(s)</p>
+          </div>
+        </li>
+      </ul>
+
+      <div class="example video video-pink">
+        <div class="title">  Inputs, processes, outputs, and storage</div>
+        <div class="media">
+          <iframe src="https://www.youtube.com/embed/Cc9VFuTKggo" title="CAMBRIDGE IGCSE (0478-0984) 7 Inputs, processes, outputs and storage" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 4 -->
+    <div class="section" id="s4">
+      <h2>4. Understand the purpose of algorithms</h2>
+      <ul class="bullets">
+        <li>An <strong>algorithm</strong> is the ordered list of steps to complete a task; it makes the required processes explicit.
+          <ul>
+            <li>Common processes include <strong>linear search</strong>, <strong>bubble sort</strong>, <strong>totalling</strong>, <strong>counting</strong>, <strong>minimum/maximum</strong>, and <strong>average</strong> calculations.</li>
+          </ul>
+          <div class="example">
+            <div class="title"><strong>Example: Alarm-time algorithm</strong></div>
+            <p>Imagine you are coding a phone alarm that rings at 07:00.<br>
+            A simple algorithm can:<br>
+            1) wait a short interval (for example, 10 seconds)<br>
+            2) read the current time<br>
+            3) compare it with the stored alarm time<br>
+            4) play the alarm sound when they match</p>
+          </div>
+          <div class="example">
+            <div class="title"><strong>Example: Average of a set of marks</strong></div>
+            <p>To compute the class average: <br> 1. decide the list of marks to include; <br> 2. set Total to 0 (initially); <br> 3.  add each mark to Total one by one; <br> 4. at the end divide Total by the number of marks; <br> 5. report the resulting value as the average.</p>
+          </div>
+          <div class="example">
+            <div class="title"><strong>Example: Minimum value in a list</strong></div>
+            <p>To find the smallest temperature in a list: <br> 1. start by assuming the first temperature is the minimum; <br> 2. compare each remaining temperature with the current minimum; <br> 3. whenever a smaller value is found, replace the current minimum with it; <br> 4. after the scan finishes, report the final minimum.</p>
+          </div>
+          <li>Algorithms are commonly shown as <strong>flowcharts</strong> or <strong>pseudocode</strong>. A <strong>trace table</strong> supports a dry run to infer purpose and detect logic errors using sample data.</li>
+        </li>
+      </ul>
+
+      <div class="example video video-pink">
+        <div class="title">  What is an algorithm</div>
+        <div class="media">
+          <iframe src="https://www.youtube.com/embed/qiMpOYKlruc" title="CAMBRIDGE IGCSE (0478-0984) 7 What is an algorithm" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 5 -->
+    <div class="section" id="s5">
+      <h2>5. Understand and use different methods to design solutions</h2>
+      <ul class="bullets">
+        <li><strong>Flowcharts</strong> show the steps of an algorithm in order using standard symbols.
+          <ul>
+            <li>Key symbols: <strong>Terminator</strong> (rounded rectangle for Start/End), <strong>Process</strong> (rectangle), <strong>Input/Output</strong> (parallelogram), <strong>Decision</strong> (diamond), and directed flow lines (arrows).</li>
+          </ul>
+          <img src="flowchart.png" alt="Flowchart example" width="400">
+        </li>
+
+        <li><strong>Pseudocode</strong> is a language-independent, code-like description of an algorithm that uses meaningful names.
+          <ul>
+            <li>It is not limited by strict programming syntax but is precise enough to convert into code.</li>
+            <li>Core constructs include: <br> <strong>Assignment</strong> (←), <strong>Selection</strong> (IF..THEN..ELSE..ENDIF; CASE OF..OTHERWISE..ENDCASE), <strong>Iteration</strong> (FOR..TO..NEXT; REPEAT..UNTIL; WHILE..DO..ENDWHILE), and <strong>Input/Output</strong> (INPUT, OUTPUT).</li>
+          </ul>
+          <img src="pseudocode.png" alt="Pseudocode example" width="400">
+        </li>
+
+        <li><strong>Trace tables</strong> help follow variable values step by step during a dry run to infer purpose and detect logic errors using sample data.</li>
+        <img src="trace_table.png" alt="Trace table example" width="400">
+      </ul>
+
+
+
+<table>
+  <tr>
+    <th>  <div class="example video video-pink">
+        <div class="title">  Structure diagrams</div>
+        <div class="media">
+          <iframe src="https://www.youtube.com/embed/gFY9QdxMInI" title="CAMBRIDGE IGCSE (0478-0984) 7 Structure diagrams" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+	</th>
+	
+    <th> <div class="example video video-pink">
+        <div class="title">  Producing algorithms using pseudocode and flowcharts</div>
+        <div class="media">
+          <iframe src="https://www.youtube.com/embed/kSpUGDYBnww" title="CAMBRIDGE IGCSE (0478-0984) 7 How to produce algorithms using pseudocode and flowcharts" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div></th>
+  </tr>
+  </table>
+  
+
+
+      <br> <strong>Note:</strong> This is a general overview of pseudocode, flowcharts, and trace tables. Mastery of these skills will be developed progressively in the upcoming levels.
+    </div>
+
+    <center><a href="exercises.html" class="btn btn-cta" role="button">Ready to Practice</a></center>
+    <div class="footer">© IGCSE CS (0478) - Student notes prepared by Dr. Hamdeni 2026</div>
+  </div>
+</body>
+</html>

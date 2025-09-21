@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Level 1: Programming Basics</title>
+  <link rel="stylesheet" href="../levels.css">
+</head>
+<body>
+
+
+<!-- Header -->
+<div class="header">
+  <div class="container">
+    <!-- Top bar: logo + brand on the left, Home on the right -->
+    <div class="header-bar">
+      <a class="brand" href="../../dashboard.html" aria-label="Go to dashboard">
+        <img src="../logo.png" alt="logo" class="brand-logo">
+      </a>
+	  <div class="header-main">
+      <h1>Level 1: Programming Basics</h1>
+      <p>IGCSE Computer Science (0478): student notes, prepared by Dr. Hamdeni</p>
+    </div>
+     <a class="btn btn-home" href="../../dashboard.html" aria-label="Go to dashboard">
+  <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+    <path d="M3 10.5L12 3l9 7.5v9a1 1 0 0 1-1 1h-5.5a1 1 0 0 1-1-1v-5h-3v5a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-9zM5 11.1V19h3.5v-5a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v5H19v-7.9L12 5.6 5 11.1z"/>
+  </svg>
+  <span>Home</span>
+</a>
+
+    </div>
+
+    <!-- Centered title block -->
+    
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="toc">
+    <strong>Contents</strong>
+    <ol>
+      <li><a href="#s1">Introduction to basic data types: Integer, Real, Char, String, Boolean</a></li>
+      <li><a href="#s2">Declare and use variables and constants: use meaningful identifiers for Variables and Constants</a></li>
+      <li><a href="#s3">Understand and use input and output</a></li>
+      <li><a href="#s4">Clearly apply maintainability concepts from the start, including: Appropriate use of meaningful identifiers and Appropriate use of comments in code</a></li>
+      <li><a href="#s5">Understand and use sequence (step-by-step instructions)</a></li>
+      <li><a href="#s6">Understand Flowchart symbols related to start, stop, input, output and process</a></li>
+      <li><a href="#s7">Apply arithmetic operations: +, -, /, *, ^ (raised to power)</a></li>
+      <li><a href="#s8">Use arithmetic-related library routines: MOD, DIV, ROUND, RANDOM</a></li>
+      <li><a href="#s9">Apply relational operators: =, &lt;, &lt;=, &gt;, &gt;=, &lt;&gt; (not equal)</a></li>
+      <li><a href="#s10">Use logical operators: AND, OR, NOT</a></li>
+	   <li><a href="basics.pdf"
+       onclick="return openPdfPopup();"
+       target="_blank" rel="noopener"
+       aria-label="Open the Selection PDF in a centered popup window">
+      Cambridge Pseudocode Syntax
+    </a></li>
+    </ol>
+  </div>
+  <div class="section" id="s1">
+    <h2>1. Introduction to basic data types: Integer, Real, Char, String, Boolean</h2>
+    <ul class="bullets">
+      <li>The basic <strong>data types</strong> (the kind of data a variable can store) are <strong>Integer</strong> (whole number), <strong>Real</strong> (decimal number), <strong>Char</strong> (single character), <strong>String</strong> (sequence of characters), and <strong>Boolean</strong> (TRUE or FALSE).
+        <ul>
+          <li><strong>Integer</strong> stores whole numbers such as 4 or −12. Literals have no decimal point.</li>
+          <li><strong>Real</strong> stores decimal numbers such as 22.2 or 3.14.</li>
+          <li><strong>Char</strong> stores exactly one character (in quotes), for example &quot;A&quot; or &quot;9&quot;; use <strong>String</strong> for two or more characters.</li>
+          <li><strong>String</strong> stores text (in quotes), for example &quot;red&quot; or &quot;Hello&quot;.</li>
+          <li><strong>Boolean</strong> stores only TRUE or FALSE; write these in uppercase in this pseudocode.</li>
+          <li>Do not mix numbers stored as <strong>String</strong> with numeric calculations until converted; &quot;22&quot; is text, not a number.</li>
+        </ul>
+        <div class="example" >
+           <div class="title"><strong>Example: </strong> One clear assignment for each type.</div>
+          <div class="pseudocode">
+            <div class="pc-line"><span class="comment" data-tooltip="store an Integer whole number"><em>Amount ← 100</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="store a Real with a decimal part"><em>Price ← 22.4</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="store a Char value in quotes"><em>Letter ← &quot;M&quot;</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="store a String value in quotes"><em>Colour ← &quot;red&quot;</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="store a Boolean TRUE value"><em>Finished ← TRUE</em></span></div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  
+<div class="example video video-pink">  <div class="title">  Basic data types </div>
+  <div class="media">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/ugq7ig1qU8E?start=11&end=205" title="IGCSE 8.1 Basic data types (trimmed)" loading="lazy" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</div>
+</div>
+  <div class="section" id="s2">
+    <h2>2. Declare and use variables and constants: use meaningful identifiers for Variables and Constants</h2>
+    <ul class="bullets">
+      <li>A <strong>variable</strong> (named memory location) can change while the program runs; a <strong>constant</strong> is named data that must not change; both should use <strong>meaningful identifiers</strong> that describe their purpose.
+        <ul>
+          <li>An <strong>identifier</strong> is the name of a variable or constant; it should clearly reflect its role (for example, TotalPrice, NumberOfStudents).</li>
+          <li><strong>Assignment</strong> stores a value in a variable using the left arrow ←; read this as &quot;stores into&quot;.</li>
+          <li>In this pseudocode you do not need to type the arrow on your keyboard; it is a symbol that shows assignment.</li>
+        </ul>
+        <div class="example">
+           <div class="title"><strong>Example: </strong>  Declaring and assigning variables and a constant with descriptive names.</div>
+          <div class="pseudocode">
+            <div class="pc-line"><span class="comment" data-tooltip="declare an Integer variable"><em>DECLARE FirstInteger : INTEGER</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="declare a Real variable"><em>DECLARE TotalPrice : REAL</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="define a constant"><em>CONSTANT PI ← 3.142</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="assign a String to a variable"><em>StudentName ← &quot;Alice&quot;</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="assign an Integer to a variable"><em>NumberOfStudents ← 25</em></span></div>
+          </div>
+        </div>
+		
+        <div class="example" >
+          <p>Additional variable and constant, as concise practice.</p>
+          <div class="pseudocode">
+            <div class="pc-line"><span class="comment" data-tooltip="assign a String variable"><em>FavouriteColour ← &quot;blue&quot;</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="define a constant maximum score"><em>CONSTANT MaxScore ← 100</em></span></div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  
+<div class="example video video-pink">  <div class="title">  Variables and constants </div>
+  <div class="media">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/Jot4qdPjieA" title="IGCSE 8.1 Variables and constants" loading="lazy" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</div>
+</div>
+  <div class="section" id="s3">
+    <h2>3. Understand and use input and output</h2>
+    <ul class="bullets">
+      <li><strong>Input</strong> is the user entering data into the program; <strong>Output</strong> is the program displaying information to the user.
+        <ul>
+          <li><strong>INPUT</strong> reads data into variables; <strong>OUTPUT</strong> shows text, numbers, or variable values.</li>
+          <li>Use a clear <strong>prompt</strong> before INPUT to tell the user what to enter.</li>
+          <li><strong>Concatenation</strong> means joining pieces of text and values; in this pseudocode OUTPUT uses comma-separated parts.</li>
+        </ul>
+        <div class="example">
+           <div class="title"><strong>Example: </strong> Ask for a name, store it, then output a personalized message.</div>
+          <div class="pseudocode">
+            <div class="pc-line"><span class="comment" data-tooltip="show a prompt"><em>OUTPUT &quot;Please enter your name: &quot;</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="read user input into UserName"><em>INPUT UserName</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="display a message using text and a variable"><em>OUTPUT &quot;Hello &quot;, UserName, &quot;. Welcome.&quot;</em></span></div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  
+<div class="example video video-pink">  <div class="title">  User input and display output </div>
+  <div class="media">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/atC6ZU0-vAk" title="IGCSE 8.1 User input and display output" loading="lazy" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</div>
+</div>
+  <div class="section" id="s4">
+    <h2>4. Clearly apply maintainability concepts from the start, including: Appropriate use of meaningful identifiers and Appropriate use of comments in code</h2>
+    <ul class="bullets">
+      <li>A <strong>maintainable program</strong> uses meaningful identifiers and <strong>comments</strong> so future readers can understand and safely modify the code.
+        <ul>
+          <li>Good identifiers make code self-documenting; write explanations as normal sentences around the code rather than inside the pseudocode lines.</li>
+          <li>Comments are preceded by two forward slashes: //. The comment continues until the end of the line. For
+multi-line comments, each line is preceded by //.</li>
+        </ul>
+        <div class="example">
+           <div class="title"><strong>Example: </strong>  Meaningless vs meaningful names; plus a focused explanation of intent.</div>
+          <div class="pseudocode">
+            <div class="pc-line"><span class="comment" data-tooltip="not meaningful"><em>x ← 10</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="meaningful identifier"><em>TotalScore ← 10</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="poor identifier"><em>X ← 10</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="poor identifier"><em>Y ← 20</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="poor identifier addition"><em>Z ← X + Y</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="good identifier"><em>NumberOfStudents ← 10</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="good identifier"><em>NumberOfTeachers ← 20</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="comments that will not be considered. only for explanation"><em>// if admin will be considered we need to update the code</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="sum with meaningful identifiers"><em>TotalPeople ← NumberOfStudents + NumberOfTeachers</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="display the result"><em>OUTPUT &quot;Total people: &quot;, TotalPeople</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="multiply length by width to get area"><em>Area ← Length * Width</em></span></div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  
+<div class="example video video-pink">  <div class="title">  Maintainability - naming and comments </div>
+  <div class="media">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/QGH4N3VfZpA" title="IGCSE 8.1 Maintainability" loading="lazy" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</div>
+</div>
+  <div class="section" id="s5">
+    <h2>5. Understand and use sequence (step-by-step instructions)</h2>
+    <ul class="bullets">
+      <li>A <strong>sequence</strong> runs statements once each in the written order; changing the order changes the result.
+        <ul>
+          <li>Variables must be created and assigned values before they are used in calculations or output.</li>
+          <li><strong>Order matters</strong> means that swapping two lines can give a different result.</li>
+        </ul>
+        <div class="example">
+           <div class="title"><strong>Example: </strong> Summing two test scores and then showing the result.</div>
+          <div class="pseudocode">
+            <div class="pc-line"><span class="comment" data-tooltip="store first score"><em>TestScore1 ← 85</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="store second score"><em>TestScore2 ← 92</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="compute the sum"><em>TotalScore ← TestScore1 + TestScore2</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="display total"><em>OUTPUT &quot;Your total score is &quot;, TotalScore</em></span></div>
+          </div>
+        </div>
+        <div class="example">
+           <div class="title"><strong>Example: </strong> A greeting that depends on the order of inputs.</div>
+          <div class="pseudocode">
+            <div class="pc-line"><span class="comment" data-tooltip="prompt for colour"><em>OUTPUT &quot;Enter a colour&quot;</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="store colour"><em>INPUT Colour</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="prompt for name"><em>OUTPUT &quot;Enter your name&quot;</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="store name"><em>INPUT Name</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="display combined message"><em>OUTPUT Name, &quot; your favourite colour is &quot;, Colour</em></span></div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  
+<div class="example video video-pink">  <div class="title">  Sequence (step-by-step)</div>
+  <div class="media">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/QgffZbGnBvg?start=36&end=73" title="IGCSE 8.1 Sequence only (trimmed)" loading="lazy" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</div>
+</div>
+  <div class="section" id="s6">
+    <h2>6. Understand Flowchart symbols related to start, stop, input, output and process</h2>
+    <ul class="bullets">
+      <li>A <strong>flowchart</strong> is a diagram that uses standard symbols to represent the steps of an <strong>algorithm</strong> (step-by-step solution).
+        <ul>
+          <li><strong>Terminator</strong> ovals mark <strong>START</strong> and <strong>STOP</strong>.</li>
+          <li><strong>Process</strong> rectangles show actions such as calculations or assignments.</li>
+          <li><strong>Input/Output</strong> parallelograms represent reading data or displaying information.</li>
+          <li><strong>Flow lines</strong> (arrows) show execution direction, typically top to bottom.</li>
+         <img src="flowchart.png" alt="flwochart" width="400">
+        </ul>
+        <div class="example">
+           <div class="title"><strong>Example: </strong> A simple linear flow using standard symbols.</div>
+          <p>START (oval) → INPUT Number (parallelogram) → Result ← Number * 2 (rectangle) → OUTPUT Result (parallelogram) → STOP (oval)</p>
+        </div>
+      </li>
+    </ul>
+  
+<div class="example video video-pink">  <div class="title">  Flowchart symbols</div>
+  <div class="media">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/kSpUGDYBnww?start=214&end=277" title="IGCSE 7 Flowchart symbols only (trimmed)" loading="lazy" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</div>
+</div>
+  <div class="section" id="s7">
+    <h2>7. Apply arithmetic operations: +, -, /, *, ^ (raised to power)</h2>
+    <ul class="bullets">
+      <li><strong>Arithmetic operators</strong> perform calculations: + add, - subtract, * multiply, / divide, and ^ raise to a power; parentheses control evaluation order.
+        <ul>
+          
+          <li>+ adds two values.</li>
+          <li>− subtracts the second value from the first.</li>
+          <li>* multiplies two values.</li>
+          <li>/ divides the first number by the second; use <strong>DIV</strong> if you need the whole number part only.</li>
+          <li>^ is the power operator in this pseudocode; it raises the first number to the power of the second.</li>
+        
+        </ul>
+        <div class="example">
+           <div class="title"><strong>Example: </strong> Rectangle area and perimeter using + and *.</div>
+          <div class="pseudocode">
+            <div class="pc-line"><span class="comment" data-tooltip="store rectangle length"><em>Length ← 8</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="store rectangle width"><em>Width ← 5</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="compute area by multiplication"><em>Area ← Length * Width</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="compute perimeter using precedence"><em>Perimeter ← (Length + Width) * 2</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="display area"><em>OUTPUT &quot;Area is &quot;, Area</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="display perimeter"><em>OUTPUT &quot;Perimeter is &quot;, Perimeter</em></span></div>
+          </div>
+        </div>
+        <div class="example">
+           <div class="title"><strong>Example: </strong> Circle area using ^ to square the radius.</div>
+          <div class="pseudocode">
+            <div class="pc-line"><span class="comment" data-tooltip="set radius"><em>Radius ← 4</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="set pi approximation"><em>PI ← 3.142</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="compute area using power"><em>Area ← PI * Radius ^ 2</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="display area"><em>OUTPUT &quot;Circle area is &quot;, Area</em></span></div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  
+<div class="example video video-pink">  <div class="title">  Arithmetic operators</div>
+  <div class="media">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/DR_hFLPysgM?start=28&end=201" title="IGCSE 8.1 Arithmetic operators only (trimmed)" loading="lazy" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</div>
+</div>
+  <div class="section" id="s8">
+    <h2>8. Use arithmetic-related library routines: MOD, DIV, ROUND, RANDOM</h2>
+    <ul class="bullets">
+      <li><strong>Library routines</strong> perform common operations: <strong>DIV</strong> returns the whole-number result of division, <strong>MOD</strong> returns the remainder, <strong>ROUND(number, places)</strong> rounds to a chosen number of decimal places, and <strong>RANDOM(low, high)</strong> generates a number in a given range.
+        <ul>
+          <li>Using DIV and MOD together shows quotient vs remainder for the same division.</li>
+          <li>ROUND takes two parameters: the value and the number of decimal places.</li>
+        </ul>
+        <div class="example">
+           <div class="title"><strong>Example: </strong>  DIV and MOD for operands 17 and 5.</div>
+          <div class="pseudocode">
+            <div class="pc-line"><span class="comment" data-tooltip="quotient of integer division"><em>WholeResult ← DIV(17, 5)</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="remainder of the division"><em>Remainder ← MOD(17, 5)</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="display quotient and remainder"><em>OUTPUT &quot;17 divided by 5 is &quot;, WholeResult, &quot; remainder &quot;, Remainder</em></span></div>
+          </div>
+        </div>
+        <div class="example">
+           <div class="title"><strong>Example: </strong> DIV and MOD for operands 11 and 3.</div>
+          <div class="pseudocode">
+            <div class="pc-line"><span class="comment" data-tooltip="quotient of integer division"><em>Q ← DIV(11, 3)</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="remainder of the division"><em>R ← MOD(11, 3)</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="display quotient and remainder"><em>OUTPUT &quot;11 divided by 3 is &quot;, Q, &quot; remainder &quot;, R</em></span></div>
+          </div>
+        </div>
+        <div class="example">
+           <div class="title"><strong>Example: </strong> Rounding a calculated price.</div>
+          <div class="pseudocode">
+            <div class="pc-line"><span class="comment" data-tooltip="set base price"><em>Price ← 19.99</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="set tax rate"><em>TaxRate ← 0.075</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="compute total price with tax"><em>TotalPrice ← Price * (1 + TaxRate)</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="round to two decimals"><em>RoundedPrice ← ROUND(TotalPrice, 2)</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="display rounded total"><em>OUTPUT &quot;Total price is &quot;, RoundedPrice</em></span></div>
+          </div>
+        </div>
+        <div class="example">
+           <div class="title"><strong>Example: </strong> Generating a random number in a game range.</div>
+          <div class="pseudocode">
+            <div class="pc-line"><span class="comment" data-tooltip="generate random integer between 1 and 100"><em>SecretNumber ← RANDOM(1, 100)</em></span></div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  
+<div class="example video video-pink">  <div class="title">  Library routines (ROUND, RANDOM)</div>
+  <div class="media">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/1EHZ1B59T7s?start=140&end=189" title="IGCSE 8.1 Library routines - Cambridge pseudocode (trimmed)" loading="lazy" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</div>
+</div>
+  <div class="section" id="s9">
+    <h2>9. Apply relational operators: =, &lt;, &lt;=, &gt;, &gt;=, &lt;&gt; (not equal)</h2>
+    <ul class="bullets">
+      <li><strong>Relational operators</strong> compare values and return a <strong>Boolean</strong> result (TRUE or FALSE): = equal, &lt; less than, &gt; greater than, &lt;= less than or equal, &gt;= greater than or equal, &lt;&gt; not equal.
+        <ul>
+          <li>These comparisons are expressions that evaluate to TRUE or FALSE; later you will use them inside full statements.</li>
+        </ul>
+        <div class="example">
+           <div class="title"><strong>Example: </strong> Evaluated comparisons.</div>
+          <div class="pseudocode">
+            <div class="pc-line"><span class="comment" data-tooltip="comparison evaluates to TRUE"><em>10 &lt;= 10</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="comparison evaluates to FALSE"><em>11 &lt;= 10</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="comparison evaluates to FALSE"><em>10 &gt; 11</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="comparison evaluates to TRUE"><em>11 &gt; 10</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="comparison evaluates to TRUE"><em>10 &lt;&gt; 2</em></span></div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  
+<div class="example video video-pink">  <div class="title">  Comparison operators</div>
+  <div class="media">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/DR_hFLPysgM?start=201&end=289" title="IGCSE 8.1 Comparison operators only (trimmed)" loading="lazy" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</div>
+</div>
+  <div class="section" id="s10">
+    <h2>10. Use logical operators: AND, OR, NOT</h2>
+    <ul class="bullets">
+      <li>A <strong>Boolean operator</strong> combines or negates relational comparisons to produce a single TRUE or FALSE value: <strong>AND</strong> is TRUE only when both parts are TRUE; <strong>OR</strong> is TRUE when at least one part is TRUE; <strong>NOT</strong> reverses a Boolean value.
+        <ul>
+          <li>These are also expressions that produce TRUE or FALSE; you will later place them inside full statements.</li>
+        </ul>
+        <div class="example">
+           <div class="title"><strong>Example: </strong> Pure logical evaluations without control structures.</div>
+          <div class="pseudocode">
+            <div class="pc-line"><span class="comment" data-tooltip="TRUE because both parts are TRUE"><em>1 = 1 AND 2 = 2</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="FALSE because the second part is FALSE"><em>1 = 1 AND 1 &gt; 2</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="TRUE because at least one part is TRUE"><em>1 = 1 OR 1 &gt; 2</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="FALSE because NOT reverses the value"><em>NOT TRUE</em></span></div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  
+<div class="example video video-pink">  <div class="title">  Boolean operators (AND, OR, NOT)</div>
+  <div class="media">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/ddlHQ2J9O0s?start=14&end=226" title="IGCSE 8.1 Boolean operators only (trimmed)" loading="lazy" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</div>
+</div>
+  <center> <a href="exercises.html" class="btn btn-cta" role="button">Ready to Practice</a></center>
+  <div class="footer">© IGCSE CS (0478) - Student notes prepared by Dr. Hamdeni</div>
+</div>
+
+<script>
+  function openPdfPopup() {
+    var url = 'basics.pdf'; // same folder
+    var w = Math.min(1000, Math.floor(window.screen.width * 0.85));
+    var h = Math.min(800,  Math.floor(window.screen.height * 0.85));
+    var left = Math.max(0, Math.floor((window.screen.width  - w) / 2));
+    var top  = Math.max(0, Math.floor((window.screen.height - h) / 2));
+    var features = [
+      'toolbar=no','location=no','status=no','menubar=no',
+      'scrollbars=yes','resizable=yes',
+      'width=' + w,'height=' + h,'left=' + left,'top=' + top
+    ].join(',');
+    var win = window.open(url, 'selectionPdf', features);
+    if (!win) return true;   // if popup is blocked, fall back to new tab
+    win.focus();
+    return false;            // prevent default navigation when popup succeeds
+  }
+</script>
+
+
+</body>
+</html>

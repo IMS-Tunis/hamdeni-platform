@@ -2,22 +2,22 @@
 import { fetchProgressCounts } from "./supabase.js";
 
 export const levels = [
-    { title: "Introduction", id: "level1", status: "locked" },
-    { title: "Basic I/O", id: "level2", status: "locked" },
-    { title: "Conditionals", id: "level3", status: "locked" },
+    { title: "Introduction to Python", id: "level1", status: "locked" },
+    { title: "Basic I/O and Operations", id: "level2", status: "locked" },
+    { title: "Conditional Statements", id: "level3", status: "locked" },
     { title: "Loops", id: "level4", status: "locked" },
-    { title: "Functions", id: "level5", status: "locked" },
-    { title: "Lists", id: "level6", status: "locked" },
-    { title: "Strings", id: "level7", status: "locked" },
-    { title: "Dictionaries", id: "level8", status: "locked" },
-    { title: "File Handling", id: "level9", status: "locked" },
-    { title: "Debugging", id: "level10", status: "locked" },
-    { title: "OOP Basics", id: "level11", status: "locked" },
-    { title: "Advanced OOP", id: "level12", status: "locked" },
-    { title: "Modules", id: "level13", status: "locked" },
-    { title: "Recursion", id: "level14", status: "locked" },
-    { title: "Algorithms", id: "level15", status: "locked" },
-    { title: "Final Project", id: "level16", status: "locked" }
+    { title: "Lists", id: "level5", status: "locked" },
+    { title: "Strings", id: "level6", status: "locked" },
+    { title: "Functions", id: "level7", status: "locked" },
+    { title: "Recursion", id: "level8", status: "locked" },
+    { title: "Search algorithms", id: "level9", status: "locked" },
+    { title: "Sort Algorithms", id: "level10", status: "locked" },
+    { title: "Object Oriented Programming", id: "level11", status: "locked" },
+    { title: "Files and exception", id: "level12", status: "locked" },
+    { title: "Linked Lists", id: "level13", status: "locked" },
+    { title: "Stacks and Queues", id: "level14", status: "locked" },
+    { title: "Binary Trees", id: "level15", status: "locked" },
+    { title: "Implementing ADT from ATD", id: "level16", status: "locked" }
   ];
 
 export async function renderProgrammingLevels() {

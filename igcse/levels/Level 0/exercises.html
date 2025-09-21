@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Level 0 - Exercises</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../exercises.css" />
+</head>
+<body>
+  <aside class="sidebar" aria-label="Exercise navigation">
+    <div class="brand">
+      <div class="logo">0478</div>
+      <div class="brand-text">
+        <div class="title">Level 0</div>
+        <div class="subtitle">Theory Foundations</div>
+      </div>
+    </div>
+
+    <nav class="nav" id="nav"></nav>
+
+    <div class="sidebar-footer">
+      <button id="expandAll" class="btn ghost">Show all mark schemes</button>
+      <button id="collapseAll" class="btn ghost">Hide all mark schemes</button>
+    </div>
+  </aside>
+
+
+
+
+  <main class="content">
+
+<div class="content-section">
+    <section class="footer" aria-label="Instructions" style="margin:0;">
+        <h2 style="margin:0 0 8px 0; font-size:1.05rem; font-weight:700;">Before you start</h2>
+        <ul style="margin:0; padding-left:2rem; font-size:small">
+            <li>Work through the exercises. Reveal the mark scheme when you are ready to check your answer.</li>
+            <li>The teacher is available to explain any exercises you did not understand.</li>
+            <li>When you are ready, inform the teacher to sit for the level pass test and unlock the next level.</li>
+        </ul>
+    </section>
+
+    <div class="button-container">
+        <a href="../../dashboard.html" class="nav-button btn-outlined btn-home-outlined">🏠 Home</a>
+		<a href="notes.html" class="nav-button btn-outlined btn-theory-outlined">📚 Theory Notes</a>
+    </div>
+</div>
+	
+
+    <section id="pointsContainer" class="points-container" aria-live="polite"></section>
+
+    <footer class="footer" style="display:flex;gap:12px;align-items:center;">
+      <button class="btn" type="button">I need help</button>
+      <button class="btn" type="button">I'm ready for the test</button>
+    </footer>
+  </main>
+
+  <!-- Embedded JSON used by exercises.js -->
+  <script id="data" type="application/json">
+{
+  "brand": {
+    "title": "Level 0",
+    "subtitle": "Theory Foundations"
+  },
+  "data": [
+    {
+      "title": "All Exercises",
+      "items": [
+
+        {
+          "question": "Choose the correct option to identify a method used to design and construct a solution to a computing problem.\n\nOptions:\nA. analysis\nB. coding\nC. flowchart\nD. testing",
+          "question_self_contained": "Choose the correct option to identify a method used to design and construct a solution to a computing problem.\n\nOptions:\nA. analysis\nB. coding\nC. flowchart\nD. testing",
+          "mark_scheme_answer": "Correct answer: C\n\nMark points:\n• Flowcharts are a design tool used to plan the steps of a solution before coding.\n• Analysis and testing are stages in the PDLC; coding is implementation, not a design method.",
+          "explanation": "A flowchart is a simple diagram that shows the steps and decisions in a problem. You use it to plan before writing code.",
+          "marks_allocation": "[1]"
+        },
+
+        {
+          "question": "Choose the correct option to identify persistent storage.\n\nOptions:\nA. variable Counter\nB. array Marks stored in RAM\nC. file saved on a USB stick\nD. constant PI",
+          "question_self_contained": "Choose the correct option to identify persistent storage.\n\nOptions:\nA. variable Counter\nB. array Marks stored in RAM\nC. file saved on a USB stick\nD. constant PI",
+          "mark_scheme_answer": "Correct answer: C\n\nMark points:\n• Persistent storage keeps data after the program stops.\n• A file on a USB stick is saved to a device; RAM contents (variables/arrays) are lost when power is off.",
+          "explanation": "Persistent means the data stays even after the computer is turned off. Files saved to a device stay. RAM does not.",
+          "marks_allocation": "[1]"
+        },
+
+        {
+          "question": "Choose the correct option to identify iterative modular testing.\n\nOptions:\nA. testing only after deployment\nB. testing each module during development and repeating tests after changes\nC. coding with no tests\nD. only user acceptance testing",
+          "question_self_contained": "Choose the correct option to identify iterative modular testing.\n\nOptions:\nA. testing only after deployment\nB. testing each module during development and repeating tests after changes\nC. coding with no tests\nD. only user acceptance testing",
+          "mark_scheme_answer": "Correct answer: B\n\nMark points:\n• Iterative modular testing is carried out during development on each module.\n• Tests are repeated as code is amended until the module works as required.",
+          "explanation": "Build a small piece, test it, fix it, test again. Repeat for each piece. That is iterative modular testing.",
+          "marks_allocation": "[1]"
+        },
+
+        {
+          "question": "State the four phases of the program development life cycle in order.",
+          "question_self_contained": "State the four phases of the program development life cycle in order.",
+          "mark_scheme_answer": "Correct order:\n1) Analysis\n2) Design\n3) Coding\n4) Testing",
+          "explanation": "First understand the problem (analysis), then plan a solution (design), then write code (coding), then check it works (testing).",
+          "marks_allocation": "[2]"
+        },
+
+        {
+          "question": "What is a sub-system?\n\nGive two examples of sub-systems in a school management system.",
+          "question_self_contained": "What is a sub-system?\n\nGive two examples of sub-systems in a school management system.",
+          "mark_scheme_answer": "Mark points:\n• A sub-system is a smaller part of a larger system that performs a single, clear action.\n• Any two suitable examples, e.g. Attendance system, Gradebook, Timetable manager, Fee management.",
+          "explanation": "A sub-system is one part that does one job. In a school system, examples include attendance, grading, or timetables.",
+          "marks_allocation": "[4]"
+        },
+
+        {
+          "question": "Match each of the following descriptions to the correct IPOS category:\n\n• The user enters two numbers and an operator\n• The calculator applies the chosen operation\n• The result is displayed on screen\n• The calculator stores the result in memory\n\nCategories: Input, Process, Output, Storage",
+          "question_self_contained": "Match each of the following descriptions to the correct IPOS category:\n\n• The user enters two numbers and an operator\n• The calculator applies the chosen operation\n• The result is displayed on screen\n• The calculator stores the result in memory\n\nCategories: Input, Process, Output, Storage",
+          "mark_scheme_answer": "Answers:\n• Input → The user enters two numbers and an operator\n• Process → The calculator applies the chosen operation\n• Output → The result is displayed on screen\n• Storage → The result is stored in memory",
+          "explanation": "Think of IPOS as: Input (data in), Process (work done), Output (information out), Storage (keep data for later).",
+          "marks_allocation": "[4]"
+        },
+
+        {
+          "question": "Classify each of the following into the correct computer system component:\n\n• Keyboard\n• Operating system\n• Customer records\n• Wi-Fi router\n• Technician",
+          "question_self_contained": "Classify each of the following into the correct computer system component:\n\n• Keyboard\n• Operating system\n• Customer records\n• Wi-Fi router\n• Technician",
+          "mark_scheme_answer": "Correct classification:\n• Keyboard → Hardware\n• Operating system → Software\n• Customer records → Data\n• Wi-Fi router → Communications\n• Technician → People",
+          "explanation": "Hardware = physical parts. Software = programs. Data = information stored. Communications = network equipment/links. People = users/technicians.",
+          "marks_allocation": "[4]"
+        },
+
+        {
+          "question": "Describe the difference between modular testing and final testing.\n\nInclude one benefit of each type of testing.",
+          "question_self_contained": "Describe the difference between modular testing and final testing.\n\nInclude one benefit of each type of testing.",
+          "mark_scheme_answer": "Mark points:\n• Modular testing: test individual modules during development; repeat tests after changes.\n• Benefit: errors are found early; easier to fix in isolation.\n\n• Final testing: test the complete program after integration.\n• Benefit: confirms tasks work together and requirements are met.",
+          "explanation": "Modular testing: test small pieces as you build them. Benefit: quick to find and fix mistakes.\nFinal testing: test the whole program at the end. Benefit: checks everything works together correctly.",
+          "marks_allocation": "[4]"
+        },
+
+        {
+          "question": "Explain the purpose of using test data during program development.\n\nGive one specific example of a test data type.",
+          "question_self_contained": "Explain the purpose of using test data during program development.\n\nGive one specific example of a test data type.",
+          "mark_scheme_answer": "Mark points:\n• Test data is used to confirm correctness, find logic/runtime errors, and check that invalid data is rejected.\n• One valid example of a test data type, e.g. boundary, extreme, normal, abnormal.",
+          "explanation": "We try different kinds of inputs to prove the program behaves properly: normal (typical), abnormal (invalid), extreme (ends), and boundary (just inside/outside).",
+          "marks_allocation": "[3]"
+        },
+
+        {
+          "question": "List three tasks that are carried out during the analysis stage of program development.",
+          "question_self_contained": "List three tasks that are carried out during the analysis stage of program development.",
+          "mark_scheme_answer": "Any three:\n• Identify the problem\n• Produce a clear requirements specification (what the program must do and how it will be checked)\n• Apply abstraction (remove non-essential details)\n• Apply decomposition (split into smaller tasks/modules)",
+          "explanation": "Analysis means: understand the problem, write a short list of what the program must do and how you will check it, and tidy the problem by focusing on essentials and splitting it into smaller parts.",
+          "marks_allocation": "[3]"
+        },
+
+        {
+          "question": "Give one example of test data for each of the following types when entering a number between 1 and 20:\n\n• Normal\n• Abnormal\n• Extreme\n• Boundary low\n• Boundary high",
+          "question_self_contained": "Give one example of test data for each of the following types when entering a number between 1 and 20:\n\n• Normal\n• Abnormal\n• Extreme\n• Boundary low\n• Boundary high",
+          "mark_scheme_answer": "Examples:\n• Normal: 10\n• Abnormal: −5 or \"abc\"\n• Extreme: 1 or 20\n• Boundary low: 0 and 1\n• Boundary high: 20 and 21",
+          "explanation": "Normal is a typical valid number. Abnormal is wrong type or outside the limits. Extreme sits at the ends of the valid range. Boundary checks just below/just above the limits.",
+          "marks_allocation": "[5]"
+        },
+
+        {
+          "question": "Explain the difference between abstraction and decomposition.\n\nGive one example of each.",
+          "question_self_contained": "Explain the difference between abstraction and decomposition.\n\nGive one example of each.",
+          "mark_scheme_answer": "Mark points:\n• Abstraction: keep only essential details; remove non-essential information.\n• Example: a road map shows roads/junctions only.\n\n• Decomposition: split a large problem into smaller parts/modules.\n• Example: getting dressed → choose items, remove current clothing, put on items in order.",
+          "explanation": "Abstraction: focus on what matters and hide the rest (like a map that only shows what you need). Decomposition: split a big job into small steps you can do one by one.",
+          "marks_allocation": "[6]"
+        },
+
+        {
+          "question": "Decompose a self-service checkout system into the four categories of Input, Process, Output, and Storage (IPOS).",
+          "question_self_contained": "Decompose a self-service checkout system into the four categories of Input, Process, Output, and Storage (IPOS).",
+          "mark_scheme_answer": "IPOS breakdown:\n• Input: scan items, accept payment\n• Process: calculate totals\n• Output: print receipt\n• Storage: update inventory",
+          "explanation": "Sort each action by what it does: Input (data comes in), Process (work done), Output (information shown/printed), Storage (values saved for later).",
+          "marks_allocation": "[5]"
+        }
+
+      ]
+    }
+  ]
+}
+  </script>
+
+  <!-- Make sure your exercises.js is the UPDATED version that reads explanation from JSON (no default text). -->
+  <script src="../exercises.js"></script>
+</body>
+</html>

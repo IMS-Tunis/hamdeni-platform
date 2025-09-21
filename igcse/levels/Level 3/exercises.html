@@ -1,0 +1,257 @@
+<!-- index.html (updated: top guidance in old grey style, not inside a question card) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Level 3 - FOR loop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../exercises.css" />
+</head>
+<body>
+  <aside class="sidebar" aria-label="Exercise navigation">
+    <div class="brand">
+      <div class="logo"> <center>CS <br> 0478<br></center> </div>
+      <div class="brand-text">
+        <div class="title">Level 3</div>
+        <div class="subtitle">FOR loop</div>
+      </div>
+    </div>
+
+    <nav class="nav" id="nav"></nav>
+
+    <div class="sidebar-footer">
+      <button id="expandAll" class="btn ghost">Show all mark schemes</button>
+      <button id="collapseAll" class="btn ghost">Hide all mark schemes</button>
+    </div>
+  </aside>
+
+
+
+
+  <main class="content">
+    <!-- Guidance moved to the beginning, using the same grey footer-style block -->
+	
+
+<div class="content-section">
+    <section class="footer" aria-label="Instructions" style="margin:0;">
+        <h2 style="margin:0 0 8px 0; font-size:1.05rem; font-weight:700;">Before you start</h2>
+        <ul style="margin:0; padding-left:2rem; font-size:small">
+            <li>Work through the exercises. Reveal the mark scheme when you are ready to check your answer.</li>
+            <li>The teacher is available to explain any exercises you did not understand.</li>
+            <li>When you are ready, inform the teacher to sit for the level pass test and unlock the next level.</li>
+        </ul>
+    </section>
+
+    <div class="button-container">
+        <a href="../../dashboard.html" class="nav-button btn-outlined btn-home-outlined">🏠 Home</a>
+		<a href="notes.html" class="nav-button btn-outlined btn-theory-outlined">📚 Theory Notes</a>
+    </div>
+</div>
+	
+	
+    <!-- Exercises render here -->
+    <section id="pointsContainer" class="points-container" aria-live="polite"></section>
+
+    <!-- Action buttons at end of page -->
+    <footer class="footer" style="display:flex;gap:12px;align-items:center;">
+      <button class="btn" type="button">I need help</button>
+      <button class="btn" type="button">I'm ready for the test</button>
+    </footer>
+  </main>
+
+  <!-- Embedded JSON (MCQ formatted; CASE use explicit; expanded explanations) -->
+  <script id="data" type="application/json">
+
+
+{
+  "data": [
+    {
+      "title": "Level 3 - Iteration: FOR and Nested FOR",
+      "items": [
+        {
+          "question": "Predict the exact output. Each OUTPUT appears on its own line.\n\nPseudocode:\nFOR i ← 1 TO 5\n    OUTPUT i\nNEXT i",
+          "question_self_contained": "Predict the exact output. Each OUTPUT appears on its own line.\n\nPseudocode:\nFOR i ← 1 TO 5\n    OUTPUT i\nNEXT i",
+          "mark_scheme_answer": "1\n2\n3\n4\n5",
+          "explanation": "The loop iterates i = 1..5 inclusive and prints i each time."
+        },
+        {
+          "question": "Fill in the blanks to print 1, 2, 3, 4 on separate lines.\n\nPseudocode:\nFOR _____ ← 1 TO _____\n    OUTPUT _____\nNEXT _____",
+          "question_self_contained": "Fill in the blanks to print 1, 2, 3, 4 on separate lines.\n\nPseudocode:\nFOR _____ ← 1 TO _____\n    OUTPUT _____\nNEXT _____",
+          "mark_scheme_answer": "Solution:\nFOR i ← 1 TO 4\n    OUTPUT i\nNEXT i",
+          "explanation": "Bounds 1..4 produce four outputs. The control variable must be the same in FOR, OUTPUT, and NEXT."
+        },
+        {
+          "question": "Which single option is valid IGCSE-style count-controlled loop syntax?\n\nOptions:\nA) FOR i = 1 UNTIL 10\n    OUTPUT i\nEND FOR\nB) FOR i ← 1 TO 10\n    OUTPUT i\nNEXT i\nC) FOR i ← 1 TO 10\n    OUTPUT i",
+          "question_self_contained": "Which single option is valid IGCSE-style count-controlled loop syntax?\n\nOptions:\nA) FOR i = 1 UNTIL 10\n    OUTPUT i\nEND FOR\nB) FOR i ← 1 TO 10\n    OUTPUT i\nNEXT i\nC) FOR i ← 1 TO 10\n    OUTPUT i",
+          "mark_scheme_answer": "B",
+          "explanation": "Option B uses the correct FOR..TO..NEXT structure. Option A mixes non-standard keywords; Option C omits NEXT i."
+        },
+        {
+          "question": "How many lines are printed?\n\nPseudocode:\nFOR k ← 2 TO 10 STEP 2\n    OUTPUT \"X\"\nNEXT k",
+          "question_self_contained": "How many lines are printed?\n\nPseudocode:\nFOR k ← 2 TO 10 STEP 2\n    OUTPUT \"X\"\nNEXT k",
+          "mark_scheme_answer": "5",
+          "explanation": "Values 2, 4, 6, 8, 10 give five iterations with STEP 2."
+        },
+        {
+          "question": "Rewrite the repeated outputs as a FOR loop that prints six lines.\n\nPseudocode:\nOUTPUT \"Hello\"\nOUTPUT \"Hello\"\nOUTPUT \"Hello\"\nOUTPUT \"Hello\"\nOUTPUT \"Hello\"\nOUTPUT \"Hello\"",
+          "question_self_contained": "Rewrite the repeated outputs as a FOR loop that prints six lines.\n\nPseudocode:\nOUTPUT \"Hello\"\nOUTPUT \"Hello\"\nOUTPUT \"Hello\"\nOUTPUT \"Hello\"\nOUTPUT \"Hello\"\nOUTPUT \"Hello\"",
+          "mark_scheme_answer": "Solution:\nFOR i ← 1 TO 6\n    OUTPUT \"Hello\"\nNEXT i",
+          "explanation": "A FOR loop with bounds 1..6 repeats the same output six times."
+        },
+        {
+          "question": "Choose the correct answer about producing exactly 10 outputs with STEP 1 (default).\n\nOptions:\nA) FOR n ← 0 TO 9\nB) FOR n ← 1 TO 10\nC) FOR n ← 2 TO 11\nD) All of the above",
+          "question_self_contained": "Choose the correct answer about producing exactly 10 outputs with STEP 1 (default).\n\nOptions:\nA) FOR n ← 0 TO 9\nB) FOR n ← 1 TO 10\nC) FOR n ← 2 TO 11\nD) All of the above",
+          "mark_scheme_answer": "D",
+          "explanation": "All three ranges give 10 iterations with STEP 1; therefore D is correct."
+        },
+        {
+          "question": "Predict the exact output. Each OUTPUT appears on its own line.\n\nPseudocode:\nFOR i ← 1 TO 6\n    IF i = 3 THEN\n        OUTPUT \"skip\"\n    ENDIF\n    OUTPUT i\nNEXT i",
+          "question_self_contained": "Predict the exact output. Each OUTPUT appears on its own line.\n\nPseudocode:\nFOR i ← 1 TO 6\n    IF i = 3 THEN\n        OUTPUT \"skip\"\n    ENDIF\n    OUTPUT i\nNEXT i",
+          "mark_scheme_answer": "1\n2\nskip\n3\n4\n5\n6",
+          "explanation": "At i = 3, both lines print: first \"skip\", then 3."
+        },
+        {
+          "question": "Fill in the blanks so the program prints 2, 4, 6, 8, 10 each on a new line. Assume STEP 1; use IF inside the loop (do not change STEP).\n\nPseudocode:\nFOR x ← 1 TO 10\n    IF __________ THEN\n        OUTPUT __________\n    ENDIF\nNEXT x",
+          "question_self_contained": "Fill in the blanks so the program prints 2, 4, 6, 8, 10 each on a new line. Assume STEP 1; use IF inside the loop (do not change STEP).\n\nPseudocode:\nFOR x ← 1 TO 10\n    IF __________ THEN\n        OUTPUT __________\n    ENDIF\nNEXT x",
+          "mark_scheme_answer": "Solution:\nFOR x ← 1 TO 10\n    IF x MOD 2 = 0 THEN\n        OUTPUT x\n    ENDIF\nNEXT x",
+          "explanation": "The condition selects even x; the loop still advances by STEP 1."
+        },
+        {
+          "question": "Find the final value of X after the loop finishes. Each OUTPUT appears on its own line.\n\nPseudocode:\nX ← 0\nFOR i ← 1 TO 7\n    X ← i * 3\nNEXT i\nOUTPUT X",
+          "question_self_contained": "Find the final value of X after the loop finishes. Each OUTPUT appears on its own line.\n\nPseudocode:\nX ← 0\nFOR i ← 1 TO 7\n    X ← i * 3\nNEXT i\nOUTPUT X",
+          "mark_scheme_answer": "21",
+          "explanation": "X is overwritten each iteration. Final i = 7, so X = 7 * 3."
+        },
+        {
+          "question": "Exactly five lines must be printed. Which loop does that?\n\nOptions:\nA) FOR t ← 0 TO 4\n    OUTPUT \"tick\"\nNEXT t\nB) FOR t ← 1 TO 5\n    OUTPUT \"tick\"\nNEXT t\nC) A and B",
+          "question_self_contained": "Exactly five lines must be printed. Which loop does that?\n\nOptions:\nA) FOR t ← 0 TO 4\n    OUTPUT \"tick\"\nNEXT t\nB) FOR t ← 1 TO 5\n    OUTPUT \"tick\"\nNEXT t\nC) A and B",
+          "mark_scheme_answer": "C",
+          "explanation": "Bounds 0..4 and 1..5 both give 5 iterations."
+        },
+        {
+          "question": "Provide any one valid pair of bounds that results in exactly eight iterations. Assume default STEP 1; do not override STEP.",
+          "question_self_contained": "Provide any one valid pair of bounds that results in exactly eight iterations. Assume default STEP 1; do not override STEP.",
+          "mark_scheme_answer": "Example solution:\nFOR j ← 3 TO 10\n    OUTPUT j\nNEXT j",
+          "explanation": "Inclusive bounds 3..10 give exactly 8 iterations."
+        },
+        {
+          "question": "This program is incorrect because it assigns to the loop counter. Do not change the code; state how many times \"Hello\" is printed.\n\nPseudocode:\ni ← 1\nFOR i ← 1 TO 4\n    OUTPUT \"Hello\"\n    i ← i + 1\nNEXT i",
+          "question_self_contained": "This program is incorrect because it assigns to the loop counter. Do not change the code; state how many times \"Hello\" is printed.\n\nPseudocode:\ni ← 1\nFOR i ← 1 TO 4\n    OUTPUT \"Hello\"\n    i ← i + 1\nNEXT i",
+          "mark_scheme_answer": "2",
+          "explanation": "FOR already increments i. The extra increment causes i to advance by 2 each pass, so only two iterations print. This is poor style and should not be written; it appears here only for reasoning about behaviour."
+        },
+        {
+          "question": "Determine the number of output lines and list the lines in order. Each OUTPUT appears on its own line.\n\nPseudocode:\nFOR n ← 1 TO 12\n    IF n < 3 OR n > 10 THEN\n        OUTPUT \"Edge\"\n    ENDIF\n    IF n = 6 THEN\n        OUTPUT \"Middle\"\n    ENDIF\nNEXT n",
+          "question_self_contained": "Determine the number of output lines and list the lines in order. Each OUTPUT appears on its own line.\n\nPseudocode:\nFOR n ← 1 TO 12\n    IF n < 3 OR n > 10 THEN\n        OUTPUT \"Edge\"\n    ENDIF\n    IF n = 6 THEN\n        OUTPUT \"Middle\"\n    ENDIF\nNEXT n",
+          "mark_scheme_answer": "Edge\nEdge\nMiddle\nEdge\nEdge\nCount: 5",
+          "explanation": "Edges at n = 1, 2, 11, 12 and Middle at n = 6."
+        },
+        {
+          "question": "Predict the exact output. No arrays and no totals. Each OUTPUT appears on its own line.\n\nPseudocode:\nFOR i ← 1 TO 9\n    IF i * i <= 50 THEN\n        OUTPUT i * i\n    ENDIF\nNEXT i",
+          "question_self_contained": "Predict the exact output. No arrays and no totals. Each OUTPUT appears on its own line.\n\nPseudocode:\nFOR i ← 1 TO 9\n    IF i * i <= 50 THEN\n        OUTPUT i * i\n    ENDIF\nNEXT i",
+          "mark_scheme_answer": "1\n4\n9\n16\n25\n36\n49",
+          "explanation": "Squares up to 7^2 = 49 satisfy the condition."
+        },
+        {
+          "question": "Fill in the blanks to print exactly the numbers 5, 6, 7, 8, 9, each on a new line.\n\nPseudocode:\nFOR m ← _____ TO _____\n    IF m >= 5 AND m <= 9 THEN\n        OUTPUT m\n    ENDIF\nNEXT m",
+          "question_self_contained": "Fill in the blanks to print exactly the numbers 5, 6, 7, 8, 9, each on a new line.\n\nPseudocode:\nFOR m ← _____ TO _____\n    IF m >= 5 AND m <= 9 THEN\n        OUTPUT m\n    ENDIF\nNEXT m",
+          "mark_scheme_answer": "Solution:\nFOR m ← 5 TO 9\n    IF m >= 5 AND m <= 9 THEN\n        OUTPUT m\n    ENDIF\nNEXT m",
+          "explanation": "Bounds 5..9 ensure exactly five outputs; the IF is redundant but valid."
+        },
+        {
+          "question": "Two loops in sequence, not nested. State the complete output, line by line.\n\nPseudocode:\nFOR a ← 1 TO 3\n    OUTPUT \"A\"\nNEXT a\nFOR b ← 2 TO 4\n    OUTPUT \"B\"\nNEXT b",
+          "question_self_contained": "Two loops in sequence, not nested. State the complete output, line by line.\n\nPseudocode:\nFOR a ← 1 TO 3\n    OUTPUT \"A\"\nNEXT a\nFOR b ← 2 TO 4\n    OUTPUT \"B\"\nNEXT b",
+          "mark_scheme_answer": "A\nA\nA\nB\nB\nB",
+          "explanation": "First loop outputs three A lines, second loop outputs three B lines."
+        },
+        {
+          "question": "State the complete output, line by line.\n\nPseudocode:\nFOR p ← 1 TO 5\n    IF p < 4 THEN\n        OUTPUT \"Line\"\n        OUTPUT p\n    ENDIF\nNEXT p",
+          "question_self_contained": "State the complete output, line by line.\n\nPseudocode:\nFOR p ← 1 TO 5\n    IF p < 4 THEN\n        OUTPUT \"Line\"\n        OUTPUT p\n    ENDIF\nNEXT p",
+          "mark_scheme_answer": "Line\n1\nLine\n2\nLine\n3",
+          "explanation": "Two outputs for each qualifying p: first the word, then the number on the next line."
+        },
+        {
+          "question": "Replace the question marks with integers so the program prints exactly three outputs: 4, 5, 6. Do not use STEP.\n\nPseudocode:\nFOR q ← ? TO ?\n    OUTPUT q\nNEXT q",
+          "question_self_contained": "Replace the question marks with integers so the program prints exactly three outputs: 4, 5, 6. Do not use STEP.\n\nPseudocode:\nFOR q ← ? TO ?\n    OUTPUT q\nNEXT q",
+          "mark_scheme_answer": "Solution:\nFOR q ← 4 TO 6\n    OUTPUT q\nNEXT q",
+          "explanation": "Inclusive bounds 4..6 produce exactly three outputs."
+        },
+        {
+          "question": "Predict the output for a FOR loop with positive STEP.\n\nPseudocode:\nFOR i ← 2 TO 10 STEP 2\n    OUTPUT i\nNEXT i",
+          "question_self_contained": "Predict the output for a FOR loop with positive STEP.\n\nPseudocode:\nFOR i ← 2 TO 10 STEP 2\n    OUTPUT i\nNEXT i",
+          "mark_scheme_answer": "2\n4\n6\n8\n10",
+          "explanation": "STEP 2 lists even numbers from 2 to 10 inclusive."
+        },
+        {
+          "question": "How many lines are printed when counting down with STEP −3?\n\nPseudocode:\nFOR n ← 9 TO 1 STEP -3\n    OUTPUT n\nNEXT n",
+          "question_self_contained": "How many lines are printed when counting down with STEP −3?\n\nPseudocode:\nFOR n ← 9 TO 1 STEP -3\n    OUTPUT n\nNEXT n",
+          "mark_scheme_answer": "3",
+          "explanation": "Outputs are 9, 6, 3. Next would be 0, which passes the end."
+        },
+        {
+          "question": "Predict the output when STEP does not land exactly on the end value.\n\nPseudocode:\nFOR j ← 1 TO 10 STEP 4\n    OUTPUT j\nNEXT j",
+          "question_self_contained": "Predict the output when STEP does not land exactly on the end value.\n\nPseudocode:\nFOR j ← 1 TO 10 STEP 4\n    OUTPUT j\nNEXT j",
+          "mark_scheme_answer": "1\n5\n9",
+          "explanation": "Sequence is 1, 5, 9; next value 13 would pass 10."
+        },
+        {
+          "question": "List the ordered pairs printed by the nested loops. Assume that OUTPUT with two items prints them on one line separated by a space.\n\nPseudocode:\nFOR r ← 1 TO 2\n    FOR c ← 3 TO 4\n        OUTPUT r, c\n    NEXT c\nNEXT r",
+          "question_self_contained": "List the ordered pairs printed by the nested loops. Assume that OUTPUT with two items prints them on one line separated by a space.\n\nPseudocode:\nFOR r ← 1 TO 2\n    FOR c ← 3 TO 4\n        OUTPUT r, c\n    NEXT c\nNEXT r",
+          "mark_scheme_answer": "1 3\n1 4\n2 3\n2 4",
+          "explanation": "Inner completes for each outer value; total 2×2 = 4 pairs."
+        },
+        {
+          "question": "Count the number of asterisks printed.\n\nPseudocode:\nFOR a ← 1 TO 3\n    FOR b ← 1 TO 5\n        IF (a * b) MOD 2 = 0 THEN\n            OUTPUT \"*\"\n        ENDIF\n    NEXT b\nNEXT a",
+          "question_self_contained": "Count the number of asterisks printed.\n\nPseudocode:\nFOR a ← 1 TO 3\n    FOR b ← 1 TO 5\n        IF (a * b) MOD 2 = 0 THEN\n            OUTPUT \"*\"\n        ENDIF\n    NEXT b\nNEXT a",
+          "mark_scheme_answer": "9",
+          "explanation": "Even products among 15 pairs: a = 1 → 2; a = 2 → 5; a = 3 → 2; total 9."
+        }
+      ]
+    }
+  ]
+}
+  </script>
+
+<!-- APPEND: Mock Test modal -->
+<div id="mockTestModal" class="mock-modal" aria-hidden="true" role="dialog" aria-labelledby="mockTestTitle">
+  <div class="mock-modal-card">
+    <div class="mock-modal-header">
+      <h3 id="mockTestTitle" style="margin:0;">Mock Test</h3>
+      <button class="mock-close" id="closeMockTest" aria-label="Close">×</button>
+    </div>
+    <div class="mock-modal-body">
+      <!-- JSON will populate this code block with the question -->
+      <div class="mock-code" aria-label="Pseudocode"></div>
+
+      <div id="mockTestAnswer" class="mock-hidden" aria-live="polite">
+        <h4 style="margin:16px 0 8px 0;">Answer</h4>
+        <div class="mock-code"></div>
+        <p></p>
+      </div>
+    </div>
+    <div class="mock-modal-actions footer">
+      <button class="btn" id="toggleMockAnswer" type="button" aria-expanded="false" aria-controls="mockTestAnswer">Show answer</button>
+      <button class="btn ghost" id="dismissMockTest" type="button">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- APPEND: mock test JSON payload -->
+<script id="mockTestData" type="application/json">
+{
+  "mock_test": {
+    "title": "Mock Test - Level 3: Count-controlled loops",
+    "question": "Predict the exact output. Each OUTPUT appears on its own line.\n\nPseudocode:\nFOR r \u2190 1 TO 3\n    FOR c \u2190 2 TO 4\n        IF (r + c) MOD 2 = 0 THEN\n            OUTPUT r, c\n        ENDIF\n    NEXT c\nNEXT r",
+    "question_self_contained": "Predict the exact output produced by the following pseudocode. Each OUTPUT appears on its own line. Variables r and c are integers.\n\nPseudocode:\nFOR r \u2190 1 TO 3\n    FOR c \u2190 2 TO 4\n        IF (r + c) MOD 2 = 0 THEN\n            OUTPUT r, c\n        ENDIF\n    NEXT c\nNEXT r",
+    "mark_scheme_answer": "1 3\n2 2\n2 4\n3 3",
+    "explanation": "The program prints pairs where r + c is even. For r in {1,2,3} and c in {2,3,4}, the even sums are (1,3), (2,2), (2,4), (3,3).",
+    "marks_allocation": "[4]"
+  }
+}
+</script>
+  <script src="../exercises.js"></script>
+</body>
+</html>

@@ -1,0 +1,275 @@
+<!-- index.html (updated: top guidance in old grey style, not inside a question card) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Level 2 - Exercises</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../exercises.css" />
+</head>
+<body>
+  <aside class="sidebar" aria-label="Exercise navigation">
+    <div class="brand">
+      <div class="logo"> <center>CS <br> 0478<br></center> </div>
+      <div class="brand-text">
+        <div class="title">Level 2</div>
+        <div class="subtitle">Selection statements</div>
+      </div>
+    </div>
+
+    <nav class="nav" id="nav"></nav>
+
+    <div class="sidebar-footer">
+      <button id="expandAll" class="btn ghost">Show all mark schemes</button>
+      <button id="collapseAll" class="btn ghost">Hide all mark schemes</button>
+    </div>
+  </aside>
+
+
+
+
+  <main class="content">
+    <!-- Guidance moved to the beginning, using the same grey footer-style block -->
+	
+
+<div class="content-section">
+    <section class="footer" aria-label="Instructions" style="margin:0;">
+        <h2 style="margin:0 0 8px 0; font-size:1.05rem; font-weight:700;">Before you start</h2>
+        <ul style="margin:0; padding-left:2rem; font-size:small">
+            <li>Work through the exercises. Reveal the mark scheme when you are ready to check your answer.</li>
+            <li>The teacher is available to explain any exercises you did not understand.</li>
+            <li>When you are ready, inform the teacher to sit for the level pass test and unlock the next level.</li>
+        </ul>
+    </section>
+
+    <div class="button-container">
+        <a href="../../dashboard.html" class="nav-button btn-outlined btn-home-outlined">🏠 Home</a>
+		<a href="notes.html" class="nav-button btn-outlined btn-theory-outlined">📚 Theory Notes</a>
+    </div>
+</div>
+	
+	
+    <!-- Exercises render here -->
+    <section id="pointsContainer" class="points-container" aria-live="polite"></section>
+
+    <!-- Action buttons at end of page -->
+    <footer class="footer" style="display:flex;gap:12px;align-items:center;">
+      <button class="btn" type="button">I need help</button>
+      <button class="btn" type="button">I'm ready for the test</button>
+    </footer>
+  </main>
+
+  <!-- Embedded JSON (MCQ formatted; CASE use explicit; expanded explanations) -->
+  <script id="data" type="application/json">
+{
+  "data": [
+    {
+      "point_id": "LEVEL_2.SELECTION",
+      "items": [
+        {
+          "question": "MCQ recognition of selection",
+          "question_self_contained": "Select the option (A–D) that shows a pseudocode selection statement.\n\nOptions:\nA) CALL Sort(Value1, Value2)\nB) DECLARE Count : INTEGER\nC) IF X = 7\n   THEN\n     Y ← 21\n   ENDIF\nD) Total ← X + Y",
+          "mark_scheme_answer": "C",
+          "explanation": "Selection chooses between paths based on a condition. C is an IF…THEN…ENDIF construct. A and B are not selection; D is a simple assignment."
+        },
+        {
+          "question": "Equality Check",
+          "question_self_contained": "Write pseudocode that reads two integers A and B, then outputs Equal if the two values are the same; otherwise outputs Not equal. Inputs are valid integers.",
+          "mark_scheme_answer": "INPUT A\nINPUT B\nIF A = B\n  THEN\n    OUTPUT \"Equal\"\nELSE\n    OUTPUT \"Not equal\"\nENDIF",
+          "explanation": "Use = to compare for equality; outcomes are mutually exclusive."
+        },
+        {
+          "question": "Below Freezing",
+          "question_self_contained": "Write pseudocode that reads an integer Temperature in degrees Celsius, then outputs Below freezing if the temperature is less than zero; otherwise outputs Not below freezing. Inputs are valid integers.",
+          "mark_scheme_answer": "INPUT Temperature\nIF Temperature < 0\n  THEN\n    OUTPUT \"Below freezing\"\nELSE\n    OUTPUT \"Not below freezing\"\nENDIF",
+          "explanation": "Strictly less than 0 goes to the first branch; 0 and above go to ELSE."
+        },
+        {
+          "question": "Pass or Fail",
+          "question_self_contained": "Write pseudocode that reads an integer Mark in the range 0 to 100 (inclusive), then decides Pass if the mark is at least 50; otherwise decides Fail, and outputs the decision.",
+          "mark_scheme_answer": "INPUT Mark\nIF Mark >= 50\n  THEN\n    OUTPUT \"Pass\"\nELSE\n    OUTPUT \"Fail\"\nENDIF",
+          "explanation": "Single IF-ELSE on a threshold partitions all cases."
+        },
+        {
+          "question": "Efficiency A-rated",
+          "question_self_contained": "Write pseudocode that reads an integer Efficiency (0–100). Output A-rated when the efficiency is 92 or more; otherwise output Not A-rated.",
+          "mark_scheme_answer": "INPUT Efficiency\nIF Efficiency >= 92\n  THEN\n    OUTPUT \"A-rated\"\nELSE\n    OUTPUT \"Not A-rated\"\nENDIF",
+          "explanation": "Complete IF-ELSE produces a message for both sides of the threshold."
+        },
+        {
+          "question": "Yes or No",
+          "question_self_contained": "Write pseudocode that reads a single CHAR Resp which is exactly 'Y' or 'N' (uppercase). Output Yes when Resp is 'Y'; otherwise output No.",
+          "mark_scheme_answer": "INPUT Resp\nIF Resp = 'Y'\n  THEN\n    OUTPUT \"Yes\"\nELSE\n    OUTPUT \"No\"\nENDIF",
+          "explanation": "Compare a CHAR using single quotes. Any input other than 'Y' is treated as No."
+        },
+        {
+          "question": "Boolean flag as condition",
+          "question_self_contained": "Write pseudocode that reads a Boolean IsMember typed as TRUE or FALSE (uppercase). Output Discount applied when IsMember is TRUE; otherwise output Standard price.",
+          "mark_scheme_answer": "INPUT IsMember\nIF IsMember\n  THEN\n    OUTPUT \"Discount applied\"\nELSE\n    OUTPUT \"Standard price\"\nENDIF",
+          "explanation": "Uses the Boolean variable directly as the IF condition."
+        },
+        {
+          "question": "Absolute value",
+          "question_self_contained": "Write pseudocode that reads a real number V, converts V to its absolute value if necessary, and outputs V.",
+          "mark_scheme_answer": "INPUT V\nIF V < 0\n  THEN\n    V ← -V\nENDIF\nOUTPUT V",
+          "explanation": "Single-branch IF flips only negative values; non-negatives remain unchanged."
+        },
+        {
+          "question": "Parity check using MOD",
+          "question_self_contained": "Write pseudocode that reads a non-negative integer N (N ≥ 0), determines whether N is even or odd, and outputs Even or Odd accordingly.",
+          "mark_scheme_answer": "INPUT N\nIF N MOD 2 = 0\n  THEN\n    OUTPUT \"Even\"\nELSE\n    OUTPUT \"Odd\"\nENDIF",
+          "explanation": "Remainder 0 when dividing by 2 indicates an even number."
+        },
+        {
+          "question": "Division guard",
+          "question_self_contained": "Write pseudocode that reads two integers X and Y. If the divisor Y is zero, output Division by zero; otherwise perform real division X divided by Y and output the result.",
+          "mark_scheme_answer": "INPUT X\nINPUT Y\nIF Y = 0\n  THEN\n    OUTPUT \"Division by zero\"\nELSE\n    OUTPUT X / Y\nENDIF",
+          "explanation": "Guard prevents invalid division. / denotes real division."
+        },
+        {
+          "question": "Age validity guard",
+          "question_self_contained": "Write pseudocode that reads an integer Age and reports Invalid for values below 0 or above 120; otherwise reports Valid.",
+          "mark_scheme_answer": "INPUT Age\nIF (Age < 0) OR (Age > 120)\n  THEN\n    OUTPUT \"Invalid\"\nELSE\n    OUTPUT \"Valid\"\nENDIF",
+          "explanation": "OR detects out-of-range values at either end."
+        },
+        {
+          "question": "NOT operator for payment",
+          "question_self_contained": "Write pseudocode that reads a Boolean HasPaid typed as TRUE or FALSE (uppercase). If the customer has not paid, output Payment required; otherwise output Access granted.",
+          "mark_scheme_answer": "INPUT HasPaid\nIF NOT HasPaid\n  THEN\n    OUTPUT \"Payment required\"\nELSE\n    OUTPUT \"Access granted\"\nENDIF",
+          "explanation": "Tests the negation of a Boolean flag."
+        },
+        {
+          "question": "Qualification check",
+          "question_self_contained": "Write pseudocode that reads two integers Exam1 and Exam2, then outputs Qualified when both exam scores are at least 50; otherwise outputs Not qualified.",
+          "mark_scheme_answer": "INPUT Exam1\nINPUT Exam2\nIF (Exam1 >= 50) AND (Exam2 >= 50)\n  THEN\n    OUTPUT \"Qualified\"\nELSE\n    OUTPUT \"Not qualified\"\nENDIF",
+          "explanation": "Logical AND requires both comparisons to be true."
+        },
+        {
+          "question": "ID and ticket gate (AND)",
+          "question_self_contained": "Write pseudocode that reads CHAR HasID ('Y' or 'N', uppercase) and CHAR HasTicket ('Y' or 'N', uppercase). Admit only when both values are 'Y'; otherwise output Not admitted.",
+          "mark_scheme_answer": "INPUT HasID\nINPUT HasTicket\nIF (HasID = 'Y') AND (HasTicket = 'Y')\n  THEN\n    OUTPUT \"Admitted\"\nELSE\n    OUTPUT \"Not admitted\"\nENDIF",
+          "explanation": "AND enforces the two requirements simultaneously."
+        },
+        {
+          "question": "Rounded pass decision",
+          "question_self_contained": "Write pseudocode that reads a real percentage P (0–100). Let Q be the rounded value of P to the nearest integer, with x.5 rounding up (for example, 49.5 becomes 50). Output Pass when Q is at least 50; otherwise output Fail.",
+          "mark_scheme_answer": "INPUT P\nQ ← ROUND(P)\nIF Q >= 50\n  THEN\n    OUTPUT \"Pass\"\nELSE\n    OUTPUT \"Fail\"\nENDIF",
+          "explanation": "Applies rounding before the selection test; tie-at-0.5 rounds up."
+        },
+        {
+          "question": "Energy tariff",
+          "question_self_contained": "Write pseudocode that reads a STRING TimePeriod which is exactly \"Peak\" or \"OffPeak\" (case-sensitive) and a non-negative integer Units. Use a rate of 0.25 during Peak and 0.15 otherwise, compute Total as rate multiplied by Units, and output Total.",
+          "mark_scheme_answer": "INPUT TimePeriod\nINPUT Units\nIF TimePeriod = \"Peak\"\n  THEN\n    Rate ← 0.25\nELSE\n    Rate ← 0.15\nENDIF\nTotal ← Rate * Units\nOUTPUT Total",
+          "explanation": "Select the rate with IF-ELSE, then compute and output Total."
+        },
+        {
+          "question": "Day name - CASE",
+          "question_self_contained": "Write pseudocode that reads an integer D and outputs the corresponding weekday name using this mapping: 1 → Monday, 2 → Tuesday, 3 → Wednesday, 4 → Thursday, 5 → Friday, 6 → Saturday, 7 → Sunday. For any other integer, output Invalid.",
+          "mark_scheme_answer": "INPUT D\nCASE OF D\n  1 : OUTPUT \"Monday\"\n  2 : OUTPUT \"Tuesday\"\n  3 : OUTPUT \"Wednesday\"\n  4 : OUTPUT \"Thursday\"\n  5 : OUTPUT \"Friday\"\n  6 : OUTPUT \"Saturday\"\n  7 : OUTPUT \"Sunday\"\n  OTHERWISE : OUTPUT \"Invalid\"\nENDCASE",
+          "explanation": "One label per value. OTHERWISE handles out-of-range inputs."
+        },
+        {
+          "question": "Operator category - CASE",
+          "question_self_contained": "Write pseudocode that reads a single CHAR Op. If Op is one of '+', '-', '*', '/' output Arithmetic; otherwise output Other.",
+          "mark_scheme_answer": "INPUT Op\nCASE OF Op\n  '+' : OUTPUT \"Arithmetic\"\n  '-' : OUTPUT \"Arithmetic\"\n  '*' : OUTPUT \"Arithmetic\"\n  '/' : OUTPUT \"Arithmetic\"\n  OTHERWISE : OUTPUT \"Other\"\nENDCASE",
+          "explanation": "Multiple labels map to the same action by repeating the clause."
+        },
+        {
+          "question": "Shipping zone - CASE",
+          "question_self_contained": "Write pseudocode that reads an integer Zone where only 1, 2, or 3 are valid. The base cost is 5. Output 5 for Zone 1, 8 for Zone 2, 12 for Zone 3, and Invalid for any other value.",
+          "mark_scheme_answer": "INPUT Zone\nBaseCost ← 5\nCASE OF Zone\n  1 : OUTPUT BaseCost\n  2 : OUTPUT BaseCost + 3\n  3 : OUTPUT BaseCost + 7\n  OTHERWISE : OUTPUT \"Invalid\"\nENDCASE",
+          "explanation": "Dispatch by Zone and output the adjusted cost."
+        },
+        {
+          "question": "Coin toss using RANDOM",
+          "question_self_contained": "Write pseudocode that simulates a fair coin toss using RANDOM. Assume RANDOM returns a real r where 0 ≤ r < 1. Output Heads when r is less than 0.5; otherwise output Tails.",
+          "mark_scheme_answer": "r ← RANDOM\nIF r < 0.5\n  THEN\n    OUTPUT \"Heads\"\nELSE\n    OUTPUT \"Tails\"\nENDIF",
+          "explanation": "Assumption on RANDOM is stated; threshold 0.5 splits outcomes evenly."
+        },
+        {
+          "question": "Eligibility with parentheses",
+          "question_self_contained": "Write pseudocode that reads integer Age (0–120) and CHAR Consent ('Y' or 'N', uppercase). A person is eligible if either Age is at least 18, or Age is at least 16 and Consent is 'Y'. Output Eligible or Not eligible.",
+          "mark_scheme_answer": "INPUT Age\nINPUT Consent\nIF ((Age >= 16) AND (Consent = 'Y')) OR (Age >= 18)\n  THEN\n    OUTPUT \"Eligible\"\nELSE\n    OUTPUT \"Not eligible\"\nENDIF",
+          "explanation": "Parentheses ensure the AND part is grouped before the OR."
+        },
+        {
+          "question": "Maximum of three (sequential IFs)",
+          "question_self_contained": "Write pseudocode that reads three integers A, B, C (values may be equal) and outputs the largest value.",
+          "mark_scheme_answer": "INPUT A\nINPUT B\nINPUT C\nMax ← A\nIF B > Max\n  THEN\n    Max ← B\nENDIF\nIF C > Max\n  THEN\n    Max ← C\nENDIF\nOUTPUT Max",
+          "explanation": "Uses sequential IFs to update a running maximum; ties keep the current Max."
+        },
+        {
+          "question": "Two-step fare with independent IFs",
+          "question_self_contained": "Write pseudocode that reads integer Age (0–120) and CHAR Peak ('Y' for peak time or 'N', uppercase). The base fare is 4. Apply a child fare of 2 for ages under 12; otherwise keep 4. Then add 1 during peak time. Output the final fare.",
+          "mark_scheme_answer": "INPUT Age\nINPUT Peak\nFare ← 4\nIF Age < 12\n  THEN\n    Fare ← 2\nENDIF\nIF Peak = 'Y'\n  THEN\n    Fare ← Fare + 1\nENDIF\nOUTPUT Fare",
+          "explanation": "Two independent IFs: child discount and peak-time surcharge."
+        },
+        {
+          "question": "Ticket gate - nested IF",
+          "question_self_contained": "Write pseudocode that reads an integer Age (0–120) and CHAR HasTicket ('Y' or 'N', uppercase). For ages under 12: admit only when HasTicket is 'Y', otherwise say Ticket required. For ages 12 or more: output Use adult gate.",
+          "mark_scheme_answer": "INPUT Age\nINPUT HasTicket\nIF Age < 12\n  THEN\n    IF HasTicket = 'Y'\n      THEN\n        OUTPUT \"Child admitted\"\n    ELSE\n        OUTPUT \"Ticket required\"\n    ENDIF\nELSE\n    OUTPUT \"Use adult gate\"\nENDIF",
+          "explanation": "Nested selection: the inner decision is only evaluated for children."
+        },
+        {
+          "question": "Grade band",
+          "question_self_contained": "Write pseudocode that reads an integer Score (0–100) and outputs a single letter grade using these thresholds: A for 80–100, B for 70–79, C for 60–69, D for 50–59, E for 0–49.",
+          "mark_scheme_answer": "INPUT Score\nIF Score >= 80\n  THEN\n    OUTPUT \"A\"\nELSEIF Score >= 70\n  THEN\n    OUTPUT \"B\"\nELSEIF Score >= 60\n  THEN\n    OUTPUT \"C\"\nELSEIF Score >= 50\n  THEN\n    OUTPUT \"D\"\nELSE\n    OUTPUT \"E\"\nENDIF",
+          "explanation": "Order conditions from highest to lowest so exactly one branch executes."
+        },
+        {
+          "question": "Triangle type",
+          "question_self_contained": "Write pseudocode that reads three positive integers A, B, C. First check whether the values can form a triangle using the triangle inequalities. If they do, output Equilateral when all three sides are equal, Isosceles when exactly two sides are equal, or Scalene otherwise. If they cannot form a triangle, output Not a triangle.",
+          "mark_scheme_answer": "INPUT A\nINPUT B\nINPUT C\nIF (A + B > C) AND (A + C > B) AND (B + C > A)\n  THEN\n    IF (A = B) AND (B = C)\n      THEN\n        OUTPUT \"Equilateral\"\n    ELSEIF (A = B) OR (A = C) OR (B = C)\n      THEN\n        OUTPUT \"Isosceles\"\n    ELSE\n        OUTPUT \"Scalene\"\n    ENDIF\nELSE\n    OUTPUT \"Not a triangle\"\nENDIF",
+          "explanation": "Guard with triangle inequalities, then classify by equality patterns using nested selection."
+        }
+      ]
+    }
+  ]
+}
+
+  </script>
+
+<!-- APPEND: Mock Test modal -->
+<div id="mockTestModal" class="mock-modal" aria-hidden="true" role="dialog" aria-labelledby="mockTestTitle">
+  <div class="mock-modal-card">
+    <div class="mock-modal-header">
+      <h3 id="mockTestTitle" style="margin:0;">Mock Test</h3>
+      <button class="mock-close" id="closeMockTest" aria-label="Close">×</button>
+    </div>
+    <div class="mock-modal-body">
+      <!-- JSON will populate this code block with the question -->
+      <div class="mock-code" aria-label="Pseudocode"></div>
+
+      <div id="mockTestAnswer" class="mock-hidden" aria-live="polite">
+        <h4 style="margin:16px 0 8px 0;">Answer</h4>
+        <div class="mock-code"></div>
+        <p></p>
+      </div>
+    </div>
+    <div class="mock-modal-actions footer">
+      <button class="btn" id="toggleMockAnswer" type="button" aria-expanded="false" aria-controls="mockTestAnswer">Show answer</button>
+      <button class="btn ghost" id="dismissMockTest" type="button">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- APPEND: mock test JSON payload -->
+<script id="mockTestData" type="application/json">
+{
+  "mock_test": {
+    "title": "Mock Test - Level 2: Selection",
+    "question": "A fitness center needs a program to decide which fee message to show when someone enters the gym.\n\nInputs recorded by the system:\n• Age (integer 0..120)\n• Student status ('Y' or 'N')\n• Premium membership ('Y' or 'N')\n• Discount day today ('Y' or 'N')\n\nRequired messages (show exactly one):\n- \"Free access\" for premium members.\n- \"Student discount\" for students younger than 26.\n- \"Discount applied\" when it is a discount day or the person is at least 60 years old.\n- \"Full price\" in all remaining cases.",
+    "question_self_contained": "Design the decision logic for the described gym system.\nInputs:\nAge (integer 0..120), IsStudent ('Y'/'N'), PremiumMember ('Y'/'N'), DiscountDay ('Y'/'N').\nMessages to display (exact text): \"Free access\", \"Student discount\", \"Discount applied\", \"Full price\".\nShow exactly one message for each visitor following the stated rules.",
+    "mark_scheme_answer": "INPUT Age\nINPUT IsStudent\nINPUT PremiumMember\nINPUT DiscountDay\n\nIF PremiumMember = 'Y' THEN\n    OUTPUT \"Free access\"\nELSE\n    IF (IsStudent = 'Y') AND (Age < 26) THEN\n        OUTPUT \"Student discount\"\n    ELSE\n        IF (DiscountDay = 'Y') OR (Age >= 60) THEN\n            OUTPUT \"Discount applied\"\n        ELSE\n            OUTPUT \"Full price\"\n        ENDIF\n    ENDIF\nENDIF",
+    "marks_allocation": "[6]"
+  }
+}
+
+
+</script>
+  <script src="../exercises.js"></script>
+</body>
+</html>

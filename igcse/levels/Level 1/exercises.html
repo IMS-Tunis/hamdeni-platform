@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Level 1 - Exercises</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../exercises.css" />
+</head>
+<body>
+  <aside class="sidebar" aria-label="Exercise navigation">
+    <div class="brand">
+      <div class="logo">0478</div>
+      <div class="brand-text">
+        <div class="title">Level 1</div>
+        <div class="subtitle">Programming Basics</div>
+      </div>
+    </div>
+
+    <nav class="nav" id="nav"></nav>
+
+    <div class="sidebar-footer">
+      <button id="expandAll" class="btn ghost">Show all mark schemes</button>
+      <button id="collapseAll" class="btn ghost">Hide all mark schemes</button>
+    </div>
+  </aside>
+
+  <main class="content">
+  
+  <div class="content-section">
+    <section class="footer" aria-label="Instructions" style="margin:0;">
+        <h2 style="margin:0 0 8px 0; font-size:1.05rem; font-weight:700;">Before you start</h2>
+        <ul style="margin:0; padding-left:2rem; font-size:small">
+            <li>Work through the exercises. Reveal the mark scheme when you are ready to check your answer.</li>
+            <li>The teacher is available to explain any exercises you did not understand.</li>
+            <li>When you are ready, inform the teacher to sit for the level pass test and unlock the next level.</li>
+        </ul>
+    </section>
+
+    <div class="button-container">
+        <a href="../../dashboard.html" class="nav-button btn-outlined btn-home-outlined">🏠 Home</a>
+		<a href="notes.html" class="nav-button btn-outlined btn-theory-outlined">📚 Theory Notes</a>
+    </div>
+</div>
+
+    <section id="pointsContainer" class="points-container" aria-live="polite"></section>
+
+    <footer class="footer" style="display:flex;gap:12px;align-items:center;">
+      <button class="btn" type="button">I need help</button>
+      <button class="btn" type="button">I'm ready for the test</button>
+    </footer>
+  </main>
+
+  <!-- Embedded JSON used by exercises.js -->
+  <script id="data" type="application/json">
+{
+  "brand": {
+    "title": "Level 1",
+    "subtitle": "Basic Data Types, Variables, Input/Output, Sequence, Arithmetic and Logic"
+  },
+  "data": [
+    {
+      "title": "All Exercises",
+      "items": [
+        {
+          "question": "Identify the best data type for each literal:\na) 27\nb) -3.5\nc) 'Q'\nd) \"Q\"\ne) TRUE",
+          "question_self_contained": "Identify the best data type for each literal:\na) 27\nb) -3.5\nc) 'Q'\nd) \"Q\"\ne) TRUE",
+          "mark_scheme_answer": "a) Integer\nb) Real\nc) Char\nd) String\ne) Boolean",
+          "explanation": "Choose the most precise built-in type. Whole numbers use Integer, decimals use Real, a single character uses Char with single quotes, text uses String with double quotes, and TRUE/FALSE uses Boolean.",
+          "marks_allocation": "[5]"
+        },
+        {
+          "question": "Select all the values that can be stored as Char:\ni) 'A'   ii) \"A\"   iii) '7'   iv) 'AB'",
+          "question_self_contained": "Select all the values that can be stored as Char:\ni) 'A'   ii) \"A\"   iii) '7'   iv) 'AB'",
+          "mark_scheme_answer": "i) and iii)",
+          "explanation": "Char holds exactly one character in single quotes like 'A' or '7'. \"A\" is a String and 'AB' has two characters.",
+          "marks_allocation": "[2]"
+        },
+        {
+          "question": "For each identifier, write a suitable data type:\na) AgeInYears\nb) StudentFullName\nc) PiApprox\nd) IsPassed",
+          "question_self_contained": "For each identifier, write a suitable data type:\na) AgeInYears\nb) StudentFullName\nc) PiApprox\nd) IsPassed",
+          "mark_scheme_answer": "a) Integer\nb) String\nc) Real\nd) Boolean",
+          "explanation": "Use Integer for whole-number counts like age, String for names, Real for decimal approximations, and Boolean for yes/no states.",
+          "marks_allocation": "[4]"
+        },
+        {
+          "question": "Describe how variables and constants are used in programming. Distinguish clearly between them and give one simple example of each.",
+          "question_self_contained": "Describe how variables and constants are used in programming. Distinguish clearly between them and give one simple example of each.",
+          "mark_scheme_answer": "Both store data values. A variable can change during program execution, for example total or score. A constant does not change once defined, for example PI = 3.14159 or DAYS_IN_WEEK = 7. Use meaningful identifiers.",
+          "explanation": "Variables model values that vary at runtime, while constants fix a value for clarity and safety. Names should indicate purpose.",
+          "marks_allocation": "[4]"
+        },
+        {
+          "question": "Read a real number Base, declare TAX_RATE as 0.19, compute TotalWithTax, and output the result.",
+          "question_self_contained": "Read a real number Base, declare TAX_RATE as 0.19, compute TotalWithTax, and output the result.",
+          "mark_scheme_answer": "INPUT Base\nCONSTANT TAX_RATE ← 0.19\nTotalWithTax ← Base * (1 + TAX_RATE)\nOUTPUT \"TotalWithTax:\", TotalWithTax",
+          "explanation": "Declare constants once and reuse them. Read Base, apply the formula, then output the result.",
+          "marks_allocation": "[3]"
+        },
+        {
+          "question": "Write pseudocode that prompts the user to enter their name, stores it, and outputs a welcome message that includes the name.",
+          "question_self_contained": "Write pseudocode that prompts the user to enter their name, stores it, and outputs a welcome message that includes the name.",
+          "mark_scheme_answer": "OUTPUT \"Enter your name:\"\nINPUT userName\nOUTPUT \"Welcome \", userName",
+          "explanation": "Prompt the user, read the value with INPUT, then OUTPUT a message that includes the stored name.",
+          "marks_allocation": "[3]"
+        },
+        {
+          "question": "Write pseudocode that reads two integers A and B, then outputs their sum and the average rounded to 2 decimal places.",
+          "question_self_contained": "Write pseudocode that reads two integers A and B, then outputs their sum and the average rounded to 2 decimal places.",
+          "mark_scheme_answer": "INPUT A\nINPUT B\nSum ← A + B\nAverage ← (A + B) / 2\nOUTPUT \"Sum:\", Sum, \"Average:\", ROUND(Average, 2)",
+          "explanation": "Use INPUT to read values, compute results using variables, and OUTPUT multiple parts separated by commas. ROUND(..., 2) formats to two decimals.",
+          "marks_allocation": "[4]"
+        },
+        {
+          "question": "Rewrite the code using meaningful identifiers and add one brief comment. Start from:\nINPUT a\nINPUT b\nc ← a*b\nOUTPUT \"ans\", c",
+          "question_self_contained": "Rewrite the code using meaningful identifiers and add one brief comment. Start from:\nINPUT a\nINPUT b\nc ← a*b\nOUTPUT \"ans\", c",
+          "mark_scheme_answer": "INPUT Length\nINPUT Width\nArea ← Length * Width\nOUTPUT \"Area:\", Area  // compute rectangle area",
+          "explanation": "Meaningful names and a short comment improve readability without changing behavior.",
+          "marks_allocation": "[3]"
+        },
+        {
+          "question": "Arrange the steps in the correct order to read a radius, compute the area of a circle, and then display it.\nA. OUTPUT \"Area:\", Area\nB. INPUT Radius\nC. Area ← PI * Radius ^ 2",
+          "question_self_contained": "Arrange the steps in the correct order to read a radius, compute the area of a circle, and then display it.\nA. OUTPUT \"Area:\", Area\nB. INPUT Radius\nC. Area ← PI * Radius ^ 2",
+          "mark_scheme_answer": "B, C, A",
+          "explanation": "Read inputs before calculations, then output the result. Sequence means the program runs statements in the written order.",
+          "marks_allocation": "[1]"
+        },
+        {
+          "question": "Evaluate the expression: 8 + 12 / 3 * 2 - 5.",
+          "question_self_contained": "Evaluate the expression: 8 + 12 / 3 * 2 - 5.",
+          "mark_scheme_answer": "11",
+          "explanation": "8 + (12 / 3) * 2 − 5 = 8 + 4 * 2 − 5 = 8 + 8 − 5 = 11.",
+          "marks_allocation": "[2]"
+        },
+        {
+          "question": "Evaluate both expressions:\na) 20 / 4 * 5\nb) 20 / (4 * 5)",
+          "question_self_contained": "Evaluate both expressions:\na) 20 / 4 * 5\nb) 20 / (4 * 5)",
+          "mark_scheme_answer": "a) 25\nb) 1",
+          "explanation": "Without parentheses evaluate left to right at equal precedence; with parentheses do the grouped multiplication first.",
+          "marks_allocation": "[2]"
+        },
+        {
+          "question": "Evaluate the expression and show working: 4 + 3 * 2 ^ 2.",
+          "question_self_contained": "Evaluate the expression and show working: 4 + 3 * 2 ^ 2.",
+          "mark_scheme_answer": "2 ^ 2 = 4\n3 * 4 = 12\n4 + 12 = 16\nFinal answer: 16",
+          "explanation": "Use precedence: exponentiation (^), then multiplication (*), then addition (+).",
+          "marks_allocation": "[3]"
+        },
+        {
+          "question": "Complete the values of DIV and MOD:\na) DIV(17, 5) = ?, MOD(17, 5) = ?\nb) DIV(20, 4) = ?, MOD(20, 4) = ?\nc) DIV(0, 7) = ?, MOD(0, 7) = ?",
+          "question_self_contained": "Complete the values of DIV and MOD:\na) DIV(17, 5) = ?, MOD(17, 5) = ?\nb) DIV(20, 4) = ?, MOD(20, 4) = ?\nc) DIV(0, 7) = ?, MOD(0, 7) = ?",
+          "mark_scheme_answer": "a) DIV = 3, MOD = 2\nb) DIV = 5, MOD = 0\nc) DIV = 0, MOD = 0",
+          "explanation": "DIV returns the integer quotient; MOD returns the remainder. For any A and B, A = (A DIV B) * B + (A MOD B).",
+          "marks_allocation": "[3]"
+        },
+        {
+          "question": "Compute the results of rounding:\na) ROUND(3.14159, 2)\nb) ROUND(2.675, 2)\nc) ROUND(-1.49, 0)",
+          "question_self_contained": "Compute the results of rounding:\na) ROUND(3.14159, 2)\nb) ROUND(2.675, 2)\nc) ROUND(-1.49, 0)",
+          "mark_scheme_answer": "a) 3.14\nb) 2.68\nc) -1.0",
+          "explanation": "ROUND(number, places) rounds to the specified number of decimal places. For two decimal places, look at the third decimal digit to decide whether to round up or down.",
+          "marks_allocation": "[3]"
+        },
+        {
+          "question": "Write a single expression that yields a uniformly distributed integer from 1 to 6 inclusive using RANDOM().",
+          "question_self_contained": "Write a single expression that yields a uniformly distributed integer from 1 to 6 inclusive using RANDOM().",
+          "mark_scheme_answer": "ROUND(RANDOM() * 5 + 1, 0)",
+          "explanation": "RANDOM() returns a real in [0, 1]. Multiply by 5 and add 1 to shift to [1, 6], then ROUND to an integer.",
+          "marks_allocation": "[2]"
+        },
+        {
+          "question": "Given X ← 7, Y ← 7, Z ← 10, state TRUE or FALSE for each:\na) X = Y\nb) X < Z\nc) Z <= Y\nd) X <> Y",
+          "question_self_contained": "Given X ← 7, Y ← 7, Z ← 10, state TRUE or FALSE for each:\na) X = Y\nb) X < Z\nc) Z <= Y\nd) X <> Y",
+          "mark_scheme_answer": "a) TRUE\nb) TRUE\nc) FALSE\nd) FALSE",
+          "explanation": "Compare values using =, <, <=, and <>.",
+          "marks_allocation": "[4]"
+        },
+        {
+          "question": "Given A ← 12 and B ← 5, evaluate: (A DIV B) = 2 AND (A MOD B) = 2.",
+          "question_self_contained": "Given A ← 12 and B ← 5, evaluate: (A DIV B) = 2 AND (A MOD B) = 2.",
+          "mark_scheme_answer": "TRUE",
+          "explanation": "DIV gives 2 and MOD gives 2 for 12 divided by 5. Both sub-expressions are TRUE, so the AND is TRUE.",
+          "marks_allocation": "[1]"
+        },
+        {
+          "question": "Let P ← TRUE, Q ← FALSE. Fill in the results:\na) P AND Q = ?\nb) P OR Q = ?\nc) NOT Q = ?",
+          "question_self_contained": "Let P ← TRUE, Q ← FALSE. Fill in the results:\na) P AND Q = ?\nb) P OR Q = ?\nc) NOT Q = ?",
+          "mark_scheme_answer": "a) FALSE\nb) TRUE\nc) TRUE",
+          "explanation": "AND is TRUE only when both are TRUE. OR is TRUE if at least one is TRUE. NOT flips the truth value.",
+          "marks_allocation": "[3]"
+        },
+        {
+          "question": "Let A ← 4, B ← 9, C ← -2. Evaluate: (A < B) AND NOT (C >= 0 OR B = 10).",
+          "question_self_contained": "Let A ← 4, B ← 9, C ← -2. Evaluate: (A < B) AND NOT (C >= 0 OR B = 10).",
+          "mark_scheme_answer": "TRUE",
+          "explanation": "A < B is TRUE. Inside the parentheses both comparisons are FALSE, so the OR is FALSE; NOT FALSE is TRUE; overall TRUE AND TRUE is TRUE.",
+          "marks_allocation": "[2]"
+        },
+        {
+          "question": "Find and correct three errors in the snippet and write a corrected version that follows the rules:\nCONSTANT Pi ← 3.142\nletter ← \"X\"\nArea ← Pi * r ^ 2\nOUTPUT \"Area=\", Area",
+          "question_self_contained": "Find and correct three errors in the snippet and write a corrected version that follows the rules:\nCONSTANT Pi ← 3.142\nletter ← \"X\"\nArea ← Pi * r ^ 2\nOUTPUT \"Area=\", Area",
+          "mark_scheme_answer": "CONSTANT PI ← 3.142\nINPUT Radius\nLetter ← 'X'\nArea ← PI * Radius ^ 2\nOUTPUT \"Area=\", Area",
+          "explanation": "Use consistent uppercase for the constant, read or assign values before use, and use single quotes for Char.",
+          "marks_allocation": "[3]"
+        },
+        {
+          "question": "Match each standard flowchart symbol name to its most appropriate purpose. Symbols: Terminator (oval), Process (rectangle), Input/Output (parallelogram). Purposes: Start/Stop, Process, Input or Output. Write your three pairings.",
+          "question_self_contained": "Match each standard flowchart symbol name to its most appropriate purpose. Symbols: Terminator (oval), Process (rectangle), Input/Output (parallelogram). Purposes: Start/Stop, Process, Input or Output. Write your three pairings.",
+          "mark_scheme_answer": "Terminator → Start/Stop\nProcess (rectangle) → Process\nInput/Output (parallelogram) → Input or Output",
+          "explanation": "In standard flowcharts, the oval marks program start or end, the rectangle represents a processing step, and the parallelogram is used for input or output.",
+          "marks_allocation": "[3]"
+        },
+        {
+          "question": "Let A, B, and C be Boolean variables. Define X using a logic expression that represents: A is TRUE and either B is TRUE or C is TRUE.",
+          "question_self_contained": "Let A, B, and C be Boolean variables. Define X using a logic expression that represents: A is TRUE and either B is TRUE or C is TRUE.",
+          "mark_scheme_answer": "X ← A AND (B OR C)\nAny logically equivalent form is acceptable.",
+          "explanation": "The phrase either B or C means B OR C. Requiring A as well means A AND (B OR C).",
+          "marks_allocation": "[2]"
+        },
+        {
+          "question": "Using X ← A AND (B OR C), fill X for each row.\n| A | B | C | X |\n| 0 | 0 | 0 |   |\n| 0 | 0 | 1 |   |\n| 0 | 1 | 0 |   |\n| 0 | 1 | 1 |   |\n| 1 | 0 | 0 |   |\n| 1 | 0 | 1 |   |\n| 1 | 1 | 0 |   |\n| 1 | 1 | 1 |   |",
+          "question_self_contained": "Using X ← A AND (B OR C), fill X for each row.\n| A | B | C | X |\n| 0 | 0 | 0 |   |\n| 0 | 0 | 1 |   |\n| 0 | 1 | 0 |   |\n| 0 | 1 | 1 |   |\n| 1 | 0 | 0 |   |\n| 1 | 0 | 1 |   |\n| 1 | 1 | 0 |   |\n| 1 | 1 | 1 |   |",
+          "mark_scheme_answer": "Rows A B C → X\n000 → 0\n001 → 0\n010 → 0\n011 → 0\n100 → 0\n101 → 1\n110 → 1\n111 → 1",
+          "explanation": "Evaluate X row by row. When A = 0, X = 0. When A = 1, X equals B OR C.",
+          "marks_allocation": "[4]"
+        },
+        {
+          "question": "Complete the DataType column for each field in the Hotel table. Use only: String, Integer, Real, Boolean.\n| Field  | Meaning                      | DataType |\n| RoomNo | Room identifier              |          |\n| Guests | Number of guests             |          |\n| Rate$  | Price per night              |          |\n| Mon    | Monday available (T/F flag)  |          |",
+          "question_self_contained": "Complete the DataType column for each field in the Hotel table. Use only: String, Integer, Real, Boolean.\n| Field  | Meaning                      | DataType |\n| RoomNo | Room identifier              |          |\n| Guests | Number of guests             |          |\n| Rate$  | Price per night              |          |\n| Mon    | Monday available (T/F flag)  |          |",
+          "mark_scheme_answer": "RoomNo → String\nGuests → Integer\nRate$ → Real\nMon → Boolean",
+          "explanation": "Room numbers often include letters, guest counts are whole numbers, rates require decimals, and Mon is a true/false flag.",
+          "marks_allocation": "[2]"
+        },
+        {
+          "question": "For the table StorageUnits, choose the most appropriate data type for each field using only Integer, Real, Boolean, or String. Fields: SizeMetres, Position, Hoist, StorageID.",
+          "question_self_contained": "For the table StorageUnits, choose the most appropriate data type for each field using only Integer, Real, Boolean, or String. Fields: SizeMetres, Position, Hoist, StorageID.",
+          "mark_scheme_answer": "SizeMetres → Real\nPosition → Integer\nHoist → Boolean\nStorageID → String",
+          "explanation": "Sizes use decimals, positions are whole-number indices, hoist is a true/false state, and identifiers combine letters and digits.",
+          "marks_allocation": "[4]"
+        },
+        {
+          "question": "State two programming practices that make code easier to maintain by another programmer. Focus on identifier naming and documentation.",
+          "question_self_contained": "State two programming practices that make code easier to maintain by another programmer. Focus on identifier naming and documentation.",
+          "mark_scheme_answer": "Use meaningful identifier names throughout, for example averageScore. Include concise comments that explain purpose or non-obvious logic.",
+          "explanation": "Descriptive names and helpful comments improve readability and reduce maintenance errors.",
+          "marks_allocation": "[2]"
+        },
+        {
+          "question": "For each item, state how it is used and give one short pseudocode example that uses only the named item. Items: Arithmetic operator, Boolean data type, Logical operator.",
+          "question_self_contained": "For each item, state how it is used and give one short pseudocode example that uses only the named item. Items: Arithmetic operator, Boolean data type, Logical operator.",
+          "mark_scheme_answer": "Arithmetic operator: used for numeric calculation; example X ← 2 + 3.\nBoolean data type: stores TRUE or FALSE; example A ← TRUE.\nLogical operator: combines Boolean values; example X ← B AND C.",
+          "explanation": "Arithmetic operates on numbers, Boolean represents truth values, and logical operators combine truth values.",
+          "marks_allocation": "[3]"
+        },
+        {
+          "question": "Complete the DataType column for each field in the StorageUnits table. Use only: Integer, Real, Boolean, String.\n| Field      | Meaning                           | DataType |\n| SizeMetres | Physical size in metres           |          |\n| Position   | Shelf or slot number              |          |\n| Hoist      | Hoist available (TRUE or FALSE)   |          |\n| StorageID  | Identifier code (for example A17) |          |",
+          "question_self_contained": "Complete the DataType column for each field in the StorageUnits table. Use only: Integer, Real, Boolean, String.\n| Field      | Meaning                           | DataType |\n| SizeMetres | Physical size in metres           |          |\n| Position   | Shelf or slot number              |          |\n| Hoist      | Hoist available (TRUE or FALSE)   |          |\n| StorageID  | Identifier code (for example A17) |          |",
+          "mark_scheme_answer": "SizeMetres → Real\nPosition → Integer\nHoist → Boolean\nStorageID → String",
+          "explanation": "Sizes may have decimals, positions are whole-number indices, hoist is a TRUE or FALSE flag, identifiers combine letters and digits so String is appropriate.",
+          "marks_allocation": "[4]"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+
+
+<!-- APPEND: Mock Test modal -->
+<div id="mockTestModal" class="mock-modal" aria-hidden="true" role="dialog" aria-labelledby="mockTestTitle">
+  <div class="mock-modal-card">
+    <div class="mock-modal-header">
+      <h3 id="mockTestTitle" style="margin:0;">Mock Test</h3>
+      <button class="mock-close" id="closeMockTest" aria-label="Close">×</button>
+    </div>
+    <div class="mock-modal-body">
+      <!-- JSON will populate this code block with the question -->
+      <div class="mock-code" aria-label="Pseudocode"></div>
+
+      <div id="mockTestAnswer" class="mock-hidden" aria-live="polite">
+        <h4 style="margin:16px 0 8px 0;">Answer</h4>
+        <div class="mock-code"></div>
+        <p></p>
+      </div>
+    </div>
+    <div class="mock-modal-actions footer">
+      <button class="btn" id="toggleMockAnswer" type="button" aria-expanded="false" aria-controls="mockTestAnswer">Show answer</button>
+      <button class="btn ghost" id="dismissMockTest" type="button">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- APPEND: mock test JSON payload -->
+<script id="mockTestData" type="application/json">
+{
+  "mock_test": {
+    "title": "Mock Test - Level 1: Fundamentals (data types, arithmetic, DIV/MOD, rounding, logic, randomness)",
+    "question": "Exercise 1\n\n(a) For each field, choose the best type from {String, Integer, Real, Boolean} and give a brief justification:\nProductName, StockCount, PricePerUnit, IsTaxExempt.\n\n(b) Write pseudocode that reads Units (Integer) and Price (Real), defines VAT_RATE as 0.13, computes Subtotal, Tax, GrandTotal, then prints each rounded to 2 decimal places.\n\n(c) Using your design from (b), evaluate when Units = 9 and Price = 4.60.\nGive Subtotal, Tax (2 dp), GrandTotal (2 dp). Also compute 45 DIV 7, 45 MOD 7, and ROUND(GrandTotal, 1).\n\n(d) Complete the truth table for Y ← (NOT A OR (B AND C)) for all eight rows where A, B, C ∈ {0,1} (use 0 for FALSE, 1 for TRUE).\n\n(e) Give one expression that returns a uniformly distributed integer from 5 to 12 inclusive using RANDOM().",
+    "question_self_contained": "Assess Level 1 fundamentals with clear outputs and calculations.\nTasks:\n(a) Type + one-phrase justification for ProductName, StockCount, PricePerUnit, IsTaxExempt.\n(b) Pseudocode: read Units, Price; VAT_RATE = 0.13; Subtotal = Units * Price; Tax = Subtotal * VAT_RATE; GrandTotal = Subtotal + Tax; print all rounded to 2 dp.\n(c) Evaluate for Units = 9, Price = 4.60; also compute 45 DIV 7, 45 MOD 7, ROUND(GrandTotal, 1).\n(d) Truth table for Y ← (NOT A OR (B AND C)).\n(e) One RANDOM() expression for an integer in [5,12].",
+    "mark_scheme_answer": "a) ProductName → String (text label); StockCount → Integer (whole count); PricePerUnit → Real (decimals allowed); IsTaxExempt → Boolean (yes/no).\n\nb) One correct solution:\nINPUT Units\nINPUT Price\nCONSTANT VAT_RATE ← 0.13\nSubtotal ← Units * Price\nTax ← Subtotal * VAT_RATE\nGrandTotal ← Subtotal + Tax\nOUTPUT \"Subtotal:\", ROUND(Subtotal, 2)\nOUTPUT \"Tax:\", ROUND(Tax, 2)\nOUTPUT \"Grand total:\", ROUND(GrandTotal, 2)\n\nc) Subtotal = 9 * 4.60 = 41.40\nTax = 41.40 * 0.13 = 5.382 → 5.38\nGrandTotal = 41.40 + 5.382 = 46.782 → 46.78\n45 DIV 7 = 6; 45 MOD 7 = 3\nROUND(GrandTotal, 1) = 46.8\n\nd) Y for Y ← (NOT A OR (B AND C))\nA B C → Y\n0 0 0 → 1\n0 0 1 → 1\n0 1 0 → 1\n0 1 1 → 1\n1 0 0 → 0\n1 0 1 → 0\n1 1 0 → 0\n1 1 1 → 1\n\ne) INT(RANDOM() * 8) + 5",
+    "marks_allocation": "[15]"
+  }
+}
+
+
+</script>
+
+
+  <script src="../exercises.js"></script>
+</body>
+</html>
