@@ -783,7 +783,16 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
+  gap: 0;
+}
+
+.level-text .level-number,
+.level-text .level-title {
+  display: block;
+}
+
+.level-text .level-number {
+  font-weight: 700;
 }
 
 .arrow-img {

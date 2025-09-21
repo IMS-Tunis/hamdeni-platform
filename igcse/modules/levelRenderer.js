@@ -61,8 +61,8 @@ export async function renderProgrammingLevels() {
     box.innerHTML = `
       <span class="level-icon">${icon}</span>
       <div class="level-text">
-        <strong>Level ${displayNumber}</strong><br/>
-        <span>${level.title}</span>
+        <strong class="level-number">Level ${displayNumber}</strong>
+        <span class="level-title">${level.title}</span>
       </div>
     `;
     box.addEventListener("click", () => {
