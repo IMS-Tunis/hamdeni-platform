@@ -10,7 +10,7 @@
 <div class="header-container">
 <img src="../syllabus.png" alt="Syllabus Update" class="top-right-icon">
   <div class="title-row">
-    <h1 class="section-title">the main title of the syllabus</h1>
+    <h1 class="section-title">13.2 File organisation and access</h1>
   </div>
   <div class="title-underline"></div>
   <p class="section-subtitle">Computer Science IGCSE notes, prepared by Dr. Hamdeni</p>
@@ -120,5 +120,11 @@
   </div>
 </div>
 <script src="popup-script.js"></script>
+ <script>
+      window.addEventListener('load', function () {
+        const height = document.body.scrollHeight;
+        window.parent.postMessage({ type: 'resize', height }, '*');
+      });
+    </script>
 </body>
 </html>
