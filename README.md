@@ -58,6 +58,42 @@ For client-side fallback, you can add JavaScript redirect if needed.
 Supabase Configuration
 ----------------------
 The frontend now contains the Supabase URL, service key and teacher password directly in the JavaScript source. No external `config.js` file is required for deployment.
+
+Paste Guard ([CP] protection)
+-----------------------------
+- A site-wide Paste Guard (`assets/js/paste-guard.js`) runs on every page to block paste, drag-drop and keyboard paste shortcuts for guarded inputs and textareas.
+- When a paste attempt occurs, an inline accessible warning appears and a hidden `<fieldName>__cp` field with value `1` is appended to the same form. The backend can tag the response with `[CP]` using this flag.
+- Optional overrides can be configured globally by setting `window.PASTE_GUARD_CONFIG = { allowSelector: 'input[name="email"]' }` before the guard loads.
+- The guard is injected automatically into every HTML response by the lightweight Node server (`server/app.js`).
+
+Running the server locally
+--------------------------
+
+```
+npm start
+```
+
+This serves the static site with the Paste Guard injected into every page and exposes a `/submissions` endpoint that normalises `[CP]` flags.
+
+Automated tests
+----------------
+
+```
+npm test
+```
+
+The test suite covers the client-side guard behaviour (paste/drop/keyboard blocking, warnings, allowlist, hidden flag handling) and backend helpers plus HTML injection.
+
+Demo
+----
+
+Paste Guard prevents paste attempts in three ways:
+
+1. Try pasting text into any guarded input – the attempt is blocked and an inline "Pasting is disabled" message appears.
+2. Drag text onto the field or use Ctrl/Cmd+V (or Shift+Insert) – both are intercepted, the same warning is shown, and the hidden `__cp` flag is attached to the form.
+3. Submit the form – the backend receives the original field value plus the optional `[CP]` flag so responses can be tagged.
+
+If you prefer a visual walkthrough, host a clip or GIF on your media CDN (e.g. Loom, Vimeo, Google Drive) and link to it from this section.
 # Database Schema
 
 Legend: PK=Primary Key, FK=Foreign Key, Nullable=YES if column allows NULL.
