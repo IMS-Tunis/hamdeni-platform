@@ -25,22 +25,24 @@ async function updateGeneralProgress() {
 
   const total = totalPoints + totalLevels;
   const done = points + levels;
-  const percent = total ? Math.round((done / total) * 100) : 0;
+  const percent = total ? (done / total) * 100 : 0;
+  const roundedPercent = Math.round(percent);
+  const clampedPercent = Math.max(0, Math.min(100, percent));
 
-  fill.style.width = percent + "%";
-  fill.textContent = percent + "%";
+  fill.textContent = roundedPercent + "%";
+  fill.style.setProperty("width", clampedPercent + "%", "important");
 
   fill.classList.remove("progress-low", "progress-medium", "progress-high");
 
   let progressClass = "progress-low";
-  if (percent >= 67) {
+  if (roundedPercent >= 67) {
     progressClass = "progress-high";
-  } else if (percent >= 34) {
+  } else if (roundedPercent >= 34) {
     progressClass = "progress-medium";
   }
 
   fill.classList.add(progressClass);
-  console.debug('[dashboard] Progress percent', percent);
+  console.debug('[dashboard] Progress percent', roundedPercent);
 }
 
 document.addEventListener("DOMContentLoaded", () => {

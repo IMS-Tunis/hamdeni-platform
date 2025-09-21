@@ -5,6 +5,8 @@
   "private": true,
   "scripts": {
     "start": "node server/index.js",
-    "test": "node --test"
+    "test": "node --test",
+    "inject:paste-guard": "node scripts/inject-paste-guard.mjs",
+    "predeploy": "node scripts/inject-paste-guard.mjs"
   }
 }

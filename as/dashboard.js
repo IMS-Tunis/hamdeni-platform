@@ -25,11 +25,13 @@ async function updateGeneralProgress() {
 
   const total = totalPoints + totalLevels;
   const done = points + levels;
-  const percent = total ? Math.round((done / total) * 100) : 0;
+  const percent = total ? (done / total) * 100 : 0;
+  const roundedPercent = Math.round(percent);
+  const clampedPercent = Math.max(0, Math.min(100, percent));
 
-  fill.style.width = percent + "%";
-  fill.textContent = percent + "%";
-  console.debug('[dashboard] Progress percent', percent);
+  fill.textContent = roundedPercent + "%";
+  fill.style.setProperty("width", clampedPercent + "%", "important");
+  console.debug('[dashboard] Progress percent', roundedPercent);
 }
 
 document.addEventListener("DOMContentLoaded", () => {

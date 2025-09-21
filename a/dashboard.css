@@ -961,3 +961,16 @@ footer {
     padding: 10px 20px !important;
   }
 }
+/* === Progress bar: filled portion is green; width driven by JS === */
+.general-progress-bar {
+  position: relative;              /* ensures inner fill lays out correctly */
+  overflow: hidden;                /* clip rounded corners if any */
+}
+
+.general-progress-fill {
+  background: #10b981 !important;  /* solid green */
+  background-image: none !important;
+  transition: width 300ms ease;    /* smooth change when updated */
+  height: 100%;
+  border-radius: inherit;          /* keep rounded corners if parent has them */
+}
