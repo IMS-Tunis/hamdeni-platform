@@ -136,7 +136,6 @@ window.addEventListener('DOMContentLoaded', function() {
   const chips = document.querySelectorAll('.feature-chip.has-popover');
   const pop = document.getElementById('chipPopover');
   const img = document.getElementById('chipPopoverImg');const text = document.getElementById('chipPopoverText');
-  const closeBtn = pop.querySelector('.chip-popover-close');
   let activeChip = null;
 
   function clamp(val, min, max){ return Math.min(Math.max(val, min), max); }
@@ -204,7 +203,6 @@ window.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  closeBtn.addEventListener('click', closePopover);
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closePopover(); });
 
   // Click outside to close
@@ -213,6 +211,8 @@ window.addEventListener('DOMContentLoaded', function() {
       closePopover();
     }
   });
+
+  pop.addEventListener('mouseleave', closePopover);
 
   // Reposition on resize/scroll if visible
   window.addEventListener('resize', () => { if (activeChip) openPopoverFor(activeChip); });
@@ -226,7 +226,6 @@ window.addEventListener('DOMContentLoaded', function() {
   
   <!-- Reusable chip popover (text first, then image; single column) -->
   <div id="chipPopover" class="chip-popover" role="dialog" aria-hidden="true">
-    <button class="chip-popover-close" aria-label="Close">&times;</button>
     <div class="chip-popover-content">
       <div class="chip-popover-text">
         <p id="chipPopoverText"></p>
