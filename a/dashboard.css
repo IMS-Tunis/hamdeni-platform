@@ -631,27 +631,43 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 16px;
 }
 
 .level-box {
   background: #e0e0e0;
-  width: 50%;
-  padding: 10px;
-  border-radius: 10px;
+  width: min(100%, 340px);
+  padding: 16px 18px;
+  border-radius: 12px;
   text-align: center;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.level-box h4 {
-  margin: 0;
-  font-size: 1.1em;
+.level-box .level-line {
+  display: block;
+  width: 100%;
 }
 
-.level-box p {
-  margin: 5px 0 0;
-  font-size: 0.85em;
-  color: #333;
+.level-box .level-status {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.level-box .level-number {
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+}
+
+.level-box .level-title {
+  font-size: 0.9rem;
+  line-height: 1.35;
 }
 
 .level-box.locked {
