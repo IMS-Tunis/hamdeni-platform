@@ -39,6 +39,11 @@ export async function renderProgrammingLevels() {
   levels.forEach((level, index) => {
     console.debug('[levelRenderer] Creating level box', level.id);
     const box = document.createElement("div");
+    const idNumber =
+      typeof level.id === 'string'
+        ? Number.parseInt(level.id.replace('level', ''), 10)
+        : Number.NaN;
+    const displayNumber = Number.isFinite(idNumber) ? idNumber : index;
     let status = 'locked';
     if (index + 1 < reached) {
       status = 'passed';
@@ -46,7 +51,7 @@ export async function renderProgrammingLevels() {
       status = 'unlocked';
     }
     box.className = `level-box ${status}`;
-    box.dataset.level = index + 1;
+    box.dataset.level = String(displayNumber);
 
     let icon = "";
     if (status === "locked") icon = "\uD83D\uDD12"; // 🔒
@@ -56,7 +61,7 @@ export async function renderProgrammingLevels() {
     box.innerHTML = `
       <span class="level-icon">${icon}</span>
       <div class="level-text">
-        <strong>Level ${index + 1}</strong><br/>
+        <strong>Level ${displayNumber}</strong><br/>
         <span>${level.title}</span>
       </div>
     `;
@@ -65,7 +70,7 @@ export async function renderProgrammingLevels() {
         if (box.classList.contains("locked")) {
           alert("This level is locked.");
         } else {
-          const levelFolder = `Level ${index + 1}`;
+          const levelFolder = `Level ${displayNumber}`;
           const encodedFolder = encodeURIComponent(levelFolder);
           window.location.href = `./levels/${encodedFolder}/notes.html`;
         }
