@@ -178,12 +178,13 @@
 {
   "mock_test": {
     "title": "mock Test",
-    "question": "Keep asking the user for a number until a positive integer n is entred.\n1) Print 1 to n using a for loop.\n2) Using a while loop, compute and print the sum of integers from 1 to n.",
-    "question_self_contained": "Keep asking the user for a number until a positive odd integer n is entred.\n1) Print 1 to n using a for loop.\n2) Using a while loop, compute and print the sum of integers from 1 to n. ",
-    "mark_scheme_answer": "while True:\n  n = int(input(\"Enter a positive odd integer: \"))\n    if n > 0 and n % 2 == 1:\n        break		\n\n# 1) List 1..n\nfor i in range(1, n + 1):\n    print(i)\n\n# 2) Sum 1..n with while\ntotal = 0\nk = 1\nwhile k <= n:\n    total += k\n    k += 1\nprint(\"Sum 1..n:\", total)",
-    "explanation": "1) The for loop shows each number exactly once.\n2) The while loop adds the same numbers into total by increasing k from 1 to n.\n"
+    "question": "Keep asking the user for a number until a positive integer n is entered.\n1) Print 1 to n using a for loop.\n2) Using a while loop, compute and print the sum of integers from 1 to n.",
+    "question_self_contained": "Keep asking the user for a number until a positive odd integer n is entered.\n1) Print 1 to n using a for loop.\n2) Using a while loop, compute and print the sum of integers from 1 to n.",
+    "mark_scheme_answer": "while True:\n    n = int(input(\"Enter a positive odd integer: \"))\n    if n > 0 and n % 2 == 1:\n        break\n\n# 1) List 1..n\nfor i in range(1, n + 1):\n    print(i)\n\n# 2) Sum 1..n with while\ntotal = 0\nk = 1\nwhile k <= n:\n    total += k\n    k += 1\nprint(\"Sum 1..n:\", total)",
+    "explanation": "1) The for loop shows each number exactly once.\n2) The while loop adds the same numbers into total by increasing k from 1 to n."
   }
 }
+
 
 
 </script>
