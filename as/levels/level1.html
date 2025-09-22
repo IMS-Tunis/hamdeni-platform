@@ -38,6 +38,18 @@
       gap: 15px;
       color: #f0f0f0;
     }
+
+    #error-message {
+      display: none;
+      margin: 40px auto;
+      max-width: 600px;
+      padding: 20px;
+      background: #ffe5e5;
+      color: #c62828;
+      border-radius: 8px;
+      font-weight: bold;
+      text-align: center;
+    }
   </style>
 <script defer src="/assets/js/paste-guard.js"></script>
 </head>
@@ -60,25 +72,51 @@
       <img src="../../images/cambridge.png" alt="Cambridge Logo" class="logo" />
     </div>
   </header>
-  <main style="padding:20px;text-align:center;">
+  <div id="error-message">⚠️ You must be logged in to view this content.</div>
+  <main id="content-area" style="display:none;padding:20px;text-align:center;">
     <p>Content for Level 1 goes here.</p>
-    <iframe 
-      src="https://pseudocode.pro/editor" 
-      width="50%" 
-      height="400px" 
+    <iframe
+      src="https://pseudocode.pro/editor"
+      width="50%"
+      height="400px"
       frameborder="0"
       style="border: 1px solid #ccc; border-radius: 8px;">
     </iframe>
   </main>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const sName = localStorage.getItem('student_name');
-      if (sName) {
-        document.getElementById('student-name').textContent = '👤 ' + sName;
-      }
+      const username = localStorage.getItem('username');
+      const studentName = localStorage.getItem('student_name');
       const platform = localStorage.getItem('platform');
-      if (platform) {
-        document.getElementById('platform-name').textContent = '🎓 Platform: ' + platform;
+
+      const errorMessage = document.getElementById('error-message');
+      const contentArea = document.getElementById('content-area');
+      const studentNameEl = document.getElementById('student-name');
+      const platformNameEl = document.getElementById('platform-name');
+
+      if (!username || !studentName) {
+        if (errorMessage) {
+          errorMessage.style.display = 'block';
+        }
+        if (contentArea) {
+          contentArea.style.display = 'none';
+        }
+        return;
+      }
+
+      if (errorMessage) {
+        errorMessage.style.display = 'none';
+      }
+      if (contentArea) {
+        contentArea.style.display = 'block';
+      }
+
+      if (studentNameEl) {
+        studentNameEl.textContent = '👤 ' + studentName;
+      }
+      if (platformNameEl) {
+        const platformLabel = platform || 'AS Level';
+        platformNameEl.textContent = '🎓 Platform: ' + platformLabel;
       }
     });
   </script>

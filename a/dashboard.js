@@ -5,6 +5,7 @@ import { initializeLogin, fetchProgressCounts, verifyPlatform } from "./modules/
 
 async function updateGeneralProgress() {
   const fill = document.querySelector(".general-progress-fill");
+  const termGradeEl = document.getElementById("term-grade-value");
   if (!fill) return;
   console.log('[dashboard] Updating general progress');
 
@@ -21,7 +22,19 @@ async function updateGeneralProgress() {
 
   const totalLevels = 16; // defined in levelRenderer
 
-  const { points, levels } = await fetchProgressCounts();
+  const { points, levels, term1Grade } = await fetchProgressCounts();
+
+  if (termGradeEl) {
+    const numericGrade = Number(term1Grade);
+    const sanitizedGrade = Number.isFinite(numericGrade)
+      ? Math.min(100, Math.max(0, numericGrade))
+      : 0;
+    const formattedGrade = Number.isInteger(sanitizedGrade)
+      ? sanitizedGrade.toString()
+      : sanitizedGrade.toFixed(1);
+
+    termGradeEl.textContent = `${formattedGrade}%`;
+  }
 
   const total = totalPoints + totalLevels;
   const done = points + levels;

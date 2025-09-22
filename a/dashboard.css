@@ -35,9 +35,9 @@ body {
   border-radius: 16px !important;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08) !important;
   position: relative !important;
-  overflow: hidden !important;
+  overflow: visible !important;
   margin: 15px !important;
-  max-height: 150px !important;
+  max-height: none !important;
 }
 
 /* Animated gradient border - ONLY for the specific header-row */
@@ -128,10 +128,11 @@ body {
 
 /* Target ONLY progress wrapper in the specific header-row after header-background */
 .header-background + .header-row .general-progress-wrapper {
-  display: flex !important;
+  display: grid !important;
+  grid-template-columns: auto minmax(0, 1fr) auto !important;
   align-items: center !important;
-  gap: 18px !important;
-  justify-content: flex-start !important;
+  gap: 12px 18px !important;
+  justify-content: stretch !important;
   background: rgba(255, 255, 255, 0.95) !important;
   backdrop-filter: blur(15px) !important;
   padding: 18px 24px !important;
@@ -139,7 +140,7 @@ body {
   border: 2px solid rgba(102, 126, 234, 0.2) !important;
   box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15) !important;
   position: relative !important;
-  overflow: hidden !important;
+  overflow: visible !important;
 }
 
 .header-background + .header-row .general-progress-wrapper::before {
@@ -160,6 +161,7 @@ body {
 }
 
 .header-background + .header-row .general-progress-label {
+  grid-column: 1 / 2 !important;
   font-weight: 800 !important;
   font-size: 13px !important;
   letter-spacing: 1.2px !important;
@@ -172,14 +174,15 @@ body {
 }
 
 .header-background + .header-row .general-progress-bar {
-  flex-grow: 1 !important;
+  grid-column: 2 / 3 !important;
+  width: 100% !important;
   height: 14px !important;
   background: #e2e8f0 !important;
   border-radius: 50px !important;
   position: relative !important;
   overflow: hidden !important;
   box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.15) !important;
-  min-width: 320px !important;
+  min-width: clamp(200px, 35vw, 320px) !important;
   border: 1px solid rgba(102, 126, 234, 0.2) !important;
 }
 
@@ -246,6 +249,100 @@ body {
   line-height: 14px !important;
   font-weight: 600 !important;
   text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8) !important;
+}
+
+.header-background + .header-row .term-grade-badge {
+  grid-column: 3 / 4 !important;
+  justify-self: end !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  padding: 14px 18px !important;
+  min-width: 132px !important;
+  border-radius: 18px !important;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.18) 0%, rgba(118, 75, 162, 0.22) 100%) !important;
+  border: 1px solid rgba(102, 126, 234, 0.35) !important;
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.18) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.header-background + .header-row .term-grade-badge::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 80% 0%, rgba(255, 255, 255, 0.7), transparent 60%) !important;
+  opacity: 0.85;
+  z-index: 0;
+}
+
+.header-background + .header-row .term-grade-badge:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 16px 35px rgba(102, 126, 234, 0.28) !important;
+}
+
+.header-background + .header-row .term-grade-label {
+  position: relative !important;
+  z-index: 1 !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 1px !important;
+  color: #4c63d2 !important;
+  text-transform: uppercase !important;
+  opacity: 0.85 !important;
+}
+
+.header-background + .header-row .term-grade-value {
+  position: relative !important;
+  z-index: 1 !important;
+  font-size: 24px !important;
+  font-weight: 800 !important;
+  color: #1b254b !important;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.65) !important;
+  line-height: 1.1 !important;
+}
+
+@media (max-width: 820px) {
+  .header-background + .header-row .general-progress-wrapper {
+    grid-template-columns: 1fr !important;
+  }
+
+  .header-background + .header-row .general-progress-label,
+  .header-background + .header-row .general-progress-bar,
+  .header-background + .header-row .term-grade-badge {
+    grid-column: 1 / -1 !important;
+  }
+
+  .header-background + .header-row .term-grade-badge {
+    justify-self: stretch !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    text-align: left !important;
+    gap: 12px !important;
+    padding: 16px 20px !important;
+  }
+
+  .header-background + .header-row .general-progress-label {
+    white-space: normal !important;
+  }
+
+  .header-background + .header-row .term-grade-badge::before {
+    background: radial-gradient(circle at 95% 10%, rgba(255, 255, 255, 0.75), transparent 65%) !important;
+  }
+
+  .header-background + .header-row .term-grade-label {
+    font-size: 10px !important;
+    letter-spacing: 0.8px !important;
+  }
+
+  .header-background + .header-row .term-grade-value {
+    font-size: 22px !important;
+  }
 }
 
 /* Target ONLY form box in the specific header-row after header-background */
@@ -534,27 +631,43 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 16px;
 }
 
 .level-box {
   background: #e0e0e0;
-  width: 50%;
-  padding: 10px;
-  border-radius: 10px;
+  width: min(100%, 340px);
+  padding: 16px 18px;
+  border-radius: 12px;
   text-align: center;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.level-box h4 {
-  margin: 0;
-  font-size: 1.1em;
+.level-box .level-line {
+  display: block;
+  width: 100%;
 }
 
-.level-box p {
-  margin: 5px 0 0;
-  font-size: 0.85em;
-  color: #333;
+.level-box .level-status {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.level-box .level-number {
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+}
+
+.level-box .level-title {
+  font-size: 0.9rem;
+  line-height: 1.35;
 }
 
 .level-box.locked {
@@ -768,7 +881,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  text-align: left;
+  text-align: center;
 }
 
 .level-box:hover {
@@ -794,6 +907,10 @@ body {
 
 .level-text {
   line-height: 1.2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .arrow-img {

@@ -40,14 +40,26 @@ export async function renderProgrammingLevels() {
   levels.forEach((level, index) => {
     console.debug('[levelRenderer] Creating level box', level.id);
     const box = document.createElement("div");
+    const levelNumber = index + 1;
     let status = 'locked';
-    if (index + 1 < reached) {
+    if (levelNumber < reached) {
       status = 'passed';
-    } else if (index + 1 === reached) {
+    } else if (levelNumber === reached) {
       status = 'unlocked';
     }
     box.className = `level-box ${status}`;
-    box.dataset.level = index + 1;
+    box.dataset.level = levelNumber;
+
+    const statusLabels = {
+      locked: "Locked",
+      unlocked: "Unlocked",
+      passed: "Completed"
+    };
+    const statusLabel = statusLabels[status] ?? status;
+    box.setAttribute(
+      "aria-label",
+      `${statusLabel} Level ${levelNumber}: ${level.title}`
+    );
 
     let icon = "";
     if (status === "locked") icon = "\uD83D\uDD12"; // 🔒
@@ -55,11 +67,9 @@ export async function renderProgrammingLevels() {
     else if (status === "passed") icon = "\u2705"; // ✅
 
     box.innerHTML = `
-      <span class="level-icon">${icon}</span>
-      <div class="level-text">
-        <strong>Level ${index + 1}</strong><br/>
-        <span>${level.title}</span>
-      </div>
+      <div class="level-line level-status" aria-hidden="true">${icon}</div>
+      <div class="level-line level-number">Level ${levelNumber}</div>
+      <div class="level-line level-title">${level.title}</div>
     `;
     box.addEventListener("click", () => {
       try {
