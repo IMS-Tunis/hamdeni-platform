@@ -6,10 +6,18 @@ const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
 const supabase = window.supabase;
 const username = localStorage.getItem("username");
 const platform = localStorage.getItem("platform");
-const pointId = (location.pathname
-  .split("/")
-  .find(p => /^p\d+$/i.test(p)) || "")
-  .toLowerCase();
+const pointId = (() => {
+  if (typeof point_id !== 'undefined' && point_id) {
+    return String(point_id).trim();
+  }
+
+  const segment = location.pathname
+    .split('/')
+    .filter(Boolean)
+    .find(part => /^\d+(?:\.\d+)?$/.test(part));
+
+  return segment || '';
+})().toLowerCase();
 
 const PROGRESS_TABLES = {
   A_Level: 'a_theory_progress',
