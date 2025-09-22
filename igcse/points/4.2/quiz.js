@@ -5,17 +5,104 @@ const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
 // on an undefined object.
 const supabase = window.supabase;
 const username = localStorage.getItem("username");
+const platform = localStorage.getItem("platform");
 const pointId = (location.pathname
   .split("/")
   .find(p => /^p\d+$/i.test(p)) || "")
   .toLowerCase();
 
-fetch("quiz.json")
-  .then(r => r.json())
-  .then(data => startQuiz(data.questions));
+const PROGRESS_TABLES = {
+  A_Level: 'a_theory_progress',
+  AS_Level: 'as_theory_progress',
+  IGCSE: 'igcse_theory_progress'
+};
+
+const COMPLETION_BANNER_ID = 'layer2-complete-banner';
 
 let attempt = 1;
 let incorrect = [];
+let completedBefore = false;
+
+init();
+
+async function init() {
+  await checkInitialProgress();
+  try {
+    const response = await fetch("quiz.json");
+    if (!response.ok) throw new Error(`Failed to load quiz: ${response.status}`);
+    const data = await response.json();
+    startQuiz(data.questions);
+  } catch (error) {
+    console.error('Failed to load quiz questions', error);
+    const container = document.getElementById("quiz-container");
+    if (container) {
+      container.innerHTML = "<p>Unable to load the quiz right now. Please try again later.</p>";
+    }
+  }
+}
+
+async function checkInitialProgress() {
+  const table = PROGRESS_TABLES[platform];
+  if (!supabase || !username || !table || !pointId) return;
+  try {
+    const { data, error } = await supabase
+      .from(table)
+      .select('reached_layer')
+      .eq('username', username)
+      .eq('point_id', pointId)
+      .maybeSingle();
+    if (error) throw error;
+    if (parseReachedLayer(data?.reached_layer) >= 2) {
+      completedBefore = true;
+      showAlreadyCompletedBanner();
+    }
+  } catch (err) {
+    console.error('Failed to check existing progress', err);
+  }
+}
+
+function showAlreadyCompletedBanner() {
+  const container = document.getElementById("quiz-container");
+  if (!container || document.getElementById(COMPLETION_BANNER_ID)) return;
+
+  const wrapper = document.createElement('div');
+  wrapper.id = COMPLETION_BANNER_ID;
+  wrapper.className = 'success-message';
+  wrapper.innerHTML = `✅ You've already completed this practice quiz. ` +
+    `You can head straight to the next layer whenever you're ready, or retake the questions below for revision.`;
+
+  const actionRow = document.createElement('div');
+  actionRow.style.marginTop = '12px';
+
+  const continueBtn = document.createElement('a');
+  continueBtn.className = 'nav-btn next';
+  continueBtn.href = '#';
+  continueBtn.textContent = 'Continue to Layer 3';
+  actionRow.appendChild(continueBtn);
+  wrapper.appendChild(actionRow);
+
+  const parent = container.parentNode;
+  if (parent) {
+    parent.insertBefore(wrapper, container);
+  }
+
+  attachContinueHandler(continueBtn);
+}
+
+function attachContinueHandler(btn) {
+  if (!btn) return;
+  btn.addEventListener('click', async (event) => {
+    event.preventDefault();
+    await sendProgress();
+    window.location.href = 'layer3.html';
+  });
+}
+
+function parseReachedLayer(value) {
+  if (value === 'R') return 4;
+  const parsed = parseInt(value, 10);
+  return Number.isFinite(parsed) ? parsed : 0;
+}
 
 function startQuiz(questions) {
   const container = document.getElementById("quiz-container");
@@ -45,8 +132,13 @@ function startQuiz(questions) {
     container.appendChild(div);
   });
   const submit = document.createElement("button");
-  submit.className = attempt === 1 ? "submit-btn" : "submit-btn retry";
-  submit.textContent = attempt === 1 ? "Submit" : "Retry";
+  const isInitialRetake = completedBefore && attempt === 1;
+  submit.className = !isInitialRetake && attempt === 1 ? "submit-btn" : "submit-btn retry";
+  if (attempt === 1) {
+    submit.textContent = isInitialRetake ? "Retake Quiz" : "Submit";
+  } else {
+    submit.textContent = "Retry";
+  }
   submit.type = "button";
   submit.onclick = () => checkAnswers(questions);
   container.appendChild(submit);
@@ -104,11 +196,8 @@ function checkAnswers(questions) {
   if (correct === total) {
     result.innerHTML = `<div class="success-message">✅ All correct! Proceed to next layer.</div>` +
       `<a class="nav-btn next" id="continue-btn" href="#">Continue to Layer 3</a>`;
-    document.getElementById('continue-btn').onclick = async (e) => {
-      e.preventDefault();
-      await sendProgress();
-      window.location.href = 'layer3.html';
-    };
+    completedBefore = true;
+    attachContinueHandler(document.getElementById('continue-btn'));
   } else {
     attempt++;
     result.innerHTML = `<div class="retry-message">You answered ${correct} out of ${total} questions correctly. To help you practice, only the questions you answered incorrectly are displayed. Please try them again.</div>`;
@@ -118,12 +207,7 @@ function checkAnswers(questions) {
 
 async function sendProgress() {
   const platform = localStorage.getItem("platform");
-  const tables = {
-    A_Level: 'a_theory_progress',
-    AS_Level: 'as_theory_progress',
-    IGCSE: 'igcse_theory_progress'
-  };
-  const table = tables[platform];
+  const table = PROGRESS_TABLES[platform];
   if (!table) return;
   const { data: existing } = await supabase
     .from(table)
@@ -131,8 +215,7 @@ async function sendProgress() {
     .eq('username', username)
     .eq('point_id', pointId)
     .maybeSingle();
-  const score = v => v === 'R' ? 4 : (parseInt(v, 10) || 0);
-  if (score(existing?.reached_layer) < 2) {
+  if (parseReachedLayer(existing?.reached_layer) < 2) {
     await supabase.from(table).upsert({
       username: username,
       point_id: pointId,
