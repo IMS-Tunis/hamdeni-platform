@@ -278,6 +278,7 @@ export default function initLayer3(pointId, options = {}) {
           questions.forEach((q, index) => {
           const displayNumber = getDisplayNumber(q.question_number, index);
           const dbQuestionNumber = getDbQuestionNumber(q.question_number, index);
+          const answeredKey = `question-${index}`;
           const candidates = getQuestionKeys(q.question_number, index);
           const savedRow = candidates
             .map(key => saved[String(key)])
@@ -302,7 +303,7 @@ export default function initLayer3(pointId, options = {}) {
           if (savedRow.student_answer) {
             textarea.disabled = true;
             btn.disabled = true;
-            answeredQuestions.add(String(dbQuestionNumber));
+            answeredQuestions.add(answeredKey);
           }
           if (savedRow.correction_note) {
             addNoteToReview(displayNumber, savedRow.correction_note);
@@ -333,7 +334,7 @@ export default function initLayer3(pointId, options = {}) {
               return;
             }
             console.log('Saved answer', data);
-            answeredQuestions.add(String(dbQuestionNumber));
+            answeredQuestions.add(answeredKey);
             updateLayer4ButtonState();
             localStorage.setItem(progressKey, String(dbQuestionNumber));
             if (dbQuestionNumber >= totalQuestions) {
