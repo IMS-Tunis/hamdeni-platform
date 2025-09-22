@@ -92,31 +92,8 @@
       "question": "Match each collision handling method to its description.",
       "pairs": {
         "Linear probing": "Advance from the original address to the next available free slot",
-        "Overflow area": "Place the item in a designated overflow region and search it linearly when needed",
         "Chaining": "Maintain a collection linked from the address so colliding items are traversed via links"
       }
-    },
-    {
-      "type": "mcq",
-      "question": "Using modulus 5, which pair shows correct hash values?",
-      "options": [
-        "1029 → 4 and 7630 → 0",
-        "1029 → 0 and 7630 → 4",
-        "1029 → 5 and 7630 → 1",
-        "1029 → 1 and 7630 → 5"
-      ],
-      "answer": "1029 → 4 and 7630 → 0"
-    },
-    {
-      "type": "mcq",
-      "question": "Which statement about choosing the divisor D in modulus-based hashing is explicitly stated in the notes?",
-      "options": [
-        "Choosing a prime D often reduces clustering and collision likelihood when key patterns are common",
-        "In random file organization, records are stored at addresses computed from a key using a hashing algorithm",
-        "Collisions occur when different keys produce the same hash address and cannot share the same physical slot",
-        "Linear probing advances from the original address to the next available free slot"
-      ],
-      "answer": "Choosing a prime D often reduces clustering and collision likelihood when key patterns are common"
     }
   ]
 }
