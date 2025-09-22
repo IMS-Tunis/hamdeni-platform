@@ -153,7 +153,7 @@ export default function initLayer3(pointId, options = {}) {
   }
 
   let totalQuestions = 0;
-  const savedNotes = new Set();
+  const answeredQuestions = new Set();
   const questionLabels = new Map();
   const DIGITS_ONLY = /^\d+$/;
 
@@ -229,13 +229,12 @@ export default function initLayer3(pointId, options = {}) {
     notesList.appendChild(li);
   }
 
-  function checkAllNotesSaved() {
-    if (layer4Btn) {
-      const shouldDisable = savedNotes.size < totalQuestions;
-      layer4Btn.disabled = shouldDisable;
-      if (!shouldDisable) {
-        hideLayer4Tooltip();
-      }
+  function updateLayer4ButtonState() {
+    if (!layer4Btn) return;
+    const shouldDisable = totalQuestions === 0 || answeredQuestions.size < totalQuestions;
+    layer4Btn.disabled = shouldDisable;
+    if (!shouldDisable) {
+      hideLayer4Tooltip();
     }
   }
 
@@ -267,6 +266,9 @@ export default function initLayer3(pointId, options = {}) {
 
   async function render() {
     const saved = await loadSaved();
+    answeredQuestions.clear();
+    totalQuestions = 0;
+    updateLayer4ButtonState();
     const lastCompleted = parseInt(localStorage.getItem(progressKey) || '0', 10);
     fetch(questionsFile)
         .then(r => r.json())
@@ -300,10 +302,10 @@ export default function initLayer3(pointId, options = {}) {
           if (savedRow.student_answer) {
             textarea.disabled = true;
             btn.disabled = true;
+            answeredQuestions.add(String(dbQuestionNumber));
           }
           if (savedRow.correction_note) {
             addNoteToReview(displayNumber, savedRow.correction_note);
-            savedNotes.add(displayNumber);
           }
 
           btn.addEventListener('click', async () => {
@@ -331,6 +333,8 @@ export default function initLayer3(pointId, options = {}) {
               return;
             }
             console.log('Saved answer', data);
+            answeredQuestions.add(String(dbQuestionNumber));
+            updateLayer4ButtonState();
             localStorage.setItem(progressKey, String(dbQuestionNumber));
             if (dbQuestionNumber >= totalQuestions) {
               localStorage.removeItem(progressKey);
@@ -361,14 +365,13 @@ export default function initLayer3(pointId, options = {}) {
             }
             console.log('Saved note', data);
             addNoteToReview(displayNumber, note);
-            savedNotes.add(displayNumber);
-            checkAllNotesSaved();
+            updateLayer4ButtonState();
             alert('The note has been successfully saved in your personalized notebook.');
           });
 
           questionContainer.appendChild(wrapper);
         });
-        checkAllNotesSaved();
+        updateLayer4ButtonState();
         const answered = Object.keys(saved).length;
         if (answered >= totalQuestions) {
           localStorage.removeItem(progressKey);
