@@ -287,15 +287,15 @@
 
   <script>
     const student_name = localStorage.getItem("student_name");
-    const platform = localStorage.getItem("platform");
+    const layerPlatform = localStorage.getItem("platform");
     const point_id = "4.2";
 
     if (student_name) {
       document.getElementById("student-name").textContent = "👤 " + student_name;
     }
 
-    if (platform) {
-      document.getElementById("platform-name").textContent = "🎓 Platform: " + platform;
+    if (layerPlatform) {
+      document.getElementById("platform-name").textContent = "🎓 Platform: " + layerPlatform;
     }
 
     document.getElementById("point-title").textContent = point_id;
