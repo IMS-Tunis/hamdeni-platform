@@ -52,6 +52,11 @@ export default function initLayer3(pointId, options = {}) {
   let layer4Tooltip;
   let layer4TooltipStyleApplied = false;
 
+  function formatMultilineText(text) {
+    if (text === null || text === undefined) return '';
+    return String(text).replace(/\r\n|\r|\n/g, '<br>');
+  }
+
   function ensureLayer4Tooltip() {
     if (!layer4TooltipStyleApplied) {
       const style = document.createElement('style');
@@ -284,13 +289,15 @@ export default function initLayer3(pointId, options = {}) {
             .map(key => saved[String(key)])
             .find(Boolean) || {};
           questionLabels.set(String(dbQuestionNumber), displayNumber);
+          const questionHtml = formatMultilineText(q.question);
+          const markSchemeHtml = formatMultilineText(q.mark_scheme);
           const wrapper = document.createElement('div');
           wrapper.className = 'task-box';
           wrapper.innerHTML = `
-            <h3>Q${displayNumber}: ${q.question}</h3>
+            <h3>Q${displayNumber}: ${questionHtml}</h3>
             <textarea data-q="${dbQuestionNumber}" class="answer-text" placeholder="Your answer...">${savedRow.student_answer || ''}</textarea>
             <button class="submit-btn">Submit Answer</button>
-            <div class="mark-scheme" style="display:${savedRow.student_answer ? 'block' : 'none'};"><strong>Model Answer</strong>: ${q.mark_scheme}</div>
+            <div class="mark-scheme" style="display:${savedRow.student_answer ? 'block' : 'none'};"><strong>Model Answer</strong>: ${markSchemeHtml}</div>
             <textarea data-note="${dbQuestionNumber}" class="note-text" placeholder="Note what you missed in your answer, it will be saved as a personal note for future review.">${savedRow.correction_note || ''}</textarea>
             <button class="save-note-btn">Save Note</button>
           `;
