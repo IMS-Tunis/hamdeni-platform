@@ -1,46 +1,42 @@
 [
   {
     "question": "Compare sequential and serial methods of file organisation.",
-    "answer": "5(a) One mark for each correct marking point (Max 4)\n• In both serial and sequential files records are stored one after the other …\n• … and need to be accessed one after the other\n• Serial files are stored in chronological order\n• Sequential files are stored with ordered records\n• … and stored in the order of the key field\n• In serial files, new records are added in the next available space / records are appended to the file\n• In sequential files, new records are inserted in the correct position."
+    "answer": "One mark for each correct marking point (Max 4)\n• In both serial and sequential files records are stored one after the other …\n• … and need to be accessed one after the other\n• Serial files are stored in chronological order\n• Sequential files are stored with ordered records\n• … and stored in the order of the key field\n• In serial files, new records are added in the next available space / records are appended to the file\n• In sequential files, new records are inserted in the correct position."
   },
   {
     "question": "State the most suitable method of file access when a record is referenced by a unique address on a disk-type storage medium.",
-    "answer": "5(b) Direct (access)"
+    "answer": "Direct (access)"
   },
   {
     "question": "State the most suitable method of file access when a bank stores its data records in ascending order of account number.",
-    "answer": "5(c) Sequential (access)"
+    "answer": "Sequential (access)"
   },
   {
     "question": "Describe how records are organised and accessed in a sequential file.",
-    "answer": "2(a) One mark per point (Max 3)\n• Records are in order of a key field/index\n• The key/index is used when reading/writing records\n• Records are read/written in order of the key/index."
-  },
-  {
-    "question": "A hashing algorithm is used to calculate storage locations for records in a random access file. The algorithm calculates hash values using the function modulus 5.\nThe function modulus gives the remainder after integer division.\nFor example, 3003 modulus 5 = 3, so the record key 3003 gives a hash value of 3.\nComplete the table to show the remaining hash values (for the record keys 1029 and 7630; give your answers in that order).",
-    "answer": "1029\n4\n\n7630\n0"
+    "answer": "One mark per point (Max 3)\n• Records are in order of a key field/index\n• The key/index is used when reading/writing records\n• Records are read/written in order of the key/index."
   },
   {
     "question": "Describe the sequential method of file access.",
-    "answer": "4(a) One mark per mark point (Max 2)\nMP1 Sequential access method searches for records one after the other\nMP2 … from the physical start of the file until the record is found/the end of file."
+    "answer": "One mark per mark point (Max 2)\nMP1 Sequential access method searches for records one after the other\nMP2 … from the physical start of the file until the record is found/the end of file."
   },
   {
     "question": "Explain how the sequential method of file access is applied to files with serial organisation and to files with sequential organisation.",
-    "answer": "4(b) One mark per mark point (Max 3)\nMP1 For serial files, records are stored in chronological order\nMP2 … every record needs to be checked until the record is found, or all records have been checked.\nMP3 For sequential files, records are stored in order of a key field/index, and it is the key field/index that is compared.\nMP4 … every record is checked until the record is found, or the key field of the current record is greater than the key field of the target record."
+    "answer": "One mark per mark point (Max 3)\nMP1 For serial files, records are stored in chronological order\nMP2 … every record needs to be checked until the record is found, or all records have been checked.\nMP3 For sequential files, records are stored in order of a key field/index, and it is the key field/index that is compared.\nMP4 … every record is checked until the record is found, or the key field of the current record is greater than the key field of the target record."
   },
   {
-    "question": "Outline what is meant by the term collision in this context (hashing used for file access).",
-    "answer": "3(a) One mark per mark point (Max 2)\nMP1 A collision is when the two values / data items in the key field for two records (pass through a hashing algorithm and) result in the same hash value\nMP2 …so the location identified (by the hashing algorithm) may already be in use // two records cannot occupy the same address."
+    "question": "Outline what is meant by the term collision in the context of file access.",
+    "answer": "One mark per mark point (Max 2)\nMP1 A collision is when the two values / data items in the key field for two records (pass through a hashing algorithm and) result in the same hash value\nMP2 …so the location identified (by the hashing algorithm) may already be in use // two records cannot occupy the same address."
   },
   {
     "question": "Explain how a collision can be dealt with when writing records to a random file.",
-    "answer": "3(b) One mark per mark point (Max 3)\nMP1 A process of collision resolution is used\nMP2 Start at the original hashed storage space\nMP3 …go through the following spaces in a linear fashion\nMP4 …and store the data item in the first available slot.\nOR\nMP5 Search the overflow area\nMP6 …go through the following spaces in a linear fashion\nMP7 …and store the data item in the first available slot.\nOR\nMP8 Each storage space holds a reference to a collection / chain of items\nMP9 …which can be searched individually.\nMP10 The data item is stored in the first available space in this chain."
+    "answer": "One mark per mark point (Max 3)\nMP1 A process of collision resolution is used\nMP2 Start at the original hashed storage space\nMP3 …go through the following spaces in a linear fashion\nMP4 …and store the data item in the first available slot.\nOR\nMP5 Search the overflow area\nMP6 …go through the following spaces in a linear fashion\nMP7 …and store the data item in the first available slot.\nOR\nMP8 Each storage space holds a reference to a collection / chain of items\nMP9 …which can be searched individually.\nMP10 The data item is stored in the first available space in this chain."
   },
   {
     "question": "Explain what is meant by a hashing algorithm in the context of file access.",
-    "answer": "5(a) One mark per mark point (Max 3)\nMP1 A hashing algorithm is used in direct access methods on random and sequential files\nMP2 It is a mathematical formula\nMP3 … used to perform a calculation applied to the key field of the record being searched / stored\nMP4 The result of the calculation gives the address where the record should be found / stored."
+    "answer": "One mark per mark point (Max 3)\nMP1 A hashing algorithm is used in direct access methods on random and sequential files\nMP2 It is a mathematical formula\nMP3 … used to perform a calculation applied to the key field of the record being searched / stored\nMP4 The result of the calculation gives the address where the record should be found / stored."
   },
   {
     "question": "The use of a hashing algorithm can result in the same storage location being identified for more than one record.\nOutline two methods of overcoming this issue.",
-    "answer": "5(b) One mark per mark point (Max 2)\nMP1 The record is stored in the next free memory space after the one identified by the hashing algorithm // Use linear progression\nMP2 An overflow area is set up and the record is stored in the next free memory space in the overflow area."
+    "answer": "One mark per mark point (Max 2)\nMP1 The record is stored in the next free memory space after the one identified by the hashing algorithm // Use linear progression\nMP2 An overflow area is set up and the record is stored in the next free memory space in the overflow area."
   }
 ]
