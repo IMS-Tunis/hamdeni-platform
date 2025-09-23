@@ -3,120 +3,120 @@
     "point_id": "13.2",
     "question_number": 1,
     "question": "Define the three file organisation methods used in binary files.",
-    "mark_scheme": "Answer:\n(Define: give precise meaning)\nSerial file organisation: records are stored one after another in the order they are added; new records are appended at the end.\nSequential file organisation: records are stored one after another in a given order defined by a key field; new records are inserted to preserve that order.\nRandom or direct file organisation: records are stored at addresses computed from a key using a hashing algorithm."
+    "mark_scheme": "Serial file organisation: records are stored one after another in the order they are added; new records are appended at the end.\nSequential file organisation: records are stored one after another in a given order defined by a key field; new records are inserted to preserve that order.\nRandom or direct file organisation: records are stored at addresses computed from a key using a hashing algorithm."
   },
   {
     "point_id": "13.2",
     "question_number": 2,
     "question": "Explain the difference between serial and sequential file organisation, using one clear example for each.",
-    "mark_scheme": "Answer:\n(Explain: set out purposes or reasons or how things relate, with supporting evidence)\nIn both, records lie one after another. A serial file keeps chronological arrival order and appends new records at the end, which suits transaction logs. A sequential file keeps records ordered by a key, so searches can stop once the current key exceeds the target; typical uses include customer billing lists held in ascending customer number."
+    "mark_scheme": "In both, records lie one after another. A serial file keeps chronological arrival order and appends new records at the end, which suits transaction logs. A sequential file keeps records ordered by a key, so searches can stop once the current key exceeds the target; typical uses include customer billing lists held in ascending customer number."
   },
   {
     "point_id": "13.2",
     "question_number": 3,
     "question": "Describe sequential and direct file access and indicate when each is appropriate.",
-    "mark_scheme": "Answer:\n(Describe: state the points of a topic and main features)\nSequential access checks records one by one from the physical start until the target is found or end of file is reached; it is efficient when the whole file is processed, for example monthly payroll.\nDirect access finds a record without reading others by using an index for a sequential file or a hashing algorithm for a random file; it is appropriate when individual records must be retrieved or updated rapidly."
+    "mark_scheme": "Sequential access checks records one by one from the physical start until the target is found or end of file is reached; it is efficient when the whole file is processed, for example monthly payroll.\nDirect access finds a record without reading others by using an index for a sequential file or a hashing algorithm for a random file; it is appropriate when individual records must be retrieved or updated rapidly."
   },
   {
     "point_id": "13.2",
     "question_number": 4,
     "question": "Explain what a hashing algorithm does for direct access to records and state two common collision handling methods.",
-    "mark_scheme": "Answer:\n(Explain: set out purposes or reasons or how things relate, with supporting evidence)\nA hashing algorithm applies a calculation to a record’s key to obtain the storage address for that record. Collisions occur when different keys map to the same address and can be handled by open hashing or linear probing to the next free space, or by a closed hash using an overflow area that is searched when collisions occur."
+    "mark_scheme": "A hashing algorithm applies a calculation to a record’s key to obtain the storage address for that record. Collisions occur when different keys map to the same address and can be handled by open hashing or linear probing to the next free space, or by a closed hash using an overflow area that is searched when collisions occur."
   },
   {
     "point_id": "13.2",
     "question_number": "5a",
     "question": "Calculate the storage address when the start address is 500, each record occupies 5 locations, there are 1000 possible remainders, and the hashing rule is address = start + (key mod 1000) × record size. Use key 9354.",
-    "mark_scheme": "Answer:\n(Calculate: work out from given facts, figures or information)\n9354 mod 1000 = 354. Address = 500 + 354 × 5 = 2270."
+    "mark_scheme": "9354 mod 1000 = 354. Address = 500 + 354 × 5 = 2270.\nExplanation\n step 1:Compute the index\nKey mod 1000 keeps the last three digits.\n9354 mod 1000 = 354.\nInterpretation: 354 is the index (from 0 to 999).\n Step 2: Count how many locations to move from the start\nEach record uses 5 consecutive locations.\nBefore index 354 there are 354 groups, each of 5 locations.\nLocations to move = 354 × 5 = 1770.\n Step 3: Compute the first address for this record\nStart address = 500.\nAddress = 500 + 1770 = 2270.\nThis record occupies addresses 2270 to 2274."
   },
   {
     "point_id": "13.2",
     "question_number": "5b",
     "question": "State the next address to check if open hashing is used and the first address in 5a is occupied.",
-    "mark_scheme": "Answer:\n(State: express in clear terms)\nWith open hashing, check the next block start at 2270 + 5 = 2275."
+    "mark_scheme": "With open hashing, check the next block start at 2270 + 5 = 2275."
   },
   {
     "point_id": "13.2",
     "question_number": "6a",
     "question": "Choose the most appropriate file organisation for borrowing books from a library and justify your choice.",
-    "mark_scheme": "Answer:\n(Choose: select from options; Justify: support with argument or evidence)\nSequential file organisation, since records can be kept in key order such as borrower or book ID to support ordered processing and searching."
+    "mark_scheme": "Sequential file organisation, since records can be kept in key order such as borrower or book ID to support ordered processing and searching."
   },
   {
     "point_id": "13.2",
     "question_number": "6b",
     "question": "Choose the most appropriate file organisation for providing an annual tax statement for employees and justify your choice.",
-    "mark_scheme": "Answer:\n(Choose; Justify)\nSequential file organisation, as records are processed in key order to generate end-of-period outputs efficiently."
+    "mark_scheme": "Sequential file organisation, as records are processed in key order to generate end-of-period outputs efficiently."
   },
   {
     "point_id": "13.2",
     "question_number": "6c",
     "question": "Choose the most appropriate file organisation for recording daily rainfall readings at a remote station to be collected monthly and justify your choice.",
-    "mark_scheme": "Answer:\n(Choose; Justify)\nSerial file organisation, because readings are appended in time order and later processed sequentially."
+    "mark_scheme": "Serial file organisation, because readings are appended in time order and later processed sequentially."
   },
   {
     "point_id": "13.2",
     "question_number": 7,
     "question": "Write down the step-by-step sequence for inserting a new data item into a direct-access file that uses hashing and open hashing.",
-    "mark_scheme": "Answer:\n(Write: write an answer in a specific way)\n1 Compute the hash address from the item’s key using the hashing formula.\n2 Compare the key stored at that address, if any.\n3 If the slot is empty, write the new record there; otherwise probe linearly to the next available slot and repeat the check until a free block is found.\n4 On retrieval, compute the same address and compare keys, probing forward if needed until the matching key is found."
+    "mark_scheme": "1 Compute the hash address from the item’s key using the hashing formula.\n2 Compare the key stored at that address, if any.\n3 If the slot is empty, write the new record there; otherwise probe linearly to the next available slot and repeat the check until a free block is found.\n4 On retrieval, compute the same address and compare keys, probing forward if needed until the matching key is found."
   },
   {
     "point_id": "13.2",
     "question_number": 8,
     "question": "Explain why a direct-access file is advantageous in large systems that frequently update individual records.",
-    "mark_scheme": "Answer:\n(Explain: set out purposes or reasons or how things relate, with supporting evidence)\nDirect access locates the target record without reading intervening records, so updates such as changing a customer’s phone number can be done rapidly, which is more efficient than sequential scanning for isolated edits."
+    "mark_scheme": "Direct access locates the target record without reading intervening records, so updates such as changing a customer’s phone number can be done rapidly, which is more efficient than sequential scanning for isolated edits."
   },
   {
     "point_id": "13.2",
     "question_number": 9,
     "question": "Compare a text file with a binary file in the context of program input and output.",
-    "mark_scheme": "Answer:\n(Compare: identify similarities and or differences)\nText file: data is stored as characters according to a character code and is human readable; lines are delimited by end-of-line markers.\nBinary file: data is stored in the program’s internal representation with fixed fields per record and no delimiter characters; it is not human readable and is record oriented."
+    "mark_scheme": "Text file: data is stored as characters according to a character code and is human readable; lines are delimited by end-of-line markers.\nBinary file: data is stored in the program’s internal representation with fixed fields per record and no delimiter characters; it is not human readable and is record oriented."
   },
   {
     "point_id": "13.2",
     "question_number": "10A",
     "question": "A text file is a special case of a serial file. True or False? Justify briefly.",
-    "mark_scheme": "Answer:\n(Identify: name or recognise; Justify: support with argument)\nFalse. Text or binary is a file type, whereas serial is an organisation method; these are distinct dimensions."
+    "mark_scheme": "False. Text or binary is a file type, whereas serial is an organisation method; these are distinct dimensions."
   },
   {
     "point_id": "13.2",
     "question_number": "10B",
     "question": "A sequential file is another name for a serial file. True or False? Justify briefly.",
-    "mark_scheme": "Answer:\n(Identify; Justify)\nFalse. Serial appends in arrival order; sequential stores by a defined key order."
+    "mark_scheme": "False. Serial appends in arrival order; sequential stores by a defined key order."
   },
   {
     "point_id": "13.2",
     "question_number": "10C",
     "question": "A record is the defined component in serial, sequential, and direct-access binary files. True or False? Justify briefly.",
-    "mark_scheme": "Answer:\n(Identify; Justify)\nTrue. Binary files are record based and the organisation methods arrange records."
+    "mark_scheme": "True. Binary files are record based and the organisation methods arrange records."
   },
   {
     "point_id": "13.2",
     "question_number": "10D",
     "question": "A binary file contains records. True or False? Justify briefly.",
-    "mark_scheme": "Answer:\n(Identify; Justify)\nTrue. Binary files are designed for program use and organised as records with fields."
+    "mark_scheme": "True. Binary files are designed for program use and organised as records with fields."
   },
   {
     "point_id": "13.2",
     "question_number": "10E",
     "question": "A serial file contains records in a defined key order. True or False? Justify briefly.",
-    "mark_scheme": "Answer:\n(Identify; Justify)\nFalse. Serial has no key order; it preserves arrival order with appends."
+    "mark_scheme": "False. Serial has no key order; it preserves arrival order with appends."
   },
   {
     "point_id": "13.2",
     "question_number": "10F",
     "question": "A hashing algorithm is commonly used when entering data into a direct-access file. True or False? Justify briefly.",
-    "mark_scheme": "Answer:\n(Identify; Justify)\nTrue. Random or direct organisation uses hashing to compute addresses for records."
+    "mark_scheme": "True. Random or direct organisation uses hashing to compute addresses for records."
   },
   {
     "point_id": "13.2",
     "question_number": 11,
     "question": "Describe how non-numeric keys can be hashed to produce a storage address.",
-    "mark_scheme": "Answer:\n(Describe: state the points and main features)\nOne method sums the character codes of the key’s characters and then applies remainder division by the number of storage locations to obtain the address."
+    "mark_scheme": "One method sums the character codes of the key’s characters and then applies remainder division by the number of storage locations to obtain the address."
   },
   {
     "point_id": "13.2",
     "question_number": 12,
     "question": "Summarise the rationale for choosing between serial, sequential, and direct access in typical applications.",
-    "mark_scheme": "Answer:\n(Summarise: select and present the main points without detail)\nSerial is suitable for batch or log-like data captured chronologically. Sequential is suitable when processing in key order or producing ordered reports. Direct access is preferred when fast retrieval or updates of individual records are required, for example user authentication or customer updates."
+    "mark_scheme": "Serial is suitable for batch or log-like data captured chronologically. Sequential is suitable when processing in key order or producing ordered reports. Direct access is preferred when fast retrieval or updates of individual records are required, for example user authentication or customer updates."
   }
 ]
