@@ -129,8 +129,9 @@ body {
 /* Target ONLY progress wrapper in the specific header-row after header-background */
 .header-background + .header-row .general-progress-wrapper {
   display: flex !important;
-  align-items: center !important;
-  gap: 18px !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 10px !important;
   justify-content: flex-start !important;
   background: rgba(255, 255, 255, 0.95) !important;
   backdrop-filter: blur(15px) !important;
@@ -166,9 +167,9 @@ body {
   letter-spacing: 0.8px !important;
   color: #4c63d2 !important;
   text-transform: uppercase !important;
-  white-space: normal !important;
+  white-space: nowrap !important;
   line-height: 1.35 !important;
-  max-width: clamp(160px, 24vw, 240px) !important;
+  max-width: none !important;
   text-align: left !important;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important;
   z-index: 1 !important;
