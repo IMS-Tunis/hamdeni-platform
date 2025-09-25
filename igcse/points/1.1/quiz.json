@@ -8,12 +8,6 @@
     },
     {
       "section": "1.1a",
-      "type": "fill_blank",
-      "question": "In binary hardware, OFF is represented by [____] and ON is represented by 1.",
-      "answer": "0"
-    },
-    {
-      "section": "1.1a",
       "type": "mcq",
       "question": "Why do computers process all data in binary?",
       "options": [
@@ -27,8 +21,8 @@
     {
       "section": "1.1b",
       "type": "fill_blank",
-      "question": "[____] is a base-10 number system that uses the values 0-9, and a bit is the basic computing element that is either 0 or 1.",
-      "answer": "denary"
+      "question": "Denary is a base-10 number system that uses the values 0-9, and a [____] is the basic computing element that is either 0 or 1.",
+      "answer": "bit"
     },
     {
       "section": "1.1b",
@@ -96,8 +90,8 @@
     {
       "section": "1.1e",
       "type": "fill_blank",
-      "question": "A [____] shifts bits left or right and fills emptied positions with zeros.",
-      "answer": "logical shift"
+      "question": "A logical shift shifts bits left or right and fills any emptied position with a [____].",
+      "answer": "zero"
     },
     {
       "section": "1.1e",
@@ -111,7 +105,7 @@
     {
       "section": "1.1e",
       "type": "mcq",
-      "question": "According to the notes, what happens to bits that move past the edge during a logical shift?",
+      "question": "What happens to bits that move past the edge during a logical shift?",
       "options": [
         "They wrap around to the other side",
         "They are lost",
@@ -128,7 +122,7 @@
         "Write the positive value in binary and flip only the MSB",
         "Invert every bit of the positive value and add 1",
         "Add a sign bit of 1 to the left without changing other bits",
-        "Subtract 1 from the positive value and invert only the LSB"
+        "Add 1 from the positive value and invert only the LSB"
       ],
       "answer": "Invert every bit of the positive value and add 1"
     },
