@@ -285,6 +285,49 @@ body {
   z-index: 0;
 }
 
+.header-background + .header-row .term-grade-tooltip {
+  position: absolute !important;
+  top: calc(100% + 12px) !important;
+  left: 50% !important;
+  transform: translate(-50%, -6px) !important;
+  padding: 10px 16px !important;
+  border-radius: 10px !important;
+  background: rgba(255, 255, 255, 0.98) !important;
+  border: 1px solid rgba(102, 126, 234, 0.35) !important;
+  box-shadow: 0 12px 30px rgba(27, 37, 75, 0.18) !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  color: #1b254b !important;
+  white-space: nowrap !important;
+  z-index: 10 !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease !important;
+}
+
+.header-background + .header-row .term-grade-tooltip::before {
+  content: '' !important;
+  position: absolute !important;
+  bottom: 100% !important;
+  left: 50% !important;
+  transform: translateX(-50%) rotate(45deg) !important;
+  width: 12px !important;
+  height: 12px !important;
+  background: inherit !important;
+  border-left: 1px solid rgba(102, 126, 234, 0.35) !important;
+  border-top: 1px solid rgba(102, 126, 234, 0.35) !important;
+  transform-origin: center !important;
+  box-shadow: inherit !important;
+}
+
+.header-background + .header-row .term-grade-badge:hover .term-grade-tooltip,
+.header-background + .header-row .term-grade-badge:focus-within .term-grade-tooltip {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translate(-50%, 0) !important;
+}
+
 .header-background + .header-row .term-grade-badge:hover {
   transform: translateY(-2px) !important;
   box-shadow: 0 16px 35px rgba(102, 126, 234, 0.28) !important;
