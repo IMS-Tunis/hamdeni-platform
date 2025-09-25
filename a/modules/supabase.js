@@ -76,10 +76,11 @@ export async function fetchProgressCounts() {
     const lData = await lRes.json();
 
     const passedPoints = tData.filter(r => String(r.reached_layer) === '4').length;
-    const term1Grade = tData.reduce(
+    const rawGrade = tData.reduce(
       (total, record) => total + weightForLayer(record.reached_layer),
       0
     );
+    const term1Grade = Math.max(0, rawGrade - 1);
     let passedLevels = 0;
     if (platform === 'A_Level') {
       passedLevels = lData.length ? lData[0].reached_level : 0;
