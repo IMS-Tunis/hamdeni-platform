@@ -22,14 +22,17 @@
       <div id="student-name-bar" style="font-weight: bold; font-size: 1.2em;">Guest Mode</div>
     </div>
     <div class="general-progress-wrapper">
-      <div class="general-progress-label">GENERAL PROGRESS</div>
+      <div class="general-progress-label">Cambridge Exam Readiness Progress</div>
         <div class="general-progress-bar">
           <div class="general-progress-fill">0%</div>
           <div class="general-progress-max">100%</div>
         </div>
-        <div class="term-grade-badge">
+        <div class="term-grade-badge" aria-describedby="term-grade-tooltip" tabindex="0">
           <span class="term-grade-label">TERM 1 GRADE</span>
           <span id="term-grade-value" class="term-grade-value">0%</span>
+          <div id="term-grade-tooltip" class="term-grade-tooltip" role="tooltip">
+            Term 1 grade = 1×(Layer 1 passed) + 2×(Layer 2 passed) + 3×(Layer 3 passed) + 4×(Layer 4 passed).
+          </div>
         </div>
     </div>
   </div>
@@ -51,16 +54,22 @@
 <!-- ✅ Main Content -->
 <main class="dashboard">
   <section class="theory-column">
-    <div class="section-header">
+    <div class="section-header tooltip-container" tabindex="0" aria-describedby="advanced-theory-tooltip">
       <img src="./images/advanced_theory.png" alt="Advanced Theory" class="section-title" style="transform: scale(1.3); transform-origin: center;"/>
+      <div id="advanced-theory-tooltip" class="image-tooltip" role="tooltip">
+        Term 1 target: finish 10 syllabus points.
+      </div>
     </div>
     <div id="theory-points" class="theory-wrapper"></div>
     <img src="./images/approved_banner.png" class="footer-image" alt="Approved"/>
   </section>
 
   <section class="levels-column">
-    <div class="section-header">
+    <div class="section-header tooltip-container" tabindex="0" aria-describedby="programming-skills-tooltip">
       <img src="./images/programming_skills.png" alt="Programming Skills" class="section-title"/>
+      <div id="programming-skills-tooltip" class="image-tooltip" role="tooltip">
+        Term 1 target: reach level 12.
+      </div>
     </div>
     <div id="programming-levels" class="levels-wrapper"></div>
     <img src="./images/certificate.png" class="certificate-image" alt="Certificate"/>
