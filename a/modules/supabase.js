@@ -28,6 +28,27 @@ function tableName(platform, type) {
   return map[platform] ? map[platform][type] : null;
 }
 
+function term1Contribution(value) {
+  if (value == null) return 0;
+
+  const normalized = String(value).trim().toUpperCase();
+  if (!normalized) return 0;
+
+  if (normalized === 'R') {
+    // "Ready" means the student finished the first three layers but has not
+    // yet earned the layer 4 coefficient, so we only add layer 3's weight.
+    return 3;
+  }
+
+  const reached = Number(normalized);
+  if (!Number.isFinite(reached)) return 0;
+
+  let total = 0;
+  if (reached >= 3) total += 3;
+  if (reached >= 4) total += 4;
+  return total;
+}
+
 export async function fetchProgressCounts() {
   console.log('[supabaseModule] Fetching progress counts');
   const username = localStorage.getItem('username');
@@ -61,17 +82,10 @@ export async function fetchProgressCounts() {
     const lData = await lRes.json();
 
     const passedPoints = tData.filter(r => String(r.reached_layer) === '4').length;
-    const term1Grade = tData.reduce((total, record) => {
-      const reachedLayer = Number(record.reached_layer);
-      if (!Number.isFinite(reachedLayer)) return total;
-
-      let increment = 0;
-      if (reachedLayer >= 1) increment += 1;
-      if (reachedLayer >= 2) increment += 2;
-      if (reachedLayer >= 3) increment += 3;
-      if (reachedLayer >= 4) increment += 4;
-      return total + increment;
-    }, 0);
+    const term1Grade = tData.reduce(
+      (total, record) => total + term1Contribution(record.reached_layer),
+      0
+    );
     let passedLevels = 0;
     if (platform === 'A_Level') {
       passedLevels = lData.length ? lData[0].reached_level : 0;
