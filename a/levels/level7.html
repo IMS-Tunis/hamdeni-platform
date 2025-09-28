@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Level 7: Functions in Python</title>
+<link href="../levels.css" rel="stylesheet"/>
+<script defer="" src="/assets/js/paste-guard.js"></script>
+<!-- Student clarity notes -->
+<style>
+    .clarity-note { 
+      margin: 8px 0 12px; 
+      padding: 8px 12px; 
+      background: #f7fbff; 
+      border-left: 3px solid #1e88e5; 
+      border-radius: 4px; 
+      font-size: 0.97rem;
+    }
+    /* Visual hook for potential future video blocks (kept for consistency) */
+    .videos { margin: 24px 0 8px; }
+    .videos .subheading { margin: 0 0 12px; font-size: 1.1rem; line-height: 1.3; }
+    .example.video.video-card { background: #ffffff; border: 1px solid #e5e5e5; border-radius: 8px; padding: 12px; }
+    .example.video.video-card .media { border-radius: 8px; overflow: hidden; }
+    .video-row { display: flex; flex-wrap: wrap; gap: 16px; }
+    .video-row .video-card { flex: 1 1 320px; }
+  </style>
+<style>
+/* Captions under video cards */
+.video-caption {
+  margin: 8px 0 0;
+  font-size: 0.95rem;
+}
+</style><style>
+/* Common mistakes box */
+.pitfall {
+  margin: 10px 0 14px;
+  padding: 10px 12px;
+  background: #fff7f7;
+  border-left: 3px solid #e53935;
+  border-radius: 4px;
+  font-size: 0.97rem;
+}
+.pitfall ul { margin: 6px 0 0 18px; }
+.pitfall li { margin: 3px 0; }
+</style><style>
+/* Responsive video fix */
+.videos { margin: 24px 0 8px; }
+.video-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+.example.video.video-card { background: #ffffff; border: 1px solid #e5e5e5; border-radius: 8px; padding: 12px; }
+.example.video.video-card .media { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 8px; overflow: hidden; }
+.example.video.video-card .media iframe { position: absolute; inset: 0; width: 100% !important; height: 100% !important; display: block; }
+</style><style>
+/* Student-ready video layout: centered, responsive */
+.video-row { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
+.example.video.video-card { background: #ffffff; border: 1px solid #e5e5e5; border-radius: 8px; padding: 12px; max-width: 640px; }
+.example.video.video-card .media { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 8px; overflow: hidden; }
+.example.video.video-card .media iframe { position: absolute; inset: 0; width: 100% !important; height: 100% !important; display: block; }
+</style></head>
+<body>
+&lt;!-- All videos must be strictly scoped to their section topics, English-only. Replace VIDEO_ID_* with vetted IDs and adjust start/end to keep scope tight. --&gt;<!-- Header: logo | title | Home -->
+<div class="header">
+<div class="container">
+<div class="header-bar">
+<a aria-label="Home" class="brand" href="../dashboard.html">
+<img alt="Logo" class="brand-logo" src="../logo.png"/>
+</a>
+<div class="header-main">
+<h1>Level 7: Functions in Python</h1>
+<p>A level Computer Science (9618): student notes, prepared by Dr. Hamdeni</p>
+</div>
+<a class="btn btn-home" href="../../dashboard.html">
+<svg aria-hidden="true" focusable="false" viewbox="0 0 24 24">
+<path d="M12 3l9 8h-3v9h-5v-6H11v6H6v-9H3l9-8z"></path>
+</svg>
+          Home
+        </a>
+</div>
+</div>
+</div>
+<main>
+<div class="container">
+<!-- Table of contents -->
+<nav class="toc">
+<h2>Contents</h2>
+<ol>
+<li><a href="#s1">1. Basic Function Definitions and Usage</a></li>
+<li><a href="#s2">2. Parameter Passing and Variable Scope</a></li>
+<li><a href="#s3">3. Returning Values</a></li>
+<li><a href="#s4">4. Functions with Lists</a></li>
+<li><a href="#s5">5. Using Functions to Implement Algorithms</a></li>
+<li><a href="#s6">6. Global Variables and Best Practices</a></li>
+</ol>
+</nav>
+<!-- =============================================== -->
+<!-- 1. Basic Function Definitions and Usage         -->
+<!-- =============================================== -->
+<div class="section" id="s1">
+<h2>1. Basic Function Definitions and Usage</h2>
+<ul class="bullets">
+<li><strong>Declaration:</strong> Functions are defined with <code>def</code> followed by the name and parameters in parentheses. The body is indented and may <code>return</code> a value.</li>
+<li><strong>Calling:</strong> Use the function name followed by parentheses; provide arguments inside the parentheses when needed.</li>
+</ul>
+<div class="example">
+<div class="title"><strong>Example A -</strong> Define a function</div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment" data-tooltip="Function header with one parameter."><em>def greet(name):</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Return a greeting message."><em>    return f"Hello, {name}!"</em></span></div>
+</div>
+</div>
+<div class="example">
+<div class="title"><strong>Example B -</strong> Call a function</div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment" data-tooltip="Call greet with a string argument."><em>greeting = greet("Alice")</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Shows the returned value."><em>print(greeting)  # Hello, Alice!</em></span></div>
+</div>
+</div>
+<div class="videos"><h3 class="subheading"></h3><div class="video-row"><div class="example video video-card"><div class="title">Define and call a function</div><div class="media"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="True" height="315" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/9Os0o3wzS_I?start=0&amp;end=90" title="Define and call a function" width="560"></iframe></div></div></div></div></div>
+<!-- =============================================== -->
+<!-- 2. Parameter Passing and Variable Scope         -->
+<!-- =============================================== -->
+<div class="section" id="s2">
+<h2>2. Parameter Passing and Variable Scope</h2>
+<ul class="bullets">
+<li><strong>Parameters:</strong> Names in the function header that receive argument values when the function is called.</li>
+</ul>
+<div class="example">
+<div class="title"><strong>Example B -</strong> Use parameters</div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment" data-tooltip="Two parameters a and b are multiplied."><em>def multiply(a, b):</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Return the product."><em>    return a * b</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Call multiply with two numbers."><em>result = multiply(3, 4)</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Displays 12."><em>print(result)  # 12</em></span></div>
+</div>
+</div>
+<ul class="bullets">
+<li><strong>Local vs global:</strong> Names created inside a function are local. Names defined at top-level are global. Use <code>global</code> to rebind a global name from inside a function (use sparingly).</li>
+<li><strong>Default and keyword arguments:</strong> provide default values and allow naming arguments at the call site.</li></ul><p class="clarity-note">Reading a global name needs no keyword. Assigning to a global name requires writing global name inside the function.</p>
+<div class="example">
+<div class="title"><strong>Example C -</strong> Access and modify a global</div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment" data-tooltip="Global variable at module level."><em>counter = 0</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Declare that we rebind the global name."><em>def increment_counter():</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Use the global keyword to modify the module-level variable."><em>    global counter</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Increment the global counter."><em>    counter += 1</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Call the function."><em>increment_counter()</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Prints 1."><em>print(counter)  # 1</em></span></div>
+</div>
+</div>
+<div class="videos"><h3 class="subheading"></h3><div class="video-row"><div class="example video video-card"><div class="title">Parameter passing</div><div class="media"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="True" height="315" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/D3IffJOwDY0?start=0&amp;end=120" title="Parameter passing and local vs global scope" width="560"></iframe></div><p class="video-caption">Shows how arguments behave when a function reassigns or mutates them.</p></div></div></div><div class="example"><div class="title"><strong>Example D -</strong> Rebinding vs mutation</div><div class="pseudocode"><div class="pc-line"><span class="comment" data-tooltip="Local name rebinds to a new list; caller does not see a change."><em>def rebind(L):</em></span></div><div class="pc-line"><span class="comment" data-tooltip="This creates a new list and points L to it (locally)."><em>    L = [9]</em></span></div><div class="pc-line"><span class="comment" data-tooltip="Mutates the same list object; caller will see the change."><em>def mutate(L):</em></span></div><div class="pc-line"><span class="comment" data-tooltip="Append modifies the existing list in place."><em>    L.append(9)</em></span></div><div class="pc-line"><span class="comment" data-tooltip="Original list in the caller."><em>A = [1, 2]</em></span></div><div class="pc-line"><span class="comment" data-tooltip="A stays [1, 2] after this call."><em>rebind(A)</em></span></div><div class="pc-line"><span class="comment" data-tooltip="A becomes [1, 2, 9] after this call."><em>mutate(A)</em></span></div><div class="pc-line"><span class="comment" data-tooltip="Shows the final list in the caller."><em>print(A)  # [1, 2, 9]</em></span></div></div></div><div class="example"><div class="title">Aliasing: two names, one list</div><div class="pseudocode"><div class="pc-line"><span class="comment" data-tooltip="Create one list."><em>A = [1, 2]</em></span></div><div class="pc-line"><span class="comment" data-tooltip="B now refers to the same list as A."><em>B = A</em></span></div><div class="pc-line"><span class="comment" data-tooltip="Mutating through B also changes A."><em>B.append(99)</em></span></div><div class="pc-line"><span class="comment" data-tooltip="A shows the mutation."><em>print(A)  # [1, 2, 99]</em></span></div></div></div><div class="example"><div class="title"><strong>Example E -</strong> Default and keyword arguments</div><div class="pseudocode"><div class="pc-line"><span class="comment" data-tooltip="exp has a default value 2."><em>def power(base, exp=2):</em></span></div><div class="pc-line"><span class="comment" data-tooltip="Compute base to the power exp."><em>    return base ** exp</em></span></div><div class="pc-line"><span class="comment" data-tooltip="Uses the default exp."><em>print(power(5))     # 25</em></span></div><div class="pc-line"><span class="comment" data-tooltip="Uses a keyword argument to override the default."><em>print(power(base=5, exp=3))  # 125</em></span></div></div></div></div>
+<!-- =============================================== -->
+<!-- 3. Returning Values                             -->
+<!-- =============================================== -->
+<div class="section" id="s3">
+<h2>3. Returning Values</h2>
+<ul class="bullets">
+<li><strong>Single return value:</strong> Use <code>return</code> to provide one value to the caller.</li>
+</ul>
+<div class="example">
+<div class="title"><strong>Example A -</strong> Square a number</div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment" data-tooltip="Compute x*x and return it."><em>def square(x):</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Return a single value to the caller."><em>    return x * x</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Use the returned value."><em>result = square(5)</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Displays 25."><em>print(result)  # 25</em></span></div>
+</div>
+</div>
+<ul class="bullets">
+<li><strong>Multiple return values:</strong> Return a tuple and optionally unpack it into several variables.</li>
+</ul>
+<div class="example">
+<div class="title"><strong>Example B -</strong> Return a tuple (min, max)</div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment" data-tooltip="Return two values as a tuple."><em>def get_min_max(numbers):</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Tuples group multiple values into one object."><em>    return min(numbers), max(numbers)</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Tuple unpacking."><em>min_val, max_val = get_min_max([1, 2, 3, 4, 5])</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Displays 1 and 5."><em>print(min_val)  # 1</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Displays 5."><em>print(max_val)  # 5</em></span></div>
+</div>
+</div>
+<ul class="bullets">
+<li><strong>Using returned values:</strong> Capture them in variables and reuse later.</li>
+</ul><p class="clarity-note">If return is omitted, the function returns None.</p>
+<div class="example">
+<div class="title"><strong>Example C -</strong> Area and perimeter</div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment" data-tooltip="Compute two results."><em>def calculate_area_and_perimeter(length, width):</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Area of a rectangle."><em>    area = length * width</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Perimeter of a rectangle."><em>    perimeter = 2 * (length + width)</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Return both values."><em>    return area, perimeter</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Unpack into two names."><em>area, perimeter = calculate_area_and_perimeter(5, 3)</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Displays both values."><em>print(f"Area: {area}, Perimeter: {perimeter}")</em></span></div>
+</div>
+</div>
+<p class="clarity-note">Multiple return values are returned as one tuple. Unpacking splits the tuple into separate variables.</p>
+<div class="videos"><h3 class="subheading"></h3><div class="video-row"><div class="example video video-card"><div class="title">Returning one value and multiple values (tuple)</div><div class="media"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="True" height="315" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/kjmxgfy8vmg?start=0&amp;end=90" title="Returning one value and multiple values (tuple)" width="560"></iframe></div></div></div></div><div class="example"><div class="title"><strong>Example D -</strong> Tuple object and unpacking</div><div class="pseudocode"><div class="pc-line"><span class="comment" data-tooltip="Return one tuple that groups two values."><em>def stats(a, b):</em></span></div><div class="pc-line"><span class="comment" data-tooltip="A tuple is returned."><em>    return (a + b, a * b)</em></span></div><div class="pc-line"><span class="comment" data-tooltip="pair now holds (5, 6)."><em>pair = stats(2, 3)</em></span></div><div class="pc-line"><span class="comment" data-tooltip="Unpacking splits the tuple into x and y."><em>x, y = pair</em></span></div><div class="pc-line"><span class="comment" data-tooltip="Shows both values."><em>print(x, y)  # 5 6</em></span></div></div></div></div>
+<!-- =============================================== -->
+<!-- 4. Functions with Lists                         -->
+<!-- =============================================== -->
+<div class="section" id="s4">
+<h2>4. Functions with Lists</h2>
+<ul class="bullets">
+<li><strong>Mutation:</strong> Lists are mutable; functions can modify them in-place (e.g., <code>append</code>, <code>remove</code>).</li>
+</ul>
+<div class="example">
+<div class="title"><strong>Example A -</strong> Modify a list in a function</div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment" data-tooltip="Append mutates the existing list object."><em>def add_element(my_list):</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="In-place change is visible to the caller."><em>    my_list.append(10)</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Original list."><em>numbers = [1, 2, 3]</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="After the call, numbers is changed."><em>add_element(numbers)</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Displays [1, 2, 3, 10]."><em>print(numbers)  # [1, 2, 3, 10]</em></span></div>
+</div>
+</div><p class="clarity-note">To avoid changing the original list, work on a copy: L = L.copy().</p>
+<ul class="bullets">
+<li><strong>Returning lists:</strong> Functions can construct and return a new list instead of mutating the input.</li>
+</ul>
+<div class="example">
+<div class="title"><strong>Example B -</strong> Return a new list</div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment" data-tooltip="List comprehension creates a new list."><em>def double_elements(my_list):</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Each element is doubled."><em>    return [x * 2 for x in my_list]</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Original remains unchanged."><em>original = [1, 2, 3]</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Collect the returned list."><em>doubled = double_elements(original)</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Displays [2, 4, 6]."><em>print(doubled)  # [2, 4, 6]</em></span></div>
+</div>
+</div>
+<p class="clarity-note">Choose mutation when you intentionally want to change the caller’s list. Choose returning a new list when you want to leave the input unchanged.</p>
+<div class="videos"><h3 class="subheading"></h3><div class="video-row"><div class="example video video-card"><div class="title">Functions with lists: mutate vs return new list</div><div class="media"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="True" height="315" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/lnxyLDK7Ktw?start=0&amp;end=90" title="Functions with lists: mutate vs return new list" width="560"></iframe></div></div></div></div><div class="example"><div class="title"><strong>Example C -</strong> Work on a copy to avoid mutation</div><div class="pseudocode"><div class="pc-line"><span class="comment" data-tooltip="Create a shallow copy to protect the caller’s list."><em>def safe_double(L):</em></span></div><div class="pc-line"><span class="comment" data-tooltip="L[:] is another way to copy a list."><em>    L = L.copy()</em></span></div><div class="pc-line"><span class="comment" data-tooltip="Return a new list without mutating the caller’s list."><em>    return [x * 2 for x in L]</em></span></div><div class="pc-line"><span class="comment" data-tooltip="Original list."><em>orig = [1, 2, 3]</em></span></div><div class="pc-line"><span class="comment" data-tooltip="Compute a doubled copy."><em>new_list = safe_double(orig)</em></span></div><div class="pc-line"><span class="comment" data-tooltip="Original unchanged."><em>print(orig)     # [1, 2, 3]</em></span></div><div class="pc-line"><span class="comment" data-tooltip="New list with doubled values."><em>print(new_list) # [2, 4, 6]</em></span></div></div></div></div>
+<!-- =============================================== -->
+<!-- 5. Using Functions to Implement Algorithms      -->
+<!-- =============================================== -->
+<div class="section" id="s5">
+<h2>5. Using Functions to Implement Algorithms</h2>
+<ul class="bullets">
+<li><strong>Iteration:</strong> Implement loops inside functions to search, count, or transform data.</li>
+</ul>
+<div class="example">
+<div class="title"><strong>Example A -</strong> Count occurrences</div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment" data-tooltip="Linear scan of the list elements."><em>def count_occurrences(item, my_list):</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Initialize the counter."><em>    count = 0</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Loop through the list."><em>    for element in my_list:</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Increase the counter when a match is found."><em>        if element == item:</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Increment by one."><em>            count += 1</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Return the total."><em>    return count</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Sample data and call."><em>numbers = [1, 2, 3, 2, 4, 2, 5]</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Displays 3."><em>print(count_occurrences(2, numbers))  # 3</em></span></div>
+</div>
+</div><p class="clarity-note">To stop as soon as a target is found, use return inside the loop. Prefer descriptive names for readability.</p>
+<ul class="bullets">
+<li><strong>Conditional logic:</strong> Use <code>if</code>, <code>elif</code>, <code>else</code> to return different results based on input values.</li>
+</ul>
+<div class="example">
+<div class="title"><strong>Example B -</strong> Classify a number</div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment" data-tooltip="Positive, negative, or zero."><em>def classify_number(num):</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Return early for positive values."><em>    if num &gt; 0:</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Label positive."><em>        return "Positive"</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Check next case."><em>    elif num &lt; 0:</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Label negative."><em>        return "Negative"</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="All remaining values are zero."><em>    else:</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Label zero."><em>        return "Zero"</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Test the function."><em>print(classify_number(10))  # Positive</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Another test."><em>print(classify_number(-5))  # Negative</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Third case."><em>print(classify_number(0))   # Zero</em></span></div>
+</div>
+</div>
+<p class="clarity-note">The function interface (<em>parameters in</em>, <em>return values out</em>) makes algorithms reusable and easy to test.</p>
+<div class="videos"><h3 class="subheading"></h3><div class="video-row"><div class="example video video-card"><div class="title">Using functions to implement a simple algorithm</div><div class="media"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="True" height="315" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/ttJ5R5HzNw8?start=0&amp;end=90" title="Using functions to implement a simple algorithm" width="560"></iframe></div></div></div></div></div>
+<!-- =============================================== -->
+<!-- 6. Global Variables and Best Practices          -->
+<!-- =============================================== -->
+<div class="section" id="s6">
+<h2>6. Global Variables and Best Practices</h2>
+<ul class="bullets">
+<li><strong>global keyword:</strong> Declares that a name inside a function refers to a top-level variable, allowing rebinding the global name.</li>
+</ul>
+<div class="example">
+<div class="title"><strong>Example A -</strong> Increase a global counter</div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment" data-tooltip="Global at module scope."><em>counter = 0</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Function that modifies the global counter."><em>def increase_counter():</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Declare the intent to rebind name counter."><em>    global counter</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Rebind the global name to a new int value."><em>    counter += 1</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Call the function and observe the change."><em>increase_counter()</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Displays 1."><em>print(counter)  # 1</em></span></div>
+</div>
+</div>
+<ul class="bullets">
+<li><strong>Modify other globals:</strong> You can similarly adjust other global counters or accumulators.</li>
+</ul>
+<div class="example">
+<div class="title"><strong>Example B -</strong> Add to a global total</div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment" data-tooltip="Another global variable."><em>total = 0</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Function that rebinds the global total."><em>def add_to_total(amount):</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Declare that total refers to the global name."><em>    global total</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Increase total by amount."><em>    total += amount</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Call the function."><em>add_to_total(10)</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Displays 10."><em>print(total)  # 10</em></span></div>
+</div>
+</div>
+<ul class="bullets">
+<li><strong>Best practices:</strong> Use globals sparingly. Prefer passing values as parameters and returning results. Group related state and behavior into functions or classes (encapsulation).</li>
+</ul>
+<p class="clarity-note">Globals make programs harder to test and understand. If you need shared state, consider passing it explicitly or using a small class to manage it.</p>
+<div class="videos"><h3 class="subheading"></h3><div class="video-row"><div class="example video video-card"><div class="title">Global variables and best practices</div><div class="media"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="True" height="315" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/-t52p5pMAGU?start=0&amp;end=90" title="Global variables and best practices" width="560"></iframe></div></div></div></div><div class="example"><div class="title"><strong>Example C -</strong> Accumulator without globals</div><div class="pseudocode"><div class="pc-line"><span class="comment" data-tooltip="Return the new total; no global state."><em>def step(total):</em></span></div><div class="pc-line"><span class="comment" data-tooltip="Pure function that computes a result."><em>    return total + 1</em></span></div><div class="pc-line"><span class="comment" data-tooltip="Start value managed by the caller."><em>total = 0</em></span></div><div class="pc-line"><span class="comment" data-tooltip="Update by reassigning the return value."><em>total = step(total)  # 1</em></span></div><div class="pc-line"><span class="comment" data-tooltip="Update again."><em>total = step(total)  # 2</em></span></div><div class="pc-line"><span class="comment" data-tooltip="Final value without using globals."><em>print(total)  # 2</em></span></div></div></div></div>
+<p style="text-align:center; margin:20px 0;">
+<a class="btn btn-cta" href="./exercises7.html">Go to Exercises</a>
+</p>
+<div class="footer">
+        © 2025 Dr. Hamdeni. All rights reserved.
+      </div>
+</div>
+</main>
+</body>
+</html>
