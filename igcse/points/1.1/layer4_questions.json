@@ -31,14 +31,8 @@
 "question": "Give the hexadecimal number for the binary number stored in the register.\n\n[11100011]",
 "answer": "E3"
 },
-{
-"question": "A logical left shift of two places is performed on the binary number stored in the register.\n\nComplete the binary register to show its contents after this logical left shift.\n\n▢ ▢ ▢ ▢ ▢ ▢ ▢ ▢",
-"answer": "10001100"
-},
-{
-"question": "Complete the register to show the binary number that would be stored, using two's complement. Show all your working.\n\n[The negative denary number −99 needs to be stored in the register]\n\n...................................................................................................................\n...................................................................................................................\n...................................................................................................................\n...................................................................................................................",
-"answer": "10011101"
-},
+
+
 {
 "question": "Convert the denary numbers 14, 59 and 234 to binary.",
 "answer": "(0000)1110 ; (00)111011 ; 11101010"
