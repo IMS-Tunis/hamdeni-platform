@@ -28,12 +28,29 @@ function tableName(platform, type) {
   return map[platform] ? map[platform][type] : null;
 }
 
+const LAYER_WEIGHTS = Object.freeze({
+  0: 0,
+  1: 1,
+  2: 3,
+  3: 6,
+  4: 10
+});
+
+function weightForLayer(value) {
+  if (typeof value === 'string' && value.toUpperCase() === 'R') return 0;
+  const parsed = Number(value);
+  if (!Number.isFinite(parsed)) return 0;
+  return LAYER_WEIGHTS[parsed] ?? 0;
+}
+
 export async function fetchProgressCounts() {
   console.log('[supabaseModule] Fetching progress counts');
   const username = localStorage.getItem('username');
   const platform = localStorage.getItem('platform');
 
-  if (!username || !platform) return { points: 0, levels: 0 };
+  if (!username || !platform) return { points: 0, levels: 0, term1Grade: 0 };
+
+  const encodedUsername = encodeURIComponent(username);
 
   const theoryTable = tableName(platform, 'theory');
   const levelTable = tableName(platform, 'programming');
@@ -41,13 +58,13 @@ export async function fetchProgressCounts() {
 
   try {
     const [tRes, lRes] = await Promise.all([
-      fetch(`${base}/${theoryTable}?select=reached_layer&username=eq.${encodeURIComponent(username)}`, {
+      fetch(`${base}/${theoryTable}?select=reached_layer&username=eq.${encodedUsername}`, {
         headers: {
           apikey: SUPABASE_KEY,
           Authorization: 'Bearer ' + SUPABASE_KEY
         }
       }),
-      fetch(`${base}/${levelTable}?select=reached_level&username=eq.${encodeURIComponent(username)}`, {
+      fetch(`${base}/${levelTable}?select=reached_level&username=eq.${encodedUsername}`, {
         headers: {
           apikey: SUPABASE_KEY,
           Authorization: 'Bearer ' + SUPABASE_KEY
@@ -58,14 +75,21 @@ export async function fetchProgressCounts() {
     const tData = await tRes.json();
     const lData = await lRes.json();
 
-    const passedPoints = tData.filter(r => r.reached_layer === '4').length;
-    const passedLevels = lData.length ? lData[0].reached_level : 0;
-    const result = { points: passedPoints, levels: passedLevels };
+    const passedPoints = tData.filter(r => String(r.reached_layer) === '4').length;
+    const rawGrade = tData.reduce(
+      (total, record) => total + weightForLayer(record.reached_layer),
+      0
+    );
+    const term1Grade = Math.max(0, rawGrade - 1);
+    const rawReachedLevel = lData.length ? lData[0]?.reached_level ?? 0 : 0;
+    const numericReachedLevel = Number(rawReachedLevel);
+    const passedLevels = Number.isFinite(numericReachedLevel) ? numericReachedLevel : 0;
+    const result = { points: passedPoints, levels: passedLevels, term1Grade };
     console.log('[supabaseModule] Progress counts', result);
     return result;
   } catch (err) {
     console.error('❌ Failed fetching progress counts:', err);
-    return { points: 0, levels: 0 };
+    return { points: 0, levels: 0, term1Grade: 0 };
   }
 }
 
