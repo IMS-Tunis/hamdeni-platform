@@ -271,7 +271,7 @@ body {
   border: 1px solid rgba(102, 126, 234, 0.35) !important;
   box-shadow: 0 10px 25px rgba(102, 126, 234, 0.18) !important;
   position: relative !important;
-  overflow: hidden !important;
+  overflow: visible !important;
   isolation: isolate !important;
   transition: transform 0.3s ease, box-shadow 0.3s ease !important;
 }
@@ -283,6 +283,8 @@ body {
   background: radial-gradient(circle at 80% 0%, rgba(255, 255, 255, 0.7), transparent 60%) !important;
   opacity: 0.85;
   z-index: 0;
+  border-radius: inherit;
+
 }
 
 .header-background + .header-row .term-grade-tooltip {
