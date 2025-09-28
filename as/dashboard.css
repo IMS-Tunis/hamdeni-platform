@@ -284,6 +284,7 @@ body {
   opacity: 0.85;
   z-index: 0;
   border-radius: inherit;
+
 }
 
 .header-background + .header-row .term-grade-tooltip {
