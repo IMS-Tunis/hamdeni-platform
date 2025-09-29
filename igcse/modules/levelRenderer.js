@@ -2,20 +2,20 @@
 import { fetchProgressCounts } from "./supabase.js";
 
 export const levels = [
-	{ title: "Introduction to Algorithms", id: "level0", status: "locked" },
-    { title: "Programming Basics", id: "level1", status: "locked" },
-    { title: "Selection", id: "level2", status: "locked" },
-    { title: "Count controlled Iteration", id: "level3", status: "locked" },
-    { title: "Conditional Iteration", id: "level4", status: "locked" },
-    { title: "Standard Methods of Solution", id: "level5", status: "locked" },
-    { title: "String Handling & Nested Statements", id: "level6", status: "locked" },
-    { title: "Arrays and Iterative Data Handling", id: "level7", status: "locked" },
-    { title: "Search and Sort", id: "level8", status: "locked" },
-    { title: "File Handling", id: "level9", status: "locked" },
-    { title: "Validation, Verification, and Error Handling", id: "level10", status: "locked" },
-    { title: "Dry Runs, Trace Tables, and Test Data", id: "level11", status: "locked" },
-    { title: "Systems decomposition, Procedures, Functions", id: "level12", status: "locked" },
-    { title: "Comprehensive Problem-solving", id: "level13", status: "locked" }
+	{ title: "Introduction to Algorithms", id: "level1", status: "locked" },
+    { title: "Programming Basics", id: "level2", status: "locked" },
+    { title: "Selection", id: "level3", status: "locked" },
+    { title: "Count controlled Iteration", id: "level4", status: "locked" },
+    { title: "Conditional Iteration", id: "level5", status: "locked" },
+    { title: "Standard Methods of Solution", id: "level6", status: "locked" },
+    { title: "String Handling & Nested Statements", id: "level7", status: "locked" },
+    { title: "Arrays and Iterative Data Handling", id: "level8", status: "locked" },
+    { title: "Search and Sort", id: "level9", status: "locked" },
+    { title: "File Handling", id: "level10", status: "locked" },
+    { title: "Validation, Verification, and Error Handling", id: "level11", status: "locked" },
+    { title: "Dry Runs, Trace Tables, and Test Data", id: "level12", status: "locked" },
+    { title: "Systems decomposition, Procedures, Functions", id: "level13", status: "locked" },
+    { title: "Comprehensive Problem-solving", id: "level14", status: "locked" }
 
   ];
 
