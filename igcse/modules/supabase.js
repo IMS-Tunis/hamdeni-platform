@@ -52,7 +52,7 @@ export async function fetchProgressCounts() {
 
   try {
     const [tRes, lRes] = await Promise.all([
-      fetch(`${base}/${theoryTable}?select=reached_layer&username=eq.${encodedUsername}`, {
+      fetch(`${base}/${theoryTable}?select=point_id,reached_layer&username=eq.${encodedUsername}`, {
         headers: {
           apikey: SUPABASE_KEY,
           Authorization: 'Bearer ' + SUPABASE_KEY
@@ -69,13 +69,30 @@ export async function fetchProgressCounts() {
     const tData = await tRes.json();
     const lData = await lRes.json();
 
-    const numericLayers = tData.map(record => parseLayer(record.reached_layer));
-    const passedPoints = numericLayers.filter(layer => layer === 4).length;
+    const pointLayers = new Map();
+    const legacyLayers = [];
+    tData.forEach(record => {
+      const pointId = record.point_id;
+      const parsedLayer = parseLayer(record.reached_layer);
 
-    const layer1Passed = numericLayers.filter(layer => layer >= 1).length;
-    const layer2Passed = numericLayers.filter(layer => layer >= 2).length;
-    const layer3Passed = numericLayers.filter(layer => layer >= 3).length;
-    const layer4Passed = numericLayers.filter(layer => layer >= 4).length;
+      if (pointId === undefined || pointId === null) {
+        legacyLayers.push(parsedLayer);
+        return;
+      }
+
+      const existingLayer = pointLayers.get(pointId) ?? 0;
+      if (parsedLayer > existingLayer) {
+        pointLayers.set(pointId, parsedLayer);
+      }
+    });
+
+    const dedupedLayers = [...pointLayers.values(), ...legacyLayers];
+    const passedPoints = dedupedLayers.filter(layer => layer === 4).length;
+
+    const layer1Passed = dedupedLayers.filter(layer => layer >= 1).length;
+    const layer2Passed = dedupedLayers.filter(layer => layer >= 2).length;
+    const layer3Passed = dedupedLayers.filter(layer => layer >= 3).length;
+    const layer4Passed = dedupedLayers.filter(layer => layer >= 4).length;
 
     const rawReachedLevel = lData.length ? lData[0]?.reached_level ?? 0 : 0;
     const numericReachedLevel = Number(rawReachedLevel);
