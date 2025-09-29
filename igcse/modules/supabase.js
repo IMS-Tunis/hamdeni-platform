@@ -28,19 +28,13 @@ function tableName(platform, type) {
   return map[platform] ? map[platform][type] : null;
 }
 
-const LAYER_WEIGHTS = Object.freeze({
-  0: 0,
-  1: 1,
-  2: 3,
-  3: 6,
-  4: 10
-});
+function parseLayer(value) {
+  if (typeof value === 'string' && value.trim().toUpperCase() === 'R') {
+    return 0;
+  }
 
-function weightForLayer(value) {
-  if (typeof value === 'string' && value.toUpperCase() === 'R') return 0;
   const parsed = Number(value);
-  if (!Number.isFinite(parsed)) return 0;
-  return LAYER_WEIGHTS[parsed] ?? 0;
+  return Number.isFinite(parsed) ? parsed : 0;
 }
 
 export async function fetchProgressCounts() {
@@ -75,15 +69,24 @@ export async function fetchProgressCounts() {
     const tData = await tRes.json();
     const lData = await lRes.json();
 
-    const passedPoints = tData.filter(r => String(r.reached_layer) === '4').length;
-    const rawGrade = tData.reduce(
-      (total, record) => total + weightForLayer(record.reached_layer),
-      0
-    );
-    const term1Grade = Math.max(0, rawGrade - 1);
+    const numericLayers = tData.map(record => parseLayer(record.reached_layer));
+    const passedPoints = numericLayers.filter(layer => layer === 4).length;
+
+    const layer1Passed = numericLayers.filter(layer => layer >= 1).length;
+    const layer2Passed = numericLayers.filter(layer => layer >= 2).length;
+    const layer3Passed = numericLayers.filter(layer => layer >= 3).length;
+    const layer4Passed = numericLayers.filter(layer => layer >= 4).length;
+
     const rawReachedLevel = lData.length ? lData[0]?.reached_level ?? 0 : 0;
     const numericReachedLevel = Number(rawReachedLevel);
     const passedLevels = Number.isFinite(numericReachedLevel) ? numericReachedLevel : 0;
+    const term1Grade =
+      20 * passedLevels +
+      1 * layer1Passed +
+      2 * layer2Passed +
+      3 * layer3Passed +
+      4 * layer4Passed;
+
     const result = { points: passedPoints, levels: passedLevels, term1Grade };
     console.log('[supabaseModule] Progress counts', result);
     return result;
