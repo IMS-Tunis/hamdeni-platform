@@ -1,6 +1,6 @@
 
 import { renderTheoryPoints } from "./modules/theoryRenderer.js";
-import { renderProgrammingLevels } from "./modules/levelRenderer.js";
+import { renderProgrammingLevels, levels } from "./modules/levelRenderer.js";
 import { initializeLogin, fetchProgressCounts, verifyPlatform } from "./modules/supabase.js";
 
 async function updateGeneralProgress() {
@@ -20,7 +20,7 @@ async function updateGeneralProgress() {
     console.error("Failed to load points index:", err);
   }
 
-  const totalLevels = 16; // defined in levelRenderer
+  const totalLevels = levels.length;
 
   const { points, levels, term1Grade } = await fetchProgressCounts();
 

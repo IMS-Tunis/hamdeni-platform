@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Level 4: Count Controlled loop</title>
+  <link rel="stylesheet" href="./levels.css">
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="container">
+    <!-- Top bar: logo + brand on the left, Home on the right -->
+    <div class="header-bar">
+      <a class="brand" href="../dashboard.html" aria-label="Go to dashboard">
+        <img src="./logo.png" alt="logo" class="brand-logo">
+      </a>
+	  <div class="header-main">
+      <h1>Level 4: Count Controlled loop</h1>
+      <p>IGCSE Computer Science (0478): student notes, prepared by Dr. Hamdeni</p>
+    </div>
+     <a class="btn btn-home" href="../dashboard.html" aria-label="Go to dashboard">
+  <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+    <path d="M3 10.5L12 3l9 7.5v9a1 1 0 0 1-1 1h-5.5a1 1 0 0 1-1-1v-5h-3v5a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-9zM5 11.1V19h3.5v-5a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v5H19v-7.9L12 5.6 5 11.1z"/>
+  </svg>
+  <span>Home</span>
+</a>
+
+    </div>
+
+    <!-- Centered title block -->
+    
+  </div>
+</div>
+
+
+
+<div class="container">
+
+  <div class="toc">
+    <strong>Contents</strong>
+    <ol>
+      <li><a href="#s1">For loop</a></li>
+	  <li><a href="#s2">Flowchart</a></li> 
+	  <li><a href="#s3">The use of STEP</a></li>
+	  <li><a href="#s4">Nested For Loop</a></li>
+	  <li><a href="./Level%203/for.pdf"
+       onclick="return openPdfPopup();"
+       target="_blank" rel="noopener"
+       aria-label="Open the Selection PDF in a centered popup window">
+      Cambridge Pseudocode Syntax
+    </a></li>
+    </ol>
+  </div>
+
+
+
+       <div class="section" id="s1">
+    <h2>0. Before you start</h2>
+
+
+  <table>
+  <tr>
+    <th><div class="example video video-pink">
+      <div class="title"> The 3 basic programming constructs... </div>
+      <div class="media">
+     <iframe  src="https://www.youtube.com/embed/OoShU65HemA?si=ZHIwl8WK_2B4aLji" 
+	 title="YouTube video player" 
+	 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+	 allowfullscreen></iframe>
+	  
+	  
+      </div>
+    </div></th>
+    <th><div class="example video video-pink">
+      <div class="title"> ..."Loop" is one of them  </div>
+      <div class="media">
+       
+	   <iframe  src="https://www.youtube.com/embed/sX02xbZ-1YA?si=BRHWNGupeD0snNbY" 
+	   title="YouTube video player" 
+	   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+	   allowfullscreen></iframe>
+	   
+      </div>
+    </div></th>
+  </tr>
+  </table>
+   </div>
+   
+   
+   
+   
+  <div class="section" id="s1">
+    <h2>1. FOR loop</h2>
+    <ul class="bullets">
+
+      <li data-tooltip="Definition and purpose: a count-controlled loop repeats a fixed number of times when the number of repetitions is known in advance. Structure: FOR … TO … NEXT with an integer counter. Inclusivity: the counter takes each integer from start to end inclusive; the loop finishes after executing the iteration in which the counter equals the end value. Step/direction: default step is +1; if the start value is greater than the end value (with default step), the loop executes zero times. Mutability: do not assign to the loop counter inside the body; the FOR structure changes it automatically.">
+        A count-controlled loop repeats a fixed number of times. It uses the structure FOR … TO … NEXT with a loop counter that changes each pass until the final value is reached.
+        <ul>
+          <li data-tooltip="Clarification of inclusivity and stop condition: the counter visits both bounds (inclusive). The test to stop occurs after the pass where the counter equals the end value.">
+            The counter takes each integer value from the start to the end inclusive; the loop ends after executing at the end value.
+          </li>
+          <li data-tooltip="Iteration counts and off-by-one awareness: 0..9 executes 10 iterations; 0..10 executes 11 iterations. Choose bounds deliberately to match the intended count.">
+            Common patterns include <code>FOR X ← 0 TO 9 … NEXT X</code> and <code>FOR Counter ← 0 TO 10 … NEXT Counter</code>.
+          </li>
+        </ul>
+
+        <div class="example">
+		        <div class="title"><strong>Example: </strong> FOR loop that executes a statement ten times.</div>
+          <div class="pseudocode">
+            <div class="pc-line">
+              <span class="comment" data-tooltip="Count-controlled loop. Counter visits 1..10 inclusive → 10 iterations. Default step is +1. Do not alter Counter inside the loop. Use FOR when the repetition count is known beforehand.">
+                <em>FOR Counter ← 1 TO 10</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment" data-tooltip="Body executes once per iteration (10 times). OUTPUT prints a literal string; parentheses are not required in this house style.">
+                <em> OUTPUT "*"</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment" data-tooltip="NEXT automatically increments the counter and prepares the next pass; termination happens after the end value has been processed.">
+                <em>NEXT Counter</em>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="example">
+				        <div class="title"><strong>Example: </strong>FOR loop that uses the counter in a calculation on each pass.</div>
+          <div class="pseudocode">
+            <div class="pc-line">
+              <span class="comment" data-tooltip="Same 1..10 inclusive range → 10 iterations; counter value is available for calculations each pass.">
+                <em>FOR Counter ← 1 TO 10</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment" data-tooltip="The expression uses the current counter value. No parentheses are needed around OUTPUT arguments; operator precedence is clear.">
+                <em> OUTPUT Counter * Counter</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment" data-tooltip="Control returns to FOR; Counter increases by 1.">
+                <em>NEXT Counter</em>
+              </span>
+            </div>
+          </div>
+        </div>
+
+      </li>
+
+      <li data-tooltip="When to choose FOR over WHILE/REPEAT: use FOR for a known, fixed number of repetitions. Prefer WHILE or REPEAT…UNTIL when the number of passes depends on a condition becoming true during execution (e.g., input validation).">
+        Use FOR … TO … NEXT when the number of repetitions is known in advance.
+      </li>
+
+    </ul>
+  </div>
+
+  <table>
+  <tr>
+    <th><div class="example video video-pink">
+      <div class="title">Count controlled loop example </div>
+      <div class="media">
+      <iframe
+	  src="https://www.youtube.com/embed/WXIaJsY5aU8?si=4OeAJjJu5QwWmb2y" 
+	  title="YouTube video player" 
+	  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+	  allowfullscreen></iframe>
+      </div>
+    </div>
+	</th>
+	
+    <th> <div class="example video video-pink">
+      <div class="title">More examples </div>
+      <div class="media">
+ 
+ <iframe  src="https://www.youtube.com/embed/TshzngmnCGA?si=wdXJhgQktKO2AUZP" 
+ title="YouTube video player" 
+ allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+ allowfullscreen></iframe>
+      </div>
+    </div></th>
+  </tr>
+  </table>
+  
+  
+    
+	
+	
+
+
+
+  <div class="section" id="s2">
+    <h2>2. Flowchart</h2>
+
+    <ul class="bullets">
+      <li>Have a look at a flowchart showing how the checking for the alarm time sub-system
+works.
+          <p><img src="./Level%203/alarm.png" width="300" alt=" decision symbol with YES/NO branches"></p>
+      </li>
+        <div class="example">
+        <div class="title"><strong>Example: </strong> Concert ticket sales flowchart</div>
+		<p> Tickets are sold for a concert at $20 each, if 10 tickets are bought then the discount
+is 10%, if 20 tickets are bought the discount is 20%. No more than 25 tickets can be
+bought in a single transaction.
+This is flowchart showing an algorithm to calculate the cost of buying a given number
+of tickets:</p>
+          <p><img src="./Level%203/ticket.png" width="500"></p>
+        </div>
+      </li>
+    </ul>
+	
+  </div>
+
+<!-- 4. FOR with STEP (increment or decrement) -->
+  <div class="section" id="s3">
+  <h2>4. The use of STEP</h2>
+
+  <ul class="bullets">
+    <li data-tooltip="Use STEP to change the amount added to the loop counter each pass. The increment must be an integer. It can be negative for countdowns. The loop assigns successive counter values starting at the initial value and stops when the end would be passed.">
+      STEP changes the counter movement. The counter takes values from the start to the end using the given increment. If the next value would pass the end, the loop terminates.
+    </li>
+    <li data-tooltip="Termination rules: with a positive STEP the loop runs while the counter has not exceeded the end. With a negative STEP it runs while the counter has not gone below the end.">
+      Termination rules: positive STEP runs upward until the end is reached or passed; negative STEP runs downward until the end is reached or passed.
+    </li>
+    
+  </ul>
+
+  <div class="example">
+    <div class="title"><strong>Example: </strong>Odd numbers from 1 to 9 using STEP 2</div>
+    <div class="pseudocode">
+      <div class="pc-line"><span class="comment" data-tooltip="Start at 1, add 2 each time."><em>FOR i ← 1 TO 9 STEP 2</em></span></div>
+      <div class="pc-line"><span class="comment"><em>  OUTPUT i</em></span></div>
+      <div class="pc-line"><span class="comment"><em>NEXT i</em></span></div>
+    </div>
+    <p class="explain" data-tooltip="Sequence is 1, 3, 5, 7, 9 because 11 would pass the end.">Outputs: 1, 3, 5, 7, 9.</p>
+  </div>
+
+  <div class="example">
+    <div class="title"><strong>Example: </strong>Countdown in twos from 10 to 0</div>
+    <div class="pseudocode">
+      <div class="pc-line"><span class="comment" data-tooltip="Negative STEP counts down."><em>FOR n ← 10 TO 0 STEP -2</em></span></div>
+      <div class="pc-line"><span class="comment"><em>  OUTPUT n</em></span></div>
+      <div class="pc-line"><span class="comment"><em>NEXT n</em></span></div>
+    </div>
+    <p class="explain" data-tooltip="10, 8, 6, 4, 2, 0. Next value would be -2 which is below the end, so the loop stops.">Outputs: 10, 8, 6, 4, 2, 0.</p>
+  </div>
+
+  <div class="example">
+    <div class="title"><strong>Example: </strong>STEP that does not land exactly on the end</div>
+    <div class="pseudocode">
+      <div class="pc-line"><span class="comment" data-tooltip="1 → 5 → 9. The next value 13 would pass 10, so the loop terminates."><em>FOR j ← 1 TO 10 STEP 4</em></span></div>
+      <div class="pc-line"><span class="comment"><em>  OUTPUT j</em></span></div>
+      <div class="pc-line"><span class="comment"><em>NEXT j</em></span></div>
+    </div>
+    <p class="explain">Outputs: 1, 5, 9.</p>
+  </div>
+
+
+
+
+
+
+
+
+
+
+  <div class="section" id="s4">
+    <h2>4. Nested For Loop</h2>
+
+
+
+    
+    <ul class="bullets">
+      <li data-tooltip="Definition: nesting places one FOR loop inside another so the inner loop runs fully for each pass of the outer loop. Total iterations = (outer count) × (inner count). Each inner pass pairs with the current outer counter value.">
+        A nested FOR loop is one FOR … TO … NEXT inside another. The inner loop completes all of its iterations for every single iteration of the outer loop.
+
+        <div class="example">
+          <div class="title"><strong>Example: </strong>Generate a 3×4 multiplication grid (row × column).</div>
+          <div class="pseudocode">
+            <div class="pc-line">
+              <span class="comment" data-tooltip="Outer loop: rows 1..3 (3 passes).">
+                <em>FOR Row ← 1 TO 3</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment" data-tooltip="Inner loop: columns 1..4 (4 passes each time Row changes).">
+                <em>  FOR Col ← 1 TO 4</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment" data-tooltip="Body runs 3 × 4 = 12 times; uses both counters.">
+                <em>    OUTPUT Row * Col</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment" data-tooltip="Closes inner loop; Col is advanced automatically.">
+                <em>  NEXT Col</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment" data-tooltip="Closes outer loop; Row is advanced automatically.">
+                <em>NEXT Row</em>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="example">
+          <div class="title"><strong>Example: </strong>Display a 3×5 block of asterisks using a nested loop.</div>
+          <div class="pseudocode">
+            <div class="pc-line"><span class="comment" data-tooltip="Outer loop controls rows (3 rows)."><em>FOR Row ← 1 TO 3</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="Inner loop controls columns (5 stars per row)."><em>  FOR Col ← 1 TO 5</em></span></div>
+            <div class="pc-line"><span class="comment" data-tooltip="Outputs one asterisk per cell in the 3×5 grid."><em>    OUTPUT "*"</em></span></div>
+            <div class="pc-line"><span class="comment"><em>  NEXT Col</em></span></div>
+            <div class="pc-line"><span class="comment"><em>NEXT Row</em></span></div>
+          </div>
+        </div>
+      </li>
+    </ul>
+
+    <div class="example video video-pink">
+      <div class="title">Nested statements</div>
+      <div class="media">
+        <iframe
+          src="https://www.youtube.com/embed/eZqFsqVw4yw"
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+
+
+<div class="footer">© IGCSE CS (0478) - Student notes prepared by Dr. Hamdeni</div>
+
+  <center> <a href="./Level%203/exercises.html" class="btn btn-cta" role="button">Ready to Practice</a> </center>
+
+<script>
+  function openPdfPopup() {
+    var url = './Level%203/for.pdf'; // same folder
+    var w = Math.min(1000, Math.floor(window.screen.width * 0.85));
+    var h = Math.min(800,  Math.floor(window.screen.height * 0.85));
+    var left = Math.max(0, Math.floor((window.screen.width  - w) / 2));
+    var top  = Math.max(0, Math.floor((window.screen.height - h) / 2));
+    var features = [
+      'toolbar=no','location=no','status=no','menubar=no',
+      'scrollbars=yes','resizable=yes',
+      'width=' + w,'height=' + h,'left=' + left,'top=' + top
+    ].join(',');
+    var win = window.open(url, 'selectionPdf', features);
+    if (!win) return true;   // if popup is blocked, fall back to new tab
+    win.focus();
+    return false;            // prevent default navigation when popup succeeds
+  }
+</script>
+</body>
+</html>

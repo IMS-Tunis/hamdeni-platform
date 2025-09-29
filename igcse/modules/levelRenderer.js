@@ -39,11 +39,8 @@ export async function renderProgrammingLevels() {
   levels.forEach((level, index) => {
     console.debug('[levelRenderer] Creating level box', level.id);
     const box = document.createElement("div");
-    const idNumber =
-      typeof level.id === 'string'
-        ? Number.parseInt(level.id.replace('level', ''), 10)
-        : Number.NaN;
-    const displayNumber = Number.isFinite(idNumber) ? idNumber : index;
+    const levelNumber = index + 1;
+    const displayNumber = levelNumber;
     let status = 'locked';
     if (index + 1 < reached) {
       status = 'passed';
@@ -51,7 +48,7 @@ export async function renderProgrammingLevels() {
       status = 'unlocked';
     }
     box.className = `level-box ${status}`;
-    box.dataset.level = String(displayNumber);
+    box.dataset.level = String(levelNumber);
 
     let icon = "";
     if (status === "locked") icon = "\uD83D\uDD12"; // 🔒
@@ -70,9 +67,8 @@ export async function renderProgrammingLevels() {
         if (box.classList.contains("locked")) {
           alert("This level is locked.");
         } else {
-          const levelFolder = `Level ${displayNumber}`;
-          const encodedFolder = encodeURIComponent(levelFolder);
-          window.location.href = `./levels/${encodedFolder}/notes.html`;
+          const targetPage = `level${levelNumber}.html`;
+          window.location.href = `./levels/${targetPage}`;
         }
       } catch (err) {
         console.error('[levelRenderer] Level box click error:', err);
