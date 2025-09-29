@@ -271,7 +271,11 @@ body {
   border: 1px solid rgba(102, 126, 234, 0.35) !important;
   box-shadow: 0 10px 25px rgba(102, 126, 234, 0.18) !important;
   position: relative !important;
+<<<<<<< HEAD
   overflow: hidden !important;
+=======
+  overflow: visible !important;
+>>>>>>> 2b2536de9a5b8ab262e986040397da66f84300ca
   isolation: isolate !important;
   transition: transform 0.3s ease, box-shadow 0.3s ease !important;
 }
@@ -283,6 +287,11 @@ body {
   background: radial-gradient(circle at 80% 0%, rgba(255, 255, 255, 0.7), transparent 60%) !important;
   opacity: 0.85;
   z-index: 0;
+<<<<<<< HEAD
+=======
+  border-radius: inherit;
+
+>>>>>>> 2b2536de9a5b8ab262e986040397da66f84300ca
 }
 
 .header-background + .header-row .term-grade-tooltip {
@@ -328,6 +337,7 @@ body {
   transform: translate(-50%, 0) !important;
 }
 
+<<<<<<< HEAD
 .dashboard .tooltip-container {
   position: relative;
   display: inline-flex;
@@ -385,6 +395,8 @@ body {
   transform: translate(-50%, 0);
 }
 
+=======
+>>>>>>> 2b2536de9a5b8ab262e986040397da66f84300ca
 .header-background + .header-row .term-grade-badge:hover {
   transform: translateY(-2px) !important;
   box-shadow: 0 16px 35px rgba(102, 126, 234, 0.28) !important;
