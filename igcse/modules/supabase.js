@@ -97,12 +97,13 @@ export async function fetchProgressCounts() {
     const rawReachedLevel = lData.length ? lData[0]?.reached_level ?? 0 : 0;
     const numericReachedLevel = Number(rawReachedLevel);
     const passedLevels = Number.isFinite(numericReachedLevel) ? numericReachedLevel : 0;
-    const term1Grade =
+    const rawTerm1Grade =
       20 * passedLevels +
       1 * layer1Passed +
       2 * layer2Passed +
       3 * layer3Passed +
       4 * layer4Passed;
+    const term1Grade = Math.max(0, rawTerm1Grade - 3);
 
     const result = { points: passedPoints, levels: passedLevels, term1Grade };
     console.log('[supabaseModule] Progress counts', result);
