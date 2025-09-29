@@ -70,9 +70,7 @@ export async function renderProgrammingLevels() {
         if (box.classList.contains("locked")) {
           alert("This level is locked.");
         } else {
-          const levelFolder = `Level ${displayNumber}`;
-          const encodedFolder = encodeURIComponent(levelFolder);
-          window.location.href = `./levels/${encodedFolder}/notes.html`;
+          window.location.href = `./levels/${level.id}.html`;
         }
       } catch (err) {
         console.error('[levelRenderer] Level box click error:', err);
