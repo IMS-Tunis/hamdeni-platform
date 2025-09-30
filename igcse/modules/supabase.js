@@ -51,6 +51,13 @@ export async function fetchProgressCounts() {
   const base = `${SUPABASE_URL}/rest/v1`;
 
   try {
+    const levelSelect =
+      platform === 'A_Level'
+        ? 'reached_level'
+        : platform === 'IGCSE'
+          ? 'level_number,level_done'
+          : 'level_done';
+
     const [tRes, lRes] = await Promise.all([
       fetch(`${base}/${theoryTable}?select=point_id,reached_layer&username=eq.${encodedUsername}`, {
         headers: {
@@ -58,7 +65,7 @@ export async function fetchProgressCounts() {
           Authorization: 'Bearer ' + SUPABASE_KEY
         }
       }),
-      fetch(`${base}/${levelTable}?select=${platform === 'A_Level' || platform === 'IGCSE' ? 'reached_level' : 'level_done'}&username=eq.${encodedUsername}`, {
+      fetch(`${base}/${levelTable}?select=${levelSelect}&username=eq.${encodedUsername}`, {
         headers: {
           apikey: SUPABASE_KEY,
           Authorization: 'Bearer ' + SUPABASE_KEY
@@ -66,8 +73,29 @@ export async function fetchProgressCounts() {
       })
     ]);
 
+    if (!tRes.ok) {
+      const payload = await tRes.text();
+      console.error('[supabaseModule] Theory progress request failed', tRes.status, payload);
+      throw new Error(`Supabase theory progress request failed with status ${tRes.status}`);
+    }
+
+    if (!lRes.ok) {
+      const payload = await lRes.text();
+      console.error('[supabaseModule] Level progress request failed', lRes.status, payload);
+      throw new Error(`Supabase level progress request failed with status ${lRes.status}`);
+    }
+
     const tData = await tRes.json();
+    if (!Array.isArray(tData)) {
+      console.error('[supabaseModule] Unexpected theory progress payload', tData);
+      throw new Error('Unexpected Supabase theory progress payload');
+    }
+
     const lData = await lRes.json();
+    if (!Array.isArray(lData)) {
+      console.error('[supabaseModule] Unexpected level progress payload', lData);
+      throw new Error('Unexpected Supabase level progress payload');
+    }
 
     const pointLayers = new Map();
     const legacyLayers = [];
@@ -94,9 +122,28 @@ export async function fetchProgressCounts() {
     const layer3Passed = dedupedLayers.filter(layer => layer >= 3).length;
     const layer4Passed = dedupedLayers.filter(layer => layer >= 4).length;
 
-    const rawReachedLevel = lData.length ? lData[0]?.reached_level ?? 0 : 0;
-    const numericReachedLevel = Number(rawReachedLevel);
-    const passedLevels = Number.isFinite(numericReachedLevel) ? numericReachedLevel : 0;
+    let passedLevels = 0;
+
+    if (platform === 'IGCSE') {
+      const completedLevels = lData.filter(record => {
+        const done = record?.level_done;
+        if (done === true || done === 1) return true;
+        if (typeof done === 'string') {
+          const normalised = done.trim().toLowerCase();
+          return normalised === 'true' || normalised === '1' || normalised === 't';
+        }
+        return false;
+      });
+
+      passedLevels = completedLevels.reduce((max, record) => {
+        const level = Number(record?.level_number);
+        return Number.isFinite(level) ? Math.max(max, level) : max;
+      }, 0);
+    } else {
+      const rawReachedLevel = lData.length ? lData[0]?.reached_level ?? lData[0]?.level_done ?? 0 : 0;
+      const numericReachedLevel = Number(rawReachedLevel);
+      passedLevels = Number.isFinite(numericReachedLevel) ? numericReachedLevel : 0;
+    }
     const rawTerm1Grade =
       20 * passedLevels +
       1 * layer1Passed +

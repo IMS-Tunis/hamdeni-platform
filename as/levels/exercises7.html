@@ -1,0 +1,209 @@
+<!-- index.html (updated: top guidance in old grey style, not inside a question card) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Level 7: Functions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../exercises.css" />
+<script defer src="/assets/js/paste-guard.js"></script>
+</head>
+<body>
+
+<aside class="sidebar" aria-label="Exercise navigation">
+  <!-- Top category: logo + header -->
+  <div class="sidebar-top">
+    <img src="../logo.png" alt="Logo" class="brand-img" width="220">
+    <h2 class="sidebar-title">Level 7</h2>
+    <p class="sidebar-subtitle">Functions</p>
+  </div>
+
+  <!-- Bottom category: exercises + controls -->
+  <div class="sidebar-nav">
+    <nav class="nav" id="nav"></nav>
+
+    <div class="sidebar-footer">
+      <button id="expandAll" class="btn ghost">Show all mark schemes</button>
+      <button id="collapseAll" class="btn ghost">Hide all mark schemes</button>
+    </div>
+  </div>
+</aside>
+
+
+
+
+
+  <main class="content">
+    <!-- Guidance moved to the beginning, using the same grey footer-style block -->
+	
+
+<div class="content-section">
+    <section class="footer" aria-label="Instructions" style="margin:0;">
+        <h2 style="margin:0 0 8px 0; font-size:1.05rem; font-weight:700;">Before you start</h2>
+        <ul style="margin:0; padding-left:2rem; font-size:small">
+            <li>Work through the exercises. Reveal the mark scheme when you are ready to check your answer.</li>
+            <li>The teacher is available to explain any exercises you did not understand.</li>
+            <li>When you are ready, inform the teacher to sit for the level pass test and unlock the next level.</li>
+        </ul>
+    </section>
+
+    <div class="button-container">
+        <a href="../dashboard.html" class="nav-button btn-outlined btn-home-outlined">🏠 Home</a>
+		<a href="level5.html" class="nav-button btn-outlined btn-theory-outlined">📚 Theory Notes</a>
+    </div>
+</div>
+	
+	
+    <!-- Exercises render here -->
+    <section id="pointsContainer" class="points-container" aria-live="polite"></section>
+
+    <!-- Action buttons at end of page -->
+    <footer class="footer" style="display:flex;gap:12px;align-items:center;">
+      <button class="btn" type="button">I need help</button>
+      <button class="btn" type="button">I'm ready for the test</button>
+    </footer>
+  </main>
+
+  <!-- Embedded JSON (MCQ formatted; CASE use explicit; expanded explanations) -->
+  <script id="data" type="application/json">
+{
+"data": [
+{
+"point_id": "LEVEL_FUNCTIONS",
+"items": [
+{
+"question": "Defining and Calling a Simple Function",
+"question_self_contained": "   a. Define a function named greet_user that takes a single parameter name and returns a greeting message \"Hello, [name]!\".\n  b. Call the function with your name and print the returned message.",
+"mark_scheme_answer": "# Define the function greet_user which takes one argument: name\ndef greet_user(name):\n    # The function returns a greeting message that includes the name provided\n    return f\"Hello, {name}!\"\n\n# Call the greet_user function with the name \"Alice\" and store the result in the message variable\nmessage = greet_user(\"Alice\")\n\n# Print the greeting message\nprint(message)  # Output: Hello, Alice!",
+"explanation": "A function groups steps and can receive input values called parameters. Here greet_user receives name and returns a text value using an f-string (Python 3.6+). Calling greet_user(\"Alice\") runs the function and returns the text. We store that text in message and print it."
+},
+{
+"question": "Function with Parameters and Return Value",
+"question_self_contained": "   a. Define a function add_numbers that takes two parameters a and b, and returns their sum.\n  b. Call the function with the arguments 5 and 7, and print the result.",
+"mark_scheme_answer": "# Define the function add_numbers which takes two arguments: a and b\ndef add_numbers(a, b):\n    # The function returns the sum of a and b\n    return a + b\n\n# Call the add_numbers function with the values 5 and 7, and store the result in the result variable\nresult = add_numbers(5, 7)\n\n# Print the sum of the two numbers\nprint(result)  # Output: 12",
+"explanation": "The function takes two inputs and returns a + b. The word return sends the answer back to the caller. The result is stored in result and then printed."
+},
+{
+"question": "Passing Lists to Functions",
+"question_self_contained": "   a. Define a function append_value that takes a list my_list and a value x as parameters. The function should append x to my_list.\n  b. Create a list numbers with values [1, 2, 3], call the function to append 4, and print the updated list.",
+"mark_scheme_answer": "# Define the function append_value which takes two arguments: my_list and x\ndef append_value(my_list, x):\n    # The function appends the value x to the end of my_list\n    my_list.append(x)\n\n# Create a list named numbers with initial values 1, 2, and 3\nnumbers = [1, 2, 3]\n\n# Call the append_value function to append the value 4 to the numbers list\nappend_value(numbers, 4)\n\n# Print the updated list, which now includes the value 4\nprint(numbers)  # Output: [1, 2, 3, 4]",
+"explanation": "Lists are mutable. When a list is passed to a function, the function can change the same list object. append adds a new element at the end. After the call, numbers is updated in place."
+},
+{
+"question": "Using Functions with Global Variables",
+"question_self_contained": "   a. Declare a global variable counter with an initial value of 0.\n  b. Define a function increment_counter that increments counter by 1 each time it is called.\n  c. Call the function three times and print the value of counter.",
+"mark_scheme_answer": "# Declare a global variable counter with an initial value of 0\ncounter = 0\n\n# Define the function increment_counter, which modifies the global counter variable\ndef increment_counter():\n    global counter  # Specify that we are using the global variable counter\n    counter += 1  # Increment the value of counter by 1\n\n# Call the increment_counter function three times\nincrement_counter()\nincrement_counter()\nincrement_counter()\n\n# Print the final value of counter, which should now be 3\nprint(counter)  # Output: 3",
+"explanation": "Variables created outside functions are global. To change one inside a function, declare it with the global keyword. Each call adds 1, so after three calls the value is 3. Use globals sparingly in larger programs."
+},
+{
+"question": "Returning Multiple Values from a Function",
+"question_self_contained": "   a. Define a function min_max that takes a list of numbers as a parameter and returns the minimum and maximum values in the list.\n  b. Call the function with the list [4, 2, 8, 6, 3] and print the returned minimum and maximum values.",
+"mark_scheme_answer": "# Define the function min_max which takes one argument: a list of numbers\ndef min_max(numbers):\n    # The function returns two values: the minimum and maximum numbers in the list\n    return min(numbers), max(numbers)\n\n# Call the min_max function with a list of numbers and store the results in min_val and max_val\nmin_val, max_val = min_max([4, 2, 8, 6, 3])\n\n# Print the minimum and maximum values\nprint(\"Minimum:\", min_val)  # Output: Minimum: 2\nprint(\"Maximum:\", max_val)  # Output: Maximum: 8",
+"explanation": "The function returns a pair (tuple) of values which we unpack into min_val and max_val. Precondition: the list must be non-empty; min and max raise an error on an empty list."
+},
+{
+"question": "Implementing an Algorithm with Functions",
+"question_self_contained": "   a. Define a function count_occurrences that takes a list my_list and a value x as parameters. The function should return the number of times x appears in my_list.\n  b. Call the function with the list [3, 5, 3, 7, 3, 9] and value 3, and print the result.",
+"mark_scheme_answer": "# Define the function count_occurrences which takes two arguments: my_list and x\ndef count_occurrences(my_list, x):\n    # Initialize a counter variable to keep track of how many times x appears in my_list\n    count = 0\n    \n    # Loop through each item in my_list\n    for item in my_list:\n        # If the item is equal to x, increment the counter by 1\n        if item == x:\n            count += 1\n    \n    # Return the total count of how many times x appears in my_list\n    return count\n\n# Call the count_occurrences function with a list and the value 3, and store the result in occurrences\noccurrences = count_occurrences([3, 5, 3, 7, 3, 9], 3)\n\n# Print the number of times 3 appears in the list\nprint(\"Number of occurrences:\", occurrences)  # Output: 3",
+"explanation": "Start count at 0. For each element, if it equals x, add 1. After the loop, return the final count. This directly matches the definition of counting occurrences."
+},
+{
+"question": "Function Modifying a List and Returning Results",
+"question_self_contained": "   a. Define a function filter_even_numbers that takes a list numbers as a parameter. The function should return a new list containing only the even numbers from the original list.\n  b. Call the function with the list [1, 2, 3, 4, 5, 6] and print the returned list.",
+"mark_scheme_answer": "# Define the function filter_even_numbers which takes one argument: a list of numbers\ndef filter_even_numbers(numbers):\n    # Use list comprehension to create a new list that includes only even numbers from the input list\n    return [num for num in numbers if num % 2 == 0]\n\n# Call the filter_even_numbers function with a list of numbers and store the result in even_numbers\neven_numbers = filter_even_numbers([1, 2, 3, 4, 5, 6])\n\n# Print the list of even numbers\nprint(\"Even numbers:\", even_numbers)  # Output: [2, 4, 6]",
+"explanation": "num % 2 gives the remainder after dividing by 2. Even numbers have remainder 0. The list comprehension builds and returns a new list; the original input list is unchanged."
+},
+{
+"question": "Using Global Variables in a Counting Function",
+"question_self_contained": "   a. Declare a global variable total_count with an initial value of 0.\n  b. Define a function count_and_add that takes a list numbers as a parameter. The function should count how many numbers are in the list and add this count to total_count.\n  c. Call the function with the list [1, 2, 3, 4, 5], print total_count, then call the function again with [6, 7] and print total_count again.",
+"mark_scheme_answer": "# Declare a global variable total_count with an initial value of 0\ntotal_count = 0\n\n# Define the function count_and_add which modifies the global total_count variable\ndef count_and_add(numbers):\n    global total_count  # Specify that we are using the global variable total_count\n    total_count += len(numbers)  # Add the number of elements in numbers to total_count\n\n# Call the count_and_add function with a list of numbers and print the updated total_count\ncount_and_add([1, 2, 3, 4, 5])\nprint(\"Total count after first call:\", total_count)  # Output: 5\n\n# Call the count_and_add function again with a different list of numbers and print the updated total_count\ncount_and_add([6, 7])\nprint(\"Total count after second call:\", total_count)  # Output: 7",
+"explanation": "len(numbers) returns how many items are in the list. The global variable total_count keeps a running total across calls. Declare global inside the function to modify it. This demonstrates state that persists between calls."
+},
+{
+"question": "Implementing a Search Function",
+"question_self_contained": "   a. Define a function find_index that takes a list my_list and a value x as parameters. The function should return the index of the first occurrence of x in my_list. If x is not found, return -1.\n  b. Call the function with the list [10, 20, 30, 40, 50] and value 30, and print the result.",
+"mark_scheme_answer": "# Define the function find_index which takes two arguments: my_list and x\ndef find_index(my_list, x):\n    # Loop through the list using a range of indices\n    for i in range(len(my_list)):\n        # If the value at the current index is equal to x, return the index\n        if my_list[i] == x:\n            return i\n    # If x is not found in the list, return -1\n    return -1\n\n# Call the find_index function with a list of numbers and the value 30, and store the result in index\nindex = find_index([10, 20, 30, 40, 50], 30)\n\n# Print the index of the value 30 in the list\nprint(\"Index of 30:\", index)  # Output: Index of 30: 2",
+"explanation": "Check each position in order. When the target value is found, return its index. If the loop ends without a match, return -1 to signal \"not found\". This avoids exceptions and is easy to reason about."
+},
+{
+"question": "Finding the Smallest Number Using a Function",
+"question_self_contained": "Part 1: Defining a Function to Find the Smallest of Two Numbers\n- Task: Define a function find_smallest that takes two numbers as parameters and returns the smallest of the two.\n\nPart 2: Using the Function to Find the Smallest of Two Numbers\n- Task: Write a program that prompts the user to enter two numbers, calls the find_smallest function, and prints the smallest of the two numbers.\n\nPart 3: Finding the Smallest of Three Numbers\n- Task: Extend the program to prompt the user for three numbers, use the find_smallest function to determine the smallest of the three numbers, and print the result.",
+"mark_scheme_answer": "# This script runs Part 2 followed by Part 3; you will enter two numbers, then three numbers.\n\n# Part 1: function definition\ndef find_smallest(x, y):\n    # If x is less than or equal to y, return x; otherwise return y\n    if x <= y:\n        return x\n    else:\n        return y\n\n# Part 2: use the function for two numbers\na = float(input(\"Enter the first number: \"))\nb = float(input(\"Enter the second number: \"))\nsmallest = find_smallest(a, b)\nprint(\"The smallest of the two numbers is:\", smallest)\n\n# Part 3: use the function for three numbers\na = float(input(\"Enter the first number: \"))\nb = float(input(\"Enter the second number: \"))\nc = float(input(\"Enter the third number: \"))\nsmallest = find_smallest(c, find_smallest(a, b))\nprint(\"The smallest of the three numbers is:\", smallest)",
+"explanation": "find_smallest compares two numbers and returns the smaller one. For three numbers, first find the smaller of a and b, then compare that result with c. Using prompts inside input makes interaction clear. Converting with float allows decimal inputs."
+},
+{
+"question": "Advanced List Manipulation with Functions",
+"question_self_contained": "   a. Define a function merge_and_sort that takes two lists list1 and list2 as parameters. The function should merge the two lists, sort the merged list in ascending order, and return the sorted list.\n  b. Call the function with the lists [3, 1, 4] and [5, 2] and print the result.",
+"mark_scheme_answer": "# Define the function merge_and_sort which takes two arguments: list1 and list2\ndef merge_and_sort(list1, list2):\n    # Merge the two lists by adding them together\n    merged_list = list1 + list2\n    # Sort the merged list in ascending order\n    merged_list.sort()\n    # Return the sorted list\n    return merged_list\n\n# Call the merge_and_sort function with two lists and store the result in sorted_list\nsorted_list = merge_and_sort([3, 1, 4], [5, 2])\n\n# Print the merged and sorted list\nprint(\"Merged and sorted list:\", sorted_list)  # Output: [1, 2, 3, 4, 5]",
+"explanation": "Using + combines two lists into one. The list method sort arranges values in increasing order in place. The function returns the final sorted list."
+},
+{
+"question": "Complex Algorithm Implementation",
+"question_self_contained": "   a. Define a function find_longest_word that takes a list of strings words as a parameter. The function should return the longest word in the list. If there are multiple words of the same maximum length, return the first one.\n  b. Call the function with the list [\"apple\", \"banana\", \"cherry\", \"date\"] and print the result.",
+"mark_scheme_answer": "# Define the function find_longest_word which takes one argument: a list of words\ndef find_longest_word(words):\n    # Start by assuming the first word is the longest\n    longest_word = words[0]\n    \n    # Loop through each word in the list\n    for word in words:\n        # If the current word is longer than the current longest_word, update longest_word\n        if len(word) > len(longest_word):\n            longest_word = word\n    \n    # Return the longest word found\n    return longest_word\n\n# Call the find_longest_word function with a list of words and store the result in longest\nlongest = find_longest_word([\"apple\", \"banana\", \"cherry\", \"date\"])\n\n# Print the longest word in the list\nprint(\"Longest word:\", longest)  # Output: banana",
+"explanation": "Keep a running best answer named longest_word. For each word, compare lengths and update when you see a longer one. Using '>' keeps the first word when lengths tie. Precondition: the input list must be non-empty."
+},
+{
+"question": "Defining a Function to Return Multiple Values",
+"question_self_contained": "Part 1: Creating a Function to Calculate Sum, Average, Largest, and Smallest Values\n   a. Define a function calculate_stats that takes a list of numbers as a parameter. The function should calculate the total sum, average, largest, and smallest values in the list. The function should return these four values.\n\nPart 2: Using the Function to Process a List of Numbers\n   a. Write a program that prompts the user to enter 10 numbers into a list. Call the calculate_stats function with this list and print the sum, average, largest, and smallest numbers returned by the function.",
+"mark_scheme_answer": "# Part 1: function definition\ndef calculate_stats(arr):\n    total = sum(arr)\n    avg = total / len(arr)\n    max_num = max(arr)\n    min_num = min(arr)\n    return total, avg, max_num, min_num\n\n# Part 2: main program to read 10 numbers and report stats\nnumbers = []\nfor i in range(10):\n    num = float(input(\"Enter a number: \"))\n    numbers.append(num)\n\n# Unpack the returned values\ntotal, average, largest, smallest = calculate_stats(numbers)\nprint(\"Sum =\", total)\nprint(\"Average =\", average)\nprint(\"Largest number =\", largest)\nprint(\"Smallest number =\", smallest)",
+"explanation": "sum adds all values. len gives the count. Average is total divided by count. max and min find the extreme values. The function returns four results which are unpacked into four variables for printing. In this exercise the list has 10 numbers, so division by zero cannot occur."
+},
+{
+"question": "Exploring the Use of Global Variables",
+"question_self_contained": "Part 1: Understanding Local Variables in a Function\n   a. Write a program that defines a function my_proc which initializes two variables x and y inside the function and prints their values. Outside the function, define x and y with different values. Call my_proc and observe how the values of x and y change.\n\nPart 2: Modifying a Global Variable Inside a Function\n   a. Modify the program from Part 1 by adding the global keyword before the variable x inside the my_proc function. Execute the program and observe how the value of x changes after the function call.",
+"mark_scheme_answer": "# Part 1: local vs global variables\ndef my_proc():\n    x = 2  # local x\n    y = 3  # local y\n    print(\"Values of x and y inside my_proc():\", x, y)\n\n# Main program for Part 1\nx = 5  # global x\ny = 9  # global y\nprint(\"Values of x and y before calling my_proc():\", x, y)\nmy_proc()\nprint(\"Values of x and y after calling my_proc():\", x, y)\n\n# Part 2: redefine my_proc; this replaces the Part 1 definition\ndef my_proc():\n    global x  # refer to global x\n    x = 2     # change global x\n    y = 3     # local y\n    print(\"Values of x and y inside my_proc():\", x, y)\n\n# Main program for Part 2 (reset x to show the effect)\nx = 5  # reset global x\ny = 9\nprint(\"Values of x and y before calling my_proc():\", x, y)\nmy_proc()\nprint(\"Values of x and y after calling my_proc():\", x, y)",
+"explanation": "In Part 1, x and y created inside the function are local and do not affect the variables with the same names outside. In Part 2, we redefine my_proc and use global x so assignments change the outer x. We reset x to 5 before Part 2 so the effect is visible after calling the function."
+}
+]
+}
+]
+}
+
+
+
+  </script>
+
+<!-- APPEND: Mock Test modal -->
+<div id="mockTestModal" class="mock-modal" aria-hidden="true" role="dialog" aria-labelledby="mockTestTitle">
+  <div class="mock-modal-card">
+    <div class="mock-modal-header">
+      <h3 id="mockTestTitle" style="margin:0;">Mock Test</h3>
+      <button class="mock-close" id="closeMockTest" aria-label="Close">×</button>
+    </div>
+    <div class="mock-modal-body">
+      <!-- JSON will populate this code block with the question -->
+      <div class="mock-code" aria-label="Pseudocode"></div>
+
+      <div id="mockTestAnswer" class="mock-hidden" aria-live="polite">
+        <h4 style="margin:16px 0 8px 0;">Answer</h4>
+        <div class="mock-code"></div>
+        <p></p>
+      </div>
+    </div>
+    <div class="mock-modal-actions footer">
+      <button class="btn" id="toggleMockAnswer" type="button" aria-expanded="false" aria-controls="mockTestAnswer">Show answer</button>
+      <button class="btn ghost" id="dismissMockTest" type="button">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- APPEND: mock test JSON payload -->
+<script id="mockTestData" type="application/json">
+{
+  "mock_test": {
+   "question": "Functions",
+"question_self_contained": "a: Write a Python function cube_number that takes one parameter n and returns the cube of n.\n- Call the function with the value 3 and print the result.\n\nb: Write a Python function sum_of_squares that takes a list of numbers as a parameter and returns the sum of the squares of all elements in the list.\n- Call the function with the list [1, 2, 3] and print the result.\n\nc: Write a Python function find_min_max that takes a list of numbers as a parameter. The function should return both the minimum and maximum values in the list without using the min() or max() functions.\n- Call the function with the list [10, 22, 5, 75, 18] and print the minimum and maximum values.",
+"mark_scheme_answer": "# Solution a:\ndef cube_number(n):\n return n ** 3\n\nresult = cube_number(3)\nprint(\"Cube of 3 is:\", result) # Output: Cube of 3 is: 27\n\n# Solution b:\ndef sum_of_squares(numbers):\n return sum(x ** 2 for x in numbers)\n\nresult = sum_of_squares([1, 2, 3])\nprint(\"Sum of squares is:\", result) # Output: Sum of squares is: 14\n\n# Solution c:\ndef find_min_max(numbers):\n min_value = numbers[0]\n max_value = numbers[0]\n for num in numbers[1:]:\n if num < min_value:\n min_value = num\n if num > max_value:\n max_value = num\n return min_value, max_value\n\nmin_value, max_value = find_min_max([10, 22, 5, 75, 18])\nprint(\"Minimum value is:\", min_value) # Output: Minimum value is: 5\nprint(\"Maximum value is:\", max_value) # Output: Maximum value is: 75",
+"explanation": "Part a: the operator ** computes exponentiation, so n ** 3 is the cube. The function returns that value and we print it for n = 3. Part b: a generator expression produces each square, and sum adds them without creating an intermediate list. Part c: avoid min and max by tracking running extremes. Initialize both to the first element, then update on each comparison. Preconditions: the input lists must be non-empty so that numbers[0] is valid."
+  }
+}
+
+
+</script>
+  <script src="../exercises.js"></script>
+</body>
+</html>

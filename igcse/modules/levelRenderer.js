@@ -29,11 +29,8 @@ export async function renderProgrammingLevels() {
 
   const progress = await fetchProgressCounts();
   let reached = Number(progress?.levels ?? 0);
-  if (!Number.isFinite(reached)) {
+  if (!Number.isFinite(reached) || reached < 0) {
     reached = 0;
-  }
-  if (reached < 1) {
-    reached = 1;
   }
 
   levels.forEach((level, index) => {
@@ -45,9 +42,9 @@ export async function renderProgrammingLevels() {
         : Number.NaN;
     const displayNumber = Number.isFinite(idNumber) ? idNumber : index;
     let status = 'locked';
-    if (index + 1 < reached) {
+    if (displayNumber <= reached) {
       status = 'passed';
-    } else if (index + 1 === reached) {
+    } else if (displayNumber === reached + 1) {
       status = 'unlocked';
     }
     box.className = `level-box ${status}`;

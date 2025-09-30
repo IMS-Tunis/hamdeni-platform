@@ -1,0 +1,214 @@
+<!-- index.html (updated: top guidance in old grey style, not inside a question card) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Level 6: Strings</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../exercises.css" />
+<script defer src="/assets/js/paste-guard.js"></script>
+</head>
+<body>
+
+<aside class="sidebar" aria-label="Exercise navigation">
+  <!-- Top category: logo + header -->
+  <div class="sidebar-top">
+    <img src="../logo.png" alt="Logo" class="brand-img" width="220">
+    <h2 class="sidebar-title">Level 6</h2>
+    <p class="sidebar-subtitle">Strings</p>
+  </div>
+
+  <!-- Bottom category: exercises + controls -->
+  <div class="sidebar-nav">
+    <nav class="nav" id="nav"></nav>
+
+    <div class="sidebar-footer">
+      <button id="expandAll" class="btn ghost">Show all mark schemes</button>
+      <button id="collapseAll" class="btn ghost">Hide all mark schemes</button>
+    </div>
+  </div>
+</aside>
+
+
+
+
+
+  <main class="content">
+    <!-- Guidance moved to the beginning, using the same grey footer-style block -->
+	
+
+<div class="content-section">
+    <section class="footer" aria-label="Instructions" style="margin:0;">
+        <h2 style="margin:0 0 8px 0; font-size:1.05rem; font-weight:700;">Before you start</h2>
+        <ul style="margin:0; padding-left:2rem; font-size:small">
+            <li>Work through the exercises. Reveal the mark scheme when you are ready to check your answer.</li>
+            <li>The teacher is available to explain any exercises you did not understand.</li>
+            <li>When you are ready, inform the teacher to sit for the level pass test and unlock the next level.</li>
+        </ul>
+    </section>
+
+    <div class="button-container">
+        <a href="../dashboard.html" class="nav-button btn-outlined btn-home-outlined">🏠 Home</a>
+		<a href="level5.html" class="nav-button btn-outlined btn-theory-outlined">📚 Theory Notes</a>
+    </div>
+</div>
+	
+	
+    <!-- Exercises render here -->
+    <section id="pointsContainer" class="points-container" aria-live="polite"></section>
+
+    <!-- Action buttons at end of page -->
+    <footer class="footer" style="display:flex;gap:12px;align-items:center;">
+      <button class="btn" type="button">I need help</button>
+      <button class="btn" type="button">I'm ready for the test</button>
+    </footer>
+  </main>
+
+  <!-- Embedded JSON (MCQ formatted; CASE use explicit; expanded explanations) -->
+  <script id="data" type="application/json">
+{
+  "data": [
+    {
+      "point_id": "LEVEL_STRINGS",
+      "items": [
+        {
+          "question": "String Concatenation",
+          "question_self_contained": "Write a Python program that asks the user for their first name and last name, then combines them into a single string with a space in between and prints the result.",
+          "mark_scheme_answer": "# Prompt the user to enter their first name and last name, trimming extra spaces\nfirst_name = input(\"Enter your first name: \").strip()\nlast_name = input(\"Enter your last name: \").strip()\n\n# Combine with a single space\nfull_name = first_name + \" \" + last_name\n\n# Display the full name\nprint(\"Full name:\", full_name)",
+          "explanation": "input(...) reads text. .strip() removes unwanted spaces at the start or end. Using + joins the two strings, and \" \" puts one space between them. print(...) shows the result."
+        },
+        {
+          "question": "Finding String Length",
+          "question_self_contained": "Write a Python program that asks the user to enter a word and then prints the length of that word.",
+          "mark_scheme_answer": "# Read a word and report its length\nword = input(\"Enter a word: \")\nlength = len(word)\nprint(\"Length of the word:\", length)",
+          "explanation": "len(word) counts characters in the string (letters, digits, spaces, punctuation). The value is printed."
+        },
+        {
+          "question": "Accessing Characters in a String",
+          "question_self_contained": "Write a Python program that asks the user for a word and then prints the first and last characters of that word.",
+          "mark_scheme_answer": "# Read a word and safely show first and last characters\nword = input(\"Enter a word: \")\nif len(word) == 0:\n    print(\"Please enter at least one character.\")\nelse:\n    print(\"First character:\", word[0])\n    print(\"Last character:\", word[-1])",
+          "explanation": "Index 0 selects the first character. Index -1 selects the last character. An empty string has no characters, so the code first checks len(word) to avoid an IndexError."
+        },
+        {
+          "question": "String Slicing",
+          "question_self_contained": "Write a Python program that asks the user for a sentence and then prints the first five characters of the sentence.",
+          "mark_scheme_answer": "# Read a sentence and slice the first five characters\nsentence = input(\"Enter a sentence: \")\nfirst_five = sentence[:5]\nprint(\"First five characters:\", first_five)",
+          "explanation": "sentence[:5] returns characters from the start up to, but not including, index 5. If the sentence is shorter than five characters, the slice safely returns the whole sentence."
+        },
+        {
+          "question": "Changing Case",
+          "question_self_contained": "Write a Python program that asks the user for a sentence and then prints the sentence in both uppercase and lowercase.",
+          "mark_scheme_answer": "# Read a sentence and show uppercase and lowercase versions\nsentence = input(\"Enter a sentence: \")\nprint(\"Uppercase:\", sentence.upper())\nprint(\"Lowercase:\", sentence.lower())",
+          "explanation": "upper() returns a copy with letters converted to uppercase. lower() returns a copy with letters converted to lowercase. The original string is unchanged."
+        },
+        {
+          "question": "Removing Whitespace",
+          "question_self_contained": "Write a Python program that asks the user to enter a sentence with leading and trailing spaces, then removes those spaces and prints the cleaned-up sentence.",
+          "mark_scheme_answer": "# Read a sentence with extra spaces and clean the ends\nsentence = input(\"Enter a sentence with spaces: \")\ncleaned_sentence = sentence.strip()\nprint(\"Cleaned sentence:\", cleaned_sentence)",
+          "explanation": "strip() removes whitespace only at the beginning and end of the string. Spaces inside the sentence are not changed."
+        },
+        {
+          "question": "Enhanced Substring Search (case-insensitive)",
+          "question_self_contained": "Write a Python program that asks the user to enter a sentence and a word. The program should check if the word is in the sentence (case-insensitive) and then use the find() method to locate its position.",
+          "mark_scheme_answer": "# Case-insensitive search for a word in a sentence\nsentence = input(\"Enter a sentence: \")\nword = input(\"Enter a word to find: \")\n\nsent_l = sentence.lower()\nword_l = word.lower()\n\nif word_l in sent_l:\n    pos = sent_l.find(word_l)\n    print(f\"'{word}' found at position {pos}\")\nelse:\n    print(f\"'{word}' not found in the sentence.\")",
+          "explanation": "Both the sentence and the target word are converted to lowercase so the search ignores letter case. .find(...) returns the starting index (0-based) of the first match in the lowered text; this position matches the original because lowercasing does not change string length."
+        },
+        {
+          "question": "Replacing a Substring (exact word tokens)",
+          "question_self_contained": "Write a Python program that asks the user to enter a sentence and a word to replace, then replaces exact matches of that word with \"Python\" and prints the result.",
+          "mark_scheme_answer": "# Replace exact word tokens only (simple token approach)\nsentence = input(\"Enter a sentence: \")\ntarget = input(\"Enter the word to replace: \")\n\nwords = sentence.split()\nwords = [\"Python\" if w == target else w for w in words]\nnew_sentence = \" \".join(words)\nprint(\"New sentence:\", new_sentence)",
+          "explanation": "Splitting into words and replacing only when w == target avoids changing parts of longer words. Joining puts single spaces between words. This simple method does not handle punctuation attached to words (for example, \"word,\" will not match target)."
+        },
+        {
+          "question": "Counting Occurrences of a Character",
+          "question_self_contained": "Write a Python program that asks the user for a word and a character, then counts how many times the character appears in the word.",
+          "mark_scheme_answer": "# Count occurrences of the first character entered\nword = input(\"Enter a word: \")\nchar = input(\"Enter a character to count: \")\nchar = char[:1]  # take at most one character\n\nif char == \"\":\n    print(\"No character entered.\")\nelse:\n    count = word.count(char)\n    print(\"The character\", char, \"appears\", count, \"times.\")",
+          "explanation": "char[:1] keeps only the first character the user typed so the task stays about single characters. .count(...) returns how many times that character appears. Matching is case sensitive."
+        },
+        {
+          "question": "Splitting a Sentence",
+          "question_self_contained": "Write a Python program that asks the user for a sentence, then splits it into words and prints the list of words.",
+          "mark_scheme_answer": "# Split a sentence into words\nsentence = input(\"Enter a sentence: \")\nwords = sentence.split()\nprint(\"List of words:\", words)",
+          "explanation": "split() with no argument separates the string on any whitespace and collapses multiple spaces. The result is a list of word strings."
+        },
+        {
+          "question": "Validating User Input (integer, accepts negatives)",
+          "question_self_contained": "Write a Python program that keeps asking the user to enter an integer (it may be negative) until they provide a valid integer. Then, print the integer.",
+          "mark_scheme_answer": "# Loop until the user provides a valid integer (accepts negatives)\nwhile True:\n    s = input(\"Enter an integer: \")\n    try:\n        n = int(s)\n        print(\"Valid integer:\", n)\n        break\n    except ValueError:\n        print(\"Invalid input. Please enter an integer.\")",
+          "explanation": "int(s) converts the input to an integer and raises ValueError if the text is not a valid integer. The try/except block keeps asking until conversion succeeds. This accepts negative numbers like -5."
+        },
+        {
+          "question": "String Comparison (case-insensitive)",
+          "question_self_contained": "Write a Python program that asks the user for two words, compares them, and prints whether they are the same or different (case-insensitive).",
+          "mark_scheme_answer": "# Compare two words ignoring case and extra spaces\nword1 = input(\"Enter the first word: \").strip().lower()\nword2 = input(\"Enter the second word: \").strip().lower()\n\nif word1 == word2:\n    print(\"The words are the same.\")\nelse:\n    print(\"The words are different.\")",
+          "explanation": ".strip() removes accidental spaces at the start and end. .lower() ignores letter case. Equality == then checks if the normalized strings match."
+        },
+        {
+          "question": "Palindrome Check (ignore spaces and punctuation)",
+          "question_self_contained": "Write a Python program that checks if a given word or phrase is a palindrome. Ignore spaces, punctuation, and letter case.",
+          "mark_scheme_answer": "# Palindrome test ignoring spaces, punctuation, and case\ntext = input(\"Enter a word or phrase: \")\ncleaned = \"\".join(ch.lower() for ch in text if ch.isalnum())\nif cleaned == cleaned[::-1]:\n    print(\"Palindrome.\")\nelse:\n    print(\"Not a palindrome.\")",
+          "explanation": "isalpha/isdigit combined via .isalnum() keeps only letters and digits. .lower() ignores case. The cleaned text is compared to its reverse using slicing [::-1]. If equal, it is a palindrome."
+        },
+        {
+          "question": "Unicode Code Point of Characters",
+          "question_self_contained": "Write a Python program that prints the Unicode code point of each character in a string.",
+          "mark_scheme_answer": "# Show Unicode code points for each character\ntext = input(\"Enter a string: \")\nfor ch in text:\n    print(\"Code point of\", ch, \"is\", ord(ch))",
+          "explanation": "ord(ch) returns the Unicode code point (an integer) for the character ch. For basic English letters and symbols, these values match ASCII numbers."
+        },
+        {
+          "question": "Splitting and Extracting Date of Birth (with format check)",
+          "question_self_contained": "Write a Python program that takes the date of birth from the user in the format \"dd/mm/yyyy\". Split it into day, month, and year. If the format is incorrect, print a clear error message.",
+          "mark_scheme_answer": "# Read a date of birth and validate basic format dd/mm/yyyy\ndob = input(\"Enter your date of birth (dd/mm/yyyy): \")\nparts = dob.split(\"/\")\n\nif len(parts) == 3 and all(p.isdigit() for p in parts):\n    day, month, year = parts\n    print(\"Day:\", day)\n    print(\"Month:\", month)\n    print(\"Year:\", year)\nelse:\n    print(\"Invalid format. Use dd/mm/yyyy.\")",
+          "explanation": "Splitting by \"/\" should give exactly three numeric parts. If this basic check passes, the code prints day, month, and year. Otherwise, it reports the required format. This keeps the task simple while avoiding crashes."
+        }
+      ]
+    }
+  ]
+}
+
+
+  </script>
+
+<!-- APPEND: Mock Test modal -->
+<div id="mockTestModal" class="mock-modal" aria-hidden="true" role="dialog" aria-labelledby="mockTestTitle">
+  <div class="mock-modal-card">
+    <div class="mock-modal-header">
+      <h3 id="mockTestTitle" style="margin:0;">Mock Test</h3>
+      <button class="mock-close" id="closeMockTest" aria-label="Close">×</button>
+    </div>
+    <div class="mock-modal-body">
+      <!-- JSON will populate this code block with the question -->
+      <div class="mock-code" aria-label="Pseudocode"></div>
+
+      <div id="mockTestAnswer" class="mock-hidden" aria-live="polite">
+        <h4 style="margin:16px 0 8px 0;">Answer</h4>
+        <div class="mock-code"></div>
+        <p></p>
+      </div>
+    </div>
+    <div class="mock-modal-actions footer">
+      <button class="btn" id="toggleMockAnswer" type="button" aria-expanded="false" aria-controls="mockTestAnswer">Show answer</button>
+      <button class="btn ghost" id="dismissMockTest" type="button">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- APPEND: mock test JSON payload -->
+<script id="mockTestData" type="application/json">
+{
+  "mock_test": {
+  "question": "String Manipulation",
+"question_self_contained": "a: Write a Python program that asks the user to enter their first name and last name. Combine them into a single string with a space in between and print the full name in uppercase.\n\nb: Write a Python program that asks the user to enter a sentence and a word. Check if the word is in the sentence, and if it is, replace the word with \"Python\" and print the new sentence.\n\nc: Write a Python program that asks the user for a date of birth in the format \"dd/mm/yyyy\". The program should:\n\t1. Split the date into day, month, and year.\n\t2. Print each component on a new line.",
+"mark_scheme_answer": "# Answer a:\nfirst_name = input(\"Enter your first name: \")\nlast_name = input(\"Enter your last name: \")\nfull_name = first_name + \" \" + last_name\nprint(\"Full name in uppercase:\", full_name.upper())\n\n# Answer b:\nsentence = input(\"Enter a sentence: \")\nword_to_replace = input(\"Enter the word to replace: \")\n \nif word_to_replace in sentence:\n new_sentence = sentence.replace(word_to_replace, \"Python\")\n print(\"New sentence:\", new_sentence)\nelse:\n print(f\"The word '{word_to_replace}' is not in the sentence.\")\n\n# Answer c:\ndob = input(\"Enter your date of birth (dd/mm/yyyy): \")\ndob_parts = dob.split(\"/\")\n \nday = dob_parts[0]\nmonth = dob_parts[1]\nyear = int(dob_parts[2])\n \nprint(\"Day:\", day)\nprint(\"Month:\", month)\nprint(\"Year:\", year)",
+"explanation": "Explanation: \nPart a: input(…) reads the two names as strings. We join them with a single space using first_name + \" \" + last_name. upper() makes all letters uppercase. print(…) shows the final text.\nPart b: The test word_to_replace in sentence checks for an exact substring (case sensitive and can match inside longer words). If found, replace(old, new) creates a new string with all occurrences changed to \"Python\" and prints it. Otherwise a clear message is printed.\nPart c: split(\"/\") divides the date into three parts at each slash. We read index 0 as day, 1 as month, and 2 as year. Converting year to int confirms it is numeric. This simple version assumes the user types the format dd/mm/yyyy correctly."
+  }
+}
+
+
+</script>
+  <script src="../exercises.js"></script>
+</body>
+</html>

@@ -1,17 +1,345 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Level 3</title>
-  <link rel="stylesheet" href="../dashboard.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Level 3: Selection with if, else, elif</title>
+  <link rel="stylesheet" href="../levels.css" />
 <script defer src="/assets/js/paste-guard.js"></script>
 </head>
 <body>
-  <header style="text-align:center;padding:20px;background:#003366;color:#fff;">
-    <h1>Programming Level 3</h1>
-  </header>
-  <main style="padding:20px;text-align:center;">
-    <p>Content for Level 3 goes here.</p>
+
+  <!-- Header: logo | title | Home -->
+  <div class="header">
+    <div class="container">
+      <div class="header-bar">
+        <a class="brand" href="../../dashboard.html" aria-label="Home">
+          <img src="../logo.png" alt="Logo" class="brand-logo" />
+        </a>
+
+        <div class="header-main">
+          <h1>Level 3: Selection with if, else, elif</h1>
+          <p>A level Computer Science (9618): student notes, prepared by Dr. Hamdeni</p>
+        </div>
+
+        <a class="btn btn-home" href="../dashboard.html">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M12 3l9 8h-3v9h-5v-6H11v6H6v-9H3l9-8z"/>
+          </svg>
+          Home
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <div class="container">
+
+      <!-- Table of contents -->
+      <nav class="toc">
+        <h2>Contents</h2>
+        <ol>
+          <li><a href="#s1">1. Writing Simple if Statements</a></li>
+          <li><a href="#s2">2. Syntax and Indentation Rules for if</a></li>
+          <li><a href="#s3">3. Using else for Alternative Paths</a></li>
+          <li><a href="#s4">4. Using elif for Multiple Conditions</a></li>
+          <li><a href="#s5">5. Nesting and Combining Conditions</a></li>
+        </ol>
+      </nav>
+
+      <!-- ================================ -->
+      <!-- 1. Writing Simple if Statements  -->
+      <!-- ================================ -->
+      <div class="section" id="s1">
+        <h2>1. Writing Simple if Statements</h2>
+        <ul class="bullets">
+          <li>An <code>if</code> statement executes a block only when its condition is true.</li>
+        </ul>
+
+        <div class="example">
+          <div class="title"><strong>Example 1:</strong> Check voting eligibility</div>
+          <div class="pseudocode">
+            <div class="pc-line">
+              <span class="comment"
+                    data-tooltip="Assign the integer value 18 to the variable age.">
+                <em>age = 18</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment"
+                    data-tooltip="The condition age &gt;= 18 is True when age is 18 or more. The colon starts the indented block.">
+                <em>if age &gt;= 18:</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment"
+                    data-tooltip="This indented line runs only if the condition above is True.">
+                <em>    print("You are eligible to vote.")</em>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="example video">
+          <div class="title">Basic if only</div>
+          <div class="media">
+            <iframe width="560" height="315"
+              src="https://www.youtube.com/embed/FvMPfrgGeKs?start=0"
+              title="If statements in Python — segment on basic if only" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================================================ -->
+      <!-- 2. Syntax and Indentation Rules for if           -->
+      <!-- ================================================ -->
+      <div class="section" id="s2">
+        <h2>2. Understanding the Syntax and Indentation Rules for if Statements</h2>
+        <ul class="bullets">
+          <li>Indentation defines the block controlled by <code>if</code>. Inconsistent indentation raises <code>IndentationError</code>.</li>
+        </ul>
+
+        <div class="example">
+          <div class="title"><strong>Example 2:</strong> Indented block</div>
+          <div class="pseudocode">
+            <div class="pc-line">
+              <span class="comment"
+                    data-tooltip="True is a boolean value. The block will always execute in this case.">
+                <em>if True:</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment"
+                    data-tooltip="Exactly four spaces (or one tab consistently) indicate this line belongs to the if block.">
+                <em>    print("This is indented.")</em>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="example video">
+          <div class="title">Indentation in if and if-else</div>
+          <div class="media">
+            <iframe width="560" height="315"
+              src="https://www.youtube.com/embed/z68I_bCFZus"
+              title="Indentation in if and if-else statements — Python" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+
+      <!-- ====================================== -->
+      <!-- 3. Using else for Alternative Paths    -->
+      <!-- ====================================== -->
+      <div class="section" id="s3">
+        <h2>3. Using else for Alternative Execution Paths</h2>
+        <ul class="bullets">
+          <li><code>else</code> provides a block that runs when the <code>if</code> condition is false.</li>
+        </ul>
+
+        <div class="example">
+          <div class="title"><strong>Example 3:</strong> if-else decision</div>
+          <div class="pseudocode">
+            <div class="pc-line">
+              <span class="comment" data-tooltip="Set age to 16 for this example.">
+                <em>age = 16</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment" data-tooltip="This condition is False when age is less than 18.">
+                <em>if age &gt;= 18:</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment" data-tooltip="This line would run only when the condition is True.">
+                <em>    print("You are eligible to vote.")</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment" data-tooltip="The else block runs when the if condition is False.">
+                <em>else:</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment" data-tooltip="Executed here because age is 16.">
+                <em>    print("You are not eligible to vote.")</em>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="example video">
+          <div class="title">Else only</div>
+          <div class="media">
+            <iframe width="560" height="315"
+              src="https://www.youtube.com/embed/FvMPfrgGeKs?start=87"
+              title="If statements in Python — segment on else only" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================ -->
+      <!-- 4. Using elif for Multiple Conditions        -->
+      <!-- ============================================ -->
+      <div class="section" id="s4">
+        <h2>4. Using elif for Multiple Conditions</h2>
+        <ul class="bullets">
+          <li><code>elif</code> checks the next condition when previous conditions are false. Only the first true branch runs.</li>
+        </ul>
+
+        <div class="example">
+          <div class="title"><strong>Example 4:</strong> Grading with elif</div>
+          <div class="pseudocode">
+            <div class="pc-line">
+              <span class="comment" data-tooltip="A test score for this example.">
+                <em>score = 85</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment" data-tooltip="First branch: executes only if score ≥ 90.">
+                <em>if score &gt;= 90:</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment" data-tooltip='Runs when the first condition is True.'>
+                <em>    print("Grade: A")</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment" data-tooltip="Second branch: checked only if the first was False.">
+                <em>elif score &gt;= 80:</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment" data-tooltip='Since 85 ≥ 80 and the first branch failed, this prints "Grade: B".'>
+                <em>    print("Grade: B")</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment" data-tooltip="Fallback branch: runs when all previous conditions are False.">
+                <em>else:</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment" data-tooltip='Would print "Grade: C" for scores below 80.'>
+                <em>    print("Grade: C")</em>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="example video">
+          <div class="title">Elif only</div>
+          <div class="media">
+            <iframe width="560" height="315"
+              src="https://www.youtube.com/embed/FvMPfrgGeKs?start=139"
+              title="If statements in Python — segment on elif only" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================================================ -->
+      <!-- 5. Nesting and Combining Conditional Statements  -->
+      <!-- ================================================ -->
+      <div class="section" id="s5">
+        <h2>5. Nesting and Combining Conditional Statements</h2>
+        <ul class="bullets">
+          <li>Nesting places one <code>if</code> inside another. Conditions can also be combined using <code>and</code>, <code>or</code>, and <code>not</code>.</li>
+        </ul>
+
+        <div class="example">
+          <div class="title"><strong>Example 5:</strong> Nested if with a second condition</div>
+          <div class="pseudocode">
+            <div class="pc-line">
+              <span class="comment" data-tooltip="Set up test values.">
+                <em>age = 20</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment" data-tooltip='A text value "Yes" indicates citizenship.'>
+                <em>citizenship = "Yes"</em>
+              </span>
+            </div>
+
+            <div class="pc-line">
+              <span class="comment" data-tooltip="Outer condition checks the age requirement first.">
+                <em>if age &gt;= 18:</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment" data-tooltip='Inner if runs only when age ≥ 18. Now check the string comparison.'>
+                <em>    if citizenship == "Yes":</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment" data-tooltip="Both conditions satisfied.">
+                <em>        print("You are eligible to vote.")</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment" data-tooltip='This branch runs when age ≥ 18 but citizenship is not "Yes".'>
+                <em>    else:</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment" data-tooltip="Explains the failure reason.">
+                <em>        print("You need to be a citizen to vote.")</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment" data-tooltip="Runs when the outer condition age ≥ 18 is False.">
+                <em>else:</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment" data-tooltip="Age is below the threshold in this branch.">
+                <em>    print("You are not old enough to vote.")</em>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Two videos side by side -->
+        <div class="video-row">
+          <div class="example video">
+            <div class="title">Nested if</div>
+            <div class="media">
+              <iframe width="560" height="315"
+                src="https://www.youtube.com/embed/JYPQxNq-I24"
+                title="Nested if statements in Python — beginner explanation" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+          </div>
+
+          <div class="example video">
+            <div class="title">Combining conditions with and, or, not</div>
+            <div class="media">
+              <iframe width="560" height="315"
+                src="https://www.youtube.com/embed/R5-NMAAl_Ms"
+                title="Two conditions in a Python if statement — and/or basics" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p style="text-align:center; margin:20px 0;">
+        <a class="btn btn-cta" href="./exercises3.html">Go to Exercises</a>
+      </p>
+
+      <div class="footer">
+        &copy; 2025 Dr. Hamdeni. All rights reserved.
+      </div>
+    </div>
   </main>
 </body>
 </html>

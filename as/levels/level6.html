@@ -1,17 +1,331 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Level 6</title>
-  <link rel="stylesheet" href="../dashboard.css" />
-<script defer src="/assets/js/paste-guard.js"></script>
-</head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Level 6: Working with Strings</title>
+<link href="../levels.css" rel="stylesheet"/>
+<script defer="" src="/assets/js/paste-guard.js"></script>
+<style>
+/* Reviewer-added styles: make video section visually distinct */
+.videos { margin: 24px 0 8px; }
+.videos .subheading { margin: 0 0 12px; font-size: 1.1rem; line-height: 1.3; }
+.example.video.video-card { background: #ffffff; border: 1px solid #e5e5e5; border-radius: 8px; padding: 12px; }
+.example.video.video-card .media { border-radius: 8px; overflow: hidden; }
+.video-row { display: flex; flex-wrap: wrap; gap: 16px; }
+.video-row .video-card { flex: 1 1 320px; }
+</style><style>
+/* Student clarity notes */
+.clarity-note { 
+  margin: 8px 0 12px; 
+  padding: 8px 12px; 
+  background: #f7fbff; 
+  border-left: 3px solid #1e88e5; 
+  border-radius: 4px; 
+  font-size: 0.97rem;
+}
+</style></head>
 <body>
-  <header style="text-align:center;padding:20px;background:#003366;color:#fff;">
-    <h1>Programming Level 6</h1>
-  </header>
-  <main style="padding:20px;text-align:center;">
-    <p>Content for Level 6 goes here.</p>
-  </main>
+&lt;!-- Videos with placeholder IDs were removed to enforce strict scope compliance. Provide vetted IDs to re-enable. --&gt;<!-- NOTE: All embedded videos must be strictly scoped to their section topics. Replace VIDEO_ID_* with vetted clips covering only the specified concept, without extra content. -->
+<!-- Header: logo | title | Home -->
+<div class="header">
+<div class="container">
+<div class="header-bar">
+<a aria-label="Home" class="brand" href="../dashboard.html">
+<img alt="Logo" class="brand-logo" src="../logo.png"/>
+</a>
+<div class="header-main">
+<h1>Level 6: Working with Strings</h1>
+<p>A level Computer Science (9618): student notes, prepared by Dr. Hamdeni</p>
+</div>
+<a class="btn btn-home" href="../../dashboard.html">
+<svg aria-hidden="true" focusable="false" viewbox="0 0 24 24">
+<path d="M12 3l9 8h-3v9h-5v-6H11v6H6v-9H3l9-8z"></path>
+</svg>
+          Home
+        </a>
+</div>
+</div>
+</div>
+<main>
+<div class="container">
+<!-- Table of contents -->
+<nav class="toc">
+<h2>Contents</h2>
+<ol>
+<li><a href="#s1">1. Basic String Operations</a></li>
+<li><a href="#s2">2. Accessing and Manipulating Substrings</a></li>
+<li><a href="#s3">3. String Methods</a></li>
+<li><a href="#s4">4. String Comparison</a></li>
+</ol>
+</nav>
+<!-- ============================== -->
+<!-- 1. Basic String Operations     -->
+<!-- ============================== -->
+<div class="section" id="s1">
+<h2>1. Basic String Operations</h2>
+<ul class="bullets">
+<li><strong>Immutability:</strong> Python strings are immutable. Operations and methods return new strings and do not modify the original.</li>
+</ul>
+<ul class="bullets">
+<li><strong>Concatenation:</strong> combine multiple strings using the <code>+</code> operator.</li>
+</ul>
+<div class="example">
+<div class="title"><strong>Example A -</strong> Concatenate strings
+        <!-- Videos: arranged in rows (strictly scoped to this section) -->
+<div class="videos"><h3 class="subheading"></h3><div class="video-row">
+<div class="example video video-card" data-lang="en" data-scope="concatenation" data-status="scoped-vetted">
+<div class="title">Concatenation with +</div>
+<div class="media"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="True" frameborder="0" height="315" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/7FUU44685z8?start=0&amp;end=60" title="Concatenation with +" width="560"></iframe></div>
+</div>
+<div class="example video video-card" data-lang="en" data-scope="length" data-status="scoped-vetted">
+<div class="title">Length with len()</div>
+<div class="media"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="True" frameborder="0" height="315" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/57yxlFSPgBI?start=0&amp;end=60" title="Length with len()" width="560"></iframe></div>
+</div>
+</div></div>
+</div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment" data-tooltip="Create a single string from three parts separated by a space."><em>greeting = "Hello" + " " + "World"</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Displays the result Hello World."><em>print(greeting)  # Hello World</em></span></div>
+</div>
+</div>
+<ul class="bullets">
+<li><strong>String length:</strong> <code>len(s)</code> returns the number of Unicode code points. For most simple texts this equals the number of characters, but combining marks can make visual characters use multiple code points.</li>
+</ul>
+<div class="example">
+<div class="title"><strong>Example B -</strong> Length of a string</div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment" data-tooltip="len returns the number of Unicode code points (spaces and punctuation also count)."><em>message = "Python"</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Here the length is 6."><em>print(len(message))  # 6</em></span></div>
+</div>
+</div>
+</div>
+<!-- ================================================ -->
+<!-- 2. Accessing and Manipulating Substrings         -->
+<!-- ================================================ -->
+<div class="section" id="s2">
+<h2>2. Accessing and Manipulating Substrings</h2>
+<ul class="bullets">
+<li><strong>Indexing:</strong> positions start at 0 for the first character.</li>
+</ul>
+<div class="example">
+<div class="title"><strong>Example A -</strong> Access characters by index
+        <!-- Videos: arranged in rows (strictly scoped to this section) -->
+<div class="videos"><h3 class="subheading"></h3><div class="video-row">
+<div class="example video video-card" data-lang="en" data-scope="indexing" data-status="scoped-vetted">
+<div class="title">Indexing: s[i]</div>
+<div class="media"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="True" frameborder="0" height="315" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/F_wrXkzlyxI?start=0&amp;end=60" title="Indexing: s[i]" width="560"></iframe></div>
+</div>
+<div class="example video video-card" data-lang="en" data-scope="slicing" data-status="scoped-vetted">
+<div class="title">Slicing: s[a:b]</div>
+<div class="media"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="True" frameborder="0" height="315" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/LwgnNdxAbyg?start=0&amp;end=60" title="Slicing: s[a:b]" width="560"></iframe></div>
+</div>
+<div class="example video video-card" data-lang="en" data-scope="negative-indexing" data-status="scoped-vetted">
+<div class="title">Negative indices</div>
+<div class="media"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="True" frameborder="0" height="315" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/1ydAv8rVG-o?start=0&amp;end=60" title="Negative indices" width="560"></iframe></div>
+</div>
+<div class="example video video-card" data-lang="en" data-scope="ord-chr" data-status="scoped-vetted">
+<div class="title">ord/chr conversions</div>
+<div class="media"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="True" frameborder="0" height="315" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/w9Z9vNue6SQ?start=0&amp;end=120" title="ord/chr conversions" width="560"></iframe></div>
+</div>
+</div></div>
+</div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment" data-tooltip="String of length 5 with indices 0..4."><em>word = "Hello"</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="First character is H."><em>print(word[0])  # H</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Fifth character is o."><em>print(word[4])  # o</em></span></div>
+</div>
+</div>
+<ul class="bullets">
+<li><strong>Slicing:</strong> <code>s[start:end]</code> returns characters from start inclusive to end exclusive. Omitting start defaults to 0; omitting end defaults to <code>len(s)</code>.
+<li>
+s[start:end:step] with default step = 1. A negative step reverses direction; example: text[::-1] produces the reversed string.
+</li>
+</ul>
+<div class="example">
+<div class="title"><strong>Example B -</strong> Extract a substring</div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment" data-tooltip="Select the first six characters."><em>phrase = "Python Programming"</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Indices 0..5 produce Python."><em>print(phrase[0:6])  # Python</em></span></div>
+</div>
+</div>
+<ul class="bullets">
+<li><strong>Negative indexing:</strong> <code>-1</code> refers to the last element, <code>-2</code> to the one before it. Slices tolerate out-of-range bounds, but single-index access that is out of range raises <code>IndexError</code>.</li>
+</ul>
+<div class="example">
+<div class="title"><strong>Example C -</strong> Negative indices</div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment" data-tooltip="-1 is the last character, -2 the one before it."><em>text = "Python"</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Last character n."><em>print(text[-1])  # n</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Second last character o."><em>print(text[-2])  # o</em></span></div>
+</div>
+</div>
+<ul class="bullets">
+<li><strong>Character and Unicode conversion:</strong> <code>ord(c)</code> returns the Unicode code point of a single-character string; <code>chr(n)</code> returns the character for an integer n.</li>
+</ul>
+<div class="example">
+<div class="title"><strong>Example D -</strong> Unicode conversions</div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment" data-tooltip="ord returns the Unicode code point for the character."><em>char = 'A'</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="65 is the code point for 'A'."><em>print(ord(char))  # 65</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="chr converts a code back to the character."><em>ascii_value = 65</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Produces 'A'."><em>print(chr(ascii_value))  # A</em></span></div>
+</div>
+</div><p class="clarity-note">Constraints: ord expects a string of length 1 (otherwise TypeError). chr requires an integer 0..0x10FFFF (otherwise ValueError).</p>
+</div>
+<!-- ============================== -->
+<!-- 3. String Methods              -->
+<!-- ============================== -->
+<div class="section" id="s3">
+<h2>3. String Methods</h2>
+<ul class="bullets">
+<li><strong>Changing case:</strong> <code>upper()</code> and <code>lower()</code> convert to uppercase or lowercase.</li>
+</ul>
+<div class="example">
+<div class="title"><strong>Example A -</strong> Convert case
+        <!-- Videos: arranged in rows (strictly scoped to this section) -->
+<div class="videos"><h3 class="subheading"></h3><div class="video-row">
+<div class="example video video-card" data-lang="en" data-scope="case-conversion" data-status="scoped-vetted">
+<div class="title">Case: upper()/lower()</div>
+<div class="media"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="True" frameborder="0" height="315" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/vDH8Shv-nFs?start=0&amp;end=60" title="Case: upper()/lower()" width="560"></iframe></div>
+</div>
+<div class="example video video-card" data-lang="en" data-scope="strip" data-status="scoped-vetted">
+<div class="title">Strip whitespace: strip()</div>
+<div class="media"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="True" frameborder="0" height="315" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/VJOW52lCqPo?start=0&amp;end=180" title="Strip spaces: strip()" width="560"></iframe></div>
+</div>
+<div class="example video video-card" data-lang="en" data-scope="find-index" data-status="scoped-vetted">
+<div class="title">Find vs index</div>
+<div class="media"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="True" frameborder="0" height="315" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/KmaFaf1Kn6E?start=0&amp;end=60" title="Find vs index" width="560"></iframe></div>
+</div>
+</div></div>
+<!-- Videos: arranged in rows (strictly scoped to this section) -->
+<div class="videos"><h3 class="subheading"></h3><div class="video-row">
+<div class="example video video-card" data-lang="en" data-scope="replace" data-status="scoped-vetted">
+<div class="title">Replace text</div>
+<div class="media"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="True" frameborder="0" height="315" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/qDYbJxJjQu4?start=0&amp;end=60" title="Replace text" width="560"></iframe></div>
+</div>
+<div class="example video video-card" data-lang="en" data-scope="boolean-tests" data-status="scoped-vetted">
+<div class="title">isdigit, islower, isupper</div>
+<div class="media"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="True" frameborder="0" height="315" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/vDH8Shv-nFs?start=0&amp;end=60" title="Digit/Lower/Upper tests" width="560"></iframe></div>
+</div>
+<div class="example video video-card" data-lang="en" data-scope="split" data-status="scoped-vetted">
+<div class="title">Split into words</div>
+<div class="media"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="True" frameborder="0" height="315" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/u4ENWtHq6s8?start=0&amp;end=60" title="Split into words" width="560"></iframe></div>
+</div>
+</div></div>
+</div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment" data-tooltip="To uppercase."><em>name = "python"</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Outputs PYTHON."><em>print(name.upper())  # PYTHON</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="To lowercase."><em>name = "PYTHON"</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Outputs python."><em>print(name.lower())  # python</em></span></div>
+</div>
+</div>
+<ul class="bullets">
+<li><strong>Stripping whitespace:</strong> <code>strip()</code> removes leading and trailing Unicode whitespace by default; optionally pass characters to remove as an argument.</li>
+</ul>
+<div class="example">
+<div class="title"><strong>Example B -</strong> Remove outer spaces</div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment" data-tooltip="Spaces before and after are trimmed."><em>user_input = "   hello   "</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Prints 'hello'."><em>print(user_input.strip())  # hello</em></span></div>
+</div>
+</div>
+<ul class="bullets">
+<li><strong>Finding substrings:</strong> <code>find(sub[, start[, end]])</code> returns the lowest index where <code>sub</code> occurs or -1 if absent; <code>index(sub[, start[, end]])</code> has the same search but raises <code>ValueError</code> if absent.</li>
+</ul><p class="clarity-note">Examples: "abc".find("z") returns -1, while "abc".index("z") raises ValueError.</p>
+<div class="example">
+<div class="title"><strong>Example C -</strong> Locate a substring</div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment" data-tooltip="find returns 7 because 'Python' starts at index 7."><em>sentence = "I love Python"</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="If missing, find yields -1; index raises ValueError."><em>print(sentence.find("Python"))  # 7</em></span></div>
+</div>
+</div>
+<ul class="bullets">
+<li><strong>Replacing text:</strong> <code>replace(old, new)</code> returns a new string with replacements.</li>
+</ul>
+<div class="example">
+<div class="title"><strong>Example D -</strong> Replace a word</div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment" data-tooltip="replace does not modify in place; it returns a new string."><em>text = "I like apples"</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Produces 'I like bananas'."><em>print(text.replace("apples", "bananas"))  # I like bananas</em></span></div>
+</div>
+</div><p class="clarity-note">Strings are immutable. replace returns a new string. The original only changes if you assign the result to the variable, e.g., text = text.replace("a", "b").</p>
+<ul class="bullets">
+<li><strong>Boolean tests:</strong> <code>isdigit()</code> is True if all characters are Unicode digits; <code>islower()</code> or <code>isupper()</code> are True if the string contains at least one cased letter and all cased letters are lower or upper respectively.</li>
+</ul>
+<div class="example">
+<div class="title"><strong>Example E -</strong> Check string properties</div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment" data-tooltip="Digits only."><em>number = "12345"</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="True because all characters are digits."><em>print(number.isdigit())  # True</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Lowercase only."><em>word = "hello"</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="True because all letters are lowercase."><em>print(word.islower())    # True</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Uppercase only."><em>word = "HELLO"</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="True because all letters are uppercase."><em>print(word.isupper())    # True</em></span></div>
+</div>
+</div>
+<ul class="bullets">
+<li><strong>Splitting text:</strong> <code>split()</code> without arguments divides a string into substrings on runs of whitespace and omits the separators.</li>
+</ul>
+<div class="example">
+<div class="title"><strong>Example F -</strong> Split into words</div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment" data-tooltip="Default split uses spaces as separators."><em>sentence = "Python is fun"</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Produces ['Python', 'is', 'fun']."><em>words = sentence.split()</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Display the resulting list."><em>print(words)  # ['Python', 'is', 'fun']</em></span></div>
+</div>
+</div>
+</div>
+<!-- ============================== -->
+<!-- 4. String Comparison           -->
+<!-- ============================== -->
+<div class="section" id="s4">
+<h2>4. String Comparison</h2>
+<ul class="bullets">
+<li><strong>Equality and inequality:</strong> equality tests are case sensitive. Ordering comparisons use lexicographic order by Unicode code point. For case-insensitive testing, normalise or use <code>casefold()</code> when appropriate.</li>
+</ul>
+<div class="example">
+<div class="title"><strong>Example A -</strong> Compare strings
+        <!-- Videos: arranged in rows (strictly scoped to this section) -->
+<div class="videos"><h3 class="subheading"></h3><div class="video-row">
+<div class="example video video-card" data-lang="en" data-scope="comparison" data-status="scoped-vetted">
+<div class="title">Equality and inequality</div>
+<div class="media"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="True" frameborder="0" height="315" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/pHnwN3i3tUg?start=0&amp;end=60" title="Equality and inequality" width="560"></iframe></div>
+</div>
+<div class="example video video-card" data-lang="en" data-scope="membership" data-status="scoped-vetted">
+<div class="title">Membership with in operator</div>
+<div class="media"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="True" frameborder="0" height="315" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/xrPm333x6XQ?start=0&amp;end=60" title="Membership with in" width="560"></iframe></div>
+</div>
+</div></div>
+</div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment" data-tooltip="Different casing makes these unequal."><em>word1 = "Python"</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Returns False because 'Python' != 'python'."><em>word2 = "python"</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="False, True."><em>print(word1 == word2)  # False</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Inequality comparison."><em>print(word1 != word2)  # True</em></span></div>
+</div>
+</div>
+<ul class="bullets">
+<li><strong>Membership with <code>in</code>:</strong> test if a substring occurs inside a string.</li>
+</ul><p class="clarity-note">The in operator checks substrings, not whole words, and it is case sensitive. Examples: "on" in "Python" is True; "py" in "Python" is False.</p>
+<div class="example">
+<div class="title"><strong>Example B -</strong> Check for containment</div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment" data-tooltip="Substring test returns True or False."><em>sentence = "I love Python"</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="True because 'Python' appears in the sentence."><em>print("Python" in sentence)  # True</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="False because 'Java' is absent."><em>print("Java" in sentence)    # False</em></span></div>
+</div>
+</div>
+</div>
+<p style="text-align:center; margin:20px 0;">
+<a class="btn btn-cta" href="./exercises6.html">Go to Exercises</a>
+</p>
+<div class="footer">
+        © 2025 Dr. Hamdeni. All rights reserved.
+      </div>
+</div>
+</main>
 </body>
 </html>

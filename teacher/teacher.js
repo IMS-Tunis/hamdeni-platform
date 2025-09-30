@@ -6,6 +6,23 @@ console.log('[teacher] teacher.js loaded');
 
 const TEACHER_PASSWORD = 'wxcv';
 
+const SUPABASE_WARNING_MESSAGE =
+  '⚠️ Supabase client failed to load. Data cannot be retrieved or saved until the connection is restored.';
+
+function showSupabaseWarning(targetId) {
+  const target = targetId ? document.getElementById(targetId) : null;
+  if (target) {
+    target.textContent = SUPABASE_WARNING_MESSAGE;
+  } else {
+    alert(SUPABASE_WARNING_MESSAGE);
+  }
+}
+
+if (!supabase) {
+  console.warn('[teacher] Supabase client unavailable. Running in degraded mode.');
+  showSupabaseWarning('load-msg');
+}
+
 if (!localStorage.getItem("teacher-auth")) {
   const pass = prompt("Enter teacher password:");
   if (pass !== TEACHER_PASSWORD) {
@@ -47,6 +64,16 @@ document.getElementById('load-students').onclick = async () => {
   console.log('[teacher] Loading students for', selectedPlatform);
   let students = [];
   let error = null;
+  const msg = document.getElementById('load-msg');
+  const list = document.getElementById('student-list');
+  if (msg) msg.textContent = '';
+  if (list) list.innerHTML = '';
+
+  if (!supabase) {
+    console.warn('[teacher] Cannot load students because Supabase is unavailable.');
+    showSupabaseWarning('load-msg');
+    return;
+  }
   try {
     const res = await supabase
       .from('students')
@@ -57,11 +84,6 @@ document.getElementById('load-students').onclick = async () => {
   } catch (err) {
     error = err;
   }
-
-  const list = document.getElementById('student-list');
-  const msg = document.getElementById('load-msg');
-  msg.textContent = '';
-  list.innerHTML = '';
 
   if (error) {
     console.error('Failed to fetch students:', error);
@@ -91,6 +113,11 @@ document.getElementById('load-students').onclick = async () => {
 };
 
 async function loadStudentProgress(student) {
+  if (!supabase) {
+    console.warn('[teacher] Skipping loadStudentProgress because Supabase is unavailable.');
+    showSupabaseWarning('load-msg');
+    return;
+  }
   selectedStudent = { id: student.id, username: student.username };
   const username = student.username;
   console.log('[teacher] Loading progress for', username);
@@ -219,6 +246,11 @@ function renderLevels(data) {
 
 document.getElementById('save-progress').onclick = async () => {
   if (!selectedStudent || !selectedPlatform) return alert("Select student first.");
+  if (!supabase) {
+    console.warn('[teacher] Cannot save progress because Supabase is unavailable.');
+    showSupabaseWarning('save-msg');
+    return;
+  }
   const tTable = platformTable('theory');
   const lTable = platformTable('programming');
   console.log('[teacher] Saving progress for', selectedStudent.username, 'using tables', tTable, lTable);
@@ -341,6 +373,12 @@ if (addStudentForm) {
 
     if (!username || !password || !platform) {
       alert('Please fill in all fields.');
+      return;
+    }
+
+    if (!supabase) {
+      console.warn('[teacher] Cannot create student because Supabase is unavailable.');
+      addStudentMsg.textContent = SUPABASE_WARNING_MESSAGE;
       return;
     }
 

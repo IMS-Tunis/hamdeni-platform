@@ -1,0 +1,258 @@
+<!-- index.html (updated: top guidance in old grey style, not inside a question card) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Level 5: Lists</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../exercises.css" />
+<script defer src="/assets/js/paste-guard.js"></script>
+</head>
+<body>
+
+<aside class="sidebar" aria-label="Exercise navigation">
+  <!-- Top category: logo + header -->
+  <div class="sidebar-top">
+    <img src="../logo.png" alt="Logo" class="brand-img" width="220">
+    <h2 class="sidebar-title">Level 5</h2>
+    <p class="sidebar-subtitle">Lists</p>
+  </div>
+
+  <!-- Bottom category: exercises + controls -->
+  <div class="sidebar-nav">
+    <nav class="nav" id="nav"></nav>
+
+    <div class="sidebar-footer">
+      <button id="expandAll" class="btn ghost">Show all mark schemes</button>
+      <button id="collapseAll" class="btn ghost">Hide all mark schemes</button>
+    </div>
+  </div>
+</aside>
+
+
+
+
+
+  <main class="content">
+    <!-- Guidance moved to the beginning, using the same grey footer-style block -->
+	
+
+<div class="content-section">
+    <section class="footer" aria-label="Instructions" style="margin:0;">
+        <h2 style="margin:0 0 8px 0; font-size:1.05rem; font-weight:700;">Before you start</h2>
+        <ul style="margin:0; padding-left:2rem; font-size:small">
+            <li>Work through the exercises. Reveal the mark scheme when you are ready to check your answer.</li>
+            <li>The teacher is available to explain any exercises you did not understand.</li>
+            <li>When you are ready, inform the teacher to sit for the level pass test and unlock the next level.</li>
+        </ul>
+    </section>
+
+    <div class="button-container">
+        <a href="../dashboard.html" class="nav-button btn-outlined btn-home-outlined">🏠 Home</a>
+		<a href="level5.html" class="nav-button btn-outlined btn-theory-outlined">📚 Theory Notes</a>
+    </div>
+</div>
+	
+	
+    <!-- Exercises render here -->
+    <section id="pointsContainer" class="points-container" aria-live="polite"></section>
+
+    <!-- Action buttons at end of page -->
+    <footer class="footer" style="display:flex;gap:12px;align-items:center;">
+      <button class="btn" type="button">I need help</button>
+      <button class="btn" type="button">I'm ready for the test</button>
+    </footer>
+  </main>
+
+  <!-- Embedded JSON (MCQ formatted; CASE use explicit; expanded explanations) -->
+  <script id="data" type="application/json">
+{
+  "data": [
+    {
+      "point_id": "LEVEL_LISTS",
+      "items": [
+        {
+          "question": "Create and print three lists",
+          "question_self_contained": "Create an empty list, a list containing exactly ten None values, and a list containing the integers 1 to 5 in order.\n\nPrint each list on its own line.",
+          "mark_scheme_answer": "empty_list = []\nnone_list = [None] * 10\nnumber_list = [1, 2, 3, 4, 5]\n\nprint(\"Empty list:\", empty_list)\nprint(\"List with None values:\", none_list)\nprint(\"Number list:\", number_list)",
+          "explanation": "Square brackets define lists. Multiplication repeats a single element. Printing confirms the contents."
+        },
+        {
+          "question": "Add at the end, then place a value at a given position",
+          "question_self_contained": "Start from the list [10, 20, 30].\n\nAdd 40 at the end. Place the value 25 so that it appears in the third position of the list.\n\nPrint the final list.",
+          "mark_scheme_answer": "my_list = [10, 20, 30]\nmy_list.append(40)\nmy_list.insert(2, 25)\nprint(\"Updated list:\", my_list)",
+          "explanation": "The third position has index 2. Adding at the end then inserting shifts later items to the right."
+        },
+        {
+          "question": "Remove by value and then remove by position",
+          "question_self_contained": "Start from the list [7, 8, 9, 10, 8].\n\nRemove the first occurrence of 8. Then remove the element that is now at the third position.\n\nPrint the result.",
+          "mark_scheme_answer": "my_list = [7, 8, 9, 10, 8]\nmy_list.remove(8)   # [7, 9, 10, 8]\ndel my_list[2]      # remove third position\nprint(\"After removals:\", my_list)",
+          "explanation": "Removing by value deletes the first match. Deleting by index removes the element at that position."
+        },
+        {
+          "question": "Combine two lists in order",
+          "question_self_contained": "Combine [1, 2, 3] and [4, 5, 6] into a single list that preserves the order of all elements.\n\nPrint the combined list.",
+          "mark_scheme_answer": "a = [1, 2, 3]\nb = [4, 5, 6]\nc = a + b\nprint(\"Combined:\", c)",
+          "explanation": "Using + concatenates the elements of the two lists in sequence."
+        },
+        {
+          "question": "Print each element on its own line",
+          "question_self_contained": "For the list [5, 10, 15, 20, 25], print each element on a separate line, in order.",
+          "mark_scheme_answer": "arr = [5, 10, 15, 20, 25]\nfor x in arr:\n    print(x)",
+          "explanation": "Iteration visits elements from left to right."
+        },
+        {
+          "question": "Change a value by position",
+          "question_self_contained": "For the list [3, 6, 9, 12], replace the value in the third position with 99.\n\nPrint the new list.",
+          "mark_scheme_answer": "lst = [3, 6, 9, 12]\nlst[2] = 99\nprint(\"Modified:\", lst)",
+          "explanation": "Positions are zero-based; index 2 is the third position."
+        },
+        {
+          "question": "Length, first position of a value, membership, last element",
+          "question_self_contained": "For the list [11, 22, 33, 22, 44], report:\n\n- the number of elements\n- the first position where 22 appears\n- whether 33 is present\n- the last element\n\nPrint all four results.",
+          "mark_scheme_answer": "L = [11, 22, 33, 22, 44]\nn = len(L)\np = L.index(22)\nm = 33 in L\nlast = L[-1]\n\nprint(\"Length:\", n)\nprint(\"First position of 22:\", p)\nprint(\"Contains 33:\", m)\nprint(\"Last element:\", last)",
+          "explanation": "len counts elements. index returns the first matching position. in checks membership. Negative index −1 selects the last element."
+        },
+        {
+          "question": "Extract specific parts of a list",
+          "question_self_contained": "For the list [10, 20, 30, 40, 50], obtain and print:\n\na) the sublist consisting of the second, third, and fourth elements\nb) the sublist consisting of all elements from the third element to the end\nc) the sublist consisting of the first three elements\nd) a full shallow copy of the entire list",
+          "mark_scheme_answer": "a = [10, 20, 30, 40, 50]\npart_a = a[1:4]\npart_b = a[2:]\npart_c = a[:3]\npart_d = a[:]\n\nprint(\"a):\", part_a)\nprint(\"b):\", part_b)\nprint(\"c):\", part_c)\nprint(\"d):\", part_d)",
+          "explanation": "Slices select ranges. The end bound is excluded. Missing start or end means from the beginning or to the end."
+        },
+        {
+          "question": "Count a target value without built-in counting",
+          "question_self_contained": "In the list [3, 1, 3, 5, 3, 7, 9], count how many times the value 3 appears.\n\nDo not call any built-in counting function.\n\nPrint the count.",
+          "mark_scheme_answer": "data = [3, 1, 3, 5, 3, 7, 9]\nc = 0\nfor v in data:\n    if v == 3:\n        c += 1\nprint(\"Number of 3s:\", c)",
+          "explanation": "Traverse and increment a counter for each match."
+        },
+        {
+          "question": "Access a specific element in a 3×3 matrix",
+          "question_self_contained": "Consider the 3×3 matrix with rows [1, 2, 3], [4, 5, 6], and [7, 8, 9].\n\nPrint the element located in the second row and third column. Assume the first row is row 1 and the first column is column 1.",
+          "mark_scheme_answer": "M = [\n    [1, 2, 3],\n    [4, 5, 6],\n    [7, 8, 9]\n]\nelem = M[1][2]\nprint(\"Element:\", elem)",
+          "explanation": "Second row is index 1. Third column is index 2. Indexing is zero-based in code."
+        },
+        {
+          "question": "Print a matrix row by row with spaces",
+          "question_self_contained": "Using the same 3×3 matrix as above, print its elements row by row.\n\nElements of the same row must appear on one line separated by spaces.",
+          "mark_scheme_answer": "M = [\n    [1, 2, 3],\n    [4, 5, 6],\n    [7, 8, 9]\n]\nfor row in M:\n    for x in row:\n        print(x, end=\" \")\n    print()",
+          "explanation": "The outer loop selects a row. The inner loop prints elements in that row."
+        },
+        {
+          "question": "Set the main diagonal to 1 in a 3×3 zero matrix",
+          "question_self_contained": "Create a 3×3 matrix filled with zeros.\n\nReplace the elements on the main diagonal with 1.\n\nPrint the matrix row by row.",
+          "mark_scheme_answer": "M = [[0 for _ in range(3)] for _ in range(3)]\nfor i in range(3):\n    M[i][i] = 1\nfor row in M:\n    print(row)",
+          "explanation": "On the main diagonal, row index equals column index."
+        },
+        {
+          "question": "Set the anti-diagonal to 1 in a 3×3 zero matrix",
+          "question_self_contained": "Create a 3×3 matrix filled with zeros.\n\nReplace the elements on the anti-diagonal with 1.\n\nPrint the matrix row by row.",
+          "mark_scheme_answer": "M = [[0 for _ in range(3)] for _ in range(3)]\nfor i in range(3):\n    M[i][2 - i] = 1\nfor row in M:\n    print(row)",
+          "explanation": "In a 3×3 matrix, anti-diagonal column indices are 2 − i."
+        },
+        {
+          "question": "Replace a middle segment and read a tail segment",
+          "question_self_contained": "Start with the list [10, 20, 30, 40, 50, 60].\n\nReplace the two middle values 30 and 40 with the values 33 and 44. Also obtain a new list containing the last three values of the resulting list.\n\nPrint both lists.",
+          "mark_scheme_answer": "a = [10, 20, 30, 40, 50, 60]\na[2:4] = [33, 44]\nlast_three = a[-3:]\nprint(\"Modified list:\", a)\nprint(\"Last three elements:\", last_three)",
+          "explanation": "Slice assignment replaces a contiguous block. A negative-index slice extracts a suffix."
+        },
+        {
+          "question": "Concatenate and then remove an element by position",
+          "question_self_contained": "Create [10, 20, 30] and [40, 50, 60].\n\nForm a single list that contains all six values in order. Then remove the element that is third in that combined list.\n\nPrint the final list.",
+          "mark_scheme_answer": "A = [10, 20, 30]\nB = [40, 50, 60]\nC = A + B\ndel C[2]\nprint(\"Updated list:\", C)",
+          "explanation": "Concatenation preserves order. Deleting index 2 removes the third element."
+        },
+        {
+          "question": "Multi-step list construction and updates",
+          "question_self_contained": "a) Create an empty list and add the text Hello to it as a single element.\n\nb) Create a second list consisting of exactly ten copies of the number 7.\n\nc) Form a third list by placing the contents of the first list followed by the contents of the second list.\n\nd) Remove the last element from the third list and store it in a variable.\n\ne) Place the value 15 so that it becomes the fifth element of the third list.\n\nf) Print the third list and the removed value.",
+          "mark_scheme_answer": "first = []\nfirst.append(\"Hello\")\nsecond = [7] * 10\nthird = first + second\nremoved = third.pop()\nthird.insert(4, 15)\nprint(\"Third list:\", third)\nprint(\"Removed:\", removed)",
+          "explanation": "The steps perform construction, concatenation, removal with return, and insertion at a specific position."
+        },
+        {
+          "question": "Split a list into two teams",
+          "question_self_contained": "Given the list [\"Ali\", \"Sami\", \"Lina\", \"Maryam\", \"Youssef\"], split it into two new lists called teamA and teamB so that teamA receives the extra name if the original list length is odd.\n\nPrint both teams.",
+          "mark_scheme_answer": "students = [\"Ali\", \"Sami\", \"Lina\", \"Maryam\", \"Youssef\"]\nmid = (len(students) + 1) // 2\nteamA = students[:mid]\nteamB = students[mid:]\nprint(\"Team A:\", teamA)\nprint(\"Team B:\", teamB)",
+          "explanation": "The midpoint formula ensures the first half gets the extra element when the length is odd."
+        },
+        {
+          "question": "Weekly temperatures as a table of rows",
+          "question_self_contained": "a) Prepare a table where each row has three entries: day name, maximum temperature, minimum temperature.\n\nb) Use exactly these seven rows in this order:\n[\"Monday\", 30, 18], [\"Tuesday\", 28, 17], [\"Wednesday\", 31, 19], [\"Thursday\", 29, 16], [\"Friday\", 32, 20], [\"Saturday\", 33, 21], [\"Sunday\", 27, 15].\n\nc) Print the table so that each output line shows Day, Max, and Min values in a readable format.",
+          "mark_scheme_answer": "tempData = [\n    [\"Monday\", 30, 18],\n    [\"Tuesday\", 28, 17],\n    [\"Wednesday\", 31, 19],\n    [\"Thursday\", 29, 16],\n    [\"Friday\", 32, 20],\n    [\"Saturday\", 33, 21],\n    [\"Sunday\", 27, 15],\n]\nfor row in tempData:\n    print(row[0], \"Max =\", row[1], \"Min =\", row[2])",
+          "explanation": "Each row is a list [day, max, min]. Traversal prints values by position."
+        },
+        {
+          "question": "Sublist versus original list",
+          "question_self_contained": "a) Start from [3, 5, 7, 9, 11]. Form a sublist that contains the second, third, and fourth elements.\n\nb) Change the first element of that sublist to 77.\n\nc) Print the sublist and the original list to show whether the original list changed.",
+          "mark_scheme_answer": "items = [3, 5, 7, 9, 11]\nsublist = items[1:4]\nsublist[0] = 77\nprint(\"Sublist:\", sublist)\nprint(\"Original:\", items)",
+          "explanation": "Slicing creates a new list. Modifying the sublist does not modify the original list."
+        },
+        {
+          "question": "Cities that start with a given character",
+          "question_self_contained": "a) Use the list [\"Sousse\", \"Sfax\", \"Tunis\", \"Bizerte\", \"Kairouan\"] and the character \"S\".\n\nb) Produce a new list containing all cities whose first character equals the given character.\n\nc) If the new list is not empty, print its elements one per line. Otherwise, print a message stating that no cities match.",
+          "mark_scheme_answer": "cities = [\"Sousse\", \"Sfax\", \"Tunis\", \"Bizerte\", \"Kairouan\"]\nch = \"S\"\nmatches = []\nfor city in cities:\n    if city[0:1] == ch:\n        matches.append(city)\n\nif len(matches) > 0:\n    for m in matches:\n        print(m)\nelse:\n    print(\"No cities found starting with that character.\")",
+          "explanation": "The slice city[0:1] extracts the first character. Equality selects the required cities."
+        },
+        {
+          "question": "Scale all elements in place using positions",
+          "question_self_contained": "For the list [2, 4, 6, 8], replace every element by three times its value.\n\nPrint the final list.",
+          "mark_scheme_answer": "my_list = [2, 4, 6, 8]\nfor i in range(len(my_list)):\n    my_list[i] = my_list[i] * 3\nprint(my_list)",
+          "explanation": "Index-based traversal lets us assign back into the list."
+        },
+        {
+          "question": "Report table dimensions",
+          "question_self_contained": "For the table [[1, 2, 3], [4, 5, 6]], print the number of rows and the number of columns.",
+          "mark_scheme_answer": "table = [[1, 2, 3], [4, 5, 6]]\nrows = len(table)\ncols = len(table[0])\nprint(\"Rows:\", rows)\nprint(\"Columns:\", cols)",
+          "explanation": "The outer length is rows. The inner length is columns."
+        }
+      ]
+    }
+  ]
+}
+
+
+
+  </script>
+
+<!-- APPEND: Mock Test modal -->
+<div id="mockTestModal" class="mock-modal" aria-hidden="true" role="dialog" aria-labelledby="mockTestTitle">
+  <div class="mock-modal-card">
+    <div class="mock-modal-header">
+      <h3 id="mockTestTitle" style="margin:0;">Mock Test</h3>
+      <button class="mock-close" id="closeMockTest" aria-label="Close">×</button>
+    </div>
+    <div class="mock-modal-body">
+      <!-- JSON will populate this code block with the question -->
+      <div class="mock-code" aria-label="Pseudocode"></div>
+
+      <div id="mockTestAnswer" class="mock-hidden" aria-live="polite">
+        <h4 style="margin:16px 0 8px 0;">Answer</h4>
+        <div class="mock-code"></div>
+        <p></p>
+      </div>
+    </div>
+    <div class="mock-modal-actions footer">
+      <button class="btn" id="toggleMockAnswer" type="button" aria-expanded="false" aria-controls="mockTestAnswer">Show answer</button>
+      <button class="btn ghost" id="dismissMockTest" type="button">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- APPEND: mock test JSON payload -->
+<script id="mockTestData" type="application/json">
+{
+  "mock_test": {
+    "title": "Mock Test — Integrated list operations",
+    "question": "Integrated list operations",
+    "question_self_contained": "Start from the list [\"pen\", \"pad\", \"case\"].\n\na) If the text pad appears, locate its position and replace it with notebook.\n\nb) Add eraser at the end.\n\nc) Place marker so that it becomes the second element.\n\nd) Remove the first occurrence of pen.\n\ne) Form a new list by placing the current list followed by [\"ruler\", \"glue\"].\n\nf) Print the current list, the new list, and the last two elements of the new list.",
+    "mark_scheme_answer": "items = [\"pen\", \"pad\", \"case\"]\n\nif \"pad\" in items:\n    k = items.index(\"pad\")\n    items[k] = \"notebook\"\n\nitems.append(\"eraser\")\nitems.insert(1, \"marker\")\nitems.remove(\"pen\")\n\nshipment = [\"ruler\", \"glue\"]\nall_items = items + shipment\n\nprint(\"items:\", items)\nprint(\"all_items:\", all_items)\nprint(\"last two:\", all_items[-2:])",
+    "explanation": "This combines membership, locating a position, replacement, append, insert, remove, concatenation, and suffix slicing."
+  }
+}
+
+
+</script>
+  <script src="../exercises.js"></script>
+</body>
+</html>

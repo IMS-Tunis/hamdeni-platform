@@ -1,0 +1,194 @@
+<!-- index.html (updated: top guidance in old grey style, not inside a question card) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Level 4: Loops</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../exercises.css" />
+<script defer src="/assets/js/paste-guard.js"></script>
+</head>
+<body>
+
+<aside class="sidebar" aria-label="Exercise navigation">
+  <!-- Top category: logo + header -->
+  <div class="sidebar-top">
+    <img src="../logo.png" alt="Logo" class="brand-img" width="220">
+    <h2 class="sidebar-title">Level 4</h2>
+    <p class="sidebar-subtitle">Loops</p>
+  </div>
+
+  <!-- Bottom category: exercises + controls -->
+  <div class="sidebar-nav">
+    <nav class="nav" id="nav"></nav>
+
+    <div class="sidebar-footer">
+      <button id="expandAll" class="btn ghost">Show all mark schemes</button>
+      <button id="collapseAll" class="btn ghost">Hide all mark schemes</button>
+    </div>
+  </div>
+</aside>
+
+
+
+
+
+  <main class="content">
+    <!-- Guidance moved to the beginning, using the same grey footer-style block -->
+	
+
+<div class="content-section">
+    <section class="footer" aria-label="Instructions" style="margin:0;">
+        <h2 style="margin:0 0 8px 0; font-size:1.05rem; font-weight:700;">Before you start</h2>
+        <ul style="margin:0; padding-left:2rem; font-size:small">
+            <li>Work through the exercises. Reveal the mark scheme when you are ready to check your answer.</li>
+            <li>The teacher is available to explain any exercises you did not understand.</li>
+            <li>When you are ready, inform the teacher to sit for the level pass test and unlock the next level.</li>
+        </ul>
+    </section>
+
+    <div class="button-container">
+        <a href="../dashboard.html" class="nav-button btn-outlined btn-home-outlined">🏠 Home</a>
+		<a href="level4.html" class="nav-button btn-outlined btn-theory-outlined">📚 Theory Notes</a>
+    </div>
+</div>
+	
+	
+    <!-- Exercises render here -->
+    <section id="pointsContainer" class="points-container" aria-live="polite"></section>
+
+    <!-- Action buttons at end of page -->
+    <footer class="footer" style="display:flex;gap:12px;align-items:center;">
+      <button class="btn" type="button">I need help</button>
+      <button class="btn" type="button">I'm ready for the test</button>
+    </footer>
+  </main>
+
+  <!-- Embedded JSON (MCQ formatted; CASE use explicit; expanded explanations) -->
+  <script id="data" type="application/json">
+{
+  "data": [
+    {
+      "point_id": "LOOPS_CORE",
+      "items": [
+        {
+          "question": "Q1",
+          "question_self_contained": " Print the integers from 1 to 10 inclusive.",
+          "mark_scheme_answer": "for i in range(1, 11):\n    print(i)",
+          "explanation": "1) range(1, 11) proposes 1, 2, …, 10.\n2) i takes each value in order.\n3) print(i) shows the current number.\n4) The loop stops after printing 10."
+        },
+        {
+          "question": "Q2",
+          "question_self_contained": " Print 10 down to 1, one per line.",
+          "mark_scheme_answer": "for i in range(10, 0, -1):\n    print(i)",
+          "explanation": "1) The first value is 10.\n2) The step −1 reduces i by 1 each time.\n3) Values printed: 10, 9, …, 1.\n4) The loop stops when the next value would be 0."
+        },
+        {
+          "question": "Q3",
+          "question_self_contained": " Use for loop and break statement to rint numbers starting at 1. Stop printing when the number becomes greater than 7.",
+          "mark_scheme_answer": "for i in range(1, 20):  # upper bound can be any number >= 8\n    if i > 7:\n        break\n    print(i)",
+          "explanation": "1) The loop proposes increasing numbers.\n2) Before printing, we check i > 7.\n3) When i reaches 8, break exits immediately.\n4) Output is exactly 1 to 7."
+        },
+        {
+          "question": "Q4",
+          "question_self_contained": " Compute and print the sum of all integers from 1 to 100.",
+          "mark_scheme_answer": "total = 0\nn = 1\nwhile n <= 100:\n    total += n   # add current n\n    n += 1       # move to the next integer\nprint(\"Sum:\", total)",
+          "explanation": "1) total stores the running sum, starting at 0.\n2) n starts at 1 and increases by 1 each pass.\n3) The loop repeats while n is at most 100.\n4) When n becomes 101 the loop stops and total holds the final sum."
+        },
+        {
+          "question": "Q5",
+          "question_self_contained": " Keep asking for a positive integer until the user enters one. Then print it.",
+          "mark_scheme_answer": "while True:\n    x = int(input(\"Enter a positive integer: \"))\n    if x > 0:\n        break\n    print(\"Invalid input. Please enter a positive integer.\")\nprint(\"You entered:\", x)",
+          "explanation": "1) The loop reads a value on each pass.\n2) If x is positive, break stops the loop.\n3) Otherwise show an error and repeat.\n4) After the loop, print the accepted value."
+        },
+        {
+          "question": "Q6",
+          "question_self_contained": " Keep reading integers and add them if they are non-negative. Stop when a negative is entered and print the sum.",
+          "mark_scheme_answer": "total = 0\nwhile True:\n    v = int(input(\"Enter a number (negative to stop): \"))\n    if v < 0:\n        break\n    total += v\nprint(\"Sum of non-negative inputs:\", total)",
+          "explanation": "1) Each pass reads one number v.\n2) If v is negative, break ends input.\n3) Otherwise add v into total.\n4) The printed total ignores the negative sentinel."
+        },
+        {
+          "question": "Q7",
+          "question_self_contained": " Print “5 x i = result” for i from 1 to 10.",
+          "mark_scheme_answer": "for i in range(1, 11):\n    print(\"5 x\", i, \"=\", 5 * i)",
+          "explanation": "1) i runs from 1 to 10.\n2) The product 5*i is computed each time.\n3) One line is printed for each i."
+        },
+        {
+          "question": "Q8",
+          "question_self_contained": " Ask the user to enter 5 integers. For each input, print “OK” if it is less than 5 or equal to 24, otherwise print “Not OK”.",
+          "mark_scheme_answer": "for _ in range(5):\n    x = int(input(\"Enter an integer: \"))\n    if x < 5 or x == 24:\n        print(\"OK\")\n    else:\n        print(\"Not OK\")",
+          "explanation": "1) The loop repeats exactly 5 times.\n2) Each pass reads a value x.\n3) The simple condition decides which message to print."
+        },
+        {
+          "question": "Q9",
+          "question_self_contained": " Continuously ask for a number until the user enters 0. For each non-zero input, print “Accepted” if it is between 10 and 20 inclusive and strictly greater than 15. Otherwise print “Rejected”.",
+          "mark_scheme_answer": "num = None\nwhile num != 0:\n    num = int(input(\"Enter a number (0 to stop): \"))\n    if num == 0:\n        break\n    if 10 <= num <= 20 and num > 15:\n        print(\"Accepted\")\n    else:\n        print(\"Rejected\")",
+          "explanation": "1) The loop ends when 0 is entered.\n2) For other values, two checks must be true: inside 10..20 and greater than 15.\n3) If both are true, print “Accepted”, else “Rejected”."
+        },
+        {
+          "question": "Q10",
+          "question_self_contained": " Read a non-negative integer n and compute n! using a while loop.",
+          "mark_scheme_answer": "n = int(input(\"Enter a non-negative integer: \"))\nfact = 1\nwhile n > 0:\n    fact *= n\n    n -= 1\nprint(\"Factorial:\", fact)",
+          "explanation": "1) fact starts at 1.\n2) Multiply fact by n, then reduce n by 1 each pass.\n3) When n reaches 0, all required factors have been multiplied.\n4) The result is printed."
+        },
+        
+{
+  "question": "Q11",
+  "question_self_contained": " Read a positive integer n. keep asking the user until a positive integer is entered\n\na) Print 1 to n using a for loop.\n\nb) Using a while loop that steps by 2, compute the sum of the even numbers from 2 to n and print it.\n\nc) If that sum is greater than 100, print \"Large sum\", otherwise print \"Small sum\".",
+  "mark_scheme_answer": "n = 0\nwhile n <= 0:\n   n = int(input(\"Enter a positive integer: \"))\n\nfor i in range(1, n + 1):\n    print(i)\n\neven_sum = 0\nk = 2\nwhile k <= n:\n    even_sum += k\n    k += 2\nprint(\"Even sum:\", even_sum)\n\nif even_sum > 100:\n    print(\"Large sum\")\nelse:\n    print(\"Small sum\")",
+  "explanation": "1) The for loop lists all numbers from 1 to n.\n2) The while loop starts at 2 and adds 2 each time, so it visits only even numbers.\n3) even_sum collects these values.\n4) The final if prints the correct message based on the total."
+}
+
+      ]
+    }
+  ]
+}
+
+
+  </script>
+
+<!-- APPEND: Mock Test modal -->
+<div id="mockTestModal" class="mock-modal" aria-hidden="true" role="dialog" aria-labelledby="mockTestTitle">
+  <div class="mock-modal-card">
+    <div class="mock-modal-header">
+      <h3 id="mockTestTitle" style="margin:0;">Mock Test</h3>
+      <button class="mock-close" id="closeMockTest" aria-label="Close">×</button>
+    </div>
+    <div class="mock-modal-body">
+      <!-- JSON will populate this code block with the question -->
+      <div class="mock-code" aria-label="Pseudocode"></div>
+
+      <div id="mockTestAnswer" class="mock-hidden" aria-live="polite">
+        <h4 style="margin:16px 0 8px 0;">Answer</h4>
+        <div class="mock-code"></div>
+        <p></p>
+      </div>
+    </div>
+    <div class="mock-modal-actions footer">
+      <button class="btn" id="toggleMockAnswer" type="button" aria-expanded="false" aria-controls="mockTestAnswer">Show answer</button>
+      <button class="btn ghost" id="dismissMockTest" type="button">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- APPEND: mock test JSON payload -->
+<script id="mockTestData" type="application/json">
+{
+  "mock_test": {
+    "title": "mock Test",
+    "question": "Keep asking the user for a number until a positive integer n is entered.\n1) Print 1 to n using a for loop.\n2) Using a while loop, compute and print the sum of integers from 1 to n.",
+    "question_self_contained": "Keep asking the user for a number until a positive odd integer n is entered.\n1) Print 1 to n using a for loop.\n2) Using a while loop, compute and print the sum of integers from 1 to n.",
+    "mark_scheme_answer": "while True:\n    n = int(input(\"Enter a positive odd integer: \"))\n    if n > 0 and n % 2 == 1:\n        break\n\n# 1) List 1..n\nfor i in range(1, n + 1):\n    print(i)\n\n# 2) Sum 1..n with while\ntotal = 0\nk = 1\nwhile k <= n:\n    total += k\n    k += 1\nprint(\"Sum 1..n:\", total)",
+    "explanation": "1) The for loop shows each number exactly once.\n2) The while loop adds the same numbers into total by increasing k from 1 to n."
+  }
+}
+
+
+
+</script>
+  <script src="../exercises.js"></script>
+</body>
+</html>
