@@ -69,87 +69,96 @@
 
   <!-- Embedded JSON (MCQ formatted; CASE use explicit; expanded explanations) -->
   <script id="data" type="application/json">
+
+
 {
   "data": [
     {
-      "point_id": "LEVEL_1.Intro_Python",
+      "point_id": "LEVEL_3.LOOPS",
       "items": [
         {
-          "question": "T/F: Type declaration requirement",
-          "question_self_contained": "True or False. You must declare a variable’s data type before using it in Python.",
-          "mark_scheme_answer": "False",
-          "explanation": "Python infers the variable’s type from the value that you assign."
+          "question": "Simple FOR Loop",
+          "question_self_contained": "Write a pseudocode program that prints the numbers from 1 to 10.",
+          "mark_scheme_answer": "DECLARE i : INTEGER\n\nFOR i ← 1 TO 10\n    OUTPUT i\nNEXT i",
+          "explanation": "The loop starts with i = 1 and continues until i = 10. Each time, it prints the current value of i. When i reaches 10, the loop stops."
         },
         {
-          "question": "Define a comment",
-          "question_self_contained": "Define a comment in Python and state which character starts a comment.",
-          "mark_scheme_answer": "A comment is non-executable text. It starts with the character #.",
-          "explanation": "Everything after # on the same line is ignored when the program runs."
+          "question": "Sum of Numbers Divisible by 3",
+          "question_self_contained": "Write a pseudocode program that asks the user to input two integers, A and B, where A < B. Calculate the sum of all numbers between A and B (inclusive) that are divisible by 3. If no numbers are divisible by 3, output 0.",
+          "mark_scheme_answer": "DECLARE A, B, i, sum : INTEGER\nINPUT A\nINPUT B\nsum ← 0\nFOR i ← A TO B\n    IF i MOD 3 = 0 THEN\n        sum ← sum + i\n    ENDIF\nNEXT i\nOUTPUT \"The sum of numbers divisible by 3 between \" & A & \" and \" & B & \" is \" & sum",
+          "explanation": "We use a FOR loop to check each number from A to B. MOD finds if i is divisible by 3. If yes, we add it to sum. Finally, we output the sum."
         },
         {
-          "question": "Identify data types",
-          "question_self_contained": "For each variable below, state the data type as one of: integer, float, string, boolean.\nage = 30\nprice = 10.99\nname = \"John\"\nis_student = False",
-          "mark_scheme_answer": "age is integer\nprice is float\nname is string\nis_student is boolean",
-          "explanation": "Whole numbers are integers, decimals are floats, quoted text is strings, and True/False values are booleans."
+          "question": "Simple WHILE Loop",
+          "question_self_contained": "Write a pseudocode program that asks the user to enter a number. Keep asking until the user enters a positive number.",
+          "mark_scheme_answer": "DECLARE number : INTEGER\nINPUT number\nWHILE number <= 0\n    OUTPUT \"Please enter a positive number.\"\n    INPUT number\nENDWHILE",
+          "explanation": "The loop keeps asking until the input is greater than 0. If the number is not positive, it repeats."
         },
         {
-          "question": "Variable naming validity",
-          "question_self_contained": "A valid Python variable name must start with a letter or underscore and may contain only letters, digits, and underscores. For each name below, write Valid or Invalid.\n1name, _score, user_name2, price$, Name",
-          "mark_scheme_answer": "1name \u2192 Invalid\n_score \u2192 Valid\nuser_name2 \u2192 Valid\nprice$ \u2192 Invalid\nName \u2192 Valid",
-          "explanation": "Names cannot start with a digit and cannot include symbols such as $."
+          "question": "WHILE Loop to Calculate Power",
+          "question_self_contained": "Write a pseudocode program that calculates base^exponent using a WHILE loop. Both numbers are given by the user.",
+          "mark_scheme_answer": "DECLARE base : REAL\nDECLARE exponent : INTEGER\nDECLARE result : REAL\nDECLARE i : INTEGER\nINPUT base\nINPUT exponent\nresult ← 1\ni ← 0\nWHILE i < exponent\n    result ← result * base\n    i ← i + 1\nENDWHILE\nOUTPUT base & \" raised to the power of \" & exponent & \" is \" & result",
+          "explanation": "The loop multiplies base by itself exponent times. Example: base = 2, exponent = 3 → 2 * 2 * 2 = 8."
         },
         {
-          "question": "Print exact message",
-          "question_self_contained": "Write a Python program that prints exactly Welcome to Python Programming!.",
-          "mark_scheme_answer": "print(\"Welcome to Python Programming!\")",
-          "explanation": "The print function outputs the exact characters between the quotation marks."
+          "question": "Simple REPEAT-UNTIL Loop",
+          "question_self_contained": "Write a pseudocode program that asks the user to enter a password. Keep asking until the correct password \"open123\" is entered.",
+          "mark_scheme_answer": "DECLARE password : STRING\nREPEAT\n    OUTPUT \"Enter password: \"\n    INPUT password\nUNTIL password = \"open123\"\nOUTPUT \"Access granted.\"",
+          "explanation": "The loop runs at least once. It keeps asking until the user types \"open123\". Once correct, it exits and prints Access granted."
         },
         {
-          "question": "Variable then print",
-          "question_self_contained": "Create a variable named greeting with the value Hello, Python! then print greeting.",
-          "mark_scheme_answer": "greeting = \"Hello, Python!\"\nprint(greeting)",
-          "explanation": "The first line stores the text in greeting. The second line outputs its value."
+          "question": "REPEAT-UNTIL Loop with Input Validation",
+          "question_self_contained": "Write a pseudocode program that asks the user to input a number between 1 and 10. Keep asking until the user provides a valid number.",
+          "mark_scheme_answer": "DECLARE number : INTEGER\nREPEAT\n    OUTPUT \"Enter a number between 1 and 10: \"\n    INPUT number\nUNTIL number >= 1 AND number <= 10\nOUTPUT \"You entered \" & number",
+          "explanation": "The loop repeats until the input is valid. Only when number is in [1..10] does the loop end."
         },
         {
-          "question": "Two integers and print",
-          "question_self_contained": "Create two variables named num1 and num2, assign them any integer values, and print both on separate lines.",
-          "mark_scheme_answer": "num1 = 15\nnum2 = 20\nprint(\"num1:\", num1)\nprint(\"num2:\", num2)",
-          "explanation": "Two assignments define the values, and two print calls display them on separate lines."
+          "question": "Nested FOR Loops for Multiplication Table",
+          "question_self_contained": "Write a pseudocode program that generates and prints a multiplication table for numbers 1 through 5.",
+          "mark_scheme_answer": "DECLARE i : INTEGER\nDECLARE j : INTEGER\nFOR i ← 1 TO 5\n    FOR j ← 1 TO 5\n        OUTPUT i & \" x \" & j & \" = \" & (i * j)\n    NEXT j\nNEXT i",
+          "explanation": "Two loops are nested: one for i and one for j. Each pair prints the multiplication result."
         },
         {
-          "question": "Four basic types and print",
-          "question_self_contained": "Create and print four variables: an integer, a float, a string, and a boolean, using any example values.",
-          "mark_scheme_answer": "age = 25\nprice = 19.99\nname = \"Alice\"\nis_student = True\n\nprint(\"Age:\", age)\nprint(\"Price:\", price)\nprint(\"Name:\", name)\nprint(\"Is student:\", is_student)",
-          "explanation": "Each variable demonstrates one of the four basic data types and is printed with a label."
+          "question": "WHILE Loop to Count Digits",
+          "question_self_contained": "Write a pseudocode program that counts the number of digits in an integer provided by the user.",
+          "mark_scheme_answer": "DECLARE number : INTEGER\nDECLARE digitCount : INTEGER\nINPUT number\ndigitCount ← 0\nWHILE number <> 0\n    number ← number DIV 10\n    digitCount ← digitCount + 1\nENDWHILE\nOUTPUT \"The number has \" & digitCount & \" digits.\"",
+          "explanation": "Each DIV 10 removes one digit. The loop counts until number becomes 0."
         },
         {
-          "question": "Use comments, assign, and print",
-          "question_self_contained": "Write a program that uses comment lines starting with #, assigns values to variables, and prints them.",
-          "mark_scheme_answer": "# Assign values to variables\nage = 25\nprice = 19.99\nname = \"Alice\"\nis_student = True\n\n# Print the values\nprint(\"Age:\", age)\nprint(\"Price:\", price)\nprint(\"Name:\", name)\nprint(\"Is student:\", is_student)",
-          "explanation": "Lines beginning with # are comments. The remaining lines assign and print variable values."
+          "question": "Factorial Calculation",
+          "question_self_contained": "Write a pseudocode program that calculates the factorial of a positive integer N. Keep asking until a valid input is given.",
+          "mark_scheme_answer": "DECLARE N, result, i : INTEGER\nREPEAT\n    OUTPUT \"Please enter a positive integer: \"\n    INPUT N\nUNTIL N > 0\nresult ← 1\ni ← 1\nWHILE i <= N\n    result ← result * i\n    i ← i + 1\nENDWHILE\nOUTPUT \"The factorial of \" & N & \" is \" & result",
+          "explanation": "Factorial multiplies all numbers from 1 to N. Input is validated with REPEAT-UNTIL, calculation is done with WHILE."
         },
         {
-          "question": "Integrated task A",
-          "question_self_contained": "Write a program that does all of the following, in any order:\n1) Print exactly Welcome to the Python Level 1 Test!.\n2) Create intro = \"Let's start testing!\" and print it.\n3) Create and assign years = 30, cost = 49.99, full_name = \"John Doe\", is_enrolled = False.\n4) Include at least two comment lines.\n5) Print all four variables with labels.",
-          "mark_scheme_answer": "# Prints a welcome message and demonstrates variables\n# Shows comments and printing\n\nprint(\"Welcome to the Python Level 1 Test!\")\n\nintro = \"Let's start testing!\"\nprint(intro)\n\nyears = 30\ncost = 49.99\nfull_name = \"John Doe\"\nis_enrolled = False\n\nprint(\"Years:\", years)\nprint(\"Cost:\", cost)\nprint(\"Full name:\", full_name)\nprint(\"Is enrolled:\", is_enrolled)",
-          "explanation": "The script includes comments, prints the messages, assigns the required variables, and prints each with a clear label."
+          "question": "REPEAT-UNTIL with a Running Total",
+          "question_self_contained": "Write a pseudocode program that asks the user to enter numbers until they enter a negative number. Calculate the sum of all entered numbers (excluding the negative).",
+          "mark_scheme_answer": "DECLARE number : INTEGER\nDECLARE sum : INTEGER\nsum ← 0\nREPEAT\n    OUTPUT \"Enter a number (negative to stop): \"\n    INPUT number\n    IF number >= 0 THEN\n        sum ← sum + number\n    ENDIF\nUNTIL number < 0\nOUTPUT \"The sum of the entered numbers is \" & sum",
+          "explanation": "The loop collects numbers until a negative appears. Only non-negative values are added."
         },
         {
-          "question": "Integrated task B",
-          "question_self_contained": "Write a program that does all of the following, in any order:\n1) Print exactly Welcome to the Python Programming Assessment!.\n2) Create start_message = \"Good luck!\" and print it.\n3) Create and assign num_years = 5, price_tag = 99.95, user_name = \"Jane Smith\", is_active = True.\n4) Include at least two comment lines.\n5) Print all four variables with labels.",
-          "mark_scheme_answer": "# Prints a welcome message and demonstrates variables\n# Shows comments and printing\n\nprint(\"Welcome to the Python Programming Assessment!\")\n\nstart_message = \"Good luck!\"\nprint(start_message)\n\nnum_years = 5\nprice_tag = 99.95\nuser_name = \"Jane Smith\"\nis_active = True\n\nprint(\"Number of years:\", num_years)\nprint(\"Price tag:\", price_tag)\nprint(\"User name:\", user_name)\nprint(\"Is active:\", is_active)",
-          "explanation": "The program meets all five requirements and presents outputs with clear labels."
+          "question": "Divisibility Check",
+          "question_self_contained": "Write a pseudocode program that asks the user for an integer N and outputs numbers from 1 to 100 divisible by N.",
+          "mark_scheme_answer": "DECLARE N, i : INTEGER\nINPUT N\nFOR i ← 1 TO 100\n    IF i MOD N = 0 THEN\n        OUTPUT i\n    ENDIF\nNEXT i",
+          "explanation": "The FOR loop goes 1 to 100. MOD checks divisibility. Divisible numbers are printed."
         },
         {
-          "question": "Integrated task C",
-          "question_self_contained": "Write a program that does all of the following, in any order:\n1) Print exactly Welcome to your Python Test!.\n2) Create greeting_message = \"Let's begin the assessment!\" and print it.\n3) Create and assign age_years = 22, item_price = 29.99, student_name = \"Michael Jordan\", is_registered = True.\n4) Include at least two comment lines.\n5) Print all four variables with labels.",
-          "mark_scheme_answer": "# Prints a welcome message and demonstrates variables\n# Shows comments and printing\n\nprint(\"Welcome to your Python Test!\")\n\ngreeting_message = \"Let's begin the assessment!\"\nprint(greeting_message)\n\nage_years = 22\nitem_price = 29.99\nstudent_name = \"Michael Jordan\"\nis_registered = True\n\nprint(\"Age in years:\", age_years)\nprint(\"Item price:\", item_price)\nprint(\"Student name:\", student_name)\nprint(\"Is registered:\", is_registered)",
-          "explanation": "The code prints the required messages, defines four variables, and displays each value with a label."
+          "question": "Sum of Digits",
+          "question_self_contained": "Write a pseudocode program that asks the user for a positive integer and calculates the sum of its digits.",
+          "mark_scheme_answer": "DECLARE number, sum, digit : INTEGER\nOUTPUT \"Please enter a positive integer: \"\nINPUT number\nsum ← 0\nWHILE number > 0\n    digit ← number MOD 10\n    sum ← sum + digit\n    number ← number DIV 10\nENDWHILE\nOUTPUT \"The sum of the digits is \" & sum",
+          "explanation": "MOD extracts last digit, DIV removes it. Each digit is added to sum until number becomes 0."
+        },
+        {
+          "question": "Input Validation",
+          "question_self_contained": "Write a pseudocode program that asks the user to enter a positive integer less than 50. Keep asking until the input is valid.",
+          "mark_scheme_answer": "DECLARE number : INTEGER\nREPEAT\n    OUTPUT \"Please enter a positive integer less than 50: \"\n    INPUT number\n    IF number <= 0 OR number >= 50 THEN\n        OUTPUT \"Invalid input. Please try again.\"\n    ENDIF\nUNTIL number > 0 AND number < 50\nOUTPUT \"You entered a valid number: \" & number",
+          "explanation": "The loop continues until the number is between 1 and 49. Invalid inputs trigger an error message."
         }
       ]
     }
   ]
 }
+
 
   </script>
 
@@ -179,15 +188,6 @@
 
 <!-- APPEND: mock test JSON payload -->
 <script id="mockTestData" type="application/json">
-{
-  "mock_test": {
-    "title": "Mock Test - Level 1 Capstone",
-    "question": "Task: Write a complete Python script that follows these requirements:\n1) Print exactly Welcome to Python Level 1.\n2) Create variables with these exact names and values: course_title = \"Intro to Python\", weeks = 6, fee = 199.99, is_open = True.\n3) Add at least two comment lines describing the program.\n4) Print all variable values on separate lines with clear labels.",
-    "question_self_contained": "Task: Write a complete Python script that follows these requirements:\n1) Print exactly Welcome to Python Level 1.\n2) Create variables with these exact names and values: course_title = \"Intro to Python\", weeks = 6, fee = 199.99, is_open = True.\n3) Add at least two comment lines describing the program.\n4) Print all variable values on separate lines with clear labels.",
-    "mark_scheme_answer": "# Level 1 capstone demonstration\n# Prints a welcome message, defines variables, and prints them.\n\nprint(\"Welcome to Python Level 1\")\n\ncourse_title = \"Intro to Python\"\nweeks = 6\nfee = 199.99\nis_open = True\n\nprint(\"Course title:\", course_title)\nprint(\"Weeks:\", weeks)\nprint(\"Fee:\", fee)\nprint(\"Is open:\", is_open)",
-    "explanation": "This capstone integrates printing, variables of four basic types, comments, and labeled output."
-  }
-}
 
 
 </script>

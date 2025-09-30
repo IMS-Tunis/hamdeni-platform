@@ -70,63 +70,62 @@
   <!-- Embedded JSON (MCQ formatted; CASE use explicit; expanded explanations) -->
   <script id="data" type="application/json">
 {
-"data": [
-{
-"point_id": "LEVEL_PSEUDOCODE_BASICS",
-"items": [
-{
-"question": "Declaring Variables",
-"question_self_contained": "Task: Declare three variables: studentAge as an INTEGER, studentName as a STRING, and averageGrade as a REAL.",
-"mark_scheme_answer": "DECLARE studentAge : INTEGER\nDECLARE studentName : STRING\nDECLARE averageGrade : REAL",
-"explanation": "We declare variables by giving them names and types. INTEGER stores whole numbers, STRING stores text, and REAL stores decimal values. Declaring reserves space and tells us what type of data will be held."
-},
-{
-"question": "Assigning Values",
-"question_self_contained": "Task: Assign the following values: studentAge to 18, studentName to \"John\", and averageGrade to 85.5.",
-"mark_scheme_answer": "studentAge \u2190 18\nstudentName \u2190 \"John\"\naverageGrade \u2190 85.5",
-"explanation": "The arrow symbol (\u2190) means assignment in pseudocode. We put the value on the right into the variable on the left. Here studentAge gets the whole number 18, studentName gets the text \"John\", and averageGrade gets the decimal 85.5."
-},
-{
-"question": "Simple Arithmetic",
-"question_self_contained": "Task: Declare two variables x and y as INTEGER. Assign x to 17 and y to 4. Calculate and display their sum, difference, product, real division, integer division, and modulus.",
-"mark_scheme_answer": "DECLARE x : INTEGER\nDECLARE y : INTEGER\nDECLARE sum : INTEGER\nDECLARE difference : INTEGER\nDECLARE product : INTEGER\nDECLARE quotientReal : REAL\nDECLARE quotientInteger : INTEGER\nDECLARE remainder : INTEGER\n\nx \u2190 17\ny \u2190 4\n\nsum \u2190 x + y\ndifference \u2190 x - y\nproduct \u2190 x * y\nquotientReal \u2190 x / y\nquotientInteger \u2190 x DIV y\nremainder \u2190 x MOD y\n\nOUTPUT \"Sum is \" & sum\nOUTPUT \"Difference: \" & difference\nOUTPUT \"Product: \" & product\nOUTPUT \"The Real Division: \" & quotientReal\nOUTPUT \"Integer Division: \" & quotientInteger\nOUTPUT \"Remainder: \" & remainder",
-"explanation": "We declare all needed variables. Assign x = 17, y = 4. Then compute using operators: + for addition, - for subtraction, * for multiplication, / for real division (decimal result), DIV for integer division (whole number result), and MOD for remainder. OUTPUT joins text and numbers with &."
-},
-{
-"question": "Input and Output",
-"question_self_contained": "Task: Write pseudocode to ask the user for their name and favorite number, and then display a message saying \"Hello, [name]. Your favorite number is [number].\"",
-"mark_scheme_answer": "DECLARE name : STRING\nDECLARE favoriteNumber : INTEGER\n\nOUTPUT \"What is your name?\"\nINPUT name\n\nOUTPUT \"What is your favourite number?\"\nINPUT favoriteNumber\n\nOUTPUT \"Hello, \" & name & ". Your favorite number is \" & favoriteNumber & "."",
-"explanation": "We declare variables for text and number. OUTPUT shows a question. INPUT waits for the user to type a value and stores it. At the end we OUTPUT a combined message using & to join text and variable values."
-},
-{
-"question": "Calculating Averages",
-"question_self_contained": "Task: Write pseudocode that asks the user for two test scores, calculates the average, and displays it.",
-"mark_scheme_answer": "DECLARE score1 : REAL\nDECLARE score2 : REAL\nDECLARE average : REAL\n\nINPUT score1\nINPUT score2\n\naverage \u2190 (score1 + score2) / 2\n\nOUTPUT \"The average score is \" & average",
-"explanation": "We read two decimal numbers from the user. Add them and divide by 2 to get the average. Store it in average and then OUTPUT the result with a clear message."
-},
-{
-"question": "Calculating Compound Interest",
-"question_self_contained": "Task: Write pseudocode to calculate the compound interest on a principal amount.\nThe formula is: A = P \u00d7 (1 + r/100)^n where:\n- P is the principal amount (REAL)\n- r is the annual interest rate (REAL)\n- n is the number of years (INTEGER)\n- A is the final amount after interest (REAL)",
-"mark_scheme_answer": "DECLARE P : REAL\nDECLARE r : REAL\nDECLARE n : INTEGER\nDECLARE A : REAL\n\nINPUT P\nINPUT r\nINPUT n\n\nA \u2190 P * (1 + r / 100) ^ n\n\nOUTPUT \"The final amount after interest is \" & A",
-"explanation": "We declare variables for principal, rate, years, and result. INPUT gets values from the user. The formula multiplies P by (1 + r/100) raised to the power of n. The ^ symbol means exponentiation. OUTPUT shows the final amount."
-},
-{
-"question": "Calculating Distance",
-"question_self_contained": "Task: Write pseudocode to calculate the distance between two points (x1, y1) and (x2, y2) using the formula:\nd = \u221a((x2 - x1)^2 + (y2 - y1)^2)",
-"mark_scheme_answer": "DECLARE x1 : REAL\nDECLARE y1 : REAL\nDECLARE x2 : REAL\nDECLARE y2 : REAL\nDECLARE distance : REAL\n\nINPUT x1\nINPUT y1\nINPUT x2\nINPUT y2\n\ndistance \u2190 ((x2 - x1) ^ 2 + (y2 - y1) ^ 2) ^ 0.5\n\nOUTPUT \"The distance between the two points is \" & distance",
-"explanation": "We read coordinates as decimals. Subtract x2 - x1 and y2 - y1, square them (^2), add, then take the square root (^0.5). Store in distance and OUTPUT the result."
-},
-{
-"question": "Comprehensive User Data and Score Processing",
-"question_self_contained": "Task: Write a pseudocode program that performs the following tasks:\n1. Declare variables to store a user's name as a sequence of characters, age as a whole number, and two test scores as decimal numbers. Use appropriate identifiers.\n2. Ask the user for their name, age, and the two test scores.\n3. Calculate the total and average of the two test scores.\n4. Calculate the integer division and modulus of the two test scores.\n5. Output the user's name, total score, average score, integer division result, and modulus result.",
-"mark_scheme_answer": "DECLARE name : STRING\nDECLARE age : INTEGER\nDECLARE score1 : REAL\nDECLARE score2 : REAL\nDECLARE totalScore : REAL\nDECLARE averageScore : REAL\nDECLARE integerDivisionResult : INTEGER\nDECLARE modulusResult : INTEGER\n\nOUTPUT \"Name: \"\nINPUT name\nOUTPUT \"Age: \"\nINPUT age\nOUTPUT \"Score1: \"\nINPUT score1\nOUTPUT \"Score2: \"\nINPUT score2\n\ntotalScore \u2190 score1 + score2\naverageScore \u2190 totalScore / 2\n\nintegerDivisionResult \u2190 totalScore DIV age\nmodulusResult \u2190 totalScore MOD age\n\nOUTPUT \"Name: \" & name\nOUTPUT \"Total Score: \" & totalScore\nOUTPUT \"Average Score: \" & averageScore\nOUTPUT \"Integer Division of Total Score by Age: \" & integerDivisionResult\nOUTPUT \"Modulus of Total Score by Age: \" & modulusResult",
-"explanation": "We declare variables with correct types. INPUT collects the user's name, age, and two scores. totalScore adds the two scores, and averageScore divides by 2. DIV finds how many times age fits fully into totalScore, MOD gives the remainder. OUTPUT displays all results clearly joined with text."
+  "data": [
+    {
+      "point_id": "LEVEL_PSEUDOCODE_BASICS",
+      "items": [
+        {
+          "question": "Declaring Variables",
+          "question_self_contained": "Task: Declare three variables: studentAge as an INTEGER, studentName as a STRING, and averageGrade as a REAL.",
+          "mark_scheme_answer": "DECLARE studentAge : INTEGER\nDECLARE studentName : STRING\nDECLARE averageGrade : REAL",
+          "explanation": "Declare variables by specifying a name and a type. INTEGER holds whole numbers, STRING holds text, and REAL holds decimal values. This sets up storage and expected data types for later use."
+        },
+        {
+          "question": "Assigning Values",
+          "question_self_contained": "Task: Assign the following values: studentAge to 18, studentName to \\\"John\\\", and averageGrade to 85.5.",
+          "mark_scheme_answer": "studentAge \u2190 18\nstudentName \u2190 \\\"John\\\"\naverageGrade \u2190 85.5",
+          "explanation": "The assignment arrow (\u2190) places the right-hand value into the left-hand variable. We assign 18 to studentAge, the text \\\"John\\\" to studentName, and the decimal 85.5 to averageGrade."
+        },
+        {
+          "question": "Simple Arithmetic",
+          "question_self_contained": "Task: Declare two variables x and y as INTEGER. Assign x to 17 and y to 4. Calculate and display their sum, difference, product, real division, integer division, and modulus.",
+          "mark_scheme_answer": "DECLARE x : INTEGER\nDECLARE y : INTEGER\nDECLARE sum : INTEGER\nDECLARE difference : INTEGER\nDECLARE product : INTEGER\nDECLARE quotientReal : REAL\nDECLARE quotientInteger : INTEGER\nDECLARE remainder : INTEGER\n\nx \u2190 17\ny \u2190 4\n\nsum \u2190 x + y\ndifference \u2190 x - y\nproduct \u2190 x * y\nquotientReal \u2190 x / y\nquotientInteger \u2190 x DIV y\nremainder \u2190 x MOD y\n\nOUTPUT \\\"Sum is \\\" & sum\nOUTPUT \\\"Difference: \\\" & difference\nOUTPUT \\\"Product: \\\" & product\nOUTPUT \\\"The Real Division: \\\" & quotientReal\nOUTPUT \\\"Integer Division: \\\" & quotientInteger\nOUTPUT \\\"Remainder: \\\" & remainder",
+          "explanation": "We declare all variables, assign x = 17 and y = 4, then compute each operation. / gives a real (decimal) result, DIV gives the whole-number quotient, and MOD gives the remainder. OUTPUT joins text and numbers with &."
+        },
+        {
+          "question": "Input and Output",
+          "question_self_contained": "Task: Write pseudocode to ask the user for their name and favorite number, and then display a message saying \\\"Hello, [name]. Your favorite number is [number].\\\"",
+          "mark_scheme_answer": "DECLARE name : STRING\nDECLARE favoriteNumber : INTEGER\n\nOUTPUT \\\"What is your name?\\\"\nINPUT name\n\nOUTPUT \\\"What is your favorite number?\\\"\nINPUT favoriteNumber\n\nOUTPUT \\\"Hello, \\\" & name & \\\". Your favorite number is \\\" & favoriteNumber & \\\".\\\"",
+          "explanation": "We prompt with OUTPUT and read with INPUT. The final sentence is built by concatenating literal text and variable values using &. All internal quotation marks are escaped as \\\" so the JSON string remains valid."
+        },
+        {
+          "question": "Calculating Averages",
+          "question_self_contained": "Task: Write pseudocode that asks the user for two test scores, calculates the average, and displays it.",
+          "mark_scheme_answer": "DECLARE score1 : REAL\nDECLARE score2 : REAL\nDECLARE average : REAL\n\nINPUT score1\nINPUT score2\n\naverage \u2190 (score1 + score2) / 2\n\nOUTPUT \\\"The average score is \\\" & average",
+          "explanation": "Read two REAL values, add them, divide by 2, and output the result. Parentheses ensure addition happens before division."
+        },
+        {
+          "question": "Calculating Compound Interest",
+          "question_self_contained": "Task: Write pseudocode to calculate the compound interest on a principal amount.\nThe formula is: A = P \u00d7 (1 + r/100)^n where:\n- P is the principal amount (REAL)\n- r is the annual interest rate (REAL)\n- n is the number of years (INTEGER)\n- A is the final amount after interest (REAL)",
+          "mark_scheme_answer": "DECLARE P : REAL\nDECLARE r : REAL\nDECLARE n : INTEGER\nDECLARE A : REAL\n\nINPUT P\nINPUT r\nINPUT n\n\nA \u2190 P * (1 + r / 100) ^ n\n\nOUTPUT \\\"The final amount after interest is \\\" & A",
+          "explanation": "Apply the compound-interest formula: multiply P by (1 + r/100) raised to the power n (using ^). OUTPUT shows the computed final amount A."
+        },
+        {
+          "question": "Calculating Distance",
+          "question_self_contained": "Task: Write pseudocode to calculate the distance between two points (x1, y1) and (x2, y2) using the formula:\nd = \u221a((x2 - x1)^2 + (y2 - y1)^2)",
+          "mark_scheme_answer": "DECLARE x1 : REAL\nDECLARE y1 : REAL\nDECLARE x2 : REAL\nDECLARE y2 : REAL\nDECLARE distance : REAL\n\nINPUT x1\nINPUT y1\nINPUT x2\nINPUT y2\n\ndistance \u2190 ((x2 - x1) ^ 2 + (y2 - y1) ^ 2) ^ 0.5\n\nOUTPUT \\\"The distance between the two points is \\\" & distance",
+          "explanation": "Compute squared differences, sum them, then take the square root by raising to the power 0.5. Store in distance and output the result."
+        },
+        {
+          "question": "Comprehensive User Data and Score Processing",
+          "question_self_contained": "Task: Write a pseudocode program that performs the following tasks:\n1. Declare variables to store a user's name as a sequence of characters, age as a whole number, and two test scores as decimal numbers. Use appropriate identifiers.\n2. Ask the user for their name, age, and the two test scores.\n3. Calculate the total and average of the two test scores.\n4. Calculate the integer division and modulus of the two test scores.\n5. Output the user's name, total score, average score, integer division result, and modulus result.",
+          "mark_scheme_answer": "DECLARE name : STRING\nDECLARE age : INTEGER\nDECLARE score1 : REAL\nDECLARE score2 : REAL\nDECLARE totalScore : REAL\nDECLARE averageScore : REAL\nDECLARE integerDivisionResult : INTEGER\nDECLARE modulusResult : INTEGER\n\nOUTPUT \\\"Name: \\\"\nINPUT name\nOUTPUT \\\"Age: \\\"\nINPUT age\nOUTPUT \\\"Score1: \\\"\nINPUT score1\nOUTPUT \\\"Score2: \\\"\nINPUT score2\n\ntotalScore \u2190 score1 + score2\naverageScore \u2190 totalScore / 2\n\nintegerDivisionResult \u2190 totalScore DIV age\nmodulusResult \u2190 totalScore MOD age\n\nOUTPUT \\\"Name: \\\" & name\nOUTPUT \\\"Total Score: \\\" & totalScore\nOUTPUT \\\"Average Score: \\\" & averageScore\nOUTPUT \\\"Integer Division of Total Score by Age: \\\" & integerDivisionResult\nOUTPUT \\\"Modulus of Total Score by Age: \\\" & modulusResult",
+          "explanation": "Declare and read all inputs, compute total and average, then use DIV for integer division and MOD for remainder. Finally, output each result with clear labels, concatenated using &."
+        }
+      ]
+    }
+  ]
 }
-]
-}
-]
-}
-
 
   </script>
 
@@ -156,15 +155,7 @@
 
 <!-- APPEND: mock test JSON payload -->
 <script id="mockTestData" type="application/json">
-{
-  "mock_test": {
-    "title": "Mock Test - Level 1 Capstone",
-    "question": "Task: Write a complete Python script that follows these requirements:\n1) Print exactly Welcome to Python Level 1.\n2) Create variables with these exact names and values: course_title = \"Intro to Python\", weeks = 6, fee = 199.99, is_open = True.\n3) Add at least two comment lines describing the program.\n4) Print all variable values on separate lines with clear labels.",
-    "question_self_contained": "Task: Write a complete Python script that follows these requirements:\n1) Print exactly Welcome to Python Level 1.\n2) Create variables with these exact names and values: course_title = \"Intro to Python\", weeks = 6, fee = 199.99, is_open = True.\n3) Add at least two comment lines describing the program.\n4) Print all variable values on separate lines with clear labels.",
-    "mark_scheme_answer": "# Level 1 capstone demonstration\n# Prints a welcome message, defines variables, and prints them.\n\nprint(\"Welcome to Python Level 1\")\n\ncourse_title = \"Intro to Python\"\nweeks = 6\nfee = 199.99\nis_open = True\n\nprint(\"Course title:\", course_title)\nprint(\"Weeks:\", weeks)\nprint(\"Fee:\", fee)\nprint(\"Is open:\", is_open)",
-    "explanation": "This capstone integrates printing, variables of four basic types, comments, and labeled output."
-  }
-}
+
 
 
 </script>

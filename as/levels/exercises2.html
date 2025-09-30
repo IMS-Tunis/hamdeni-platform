@@ -72,84 +72,181 @@
 {
   "data": [
     {
-      "point_id": "LEVEL_1.Intro_Python",
+      "point_id": "LEVEL_CONDITIONALS",
       "items": [
         {
-          "question": "T/F: Type declaration requirement",
-          "question_self_contained": "True or False. You must declare a variable’s data type before using it in Python.",
-          "mark_scheme_answer": "False",
-          "explanation": "Python infers the variable’s type from the value that you assign."
+          "question": "MCQ recognition of selection",
+          "question_self_contained": "Select the option (A–D) that shows a pseudocode selection statement.\n\nOptions:\nA) CALL Sort(Value1, Value2)\nB) DECLARE Count : INTEGER\nC) IF X = 7\n   THEN\n     Y ← 21\n   ENDIF\nD) Total ← X + Y",
+          "mark_scheme_answer": "C",
+          "explanation": "Selection chooses between paths based on a condition. Option C is an IF…THEN…ENDIF construct. A and B are not selection; D is a simple assignment."
         },
         {
-          "question": "Define a comment",
-          "question_self_contained": "Define a comment in Python and state which character starts a comment.",
-          "mark_scheme_answer": "A comment is non-executable text. It starts with the character #.",
-          "explanation": "Everything after # on the same line is ignored when the program runs."
+          "question": "Simple IF Statement",
+          "question_self_contained": "Task: Write pseudocode that asks the user for their temperature and outputs whether they have a fever (temperature > 37).",
+          "mark_scheme_answer": "DECLARE temperature : REAL\nINPUT temperature\n\nIF temperature > 37 THEN\n    OUTPUT \"You have a fever.\"\nELSE\n    OUTPUT \"Your temperature is normal.\"\nENDIF",
+          "explanation": "Read a real number into temperature. The IF condition checks whether temperature is strictly greater than 37. If true, output the fever message; otherwise output the normal message. ENDIF closes the decision block."
         },
         {
-          "question": "Identify data types",
-          "question_self_contained": "For each variable below, state the data type as one of: integer, float, string, boolean.\nage = 30\nprice = 10.99\nname = \"John\"\nis_student = False",
-          "mark_scheme_answer": "age is integer\nprice is float\nname is string\nis_student is boolean",
-          "explanation": "Whole numbers are integers, decimals are floats, quoted text is strings, and True/False values are booleans."
+          "question": "Equality Check",
+          "question_self_contained": "Write pseudocode that reads two integers A and B, then outputs Equal if the two values are the same; otherwise outputs Not equal.",
+          "mark_scheme_answer": "INPUT A\nINPUT B\nIF A = B\n  THEN\n    OUTPUT \"Equal\"\nELSE\n    OUTPUT \"Not equal\"\nENDIF",
+          "explanation": "Use = to compare for equality; outcomes are mutually exclusive."
         },
         {
-          "question": "Variable naming validity",
-          "question_self_contained": "A valid Python variable name must start with a letter or underscore and may contain only letters, digits, and underscores. For each name below, write Valid or Invalid.\n1name, _score, user_name2, price$, Name",
-          "mark_scheme_answer": "1name \u2192 Invalid\n_score \u2192 Valid\nuser_name2 \u2192 Valid\nprice$ \u2192 Invalid\nName \u2192 Valid",
-          "explanation": "Names cannot start with a digit and cannot include symbols such as $."
+          "question": "Yes or No",
+          "question_self_contained": "Write pseudocode that reads a single CHAR Resp which is exactly 'Y' or 'N'. Output Yes when Resp is 'Y'; otherwise output No.",
+          "mark_scheme_answer": "INPUT Resp\nIF Resp = 'Y'\n  THEN\n    OUTPUT \"Yes\"\nELSE\n    OUTPUT \"No\"\nENDIF",
+          "explanation": "Compare a CHAR using single quotes. Any input other than 'Y' is treated as No."
         },
         {
-          "question": "Print exact message",
-          "question_self_contained": "Write a Python program that prints exactly Welcome to Python Programming!.",
-          "mark_scheme_answer": "print(\"Welcome to Python Programming!\")",
-          "explanation": "The print function outputs the exact characters between the quotation marks."
+          "question": "Absolute value (single-branch IF)",
+          "question_self_contained": "Write pseudocode that reads a real number V, converts V to its absolute value if necessary, and outputs V.",
+          "mark_scheme_answer": "INPUT V\nIF V < 0\n  THEN\n    V ← -V\nENDIF\nOUTPUT V",
+          "explanation": "Single-branch IF flips only negative values; non-negatives remain unchanged."
         },
         {
-          "question": "Variable then print",
-          "question_self_contained": "Create a variable named greeting with the value Hello, Python! then print greeting.",
-          "mark_scheme_answer": "greeting = \"Hello, Python!\"\nprint(greeting)",
-          "explanation": "The first line stores the text in greeting. The second line outputs its value."
+          "question": "Parity check using MOD",
+          "question_self_contained": "Write pseudocode that reads a non-negative integer N, determines whether N is even or odd, and outputs Even or Odd accordingly.",
+          "mark_scheme_answer": "INPUT N\nIF N MOD 2 = 0\n  THEN\n    OUTPUT \"Even\"\nELSE\n    OUTPUT \"Odd\"\nENDIF",
+          "explanation": "Remainder 0 when dividing by 2 indicates an even number."
         },
         {
-          "question": "Two integers and print",
-          "question_self_contained": "Create two variables named num1 and num2, assign them any integer values, and print both on separate lines.",
-          "mark_scheme_answer": "num1 = 15\nnum2 = 20\nprint(\"num1:\", num1)\nprint(\"num2:\", num2)",
-          "explanation": "Two assignments define the values, and two print calls display them on separate lines."
+          "question": "Division guard",
+          "question_self_contained": "Write pseudocode that reads two integers X and Y. If Y is zero, output Division by zero; otherwise output X / Y.",
+          "mark_scheme_answer": "INPUT X\nINPUT Y\nIF Y = 0\n  THEN\n    OUTPUT \"Division by zero\"\nELSE\n    OUTPUT X / Y\nENDIF",
+          "explanation": "Guard prevents invalid division. / denotes real division."
         },
         {
-          "question": "Four basic types and print",
-          "question_self_contained": "Create and print four variables: an integer, a float, a string, and a boolean, using any example values.",
-          "mark_scheme_answer": "age = 25\nprice = 19.99\nname = \"Alice\"\nis_student = True\n\nprint(\"Age:\", age)\nprint(\"Price:\", price)\nprint(\"Name:\", name)\nprint(\"Is student:\", is_student)",
-          "explanation": "Each variable demonstrates one of the four basic data types and is printed with a label."
+          "question": "Age validity guard",
+          "question_self_contained": "Write pseudocode that reads an integer Age and reports Invalid for values below 0 or above 120; otherwise reports Valid.",
+          "mark_scheme_answer": "INPUT Age\nIF (Age < 0) OR (Age > 120)\n  THEN\n    OUTPUT \"Invalid\"\nELSE\n    OUTPUT \"Valid\"\nENDIF",
+          "explanation": "OR detects out-of-range values at either end."
         },
         {
-          "question": "Use comments, assign, and print",
-          "question_self_contained": "Write a program that uses comment lines starting with #, assigns values to variables, and prints them.",
-          "mark_scheme_answer": "# Assign values to variables\nage = 25\nprice = 19.99\nname = \"Alice\"\nis_student = True\n\n# Print the values\nprint(\"Age:\", age)\nprint(\"Price:\", price)\nprint(\"Name:\", name)\nprint(\"Is student:\", is_student)",
-          "explanation": "Lines beginning with # are comments. The remaining lines assign and print variable values."
+          "question": "NOT operator for payment",
+          "question_self_contained": "Write pseudocode that reads a Boolean HasPaid (TRUE/FALSE). If NOT HasPaid then output Payment required; otherwise output Access granted.",
+          "mark_scheme_answer": "INPUT HasPaid\nIF NOT HasPaid\n  THEN\n    OUTPUT \"Payment required\"\nELSE\n    OUTPUT \"Access granted\"\nENDIF",
+          "explanation": "Tests the negation of a Boolean flag."
         },
         {
-          "question": "Integrated task A",
-          "question_self_contained": "Write a program that does all of the following, in any order:\n1) Print exactly Welcome to the Python Level 1 Test!.\n2) Create intro = \"Let's start testing!\" and print it.\n3) Create and assign years = 30, cost = 49.99, full_name = \"John Doe\", is_enrolled = False.\n4) Include at least two comment lines.\n5) Print all four variables with labels.",
-          "mark_scheme_answer": "# Prints a welcome message and demonstrates variables\n# Shows comments and printing\n\nprint(\"Welcome to the Python Level 1 Test!\")\n\nintro = \"Let's start testing!\"\nprint(intro)\n\nyears = 30\ncost = 49.99\nfull_name = \"John Doe\"\nis_enrolled = False\n\nprint(\"Years:\", years)\nprint(\"Cost:\", cost)\nprint(\"Full name:\", full_name)\nprint(\"Is enrolled:\", is_enrolled)",
-          "explanation": "The script includes comments, prints the messages, assigns the required variables, and prints each with a clear label."
+          "question": "Logical Operators",
+          "question_self_contained": "Task: Write pseudocode that asks the user for their age and whether they are a student. Output eligible if age < 25 AND isStudent = TRUE.",
+          "mark_scheme_answer": "DECLARE age : INTEGER\nDECLARE isStudent : BOOLEAN\n\nINPUT age\nINPUT isStudent\n\nIF age < 25 AND isStudent THEN\n    OUTPUT \"You are eligible for a student discount.\"\nELSE\n    OUTPUT \"You are not eligible for a student discount.\"\nENDIF",
+          "explanation": "Both conditions must be true. AND requires both to be satisfied."
         },
         {
-          "question": "Integrated task B",
-          "question_self_contained": "Write a program that does all of the following, in any order:\n1) Print exactly Welcome to the Python Programming Assessment!.\n2) Create start_message = \"Good luck!\" and print it.\n3) Create and assign num_years = 5, price_tag = 99.95, user_name = \"Jane Smith\", is_active = True.\n4) Include at least two comment lines.\n5) Print all four variables with labels.",
-          "mark_scheme_answer": "# Prints a welcome message and demonstrates variables\n# Shows comments and printing\n\nprint(\"Welcome to the Python Programming Assessment!\")\n\nstart_message = \"Good luck!\"\nprint(start_message)\n\nnum_years = 5\nprice_tag = 99.95\nuser_name = \"Jane Smith\"\nis_active = True\n\nprint(\"Number of years:\", num_years)\nprint(\"Price tag:\", price_tag)\nprint(\"User name:\", user_name)\nprint(\"Is active:\", is_active)",
-          "explanation": "The program meets all five requirements and presents outputs with clear labels."
+          "question": "Qualification check (AND)",
+          "question_self_contained": "Write pseudocode that reads two integers Exam1 and Exam2, then outputs Qualified when both are at least 50; otherwise Not qualified.",
+          "mark_scheme_answer": "INPUT Exam1\nINPUT Exam2\nIF (Exam1 >= 50) AND (Exam2 >= 50)\n  THEN\n    OUTPUT \"Qualified\"\nELSE\n    OUTPUT \"Not qualified\"\nENDIF",
+          "explanation": "Logical AND requires both comparisons to be true."
         },
         {
-          "question": "Integrated task C",
-          "question_self_contained": "Write a program that does all of the following, in any order:\n1) Print exactly Welcome to your Python Test!.\n2) Create greeting_message = \"Let's begin the assessment!\" and print it.\n3) Create and assign age_years = 22, item_price = 29.99, student_name = \"Michael Jordan\", is_registered = True.\n4) Include at least two comment lines.\n5) Print all four variables with labels.",
-          "mark_scheme_answer": "# Prints a welcome message and demonstrates variables\n# Shows comments and printing\n\nprint(\"Welcome to your Python Test!\")\n\ngreeting_message = \"Let's begin the assessment!\"\nprint(greeting_message)\n\nage_years = 22\nitem_price = 29.99\nstudent_name = \"Michael Jordan\"\nis_registered = True\n\nprint(\"Age in years:\", age_years)\nprint(\"Item price:\", item_price)\nprint(\"Student name:\", student_name)\nprint(\"Is registered:\", is_registered)",
-          "explanation": "The code prints the required messages, defines four variables, and displays each value with a label."
+          "question": "Combined IF Statement",
+          "question_self_contained": "Task: Write pseudocode that asks the user for gender (M/F) and age. If male >65 OR female >60 then Eligible for benefits, else Not eligible.",
+          "mark_scheme_answer": "DECLARE gender : CHAR\nDECLARE age : INTEGER\nINPUT gender\nINPUT age\nIF (gender = 'M' AND age > 65) OR (gender = 'F' AND age > 60) THEN\n    OUTPUT \"Eligible for senior benefits.\"\nELSE\n    OUTPUT \"Not eligible.\"\nENDIF",
+          "explanation": "OR groups two eligibility conditions. Parentheses clarify grouping."
+        },
+        {
+          "question": "Eligibility with parentheses (AND/OR precedence)",
+          "question_self_contained": "Write pseudocode that reads Age and Consent. Eligible if (Age >=16 AND Consent='Y') OR Age>=18.",
+          "mark_scheme_answer": "INPUT Age\nINPUT Consent\nIF ((Age >= 16) AND (Consent = 'Y')) OR (Age >= 18)\n  THEN\n    OUTPUT \"Eligible\"\nELSE\n    OUTPUT \"Not eligible\"\nENDIF",
+          "explanation": "Parentheses ensure AND part is evaluated before OR."
+        },
+        {
+          "question": "Nested IF Statements",
+          "question_self_contained": "Task: Write pseudocode that asks the user for a number and checks if it is positive, negative, or zero.",
+          "mark_scheme_answer": "DECLARE number : INTEGER\nINPUT number\nIF number > 0 THEN\n    OUTPUT \"The number is positive.\"\nELSE\n    IF number < 0 THEN\n        OUTPUT \"The number is negative.\"\n    ELSE\n        OUTPUT \"The number is zero.\"\n    ENDIF\nENDIF",
+          "explanation": "Outer IF checks positive. Inside ELSE, another IF decides negative vs zero."
+        },
+        {
+          "question": "Complex IF Statement (divisibility)",
+          "question_self_contained": "Check if number divisible by both 3 and 5, only one, or neither.",
+          "mark_scheme_answer": "DECLARE number : INTEGER\nINPUT number\nIF number MOD 3 = 0 AND number MOD 5 = 0 THEN\n    OUTPUT \"Divisible by both\"\nELSE\n    IF number MOD 3 = 0 THEN\n        OUTPUT \"Divisible by 3 only\"\n    ELSE\n        IF number MOD 5 = 0 THEN\n            OUTPUT \"Divisible by 5 only\"\n        ELSE\n            OUTPUT \"Not divisible by 3 or 5\"\n        ENDIF\n    ENDIF\nENDIF",
+          "explanation": "Nested conditions handle multiple divisibility cases."
+        },
+        {
+          "question": "Maximum of three (sequential IFs)",
+          "question_self_contained": "Read three integers A, B, C and output the largest.",
+          "mark_scheme_answer": "INPUT A\nINPUT B\nINPUT C\nMax ← A\nIF B > Max THEN Max ← B ENDIF\nIF C > Max THEN Max ← C ENDIF\nOUTPUT Max",
+          "explanation": "Sequential IFs update the running maximum step by step."
+        },
+        {
+          "question": "Two-step fare with independent IFs",
+          "question_self_contained": "Base fare = 4. If Age<12 set fare=2. If Peak='Y' add 1. Output fare.",
+          "mark_scheme_answer": "INPUT Age\nINPUT Peak\nFare ← 4\nIF Age < 12 THEN Fare ← 2 ENDIF\nIF Peak = 'Y' THEN Fare ← Fare + 1 ENDIF\nOUTPUT Fare",
+          "explanation": "Two independent IFs apply separate rules."
+        },
+        {
+          "question": "Ticket gate - nested IF",
+          "question_self_contained": "If Age<12 then require HasTicket='Y'. Otherwise output Use adult gate.",
+          "mark_scheme_answer": "INPUT Age\nINPUT HasTicket\nIF Age < 12 THEN\n    IF HasTicket = 'Y' THEN\n        OUTPUT \"Child admitted\"\n    ELSE\n        OUTPUT \"Ticket required\"\n    ENDIF\nELSE\n    OUTPUT \"Use adult gate\"\nENDIF",
+          "explanation": "Inner decision applies only if Age<12."
+        },
+        {
+          "question": "Rounded pass decision",
+          "question_self_contained": "Read a percentage P. Round to nearest integer Q. Pass if Q>=50 else Fail.",
+          "mark_scheme_answer": "INPUT P\nQ ← ROUND(P)\nIF Q >= 50 THEN OUTPUT \"Pass\" ELSE OUTPUT \"Fail\" ENDIF",
+          "explanation": "ROUND ensures fair thresholding at 49.5→50."
+        },
+        {
+          "question": "Grade band (ELSEIF ladder)",
+          "question_self_contained": "Read score (0–100) and output letter grade: A≥80, B≥70, C≥60, D≥50, else E.",
+          "mark_scheme_answer": "INPUT Score\nIF Score >=80 THEN OUTPUT \"A\"\nELSEIF Score >=70 THEN OUTPUT \"B\"\nELSEIF Score >=60 THEN OUTPUT \"C\"\nELSEIF Score >=50 THEN OUTPUT \"D\"\nELSE OUTPUT \"E\"\nENDIF",
+          "explanation": "Order conditions high to low; only one branch executes."
+        },
+        {
+          "question": "Simple CASE Statement",
+          "question_self_contained": "Ask grade (A–F). Output corresponding message.",
+          "mark_scheme_answer": "DECLARE grade : CHAR\nINPUT grade\nCASE OF grade\n  'A' : OUTPUT \"Excellent\"\n  'B' : OUTPUT \"Good\"\n  'C' : OUTPUT \"Fair\"\n  'D' : OUTPUT \"Poor\"\n  'F' : OUTPUT \"Fail\"\nENDCASE",
+          "explanation": "CASE branches on character value. Each grade has one output."
+        },
+        {
+          "question": "CASE Statement with Ranges",
+          "question_self_contained": "Read score. Use ranges: 90–100 A, 80–89 B, 70–79 C, 60–69 D, else F.",
+          "mark_scheme_answer": "DECLARE score : INTEGER\nINPUT score\nCASE OF score\n  90 TO 100 : OUTPUT \"Grade: A\"\n  80 TO 89 : OUTPUT \"Grade: B\"\n  70 TO 79 : OUTPUT \"Grade: C\"\n  60 TO 69 : OUTPUT \"Grade: D\"\n  OTHERWISE : OUTPUT \"Grade: F\"\nENDCASE",
+          "explanation": "CASE can use numeric ranges for compact grading."
+        },
+        {
+          "question": "Day name - CASE",
+          "question_self_contained": "Read D (1–7). Output weekday name. Else Invalid.",
+          "mark_scheme_answer": "INPUT D\nCASE OF D\n  1 : OUTPUT \"Monday\"\n  2 : OUTPUT \"Tuesday\"\n  3 : OUTPUT \"Wednesday\"\n  4 : OUTPUT \"Thursday\"\n  5 : OUTPUT \"Friday\"\n  6 : OUTPUT \"Saturday\"\n  7 : OUTPUT \"Sunday\"\n  OTHERWISE : OUTPUT \"Invalid\"\nENDCASE",
+          "explanation": "One label per integer value. OTHERWISE handles invalid input."
+        },
+        {
+          "question": "Operator category - CASE",
+          "question_self_contained": "Read Op. If one of '+','-','*','/' then Arithmetic else Other.",
+          "mark_scheme_answer": "INPUT Op\nCASE OF Op\n  '+' : OUTPUT \"Arithmetic\"\n  '-' : OUTPUT \"Arithmetic\"\n  '*' : OUTPUT \"Arithmetic\"\n  '/' : OUTPUT \"Arithmetic\"\n  OTHERWISE : OUTPUT \"Other\"\nENDCASE",
+          "explanation": "Multiple labels map to same output."
+        },
+        {
+          "question": "Shipping zone - CASE",
+          "question_self_contained": "Read Zone (1–3). Base cost=5. Output 5,8,12 for zones 1,2,3. Else Invalid.",
+          "mark_scheme_answer": "INPUT Zone\nBaseCost ← 5\nCASE OF Zone\n  1 : OUTPUT BaseCost\n  2 : OUTPUT BaseCost + 3\n  3 : OUTPUT BaseCost + 7\n  OTHERWISE : OUTPUT \"Invalid\"\nENDCASE",
+          "explanation": "CASE computes adjusted cost based on zone."
+        },
+        {
+          "question": "Energy tariff",
+          "question_self_contained": "Read TimePeriod (Peak/OffPeak) and Units. Rate=0.25 if Peak else 0.15. Output Rate*Units.",
+          "mark_scheme_answer": "INPUT TimePeriod\nINPUT Units\nIF TimePeriod = \"Peak\" THEN Rate ← 0.25 ELSE Rate ← 0.15 ENDIF\nTotal ← Rate * Units\nOUTPUT Total",
+          "explanation": "IF chooses rate. Multiply by Units for total."
+        },
+        {
+          "question": "Coin toss using RANDOM",
+          "question_self_contained": "Simulate fair coin toss with RANDOM 0≤r<1. Output Heads if r<0.5 else Tails.",
+          "mark_scheme_answer": "r ← RANDOM\nIF r < 0.5 THEN OUTPUT \"Heads\" ELSE OUTPUT \"Tails\" ENDIF",
+          "explanation": "Threshold splits probability evenly."
+        },
+        {
+          "question": "Triangle type (validation + classification)",
+          "question_self_contained": "Read A,B,C. Check triangle inequalities. If valid, classify: Equilateral, Isosceles, Scalene. Else Not a triangle.",
+          "mark_scheme_answer": "INPUT A\nINPUT B\nINPUT C\nIF (A + B > C) AND (A + C > B) AND (B + C > A) THEN\n  IF (A = B) AND (B = C) THEN OUTPUT \"Equilateral\"\n  ELSEIF (A = B) OR (A = C) OR (B = C) THEN OUTPUT \"Isosceles\"\n  ELSE OUTPUT \"Scalene\"\nENDIF\nELSE OUTPUT \"Not a triangle\"\nENDIF",
+          "explanation": "Check validity before classification."
         }
       ]
     }
   ]
 }
+
 
   </script>
 
@@ -179,15 +276,6 @@
 
 <!-- APPEND: mock test JSON payload -->
 <script id="mockTestData" type="application/json">
-{
-  "mock_test": {
-    "title": "Mock Test - Level 1 Capstone",
-    "question": "Task: Write a complete Python script that follows these requirements:\n1) Print exactly Welcome to Python Level 1.\n2) Create variables with these exact names and values: course_title = \"Intro to Python\", weeks = 6, fee = 199.99, is_open = True.\n3) Add at least two comment lines describing the program.\n4) Print all variable values on separate lines with clear labels.",
-    "question_self_contained": "Task: Write a complete Python script that follows these requirements:\n1) Print exactly Welcome to Python Level 1.\n2) Create variables with these exact names and values: course_title = \"Intro to Python\", weeks = 6, fee = 199.99, is_open = True.\n3) Add at least two comment lines describing the program.\n4) Print all variable values on separate lines with clear labels.",
-    "mark_scheme_answer": "# Level 1 capstone demonstration\n# Prints a welcome message, defines variables, and prints them.\n\nprint(\"Welcome to Python Level 1\")\n\ncourse_title = \"Intro to Python\"\nweeks = 6\nfee = 199.99\nis_open = True\n\nprint(\"Course title:\", course_title)\nprint(\"Weeks:\", weeks)\nprint(\"Fee:\", fee)\nprint(\"Is open:\", is_open)",
-    "explanation": "This capstone integrates printing, variables of four basic types, comments, and labeled output."
-  }
-}
 
 
 </script>
