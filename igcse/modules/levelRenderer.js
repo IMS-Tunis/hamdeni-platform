@@ -28,13 +28,14 @@ export async function renderProgrammingLevels() {
   }
 
   const progress = await fetchProgressCounts();
-  let reached = Number(progress?.levels ?? 0);
-  if (!Number.isFinite(reached)) {
-    reached = 0;
+  let completed = Number(progress?.levels ?? 0);
+  if (!Number.isFinite(completed) || completed < 0) {
+    completed = 0;
   }
-  if (reached < 1) {
-    reached = 1;
-  }
+
+  const totalLevels = levels.length;
+  const hasRemainingLevels = completed < totalLevels;
+  const nextUnlock = hasRemainingLevels ? completed + 1 : null;
 
   levels.forEach((level, index) => {
     console.debug('[levelRenderer] Creating level box', level.id);
@@ -44,10 +45,11 @@ export async function renderProgrammingLevels() {
         ? Number.parseInt(level.id.replace('level', ''), 10)
         : Number.NaN;
     const displayNumber = Number.isFinite(idNumber) ? idNumber : index;
+    const levelNumber = index + 1;
     let status = 'locked';
-    if (index + 1 < reached) {
+    if (levelNumber <= completed) {
       status = 'passed';
-    } else if (index + 1 === reached) {
+    } else if (nextUnlock !== null && levelNumber === nextUnlock) {
       status = 'unlocked';
     }
     box.className = `level-box ${status}`;
