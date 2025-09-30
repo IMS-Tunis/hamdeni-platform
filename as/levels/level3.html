@@ -1,17 +1,153 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Level 3</title>
-  <link rel="stylesheet" href="../dashboard.css" />
-<script defer src="/assets/js/paste-guard.js"></script>
-</head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Level 3: Iteration (Pseudocode)</title>
+<link href="../levels.css" rel="stylesheet"/>
+<script defer="" src="/assets/js/paste-guard.js"></script>
+<!-- Student clarity notes -->
+<style>
+    .clarity-note { 
+      margin: 8px 0 12px; 
+      padding: 8px 12px; 
+      background: #f7fbff; 
+      border-left: 3px solid #1e88e5; 
+      border-radius: 4px; 
+      font-size: 0.97rem;
+    }
+    /* Example/pseudocode blocks */
+    .example { margin: 14px 0; padding: 12px; border: 1px solid #e5e5e5; border-radius: 8px; background: #fff; }
+    .example .title { font-weight: 600; margin-bottom: 8px; }
+    .pseudocode .pc-line { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+    .pseudocode .pc-line + .pc-line { margin-top: 4px; }
+    .pseudocode em { font-style: normal; }
+    .bullets { margin: 8px 0 12px; }
+    .bullets li { margin: 4px 0; }
+  </style>
+<style>
+/* Videos: centered, responsive 16:9 */
+.videos { margin: 24px 0 8px; }
+.videos .subheading { margin: 0 0 12px; font-size: 1.1rem; line-height: 1.3; text-align:center; }
+.video-row { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
+.example.video.video-card { background: #ffffff; border: 1px solid #e5e5e5; border-radius: 8px; padding: 12px; max-width: 640px; }
+.example.video.video-card .media { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 8px; overflow: hidden; }
+.example.video.video-card .media iframe { position: absolute; inset: 0; width: 100% !important; height: 100% !important; display: block; }
+.video-caption { margin: 8px 0 0; font-size: 0.95rem; text-align:center; }
+</style></head>
 <body>
-  <header style="text-align:center;padding:20px;background:#003366;color:#fff;">
-    <h1>Programming Level 3</h1>
-  </header>
-  <main style="padding:20px;text-align:center;">
-    <p>Content for Level 3 goes here.</p>
-  </main>
+<!-- Header -->
+<div class="header">
+<div class="container">
+<div class="header-bar">
+<a aria-label="Home" class="brand" href="../dashboard.html">
+<img alt="Logo" class="brand-logo" src="../logo.png"/>
+</a>
+<div class="header-main">
+<h1>Level 3: Iteration (Pseudocode)</h1>
+<p>A level Computer Science (9618): student notes, prepared by Dr. Hamdeni</p>
+</div>
+<a class="btn btn-home" href="../../dashboard.html">
+<svg aria-hidden="true" focusable="false" viewbox="0 0 24 24">
+<path d="M12 3l9 8h-3v9h-5v-6H11v6H6v-9H3l9-8z"></path>
+</svg>
+          Home
+        </a>
+</div>
+</div>
+</div>
+<main>
+<div class="container">
+<!-- Table of contents -->
+<nav class="toc">
+<h2>Contents</h2>
+<ol>
+<li><a href="#s30">What is Iteration?</a></li>
+<li><a href="#s31">1. FOR Loops (Count-Controlled)</a></li>
+<li><a href="#s32">2. WHILE Loops (Pre-Condition)</a></li>
+<li><a href="#s33">3. REPEAT-UNTIL Loops (Post-Condition)</a></li>
+<li><a href="#s34">4. Choosing the Most Appropriate Loop</a></li>
+</ol>
+</nav>
+<!-- What is Iteration? -->
+<div class="section" id="s30">
+<h2>What is Iteration?</h2>
+<ul class="bullets">
+<li><strong>Definition:</strong> Iteration repeats a set of instructions multiple times. It can be controlled by a counter, a condition checked before the loop, or a condition checked after the loop.</li>
+</ul>
+</div>
+<!-- 1. FOR Loops -->
+<div class="section" id="s31">
+<h2>1. FOR Loops (Count-Controlled Loop)</h2>
+<ul class="bullets">
+<li><strong>FOR loop:</strong> A count-controlled loop that runs a specific number of times, determined by a counter.</li>
+</ul>
+<div class="example">
+<div class="title"><strong>Example A -</strong> Basic FOR loop</div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment"><em>DECLARE i : INTEGER</em></span></div>
+<div class="pc-line"><span class="comment"><em>FOR i ← 1 TO 5</em></span></div>
+<div class="pc-line"><span class="comment"><em>    OUTPUT "This is iteration " &amp; i</em></span></div>
+<div class="pc-line"><span class="comment"><em>NEXT i</em></span></div>
+</div>
+</div>
+<p class="clarity-note">Use a FOR loop when you know the number of iterations in advance.</p>
+<div class="videos"><h3 class="subheading">Videos</h3><div class="video-row"><div class="example video video-card"><div class="title">FOR...TO...NEXT loop (count-controlled)</div><div class="media"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="True" height="315" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/p-dAzGO9aiM?start=0&amp;end=120" title="FOR...TO...NEXT loop (count-controlled)" width="560"></iframe></div><p class="video-caption">Defines the FOR...TO...NEXT structure and iterates a known number of times.</p></div></div></div></div>
+<!-- 2. WHILE Loops -->
+<div class="section" id="s32">
+<h2>2. WHILE Loops (Pre-Condition Loop)</h2>
+<ul class="bullets">
+<li><strong>WHILE loop:</strong> Checks its condition before each iteration and runs as long as the condition is TRUE.</li>
+</ul>
+<div class="example">
+<div class="title"><strong>Example A -</strong> Basic WHILE loop</div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment"><em>DECLARE count : INTEGER</em></span></div>
+<div class="pc-line"><span class="comment"><em>count ← 0</em></span></div>
+<div class="pc-line"><span class="comment"><em>WHILE count &lt; 5</em></span></div>
+<div class="pc-line"><span class="comment"><em>    OUTPUT "Count is " &amp; count</em></span></div>
+<div class="pc-line"><span class="comment"><em>    count ← count + 1</em></span></div>
+<div class="pc-line"><span class="comment"><em>ENDWHILE</em></span></div>
+</div>
+</div>
+<p class="clarity-note">Use a WHILE loop when you do not know the exact number of iterations in advance.</p>
+<div class="videos"><h3 class="subheading">Videos</h3><div class="video-row"><div class="example video video-card"><div class="title">WHILE loop (pre-condition)</div><div class="media"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="True" height="315" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/HUmHi7_A_8M?start=0&amp;end=110" title="WHILE loop (pre-condition)" width="560"></iframe></div><p class="video-caption">Checks the condition before each iteration; runs while the condition is TRUE.</p></div></div></div></div>
+<!-- 3. REPEAT-UNTIL Loops -->
+<div class="section" id="s33">
+<h2>3. REPEAT-UNTIL Loops (Post-Condition Loop)</h2>
+<ul class="bullets">
+<li><strong>REPEAT-UNTIL loop:</strong> Checks the condition after each iteration, so the loop body runs at least once.</li>
+</ul>
+<div class="example">
+<div class="title"><strong>Example A -</strong> Basic REPEAT-UNTIL loop</div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment"><em>DECLARE count : INTEGER</em></span></div>
+<div class="pc-line"><span class="comment"><em>count ← 0</em></span></div>
+<div class="pc-line"><span class="comment"><em>REPEAT</em></span></div>
+<div class="pc-line"><span class="comment"><em>    OUTPUT "Count is " &amp; count</em></span></div>
+<div class="pc-line"><span class="comment"><em>    count ← count + 1</em></span></div>
+<div class="pc-line"><span class="comment"><em>UNTIL count = 5</em></span></div>
+</div>
+</div>
+<p class="clarity-note">In REPEAT-UNTIL, the loop continues until the condition becomes TRUE.</p>
+<div class="videos"><h3 class="subheading">Videos</h3><div class="video-row"><div class="example video video-card"><div class="title">REPEAT-UNTIL loop (post-condition)</div><div class="media"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="True" height="315" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/tTL1Yr2b9Zg?start=0&amp;end=100" title="REPEAT-UNTIL loop (post-condition)" width="560"></iframe></div><p class="video-caption">Runs the body at least once, then repeats until the condition is TRUE.</p></div></div></div></div>
+<!-- 4. Choosing the most appropriate Loop -->
+<div class="section" id="s34">
+<h2>4. Choosing the Most Appropriate Loop</h2>
+<ul class="bullets">
+<li><strong>FOR:</strong> When the number of iterations is known beforehand.</li>
+<li><strong>WHILE:</strong> When the number of iterations depends on a condition checked before each iteration.</li>
+<li><strong>REPEAT-UNTIL:</strong> When the loop must run at least once and the stopping condition is checked after each iteration.</li>
+</ul>
+</div>
+<p style="text-align:center; margin:20px 0;">
+<a class="btn btn-cta" href="./exercises3.html">Go to Exercises</a>
+</p>
+<div class="footer">
+        © 2025 Dr. Hamdeni. All rights reserved.
+      </div>
+</div>
+</main>
 </body>
 </html>

@@ -1,17 +1,194 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Level 5</title>
-  <link rel="stylesheet" href="../dashboard.css" />
-<script defer src="/assets/js/paste-guard.js"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Level 5: Strings (Pseudocode)</title>
+<link href="../levels.css" rel="stylesheet"/>
+<script defer="" src="/assets/js/paste-guard.js"></script>
+<style>
+    .clarity-note { 
+      margin: 8px 0 12px; 
+      padding: 8px 12px; 
+      background: #f7fbff; 
+      border-left: 3px solid #1e88e5; 
+      border-radius: 4px; 
+      font-size: 0.97rem;
+    }
+    .example { margin: 14px 0; padding: 12px; border: 1px solid #e5e5e5; border-radius: 8px; background: #fff; }
+    .example .title { font-weight: 600; margin-bottom: 8px; }
+    .pseudocode .pc-line { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace; }
+    .pseudocode .pc-line + .pc-line { margin-top: 4px; }
+    .pseudocode em { font-style: normal; }
+    .bullets { margin: 8px 0 12px; }
+    .bullets li { margin: 4px 0; }
+    code { background: #f6f8fa; padding: 0 4px; border-radius: 4px; }
+
+    /* Videos: centered, responsive 16:9 */
+    .videos { margin: 24px 0 8px; }
+    .videos .subheading { margin: 0 0 12px; font-size: 1.1rem; line-height: 1.3; text-align:center; }
+    .video-row { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
+    .example.video.video-card { background: #ffffff; border: 1px solid #e5e5e5; border-radius: 8px; padding: 12px; max-width: 640px; }
+    .example.video.video-card .media { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 8px; overflow: hidden; }
+    .example.video.video-card .media iframe { position: absolute; inset: 0; width: 100% !important; height: 100% !important; display: block; }
+    .video-caption { margin: 8px 0 0; font-size: 0.95rem; text-align:center; }
+  </style>
 </head>
 <body>
-  <header style="text-align:center;padding:20px;background:#003366;color:#fff;">
-    <h1>Programming Level 5</h1>
-  </header>
-  <main style="padding:20px;text-align:center;">
-    <p>Content for Level 5 goes here.</p>
-  </main>
+<div class="header">
+<div class="container">
+<div class="header-bar">
+<a aria-label="Home" class="brand" href="../dashboard.html">
+<img alt="Logo" class="brand-logo" src="../logo.png"/>
+</a>
+<div class="header-main">
+<h1>Level 5: Strings (Pseudocode)</h1>
+<p>A level Computer Science (9618): student notes, prepared by Dr. Hamdeni</p>
+</div>
+<a class="btn btn-home" href="../../dashboard.html">
+<svg aria-hidden="true" focusable="false" viewbox="0 0 24 24">
+<path d="M12 3l9 8h-3v9h-5v-6H11v6H6v-9H3l9-8z"></path>
+</svg>
+          Home
+        </a>
+</div>
+</div>
+</div>
+<main>
+<div class="container">
+<nav class="toc">
+<h2>Contents</h2>
+<ol>
+<li><a href="#s50">Introduction to Strings</a></li>
+<li><a href="#s51">Basic String Operations</a></li>
+<li><a href="#s52">String Manipulation Functions</a></li>
+</ol>
+</nav>
+<!-- Introduction -->
+<div class="section" id="s50">
+<h2>Introduction to Strings</h2>
+<ul class="bullets">
+<li><strong>Definition:</strong> A string is a sequence of characters that can be manipulated using built‑in functions.</li>
+<li><strong>Example:</strong> <code>"Hello World"</code> has 11 characters (including the space).</li>
+</ul>
+<p class="clarity-note">These notes follow the Cambridge 9618 style. For substring positions, <strong>indexing starts at 1</strong> unless stated otherwise.</p>
+</div>
+<!-- Basic operations -->
+<div class="section" id="s51">
+<h2>Basic String Operations</h2>
+<ul class="bullets">
+<li><strong>Concatenation:</strong> join strings with <code>&amp;</code>. Example: <code>"Hello" &amp; " " &amp; "World"</code> gives <code>"Hello World"</code>.</li>
+<li><strong>Comparisons:</strong> use relational operators <code>=</code>, <code>&lt;&gt;</code> (not equal), <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code> to compare strings.</li>
+</ul>
+<div class="example">
+<div class="title"><strong>Example A -</strong> Concatenation &amp; comparison</div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment"><em>DECLARE s1, s2 : STRING</em></span></div>
+<div class="pc-line"><span class="comment"><em>s1 ← "Hello"</em></span></div>
+<div class="pc-line"><span class="comment"><em>s2 ← "World"</em></span></div>
+<div class="pc-line"><span class="comment"><em>OUTPUT s1 &amp; " " &amp; s2          // "Hello World"</em></span></div>
+<div class="pc-line"><span class="comment"><em>OUTPUT ("Hi" = "Hi")              // TRUE</em></span></div>
+<div class="pc-line"><span class="comment"><em>OUTPUT ("AB" &lt;&gt; "BA")           // TRUE</em></span></div>
+</div>
+</div>
+<div class="videos"><h3 class="subheading">Videos</h3><div class="video-row"><div class="example video video-card"><div class="title">String concatenation and equality/inequality</div><div class="media"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="True" height="315" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/_iq66tp736M?start=0&amp;end=100" title="Concatenation and comparing strings" width="560"></iframe></div><p class="video-caption">Joins strings with &amp; and compares strings using = and &lt;&gt; only.</p></div></div></div></div>
+<!-- String manipulation functions -->
+<div class="section" id="s52">
+<h2>String Manipulation Functions</h2>
+<p class="clarity-note">Function signatures and examples follow the Cambridge 9618 pseudocode reference.</p>
+<div class="example">
+<div class="title"><strong>LEFT(ThisString : STRING, x : INTEGER) RETURNS STRING</strong></div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment"><em>Returns the leftmost x characters from ThisString.</em></span></div>
+<div class="pc-line"><span class="comment"><em>Example: LEFT("ABCDEFGH", 3) returns "ABC"</em></span></div>
+</div>
+</div>
+<div class="example">
+<div class="title"><strong>RIGHT(ThisString : STRING, x : INTEGER) RETURNS STRING</strong></div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment"><em>Returns the rightmost x characters from ThisString.</em></span></div>
+<div class="pc-line"><span class="comment"><em>Example: RIGHT("ABCDEFGH", 3) returns "FGH"</em></span></div>
+</div>
+</div>
+<div class="example">
+<div class="title"><strong>MID(ThisString : STRING, x : INTEGER, y : INTEGER) RETURNS STRING</strong></div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment"><em>Returns a string of length y starting at position x from ThisString.</em></span></div>
+<div class="pc-line"><span class="comment"><em>Example: MID("ABCDEFGH", 2, 3) returns "BCD"</em></span></div>
+</div>
+</div>
+<div class="example">
+<div class="title"><strong>LENGTH(ThisString : STRING) RETURNS INTEGER</strong></div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment"><em>Returns the number of characters in ThisString.</em></span></div>
+<div class="pc-line"><span class="comment"><em>Example: LENGTH("Happy Days") returns 10</em></span></div>
+</div>
+</div>
+<div class="example">
+<div class="title"><strong>TO_UPPER(x : &lt;datatype&gt;) RETURNS &lt;datatype&gt;</strong></div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment"><em>&lt;datatype&gt; may be CHAR or STRING.</em></span></div>
+<div class="pc-line"><span class="comment"><em>Converts all characters of x to upper case; returns the same type as the input.</em></span></div>
+<div class="pc-line"><span class="comment"><em>Examples: TO_UPPER("Error 803") → "ERROR 803"; TO_UPPER('a') → 'A'</em></span></div>
+</div>
+</div>
+<div class="example">
+<div class="title"><strong>TO_LOWER(x : &lt;datatype&gt;) RETURNS &lt;datatype&gt;</strong></div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment"><em>&lt;datatype&gt; may be CHAR or STRING.</em></span></div>
+<div class="pc-line"><span class="comment"><em>Converts all characters of x to lower case; returns the same type as the input.</em></span></div>
+<div class="pc-line"><span class="comment"><em>Examples: TO_LOWER("JIM 803") → "jim 803"; TO_LOWER('W') → 'w'</em></span></div>
+</div>
+</div>
+<div class="example">
+<div class="title"><strong>NUM_TO_STR(x : &lt;datatype1&gt;) RETURNS &lt;datatype2&gt;</strong></div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment"><em>Returns a string representation of a numeric value.</em></span></div>
+<div class="pc-line"><span class="comment"><em>&lt;datatype1&gt; may be REAL or INTEGER; &lt;datatype2&gt; may be CHAR or STRING.</em></span></div>
+<div class="pc-line"><span class="comment"><em>If x is negative, the returned value begins with the '-' character.</em></span></div>
+<div class="pc-line"><span class="comment"><em>Example: NUM_TO_STR(87.5) → "87.5"</em></span></div>
+</div>
+</div>
+<div class="example">
+<div class="title"><strong>STR_TO_NUM(x : &lt;datatype1&gt;) RETURNS &lt;datatype2&gt;</strong></div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment"><em>Returns a numeric representation of a string.</em></span></div>
+<div class="pc-line"><span class="comment"><em>&lt;datatype1&gt; may be CHAR or STRING; &lt;datatype2&gt; may be REAL or INTEGER.</em></span></div>
+<div class="pc-line"><span class="comment"><em>Example: STR_TO_NUM("23.45") → 23.45</em></span></div>
+<div class="pc-line"><span class="comment"><em>If the string begins with '-', the returned value will be negative.</em></span></div>
+</div>
+</div>
+<div class="example">
+<div class="title"><strong>IS_NUM(ThisString : &lt;datatype&gt;) RETURNS BOOLEAN</strong></div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment"><em>Returns TRUE if ThisString represents a valid numeric value.</em></span></div>
+<div class="pc-line"><span class="comment"><em>&lt;datatype&gt; may be CHAR or STRING.</em></span></div>
+<div class="pc-line"><span class="comment"><em>Example: IS_NUM("-12.36") → TRUE</em></span></div>
+</div>
+</div>
+<div class="example">
+<div class="title"><strong>ASC(ThisChar : CHAR) RETURNS INTEGER</strong></div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment"><em>Returns the integer (ASCII) value of character ThisChar.</em></span></div>
+<div class="pc-line"><span class="comment"><em>Example: ASC('A') → 65; ASC('B') → 66</em></span></div>
+</div>
+</div>
+<div class="example">
+<div class="title"><strong>CHR(x : INTEGER) RETURNS CHAR</strong></div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment"><em>Returns the character whose integer (ASCII) value is x.</em></span></div>
+<div class="pc-line"><span class="comment"><em>Example: CHR(65) → 'A'; CHR(66) → 'B'</em></span></div>
+</div>
+</div>
+</div>
+<p style="text-align:center; margin:20px 0;">
+<a class="btn btn-cta" href="./exercises5.html">Go to Exercises</a>
+</p>
+<div class="footer">
+        © 2025 Dr. Hamdeni. All rights reserved.
+      </div>
+</div>
+</main>
 </body>
 </html>

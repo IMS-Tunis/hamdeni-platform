@@ -1,17 +1,198 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Level 2</title>
-  <link rel="stylesheet" href="../dashboard.css" />
-<script defer src="/assets/js/paste-guard.js"></script>
-</head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Level 2: Control Structures (Pseudocode)</title>
+<link href="../levels.css" rel="stylesheet"/>
+<script defer="" src="/assets/js/paste-guard.js"></script>
+<!-- Student clarity notes -->
+<style>
+    .clarity-note { 
+      margin: 8px 0 12px; 
+      padding: 8px 12px; 
+      background: #f7fbff; 
+      border-left: 3px solid #1e88e5; 
+      border-radius: 4px; 
+      font-size: 0.97rem;
+    }
+    /* Example/pseudocode blocks (consistent with earlier levels) */
+    .example { margin: 14px 0; padding: 12px; border: 1px solid #e5e5e5; border-radius: 8px; background: #fff; }
+    .example .title { font-weight: 600; margin-bottom: 8px; }
+    .pseudocode .pc-line { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+    .pseudocode .pc-line + .pc-line { margin-top: 4px; }
+    .pseudocode em { font-style: normal; }
+    .bullets { margin: 8px 0 12px; }
+    .bullets li { margin: 4px 0; }
+  </style>
+<style>
+/* Student-ready video layout: centered, responsive */
+.videos { margin: 24px 0 8px; }
+.videos .subheading { margin: 0 0 12px; font-size: 1.1rem; line-height: 1.3; text-align: center; }
+.video-row { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
+.example.video.video-card { background: #ffffff; border: 1px solid #e5e5e5; border-radius: 8px; padding: 12px; max-width: 640px; }
+.example.video.video-card .media { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 8px; overflow: hidden; }
+.example.video.video-card .media iframe { position: absolute; inset: 0; width: 100% !important; height: 100% !important; display: block; }
+.video-caption { margin: 8px 0 0; font-size: 0.95rem; text-align: center; }
+</style></head>
 <body>
-  <header style="text-align:center;padding:20px;background:#003366;color:#fff;">
-    <h1>Programming Level 2</h1>
-  </header>
-  <main style="padding:20px;text-align:center;">
-    <p>Content for Level 2 goes here.</p>
-  </main>
+<!-- Header -->
+<div class="header">
+<div class="container">
+<div class="header-bar">
+<a aria-label="Home" class="brand" href="../dashboard.html">
+<img alt="Logo" class="brand-logo" src="../logo.png"/>
+</a>
+<div class="header-main">
+<h1>Level 2: Control Structures (Pseudocode)</h1>
+<p>A level Computer Science (9618): student notes, prepared by Dr. Hamdeni</p>
+</div>
+<a class="btn btn-home" href="../../dashboard.html">
+<svg aria-hidden="true" focusable="false" viewbox="0 0 24 24">
+<path d="M12 3l9 8h-3v9h-5v-6H11v6H6v-9H3l9-8z"></path>
+</svg>
+          Home
+        </a>
+</div>
+</div>
+</div>
+<main>
+<div class="container">
+<!-- Table of contents -->
+<nav class="toc">
+<h2>Contents</h2>
+<ol>
+<li><a href="#s21">2.1 Control Structures</a></li>
+<li><a href="#s22">2.2 IF Statements</a></li>
+<li><a href="#s23">2.3 Relational and Logical Operators</a></li>
+<li><a href="#s24">2.4 CASE Statements</a></li>
+</ol>
+</nav>
+<!-- 2.1 Control Structures -->
+<div class="section" id="s21">
+<h2>2.1 Control Structures</h2>
+<ul class="bullets">
+<li><strong>What are Control Structures?</strong> Control structures dictate the flow of a program. They enable decisions to be made based on conditions, allowing different parts of the algorithm to run depending on those conditions.</li>
+</ul>
+<div class="example">
+<div class="title"><strong>Example A -</strong> Simple decision flow</div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment" data-tooltip="Declare a variable to hold a value."><em>DECLARE flag : BOOLEAN</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Get a logical value from the user."><em>INPUT flag</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Run one of two branches depending on the condition."><em>IF flag = TRUE THEN</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Branch that runs when condition is true."><em>    OUTPUT "Condition is true."</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Alternative branch when condition is false."><em>ELSE</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Branch that runs when condition is false."><em>    OUTPUT "Condition is false."</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Close the IF structure."><em>ENDIF</em></span></div>
+</div>
+</div>
+<p class="clarity-note">Use clear indentation to show which lines belong to each branch. End each IF with <code>ENDIF</code>.</p>
+</div>
+<!-- 2.2 IF Statements -->
+<div class="section" id="s22">
+<h2>2.2 IF Statements</h2>
+<ul class="bullets">
+<li><strong>IF-THEN-ELSE:</strong> Run one block when a condition is true; otherwise run the alternative block after <code>ELSE</code>.</li>
+</ul>
+<div class="example">
+<div class="title"><strong>Example A -</strong> Basic IF-THEN-ELSE</div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment" data-tooltip="Declare an integer for age."><em>DECLARE age : INTEGER</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Read age."><em>INPUT age</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Check if the age is at least 18."><em>IF age &gt;= 18 THEN</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="True branch."><em>    OUTPUT "You are an adult."</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Alternative branch when condition is false."><em>ELSE</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="False branch."><em>    OUTPUT "You are not an adult."</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="End of IF structure."><em>ENDIF</em></span></div>
+</div>
+</div>
+<ul class="bullets">
+<li><strong>Nested IF:</strong> Put an IF inside another IF to handle multiple conditions step by step.</li>
+</ul>
+<div class="example">
+<div class="title"><strong>Example B -</strong> Nested IF</div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment" data-tooltip="Declare and read the number."><em>DECLARE number : INTEGER</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Get input from the user."><em>INPUT number</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="First condition: greater than zero?"><em>IF number &gt; 0 THEN</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Positive case."><em>    OUTPUT "The number is positive."</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Else branch contains another IF."><em>ELSE</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Second condition: less than zero?"><em>    IF number &lt; 0 THEN</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Negative case."><em>        OUTPUT "The number is negative."</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Otherwise, it must be zero."><em>    ELSE</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Zero case."><em>        OUTPUT "The number is zero."</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Close inner IF."><em>    ENDIF</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Close outer IF."><em>ENDIF</em></span></div>
+</div>
+</div>
+<p class="clarity-note">When nesting, align each <code>ENDIF</code> with its matching <code>IF</code> so the structure stays clear.</p>
+</div>
+<!-- 2.3 Relational and Logical Operators -->
+<div class="section" id="s23">
+<h2>2.3 Relational and Logical Operators</h2>
+<ul class="bullets">
+<li><strong>Relational operators:</strong> compare two values and produce TRUE or FALSE.</li>
+</ul>
+<div class="example">
+<div class="title"><strong>Example A -</strong> Relational operators list</div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment"><em>&gt;   // greater than</em></span></div>
+<div class="pc-line"><span class="comment"><em>&lt;   // less than</em></span></div>
+<div class="pc-line"><span class="comment"><em>&gt;=  // greater than or equal to</em></span></div>
+<div class="pc-line"><span class="comment"><em>&lt;=  // less than or equal to</em></span></div>
+<div class="pc-line"><span class="comment"><em>=   // equal to</em></span></div>
+<div class="pc-line"><span class="comment"><em>&lt;&gt; // not equal to</em></span></div>
+</div>
+</div>
+<ul class="bullets">
+<li><strong>Logical operators:</strong> combine conditions.</li>
+</ul>
+<div class="example">
+<div class="title"><strong>Example B -</strong> Using logical operators</div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment" data-tooltip="Declare the inputs."><em>DECLARE age : INTEGER</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Boolean indicating if the person has a license."><em>DECLARE hasLicense : BOOLEAN</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Read both values."><em>INPUT age</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Read a logical value (TRUE/FALSE)."><em>INPUT hasLicense</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Both conditions must be TRUE for the IF to run."><em>IF age &gt;= 18 AND hasLicense THEN</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Eligible when both are TRUE."><em>    OUTPUT "You are eligible to drive."</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Otherwise not eligible."><em>ELSE</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Alternative output."><em>    OUTPUT "You are not eligible to drive."</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Close IF."><em>ENDIF</em></span></div>
+</div>
+</div>
+<p class="clarity-note"><code>AND</code> needs all conditions TRUE. <code>OR</code> needs at least one TRUE. <code>NOT</code> flips TRUE to FALSE and vice versa.</p>
+<div class="videos"><h3 class="subheading">Videos</h3><div class="video-row"><div class="example video video-card"><div class="title">Boolean AND/OR in pseudocode</div><div class="media"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="True" height="315" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/FNRzIM6AN9A?start=0&amp;end=100" title="Boolean AND/OR in pseudocode" width="560"></iframe></div><p class="video-caption">Shows how AND and OR combine conditions in IF statements.</p></div></div></div></div>
+<!-- 2.4 CASE Statements -->
+<div class="section" id="s24">
+<h2>2.4 CASE Statements</h2>
+<ul class="bullets">
+<li><strong>CASE:</strong> choose one action from several options based on a single expression.</li>
+</ul>
+<div class="example">
+<div class="title"><strong>Example A -</strong> CASE on a grade</div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment" data-tooltip="Single character for grade."><em>DECLARE grade : CHAR</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Read grade."><em>INPUT grade</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Start CASE using the value of grade."><em>CASE OF grade</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Match value 'A'."><em>    'A' : OUTPUT "Excellent"</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Match value 'B'."><em>    'B' : OUTPUT "Good"</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Match value 'C'."><em>    'C' : OUTPUT "Fair"</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Match value 'D'."><em>    'D' : OUTPUT "Poor"</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Default case when none of the above match."><em>    OTHERWISE : OUTPUT "Fail"</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="End of CASE structure."><em>ENDCASE</em></span></div>
+</div>
+</div>
+<p class="clarity-note">In a CASE, only the matching branch runs. Use <code>OTHERWISE</code> to handle any value that does not match a listed case.</p>
+<div class="videos"><h3 class="subheading">Videos</h3><div class="video-row"><div class="example video video-card"><div class="title">CASE statement in pseudocode</div><div class="media"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="True" height="315" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/-OyHmevJzV8?start=0&amp;end=110" title="CASE statement in pseudocode" width="560"></iframe></div><p class="video-caption">Demonstrates CASE, options, and OTHERWISE; ends at basics.</p></div></div></div></div>
+<p style="text-align:center; margin:20px 0;">
+<a class="btn btn-cta" href="./exercises2.html">Go to Exercises</a>
+</p>
+<div class="footer">
+        © 2025 Dr. Hamdeni. All rights reserved.
+      </div>
+</div>
+</main>
 </body>
 </html>

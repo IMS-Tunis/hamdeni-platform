@@ -1,0 +1,173 @@
+<!-- index.html (updated: top guidance in old grey style, not inside a question card) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>	Level 1: Basic Constructs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../exercises.css" />
+<script defer src="/assets/js/paste-guard.js"></script>
+</head>
+<body>
+
+<aside class="sidebar" aria-label="Exercise navigation">
+  <!-- Top category: logo + header -->
+  <div class="sidebar-top">
+    <img src="../logo.png" alt="Logo" class="brand-img" width="220">
+    <h2 class="sidebar-title">Level 1</h2>
+    <p class="sidebar-subtitle">Basic Constructs</p>
+  </div>
+
+  <!-- Bottom category: exercises + controls -->
+  <div class="sidebar-nav">
+    <nav class="nav" id="nav"></nav>
+
+    <div class="sidebar-footer">
+      <button id="expandAll" class="btn ghost">Show all mark schemes</button>
+      <button id="collapseAll" class="btn ghost">Hide all mark schemes</button>
+    </div>
+  </div>
+</aside>
+
+
+
+
+
+  <main class="content">
+    <!-- Guidance moved to the beginning, using the same grey footer-style block -->
+	
+
+<div class="content-section">
+    <section class="footer" aria-label="Instructions" style="margin:0;">
+        <h2 style="margin:0 0 8px 0; font-size:1.05rem; font-weight:700;">Before you start</h2>
+        <ul style="margin:0; padding-left:2rem; font-size:small">
+            <li>Work through the exercises. Reveal the mark scheme when you are ready to check your answer.</li>
+            <li>The teacher is available to explain any exercises you did not understand.</li>
+            <li>When you are ready, inform the teacher to sit for the level pass test and unlock the next level.</li>
+        </ul>
+    </section>
+
+    <div class="button-container">
+        <a href="../dashboard.html" class="nav-button btn-outlined btn-home-outlined">🏠 Home</a>
+		<a href="level1.html" class="nav-button btn-outlined btn-theory-outlined">📚 Theory Notes</a>
+    </div>
+</div>
+	
+	
+    <!-- Exercises render here -->
+    <section id="pointsContainer" class="points-container" aria-live="polite"></section>
+
+    <!-- Action buttons at end of page -->
+    <footer class="footer" style="display:flex;gap:12px;align-items:center;">
+      <button class="btn" type="button">I need help</button>
+      <button class="btn" type="button">I'm ready for the test</button>
+    </footer>
+  </main>
+
+  <!-- Embedded JSON (MCQ formatted; CASE use explicit; expanded explanations) -->
+  <script id="data" type="application/json">
+{
+"data": [
+{
+"point_id": "LEVEL_PSEUDOCODE_BASICS",
+"items": [
+{
+"question": "Declaring Variables",
+"question_self_contained": "Task: Declare three variables: studentAge as an INTEGER, studentName as a STRING, and averageGrade as a REAL.",
+"mark_scheme_answer": "DECLARE studentAge : INTEGER\nDECLARE studentName : STRING\nDECLARE averageGrade : REAL",
+"explanation": "We declare variables by giving them names and types. INTEGER stores whole numbers, STRING stores text, and REAL stores decimal values. Declaring reserves space and tells us what type of data will be held."
+},
+{
+"question": "Assigning Values",
+"question_self_contained": "Task: Assign the following values: studentAge to 18, studentName to \"John\", and averageGrade to 85.5.",
+"mark_scheme_answer": "studentAge \u2190 18\nstudentName \u2190 \"John\"\naverageGrade \u2190 85.5",
+"explanation": "The arrow symbol (\u2190) means assignment in pseudocode. We put the value on the right into the variable on the left. Here studentAge gets the whole number 18, studentName gets the text \"John\", and averageGrade gets the decimal 85.5."
+},
+{
+"question": "Simple Arithmetic",
+"question_self_contained": "Task: Declare two variables x and y as INTEGER. Assign x to 17 and y to 4. Calculate and display their sum, difference, product, real division, integer division, and modulus.",
+"mark_scheme_answer": "DECLARE x : INTEGER\nDECLARE y : INTEGER\nDECLARE sum : INTEGER\nDECLARE difference : INTEGER\nDECLARE product : INTEGER\nDECLARE quotientReal : REAL\nDECLARE quotientInteger : INTEGER\nDECLARE remainder : INTEGER\n\nx \u2190 17\ny \u2190 4\n\nsum \u2190 x + y\ndifference \u2190 x - y\nproduct \u2190 x * y\nquotientReal \u2190 x / y\nquotientInteger \u2190 x DIV y\nremainder \u2190 x MOD y\n\nOUTPUT \"Sum is \" & sum\nOUTPUT \"Difference: \" & difference\nOUTPUT \"Product: \" & product\nOUTPUT \"The Real Division: \" & quotientReal\nOUTPUT \"Integer Division: \" & quotientInteger\nOUTPUT \"Remainder: \" & remainder",
+"explanation": "We declare all needed variables. Assign x = 17, y = 4. Then compute using operators: + for addition, - for subtraction, * for multiplication, / for real division (decimal result), DIV for integer division (whole number result), and MOD for remainder. OUTPUT joins text and numbers with &."
+},
+{
+"question": "Input and Output",
+"question_self_contained": "Task: Write pseudocode to ask the user for their name and favorite number, and then display a message saying \"Hello, [name]. Your favorite number is [number].\"",
+"mark_scheme_answer": "DECLARE name : STRING\nDECLARE favoriteNumber : INTEGER\n\nOUTPUT \"What is your name?\"\nINPUT name\n\nOUTPUT \"What is your favourite number?\"\nINPUT favoriteNumber\n\nOUTPUT \"Hello, \" & name & ". Your favorite number is \" & favoriteNumber & "."",
+"explanation": "We declare variables for text and number. OUTPUT shows a question. INPUT waits for the user to type a value and stores it. At the end we OUTPUT a combined message using & to join text and variable values."
+},
+{
+"question": "Calculating Averages",
+"question_self_contained": "Task: Write pseudocode that asks the user for two test scores, calculates the average, and displays it.",
+"mark_scheme_answer": "DECLARE score1 : REAL\nDECLARE score2 : REAL\nDECLARE average : REAL\n\nINPUT score1\nINPUT score2\n\naverage \u2190 (score1 + score2) / 2\n\nOUTPUT \"The average score is \" & average",
+"explanation": "We read two decimal numbers from the user. Add them and divide by 2 to get the average. Store it in average and then OUTPUT the result with a clear message."
+},
+{
+"question": "Calculating Compound Interest",
+"question_self_contained": "Task: Write pseudocode to calculate the compound interest on a principal amount.\nThe formula is: A = P \u00d7 (1 + r/100)^n where:\n- P is the principal amount (REAL)\n- r is the annual interest rate (REAL)\n- n is the number of years (INTEGER)\n- A is the final amount after interest (REAL)",
+"mark_scheme_answer": "DECLARE P : REAL\nDECLARE r : REAL\nDECLARE n : INTEGER\nDECLARE A : REAL\n\nINPUT P\nINPUT r\nINPUT n\n\nA \u2190 P * (1 + r / 100) ^ n\n\nOUTPUT \"The final amount after interest is \" & A",
+"explanation": "We declare variables for principal, rate, years, and result. INPUT gets values from the user. The formula multiplies P by (1 + r/100) raised to the power of n. The ^ symbol means exponentiation. OUTPUT shows the final amount."
+},
+{
+"question": "Calculating Distance",
+"question_self_contained": "Task: Write pseudocode to calculate the distance between two points (x1, y1) and (x2, y2) using the formula:\nd = \u221a((x2 - x1)^2 + (y2 - y1)^2)",
+"mark_scheme_answer": "DECLARE x1 : REAL\nDECLARE y1 : REAL\nDECLARE x2 : REAL\nDECLARE y2 : REAL\nDECLARE distance : REAL\n\nINPUT x1\nINPUT y1\nINPUT x2\nINPUT y2\n\ndistance \u2190 ((x2 - x1) ^ 2 + (y2 - y1) ^ 2) ^ 0.5\n\nOUTPUT \"The distance between the two points is \" & distance",
+"explanation": "We read coordinates as decimals. Subtract x2 - x1 and y2 - y1, square them (^2), add, then take the square root (^0.5). Store in distance and OUTPUT the result."
+},
+{
+"question": "Comprehensive User Data and Score Processing",
+"question_self_contained": "Task: Write a pseudocode program that performs the following tasks:\n1. Declare variables to store a user's name as a sequence of characters, age as a whole number, and two test scores as decimal numbers. Use appropriate identifiers.\n2. Ask the user for their name, age, and the two test scores.\n3. Calculate the total and average of the two test scores.\n4. Calculate the integer division and modulus of the two test scores.\n5. Output the user's name, total score, average score, integer division result, and modulus result.",
+"mark_scheme_answer": "DECLARE name : STRING\nDECLARE age : INTEGER\nDECLARE score1 : REAL\nDECLARE score2 : REAL\nDECLARE totalScore : REAL\nDECLARE averageScore : REAL\nDECLARE integerDivisionResult : INTEGER\nDECLARE modulusResult : INTEGER\n\nOUTPUT \"Name: \"\nINPUT name\nOUTPUT \"Age: \"\nINPUT age\nOUTPUT \"Score1: \"\nINPUT score1\nOUTPUT \"Score2: \"\nINPUT score2\n\ntotalScore \u2190 score1 + score2\naverageScore \u2190 totalScore / 2\n\nintegerDivisionResult \u2190 totalScore DIV age\nmodulusResult \u2190 totalScore MOD age\n\nOUTPUT \"Name: \" & name\nOUTPUT \"Total Score: \" & totalScore\nOUTPUT \"Average Score: \" & averageScore\nOUTPUT \"Integer Division of Total Score by Age: \" & integerDivisionResult\nOUTPUT \"Modulus of Total Score by Age: \" & modulusResult",
+"explanation": "We declare variables with correct types. INPUT collects the user's name, age, and two scores. totalScore adds the two scores, and averageScore divides by 2. DIV finds how many times age fits fully into totalScore, MOD gives the remainder. OUTPUT displays all results clearly joined with text."
+}
+]
+}
+]
+}
+
+
+  </script>
+
+<!-- APPEND: Mock Test modal -->
+<div id="mockTestModal" class="mock-modal" aria-hidden="true" role="dialog" aria-labelledby="mockTestTitle">
+  <div class="mock-modal-card">
+    <div class="mock-modal-header">
+      <h3 id="mockTestTitle" style="margin:0;">Mock Test</h3>
+      <button class="mock-close" id="closeMockTest" aria-label="Close">×</button>
+    </div>
+    <div class="mock-modal-body">
+      <!-- JSON will populate this code block with the question -->
+      <div class="mock-code" aria-label="Pseudocode"></div>
+
+      <div id="mockTestAnswer" class="mock-hidden" aria-live="polite">
+        <h4 style="margin:16px 0 8px 0;">Answer</h4>
+        <div class="mock-code"></div>
+        <p></p>
+      </div>
+    </div>
+    <div class="mock-modal-actions footer">
+      <button class="btn" id="toggleMockAnswer" type="button" aria-expanded="false" aria-controls="mockTestAnswer">Show answer</button>
+      <button class="btn ghost" id="dismissMockTest" type="button">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- APPEND: mock test JSON payload -->
+<script id="mockTestData" type="application/json">
+{
+  "mock_test": {
+    "title": "Mock Test - Level 1 Capstone",
+    "question": "Task: Write a complete Python script that follows these requirements:\n1) Print exactly Welcome to Python Level 1.\n2) Create variables with these exact names and values: course_title = \"Intro to Python\", weeks = 6, fee = 199.99, is_open = True.\n3) Add at least two comment lines describing the program.\n4) Print all variable values on separate lines with clear labels.",
+    "question_self_contained": "Task: Write a complete Python script that follows these requirements:\n1) Print exactly Welcome to Python Level 1.\n2) Create variables with these exact names and values: course_title = \"Intro to Python\", weeks = 6, fee = 199.99, is_open = True.\n3) Add at least two comment lines describing the program.\n4) Print all variable values on separate lines with clear labels.",
+    "mark_scheme_answer": "# Level 1 capstone demonstration\n# Prints a welcome message, defines variables, and prints them.\n\nprint(\"Welcome to Python Level 1\")\n\ncourse_title = \"Intro to Python\"\nweeks = 6\nfee = 199.99\nis_open = True\n\nprint(\"Course title:\", course_title)\nprint(\"Weeks:\", weeks)\nprint(\"Fee:\", fee)\nprint(\"Is open:\", is_open)",
+    "explanation": "This capstone integrates printing, variables of four basic types, comments, and labeled output."
+  }
+}
+
+
+</script>
+  <script src="../exercises.js"></script>
+</body>
+</html>

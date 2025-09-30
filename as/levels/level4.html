@@ -1,17 +1,224 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Level 4</title>
-  <link rel="stylesheet" href="../dashboard.css" />
-<script defer src="/assets/js/paste-guard.js"></script>
-</head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Level 4: Arrays and Records (Pseudocode)</title>
+<link href="../levels.css" rel="stylesheet"/>
+<script defer="" src="/assets/js/paste-guard.js"></script>
+<!-- Student clarity notes -->
+<style>
+    .clarity-note { 
+      margin: 8px 0 12px; 
+      padding: 8px 12px; 
+      background: #f7fbff; 
+      border-left: 3px solid #1e88e5; 
+      border-radius: 4px; 
+      font-size: 0.97rem;
+    }
+    /* Example/pseudocode blocks */
+    .example { margin: 14px 0; padding: 12px; border: 1px solid #e5e5e5; border-radius: 8px; background: #fff; }
+    .example .title { font-weight: 600; margin-bottom: 8px; }
+    .pseudocode .pc-line { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+    .pseudocode .pc-line + .pc-line { margin-top: 4px; }
+    .pseudocode em { font-style: normal; }
+    .bullets { margin: 8px 0 12px; }
+    .bullets li { margin: 4px 0; }
+  </style>
+<style>
+/* Videos: centered, responsive 16:9 */
+.videos { margin: 24px 0 8px; }
+.videos .subheading { margin: 0 0 12px; font-size: 1.1rem; line-height: 1.3; text-align:center; }
+.video-row { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
+.example.video.video-card { background: #ffffff; border: 1px solid #e5e5e5; border-radius: 8px; padding: 12px; max-width: 640px; }
+.example.video.video-card .media { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 8px; overflow: hidden; }
+.example.video.video-card .media iframe { position: absolute; inset: 0; width: 100% !important; height: 100% !important; display: block; }
+.video-caption { margin: 8px 0 0; font-size: 0.95rem; text-align:center; }
+</style></head>
 <body>
-  <header style="text-align:center;padding:20px;background:#003366;color:#fff;">
-    <h1>Programming Level 4</h1>
-  </header>
-  <main style="padding:20px;text-align:center;">
-    <p>Content for Level 4 goes here.</p>
-  </main>
+<!-- Header -->
+<div class="header">
+<div class="container">
+<div class="header-bar">
+<a aria-label="Home" class="brand" href="../dashboard.html">
+<img alt="Logo" class="brand-logo" src="../logo.png"/>
+</a>
+<div class="header-main">
+<h1>Level 4: Arrays and Records (Pseudocode)</h1>
+<p>A level Computer Science (9618): student notes, prepared by Dr. Hamdeni</p>
+</div>
+<a class="btn btn-home" href="../../dashboard.html">
+<svg aria-hidden="true" focusable="false" viewbox="0 0 24 24">
+<path d="M12 3l9 8h-3v9h-5v-6H11v6H6v-9H3l9-8z"></path>
+</svg>
+          Home
+        </a>
+</div>
+</div>
+</div>
+<main>
+<div class="container">
+<!-- Table of contents -->
+<nav class="toc">
+<h2>Contents</h2>
+<ol>
+<li><a href="#s40">What is an Array?</a></li>
+<li><a href="#s41">1. Declaring and Initializing Arrays</a></li>
+<li><a href="#s42">2. Accessing and Modifying Array Elements</a></li>
+<li><a href="#s43">3. Looping Through Arrays</a></li>
+<li><a href="#s44">4. Records</a></li>
+</ol>
+</nav>
+<!-- What is an Array? -->
+<div class="section" id="s40">
+<h2>What is an Array?</h2>
+<ul class="bullets">
+<li><strong>Definition:</strong> An array is a collection of elements of the same data type, stored under one name. Each element is accessed using an index.</li>
+<li><strong>1D array:</strong> A simple list of elements accessed by a single index.</li>
+<li><strong>2D array:</strong> A table-like structure accessed by two indices: row and column.</li>
+<li><strong>Why use arrays?</strong> Arrays store and manage related data, such as a list of numbers or names.</li>
+</ul>
+<p class="clarity-note">In these notes, arrays are <strong>0-based</strong>: the first element has index 0.</p>
+</div>
+<!-- 1. Declaring and Initializing Arrays -->
+<div class="section" id="s41">
+<h2>1. Declaring and Initializing Arrays</h2>
+<ul class="bullets">
+<li><strong>Declare a 1D array:</strong> set the index range and element type.</li>
+</ul>
+<div class="example">
+<div class="title"><strong>Example A -</strong> Declare a 1D array</div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment" data-tooltip="Five integers, indexed 0..4."><em>DECLARE numbers : ARRAY [0:4] OF INTEGER</em></span></div>
+</div>
+</div>
+<ul class="bullets">
+<li><strong>Declare a 2D array:</strong> specify row and column index ranges and the element type.</li>
+</ul>
+<div class="example">
+<div class="title"><strong>Example B -</strong> Declare a 2D array</div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment" data-tooltip="A 3×3 grid of integers, indexed [0..2, 0..2]."><em>DECLARE matrix : ARRAY [0:2, 0:2] OF INTEGER</em></span></div>
+</div>
+</div>
+<ul class="bullets">
+<li><strong>Initialize arrays:</strong> assign values to elements by index.</li>
+</ul>
+<div class="example">
+<div class="title"><strong>Example C -</strong> Initialize a 1D array</div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment"><em>numbers[0] ← 10</em></span></div>
+<div class="pc-line"><span class="comment"><em>numbers[1] ← 20</em></span></div>
+<div class="pc-line"><span class="comment"><em>numbers[2] ← 30</em></span></div>
+<div class="pc-line"><span class="comment"><em>numbers[3] ← 40</em></span></div>
+<div class="pc-line"><span class="comment"><em>numbers[4] ← 52</em></span></div>
+</div>
+</div>
+<div class="example">
+<div class="title"><strong>Example D -</strong> Initialize a 2D array</div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment"><em>matrix[0, 0] ← 1</em></span></div>
+<div class="pc-line"><span class="comment"><em>matrix[0, 1] ← 2</em></span></div>
+<div class="pc-line"><span class="comment"><em>matrix[0, 2] ← 3</em></span></div>
+<div class="pc-line"><span class="comment"><em>matrix[1, 0] ← 4</em></span></div>
+<div class="pc-line"><span class="comment"><em>matrix[1, 1] ← 5</em></span></div>
+<div class="pc-line"><span class="comment"><em>matrix[1, 2] ← 6</em></span></div>
+<div class="pc-line"><span class="comment"><em>matrix[2, 0] ← 7</em></span></div>
+<div class="pc-line"><span class="comment"><em>matrix[2, 1] ← 8</em></span></div>
+<div class="pc-line"><span class="comment"><em>matrix[2, 2] ← 9</em></span></div>
+</div>
+</div>
+<p class="clarity-note">For 2D arrays we write <code>matrix[row, column]</code>. The examples above fill the matrix row by row.</p>
+<div class="videos"><h3 class="subheading">Videos</h3><div class="video-row"><div class="example video video-card"><div class="title">Declaring &amp; populating a 1D array (9618 pseudocode)</div><div class="media"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="True" height="315" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/1hJO16CaKmM?start=0&amp;end=110" title="Declaring &amp; populating a 1D array (9618 pseudocode)" width="560"></iframe></div><p class="video-caption">Declares a 1D array and assigns values by index (Cambridge AS Level Paper 2 scope).</p></div></div></div></div>
+<!-- 2. Accessing and Modifying Array Elements -->
+<div class="section" id="s42">
+<h2>2. Accessing and Modifying Array Elements</h2>
+<ul class="bullets">
+<li><strong>Access elements:</strong> use indices to read a value.</li>
+</ul>
+<div class="example">
+<div class="title"><strong>Example A -</strong> Access elements</div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment" data-tooltip="Third element of numbers is at index 2."><em>OUTPUT numbers[2]</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Element at row 1, column 1."><em>OUTPUT matrix[1, 1]</em></span></div>
+</div>
+</div>
+<ul class="bullets">
+<li><strong>Modify elements:</strong> assign a new value to an existing position.</li>
+</ul>
+<div class="example">
+<div class="title"><strong>Example B -</strong> Modify elements</div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment" data-tooltip="Change numbers[2] from 30 to 35."><em>numbers[2] ← 35</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Change matrix[1,1] from 5 to 50."><em>matrix[1, 1] ← 50</em></span></div>
+</div>
+</div>
+<div class="videos"><h3 class="subheading">Videos</h3><div class="video-row"><div class="example video video-card"><div class="title">Indexing and updating array elements</div><div class="media"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="True" height="315" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/QRwqu9oqkIk?start=0&amp;end=60" title="Indexing and updating array elements" width="560"></iframe></div><p class="video-caption">Shows reading and writing elements at given indices in a 1D array.</p></div></div></div></div>
+<!-- 3. Looping Through Arrays -->
+<div class="section" id="s43">
+<h2>3. Looping Through Arrays</h2>
+<ul class="bullets">
+<li><strong>Use loops:</strong> visit each element in a 1D or 2D array in order.</li>
+</ul>
+<div class="example">
+<div class="title"><strong>Example A -</strong> Loop over a 1D array</div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment"><em>DECLARE i : INTEGER</em></span></div>
+<div class="pc-line"><span class="comment"><em>FOR i ← 0 TO LENGTH(numbers) - 1</em></span></div>
+<div class="pc-line"><span class="comment"><em>    OUTPUT numbers[i]</em></span></div>
+<div class="pc-line"><span class="comment"><em>NEXT i</em></span></div>
+</div>
+</div>
+<div class="example">
+<div class="title"><strong>Example B -</strong> Loop over a 2D array (row-major)</div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment"><em>DECLARE i, j : INTEGER</em></span></div>
+<div class="pc-line"><span class="comment"><em>FOR i ← 0 TO 2</em></span></div>
+<div class="pc-line"><span class="comment"><em>    FOR j ← 0 TO 2</em></span></div>
+<div class="pc-line"><span class="comment"><em>        OUTPUT matrix[i, j]</em></span></div>
+<div class="pc-line"><span class="comment"><em>    NEXT j</em></span></div>
+<div class="pc-line"><span class="comment"><em>NEXT i</em></span></div>
+</div>
+</div>
+<p class="clarity-note"><code>LENGTH(numbers)</code> returns the number of elements. For a 0‑based array of length 5, valid indices are 0..4.</p>
+<div class="videos"><h3 class="subheading">Videos</h3><div class="video-row"><div class="example video video-card"><div class="title">Iterating over arrays (row/column order)</div><div class="media"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="True" height="315" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/tgVn5iPuje0?start=0&amp;end=120" title="Iterating over arrays (row/column order)" width="560"></iframe></div><p class="video-caption">Uses loops to visit each element; includes row-major order for 2D arrays.</p></div></div></div></div>
+<!-- 4. Records -->
+<div class="section" id="s44">
+<h2>4. Records</h2>
+<ul class="bullets">
+<li><strong>What is a record?</strong> A composite data structure that groups related fields of different types under one name.</li>
+</ul>
+<div class="example">
+<div class="title"><strong>Example A -</strong> Declare a record</div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment" data-tooltip="Define a record with three fields."><em>DECLARE Student : RECORD</em></span></div>
+<div class="pc-line"><span class="comment"><em>    name : STRING</em></span></div>
+<div class="pc-line"><span class="comment"><em>    age : INTEGER</em></span></div>
+<div class="pc-line"><span class="comment"><em>    grade : REAL</em></span></div>
+<div class="pc-line"><span class="comment"><em>END RECORD</em></span></div>
+</div>
+</div>
+<ul class="bullets">
+<li><strong>Access and modify fields:</strong> use the dot notation <code>RecordName.field</code>.</li>
+</ul>
+<div class="example">
+<div class="title"><strong>Example B -</strong> Use a record</div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment"><em>Student.name ← "Alice"</em></span></div>
+<div class="pc-line"><span class="comment"><em>Student.age ← 20</em></span></div>
+<div class="pc-line"><span class="comment"><em>Student.grade ← 85.5</em></span></div>
+<div class="pc-line"><span class="comment"><em>OUTPUT Student.name &amp; " is " &amp; Student.age &amp; " years old with a grade of " &amp; Student.grade</em></span></div>
+</div>
+</div>
+<div class="videos"><h3 class="subheading">Videos</h3><div class="video-row"><div class="example video video-card"><div class="title">Record data type (fields and dot notation)</div><div class="media"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="True" height="315" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/WKHcy8xKExs?start=0&amp;end=120" title="Record data type (fields and dot notation)" width="560"></iframe></div><p class="video-caption">Explains record definition and accessing fields using dot notation in pseudocode.</p></div></div></div></div>
+<p style="text-align:center; margin:20px 0;">
+<a class="btn btn-cta" href="./exercises4.html">Go to Exercises</a>
+</p>
+<div class="footer">
+        © 2025 Dr. Hamdeni. All rights reserved.
+      </div>
+</div>
+</main>
 </body>
 </html>
