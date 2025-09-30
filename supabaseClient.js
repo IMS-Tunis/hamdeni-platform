@@ -4,7 +4,15 @@ console.log('[supabaseClient] Loading Supabase client module');
 
 let createClient;
 if (typeof window !== 'undefined') {
-  ({ createClient } = await import(SUPABASE_MODULE_URL));
+  try {
+    ({ createClient } = await import(SUPABASE_MODULE_URL));
+  } catch (error) {
+    console.error(
+      `[supabaseClient] Failed to load Supabase client from ${SUPABASE_MODULE_URL}. Falling back to null client.`,
+      error
+    );
+    createClient = () => null;
+  }
 } else {
   createClient = () => ({
     from() {
@@ -18,7 +26,7 @@ export const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdX
 
 console.log('[supabaseClient] Creating client with URL:', SUPABASE_URL);
 export const supabase = typeof window !== 'undefined'
-  ? createClient(SUPABASE_URL, SUPABASE_KEY, {
+  ? createClient && createClient(SUPABASE_URL, SUPABASE_KEY, {
       global: {
         headers: {
           apikey: SUPABASE_KEY,
@@ -27,6 +35,10 @@ export const supabase = typeof window !== 'undefined'
       }
     })
   : null;
+
+if (typeof window !== 'undefined') {
+  window.supabase = supabase;
+}
 
 export function tableName(base) {
   const platform = localStorage.getItem('platform');
