@@ -4,16 +4,21 @@
   let root;
   try { root = JSON.parse(raw); } catch(e){ root = { data: [] }; }
 
+  function normalizeEscapes(str){
+    if (typeof str !== 'string') return '';
+    return str.replace(/\\(["'])/g, '$1');
+  }
+
   const flat = [];
   (root.data || []).forEach(group => {
     const items = Array.isArray(group.items) ? group.items : [];
     items.forEach(item => {
       flat.push({
-        question: item.question || "",
-        question_self_contained: item.question_self_contained || item.question || "",
-        mark_scheme_answer: item.mark_scheme_answer || "",
+        question: normalizeEscapes(item.question || ""),
+        question_self_contained: normalizeEscapes(item.question_self_contained || item.question || ""),
+        mark_scheme_answer: normalizeEscapes(item.mark_scheme_answer || ""),
         // 🔄 No default generic sentence — explanation must come from JSON
-        explanation: typeof item.explanation === 'string' ? item.explanation : ""
+        explanation: normalizeEscapes(typeof item.explanation === 'string' ? item.explanation : "")
       });
     });
   });
@@ -292,7 +297,8 @@
     // turn "\n" into real newline and "\u2190" into "←", etc.
     return s
       .replace(/\\n/g, '\n')
-      .replace(/\\u([0-9a-fA-F]{4})/g, function(_, hex){ return String.fromCharCode(parseInt(hex,16)); });
+      .replace(/\\u([0-9a-fA-F]{4})/g, function(_, hex){ return String.fromCharCode(parseInt(hex,16)); })
+      .replace(/\\(["'])/g, '$1');
   }
 
   try {
