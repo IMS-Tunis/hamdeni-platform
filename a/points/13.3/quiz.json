@@ -12,29 +12,8 @@
         "Both mantissa and exponent store only signs"
       ],
       "answer": "Mantissa stores the significant digits, exponent stores the scale factor"
-    },
     {
       "id": 2,
-      "section": "13.3a",
-      "type": "mcq",
-      "question": "In this syllabus, how are the mantissa and exponent stored and interpreted?",
-      "options": [
-        "Sign-magnitude for both fields",
-        "Biased exponent and sign-magnitude mantissa",
-        "Two’s complement for both fields",
-        "Excess-K exponent and one’s-complement mantissa"
-      ],
-      "answer": "Two’s complement for both fields"
-    },
-    {
-      "id": 3,
-      "section": "13.3a",
-      "type": "fill_blank",
-      "question": "The mantissa is read as a signed _____ fraction with the binary point immediately after the sign bit.",
-      "answer": "fixed-point"
-    },
-    {
-      "id": 4,
       "section": "13.3a",
       "type": "mcq",
       "question": "Which statement correctly contrasts precision and range?",
@@ -59,44 +38,11 @@
       }
     },
     {
-      "id": 6,
-      "section": "13.3a",
-      "type": "true_false",
-      "question": "Changing the exponent changes the internal position of the mantissa’s binary point.",
-      "answer": "False"
-    },
-    {
       "id": 7,
       "section": "13.3b",
       "type": "fill_blank",
       "question": "Shifting the digits to achieve the target leading pattern for the mantissa is called _____.",
       "answer": "normalisation"
-    },
-    {
-      "id": 8,
-      "section": "13.3b",
-      "type": "mcq",
-      "question": "When storing a negative value, at which point is the positive mantissa converted to two’s complement?",
-      "options": [
-        "Before the normalisation step",
-        "During the integer-part conversion",
-        "After the positive mantissa has been normalised and the exponent has been set",
-        "By making the exponent negative instead"
-      ],
-      "answer": "After the positive mantissa has been normalised and the exponent has been set"
-    },
-    {
-      "id": 9,
-      "section": "13.3b",
-      "type": "mcq",
-      "question": "Which decoding sequence aligns with the syllabus procedure?",
-      "options": [
-        "Read mantissa as unsigned, add exponent bias, then place the binary point arbitrarily",
-        "Decode exponent by two’s complement, decode mantissa as signed fixed-point, scale the mantissa by the exponent, then convert to denary",
-        "Convert to denary first, then determine mantissa and exponent signs",
-        "Only decode the mantissa; the exponent is implied by field width"
-      ],
-      "answer": "Decode exponent by two’s complement, decode mantissa as signed fixed-point, scale the mantissa by the exponent, then convert to denary"
     },
     {
       "id": 10,
@@ -115,7 +61,7 @@
       "id": 11,
       "section": "13.3c",
       "type": "mcq",
-      "question": "What is the purpose of normalisation in this syllabus?",
+      "question": "What is the purpose of normalisation?",
       "options": [
         "To change the numerical value",
         "To shift the mantissa to a standard leading pattern and adjust the exponent so the overall value is unchanged",
@@ -167,20 +113,7 @@
       ],
       "answer": "Many denary fractions do not terminate in binary, so a fixed-length mantissa must round"
     },
-    {
-      "id": 16,
-      "section": "13.3d",
-      "type": "mcq",
-      "question": "Which description aligns with the notes for underflow handling in this simplified model?",
-      "options": [
-        "The value wraps to the largest magnitude",
-        "The value becomes zero or a very tiny denormal value depending on the system",
-        "The sign is flipped and the magnitude retained",
-        "The mantissa is widened automatically"
-      ],
-      "answer": "The value becomes zero or a very tiny denormal value depending on the system"
-    },
-    {
+	    {
       "id": 17,
       "section": "13.3d",
       "type": "match",
@@ -191,6 +124,20 @@
         "Needs more significant binary digits than the mantissa field provides": "Precision limit"
       }
     },
+    {
+      "id": 16,
+      "section": "13.3d",
+      "type": "mcq",
+      "question": "How underflow is handled?",
+      "options": [
+        "The value wraps to the largest magnitude",
+        "The value becomes zero or a very tiny denormal value depending on the system",
+        "The sign is flipped and the magnitude retained",
+        "The mantissa is widened automatically"
+      ],
+      "answer": "The value becomes zero or a very tiny denormal value depending on the system"
+    },
+
     {
       "id": 18,
       "section": "13.3e",
