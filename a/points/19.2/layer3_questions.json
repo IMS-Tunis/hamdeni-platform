@@ -2,55 +2,55 @@
 {
 "point_id": "19.2a",
 "question_number": 1,
-"question": "Question 1. Define recursion and state one difference between recursion and iteration. Then give one advantage and one disadvantage of using recursion.",
+"question": "Define recursion and state one difference between recursion and iteration. Then give one advantage and one disadvantage of using recursion.",
 "mark_scheme": "Answer:\nRecursion is when a function or procedure is defined in terms of itself and calls itself. A correct recursive definition must include a base case that terminates without further calls and a general case that solves a smaller instance of the problem by calling the same routine. Iteration uses loops to repeat a block of code until a condition is met, whereas recursion repeats by function self-calls until the base case is reached.\nAdvantage: for naturally recursive problems, a recursive solution is shorter and clearer.\nDisadvantage: each call incurs time and memory overhead because call information is stored on a stack, so deep recursion can be expensive."
 },
 {
 "point_id": "19.2a",
 "question_number": 2,
-"question": "Question 2. The function below computes BaseExponent recursively. Complete a call-and-return trace for Power(2, 4).\nFUNCTION Power(Base: INTEGER, Exponent: INTEGER) RETURNS INTEGER\n  IF Exponent = 0 THEN\n    RETURN 1\n  ELSE\n    RETURN Base * Power(Base, Exponent − 1)\n  ENDIF\nENDFUNCTION",
+"question": "The function below computes BaseExponent recursively. Complete a call-and-return trace for Power(2, 4).\nFUNCTION Power(Base: INTEGER, Exponent: INTEGER) RETURNS INTEGER\n  IF Exponent = 0 THEN\n    RETURN 1\n  ELSE\n    RETURN Base * Power(Base, Exponent − 1)\n  ENDIF\nENDFUNCTION",
 "mark_scheme": "Answer:\nCall sequence (winding): Power(2,4) → Power(2,3) → Power(2,2) → Power(2,1) → Power(2,0).\nReturn sequence (unwinding) with results:\n• Power(2,0) returns 1\n• Power(2,1) returns 2 × 1 = 2\n• Power(2,2) returns 2 × 2 = 4\n• Power(2,3) returns 2 × 4 = 8\n• Power(2,4) returns 2 × 8 = 16\nFinal answer: 16."
 },
 {
 "point_id": "19.2b",
 "question_number": 3,
-"question": "Question 3. Explain the role of the stack when executing the recursive Power function. List what each stack frame must contain.",
+"question": "Explain the role of the stack when executing the recursive Power function. List what each stack frame must contain.",
 "mark_scheme": "Answer:\nDuring recursion, each call pushes a new stack frame that stores at minimum the return address and the local variables for that call. Frames are pushed as new calls are made and popped in reverse order as results return, ensuring control resumes at the correct instruction with the correct local values."
 },
 {
 "point_id": "19.2a",
 "question_number": 4,
-"question": "Question 4. Write an iterative (non-recursive) version of Power(Base, Exponent) in pseudocode. Then state one reason an iterative version may be preferred and one reason a recursive version may be preferred.",
+"question": "Write an iterative (non-recursive) version of Power(Base, Exponent) in pseudocode. Then state one reason an iterative version may be preferred and one reason a recursive version may be preferred.",
 "mark_scheme": "Answer:\nIterative pseudocode:\nFUNCTION PowerIter(Base: INTEGER, Exponent: INTEGER) RETURNS INTEGER\n  Result ← 1\n  FOR i ← 1 TO Exponent\n    Result ← Result × Base\n  NEXT i\n  RETURN Result\nENDFUNCTION\nPreference: iteration may be preferred to avoid recursion overhead and possible stack overflow for large Exponent; recursion may be preferred when it mirrors a natural recursive definition and improves clarity."
 },
 {
 "point_id": "19.2a",
 "question_number": "5a",
-"question": "Question 5a. Consider the following recursive Fibonacci function:\n01  FUNCTION Fibonacci(n : INTEGER) RETURNS INTEGER\n02    IF (n = 0) OR (n = 1)\n03      THEN\n04        Result ← 1\n05      ELSE\n06        Result ← Fibonacci(n − 1) + Fibonacci(n − 2)\n07    ENDIF\n08    RETURN Result\n09  ENDFUNCTION\nIdentify the line that contains the base case and the line that contains the general case.",
+"question": " Consider the following recursive Fibonacci function:\n01  FUNCTION Fibonacci(n : INTEGER) RETURNS INTEGER\n02    IF (n = 0) OR (n = 1)\n03      THEN\n04        Result ← 1\n05      ELSE\n06        Result ← Fibonacci(n − 1) + Fibonacci(n − 2)\n07    ENDIF\n08    RETURN Result\n09  ENDFUNCTION\nIdentify the line that contains the base case and the line that contains the general case.",
 "mark_scheme": "Answer:\nBase case: line 02 (with assignment on line 04). General case: line 06."
 },
 {
 "point_id": "19.2a",
 "question_number": "5b",
-"question": "Question 5b. Using the same Fibonacci function as in Question 5a, compute Fibonacci(4) using a trace of calls and returns.",
+"question": "Using the same Fibonacci function as in Question 5a, compute Fibonacci(4) using a trace of calls and returns.",
 "mark_scheme": "Answer:\nCalls: F(4) → F(3) + F(2); F(3) → F(2) + F(1); F(2) → F(1) + F(0).\nReturns using the given base cases F(0) = 1 and F(1) = 1:\nF(2) = 1 + 1 = 2; F(3) = 2 + 1 = 3; F(4) = 3 + 2 = 5. Final answer: 5."
 },
 {
 "point_id": "19.2b",
 "question_number": 6,
-"question": "Question 6. Why must a compiler generate object code that uses a stack for recursive procedures and functions?",
+"question": "Why must a compiler generate object code that uses a stack for recursive procedures and functions?",
 "mark_scheme": "Answer:\nBecause each active call needs its own storage for return address and local variables, the compiler targets a calling convention that pushes a frame per call. As calls nest, frames are pushed during winding and popped during unwinding, guaranteeing last-in-first-out return order and correct restoration of each call’s context."
 },
 {
 "point_id": "19.2a",
 "question_number": 7,
-"question": "Question 7. Define the terms winding and unwinding in recursion, and state when statements placed after a recursive call execute.",
+"question": "Define the terms winding and unwinding in recursion, and state when statements placed after a recursive call execute.",
 "mark_scheme": "Answer:\nWinding is the phase during which successive recursive calls are made and stack frames are pushed. Unwinding is the phase during which calls return and frames are popped. Any statements placed after a recursive call execute only during unwinding, that is, after the called instance returns."
 },
 {
 "point_id": "19.2a",
 "question_number": 8,
-"question": "Question 8. State the two essential components of a correct recursive definition and explain the termination condition requirement. Illustrate with Factorial(n).",
+"question": "State the two essential components of a correct recursive definition and explain the termination condition requirement. Illustrate with Factorial(n).",
 "mark_scheme": "Answer:\nThe two components are: a base case that returns an answer without further calls, and a general case that reduces the problem and calls the same routine on smaller input. Each call must strictly progress toward the base case to guarantee termination in a finite number of steps. Example: Factorial(0) = 1 is the base case; for n > 0, Factorial(n) = n × Factorial(n − 1) is the general case, which decreases n toward 0."
 }
 ]
