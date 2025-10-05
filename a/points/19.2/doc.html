@@ -40,26 +40,24 @@
       </ul>
   </ul>
   <ul class="no-bullets">
-    <li><div class="example-box">Example: Recursive factorial definition and code
-Meaning: factorial uses a base case and a general case to multiply numbers down to 1.
-Definition: 0! = 1. For n greater than 0, n! = n × (n − 1)!.
-Pseudocode:
-FUNCTION Factorial(n) RETURNS INTEGER
-  IF n = 0 THEN
-    RETURN 1
-  ELSE
-    RETURN n * Factorial(n − 1)
-  ENDIF
-ENDFUNCTION
-Trace idea: with Factorial(3), the calls go 3 → 2 → 1 → 0 (base case). Then the returns happen in reverse order: 1, 1×1, 2×1, 3×2, giving 6.</div></li>
-    <li><div class="example-box">Example: Fibonacci as a recursive definition
-Meaning: the series is defined by base cases and a recurrence.
-Base cases: F0 = 0 and F1 = 1.
-General case: Fn = F(n−1) + F(n−2) for n ≥ 2.
-Trace idea: to compute F4, calls expand to F3 and F2; those expand again until only base cases remain. As the calls return, values are added to produce F4.</div></li>
+    <li><div class="example-box">Recursive factorial definition and code Meaning: factorial uses a base case and a general case to multiply numbers down to 1.<br>
+Definition: 0! = 1. For n greater than 0, n! = n × (n − 1)!.<br>
+
+Pseudocode:<br>
+FUNCTION Factorial(n) RETURNS INTEGER<br>
+  IF n = 0 THEN<br>
+    RETURN 1<br>
+  ELSE<br>
+    RETURN n * Factorial(n − 1)<br>
+  ENDIF<br>
+ENDFUNCTION<br><br>
+Trace idea: with Factorial(3), the calls go 3 → 2 → 1 → 0 (base case).<br> Then the returns happen in reverse order: 1, 1×1, 2×1, 3×2, giving 6.</div></li>
+    <li><div class="example-box">Fibonacci as a recursive definition meaning: the series is defined by base cases and a recurrence.<br>
+Base cases: F0 = 0 and F1 = 1.<br>
+General case: Fn = F(n−1) + F(n−2) for n ≥ 2.<br>
+Trace idea: to compute F4, calls expand to F3 and F2; those expand again until only base cases remain.<br> As the calls return, values are added to produce F4.</div></li>
     <li><span class="fun-tip">Analogy: Russian dolls. A recursive call is like opening a large doll to find a smaller one inside. The smallest doll is the base case with no further opening. Opening dolls matches the call sequence during winding, and closing them matches the returns during unwinding.</span></li>
-    <li><div class="example-box">Example: Cost of many calls
-Title: Factorial call depth
+    <li><div class="example-box">Cost of many calls: Factorial call depth<br>
 Observation: a call such as Factorial(100) creates 100 nested calls before any return happens, so the program must handle many returns during unwinding.</div></li>
   </ul>
   <ul class="no-bullets">
@@ -89,13 +87,11 @@ Observation: a call such as Factorial(100) creates 100 nested calls before any r
       </ul>
   </ul>
   <ul class="no-bullets">
-    <li><div class="example-box">Example: Stack activity for Factorial(3)
-Call order: the program calls Factorial(3), which then calls Factorial(2), which calls Factorial(1), which calls Factorial(0).
-Stack effect: each call pushes a new frame with its own n and return address.
+    <li><div class="example-box">Stack activity for Factorial(3)<br> Call order: the program calls Factorial(3), which then calls Factorial(2), which calls Factorial(1), which calls Factorial(0).<br>
+Stack effect: each call pushes a new frame with its own n and return address.<br>
 Unwinding: Factorial(0) returns 1; then each waiting call pops its frame, computes its result, and returns to its caller, until the original call receives the final answer.</div></li>
     <li><span class="fun-tip">Analogy: Stack of plates. Each function call places a plate on top (push). To remove plates, you must take the top one first (pop). Returns therefore happen in reverse order: the last call returns first.</span></li>
-    <li><div class="example-box">Example: Depth and memory
-Title: Recursion depth and frames
+    <li><div class="example-box">Depth and memory: Recursion depth and frames<br>
 Observation: if a routine makes k nested calls before a base case, then k frames are on the stack and must be kept until the routine starts returning.</div></li>
   </ul>
   <ul class="no-bullets">
