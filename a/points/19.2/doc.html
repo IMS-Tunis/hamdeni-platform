@@ -113,5 +113,11 @@ Observation: if a routine makes k nested calls before a base case, then k frames
 </div>
 
 <script src="popup-script.js"></script>
+    <script>
+      window.addEventListener('load', function () {
+        const height = document.body.scrollHeight;
+        window.parent.postMessage({ type: 'resize', height }, '*');
+      });
+    </script>
 </body>
 </html>

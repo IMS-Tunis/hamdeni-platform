@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Level 8: Recursion in Python</title>
+<link href="../levels.css" rel="stylesheet"/>
+<script defer="" src="/assets/js/paste-guard.js"></script>
+<style>
+    /* student clarity notes */
+    .clarity-note { 
+      margin: 8px 0 12px; 
+      padding: 8px 12px; 
+      background: #f7fbff; 
+      border-left: 3px solid #1e88e5; 
+      border-radius: 4px; 
+      font-size: 0.97rem;
+    }
+    /* videos: centered, responsive */
+    .videos { margin: 24px 0 8px; }
+    .videos .subheading { margin: 0 0 12px; font-size: 1.1rem; line-height: 1.3; }
+    .video-row { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
+    .example.video.video-card { background: #ffffff; border: 1px solid #e5e5e5; border-radius: 8px; padding: 12px; max-width: 640px; }
+    .example.video.video-card .media { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 8px; overflow: hidden; }
+    .example.video.video-card .media iframe { position: absolute; inset: 0; width: 100% !important; height: 100% !important; display: block; }
+    .video-caption { margin: 8px 0 0; font-size: 0.95rem; }
+    /* figure (image) */
+    figure.illustration { margin: 16px auto; text-align: center; }
+    figure.illustration img { max-width: 80%; height: auto; border-radius: 8px; border: 1px solid #e5e5e5; }
+    figure.illustration figcaption { margin-top: 6px; font-size: 0.95rem; color: #555; }
+  </style>
+<style>
+/* Center and size illustrations */
+figure.illustration { margin: 16px auto; text-align: center; max-width: 880px; }
+figure.illustration img { width: 100%; height: auto; display: block; margin: 0 auto; border-radius: 6px; }
+figure.illustration figcaption { margin-top: 6px; font-size: 0.95rem; }
+</style><style>
+/* Call stack table */
+.stack-table { width: 100%; border-collapse: collapse; margin: 10px 0 14px; }
+.stack-table th, .stack-table td { border: 1px solid #e0e0e0; padding: 8px 10px; text-align: left; }
+.stack-table thead th { background: #f5f7fa; }
+</style><style>
+/* Mini checklist for recursion */
+.mini-check { 
+  margin: 8px 0 12px; 
+  padding: 8px 12px; 
+  background: #fff9e6; 
+  border-left: 3px solid #f6b73c; 
+  border-radius: 4px;
+}
+.mini-check .k { font-weight: 600; }
+</style><style>
+/* Student-ready video layout: centered, responsive */
+.video-row { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
+.example.video.video-card { background: #ffffff; border: 1px solid #e5e5e5; border-radius: 8px; padding: 12px; max-width: 640px; }
+.example.video.video-card .media { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 8px; overflow: hidden; }
+.example.video.video-card .media iframe { position: absolute; inset: 0; width: 100% !important; height: 100% !important; display: block; }
+.video-caption { margin: 8px 0 0; font-size: 0.95rem; }
+</style><style>
+/* Student-ready video layout: centered, responsive */
+.video-row { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
+.example.video.video-card { background: #ffffff; border: 1px solid #e5e5e5; border-radius: 8px; padding: 12px; max-width: 640px; }
+.example.video.video-card .media { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 8px; overflow: hidden; }
+.example.video.video-card .media iframe { position: absolute; inset: 0; width: 100% !important; height: 100% !important; display: block; }
+.video-caption { margin: 8px 0 0; font-size: 0.95rem; }
+</style></head>
+<body>
+<div class="header">
+<div class="container">
+<div class="header-bar">
+<a aria-label="Home" class="brand" href="../dashboard.html">
+<img alt="Logo" class="brand-logo" src="../logo.png"/>
+</a>
+<div class="header-main">
+<h1>Level 8: Recursion in Python</h1>
+<p>A level Computer Science (9618): student notes, prepared by Dr. Hamdeni</p>
+</div>
+<a class="btn btn-home" href="../../dashboard.html">
+<svg aria-hidden="true" focusable="false" viewbox="0 0 24 24">
+<path d="M12 3l9 8h-3v9h-5v-6H11v6H6v-9H3l9-8z"></path>
+</svg>
+          Home
+        </a>
+</div>
+</div>
+</div>
+<main>
+<div class="container">
+<div class="videos" id="intro-recursion-video"><h3 class="subheading">Animated Intro</h3><div class="video-row"><div class="example video video-card"><div class="title">What is recursion? (animated intro)</div><div class="media"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="True" height="315" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/rf60MejMz3E?start=0&amp;end=120" title="What is recursion? (animated intro)" width="560"></iframe></div><p class="video-caption">A quick animated overview of recursion (base case and smaller subproblems).</p></div></div></div><nav class="toc">
+<h2>Contents</h2>
+<ol>
+<li><a href="#s1">1. What is Recursion?</a></li>
+<li><a href="#s2">2. Classic Recursive Patterns (Factorial &amp; Fibonacci)</a></li>
+<li><a href="#s3">3. Tracing and Exam-style Tasks</a></li>
+</ol>
+</nav>
+<!-- =============================== -->
+<div class="section" id="s1">
+<h2>1. What is Recursion?</h2>
+<ul class="bullets">
+<li><strong>Idea:</strong> A function calls itself to solve a smaller version of the same problem.</li>
+<li><strong>Two parts:</strong> a <em>base case</em> (stop condition) and a <em>recursive case</em> (self-call that moves toward the base case).</li>
+<li><strong>Progress:</strong> Each call must make the input <em>closer</em> to the base case.</li>
+</ul>
+<div class="example">
+<div class="title"><strong>Example A -</strong> Sum a list (recursive)</div><div class="mini-check"><div><span class="k">Base case: </span>stop when the list is empty.</div><div><span class="k">Step toward base: </span>make the list smaller by removing the first item each call.</div><div><span class="k">Combine: </span>add the first item to the answer from the smaller list.</div></div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment" data-tooltip="Define a function that receives a list of numbers named nums."><em>def sum_list_recursive(nums):</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="If the list is empty, the sum is 0. This is the base case."><em>    if not nums:</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Stop and give 0 back to the caller, because there are no numbers to add."><em>        return 0</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Call sum_list_recursive on a smaller list: nums without the first item."><em>    return nums[0] + sum_list_recursive(nums[1:])</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Dry run: the nested parentheses show how each call returns a number and they add up to 15."><em># 1 + (2 + (3 + (9 + 0))) = 15</em></span></div>
+</div>
+</div>
+<div class="videos">
+
+<div class="video-row">
+<div class="example video video-card">
+<div class="title">Intro: base &amp; recursive case</div>
+<div class="media">
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" height="315" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/m1Fjdnj_Mds?start=0&amp;end=100" title="Intro to recursion (base &amp; recursive case)" width="560"></iframe>
+</div>
+<p class="video-caption">Quick intro to base + recursive case in Python.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- =============================== -->
+<div class="section" id="s2">
+<h2>2. Classic Recursive Patterns (Factorial &amp; Fibonacci)</h2>
+<ul class="bullets">
+<li><strong>Factorial:</strong> for non‑negative <code>n</code>, <code>n! = n × (n−1)!</code> with <code>0! = 1</code>. Assume <code>n</code> is non‑negative.</li>
+</ul>
+<figure class="illustration">
+<img alt="Factorial recursion: base case 0!=1 and general case n!=n×(n−1)!, expanded examples 4! to 1!" src="factorial.png"/>
+<figcaption>Factorial has a base case <code>0! = 1</code> and a recursive rule <code>n! = n × (n-1)!</code> that reduces <code>n</code> until the base case.</figcaption>
+</figure>
+<div class="example">
+<div class="title"><strong>Example A -</strong> Factorial</div><div class="mini-check"><div><span class="k">Base case: </span>when n == 0, return 1.</div><div><span class="k">Step toward base: </span>call factorial with n-1 (n gets smaller each time).</div><div><span class="k">Combine: </span>multiply n by the answer from the smaller problem.</div></div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment" data-tooltip="Define a function that receives a non‑negative integer n and will return n factorial."><em>def factorial(n):</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Base case: factorial of 0 is defined as 1; stop the recursion here."><em>    if n == 0:</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Return 1 to the caller when n is 0."><em>        return 1</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Recursive step: multiply n by factorial of the next smaller number."><em>    return n * factorial(n - 1)</em></span></div>
+</div>
+</div><figure class="illustration"><img alt="Factorial recursion: Python code, stack frames during calls, and result unwinding back to the base case" src="factorial_flow.png"/><figcaption>Factorial: recursive code, the call stack (left), and how results combine on the way back up (right).</figcaption></figure><div class="callstack-block"><h3 class="subheading">Recursion and the Call Stack</h3><ul class="bullets"><li><strong>Winding —</strong> the function calls itself with smaller inputs until the base case is reached.</li><li><strong>Unwinding —</strong> after the base case, each waiting call returns its result back up the call stack.</li></ul><p class="clarity-note">Programs use a call stack to keep track of active function calls. Each recursive call pushes a new frame; returning pops it.</p><table class="stack-table"><thead><tr><th>Call</th><th>Call stack (top on the right)</th></tr></thead><tbody><tr><td>factorial(3) is called</td><td>[factorial(3)]</td></tr><tr><td>factorial(2) is called</td><td>[factorial(3), factorial(2)]</td></tr><tr><td>factorial(1) is called</td><td>[factorial(3), factorial(2), factorial(1)]</td></tr><tr><td>factorial(0) is called</td><td>[factorial(3), factorial(2), factorial(1), factorial(0)]</td></tr><tr><td>Base case returns 1</td><td>pop → [factorial(3), factorial(2), factorial(1)]</td></tr><tr><td>factorial(1) returns 1 × 1 = 1</td><td>pop → [factorial(3), factorial(2)]</td></tr><tr><td>factorial(2) returns 2 × 1 = 2</td><td>pop → [factorial(3)]</td></tr><tr><td>factorial(3) returns 3 × 2 = 6</td><td>stack becomes empty</td></tr></tbody></table><p class="clarity-note">If a recursive function never reaches its base case, calls keep pushing frames until the call stack is full (stack overflow). A well-defined base case prevents this error.</p></div>
+
+
+
+<ul class="bullets">
+<li><strong>Countdown:</strong> We want to display a countdown from n down to 0. Below are two correct versions: a loop-based solution and a recursive solution. Both print the numbers in the same order.</li>
+</ul>
+
+<div class="example"><div class="title"><strong>Example B -</strong> Countdown (iterative vs recursive)</div><div class="mini-check"><div><span class="k">Base case: </span>when n &lt; 0, stop (nothing more to print).</div><div><span class="k">Step toward base: </span>each call uses n-1, which moves toward -1.</div><div><span class="k">Combine: </span>no combination is needed; we just print as we go.</div></div></p><div class="pseudocode"><div class="pc-line"><span class="comment" data-tooltip="Iterative version: run a loop while n is 0 or greater."><em>def countdown_iter(n):</em></span></div><div class="pc-line"><span class="comment" data-tooltip="As long as n has not gone below 0, keep repeating the body."><em>    while n &gt;= 0:</em></span></div><div class="pc-line"><span class="comment" data-tooltip="Display the current value of n."><em>        print(n)</em></span></div><div class="pc-line"><span class="comment" data-tooltip="Make n smaller so the loop will eventually stop."><em>        n -= 1</em></span></div></div><p class="clarity-note">Recursive version: make the problem smaller at each call and stop at the base case.</p><div class="pseudocode"><div class="pc-line"><span class="comment" data-tooltip="Recursive version: stop when n is below 0, otherwise print and call again with n-1."><em>def countdown_rec(n):</em></span></div><div class="pc-line"><span class="comment" data-tooltip="Base case for the recursive version: nothing left to print."><em>    if n &lt; 0:</em></span></div><div class="pc-line"><span class="comment" data-tooltip="Nothing more to do; return to the caller."><em>        return</em></span></div><div class="pc-line"><span class="comment" data-tooltip="Display the current value of n."><em>    print(n)</em></span></div><div class="pc-line"><span class="comment" data-tooltip="Recursive step: call the same function with a smaller number."><em>    countdown_rec(n - 1)</em></span></div></div><p class="clarity-note">Both versions do the same job. The loop repeats statements; the recursive version repeats by calling itself and eventually stops when n becomes -1.</p></div>
+
+
+<ul class="bullets">
+<li><strong>Fibonacci:</strong> <code>fib(0)=0</code>, <code>fib(1)=1</code>, and <code>fib(n)=fib(n−1)+fib(n−2)</code> for <code>n ≥ 2</code>. Assume <code>n</code> is non‑negative.</li>
+</ul>
+<div class="example">
+<div class="title"><strong>Example C -</strong> Fibonacci</div><div class="mini-check"><div><span class="k">Base case: </span>if n is 0 or 1, return n.</div><div><span class="k">Step toward base: </span>call fib(n-1) and fib(n-2) (both move toward 0/1).</div><div><span class="k">Combine: </span>add the two answers to get fib(n).</div></div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment" data-tooltip="Define a function fib that returns the nth Fibonacci number."><em>def fib(n):</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="First base case: fib(0) is 0."><em>    if n == 0:</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Return 0."><em>        return 0</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Second base case: fib(1) is 1."><em>    if n == 1:</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Return 1."><em>        return 1</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Recursive step: sum the results of two smaller subproblems, n-1 and n-2."><em>    return fib(n - 1) + fib(n - 2)</em></span></div>
+</div>
+<p class="clarity-note">We use <code>fib(0)=0</code> and <code>fib(1)=1</code>.</p>
+<p class="clarity-note">Quick trace: fib(4) → fib(3)+fib(2) → (fib(2)+fib(1)) + (fib(1)+fib(0)) → (1+1) + (1+0) = 3.</p></div>
+<div class="videos">
+
+<div class="video-row">
+<div class="example video video-card">
+<div class="title">Factorial (recursive)</div>
+<div class="media">
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" height="315" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/UAqnxAiPKtU?start=0&amp;end=90" title="Factorial (recursive) in Python" width="560"></iframe>
+</div>
+<p class="video-caption">Shows base case <code>n==0</code> and the recursive step.</p>
+</div>
+<div class="example video video-card">
+<div class="title">Fibonacci (recursive)</div>
+<div class="media">
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" height="315" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/CsJ82I2I2Mo?start=0&amp;end=90" title="Fibonacci (recursive) in Python" width="560"></iframe>
+</div>
+<p class="video-caption">Shows base cases <code>0, 1</code> and the recursive step.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- =============================== -->
+<div class="section" id="s3">
+<h2>3. Tracing and Exam-style Tasks</h2>
+<div class="example">
+<p class="clarity-note">How to read the trace: follow calls on the way down to the base case, then read the return lines on the way back up.</p><div class="title"><strong>Example A -</strong> Trace a recursive function (dry run)</div>
+<div class="pseudocode"><div class="pc-line"><span class="comment" data-tooltip="We will trace factorial(3)."><em>def factorial(n):</em></span></div><div class="pc-line"><span class="comment" data-tooltip="Base case for factorial: 0! = 1."><em>    if n == 0: return 1</em></span></div><div class="pc-line"><span class="comment" data-tooltip="Recursive step: multiply n by factorial(n-1)."><em>    return n * factorial(n - 1)</em></span></div><div class="pc-line"><span class="comment" data-tooltip="The calls go down to n=0, then return results back up."><em># Trace for factorial(3):</em></span></div><div class="pc-line"><span class="comment" data-tooltip="Start: n=3"><em>factorial(3)</em></span></div><div class="pc-line"><span class="comment" data-tooltip="Call with a smaller input."><em>→ 3 * factorial(2)</em></span></div><div class="pc-line"><span class="comment" data-tooltip="Keep going down."><em>→ 3 * (2 * factorial(1))</em></span></div><div class="pc-line"><span class="comment" data-tooltip="Next smaller input."><em>→ 3 * (2 * (1 * factorial(0)))</em></span></div><div class="pc-line"><span class="comment" data-tooltip="Base case reached (n=0): return 1."><em>→ 3 * (2 * (1 * 1))</em></span></div><div class="pc-line"><span class="comment" data-tooltip="Now we unwind: each waiting call multiplies and returns."><em>= 3 * 2 * 1 = 6</em></span></div></div>
+<p class="clarity-note">The function goes <em>down</em> with smaller inputs, reaches the base case, then combines results <em>on the way back up</em>.</p>
+</div>
+<div class="example">
+<p class="clarity-note">This pair of programs takes two integers x and y. Starting from x, we move one step at a time toward y: each step upward (x&lt;y) doubles the running value; each step downward (x&gt;y) halves it. Both versions compute the same final result.</p><div class="title"><strong>Example B -</strong> The function <code>unknown</code> and an iterative match</div><div class="mini-check"><div><span class="k">Base case: </span>stop when x equals y; return 1.</div><div><span class="k">Step toward base: </span>move x one step toward y (x+1 or x-1).</div><div><span class="k">Combine: </span>update result each step (×2 when we increase x; //2 when we decrease x).</div></div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment" data-tooltip="Recursive function that nudges x toward y. When x is smaller, we step up and double result; when larger, step down and halve result."><em>def unknown(x, y):</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Base case: stop when x has reached y; the multiplier so far is 1."><em>    if x == y:</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Return the running result."><em>        return 1</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="x is below y. Move x up by 1 and double the result we will get from the smaller problem."><em>    if x &lt; y:</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Recursive step for x&lt;y: call with x+1 and multiply the answer by 2."><em>        return 2 * unknown(x + 1, y)</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Otherwise x is greater than y. We will step down (x-1) and halve the result."><em>    else:</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Recursive step for x&gt;y: call with x-1 and halve the answer using integer division //."><em>        return unknown(x - 1, y) // 2</em></span></div>
+</div>
+<p class="clarity-note"><code>//</code> is integer division (keeps the whole-number part only).</p>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment" data-tooltip="Iterative version that repeats the same adjustments to x and result until x equals y."><em>def iterative_unknown(x, y):</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Start the running multiplier at 1."><em>    result = 1</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Repeat until x reaches y."><em>    while x != y:</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="x is below y. Move x up by 1 and double the result we will get from the smaller problem."><em>        if x &lt; y:</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="If x is below y, move x up by 1."><em>x += 1</em></span></div><div class="pc-line"><span class="comment" data-tooltip="Double the running multiplier because we moved x up."><em>    result *= 2</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Otherwise x is greater; we will step down by 1 and halve the result."><em>        else:</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="If x is above y, move x down by 1."><em>x -= 1</em></span></div><div class="pc-line"><span class="comment" data-tooltip="Halve the running multiplier using integer division // because we moved x down."><em>    result //= 2</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="When x equals y, stop and return the multiplier."><em>    return result</em></span></div>
+</div>
+</div>
+<div class="example">
+<div class="clarity-note">Iterative reminder: a normal linear search uses a loop to compare each item in order. The recursive version does the same comparisons using repeated self-calls.</div><p>Goal: check if a target value appears in a list by scanning left to right. We start at index 0 and move to the next index if we do not find a match.</p><div class="title"><strong>Example C -</strong> Recursive linear search</div><div class="mini-check"><div><span class="k">Base case: </span>if index == len(items) (we reached the end), return False; if items[index] equals target, return True.</div><div><span class="k">Step toward base: </span>call the same function with index + 1 to move one step forward.</div><div><span class="k">Combine: </span>no combination is needed; a single True/False flows back up.</div></div>
+<div class="pseudocode">
+<div class="pc-line"><span class="comment" data-tooltip="Define a search that receives the value we want (target), the list to search (items), and the current position (index, default 0)."><em>def contains(target, items, index=0):</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Base case 1: we ran off the end of the list without finding the target; return False."><em>    if index == len(items):</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Return False at the end."><em>        return False</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Base case 2: the current element matches the target; return True."><em>    if items[index] == target:</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Return True as soon as we match."><em>        return True</em></span></div>
+<div class="pc-line"><span class="comment" data-tooltip="Recursive step: move to the next index and keep searching."><em>    return contains(target, items, index + 1)</em></span></div>
+</div>
+</div>
+<div class="videos">
+
+<div class="video-row">
+<div class="example video video-card">
+<div class="title">Trace a recursive function</div>
+<div class="media">
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" height="315" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/MFEM6F1WwcY?start=0&amp;end=100" title="Tracing a recursive function (dry run)" width="560"></iframe>
+</div>
+<p class="video-caption">Walks through a trace from call to base case.</p>
+</div>
+<div class="example video video-card">
+<div class="title">Recursive search in a list</div>
+<div class="media">
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" height="315" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/jg1527Y64pc?start=0&amp;end=90" title="Recursive search in a list" width="560"></iframe>
+</div>
+<p class="video-caption">Checks one element, then moves to the next.</p>
+</div>
+</div>
+</div>
+</div>
+<p style="text-align:center; margin:20px 0;">
+<a class="btn btn-cta" href="./exercises8.html">Go to Exercises</a>
+</p>
+<div class="footer">
+        © 2025 Dr. Hamdeni. All rights reserved.
+      </div>
+</div>
+</main>
+</body>
+</html>

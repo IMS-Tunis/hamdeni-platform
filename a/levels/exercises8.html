@@ -1,0 +1,140 @@
+<!-- index.html (updated: top guidance in old grey style, not inside a question card) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Level 7: Functions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../exercises.css" />
+<script defer src="/assets/js/paste-guard.js"></script>
+</head>
+<body>
+
+<aside class="sidebar" aria-label="Exercise navigation">
+  <!-- Top category: logo + header -->
+  <div class="sidebar-top">
+    <img src="../logo.png" alt="Logo" class="brand-img" width="220">
+    <h2 class="sidebar-title">Level 7</h2>
+    <p class="sidebar-subtitle">Functions</p>
+  </div>
+
+  <!-- Bottom category: exercises + controls -->
+  <div class="sidebar-nav">
+    <nav class="nav" id="nav"></nav>
+
+    <div class="sidebar-footer">
+      <button id="expandAll" class="btn ghost">Show all mark schemes</button>
+      <button id="collapseAll" class="btn ghost">Hide all mark schemes</button>
+    </div>
+  </div>
+</aside>
+
+
+
+
+
+  <main class="content">
+    <!-- Guidance moved to the beginning, using the same grey footer-style block -->
+	
+
+<div class="content-section">
+    <section class="footer" aria-label="Instructions" style="margin:0;">
+        <h2 style="margin:0 0 8px 0; font-size:1.05rem; font-weight:700;">Before you start</h2>
+        <ul style="margin:0; padding-left:2rem; font-size:small">
+            <li>Work through the exercises. Reveal the mark scheme when you are ready to check your answer.</li>
+            <li>The teacher is available to explain any exercises you did not understand.</li>
+            <li>When you are ready, inform the teacher to sit for the level pass test and unlock the next level.</li>
+        </ul>
+    </section>
+
+    <div class="button-container">
+        <a href="../dashboard.html" class="nav-button btn-outlined btn-home-outlined">🏠 Home</a>
+		<a href="level5.html" class="nav-button btn-outlined btn-theory-outlined">📚 Theory Notes</a>
+    </div>
+</div>
+	
+	
+    <!-- Exercises render here -->
+    <section id="pointsContainer" class="points-container" aria-live="polite"></section>
+
+    <!-- Action buttons at end of page -->
+    <footer class="footer" style="display:flex;gap:12px;align-items:center;">
+      <button class="btn" type="button">I need help</button>
+      <button class="btn" type="button">I'm ready for the test</button>
+    </footer>
+  </main>
+
+  <!-- Embedded JSON (MCQ formatted; CASE use explicit; expanded explanations) -->
+  <script id="data" type="application/json">
+{
+    "data": [
+        {
+            "point_id": "LEVEL_RECURSION",
+            "items": [
+                {
+                    "question": "Recursive and iterative power",
+                    "question_self_contained": "Exercise 1: Recursive calculation of power\n1. Write a recursive function power(base, exponent) that returns base raised to the power exponent.\n2. Rules for the recursive solution:\n   a. If exponent is 0, return 1.\n   b. Otherwise, return base multiplied by power(base, exponent - 1).\n3. Convert the recursive version into an iterative version iterative_power(base, exponent) that performs the same calculation using a loop (no recursion).",
+                    "mark_scheme_answer": "def power(base, exponent):\n    if exponent == 0:\n        return 1\n    else:\n        return base * power(base, exponent - 1)\n\n\ndef iterative_power(base, exponent):\n    result = 1\n    while exponent > 0:\n        result *= base\n        exponent -= 1\n    return result",
+                    "explanation": "Goal: compute base^exponent.\nAssumptions: exponent is a non-negative integer. When exponent is 0, the result is 1 by definition.\nRecursive version power(base, exponent):\n- Base case: if exponent == 0, return 1 immediately. This stops the recursion.\n- Recursive case: for exponent > 0, return base * power(base, exponent - 1). Each call decreases exponent by 1, so the process eventually reaches the base case.\nQuick trace: power(2, 3) = 2 * power(2, 2) = 2 * (2 * power(2, 1)) = 2 * 2 * power(2, 0) = 2 * 2 * 1 = 4; then multiply by the remaining 2 in the previous frame to get 8.\nIterative version iterative_power(base, exponent):\n- Start with result = 1.\n- Repeat exponent times: multiply result by base and decrease exponent by 1.\n- After the loop, result holds base multiplied by itself the required number of times.\nCommon pitfalls:\n- Forgetting the base case causes infinite recursion.\n- Not reducing exponent in either version prevents termination.\n- Negative exponents are not handled here; for those, you would typically compute 1 / power(base, abs(exponent))."
+                },
+                {
+                    "question": "Recursive string reversal",
+                    "question_self_contained": "Exercise 2: Recursive String Reversal\nObjective: Write a recursive function to reverse a string.\nProblem: Implement reverse_string(s) that returns the reverse of s using recursion. If s is empty, return the empty string.\nHints:\n- Base case: handle the empty string.\n- Recursive case: reverse the substring s[1:] and place s[0] at the end.\nExamples:\nprint(reverse_string(\"hello\"))  # Output: \"olleh\"\nprint(reverse_string(\"python\")) # Output: \"nohtyp\"\nprint(reverse_string(\"\"))       # Output: \"\"",
+                    "mark_scheme_answer": "def reverse_string(s):\n    if len(s) == 0:  # Base case: empty string\n        return \"\"\n    else:\n        return reverse_string(s[1:]) + s[0]  # Reverse rest and append first char",
+                    "explanation": "Idea: split the problem into the first character and the rest of the string.\n- Base case: when the string length is 0, return the empty string. This is the stopping point.\n- Recursive step: for a non-empty string s, take s[1:] (all but the first character) and reverse it recursively, then append s[0] after that reversed substring.\nTrace on 'cat': reverse_string('cat') -> reverse_string('at') + 'c' -> (reverse_string('t') + 'a') + 'c' -> ('' + 't') + 'a' + 'c' -> 'tac'.\nWhy it terminates: each call removes one character from the front, so the input strictly shrinks until it becomes empty.\nTypical mistakes:\n- Missing the base case for the empty string.\n- Forgetting to append the first character at the end when building the result."
+                },
+                {
+                    "question": "Recursive GCD using the Euclidean algorithm",
+                    "question_self_contained": "Exercise 3: Recursive GCD Calculation\nObjective: Implement gcd(a, b) using the Euclidean algorithm.\nRule: If b == 0, return a. Otherwise, return gcd(b, a % b).\nExamples:\nprint(gcd(48, 18))  # Output: 6\nprint(gcd(60, 48))  # Output: 12\nprint(gcd(7, 3))    # Output: 1",
+                    "mark_scheme_answer": "def gcd(a, b):\n    if b == 0:  # Base case: GCD found\n        return a\n    else:\n        return gcd(b, a % b)  # Recursive step: reduce the pair",
+                    "explanation": "Purpose: find the greatest common divisor of two integers a and b.\nAlgorithm logic:\n- Base case: when b == 0, the current value of a is the GCD.\n- Recursive step: replace the pair (a, b) by (b, a % b). The remainder a % b is strictly smaller than b (for b > 0), so the problem size reduces.\nTrace for gcd(48, 18): gcd(48, 18) -> gcd(18, 48 % 18 = 12) -> gcd(12, 6) -> gcd(6, 0) -> 6.\nWhy it always stops: the second argument keeps decreasing to 0 due to the remainder operation.\nNotes:\n- For negative inputs, a common approach is to apply gcd(abs(a), abs(b)) so the result is non-negative.\n- The algorithm is efficient and widely used in number theory and cryptography."
+                }
+            ]
+        }
+    ]
+}
+
+  </script>
+
+<!-- APPEND: Mock Test modal -->
+<div id="mockTestModal" class="mock-modal" aria-hidden="true" role="dialog" aria-labelledby="mockTestTitle">
+  <div class="mock-modal-card">
+    <div class="mock-modal-header">
+      <h3 id="mockTestTitle" style="margin:0;">Mock Test</h3>
+      <button class="mock-close" id="closeMockTest" aria-label="Close">×</button>
+    </div>
+    <div class="mock-modal-body">
+      <!-- JSON will populate this code block with the question -->
+      <div class="mock-code" aria-label="Pseudocode"></div>
+
+      <div id="mockTestAnswer" class="mock-hidden" aria-live="polite">
+        <h4 style="margin:16px 0 8px 0;">Answer</h4>
+        <div class="mock-code"></div>
+        <p></p>
+      </div>
+    </div>
+    <div class="mock-modal-actions footer">
+      <button class="btn" id="toggleMockAnswer" type="button" aria-expanded="false" aria-controls="mockTestAnswer">Show answer</button>
+      <button class="btn ghost" id="dismissMockTest" type="button">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- APPEND: mock test JSON payload -->
+<script id="mockTestData" type="application/json">
+{
+  "mock_test": {
+"question": "Recursive palindrome check (literal match)",
+"question_self_contained": "Write a recursive function is_palindrome(s) that returns True if a string s is a palindrome and False otherwise.\n",
+"mark_scheme_answer": "def is_palindrome(s):\n # Base case: empty or single-character string\n if len(s) <= 1:\n return True\n\n # If the first and last characters differ, not a palindrome\n if s[0] != s[-1]:\n return False\n\n # Recurse on the inner substring\n return is_palindrome(s[1:-1])\n\n# Examples\nprint(is_palindrome(\"racecar\")) # True\nprint(is_palindrome(\"Racecar\")) # False (case sensitive)\nprint(is_palindrome(\"ab ba\")) # False (space counts)\nprint(is_palindrome(\"\")) # True",
+"explanation": "The function compares outer characters and moves inward. The base case handles strings of length 0 or 1, which are palindromes by definition. If the first and last characters are different, the answer is immediately False. Otherwise, the function calls itself on the substring without those two characters, reducing the problem size. Because each call shortens the string, the recursion always reaches the base case. This version treats letters with different case as different and counts spaces and punctuation as normal characters, matching the stated constraints."
+  }
+}
+
+</script>
+  <script src="../exercises.js"></script>
+</body>
+</html>
