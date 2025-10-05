@@ -1,0 +1,7 @@
+19.2a Recursion
+1) Recursion is a problem-solving technique in which a function, procedure, or subroutine calls itself in the general case and continues until a terminating condition called the base case is reached, after which no further recursive calls occur.
+2) The essential features of recursion are a base case (stopping condition), a general case defined in terms of itself that performs a self-call, and a state change on each call that progresses toward the base case; once the base case is reached the call stack unwinds and control returns through the pending calls.
+3) A stack is an abstract data type that can be implemented using recursive algorithms.
+
+19.2b Compiler translation of recursion
+1) When compiling recursive code, the generated object code uses a stack to push return addresses and values of local variables on each recursive call (winding) and to pop them after the base case is reached to implement unwinding.

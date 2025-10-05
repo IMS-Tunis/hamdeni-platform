@@ -1,0 +1,102 @@
+{
+  "19.2a: Show understanding of recursion": [
+    {
+      "type": "official",
+      "text": "Recursion is when a function or procedure is defined in terms of itself and calls itself. A correct recursive definition has two parts."
+    },
+    {
+      "type": "sub-official",
+      "text": "Base case: a terminating rule that returns an answer without making a further call."
+    },
+    {
+      "type": "sub-official",
+      "text": "General case: a rule that solves the problem by calling the same routine on a smaller input."
+    },
+    {
+      "type": "sub-official",
+      "text": "When the base case is reached, results return step by step. This return phase is called unwinding."
+    },
+    {
+      "type": "sub-official",
+      "text": "Each recursive call must change the state so the problem moves closer to the base case, ensuring the recursion stops in a finite number of steps.\n"
+    },
+    {
+      "type": "official",
+      "text": "How recursion is written in pseudocode matches the mathematical definition."
+    },
+    {
+      "type": "sub-official",
+      "text": "Any statements placed after a recursive call run only when calls return during unwinding."
+    },
+    {
+      "type": "sub-official",
+      "text": "Tracing with a table helps you follow calls during winding (making new calls) and returns during unwinding (when those calls return).\n"
+    },
+    {
+      "type": "example",
+      "text": "Example: Recursive factorial definition and code\nMeaning: factorial uses a base case and a general case.\nDefinition: 0! = 1. For n greater than 0, n! = n × (n − 1)!.\nPseudocode:\nFUNCTION Factorial(n) RETURNS INTEGER\n  IF n = 0 THEN\n    RETURN 1\n  ELSE\n    RETURN n * Factorial(n − 1)\n  ENDIF\nENDFUNCTION\nTrace idea: a call such as Factorial(3) makes calls down to n = 0, then returns values in reverse order during unwinding.\n"
+    },
+    {
+      "type": "example",
+      "text": "Example: Fibonacci as a recursive definition\nMeaning: the series is defined by base cases and a recurrence.\nBase cases: F0 = 0 and F1 = 1.\nGeneral case: Fn = F(n−1) + F(n−2) for n ≥ 2.\nTrace idea: to compute F4, calls reduce the index until the base cases are met, then sums are returned during unwinding.\n"
+    },
+    {
+      "type": "fun",
+      "text": "Analogy: Russian dolls. A recursive call is like opening a large doll to find a smaller one inside. The smallest doll is the base case with no further opening. Opening dolls matches the call sequence during winding, and closing them matches the returns during unwinding.\n"
+    },
+    {
+      "type": "official",
+      "text": "When recursion is beneficial"
+    },
+    {
+      "type": "sub-official",
+      "text": "Some problems are naturally recursive, so the recursive solution is shorter and clearer."
+    },
+    {
+      "type": "sub-official",
+      "text": "Each recursive call has a cost in time and memory, because every call must be stored until it returns.\n"
+    },
+    {
+      "type": "example",
+      "text": "Example: Cost of many calls\nTitle: Factorial call depth\nObservation: a call such as Factorial(100) requires 100 recursive calls before returning, so the program must handle many returns during unwinding.\n\n"
+    }
+  ],
+  "19.2b: Show awareness of what a compiler has to do to translate recursive programming code": [
+    {
+      "type": "official",
+      "text": "Compilers implement recursion using a stack structure for calls and returns."
+    },
+    {
+      "type": "sub-official",
+      "text": "Each call creates a stack frame that stores at least the return address and the local variables for that call."
+    },
+    {
+      "type": "sub-official",
+      "text": "Frames are pushed as calls are made and are popped as results return during unwinding."
+    },
+    {
+      "type": "sub-official",
+      "text": "The stack ensures control returns to the correct place with the correct local values restored.\n"
+    },
+    {
+      "type": "example",
+      "text": "Example: Stack activity for Factorial(3)\nCall order: the program calls Factorial(3), which calls Factorial(2), which calls Factorial(1), which calls Factorial(0).\nStack effect: each call pushes a new frame with its own n and return address.\nUnwinding: Factorial(0) returns 1, then each waiting call pops its frame, computes its result, and returns to its caller until the original call receives the final answer.\n"
+    },
+    {
+      "type": "fun",
+      "text": "Analogy: Stack of plates. Each function call places a plate on top push. To remove plates, you must take the top one first pop. Returns therefore happen in reverse order, so the last call returns first.\n"
+    },
+    {
+      "type": "official",
+      "text": "Resource implications of recursion"
+    },
+    {
+      "type": "sub-official",
+      "text": "Many active stack frames increase memory use and add overhead, so very repetitive recursion can be expensive in practice.\n"
+    },
+    {
+      "type": "example",
+      "text": "Example: Depth and memory\nTitle: Recursion depth and frames\nObservation: if a routine makes k nested calls before a base case, then k frames are on the stack and must be kept until the routine starts returning."
+    }
+  ]
+}

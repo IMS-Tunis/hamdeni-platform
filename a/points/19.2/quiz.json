@@ -2,101 +2,105 @@
   "questions": [
     {
       "type": "mcq",
-      "question": "What is the main reason computers use binary to represent all data?",
+      "question": "Which line represents the factorial base case in the given pseudocode pattern?",
       "options": [
-        "Binary numbers are easier for humans to read",
-        "Computers use logic gates that only understand ON and OFF states",
-        "It uses less power",
-        "Binary numbers are shorter than decimal numbers"
+        "RETURN n * Factorial(n − 1)",
+        "IF n = 0 THEN RETURN 1",
+        "IF n = 1 THEN RETURN 0",
+        "RETURN Factorial(n)"
       ],
-      "answer": "Computers use logic gates that only understand ON and OFF states"
+      "answer": "IF n = 0 THEN RETURN 1"
     },
     {
       "type": "mcq",
-      "question": "In an 8-bit binary number, what does the leftmost bit represent?",
+      "question": "Which set of base cases is stated for Fibonacci in the notes?",
       "options": [
-        "Least Significant Bit",
-        "The parity bit",
-        "Most Significant Bit",
-        "The hexadecimal value"
+        "F0 = 1 and F1 = 1",
+        "F1 = 0 and F2 = 1",
+        "F0 = 0 and F1 = 1",
+        "F0 = 1 and F2 = 2"
       ],
-      "answer": "Most Significant Bit"
+      "answer": "F0 = 0 and F1 = 1"
     },
     {
       "type": "mcq",
-      "question": "Which of the following is a hexadecimal digit?",
+      "question": "What is the general case formula for Fibonacci for n >= 2?",
       "options": [
-        "8",
-        "G",
-        "H",
-        "Q"
+        "Fn = F(n−1) × F(n−2)",
+        "Fn = F(n−1) − F(n−2)",
+        "Fn = F(n−1) + F(n−2)",
+        "Fn = 2 × F(n−1)"
       ],
-      "answer": "8"
+      "answer": "Fn = F(n−1) + F(n−2)"
     },
     {
       "type": "mcq",
-      "question": "What is the maximum value that can be represented in an 8-bit binary number?",
+      "question": "Which cost is explicitly associated with recursive calls in the notes?",
       "options": [
-        "255",
-        "256",
-        "128",
-        "1024"
+        "Disk space only",
+        "Time and memory because every call must be stored until it returns",
+        "Only compilation time",
+        "Network overhead"
       ],
-      "answer": "255"
-    },
-    {
-      "type": "fill_blank",
-      "question": "The process of moving all bits in a binary number to the left or right and filling the emptied spaces with zeros is called a __________ shift.",
-      "answer": "Logical"
-    },
-    {
-      "type": "fill_blank",
-      "question": "In binary addition, if the result is too large for the register to hold, this is called an __________ error.",
-      "answer": "Overflow"
-    },
-    {
-      "type": "fill_blank",
-      "question": "Each hexadecimal digit can be represented by exactly ___ binary bits.",
-      "answer": "4"
+      "answer": "Time and memory because every call must be stored until it returns"
     },
     {
       "type": "true_false",
-      "question": "Digital data can take any value, just like analogue data.",
-      "answer": "False"
-    },
-    {
-      "type": "true_false",
-      "question": "In two’s complement, the most significant bit represents the sign of the number.",
+      "question": "A call such as Factorial(100) requires 100 recursive calls before returning.",
       "answer": "True"
     },
     {
-      "type": "true_false",
-      "question": "The denary number system is also known as base 16.",
-      "answer": "False"
-    },
-    {
       "type": "match",
-      "question": "Match the term with its correct definition:",
+      "question": "Match the recursion terms to their descriptions.",
       "pairs": {
-        "Register": "Used to temporarily hold binary data",
-        "Logic gate": "Basic building block for processing digital data",
-        "Two’s complement": "Method to represent negative binary"
+        "Base case": "Terminating rule that returns an answer without making a further call",
+        "General case": "Rule that solves the problem by calling the same routine on a smaller input",
+        "State change": "Required progress on each call that moves toward the base case",
+        "Unwinding": "Step-by-step return of results after the base case is reached"
       }
     },
     {
-      "type": "fill_blank",
-      "question": "Convert the binary number 1101 to denary: __________",
-      "answer": "13"
+      "type": "match",
+      "question": "Match the stack concepts to their behaviors.",
+      "pairs": {
+        "Push": "Added to the stack when a call is made during winding",
+        "Pop": "Removed from the stack when a call finishes during unwinding",
+        "Return address": "Ensures control returns to the correct place",
+        "Local variables": "Values that belong only to the current call"
+      }
     },
     {
-      "type": "fill_blank",
-      "question": "What is the hexadecimal equivalent of the denary number 15? __________",
-      "answer": "F"
+      "type": "mcq",
+      "question": "What does the stack guarantee during recursion according to the notes?",
+      "options": [
+        "That the routine is faster than any loop",
+        "That control returns to the correct place with the correct local values restored",
+        "That no base case is required",
+        "That only one call can exist at a time"
+      ],
+      "answer": "That control returns to the correct place with the correct local values restored"
     },
     {
-      "type": "fill_blank",
-      "question": "What is the binary value for the hexadecimal digit C? __________",
-      "answer": "1100"
+      "type": "mcq",
+      "question": "Which sequence reflects the call order shown for Factorial(3)?",
+      "options": [
+        "3 -> 2 -> 1 -> 0",
+        "0 -> 1 -> 2 -> 3",
+        "3 -> 3 -> 3 -> 3",
+        "1 -> 2 -> 3 -> 4"
+      ],
+      "answer": "3 -> 2 -> 1 -> 0"
+    },
+    {
+      "type": "mcq",
+      "question": "When Factorial(0) returns 1 during the Factorial(3) run, what happens next according to the notes?",
+      "options": [
+        "All frames are immediately cleared from the stack",
+        "Each waiting call pops its frame, computes its result, and returns to its caller",
+        "The program restarts from Factorial(3)",
+        "The stack creates additional frames for error checking"
+      ],
+      "answer": "Each waiting call pops its frame, computes its result, and returns to its caller"
     }
   ]
 }

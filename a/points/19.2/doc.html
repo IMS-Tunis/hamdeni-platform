@@ -2,13 +2,116 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Content not ready</title>
-  <link rel="stylesheet" href="igcse-style.css">
-<script defer src="/assets/js/paste-guard.js"></script>
+  <title>19.2 Recursion</title>
+  <link rel="stylesheet" href="../igcse-style.css">
 </head>
 <body>
-   <div class="container">
-    <h1>Content will be ready soon!</h1>
-   
+
+<div class="container">
+
+<div class="header-container">
+<img src="../syllabus.png" alt="Syllabus Update" class="top-right-icon">
+  <div class="title-row">
+    <h1 class="section-title">19.2 Recursion</h1>
+  </div>
+  <div class="title-underline"></div>
+  <p class="section-subtitle">Computer Science IGCSE notes, prepared by Dr. Hamdeni</p>
+</div>
+
+<div class="section">
+  <h2>19.2a: Show understanding of recursion</h2>
+  <ul>
+    <li><span class="official-note">Recursion is a method where a function or procedure solves a large problem by calling itself on a smaller version of the same problem. A correct recursive routine always has two parts.</span>
+      <ul>
+        <li><span class="official-note">Base case: a clear stopping rule that gives an immediate answer, with no self-calls.</span></li>
+        <li><span class="official-note">General case: handles all other inputs by calling the same routine again with a smaller or simpler input.</span></li>
+        <li><span class="official-note">Unwinding: after the base case is reached, the program returns from each waiting call one by one, passing results back up the chain.</span></li>
+        <li><span class="official-note">Termination requirement: every self-call must change the situation so the problem moves toward the base case, ensuring the algorithm stops in a finite number of steps.</span></li>
+      </ul>
+    <li><span class="official-note">In pseudocode we write the same two parts as in the definition: a base case that returns directly and a general case that makes the self-call.</span>
+      <ul>
+        <li><span class="official-note">Any statements that appear after a recursive call run only when the call finishes and returns (during unwinding).</span></li>
+        <li><span class="official-note">Tracing with a table helps you follow two phases: winding means making new self-calls; unwinding means those calls are returning with results.</span></li>
+      </ul>
+    <li><span class="official-note">When recursion is beneficial</span>
+      <ul>
+        <li><span class="official-note">Some problems naturally break into smaller copies of themselves, so a recursive solution is often shorter and easier to read than a loop-based one.</span></li>
+        <li><span class="official-note">Each recursive call uses time and memory, because every active call must be kept on the call stack until it returns.</span></li>
+      </ul>
+  </ul>
+  <ul class="no-bullets">
+    <li><div class="example-box">Example: Recursive factorial definition and code
+Meaning: factorial uses a base case and a general case to multiply numbers down to 1.
+Definition: 0! = 1. For n greater than 0, n! = n × (n − 1)!.
+Pseudocode:
+FUNCTION Factorial(n) RETURNS INTEGER
+  IF n = 0 THEN
+    RETURN 1
+  ELSE
+    RETURN n * Factorial(n − 1)
+  ENDIF
+ENDFUNCTION
+Trace idea: with Factorial(3), the calls go 3 → 2 → 1 → 0 (base case). Then the returns happen in reverse order: 1, 1×1, 2×1, 3×2, giving 6.</div></li>
+    <li><div class="example-box">Example: Fibonacci as a recursive definition
+Meaning: the series is defined by base cases and a recurrence.
+Base cases: F0 = 0 and F1 = 1.
+General case: Fn = F(n−1) + F(n−2) for n ≥ 2.
+Trace idea: to compute F4, calls expand to F3 and F2; those expand again until only base cases remain. As the calls return, values are added to produce F4.</div></li>
+    <li><span class="fun-tip">Analogy: Russian dolls. A recursive call is like opening a large doll to find a smaller one inside. The smallest doll is the base case with no further opening. Opening dolls matches the call sequence during winding, and closing them matches the returns during unwinding.</span></li>
+    <li><div class="example-box">Example: Cost of many calls
+Title: Factorial call depth
+Observation: a call such as Factorial(100) creates 100 nested calls before any return happens, so the program must handle many returns during unwinding.</div></li>
+  </ul>
+  <ul class="no-bullets">
+    <div class="button-group">
+      <button class="keyword-button" onclick="openPopupK('19.2a')">
+        🔑 View Keywords on This Topic 🔑
+      </button>
+      <button class="exam-button" onclick="openPopupQ('19.2a')">
+        👁️ Quick Look at Exam Questions on This Topic 👁️
+      </button>
+    </div>
+  </ul>
+</div>
+
+<div class="section">
+  <h2>19.2b: Show awareness of what a compiler has to do to translate recursive programming code</h2>
+  <ul>
+    <li><span class="official-note">To run recursive code, the compiled program uses a stack: a last-in, first-out structure that keeps track of active calls and their returns.</span>
+      <ul>
+        <li><span class="official-note">Each call creates a stack frame that stores the return address (where to go back) and the local variables for that call.</span></li>
+        <li><span class="official-note">As new calls are made, frames are pushed onto the top of the stack; as results return, frames are popped from the top during unwinding.</span></li>
+        <li><span class="official-note">The stack guarantees that control returns to the correct place and that the correct local values are restored for each returning call.</span></li>
+      </ul>
+    <li><span class="official-note">Resource implications of recursion</span>
+      <ul>
+        <li><span class="official-note">Many active stack frames increase memory use and add overhead, so very repetitive or deep recursion can be expensive in practice.</span></li>
+      </ul>
+  </ul>
+  <ul class="no-bullets">
+    <li><div class="example-box">Example: Stack activity for Factorial(3)
+Call order: the program calls Factorial(3), which then calls Factorial(2), which calls Factorial(1), which calls Factorial(0).
+Stack effect: each call pushes a new frame with its own n and return address.
+Unwinding: Factorial(0) returns 1; then each waiting call pops its frame, computes its result, and returns to its caller, until the original call receives the final answer.</div></li>
+    <li><span class="fun-tip">Analogy: Stack of plates. Each function call places a plate on top (push). To remove plates, you must take the top one first (pop). Returns therefore happen in reverse order: the last call returns first.</span></li>
+    <li><div class="example-box">Example: Depth and memory
+Title: Recursion depth and frames
+Observation: if a routine makes k nested calls before a base case, then k frames are on the stack and must be kept until the routine starts returning.</div></li>
+  </ul>
+  <ul class="no-bullets">
+    <div class="button-group">
+      <button class="keyword-button" onclick="openPopupK('19.2b')">
+        🔑 View Keywords on This Topic 🔑
+      </button>
+      <button class="exam-button" onclick="openPopupQ('19.2b')">
+        👁️ Quick Look at Exam Questions on This Topic 👁️
+      </button>
+    </div>
+  </ul>
+</div>
+
+</div>
+
+<script src="popup-script.js"></script>
 </body>
 </html>
