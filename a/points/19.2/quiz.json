@@ -90,17 +90,6 @@
         "1 -> 2 -> 3 -> 4"
       ],
       "answer": "3 -> 2 -> 1 -> 0"
-    },
-    {
-      "type": "mcq",
-      "question": "When Factorial(0) returns 1 during the Factorial(3) run, what happens next?",
-      "options": [
-        "All frames are immediately cleared from the stack",
-        "Each waiting call pops its frame, computes its result, and returns to its caller",
-        "The program restarts from Factorial(3)",
-        "The stack creates additional frames for error checking"
-      ],
-      "answer": "Each waiting call pops its frame, computes its result, and returns to its caller"
     }
   ]
 }

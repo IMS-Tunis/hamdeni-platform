@@ -3,7 +3,7 @@
     "point_id": "13.3",
     "question_number": "1A",
     "question": "Convert the denary value –35.125 into a fixed-point binary representation.",
-    "mark_scheme": "This is intended as a paper exercise so the question of whether the value should be stored in a computer as sign and magnitude or two’s complement need not be considered.\nThe value in binary is simply –100011.001\n\nExplanation of the answer:\nWrite 35.125 in binary. 35 is 100011 and 0.125 is 0.001 because 1/8 equals 0.125.\nJoin them to get 100011.001, then add the negative sign for −35.125."
+    "mark_scheme": "100011.001\n\nExplanation of the answer:\nWrite 35.125 in binary. 35 is 100011 and 0.125 is 0.001 because 1/8 equals 0.125.\nJoin them to get 100011.001, then add the negative sign for −35.125."
   },
   {
     "point_id": "13.3",
@@ -15,13 +15,7 @@
     "point_id": "13.3",
     "question_number": "1C",
     "question": "Give a sensible value for 25.33 expressed in binary.",
-    "mark_scheme": "The method described in worked example 16.01 in the coursebook must be used.\nA sensible value is 11001.0101.\nThe fraction .33 is approximated as .3125 (1/4 + 1/16).\nA more accurate binary value could be obtained by including more digits after the binary point but the progress towards a closer value would be slow.\n\nExplanation of the answer:\n25 is 11001 in binary. We choose 0.3125 as a close fraction to 0.33 because 0.3125 has a short binary 0.0101.\nPut them together to get 11001.0101. More binary places would improve the approximation slowly."
-  },
-  {
-    "point_id": "13.3",
-    "question_number": "1D",
-    "question": "Is the value you have supplied appropriate for a signed fixed-point representation or for an unsigned one? Explain your reasoning.",
-    "mark_scheme": "The value 11001.0101 is only suitable as an unsigned value. However, a more detailed answer could be provided which considers storage in a computer. The denary value is positive so the binary representation for a signed value must start with a zero. Provided that the storage space is large enough, a zero can be added at the start. This then automatically becomes a two’s complement value for a positive number.\n\nExplanation of the answer:\nFor signed two’s complement, positive numbers must begin with 0. The binary 11001.0101 starts with 1, so by itself it looks negative if treated as signed. Adding a leading 0 fixes that when stored in a wider signed field."
+    "mark_scheme": "A sensible value is 11001.0101.\nThe fraction .33 is approximated as .3125 (1/4 + 1/16).\nA more accurate binary value could be obtained by including more digits after the binary point but the progress towards a closer value would be slow.\n\nExplanation of the answer:\n25 is 11001 in binary. We choose 0.3125 as a close fraction to 0.33 because 0.3125 has a short binary 0.0101.\nPut them together to get 11001.0101. More binary places would improve the approximation slowly."
   },
   {
     "point_id": "13.3",
@@ -32,25 +26,28 @@
   {
     "point_id": "13.3",
     "question_number": "3",
-    "question": "Binary codes are shown for floating-point representations stored in two bytes. The first represents the mantissa in two’s complement form. The second represents the exponent in two’s complement form.\nFor ease of reading, there is a space separating the mantissa from the exponent. Match each code with the correct description.\n\n10000000 01111111        *Largest positive value\n11111111 10000000        *Smallest positive value\n01111111 01111111        *Smallest magnitude negative value\n00000001 10000000        *Largest magnitude negative value",
+    "question": "Binary codes are shown for floating-point representations stored in two bytes. The first represents the mantissa in two’s complement form. The second represents the exponent in two’s complement form.\nFor ease of reading, there is a space separating the mantissa from the exponent. Match each code with the correct description.\n\nList of codes: \n*10000000 01111111        \n*11111111 10000000        \n*01111111 01111111        \n*00000001 10000000    \n\nList of descriptions: \n *Largest positive value \n *Smallest positive value \n *Smallest magnitude negative value \n *Largest magnitude negative value",
     "mark_scheme": "Learners often find this type of question problematic. A systematic approach is needed, looking at the mantissa and exponent separately. For each, the first bit sets the sign, 0 for positive and 1 for negative. Then it is necessary to remember that for a negative number in two’s complement the first bit represents a negative value but all of the others represent positive values.\n\nMatchings\n\n- 10000000 01111111 → Largest magnitude negative value\n Mantissa 10000000 = −128; Exponent 01111111 = +127; Value = −128 × 2^127 (very large magnitude, negative).\n\n- 11111111 10000000 → Smallest magnitude negative value\n Mantissa 11111111 = −1; Exponent 10000000 = −128; Value = −1 × 2^−128 (very close to 0, negative).\n\n- 01111111 01111111 → Largest positive value\n Mantissa 01111111 = +127; Exponent 01111111 = +127; Value = +127 × 2^127 (very large magnitude, positive).\n\n- 00000001 10000000 → Smallest positive value\n Mantissa 00000001 = +1; Exponent 10000000 = −128; Value = +1 × 2^−128 (very close to 0, positive).\n\n---\n\nSystematic reasoning\n\n1. Interpret each 8-bit field separately as two’s complement.\n Sign bit 0 gives a non-negative value; sign bit 1 gives a negative value.\n\n2. Mantissas:\n 10000000 → −128\n 11111111 → −1\n 01111111 → +127\n 00000001 → +1\n\n3. Exponents:\n 01111111 → +127\n 10000000 → −128\n\n4. Combine as value = mantissa × 2^(exponent).\n Large positive values require a positive mantissa with a large positive exponent.\n Tiny positive values require a small positive mantissa with a large negative exponent.\n Large magnitude negatives mirror the same logic with negative mantissas.\n\n In other words:\nDecide sign from the first bit of each field. Big positive numbers use a positive mantissa near 1 and a large positive exponent. Tiny positive numbers use a very small positive mantissa and a large negative exponent. The reverse gives large or tiny negatives."
   },
   {
     "point_id": "13.3",
     "question_number": "4",
-    "question": "The following binary codes have the first six bits for the mantissa and the remaining four bits for the exponent (with a separating space for clarity). Match each code with the correct description.\n\n110010 0011\t\tUnnormalised form of –4.5\n100100 0010\t\tUnnormalised form of 2\n101110 0011\t\tNormalised form of 2\n110111 0100\t\tNormalised form of –4.5\n001000 0011\t\tUnnormalised form of –3.5\n010000 0010\t\tNormalised form of –3.5",
+    "question": "The following binary codes have the first six bits for the mantissa and the remaining four bits for the exponent (with a separating space for clarity). Match each code with the correct description.\n\n List of codes:\n110010 0011\n100100 0010\n101110 0011\n110111 0100\n001000 0011\n010000 0010\n\n List of decriptions:\t\tUnnormalised form of –4.5\n\t\tUnnormalised form of 2\n\t\tNormalised form of 2\n\t\tNormalised form of –4.5\n\t\tUnnormalised form of –3.5\n\t\tNormalised form of –3.5",
+	
+	
+	
     "mark_scheme": "There are some straightforward rules here. The first bit defines the sign. If the next bit is different the representation is normalised. The binary point is initially after the first bit. To evaluate the number, the binary point has to be moved according to the value for the exponent. Three of these have exponent value 3 (0011) so the binary point moves three places right. Then the normal conversion of the binary can follow. Each one should be checked!\n\n Matchings\n\n- 110010 0011 → Unnormalised form of –4.5\n- 100100 0010 → Normalised form of –4.5\n- 101110 0011 → Normalised form of –3.5\n- 110111 0100 → Unnormalised form of –3.5\n- 001000 0011 → Unnormalised form of 2\n- 010000 0010 → Normalised form of 2\n\n---\n\nSystematic reasoning\n\n1. First bit is the sign; next bit differs from the sign in a normalised mantissa, and matches it in an unnormalised mantissa.\n2. Treat the binary point as initially after the sign bit; move it right by the exponent’s value.\n3. Check sign, check normalised vs unnormalised, shift the point, then read the number.\n4. Pairs that differ by a one-place right shift of the mantissa and a +1 in the exponent represent the same value; the shifted one is unnormalised."
   },
   {
     "point_id": "13.3",
     "question_number": "5A",
-    "question": "A floating-point representation uses eight bits for the mantissa and four bits for the exponent. Both parts are stored in two's complement form.\n:\n10101000 0111\nGive the denary equivalent.)",
+    "question": "A floating-point representation uses eight bits for the mantissa and four bits for the exponent. Both parts are stored in two's complement form:\n10101000 0111\nGive the denary equivalent.",
     "mark_scheme": "The mantissa for the first example is 1.0101000 and the exponent is denary 7, so the mantissa becomes 10101000.\nThis evaluates as -128 + 32 + 8 = -88"
   },
   {
     "point_id": "13.3",
     "question_number": "5B",
-    "question": "A floating-point representation uses eight bits for the mantissa and four bits for the exponent. Both parts are stored in two's complement form.\n01101000 1000\nGive the denary equivalent ",
+    "question": "A floating-point representation uses eight bits for the mantissa and four bits for the exponent. Both parts are stored in two's complement form:\n01101000 1000\nGive the denary equivalent ",
     "mark_scheme": "For the second example the exponent is denary -8, so the mantissa becomes .000000001101000\nThis evaluates as 1/512 + 1/1024 + 1/4096 = 0.003173828\n\nExplanation of the answer:\nA negative exponent moves the binary point left. Moving by 8 places turns 01101000 into a very small fraction. Add the place values: 1/512 + 1/1024 + 1/4096."
   },
   {
@@ -80,31 +77,31 @@
   {
     "point_id": "13.3",
     "question_number": "7A",
-    "question": "For each of the following, convert the stored value to a normalised representation:\n00101000 0110",
+    "question": "Convert the stored value to a normalised representation:\n00101000 0110",
     "mark_scheme": "For the positive value the conversion is straightforward. The mantissa needs the bits moving one place to the left so the exponent must be reduced by one: 01010000 0101\n\nExplanation of the answer:\nTo normalise, shift the mantissa left until the first two bits differ. One left shift multiplies by 2, so reduce the exponent by 1 to keep the overall value the same.\nMantissa 00101000 has first two bits 00, so it is unnormalised.\nShift left once → 01010000. Now the first two bits differ (01), so it is normalised.\nOne left shift multiplies the mantissa by 2, so reduce the exponent 0110 (6) by 1 → 0101 (5)."
   },
   {
     "point_id": "13.3",
     "question_number": "7B",
-    "question": "For each of the following, convert the stored value to a normalised representation:\n11101000 0011",
+    "question": "Convert the stored value to a normalised representation:\n11101000 0011",
     "mark_scheme": "Mantissa 11101000 is negative and unnormalised since the first two bits are 11.\nShift left twice: 11101000 → 11010000 → 10100000. Now the first two bits are 10, so it is normalised.\nTwo left shifts multiply the mantissa by 4, so subtract 2 from the exponent 0011 (3) to get 0001 (1).\nIt might appear strange that for the negative value, bits set to 1 can be moved off the left-hand end of the mantissa but that is what happens. The mantissa needs the bits moving two places to the left so the exponent must be reduced by two: 10100000 0001\n\nNegative mantissas also get shifted until the first two bits differ. Two left shifts multiply by 4, so subtract 2 from the exponent to balance it."
   },
   {
     "point_id": "13.3",
     "question_number": "8A",
     "question": "In a particular computer system, real numbers are stored using floating-point representation with:\n• 8 bits for the mantissa\n• 8 bits for the exponent\n• two’s complement form for both mantissa and exponent.\nCalculate the floating point representation of +3.5 in this system. Show your working.",
-    "mark_scheme": "0 1 1 1 0 0 0 0    0 0 0 0 0 0 1 0\n3.5 converts to 11.1 in binary, but 0 must be put at the start to ensure it is a positive value in two’s complement form.\nThen 011.1 has to be changed to 0.1110000 to produce a normalised representation that fits the 8-bit mantissa with the binary point in the correct position. This has involved a shift of the binary point by two places to the left so the exponent has to be the binary for 2.\n\nExplanation of the answer:\n3.5 is 11.1 in binary. Normalised form needs 0.111... so shift the point left 2 places, then record that shift with exponent 2. Keep a leading 0 to mark a positive mantissa in two’s complement."
+    "mark_scheme": "01110000 00000010\n3.5 converts to 11.1 in binary, but 0 must be put at the start to ensure it is a positive value in two’s complement form.\nThen 011.1 has to be changed to 0.1110000 to produce a normalised representation that fits the 8-bit mantissa with the binary point in the correct position. This has involved a shift of the binary point by two places to the left so the exponent has to be the binary for 2.\n\nExplanation of the answer:\n3.5 is 11.1 in binary. Normalised form needs 0.111... so shift the point left 2 places, then record that shift with exponent 2. Keep a leading 0 to mark a positive mantissa in two’s complement."
   },
   {
     "point_id": "13.3",
     "question_number": "8B",
     "question": "Calculate the floating point representation of –3.5 in this system. Show your working.",
-    "mark_scheme": "1 0 0 1 0 0 0 0    0 0 0 0 0 0 1 0\nAgain, this can begin by converting 3.5 to 011.1 in binary (the 0 must be placed at the start). To convert this to a negative value the two’s complement has to be taken, which produces 100.1. This is expanded to 1.0010000, which has involved a shift left of two places so the exponent is the binary for 2.\n\nExplanation of the answer:\nStart from the positive pattern, then take two’s complement to make it negative. Normalise by shifting left 2 places and set exponent to 2 so the overall value stays −3.5."
+    "mark_scheme": "10010000 00000010\nAgain, this can begin by converting 3.5 to 011.1 in binary (the 0 must be placed at the start). To convert this to a negative value the two’s complement has to be taken, which produces 100.1. This is expanded to 1.0010000, which has involved a shift left of two places so the exponent is the binary for 2.\n\nExplanation of the answer:\nStart from the positive pattern, then take two’s complement to make it negative. Normalise by shifting left 2 places and set exponent to 2 so the overall value stays −3.5."
   },
   {
     "point_id": "13.3",
     "question_number": "8C",
-    "question": "Find the denary value for the following binary floating-point number. Show your working.\nMantissa       -   Exponent \n0 1 1 1 0 0 0 0     -     0 0 0 0 0 1 0 0",
+    "question": "Find the denary value for the following binary floating-point number. Show your working.\n01110000 00000100",
     "mark_scheme": "14\nThe exponent is 4 so the mantissa has to have the binary point shifted right by four places :\n0.1110000 becomes 01110.000. The denary is 8 + 4 + 2 = 14\n\nExplanation of the answer:\nExponent 4 means move the point 4 places right. The bits become 1110.000 which equals 8 + 4 + 2. Add them to get 14."
   },
   {
@@ -118,77 +115,5 @@
     "question_number": "8D(ii)",
     "question": "Justify your answer given in part (d)(i).",
     "mark_scheme": "Because the two leftmost bits in the mantissa are different.\n\nExplanation of the answer:\nThe rule for this format is simple. If the first two mantissa bits are different, the number is in normalised form."
-  },
-  {
-    "point_id": "13.3",
-    "question_number": "8E",
-    "question": "Give the binary two’s complement pattern for the negative number with the largest magnitude.\nMantissa Exponent",
-    "mark_scheme": "1 0 0 1 0 0 0 0    0 1 1 1 1 1 1 1\n\nExplanation of the answer:\nUse the most negative mantissa pattern and the largest positive exponent. That combination gives the biggest magnitude below zero."
-  },
-  {
-    "point_id": "13.3",
-    "question_number": "9A(i)",
-    "question": "State the values being represented by A, B and C.",
-    "mark_scheme": "A = −1 + 1/4 × 2−1 = −3/4 × 1/2 = −3/8 = −0.375\nB = (1/2 + 1/8) × 23 = 5/8 × 8 = 5\nC = (1/8 + 1/32) × 25 = 5/32 × 32 = 5\n\nExplanation of the answer:\nEach value is mantissa times 2 to the exponent. Turn each fraction to a decimal or keep as fractions, then multiply by the power of 2. Compute A, B, and C separately."
-  },
-  {
-    "point_id": "13.3",
-    "question_number": "9A(ii)",
-    "question": "Identify the value that is not normalised.",
-    "mark_scheme": "C\n\nExplanation of the answer:\nCheck the first two mantissa bits. If they are the same it is not normalised. C fails the normalised rule."
-  },
-  {
-    "point_id": "13.3",
-    "question_number": "9A(iii)",
-    "question": "Explain why it is normal for floating-point numbers to be normalised.",
-    "mark_scheme": "Because there could be more than one way to represent the same value and some options are\nnot possible (e.g. 0.1000000 × 00000010 could become 0.0000000 × 00001001 which is not\npossible).\n\nExplanation of the answer:\nNormalising gives one standard form for each value. Without it, the same number could be stored in many ways, which causes confusion and wasted space."
-  },
-  {
-    "point_id": "13.3",
-    "question_number": "9B",
-    "question": "Comment on the accuracy and range of numbers stored in this computer.",
-    "mark_scheme": "Accuracy and range\n• 16-bit mantissa and 8-bit exponent gives high accuracy but small range.\n• Increasing mantissa size would increase accuracy further ….\n• …. but correspondingly reducing the exponent size would reduce the range (and the converse\nis true).\n\nExplanation of the answer:\nMore mantissa bits mean more precise digits. More exponent bits mean you can represent very big and very small numbers. If you increase one within a fixed word size, you must decrease the other."
-  },
-  {
-    "point_id": "13.3",
-    "question_number": "9C",
-    "question": "Discuss the problems of representing the number zero in normalised floating-point format.",
-    "mark_scheme": "Because normalised values must have 1.0 or 0.1 therefore it is not possible to store the value\nzero using this method.\n\nExplanation of the answer:\nNormalised mantissas always start with 1 or 0.1. Zero would need all zeros, which breaks that rule, so zero needs a special representation."
-  },
-  {
-    "point_id": "13.3",
-    "question_number": "10A(i)",
-    "question": "A computer uses 12 bits for the mantissa and 6 bits for the exponent.\nConvert these binary floating-point numbers into denary.\n(i) [first given binary in the screenshot]",
-    "mark_scheme": "(1/2 + 1/4 + 1/8 + 1/64) × 27 = 57/64 × 27 = 114\n\nExplanation of the answer:\nAdd the place values in the mantissa to get 57/64. Exponent 7 shifts the point right by 7 which multiplies by 2^7. Multiply to get 114."
-  },
-  {
-    "point_id": "13.3",
-    "question_number": "10A(ii)",
-    "question": "A computer uses 12 bits for the mantissa and 6 bits for the exponent.\nConvert these binary floating-point numbers into denary.\n(ii) [second given binary in the screenshot]",
-    "mark_scheme": "(−1 + 1/4 + 1/32 + 1/64 + 1/128) × 2−4 = −89/128 × 1/16 = −89/211 = 0.000434571\n\nExplanation of the answer:\nSum the signed fractional parts inside the mantissa to get −89/128. Exponent −4 moves the point left 4 places, which divides by 16. Compute the final decimal."
-  },
-  {
-    "point_id": "13.3",
-    "question_number": "10B(i)",
-    "question": "Convert these denary numbers into binary floating-point numbers.\n(i) +4.75",
-    "mark_scheme": "4.75 = 19/4 = 19/32 × 23 = 0.100110000000000 × 000011\n\nExplanation of the answer:\n4.75 is 100.11 in binary. Normalise to 0.10011 and record the shift by exponent 3. Pad with zeros to fit the mantissa length."
-  },
-  {
-    "point_id": "13.3",
-    "question_number": "10B(ii)",
-    "question": "Convert these denary numbers into binary floating-point numbers.\n(ii) −8.375",
-    "mark_scheme": "−8.375 = −67/8 = −67/128 × 24 = (−1 + 61/128) × 24\n= 1.011110100000000 × 000100\n\nExplanation of the answer:\n8.375 is 1000.011 in binary. Make it negative, normalise the mantissa, and set exponent 4 for the left shift. The given mantissa encodes the same value."
-  },
-  {
-    "point_id": "13.3",
-    "question_number": "11A",
-    "question": "In a particular computer system, real numbers are stored using floating-point representation with:\n• 8 bits for the mantissa\n• 8 bits for the exponent\n• two’s complement form for both mantissa and exponent.\nCalculate the floating-point representation of +3.5 in this system. Show your working.",
-    "mark_scheme": "01110000 00000010\n= 11.1\n= 0.11 × 22\n\nExplanation of the answer:\n3.5 equals 11.1. Normalise to 0.1110000 for an 8-bit mantissa and record a shift of 2 with the exponent. Keep the sign bit 0 for a positive mantissa."
-  },
-  {
-    "point_id": "13.3",
-    "question_number": "11B",
-    "question": "Calculate the floating-point representation of −3.5 in this system. Show your working.",
-    "mark_scheme": "10010000 00000010\nOne’s complement of 8-bit mantissa for +3.5 gives:\n10010000\n\nExplanation of the answer:\nBegin with the positive mantissa of 3.5. Convert to negative using complement, then use the same exponent as in the positive case because the magnitude is the same and the normalisation shift is the same."
   }
 ]
