@@ -8,10 +8,6 @@
     "answer": "4(b) One mark per mark point\nMP1 A technique used to solve problems using a function/procedure/subroutine that calls itself (general case)\nMP2 … until the terminating condition / base case is achieved, when no further recursive calls are made"
   },
   {
-    "question": "A binary tree is a suitable Abstract Data Type (ADT) that a designer can implement using recursive algorithms.\nIdentify one other ADT that a designer can implement using recursive algorithms.\nWrite the name of one ADT only, different from a binary tree.",
-    "answer": "4(c) One mark\n• Stack"
-  },
-  {
     "question": "Explain how a compiler makes use of a stack when translating recursive programming code. Use complete sentences.",
     "answer": "9(c) One mark per mark point (Max 1)\nMP1 The compiler must produce object code to\nOne mark per mark point (Max 3)\nMP2 …push return addresses / values of local variables onto a stack\nMP3 …with each recursive call // … to set up winding\nMP4 …pop return addresses / values of local variables off the stack …\nMP5 …after the base case is reached // … to implement unwinding."
   }
