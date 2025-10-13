@@ -12,6 +12,7 @@
         "Both mantissa and exponent store only signs"
       ],
       "answer": "Mantissa stores the significant digits, exponent stores the scale factor"
+    },
     {
       "id": 2,
       "section": "13.3a",
