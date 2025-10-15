@@ -1,20 +1,56 @@
 [
-  {
-    "point_id": "20.1",
-    "question_number": 1,
-    "question": "State one benefit of using binary in computers.",
-    "mark_scheme": "Binary is simple for electronic circuits, representing two states such as on/off."
-  },
-  {
-    "point_id": "20.1",
-    "question_number": 2,
-    "question": "Define the term 'protocol' in networking.",
-    "mark_scheme": "A protocol is a set of rules that allow devices to communicate."
-  },
-  {
-    "point_id": "20.1",
-    "question_number": 3,
-    "question": "Explain the purpose of an IP address.",
-    "mark_scheme": "It uniquely identifies a device on a network."
-  }
+{
+"point_id": "20.1b",
+"question_number": "1",
+"question": "For each instruction below, execute them in order starting with ACC=0 and IX=0; \nmemory: 400→12, 401→7, 402→15.\n After each instruction, state ACC, IX, and the addressing mode used:\n (i) LDM #401\n (ii) LDD 401\n (iii) LDR #2\n (iv) LDX 400",
+"mark_scheme": " (i) ACC=401, IX=0, Immediate.\n(ii) ACC=7, IX=0, Direct.\n(iii) ACC=7, IX=2, Immediate to IX.\n(iv) ACC=15, IX=2, Indexed (effective address 400+IX=402)."
+},
+{
+"point_id": "20.1e",
+"question_number": "4a",
+"question": "Identify the paradigm and justify briefly:\n “Program is expressed as facts and rules; a goal is posed as a query.”",
+"mark_scheme": " Declarative: solutions are derived from facts and rules given a goal/query."
+},
+{
+"point_id": "20.1c",
+"question_number": "4b",
+"question": "Identify the paradigm and justify briefly:\n “Program specifies the exact sequence of steps that update state.”",
+"mark_scheme": " Imperative: states how to achieve a result via ordered steps that update program state."
+},
+{
+"point_id": "20.1d",
+"question_number": "6",
+"question": "Compare inheritance and containment in OOP; justify when each is preferable.",
+"mark_scheme": " Inheritance models an is-a relationship for reuse and specialisation; use it when a subclass genuinely is a stable specialisation of the base type. Containment (aggregation) models a has-a relationship where one class organises component objects; prefer it when the relationship is not a true is-a."
+},
+{
+"point_id": "20.1d",
+"question_number": "8",
+"question": "In OOP, state the role of each term: constructor, destructor, getter, setter, polymorphism, overloading.",
+"mark_scheme": " Constructor: initialises a new object.\nDestructor: invoked on object destruction.\nGetter: returns a property.\nSetter: controls a change to a private variable.\nPolymorphism: same operation name with type-specific behaviour in subclasses.\nOverloading: multiple operations share a name with different required inputs."
+},
+{
+"point_id": "20.1d",
+"question_number": "9a",
+"question": "In OOP, choose the more appropriate relationship and give one reason: ElectricCar and Car.",
+"mark_scheme": " Inheritance (ElectricCar is-a Car): a specialisation that reuses and extends behaviour."
+},
+{
+"point_id": "20.1d",
+"question_number": "9b",
+"question": "In OOP, choose the more appropriate relationship and give one reason: Car and Engine.",
+"mark_scheme": " Containment (Car has-a Engine): the car organises component objects as parts."
+},
+{
+"point_id": "20.1b",
+"question_number": "11",
+"question": "Write two low-level instructions to implement the selection: “if ACC equals the value at address A then jump to DONE.”",
+"mark_scheme": " CMP A\nJPE DONE\n(Compare, then jump if equal.)"
+},
+{
+"point_id": "20.1c,20.1e",
+"question_number": "12",
+"question": "Compare imperative and declarative aims in one sentence each.",
+"mark_scheme": " Imperative states how to achieve a result via ordered steps that update program state; declarative states what must be satisfied using facts and rules with a goal/query."
+}
 ]

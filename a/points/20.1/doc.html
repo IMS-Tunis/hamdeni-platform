@@ -1,14 +1,412 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Content not ready</title>
-  <link rel="stylesheet" href="igcse-style.css">
-<script defer src="/assets/js/paste-guard.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>20.1 Programming Paradigms - Learner friendly Notes</title>
+<style>
+/* Playful Classroom Theme */
+:root{
+  --bg:#f7f9fc; --fg:#0f172a; --muted:#475569; --accent:#2563eb; --bg-alt:#ffffff; --border:#e2e8f0;
+  --kw-bg:#fff59d;
+  --a:#22c55e; /* green */
+  --b:#06b6d4; /* cyan */
+  --c:#f59e0b; /* amber */
+  --d:#a855f7; /* purple */
+  --e:#ef4444; /* red */
+  --chip-shadow: 0 1px 0 rgba(0,0,0,.03), 0 4px 10px rgba(0,0,0,.04);
+  --card-shadow: 0 2px 0 rgba(0,0,0,.04), 0 10px 24px rgba(0,0,0,.06);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);
+  font:18.5px/1.75 ui-rounded, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+/* Header with soft gradient */
+.header{
+  position:relative;
+  background:linear-gradient(135deg,#c7d2fe 0%, #fbcfe8 50%, #bfdbfe 100%);
+  border-radius:18px;
+  padding:18px;
+  box-shadow: var(--card-shadow);
+  margin-bottom:12px;
+}
+h1{font-size:30px;margin:0 0 6px 0;letter-spacing:.3px}
+.subtitle{color:var(--fg);margin:0;opacity:.85}
+.toolbar{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:10px}
+.input{padding:10px 12px;border:2px solid #fff;border-radius:12px;background:#ffffffaa;color:var(--fg);min-width:280px}
+.input::placeholder{color:#334155}
+.btn{padding:10px 12px;border:2px solid #fff;border-radius:12px;background:#ffffffaa;color:var(--fg);cursor:pointer}
+.btn:hover{background:#fff}
+/* Top TOC as colorful chips */
+.toc-top{
+  border:0;
+  border-radius:14px;
+  background:var(--bg-alt);
+  padding:12px;
+  margin:14px 0;
+  box-shadow: var(--card-shadow);
+}
+.toc-top h2{font-size:14px;margin:0 0 8px 0;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.toc{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.toc a{
+  display:inline-block;padding:8px 12px;border-radius:999px;border:0;
+  background:#f1f5f9;color:#0f172a; box-shadow: var(--chip-shadow); font-weight:600;
+}
+.toc li:nth-child(1) a{background:#dcfce7}
+.toc li:nth-child(2) a{background:#cffafe}
+.toc li:nth-child(3) a{background:#fef3c7}
+.toc li:nth-child(4) a{background:#ede9fe}
+.toc li:nth-child(5) a{background:#fee2e2}
+.toc a.active, .toc a:hover{outline:2px dashed #94a3b8}
+/* Cards for sections */
+section{
+  border:2px solid var(--border);
+  border-left-width:10px;
+  border-radius:16px;
+  padding:16px;
+  background:var(--bg-alt);
+  scroll-margin-top:120px;
+  box-shadow: var(--card-shadow);
+}
+section + section{margin-top:16px}
+/* Color-code sections */
+section#20\.1a{border-left-color: var(--a)}
+section#20\.1b{border-left-color: var(--b)}
+section#20\.1c{border-left-color: var(--c)}
+section#20\.1d{border-left-color: var(--d)}
+section#20\.1e{border-left-color: var(--e)}
+h2{margin:0 0 12px 0;font-size:22px}
+/* Bullets with hover highlight */
+ul.bullets{margin:0;padding-left:22px;display:grid;gap:12px}
+li.bullet{
+  margin:0;padding:6px 4px;border-radius:8px;transition:background .2s ease
+}
+li.bullet:hover{background:#f1f5f9}
+/* Sub-bullets */
+ul.sub{margin-top:8px;margin-bottom:0;padding-left:22px;display:grid;gap:10px}
+/* Colorful tags */
+.tag{display:inline-block;font-size:12px;font-weight:800;padding:4px 10px;border-radius:999px;border:0;margin-right:8px;box-shadow: var(--chip-shadow)}
+.tag.def{background:#bfdbfe;color:#0c4a6e}
+.tag.example{background:#bbf7d0;color:#14532d}
+.tag.analogy{background:#e9d5ff;color:#4c1d95}
+.tag.tip{background:#fde68a;color:#92400e}
+.tag.overview{background:#bae6fd;color:#075985}
+.meta{color:var(--muted);font-size:13px}
+footer{margin-top:24px;color:var(--muted);font-size:13px;text-align:center}
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 0 0}
+.legend .tag{cursor:default}
+mark.kw{background:var(--kw-bg); padding:0 .2em; border-radius:4px}
+.easy body, .easy .container{font-size:21px}
+/* Progress bar */
+.progress{position:sticky;top:0;left:0;right:0;height:8px;background:#e2e8f0;border-radius:0 0 6px 6px;z-index:1000}
+.progress .bar{height:100%;width:0;background:linear-gradient(90deg,#22c55e,#06b6d4,#f59e0b,#a855f7,#ef4444);transition:width .12s linear}
+@media print{ .toolbar, .meta, .legend, .toc-top, .progress{display:none} }
+</style>
 </head>
 <body>
-   <div class="container">
-    <h1>Content will be ready soon!</h1>
-   
+<div class="progress"><div class="bar" id="bar"></div></div>
+
+<div class="container">
+  <header class="header" style="text-align:center; display:block; padding:24px 18px;">
+  <div class="headtext">
+    <h1 style="font-size:32px; margin:0 0 6px 0;">20.1 Programming Paradigms</h1>
+    <p class="subtitle" style="margin:0; opacity:.9;">A level theory notes prepared by DR. Hamdeni</p>
+  </div>
+</header>
+
+  <div class="toc-top">
+    <h2>Contents</h2>
+    <nav>
+      <ul class="toc">
+        <li><a href="#20.1a">20.1a Understanding what is meant by a programming paradigm</a></li>
+        <li><a href="#20.1b">20.1b Low level programming and addressing modes</a></li>
+        <li><a href="#20.1c">20.1c Imperative including procedural programming</a></li>
+        <li><a href="#20.1d">20.1d Object Oriented Programming (OOP)</a></li>
+        <li><a href="#20.1e">20.1e Declarative programming</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <article>
+
+    <!-- 20.1a -->
+    <section id="20.1a">
+      <h2>20.1a Understanding what is meant by a programming paradigm <span class="meta"></span></h2>
+      <ul class="bullets">
+        <li class="bullet"><span class="tag def">Definition</span>A programming <b>paradigm</b> is a general style of program design that shapes how problems are modeled and solved.</li>
+        <li class="bullet"><span class="tag overview">Overview</span>The four paradigms here are <b>low level</b>, <b>imperative</b> (including <b>procedural</b>), <b>object oriented</b>, and <b>declarative</b>.</li>
+        <li class="bullet"><span class="tag tip">Tip</span>Different paradigms provide different <b>abstractions</b> that suit different problems and levels of <b>hardware proximity</b>.</li>
+        <li class="bullet">
+          <ul class="sub">
+            <li><span class="tag def">Definition</span><b>Abstraction</b> means hiding detail so you can focus on the main idea.</li>
+            <li><span class="tag analogy">Analogy</span><b>Hardware proximity</b> means working very close to the machine, such as reading or writing specific memory locations.</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <!-- 20.1b -->
+    <section id="20.1b">
+      <h2>20.1b Low level programming and addressing modes <span class="meta"></span></h2>
+      <ul class="bullets">
+        <li class="bullet"><span class="tag overview">Overview</span><b>Low level programming</b> works close to the processor, using explicit control of memory and <b>registers</b>.</li>
+        <li class="bullet"><span class="tag def">Definition</span>A <b>register</b> is a fast storage location inside the processor used during calculations.
+          <ul class="sub">
+            <li><span class="tag analogy">Analogy</span>Think of a register as a tiny notepad the CPU uses briefly.</li>
+            <li><span class="tag example">Example</span>During a calculation like 23 + 7, the CPU places numbers in registers, adds them, and stores the result back. The registers are the scratch space used for the steps.</li>
+          </ul>
+        </li>
+
+        <li class="bullet"><span class="tag def">Definition</span><b>Addressing modes</b> describe how an instruction finds the data it will use.
+          <ul class="sub">
+            <li><span class="tag def">Definition</span><b>Immediate</b>: the data value is part of the instruction itself.
+              <ul class="sub"><li><span class="tag example">Example</span>A command includes the number 5 inside it, so no memory lookup is needed.</li></ul>
+            </li>
+            <li><span class="tag def">Definition</span><b>Direct</b>: the instruction contains a memory address where the data is stored.
+              <ul class="sub"><li><span class="tag example">Example</span>The command points to address 2000. The CPU goes to 2000 and reads the value stored there.</li></ul>
+            </li>
+            <li><span class="tag def">Definition</span><b>Indirect</b>: the instruction points to a memory location that holds another address where the data is stored.
+              <ul class="sub"><li><span class="tag example">Example</span>The command points to address 2000. Location 2000 contains the number 3500, so the CPU then reads the data from address 3500.</li></ul>
+            </li>
+            <li><span class="tag def">Definition</span><b>Indexed</b>: the <b>effective address</b> equals a <b>base location</b> plus the value in an <b>index register</b>.
+              <ul class="sub"><li><span class="tag example">Example</span>A block starts at base 1000. The index register holds 3. The effective address is 1000 + 3 = 1003, which selects the fourth item in the block.</li></ul>
+            </li>
+            <li><span class="tag def">Definition</span><b>Relative</b>: the location is found by moving a few steps forward or backward from the current instruction.
+              <ul class="sub"><li><span class="tag example">Example</span>The current instruction is at address 500. A relative step of +4 moves to address 504 in the program.</li></ul>
+            </li>
+          </ul>
+        </li>
+
+        <li class="bullet"><span class="tag def">Definition</span>Key terms in plain words:
+          <ul class="sub">
+            <li><span class="tag def">Definition</span><b>Effective address</b>: the final place in memory where the data is found.</li>
+            <li><span class="tag def">Definition</span><b>Base location</b>: the starting point for a block of related data.</li>
+            <li><span class="tag def">Definition</span><b>Index register</b>: the number that selects an item within that block.</li>
+            <li><span class="tag analogy">Analogy</span><b>Apartment address</b>: the building is the base, the flat number is the index, and the full postal address is the effective address.</li>
+          </ul>
+        </li>
+
+        <li class="bullet"><span class="tag overview">Overview</span>Typical control flow: a <b>comparison</b> checks a condition; a <b>conditional branch</b> moves to a named step (a <b>label</b>) when the condition is met; a <b>loop</b> repeats steps until a stated condition is met.
+          <ul class="sub">
+            <li><span class="tag example">Example</span>Repeat a display action five times: set a counter to 1, display the item, increase the counter to 2, check if it is greater than 5, if not jump back to the display step, and continue until the counter becomes 6, then stop.</li>
+          </ul>
+        </li>
+
+        <li class="bullet"><span class="tag tip">Tip</span>Plan the sequence of memory accesses and register use; trace values step by step.</li>
+      </ul>
+    </section>
+
+    <!-- 20.1c -->
+    <section id="20.1c">
+      <h2>20.1c Imperative including procedural programming <span class="meta"></span></h2>
+      <ul class="bullets">
+        <li class="bullet"><span class="tag def">Definition</span><b>Imperative programming</b> lists steps to achieve a result, and each step updates the program <b>state</b> in a controlled way.</li>
+        <li class="bullet"><span class="tag def">Definition</span><b>State</b> is all the information stored at a moment in time; a <b>side effect</b> is any change to that state that remains after a step finishes.</li>
+        <li class="bullet"><span class="tag overview">Overview</span>Core building blocks: <b>sequence</b>, <b>selection</b>, and <b>iteration</b> acting on variables and data structures.</li>
+        <li class="bullet"><span class="tag tip">Tip</span><b>Procedural programming</b> organises code into named procedures and functions with clear inputs and outputs, which helps reuse and testing.</li>
+        <li class="bullet"><span class="tag example">Example</span>Calculate the average of seven daily temperatures: write down the seven numbers, add them one by one to a running total, then divide the total by 7 to get the average. Each step updates the state by changing the running total.</li>
+      </ul>
+    </section>
+
+    <!-- 20.1d -->
+    <section id="20.1d">
+      <h2>20.1d Object Oriented Programming (OOP) <span class="meta"></span></h2>
+      <ul class="bullets">
+        <li class="bullet"><span class="tag overview">Overview</span><b>OOP</b> models a program as a set of <b>objects</b> that represent things in the problem. Objects keep their own data and offer operations so other objects can work with them.</li>
+
+        <li class="bullet"><span class="tag def">Definition</span>An <b>object</b> bundles <b>state</b> with the operations that act on that state.
+          <ul class="sub">
+            <li><span class="tag example">Example</span><b>Bank account object</b>: state includes the account owner and current balance; operations include show balance, deposit, and withdraw. The operations are the only allowed way to change or read the state.</li>
+          </ul>
+        </li>
+
+        <li class="bullet"><span class="tag def">Definition</span>A <b>class</b> is a blueprint that defines the attributes and methods shared by its objects. An object is an instance of a class.
+          <ul class="sub">
+            <li><span class="tag example">Example</span><b>BankAccount class</b>: attributes balance and owner; methods deposit, withdraw, and show balance. <b>Instances</b>: Account A for Sara with balance 120; Account B for Omar with balance 50; Account C for Amal with balance 0. All are built from the same blueprint and follow the same rules.</li>
+          </ul>
+        </li>
+
+        <li class="bullet"><span class="tag def">Definition</span><b>Encapsulation</b>: keep attributes hidden behind a public <b>interface</b> so state changes happen only through defined operations; this gives safer updates and fewer side effects.</li>
+
+        <li class="bullet"><span class="tag def">Definition</span><b>Accessors</b> read attributes and <b>mutators</b> update them, while applying validation to keep the object valid.
+          <ul class="sub">
+            <li><span class="tag example">Example</span><b>Stock item</b>: quantity is kept inside the object. An accessor shows the current quantity. A mutator updates the quantity, but if a negative number is given the mutator refuses it to avoid an invalid state.</li>
+          </ul>
+        </li>
+
+        <li class="bullet"><span class="tag overview">Overview</span><b>Object lifecycle</b>: construction sets a valid initial state and allocates resources; destruction releases resources when objects are no longer needed.
+          <ul class="sub">
+            <li><span class="tag example">Example</span><b>Document object</b>: on creation, it reserves space and sets the title. When finished, it releases the space so the system can use it for something else.</li>
+          </ul>
+        </li>
+
+        <li class="bullet"><span class="tag tip">Tip</span><b>Designing classes</b>: find nouns in the problem text as candidate classes and verbs as responsibilities.</li>
+
+        <li class="bullet"><span class="tag tip">Tip</span>Keep the class <b>interface</b> minimal and purposeful. Expose only what other parts of the program need to use.
+          <ul class="sub">
+            <li><span class="tag def">Definition</span><b>Interface</b> means the list of operations the class offers.</li>
+            <li><span class="tag analogy">Analogy</span>A vending machine has many inner parts, but you only use the visible buttons. Those buttons are the machine’s interface.</li>
+          </ul>
+        </li>
+
+        <li class="bullet"><span class="tag def">Definition</span><b>Inheritance</b> models an <b>is a</b> relationship where a subclass reuses and extends a superclass.</li>
+        <li class="bullet"><span class="tag def">Definition</span><b>Containment</b> or <b>aggregation</b> models a <b>has a</b> relationship where one class owns or organises other objects as part of its structure.</li>
+        <li class="bullet"><span class="tag tip">Tip</span>Use inheritance only when the object truly is a base type and can be used in its place; use containment when an object has another as a part.
+          <ul class="sub">
+            <li><span class="tag example">Example</span><b>Dog and Animal</b>: a Dog is an Animal and shares Animal features. <b>Car and Engine</b>: a Car has an Engine as one of its parts.</li>
+          </ul>
+        </li>
+
+        <li class="bullet"><span class="tag def">Definition</span><b>Overloading</b> allows multiple operations to share a name if their required inputs differ.</li>
+        <li class="bullet"><span class="tag def">Definition</span><b>Polymorphism</b> lets different subclasses respond to the same operation name with behaviour that suits their type.</li>
+        <li class="bullet"><span class="tag example">Example</span><b>Graphics editor</b>:
+          <ul class="sub">
+            <li>Polymorphism: the editor stores a list of shapes. It tells each shape to draw. Each shape draws itself in its own way, but the editor uses the same draw instruction for all shapes.</li>
+            <li>Overloading: the editor prints information using one operation name. If the input is a number it prints a number; if the input is text it prints text. The name is the same but the expected inputs differ.</li>
+          </ul>
+        </li>
+
+        <li class="bullet"><span class="tag tip">Tip</span>Write down always true rules for each object (<b>invariants</b>), what must be true before an operation (<b>preconditions</b>), and what will be true after it (<b>postconditions</b>), so the object stays valid.
+          <ul class="sub">
+            <li><span class="tag example">Example</span><b>Bank account</b>: Invariant balance is at least 0; Pre withdrawal requires balance at least equal to the amount; Post withdrawal makes the balance smaller by the amount.</li>
+            <li><span class="tag example">Example</span><b>Online order</b>: Invariant item count is at least 0; Pre packing requires stock at least equal to the requested quantity; Post packing reduces stock by the requested quantity.</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <!-- 20.1e -->
+    <section id="20.1e">
+      <h2>20.1e Declarative programming <span class="meta"></span></h2>
+      <ul class="bullets">
+        <li class="bullet"><span class="tag def">Definition</span><b>Declarative programming</b> states what must be true rather than how to compute it.
+          <ul class="sub">
+            <li><span class="tag def">Definition</span>A <b>knowledge base</b> is a structured list of <b>facts</b> and <b>rules</b>.</li>
+          </ul>
+        </li>
+        <li class="bullet"><span class="tag overview">Overview</span>A knowledge base contains facts and rules that model the problem domain.</li>
+        <li class="bullet"><span class="tag overview">Overview</span>To solve a task, state a <b>goal</b> or <b>query</b>. The system searches and checks which facts and rules satisfy the goal.</li>
+        <li class="bullet"><span class="tag tip">Tip</span>Pipeline: record facts, state rules that combine facts, ask a goal; the system searches for matches and returns answers that satisfy the goal.</li>
+        <li class="bullet"><span class="tag tip">Tip</span>Use precise facts, consistent rules, and clear goals that name domain relationships.</li>
+
+        <li class="bullet"><span class="tag example">Example</span><b>Animals and suitability</b>:
+          <ul class="sub">
+            <li>Facts: caracal is wild; carthorse is wild.</li>
+            <li>Rule: an animal is not suitable as a pet if it is wild.</li>
+            <li>Derivation: from the facts and the rule, the system concludes that caracal is not suitable as a pet and carthorse is not suitable as a pet.</li>
+          </ul>
+        </li>
+
+        <li class="bullet"><span class="tag example">Example</span><b>Family tree inference</b>:
+          <ul class="sub">
+            <li>Facts: Alice is parent of Bob; Bob is parent of Charlie.</li>
+            <li>Rule: a person is an ancestor of another person if they are a parent of that person, or a parent of an ancestor.</li>
+            <li>Derivation: using the facts and the rule, the system marks Alice as an ancestor of Charlie without listing any step by step instructions.</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+  </article>
+
+  <footer>Generated for classroom use. Single file HTML with embedded CSS and JS.</footer>
+</div>
+
+<script>
+// TOC highlight on scroll
+const tocLinks = Array.from(document.querySelectorAll('.toc a'));
+const sections = Array.from(document.querySelectorAll('section[id]'));
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    const id = e.target.getAttribute('id');
+    const link = tocLinks.find(a => a.getAttribute('href') === '#' + id);
+    if(!link) return;
+    if (e.isIntersecting) {
+      tocLinks.forEach(a => a.classList.remove('active'));
+      link.classList.add('active');
+    }
+  });}
+},{rootMargin: "-40% 0px -55% 0px", threshold: 0.01});}
+sections.forEach(s => obs.observe(s));
+
+// Filter bullets
+const q = document.getElementById('search');
+if(q){ q.addEventListener('input', () => {
+  const term = q.value.trim().toLowerCase();
+  document.querySelectorAll('li.bullet, ul.sub li').forEach(li => {
+    const match = li.textContent.toLowerCase().includes(term);
+    li.style.display = match ? '' : 'none';
+  });
+});
+
+// Copy section link on heading click
+document.querySelectorAll('h2').forEach(h => {
+  h.addEventListener('click', () => {
+    const id = h.parentElement.id;
+    if (!id) return;
+    const url = location.origin + location.pathname + '#' + id;
+    navigator.clipboard.writeText(url).then(()=>{
+      h.querySelector('.meta').textContent = 'link copied';
+      setTimeout(()=>{h.querySelector('.meta').textContent='';},1200);
+    });
+  });
+});
+
+// Easy Read toggle
+const easyBtn = document.getElementById('toggle-easy');
+if(easyBtn){ easyBtn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('easy');
+});
+
+// Keyword highlighting
+const keywords = [
+  'paradigm','low level','imperative','procedural','object oriented','declarative','abstraction',
+  'hardware proximity','processor','register','addressing modes','immediate','direct','indirect',
+  'indexed','relative','effective address','base location','index register','comparison',
+  'conditional branch','label','loop','state','side effect','sequence','selection','iteration',
+  'object','class','attribute','method','encapsulation','interface','constructor','destruction',
+  'inheritance','containment','aggregation','polymorphism','overloading','invariants','preconditions',
+  'postconditions','knowledge base','facts','rules','goal','query','pipeline'
+];
+function wrapKeywords(node){
+  const walker = document.createTreeWalker(node, NodeFilter.SHOW_TEXT, null, false);
+  const textNodes = [];
+  while(walker.nextNode()) textNodes.push(walker.currentNode);
+  textNodes.forEach(n => {
+    let t = n.nodeValue;
+    if(!t || !t.trim()) return;
+    keywords.forEach(k => {
+      const re = new RegExp('\\\\b' + k.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&') + '\\\\b','gi');
+      t = t.replace(re, m => '<mark class="kw">'+m+'</mark>');
+    });
+    if(t !== n.nodeValue){
+      const span = document.createElement('span');
+      span.innerHTML = t;
+      n.parentNode.replaceChild(span, n);
+    }
+  });
+}
+document.addEventListener('DOMContentLoaded', () => {
+  wrapKeywords(document.querySelector('article'));
+});
+
+// Reading progress bar
+const bar = document.getElementById('bar');
+function updateProgress(){
+  const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const pct = height > 0 ? (scrollTop / height) * 100 : 0;
+  if(bar){ bar.style.width = pct + '%'; }
+}
+document.addEventListener('scroll', updateProgress, {passive:true});
+document.addEventListener('DOMContentLoaded', updateProgress);
+</script>
+    <script>
+      window.addEventListener('load', function () {
+        const height = document.body.scrollHeight;
+        window.parent.postMessage({ type: 'resize', height }, '*');
+      });
+    </script>
 </body>
 </html>

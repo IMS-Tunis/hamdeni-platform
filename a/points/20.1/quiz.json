@@ -1,102 +1,260 @@
 {
   "questions": [
     {
+      "section": "20.1a",
       "type": "mcq",
-      "question": "What is the main reason computers use binary to represent all data?",
+      "question": "Which statement best defines a programming paradigm",
       "options": [
-        "Binary numbers are easier for humans to read",
-        "Computers use logic gates that only understand ON and OFF states",
-        "It uses less power",
-        "Binary numbers are shorter than decimal numbers"
+        "A fixed algorithm for solving a class of problems",
+        "A general style of program design that shapes how problems are modeled and solved",
+        "A programming library for accessing hardware efficiently",
+        "A naming convention for variables and procedures"
       ],
-      "answer": "Computers use logic gates that only understand ON and OFF states"
+      "answer": "A general style of program design that shapes how problems are modeled and solved"
     },
     {
+      "section": "20.1a",
       "type": "mcq",
-      "question": "In an 8-bit binary number, what does the leftmost bit represent?",
+      "question": "Which set best describes the paradigms explicitly?",
       "options": [
-        "Least Significant Bit",
-        "The parity bit",
-        "Most Significant Bit",
-        "The hexadecimal value"
+        "Low-level, object-oriented, declarative, imperative including procedural",
+        "Low-level, object-oriented, declarative, graphical",
+        "Object-oriented, declarative, pipeline, lifecycle",
+        "Declarative, procedural, testing, validation"
       ],
-      "answer": "Most Significant Bit"
+      "answer": "Low-level, object-oriented, declarative, imperative including procedural"
     },
     {
-      "type": "mcq",
-      "question": "Which of the following is a hexadecimal digit?",
-      "options": [
-        "8",
-        "G",
-        "H",
-        "Q"
-      ],
-      "answer": "8"
-    },
-    {
-      "type": "mcq",
-      "question": "What is the maximum value that can be represented in an 8-bit binary number?",
-      "options": [
-        "255",
-        "256",
-        "128",
-        "1024"
-      ],
-      "answer": "255"
-    },
-    {
-      "type": "fill_blank",
-      "question": "The process of moving all bits in a binary number to the left or right and filling the emptied spaces with zeros is called a __________ shift.",
-      "answer": "Logical"
-    },
-    {
-      "type": "fill_blank",
-      "question": "In binary addition, if the result is too large for the register to hold, this is called an __________ error.",
-      "answer": "Overflow"
-    },
-    {
-      "type": "fill_blank",
-      "question": "Each hexadecimal digit can be represented by exactly ___ binary bits.",
-      "answer": "4"
-    },
-    {
-      "type": "true_false",
-      "question": "Digital data can take any value, just like analogue data.",
-      "answer": "False"
-    },
-    {
-      "type": "true_false",
-      "question": "In two’s complement, the most significant bit represents the sign of the number.",
-      "answer": "True"
-    },
-    {
-      "type": "true_false",
-      "question": "The denary number system is also known as base 16.",
-      "answer": "False"
-    },
-    {
+      "section": "20.1a",
       "type": "match",
-      "question": "Match the term with its correct definition:",
+      "question": "Match each paradigm to its primary characteristic.",
       "pairs": {
-        "Register": "Used to temporarily hold binary data",
-        "Logic gate": "Basic building block for processing digital data",
-        "Two’s complement": "Method to represent negative binary"
+        "Low-level programming": "Works close to the processor with explicit control of memory",
+        "Imperative programming": "Specifies a sequence of steps to achieve a result",
+        "Object-oriented programming": "Bundles state with operations that act on that state",
+        "Declarative programming": "Specifies what must be satisfied rather than how to compute it"
       }
     },
     {
+      "section": "20.1b",
       "type": "fill_blank",
-      "question": "Convert the binary number 1101 to denary: __________",
-      "answer": "13"
+      "question": "A __________ is a fast storage location inside the processor used during calculations.",
+      "answer": "register"
     },
     {
-      "type": "fill_blank",
-      "question": "What is the hexadecimal equivalent of the denary number 15? __________",
-      "answer": "F"
+      "section": "20.1b",
+      "type": "mcq",
+      "question": "Which description characterizes low-level programming?",
+      "options": [
+        "Hides hardware details behind high-level goals",
+        "Works close to the processor with explicit control of memory and registers",
+        "Focuses on rules and goals rather than computation steps",
+        "Organizes code into procedures with limited shared state"
+      ],
+      "answer": "Works close to the processor with explicit control of memory and registers"
     },
     {
+      "section": "20.1b",
+      "type": "match",
+      "question": "Match each addressing mode to its description.",
+      "pairs": {
+        "Immediate": "The data value is part of the instruction itself",
+        "Direct": "Instruction contains a memory address where the data is stored",
+        "Indirect": "Instruction points to a memory location that holds another address where the data is stored",
+        "Indexed": "Effective address equals a base location plus the value in an index register",
+        "Relative": "Finds a location by moving a small number of steps from the current instruction location"
+      }
+    },
+    {
+      "section": "20.1b",
+      "type": "mcq",
+      "question": "Which statement correctly describes low-level conditional control flow?",
+      "options": [
+        "A conditional label moves execution to a branch when a condition is met",
+        "A label evaluates a condition and jumps if true",
+        "A conditional branch moves execution to a named label when its condition is met",
+        "A branch stores data into a label register"
+      ],
+      "answer": "A conditional branch moves execution to a named label when its condition is met"
+    },
+    {
+      "section": "20.1b",
+      "type": "mcq",
+      "question": "According to good practice in low-level programming, you should",
+      "options": [
+        "Write instructions first, then analyze memory usage afterward",
+        "Plan the sequence of memory accesses and register usage before writing instructions",
+        "Avoid using labels for conditional branches",
+        "Execute loops without checking stated conditions"
+      ],
+      "answer": "Plan the sequence of memory accesses and register usage before writing instructions"
+    },
+    {
+      "section": "20.1c",
+      "type": "mcq",
+      "question": "What distinguishes imperative programming?",
+      "options": [
+        "Specifies what must be satisfied without steps",
+        "Specifies a sequence of steps that update program state in a controlled way",
+        "Restricts programs to facts and rules in a knowledge base",
+        "Prohibits side effects"
+      ],
+      "answer": "Specifies a sequence of steps that update program state in a controlled way"
+    },
+    {
+      "section": "20.1c",
       "type": "fill_blank",
-      "question": "What is the binary value for the hexadecimal digit C? __________",
-      "answer": "1100"
+      "question": "In imperative programming, __________ is all the information stored at a moment in time.",
+      "answer": "state"
+    },
+    {
+      "section": "20.1c",
+      "type": "fill_blank",
+      "question": "A __________ is any change to program state that remains after a step finishes.",
+      "answer": "side effect"
+    },
+    {
+      "section": "20.1c",
+      "type": "match",
+      "question": "Match each control structure to its role.",
+      "pairs": {
+        "Sequence": "Executes steps in order",
+        "Selection": "Chooses a path based on a condition",
+        "Iteration": "Repeats steps until a stated condition is met"
+      }
+    },
+    {
+      "section": "20.1d",
+      "type": "fill_blank",
+      "question": "In OOP, an __________ bundles state with the operations that act on that state.",
+      "answer": "object"
+    },
+    {
+      "section": "20.1d",
+      "type": "fill_blank",
+      "question": "in OOP, a __________ is a blueprint that defines the attributes and methods shared by its objects.",
+      "answer": "class"
+    },
+    {
+      "section": "20.1d",
+      "type": "fill_blank",
+      "question": "An object is an __________ of a class.",
+      "answer": "instance"
+    },
+    {
+      "section": "20.1d",
+      "type": "fill_blank",
+      "question": "__________ keeps attributes hidden behind a public interface so changes occur only through defined operations.",
+      "answer": "Encapsulation"
+    },
+    {
+      "section": "20.1d",
+      "type": "mcq",
+      "question": "Accessors and mutators primarily",
+      "options": [
+        "Execute helper logic with no effect on state",
+        "Read and update hidden attributes while applying validation rules",
+        "Replace constructors and destructors",
+        "Convert declarative goals into imperative steps"
+      ],
+      "answer": "Read and update hidden attributes while applying validation rules"
+    },
+    {
+      "section": "20.1d",
+      "type": "mcq",
+      "question": "Which design guidance is explicitly given for interfaces?",
+      "options": [
+        "Expose all internal attributes for flexibility",
+        "Keep interfaces minimal and purposeful, exposing only what client code must use",
+        "Avoid interfaces to reduce complexity",
+        "Put all validation in subclasses"
+      ],
+      "answer": "Keep interfaces minimal and purposeful, exposing only what client code must use"
+    },
+    {
+      "section": "20.1d",
+      "type": "match",
+      "question": "Match each relationship concept to its definition.",
+      "pairs": {
+        "Inheritance": "Subclass reuses and extends a superclass in an is-a relationship",
+        "Polymorphism": "Different subclasses respond to the same operation name appropriately to their type",
+        "Overloading": "Multiple operations share a name if their required inputs differ",
+        "Containment/Aggregation": "One class owns or organizes other objects as part of its structure in a has-a relationship"
+      }
+    },
+    {
+      "section": "20.1d",
+      "type": "mcq",
+      "question": "When should inheritance be preferred over containment?",
+      "options": [
+        "When objects share any attribute",
+        "When the object truly is-a the base type and can be used in its place",
+        "When classes are unrelated but need to share state",
+        "Whenever reuse is desired regardless of type meaning"
+      ],
+      "answer": "When the object truly is-a the base type and can be used in its place"
+    },
+    {
+      "section": "20.1d",
+      "type": "mcq",
+      "question": "Candidate classes are identified by",
+      "options": [
+        "Scanning the problem text for verbs",
+        "Analyzing hardware specifications",
+        "Scanning the problem text for nouns",
+        "Examining language syntax"
+      ],
+      "answer": "Scanning the problem text for nouns"
+    },
+    {
+      "section": "20.1d",
+      "type": "mcq",
+      "question": "What is the stated role of construction and destruction?",
+      "options": [
+        "Optional stylistic choices",
+        "Construction allocates resources and sets valid initial state; destruction releases resources when objects are no longer needed",
+        "Construction validates other classes; destruction triggers inheritance",
+        "Construction handles user interfaces; destruction enforces polymorphism"
+      ],
+      "answer": "Construction allocates resources and sets valid initial state; destruction releases resources when objects are no longer needed"
+    },
+    {
+      "section": "20.1e",
+      "type": "mcq",
+      "question": "Which phrasing captures the essence of declarative programming?",
+      "options": [
+        "Specify how to compute results step by step",
+        "Specify what must be satisfied rather than how to compute it",
+        "Specify only object lifecycles and interfaces",
+        "Specify only addressing modes"
+      ],
+      "answer": "Specify what must be satisfied rather than how to compute it"
+    },
+    {
+      "section": "20.1e",
+      "type": "fill_blank",
+      "question": "In declarative programming paradigm, a __________ contains facts and rules that model the problem domain.",
+      "answer": "knowledge base"
+    },
+    {
+      "section": "20.1e",
+      "type": "match",
+      "question": "Match each declarative term to its description.",
+      "pairs": {
+        "Fact": "A simple, unconditional truth recorded about the domain",
+        "Rule": "A way to infer new truths by combining existing facts",
+        "Goal": "A question to be satisfied using available facts and rules"
+      }
+    },
+    {
+      "section": "20.1e",
+      "type": "match",
+      "question": "Match each pipeline step to its description.",
+      "pairs": {
+        "Record facts": "Simple unconditional truths become building blocks",
+        "State rules": "Define how new truths can be inferred by combining facts",
+        "Ask a goal": "The system searches for matches and returns answers that satisfy the goal"
+      }
     }
   ]
 }

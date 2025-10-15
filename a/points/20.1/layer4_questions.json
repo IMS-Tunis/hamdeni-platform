@@ -1,14 +1,22 @@
 [
   {
-    "question": "Explain what is meant by a validation test in computer science education.",
-    "answer": "A validation test checks that students have understood the material and are ready to progress."
+    "question": "Describe what is meant by an imperative (procedural) programming language.",
+    "answer": "• Imperative languages use variables\n• … which are changed using (assignment) statements\n• … they rely on a method of repetition / iteration.\n• The statements provide a sequence of commands for the computer to perform\n• … in the order written / given\n• … each line of code changes something in the program run."
   },
   {
-    "question": "State one advantage of practicing with past paper questions before an exam.",
-    "answer": "Past paper questions familiarize students with the exam style and improve confidence."
+    "question": "Identify the programming paradigm for each of the following program code examples. Write your answers as pairs (Code Example → Programming Paradigm).\n\nExample 1:\nmale(john).\nfemale(ethel).\nparent(john, ethel).\n\nExample 2:\nFOR Counter = 1 TO 20\n    X = X * Counter\nNEXT Counter\n\nExample 3:\nStart: LDD Counter\n       INC ACC\n       STO Counter\n\nExample 4:\npublic class Vehicle\n{\n    private speed;\n    public Vehicle()\n    {\n        speed = 0;\n    }\n}",
+    "answer": "Program code example Programming paradigm\nmale(john). female(ethel). parent(john, ethel). — Declarative\nFOR Counter = 1 TO 20 … — Procedural / imperative\nStart: LDD Counter … — Low-level / assembly\npublic class Vehicle { … } — Object oriented / (OOP)"
   },
   {
-    "question": "Give an example of a simple binary operation.",
-    "answer": "Adding two 1-bit binary numbers, e.g. 1 + 1 = 10."
+    "question": "A declarative language is used to represent facts about cats (for example, each fact is written as fact_name(argument1, argument2).).\nWrite two facts to say that caracal and carthorse are wild cats.",
+    "answer": "type(caracal, wild)."
+  },
+  {
+    "question": "Assume a declarative language is used with facts written as type(animal, category), for example type(leopard, wild).\nUsing such facts, write the rules to define pet so that it identifies cats that are suitable to be kept as pets.\nUse these facts to define suitable_for_pet.",
+    "answer": "IF type(X, domestic) THEN\n   pet(X) IF type(X, domestic), suitable_for_pet(X)\nsuitable_for_pet(X) IF\n type(X, chinchilla) OR type(X, streetcat) OR type(X, siamese)\n type(X, leopard) OR type(X, caracal) OR type(X, lynx) OR type(X, lion)"
+  },
+  {
+    "question": "Based on the declarative program about cats (using facts such as type(animal, category) and the rules for pets you defined earlier), answer the following:\n(i) State a goal that will check the fact that a leopard is a type of wild cat.\n(ii) State two suitable wild cat breeds that are not suitable to be kept as pets.",
+    "answer": "Goal: type(leopard, wild).\nstreetcat\nchinchilla"
   }
 ]
