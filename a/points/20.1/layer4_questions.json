@@ -8,14 +8,6 @@
     "answer": "Program code example Programming paradigm\nmale(john). female(ethel). parent(john, ethel). — Declarative\nFOR Counter = 1 TO 20 … — Procedural / imperative\nStart: LDD Counter … — Low-level / assembly\npublic class Vehicle { … } — Object oriented / (OOP)"
   },
   {
-    "question": "A declarative language is used to represent facts about cats (for example, each fact is written as fact_name(argument1, argument2).).\nWrite two facts to say that caracal and carthorse are wild cats.",
-    "answer": "type(caracal, wild)."
-  },
-  {
-    "question": "Assume a declarative language is used with facts written as type(animal, category), for example type(leopard, wild).\nUsing such facts, write the rules to define pet so that it identifies cats that are suitable to be kept as pets.\nUse these facts to define suitable_for_pet.",
-    "answer": "IF type(X, domestic) THEN\n   pet(X) IF type(X, domestic), suitable_for_pet(X)\nsuitable_for_pet(X) IF\n type(X, chinchilla) OR type(X, streetcat) OR type(X, siamese)\n type(X, leopard) OR type(X, caracal) OR type(X, lynx) OR type(X, lion)"
-  },
-  {
     "question": "Based on the declarative program about cats (using facts such as type(animal, category) and the rules for pets you defined earlier), answer the following:\n(i) State a goal that will check the fact that a leopard is a type of wild cat.\n(ii) State two suitable wild cat breeds that are not suitable to be kept as pets.",
     "answer": "Goal: type(leopard, wild).\nstreetcat\nchinchilla"
   }

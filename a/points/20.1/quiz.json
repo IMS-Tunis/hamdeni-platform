@@ -200,9 +200,7 @@
       "question": "Candidate classes are identified by",
       "options": [
         "Scanning the problem text for verbs",
-        "Analyzing hardware specifications",
-        "Scanning the problem text for nouns",
-        "Examining language syntax"
+        "Scanning the problem text for nouns"
       ],
       "answer": "Scanning the problem text for nouns"
     },
@@ -211,7 +209,6 @@
       "type": "mcq",
       "question": "What is the stated role of construction and destruction?",
       "options": [
-        "Optional stylistic choices",
         "Construction allocates resources and sets valid initial state; destruction releases resources when objects are no longer needed",
         "Construction validates other classes; destruction triggers inheritance",
         "Construction handles user interfaces; destruction enforces polymorphism"

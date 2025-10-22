@@ -1,10 +1,6 @@
 {
   "questions": [
-    {
-      "type": "fill_blank",
-      "question": "A __________ is a defined list of characters where each character has a fixed binary code; one common example is _______ _______ _______ for _______ _______.",
-      "answer": "character set; American Standard Code for Information Interchange"
-    },
+
     {
       "type": "match",
       "question": "Match each term to its description.",
@@ -69,11 +65,6 @@
         "Image resolution": "Number of pixels in the image; higher values show more detail and increase the file size",
         "Colour depth": "Number of bits used for each pixel; more bits allow more possible colours and increase the file size"
       }
-    },
-    {
-      "type": "fill_blank",
-      "question": "Image resolution is the number of pixels in the image, given by its [____] multiplied by its height.",
-      "answer": "width"
     }
   ]
 }

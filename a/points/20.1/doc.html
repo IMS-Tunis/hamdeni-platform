@@ -18,7 +18,7 @@
   --card-shadow: 0 2px 0 rgba(0,0,0,.04), 0 10px 24px rgba(0,0,0,.06);
 }
 *{box-sizing:border-box}
-html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);
+html,body{margin:10;padding:10;background:var(--bg);color:var(--fg);
   font:18.5px/1.75 ui-rounded, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif}
 a{color:var(--accent);text-decoration:none}
 a:hover{text-decoration:underline}
@@ -241,8 +241,6 @@ mark.kw{background:var(--kw-bg); padding:0 .2em; border-radius:4px}
           </ul>
         </li>
 
-        <li class="bullet"><span class="tag tip">Tip</span><b>Designing classes</b>: find nouns in the problem text as candidate classes and verbs as responsibilities.</li>
-
         <li class="bullet"><span class="tag tip">Tip</span>Keep the class <b>interface</b> minimal and purposeful. Expose only what other parts of the program need to use.
           <ul class="sub">
             <li><span class="tag def">Definition</span><b>Interface</b> means the list of operations the class offers.</li>
@@ -267,12 +265,6 @@ mark.kw{background:var(--kw-bg); padding:0 .2em; border-radius:4px}
           </ul>
         </li>
 
-        <li class="bullet"><span class="tag tip">Tip</span>Write down always true rules for each object (<b>invariants</b>), what must be true before an operation (<b>preconditions</b>), and what will be true after it (<b>postconditions</b>), so the object stays valid.
-          <ul class="sub">
-            <li><span class="tag example">Example</span><b>Bank account</b>: Invariant balance is at least 0; Pre withdrawal requires balance at least equal to the amount; Post withdrawal makes the balance smaller by the amount.</li>
-            <li><span class="tag example">Example</span><b>Online order</b>: Invariant item count is at least 0; Pre packing requires stock at least equal to the requested quantity; Post packing reduces stock by the requested quantity.</li>
-          </ul>
-        </li>
       </ul>
     </section>
 
