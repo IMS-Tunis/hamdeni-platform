@@ -29,9 +29,10 @@ async function updateGeneralProgress() {
     const sanitizedGrade = Number.isFinite(numericGrade)
       ? Math.min(100, Math.max(0, numericGrade))
       : 0;
-    const formattedGrade = Number.isInteger(sanitizedGrade)
-      ? sanitizedGrade.toString()
-      : sanitizedGrade.toFixed(1);
+    const adjustedGrade = Math.max(0, sanitizedGrade - 2);
+    const formattedGrade = Number.isInteger(adjustedGrade)
+      ? adjustedGrade.toString()
+      : adjustedGrade.toFixed(1);
 
     termGradeEl.textContent = `${formattedGrade}%`;
   }
