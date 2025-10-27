@@ -57,7 +57,10 @@
     }
 
     main {
-      padding: 50px;
+      padding: clamp(24px, 5vw, 70px);
+      margin: 0 auto;
+      max-width: 1500px;
+      width: min(100%, 1500px);
     }
 
 
@@ -85,6 +88,14 @@
       border: 1px solid #ccc;
       border-radius: 6px;
       margin-bottom: 20px;
+    }
+
+    .official-doc {
+      display: block;
+      margin: 0 auto;
+      width: min(100%, 1350px);
+      max-width: 100%;
+      min-height: 600px;
     }
 
     .videos iframe {
@@ -319,10 +330,65 @@
 
           if (doc) {
             const frame = document.getElementById("doc-frame");
+            const MIN_HEIGHT = 600;
+            let lastAppliedHeight = MIN_HEIGHT;
+
+            const applyHeight = (rawHeight) => {
+              if (!Number.isFinite(rawHeight) || rawHeight <= 0) return;
+              const nextHeight = Math.max(MIN_HEIGHT, Math.round(rawHeight));
+              if (Math.abs(nextHeight - lastAppliedHeight) < 2) return;
+              lastAppliedHeight = nextHeight;
+              frame.style.height = `${nextHeight}px`;
+            };
+
+            const resizeFrame = () => {
+              try {
+                const docContent = frame.contentDocument || frame.contentWindow?.document;
+                if (!docContent) return;
+                const height = Math.max(
+                  docContent.body?.scrollHeight || 0,
+                  docContent.documentElement?.scrollHeight || 0
+                );
+                applyHeight(height);
+              } catch (error) {
+                console.error("Unable to resize document frame", error);
+              }
+            };
+
+            window.addEventListener("message", (event) => {
+              if (!event?.data || event.source !== frame.contentWindow) return;
+              if (event.data.type !== "resize") return;
+              applyHeight(event.data.height);
+            });
+
+            frame.addEventListener("load", () => {
+              resizeFrame();
+              setTimeout(resizeFrame, 200);
+              setTimeout(resizeFrame, 600);
+              setTimeout(resizeFrame, 1200);
+
+              try {
+                const docContent = frame.contentDocument;
+                if (!docContent) return;
+
+                if ("ResizeObserver" in window && docContent.body) {
+                  const observer = new ResizeObserver(() => resizeFrame());
+                  observer.observe(docContent.body);
+                  observer.observe(docContent.documentElement);
+                }
+
+                const images = docContent.images || [];
+                Array.from(images).forEach(img => {
+                  if (img.complete) return;
+                  img.addEventListener("load", resizeFrame);
+                  img.addEventListener("error", resizeFrame);
+                });
+              } catch (error) {
+                console.error("Unable to observe document frame size", error);
+              }
+            });
+
             frame.src = doc.url;
-            const height = 4750;
-            
-            
           }
 
           if (videos.length > 0) {
@@ -455,7 +521,14 @@
 window.addEventListener("message", function(event) {
   if (event.data && event.data.type === 'resize') {
     var frame = document.getElementById("doc-frame");
-    frame.style.height = (event.data.height + 10) + 'px';
+    if (!frame) return;
+
+    var newHeight = Math.ceil(event.data.height || 0);
+    if (!newHeight) return;
+
+    if (Math.abs(frame.clientHeight - newHeight) > 1) {
+      frame.style.height = newHeight + 'px';
+    }
   }
 });
 </script>
