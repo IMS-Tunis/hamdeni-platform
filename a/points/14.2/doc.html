@@ -32,7 +32,12 @@
       color: var(--ink);
       line-height: 1.75;
     }
-    .wrap{max-width: 1080px; margin: 0 auto; padding: 28px 20px;}
+    .wrap{
+      margin: 0 auto;
+      max-width: 1280px;
+      width: min(100%, 1280px);
+      padding: 28px clamp(20px, 4vw, 48px);
+    }
     header.hero{
       background: linear-gradient(95deg, rgba(75,123,236,.10), rgba(255,138,61,.10));
       border: 1px solid var(--border);
@@ -175,5 +180,26 @@
 
     <div class="ribbon">End of Lesson 14.2 — Circuit Switching & Packet Switching</div>
   </div>
+
+  <script>
+    const notifyParentOfSize = () => {
+      if (window.parent) {
+        const height = document.documentElement.scrollHeight;
+        window.parent.postMessage({ type: 'resize', height }, '*');
+      }
+    };
+
+    window.addEventListener('load', () => {
+      notifyParentOfSize();
+      setTimeout(notifyParentOfSize, 200);
+    });
+
+    if ('ResizeObserver' in window) {
+      const observer = new ResizeObserver(() => notifyParentOfSize());
+      observer.observe(document.body);
+    } else {
+      window.addEventListener('resize', notifyParentOfSize);
+    }
+  </script>
 </body>
 </html>
