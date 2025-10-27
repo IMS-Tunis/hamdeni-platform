@@ -57,7 +57,10 @@
     }
 
     main {
-      padding: 50px;
+      padding: clamp(24px, 5vw, 70px);
+      margin: 0 auto;
+      max-width: 1500px;
+      width: min(100%, 1500px);
     }
 
 
@@ -85,6 +88,14 @@
       border: 1px solid #ccc;
       border-radius: 6px;
       margin-bottom: 20px;
+    }
+
+    .official-doc {
+      display: block;
+      margin: 0 auto;
+      width: min(100%, 1350px);
+      max-width: 100%;
+      min-height: 600px;
     }
 
     .videos iframe {
@@ -319,10 +330,30 @@
 
           if (doc) {
             const frame = document.getElementById("doc-frame");
+            const resizeFrame = () => {
+              try {
+                const docContent = frame.contentDocument || frame.contentWindow?.document;
+                if (!docContent) return;
+                const height = Math.max(
+                  docContent.body?.scrollHeight || 0,
+                  docContent.documentElement?.scrollHeight || 0
+                );
+                if (height) {
+                  frame.style.height = height + "px";
+                }
+              } catch (error) {
+                console.error("Unable to resize document frame", error);
+              }
+            };
+
+            frame.addEventListener("load", () => {
+              resizeFrame();
+              setTimeout(resizeFrame, 150);
+              setTimeout(resizeFrame, 600);
+              setTimeout(resizeFrame, 1200);
+            });
+
             frame.src = doc.url;
-            const height = 4750;
-            
-            
           }
 
           if (videos.length > 0) {
@@ -455,7 +486,14 @@
 window.addEventListener("message", function(event) {
   if (event.data && event.data.type === 'resize') {
     var frame = document.getElementById("doc-frame");
-    frame.style.height = (event.data.height + 10) + 'px';
+    if (!frame) return;
+
+    var newHeight = Math.ceil(event.data.height || 0);
+    if (!newHeight) return;
+
+    if (Math.abs(frame.clientHeight - newHeight) > 1) {
+      frame.style.height = newHeight + 'px';
+    }
   }
 });
 </script>
