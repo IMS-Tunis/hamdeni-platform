@@ -57,7 +57,16 @@
     }
 
     main {
-      padding: 50px;
+      padding: 40px 24px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    #doc-frame {
+      display: block;
+      width: min(1220px, 100%);
+      margin: 0 auto;
+      min-height: 600px;
     }
 
 
@@ -320,9 +329,19 @@
           if (doc) {
             const frame = document.getElementById("doc-frame");
             frame.src = doc.url;
-            const height = 4750;
-            
-            
+
+            const resizeFrame = () => {
+              try {
+                const innerDoc = frame.contentDocument || frame.contentWindow?.document;
+                if (innerDoc?.body) {
+                  frame.style.height = innerDoc.body.scrollHeight + 10 + "px";
+                }
+              } catch (err) {
+                console.warn("Unable to auto-resize doc frame:", err);
+              }
+            };
+
+            frame.addEventListener("load", resizeFrame);
           }
 
           if (videos.length > 0) {
