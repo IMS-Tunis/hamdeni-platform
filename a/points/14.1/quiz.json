@@ -2,101 +2,232 @@
   "questions": [
     {
       "type": "mcq",
-      "question": "What is the main reason computers use binary to represent all data?",
+      "question": "Which option best captures what a protocol specifies to ensure consistent interpretation?",
       "options": [
-        "Binary numbers are easier for humans to read",
-        "Computers use logic gates that only understand ON and OFF states",
-        "It uses less power",
-        "Binary numbers are shorter than decimal numbers"
+        "Message format, timing, and transmission rate",
+        "Source IP, destination IP, and MAC address",
+        "HTTP methods, DNS records, and frames",
+        "File chunk sizes, swarm size, and tracker URL"
       ],
-      "answer": "Computers use logic gates that only understand ON and OFF states"
+      "answer": "Message format, timing, and transmission rate"
     },
     {
       "type": "mcq",
-      "question": "In an 8-bit binary number, what does the leftmost bit represent?",
+      "question": "Which set lists reliability controls provided by protocols?",
       "options": [
-        "Least Significant Bit",
-        "The parity bit",
-        "Most Significant Bit",
-        "The hexadecimal value"
+        "DNS queries, port numbers, MAC addresses",
+        "Switching, routing tables, frames",
+        "Error detection, acknowledgements, retransmission",
+        "HTTP requests, FTP uploads, DNS responses"
       ],
-      "answer": "Most Significant Bit"
+      "answer": "Error detection, acknowledgements, retransmission"
     },
     {
       "type": "mcq",
-      "question": "Which of the following is a hexadecimal digit?",
+      "question": "Flow control is used to:",
       "options": [
-        "8",
-        "G",
-        "H",
-        "Q"
+        "Translate names into IP addresses",
+        "Prevent receiver overload by limiting sent data before confirmation",
+        "Split files into chunks for parallel transfer",
+        "Add source and destination IP addresses"
       ],
-      "answer": "8"
+      "answer": "Prevent receiver overload by limiting sent data before confirmation"
+    },
+    {
+      "type": "fill_blank",
+      "question": "A parity ______ is one extra 0 or 1 added so the total count of 1s matches an agreed rule.",
+      "answer": "bit"
     },
     {
       "type": "mcq",
-      "question": "What is the maximum value that can be represented in an 8-bit binary number?",
+      "question": "Under even parity, the total number of 1s in each transmitted data unit is:",
       "options": [
-        "255",
-        "256",
-        "128",
-        "1024"
+        "Always odd",
+        "Always even",
+        "Alternating odd and even",
+        "Unconstrained"
       ],
-      "answer": "255"
+      "answer": "Always even"
+    },
+    {
+      "type": "mcq",
+      "question": "In a layered stack, each layer:",
+      "options": [
+        "Replaces the layer above and ignores the layer below",
+        "Offers services to the layer above and uses services of the layer below through interfaces",
+        "Works only when all layers share the same port number",
+        "Operates only on physical media"
+      ],
+      "answer": "Offers services to the layer above and uses services of the layer below through interfaces"
     },
     {
       "type": "fill_blank",
-      "question": "The process of moving all bits in a binary number to the left or right and filling the emptied spaces with zeros is called a __________ shift.",
-      "answer": "Logical"
+      "question": "When a computer is receiving data, processing moves from the ______ layer to the ______ layer of the protocol stack.",
+      "answer": "bottom, top"
+    },
+    {
+      "type": "mcq",
+      "question": "When sending data, processing through the protocol stack moves:",
+      "options": [
+        "Bottom to top",
+        "Top to bottom",
+        "Horizontally across layers",
+        "Randomly between layers"
+      ],
+      "answer": "Top to bottom"
     },
     {
       "type": "fill_blank",
-      "question": "In binary addition, if the result is too large for the register to hold, this is called an __________ error.",
-      "answer": "Overflow"
+      "question": "Adding a layer-specific header to the data received from above is called ______.",
+      "answer": "encapsulation"
     },
     {
       "type": "fill_blank",
-      "question": "Each hexadecimal digit can be represented by exactly ___ binary bits.",
-      "answer": "4"
-    },
-    {
-      "type": "true_false",
-      "question": "Digital data can take any value, just like analogue data.",
-      "answer": "False"
-    },
-    {
-      "type": "true_false",
-      "question": "In two’s complement, the most significant bit represents the sign of the number.",
-      "answer": "True"
-    },
-    {
-      "type": "true_false",
-      "question": "The denary number system is also known as base 16.",
-      "answer": "False"
+      "question": "At the Internet layer the unit is an IP packet, also called a ______.",
+      "answer": "datagram"
     },
     {
       "type": "match",
-      "question": "Match the term with its correct definition:",
+      "question": "Match layer to its data unit.",
       "pairs": {
-        "Register": "Used to temporarily hold binary data",
-        "Logic gate": "Basic building block for processing digital data",
-        "Two’s complement": "Method to represent negative binary"
+        "Transport": "Segment",
+        "Internet": "IP packet (datagram)",
+        "Link": "Frame"
       }
     },
     {
-      "type": "fill_blank",
-      "question": "Convert the binary number 1101 to denary: __________",
-      "answer": "13"
+      "type": "mcq",
+      "question": "Which lists the TCP/IP layers in order from top on the sender to bottom?",
+      "options": [
+        "Application, Transport, Internet, Link",
+        "Link, Internet, Transport, Application",
+        "Internet, Link, Application, Transport",
+        "Transport, Application, Link, Internet"
+      ],
+      "answer": "Application, Transport, Internet, Link"
+    },
+    {
+      "type": "match",
+      "question": "Match layer to its core purpose.",
+      "pairs": {
+        "Application": "End-user services and application protocols such as HTTP, SMTP, DNS, FTP, POP3, IMAP",
+        "Transport": "End-to-end delivery, sequencing, and error recovery",
+        "Internet": "Source and destination IP addressing and routing between networks with connectionless forwarding",
+        "Link": "Local delivery on the physical medium with frames and a frame check"
+      }
+    },
+    {
+      "type": "mcq",
+      "question": "Which statement distinguishes TCP from UDP as given?",
+      "options": [
+        "TCP is connectionless with lower overhead; UDP is connection-oriented with ACKs",
+        "TCP is connection-oriented with acknowledgements and retransmission; UDP is connectionless with lower overhead",
+        "Both are connection-oriented with port numbers only in UDP",
+        "Both are connectionless and never use ports"
+      ],
+      "answer": "TCP is connection-oriented with acknowledgements and retransmission; UDP is connectionless with lower overhead"
     },
     {
       "type": "fill_blank",
-      "question": "What is the hexadecimal equivalent of the denary number 15? __________",
-      "answer": "F"
+      "question": "The Link layer uses ______ addresses to forward frames within a LAN.",
+      "answer": "MAC"
+    },
+    {
+      "type": "mcq",
+      "question": "Which device operates at the Internet layer and forwards using a routing table?",
+      "options": [
+        "Switch",
+        "Router",
+        "Ethernet card",
+        "DNS resolver"
+      ],
+      "answer": "Router"
     },
     {
       "type": "fill_blank",
-      "question": "What is the binary value for the hexadecimal digit C? __________",
-      "answer": "1100"
+      "question": "TCP uses destination ______ to direct data to the correct application.",
+      "answer": "port"
+    },
+    {
+      "type": "mcq",
+      "question": "In a web page fetch, which layer adds source and destination IP addresses?",
+      "options": [
+        "Application",
+        "Transport",
+        "Internet",
+        "Link"
+      ],
+      "answer": "Internet"
+    },
+    {
+      "type": "fill_blank",
+      "question": "Ethernet frames include a ______ for integrity checking.",
+      "answer": "frame check"
+    },
+    {
+      "type": "mcq",
+      "question": "In the example, the destination port commonly used for HTTP is:",
+      "options": [
+        "20",
+        "21",
+        "53",
+        "80"
+      ],
+      "answer": "80"
+    },
+    {
+      "type": "mcq",
+      "question": "A network device that operates at the Link layer and forwards frames based on MAC addresses is a:",
+      "options": [
+        "Router",
+        "Switch",
+        "Hub",
+        "Server"
+      ],
+      "answer": "Switch"
+    },
+    {
+      "type": "match",
+      "question": "Match each protocol to its purpose.",
+      "pairs": {
+        "HTTP": "Client-server request-response used by browsers to fetch web resources",
+        "FTP": "Application-layer transfer of files between systems",
+        "SMTP": "Sending email from client to server and between mail servers",
+        "POP3": "Downloading email to the client, typically removing it from the server",
+        "IMAP": "Accessing email while keeping messages on the server for multi-device access"
+      }
+    },
+    {
+      "type": "match",
+      "question": "Match each BitTorrent term with its definition.",
+      "pairs": {
+        "Tracker": "A server that lists peers and the pieces they hold",
+        "Swarm": "The group of all peers currently sharing the same torrent",
+        "Seeder": "A peer that has the complete file and uploads pieces to others",
+        "Leecher": "A peer that is still downloading pieces and has not yet completed the file"
+      }
+    },
+    {
+      "type": "mcq",
+      "question": "In the example, a 20 MiB file split into 1 MiB pieces results in how many chunks?",
+      "options": [
+        "10",
+        "20",
+        "40",
+        "200"
+      ],
+      "answer": "20"
+    },
+    {
+      "type": "mcq",
+      "question": "BitTorrent enables:",
+      "options": [
+        "Sequential download from a single server",
+        "Simultaneous download and upload among peers",
+        "Email retrieval from multiple devices",
+        "Web page requests to remote servers"
+      ],
+      "answer": "Simultaneous download and upload among peers"
     }
   ]
 }

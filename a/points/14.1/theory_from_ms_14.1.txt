@@ -1,0 +1,16 @@
+14.1a
+1. Communication between computers requires protocols: shared rules that enable devices to coordinate actions and exchange data using agreed formats.
+
+14.1b
+2. The TCP/IP stack comprises four ordered layers from lowest to highest: Link, Internet, Transport, Application.
+3. The correct order of the TCP/IP layers from highest to lowest is: Application, Transport, Internet, Link.
+4. In the TCP/IP stack, adjacent layers interact only via defined interfaces; each layer exchanges data only with the layer above or below, headers are added as data moves downward, user interaction occurs at the Application layer, direct hardware access occurs at the Link layer, and installed software carries out these interactions.
+5. A protocol stack defines interconnectivity rules for a layered network model, exemplified by the TCP/IP model.
+
+14.1c
+6. The Transport layer provides end-to-end delivery: it segments data, adds sequence numbers, establishes end-to-end connections, ensures in-sequence and error-free arrival, and retransmits lost packets when needed.
+7. The Application layer provides user-facing services such as login, file transfer, network file access, and email; enforces communication security via mechanisms like encryption and authentication; and defines application-level protocols with error detection and recovery, while the Transport layer ensures logical communication between applications on different hosts, provides in-sequence and error-free delivery using error detection and automatic repeat request, segments data for sending and reassembles it on receipt, and regulates connections using flow control.
+
+14.1d
+8. IMAP (Internet Message Access Protocol) is an email protocol that retrieves messages from a mail server and keeps them on the server to support access from multiple devices.
+9. Common Application layer protocols and their purposes include: HTTP(S) for transferring web hypertext documents, FTP for transferring files between server and client, POP3 and IMAP for receiving or retrieving email, SMTP for sending email, and BitTorrent for peer-to-peer file sharing.

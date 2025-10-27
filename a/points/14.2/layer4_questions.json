@@ -1,14 +1,30 @@
 [
-  {
-    "question": "Explain what is meant by a validation test in computer science education.",
-    "answer": "A validation test checks that students have understood the material and are ready to progress."
-  },
-  {
-    "question": "State one advantage of practicing with past paper questions before an exam.",
-    "answer": "Past paper questions familiarize students with the exam style and improve confidence."
-  },
-  {
-    "question": "Give an example of a simple binary operation.",
-    "answer": "Adding two 1-bit binary numbers, e.g. 1 + 1 = 10."
-  }
+{
+"question": "Describe circuit switching as a method of data transmission. (Answer in 2–3 concise points.)",
+"answer": "3(a) One mark per marking point (Max 3)\nCircuit switching \nAll data follows the same path to the destination \nThere is no switching of the route of the data in a switch \nappropriate opportunity give exemplification."
+},
+{
+"question": "State one benefit and one drawback of circuit switching as a method of data transmission. (Provide exactly one benefit and one drawback.)",
+"answer": "3(b) One mark per mark point \nAdvantages \nData follows the same route so the data will arrive in the correct order and will not need reassembling \nReliable and guaranteed bandwidth for the transfer so good for multi-media transmission where a constant rate is required \nDisadvantages \nCircuit is occupied and cannot be used by anyone else even if idle \nNot very secure as only one route is used so only one route is to be intercepted."
+},
+{
+"question": "State two examples of where it would be appropriate to use packet switching. (Provide two specific application examples.)",
+"answer": "7(a) One mark per mark point (Max 2) \nMP1 Packet switching is most commonly used on data networks such as the internet to send large data files that don’t need to be live streamed \nMP2 Packet switching is used when it is necessary to be able to overcome failed/faulty lines by rerouting. \nMP3 Packet switching is used when it is necessary for the communication to be more secure. \nMP4 Packet switching is used for high volume data transmission. \nMP5 Packet switching is used when it isn’t necessary to use all the bandwidth. \nMP6 Specific examples e.g. email, text messages, documents, VOIP etc. (up to two marks)."
+},
+{
+"question": "Give two benefits and two drawbacks of packet switching. (Provide exactly two benefits and two drawbacks.)",
+"answer": "6 One mark for each correct benefit (Max 2) \n• Accuracy – Ensures accurate delivery of the message \n• Completeness – Missing packets can be easily detected and a re-send request sent so the message arrives complete \n• Resilience – if a network changes the router can detect this and send the data another way to ensure it arrives \n• Path also available to other users // Doesn’t use whole bandwidth // allows simultaneous use of channel by multiple users \n• Better security as packets hashed and sent by different routes. \nOne mark for each correct drawback (Max 2) \n• Time delays to correct errors // Network problems may introduce errors in packets \n• Requires complex protocols for delivery \n• Unsuitable for real time transmission applications."
+},
+{
+"question": "Give four differences between circuit switching and packet switching. (Provide four concise differences.)",
+"answer": "7(b) One mark per mark point (Max 4) \nMP1 Circuit switching uses a dedicated channel to make communication, whereas packet switching forms data into packets to transmit over a digital network. \nMP2 The dedicated path for circuit switching must be established before the transfer of data can commence, which is not the case with packet switching (as it doesn’t require a dedicated path). \nMP3 Data in packet switching is split into packets, in circuit switching the message remains intact. \nMP4 All of the transmission in circuit switching follows the same path whereas different packets in packet switching can take different routes. \nMP5 The message is received in the same order in which it is sent with circuit switching, but with packet switching, the packets can be received out of order (for assembly at the destination). \nMP6 Circuit switching is implemented at the physical layer while packet switching is implemented at the network layer. \nMP7 Circuit switching uses the whole bandwidth of the channel used, packet switching can share bandwidth. \nMP8 Circuit switching communication ends with an error but packet switching allows packets to be re-sent. \nMP9 Circuit switching is a simpler process than packet switching."
+},
+{
+"question": "Explain how packet switching is used to transfer messages across the internet. (Write your answer as a numbered sequence of steps.)",
+"answer": "6(a) One mark for each correct marking point (Max 5) \n• A large message is divided up into a group of smaller chunks of the same size called packets \n• The packet has a header and a payload \n• The header contains a source IP address, destination IP address (and sequence number) \n• Each packet is dispatched independently \n• … and may travel along different routes / paths \n• The packets may arrive out of order \n• … and are reassembled into the original message at the destination \n• If packets are missing / corrupted a re-transmission request is sent."
+},
+{
+"question": "Outline the function of a router in packet switching. (Write 2–3 short points.)",
+"answer": "6(b) One mark for each correct marking point (Max 3) \n• The router examines the packet’s header \n• It reads the IP address of the destination (from the packet header) \n• A router has access to a routing table \n• …containing information about, e.g., available hops / netmask / gateway used \n• … and the status of the routes along the route \n• … the router decides on the next hop / best route \n• … and sends the packet on its next hop."
+}
 ]

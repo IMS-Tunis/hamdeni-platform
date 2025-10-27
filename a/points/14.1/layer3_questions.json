@@ -1,0 +1,74 @@
+[
+  {
+    "point_id": "",
+    "question_number": 1,
+    "question": "Identify, in an IP datagram carrying a TCP segment, where each item is located: destination address, sender address, destination port, sender port, packet sequence number, acknowledgement.",
+    "mark_scheme": "Destination address: IP. Sender address: IP. Destination port: TCP. Sender port: TCP. Packet sequence number: TCP. Acknowledgement: TCP."
+  },
+  {
+    "point_id": "",
+    "question_number": "2a",
+    "question": "a) Draw two end-system protocol stacks and show how Ethernet combines with the TCP/IP suite to support data communication. Indicate layer names, encapsulation arrows, and the unit passed between layers. A router may be shown between the end systems.",
+    "mark_scheme": "Two vertically aligned stacks per end-system, each labelled (Application, Transport, Internet, Link). Arrows descend on send (Application→Transport→Internet→Link) and ascend on receive; each arrow labelled with the unit transmitted at that interface. Frames traverse the link between NICs; an intermediate router may be shown between links."
+  },
+  {
+    "point_id": "",
+    "question_number": "2b",
+    "question": "b) Define MAC address.",
+    "mark_scheme": "A MAC address is the identifier used by the MAC protocol, carried in frames, assigned to a NIC to identify the device on the local network; each MAC address is unique."
+  },
+  {
+    "point_id": "",
+    "question_number": "3a",
+    "question": "One Internet-connected end-system holds a file needed by a user on another end-system.\n(a) Identify three possible methods for obtaining the file, with a brief explanation.",
+    "mark_scheme": "Examples: direct client–server transfer; email attachment; publish for download on a web server; peer-to-peer sharing; cloud storage with read access."
+  },
+  {
+    "point_id": "",
+    "question_number": "3b",
+    "question": "One Internet-connected end-system holds a file needed by a user on another end-system.\n(b) For each method, name the application-layer protocol(s) used, with a brief explanation.",
+    "mark_scheme": "FTP for client–server transfer; SMTP to send mail, POP3 or IMAP to retrieve; HTTP for web download; BitTorrent for peer-to-peer; MIME to support multimedia email."
+  },
+  {
+    "point_id": "",
+    "question_number": 4,
+    "question": "For each of SMTP, POP3, IMAP, and HTTP, explain how it may be used with an email application.",
+    "mark_scheme": "SMTP: push protocol that sends mail from client to mail server and between mail servers. POP3: pull protocol that transfers mail from server to a single client system. IMAP: pull protocol that keeps mail on the server for access from any client device. HTTP: used by a browser to access a web server hosting a webmail system for sending/receiving email."
+  },
+  {
+    "point_id": "",
+    "question_number": 5,
+    "question": "Match descriptions to protocols:\n(a) Client downloads email from server. (b) Email moves between mail servers. (c) Client sends email to server. (d) Browser requests a web page.",
+    "mark_scheme": "a) POP3. b) SMTP. c) SMTP. d) HTTP."
+  },
+  {
+    "point_id": "",
+    "question_number": "6a",
+    "question": "BitTorrent\n(a) Name the model used.",
+    "mark_scheme": "Peer-to-peer."
+  },
+  {
+    "point_id": "",
+    "question_number": "6b",
+    "question": "BitTorrent\n(b) Explain the function of: i) tracker, ii) seed, iii) swarm.",
+    "mark_scheme": "Tracker: a server that stores swarm activity data and, on request, shares which peers hold which files or parts and their IP addresses. Seed: a peer computer with downloaded files or pieces, typically 100% of a file, available for upload. Swarm: the collection of connected peers sharing a torrent, each providing parts or complete files."
+  },
+  {
+    "point_id": "",
+    "question_number": "7a",
+    "question": "Ethernet frame structure and metadata.\n(a) Complete the four items other than Ethernet data/payload that appear in an Ethernet frame.",
+    "mark_scheme": "Destination MAC address; Source MAC address; Ethernet Type; Frame Check Sequence."
+  },
+  {
+    "point_id": "",
+    "question_number": "7b",
+    "question": "Ethernet frame structure and metadata.\n(b) Define metadata.",
+    "mark_scheme": "Metadata summarises basic information about other data."
+  },
+  {
+    "point_id": "",
+    "question_number": 8,
+    "question": "Explain the following terms and why they are used when sending packets: hop number and checksum. Then describe briefly how headers and routing tables are used to route packets efficiently from sender to recipient.",
+    "mark_scheme": "Hop number: a header value limiting lifetime to prevent undeliverable packets clogging routes. Checksum: a number computed from data and sent with the packet; the receiver recomputes to detect transmission errors. Routers read header fields (notably destination IP), compare with routing tables that encode next hops and best routes considering link traffic, and forward packets accordingly."
+  }
+]

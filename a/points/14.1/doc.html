@@ -1,14 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Content not ready</title>
-  <link rel="stylesheet" href="igcse-style.css">
-<script defer src="/assets/js/paste-guard.js"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>14.1 Protocols</title>
+  <style>
+    :root{
+      --bg:#0b0e12; --panel:#11161f; --ink:#e8edf4; --muted:#8b97a8;
+      --accent:#2f9bff; --accent-2:#67d6a3; --border:rgba(139,151,168,.25);
+      --kw-bg:rgba(47,155,255,.12); --kw-brd:rgba(47,155,255,.35);
+      --eg-bg: rgba(103,214,163,.12); --eg-brd: rgba(103,214,163,.5);
+    }
+    .theme-light{
+      --bg:#f7f9fc; --panel:#ffffff; --ink:#0f1728; --muted:#4b5a6e;
+      --accent:#005bb5; --accent-2:#0a8f63; --border:rgba(15,23,40,.12);
+      --kw-bg:rgba(0,91,181,.10); --kw-brd:rgba(0,91,181,.28);
+      --eg-bg: rgba(10,143,99,.10); --eg-brd: rgba(10,143,99,.30);
+    }
+    html,body{height:100%}
+    body{
+      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background:var(--bg); color:var(--ink); line-height:1.65;
+    }
+    .wrap{max-width:1100px; margin:0 auto; padding:28px 20px;}
+    header.title{
+      background: linear-gradient(180deg, color-mix(in oklab, var(--panel) 80%, transparent), color-mix(in oklab, var(--panel) 95%, black));
+      border:1px solid var(--border); border-radius:14px; padding:22px 20px; margin-bottom:22px;
+      display:flex; align-items:center; gap:12px;
+    }
+    header.title .meta{flex:1 1 auto;}
+    header.title h1{margin:0 0 6px 0; text-align: center; font-size:28px; letter-spacing:.2px}
+    header.title p{margin:0; text-align: center;  color:var(--muted)}
+    .theme-btn{
+      appearance:none; border:1px solid var(--border); background:var(--panel); color:var(--ink);
+      padding:8px 12px; border-radius:10px; font-weight:600; cursor:pointer;
+    }
+    .layout{display:grid; grid-template-columns:280px 1fr; gap:22px; margin-top:22px;}
+    nav.toc{position:sticky; top:18px; align-self:start; background:var(--panel); border:1px solid var(--border); border-radius:12px; padding:14px;}
+    nav.toc h2{margin:.2rem 0 .6rem; font-size:14px; color:var(--muted); text-transform:uppercase; letter-spacing:.8px}
+    nav.toc a{display:block; padding:8px 10px; color:var(--ink); text-decoration:none; border-radius:8px; border:1px solid transparent}
+    nav.toc a:hover{background:color-mix(in oklab, var(--kw-bg) 80%, transparent); border-color:var(--kw-brd)}
+    main.notes{background:var(--panel); border:1px solid var(--border); border-radius:14px; padding:18px 22px;}
+    section{padding:16px 0; border-top:1px dashed var(--border)}
+    section:first-of-type{border-top:0}
+    .sec-head{display:flex; align-items:baseline; gap:10px; margin-bottom:6px;}
+    .sec-head h2{margin:0; font-size:20px; letter-spacing:.2px}
+    .sec-tag{font-size:12px; color:var(--muted); border:1px solid var(--border); padding:2px 8px; border-radius:999px}
+    .intro{margin:8px 0 6px 0; color:var(--muted)}
+    .cluster{display:grid; grid-template-columns:1fr; gap:8px; margin-top:8px}
+    .cluster h3{margin:6px 0 0; font-size:14px; color:var(--muted); text-transform:uppercase; letter-spacing:.6px}
+    ul.bullets{margin:6px 0 0 0; padding-left:1.1rem}
+    ul.bullets li{margin:7px 0}
+    .keyword{display:inline-block; padding:0 6px; border-radius:6px; border:1px solid var(--kw-brd); background:var(--kw-bg); font-weight:600}
+    /* Example styling */
+    li.eg{
+      list-style: none;
+      margin: 10px 0;
+      padding: 10px 12px;
+      border-left: 4px solid var(--accent-2);
+      background: var(--eg-bg);
+      border-radius: 8px;
+      position: relative;
+    }
+    li.eg::before{
+      content: "Example";
+      position: absolute;
+      top: -10px; left: 10px;
+      font-size: 11px; padding: 2px 6px;
+      border: 1px solid var(--eg-brd);
+      color: var(--muted);
+      background: color-mix(in oklab, var(--panel) 85%, transparent);
+      border-radius: 999px;
+    }
+    /* Media figure */
+    figure.media{
+      margin: 14px 0; padding: 10px; background: color-mix(in oklab, var(--panel) 88%, black);
+      border: 1px solid var(--border); border-radius: 12px;
+    }
+    figure.media img{display:block; width:100%; height:auto; border-radius:8px}
+    figure.media figcaption{margin-top:8px; font-size:14px; color:var(--muted)}
+    .footer{color:var(--muted); text-align:center; margin-top:26px}
+    @media (max-width: 960px){ .layout{grid-template-columns:1fr} nav.toc{position:relative; top:0} }
+    @media print{ nav.toc{display:none} body{background:#fff; color:#000} main.notes{border:0} a{color:#000; text-decoration:none} }
+  </style>
 </head>
 <body>
-   <div class="container">
-    <h1>Content will be ready soon!</h1>
-   
+  <div class="wrap">
+    <header class="title">
+      <div class="meta">
+        <h1>14.1 Protocols</h1>
+        <p>A level theory notes, prepared by Dr. Hamdeni</p>
+      </div>
+      <button id="themeToggle" class="theme-btn" aria-label="Toggle light or dark theme">Light mode</button>
+    </header>
+
+    <div class="layout">
+      <nav class="toc" aria-label="Contents">
+        <h2>Contents</h2>
+        <a href="#s-14-1a">14.1a Why protocols are essential</a>
+        <a href="#s-14-1b">14.1b Protocol stack and encapsulation</a>
+        <a href="#s-14-1c">14.1c TCP/IP layers and message path</a>
+        <a href="#s-14-1d">14.1d Protocol purposes and BitTorrent</a>
+      </nav>
+
+      <main class="notes">
+        <!-- 14.1a -->
+        <section id="s-14-1a">
+          <div class="sec-head">
+            <h2>14.1a • Why a protocol is essential</h2><span class="sec-tag">Essentials</span>
+          </div>
+          <p class="intro">Networks need shared rules so both ends encode and interpret messages the same way. Without protocols, data can be misread, delivered out of order, or lost, and senders can overwhelm receivers.</p>
+          <div class="cluster">
+           
+            <ul class="bullets">
+              <li>A <span class="keyword">protocol</span> is an agreed set of rules that specifies message format, timing, and transmission rate so both sides interpret data consistently.</li>
+              <li><span class="keyword">Interoperability</span> is achieved when different devices follow the same rules and therefore communicate reliably.</li>
+              <li><span class="keyword">Reliability</span> improves because protocols define error detection, acknowledgements, and retransmission when corruption or loss occurs.</li>
+              <li><span class="keyword">Flow control</span> protects the receiver by limiting how much data is sent before confirmation arrives.</li>
+            </ul>
+            <h3>Examples</h3>
+            <ul class="bullets">
+              <li class="eg">With <span class="keyword">even parity</span>, the sender adds one extra bit so the total number of 1s is even; the receiver applies the same rule to detect a single bit error.</li>
+              <li class="eg">In <span class="keyword">email</span>, <span class="keyword">SMTP</span> transfers messages between servers, and <span class="keyword">POP3</span> or <span class="keyword">IMAP</span> lets clients retrieve them; without shared rules this cross-system exchange fails.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- 14.1b -->
+        <section id="s-14-1b">
+          <div class="sec-head">
+            <h2>14.1b • Protocol stack and encapsulation</h2><span class="sec-tag">Layered view</span>
+          </div>
+          <p class="intro"> Layering breaks a complex task into simpler parts. Each layer focuses on one job and hides lower-level details, which keeps systems compatible and easier to build.</p>
+          <div class="cluster">
+           
+            <ul class="bullets">
+              <li>In a <span class="keyword">layered stack</span>, each layer offers services to the one above and uses services from the one below through defined interfaces.</li>
+              <li>During <span class="keyword">sending</span>, processing moves from top to bottom; during <span class="keyword">receiving</span>, it moves from bottom to top to reconstruct the message.</li>
+              <li>Through <span class="keyword">encapsulation</span>, each layer adds its own header; at the destination, matching layers remove headers to recover the original data.</li>
+              <li><span class="keyword">Data unit names</span> change by layer, with <span class="keyword">segments</span> at Transport, <span class="keyword">IP packets</span> (also called <span class="keyword">datagrams</span>) at Internet, and <span class="keyword">frames</span> at Link.</li>
+            </ul>
+            <h3>Examples</h3>
+            <ul class="bullets">
+              <li class="eg">At the sender, the <span class="keyword">Application</span> passes a message to <span class="keyword">Transport</span>; at the receiver, <span class="keyword">Transport</span> delivers the same message to its <span class="keyword">Application</span> after de-encapsulation.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- 14.1c -->
+        <section id="s-14-1c">
+          <div class="sec-head">
+            <h2>14.1c • TCP/IP layers and message path</h2><span class="sec-tag">Layers and flow</span>
+          </div>
+          <p class="intro"> The TCP/IP suite has four layers that cooperate end to end. This section states the job of each layer and then walks through a typical web request.</p>
+          <div class="cluster">
+          
+            <ul class="bullets">
+              <li>The <span class="keyword">Application layer</span> provides end user services such as <span class="keyword">HTTP</span> for the web, <span class="keyword">SMTP</span> for sending email, <span class="keyword">DNS</span> for name resolution, and <span class="keyword">FTP</span> for file transfer; email retrieval uses <span class="keyword">POP3</span> and <span class="keyword">IMAP</span>.</li>
+              <li>The <span class="keyword">Transport layer</span> provides end to end delivery, sequencing, and error recovery; <span class="keyword">TCP</span> is connection oriented with acknowledgements and retransmission and uses <span class="keyword">port numbers</span> to direct data, while <span class="keyword">UDP</span> is connectionless with lower overhead.</li>
+              <li>The <span class="keyword">Internet layer</span> adds source and destination IP addresses and routes packets between networks; <span class="keyword">IP</span> is connectionless and forwards each packet independently. <em>DNS is an application-layer service, not a function of this layer.</em></li>
+              <li>The <span class="keyword">Link layer</span> provides local delivery on the physical medium; <span class="keyword">Ethernet</span> commonly implements this layer on LANs, creating frames with source and destination MAC addresses and a frame check for integrity.</li>
+              <li>Along the path, a <span class="keyword">router</span> forwards IP packets using a <em>routing table</em> (a list showing which direction to send packets), and a <span class="keyword">switch</span> forwards frames using <em>MAC addresses</em> (hardware identifiers for local network devices).</li>
+            </ul>
+            <h3>Worked flow</h3>
+            <ul class="bullets">
+              <li class="eg">In a web fetch, the Application builds an HTTP request, DNS is queried for the server IP, TCP creates segments and uses a destination port (commonly 80 for HTTP) and expects acknowledgements, IP adds addresses and routes packets, Ethernet frames are forwarded by switches within a LAN and by routers between networks, and the server de-encapsulates layers and returns an HTTP response.</li>
+            </ul>
+          </div>
+          <figure class="media">
+            <img src="tcpip.png" alt="Diagram of TCP/IP model layers: Application, Transport, Internet, Link" loading="lazy">
+            <figcaption>TCP/IP layered model overview. Higher layers rely on services of lower layers; data is encapsulated as it descends and de-encapsulated on receipt.</figcaption>
+          </figure>
+        </section>
+
+        <!-- 14.1d -->
+        <section id="s-14-1d">
+          <div class="sec-head">
+            <h2>14.1d • Protocol purposes and BitTorrent</h2><span class="sec-tag">Applications</span>
+          </div>
+          <p class="intro"> Understand what each named protocol contributes in everyday Internet use, then see how peer to peer clients coordinate efficiently using BitTorrent.</p>
+          <div class="cluster">
+            
+            <ul class="bullets">
+              <li><span class="keyword">HTTP</span> is a client server, request response protocol that browsers use to fetch web resources.</li>
+              <li><span class="keyword">FTP</span> is an application layer protocol used to transfer files between systems.</li>
+              <li><span class="keyword">SMTP</span> sends email from clients to servers and between mail servers.</li>
+              <li><span class="keyword">POP3</span> downloads email to the client and typically removes it from the server.</li>
+              <li><span class="keyword">IMAP</span> keeps messages on the server so the same mailbox is available on multiple devices.</li>
+            </ul>
+            <h3>Examples</h3>
+            <ul class="bullets">
+              <li class="eg">When a user enters a URL, the browser sends an <span class="keyword">HTTP</span> request and receives an HTTP response that it displays.</li>
+              <li class="eg">To publish a website, an administrator uploads files to a hosting server using an <span class="keyword">FTP</span> client.</li>
+              <li class="eg">In everyday email, <span class="keyword">SMTP</span> relays the outgoing message to the recipient’s server, <span class="keyword">POP3</span> stores mail locally on a desktop client, and <span class="keyword">IMAP</span> keeps mail on the server for multi device access.</li>
+            </ul>
+          </div>
+          <figure class="media">
+            <img src="email.png" alt="Diagram comparing email protocols: SMTP for sending; POP3 versus IMAP for receiving" loading="lazy">
+            <figcaption>Email protocols in context. SMTP handles sending and server to server transfer. POP3 downloads to clients. IMAP keeps mail on the server for multi device access.</figcaption>
+          </figure>
+
+          <div class="cluster">
+            <h3>BitTorrent</h3>
+            <ul class="bullets">
+              <li>The <span class="keyword">BitTorrent</span> protocol provides peer to peer sharing by splitting a large file into chunks and enabling peers to download and upload simultaneously.</li>
+              <li class="eg">A <span class="keyword">tracker</span> is a server that lists peers and the pieces they hold so peers can find each other.</li>
+              <li class="eg">A <span class="keyword">swarm</span> is the group of all peers currently sharing the same torrent.</li>
+              <li class="eg">A <span class="keyword">seeder</span> is a peer that has the complete file and uploads pieces to others.</li>
+              <li class="eg">A <span class="keyword">leecher</span> is a peer that is still downloading pieces and has not yet completed the file.</li>
+              <li class="eg">For a concrete scale, a 20 MiB video can be split into 20 chunks of 1 MiB; as each chunk arrives a client also uploads it to others, and when all chunks are present the file is reassembled correctly.</li>
+            </ul>
+          </div>
+          <figure class="media">
+            <img src="p2p.png" alt="Peer to peer BitTorrent diagram with peers, tracker, and chunk exchange" loading="lazy">
+            <figcaption>BitTorrent peer to peer sharing. Peers exchange chunks in parallel. A tracker helps peers discover each other.</figcaption>
+          </figure>
+        </section>
+
+        <div class="footer">End of Lesson 14.1 • Protocols</div>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    // single light/dark toggle
+    const btn = document.getElementById('themeToggle');
+    const body = document.body;
+    const saved = localStorage.getItem('lessonTheme');
+    if(saved){ body.className = saved; btn.textContent = saved.includes('theme-light') ? 'Dark mode' : 'Light mode'; }
+    btn.addEventListener('click', () => {
+      const isLight = body.classList.toggle('theme-light');
+      btn.textContent = isLight ? 'Dark mode' : 'Light mode';
+      localStorage.setItem('lessonTheme', body.className);
+    });
+  </script>
 </body>
 </html>

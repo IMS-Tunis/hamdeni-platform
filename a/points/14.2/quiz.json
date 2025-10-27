@@ -2,101 +2,162 @@
   "questions": [
     {
       "type": "mcq",
-      "question": "What is the main reason computers use binary to represent all data?",
+      "question": "Which statement defines a circuit-switched connection for a session?",
       "options": [
-        "Binary numbers are easier for humans to read",
-        "Computers use logic gates that only understand ON and OFF states",
-        "It uses less power",
-        "Binary numbers are shorter than decimal numbers"
+        "A single dedicated end-to-end route is reserved and all traffic follows it",
+        "Messages are split into independent packets with no reservation",
+        "Routers change routes on failure to keep delivery going",
+        "Shared links allow many transmissions to statistically share paths"
       ],
-      "answer": "Computers use logic gates that only understand ON and OFF states"
-    },
-    {
-      "type": "mcq",
-      "question": "In an 8-bit binary number, what does the leftmost bit represent?",
-      "options": [
-        "Least Significant Bit",
-        "The parity bit",
-        "Most Significant Bit",
-        "The hexadecimal value"
-      ],
-      "answer": "Most Significant Bit"
-    },
-    {
-      "type": "mcq",
-      "question": "Which of the following is a hexadecimal digit?",
-      "options": [
-        "8",
-        "G",
-        "H",
-        "Q"
-      ],
-      "answer": "8"
-    },
-    {
-      "type": "mcq",
-      "question": "What is the maximum value that can be represented in an 8-bit binary number?",
-      "options": [
-        "255",
-        "256",
-        "128",
-        "1024"
-      ],
-      "answer": "255"
-    },
-    {
-      "type": "fill_blank",
-      "question": "The process of moving all bits in a binary number to the left or right and filling the emptied spaces with zeros is called a __________ shift.",
-      "answer": "Logical"
-    },
-    {
-      "type": "fill_blank",
-      "question": "In binary addition, if the result is too large for the register to hold, this is called an __________ error.",
-      "answer": "Overflow"
-    },
-    {
-      "type": "fill_blank",
-      "question": "Each hexadecimal digit can be represented by exactly ___ binary bits.",
-      "answer": "4"
-    },
-    {
-      "type": "true_false",
-      "question": "Digital data can take any value, just like analogue data.",
-      "answer": "False"
-    },
-    {
-      "type": "true_false",
-      "question": "In two’s complement, the most significant bit represents the sign of the number.",
-      "answer": "True"
-    },
-    {
-      "type": "true_false",
-      "question": "The denary number system is also known as base 16.",
-      "answer": "False"
+      "answer": "A single dedicated end-to-end route is reserved and all traffic follows it"
     },
     {
       "type": "match",
-      "question": "Match the term with its correct definition:",
+      "question": "Match each circuit-switching term to its corresponding feature.",
       "pairs": {
-        "Register": "Used to temporarily hold binary data",
-        "Logic gate": "Basic building block for processing digital data",
-        "Two’s complement": "Method to represent negative binary"
+        "Dedicated circuit": "Guarantees constant-rate streams",
+        "Single route": "Ensures ordered delivery",
+        "Inefficiency when idle": "Bandwidth remains reserved even without data"
+      }
+    },
+    {
+      "type": "mcq",
+      "question": "Which description captures the main performance benefit of circuit switching?",
+      "options": [
+        "Predictable throughput on a reserved path with guaranteed bandwidth",
+        "Efficient sharing of links by many transmissions",
+        "Automatic rerouting around unavailable nodes",
+        "Detection and retransmission of missing packets"
+      ],
+      "answer": "Predictable throughput on a reserved path with guaranteed bandwidth"
+    },
+    {
+      "type": "mcq",
+      "question": "What makes circuit switching vulnerable in terms of security?",
+      "options": [
+        "Packet headers can be intercepted",
+        "Routes change frequently",
+        "A fixed route can be tapped if that line is compromised",
+        "The router’s table may be exposed"
+      ],
+      "answer": "A fixed route can be tapped if that line is compromised"
+    },
+    {
+      "type": "match",
+      "question": "Match each circuit-switching stage to its description.",
+      "pairs": {
+        "Circuit establishment": "The circuit is established",
+        "Data transfer": "Data is transferred",
+        "Connection termination": "The connection is terminated"
       }
     },
     {
       "type": "fill_blank",
-      "question": "Convert the binary number 1101 to denary: __________",
-      "answer": "13"
+      "question": "A circuit-switched connection provides _____ bandwidth to the communicating parties.",
+      "answer": "unimpeded"
+    },
+    {
+      "type": "mcq",
+      "question": "Circuit switching is most applicable in situations requiring:",
+      "options": [
+        "Efficient resource sharing",
+        "Variable routing and packet handling",
+        "Continuous reserved circuits",
+        "Statistical multiplexing"
+      ],
+      "answer": "Continuous reserved circuits"
+    },
+    {
+      "type": "mcq",
+      "question": "Which statement defines packet switching for a message?",
+      "options": [
+        "One dedicated end-to-end circuit is reserved",
+        "The message is split into packets that travel independently with no reservation",
+        "A fixed route is used to deliver packets strictly in order",
+        "Constant bandwidth is guaranteed for the stream"
+      ],
+      "answer": "The message is split into packets that travel independently with no reservation"
     },
     {
       "type": "fill_blank",
-      "question": "What is the hexadecimal equivalent of the denary number 15? __________",
-      "answer": "F"
+      "question": "Each packet _____ carries delivery information in addition to the data payload.",
+      "answer": "header"
+    },
+    {
+      "type": "mcq",
+      "question": "Which router action directly determines the next hop for a packet?",
+      "options": [
+        "Consults its routing table",
+        "Reserves unimpeded bandwidth",
+        "Establishes a dedicated circuit",
+        "Terminates the connection"
+      ],
+      "answer": "Consults its routing table"
+    },
+    {
+      "type": "mcq",
+      "question": "Packet switching provides efficient resource use because:",
+      "options": [
+        "Each packet reserves a separate line",
+        "Shared links allow multiple transmissions on common paths",
+        "Packets always follow the same route",
+        "All packets are sent in sequence"
+      ],
+      "answer": "Shared links allow multiple transmissions on common paths"
+    },
+    {
+      "type": "mcq",
+      "question": "Which statement expresses the resilience of packet switching?",
+      "options": [
+        "Guaranteed bandwidth for constant-rate streams",
+        "In-order delivery by design",
+        "Packets can be forwarded along alternative routes if a link or node is unavailable",
+        "Capacity remains reserved even when idle"
+      ],
+      "answer": "Packets can be forwarded along alternative routes if a link or node is unavailable"
     },
     {
       "type": "fill_blank",
-      "question": "What is the binary value for the hexadecimal digit C? __________",
-      "answer": "1100"
+      "question": "At the receiver, packets are _____ into the original message because they may arrive out of order.",
+      "answer": "reassembled"
+    },
+    {
+      "type": "mcq",
+      "question": "Which listed benefit addresses accuracy and completeness during loss?",
+      "options": [
+        "Detection of missing packets and retransmission when required",
+        "Predictable uninterrupted throughput",
+        "Guaranteed bandwidth",
+        "Unimpeded exclusive capacity"
+      ],
+      "answer": "Detection of missing packets and retransmission when required"
+    },
+    {
+      "type": "mcq",
+      "question": "Which of the following is a stated drawback of packet switching?",
+      "options": [
+        "It is inefficient when the connection is idle",
+        "It provides weaker real-time timing guarantees",
+        "A fixed route can be tapped, creating a security weakness",
+        "It cannot support web browsing"
+      ],
+      "answer": "It provides weaker real-time timing guarantees"
+    },
+    {
+      "type": "mcq",
+      "question": "Which element increases system complexity in packet switching?",
+      "options": [
+        "Routers verifying packet order",
+        "Protocol mechanisms handling independent packets",
+        "Constant-rate data streams",
+        "Fixed line reservation"
+      ],
+      "answer": "Protocol mechanisms handling independent packets"
+    },
+    {
+      "type": "fill_blank",
+      "question": "A router forwards a packet one _____ at a time toward its destination.",
+      "answer": "hop"
     }
   ]
 }

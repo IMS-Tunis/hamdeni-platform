@@ -1,0 +1,12 @@
+Theory Notes – Syllabus 14.2 (Circuit switching, packet switching)
+
+Section 14.2a – Circuit switching
+1) Circuit switching sends all data along the same path to the destination and does not change the route within switches during the transmission.
+2) Circuit switching provides in‑order delivery and guaranteed bandwidth suitable for constant‑rate multimedia, but the dedicated circuit remains occupied even when idle and security can be weaker because a single route can be intercepted.
+
+Section 14.2b – Packet switching
+3) Packet switching is suitable for large non‑live‑streamed data on data networks, for rerouting around failed lines, for increased security, for high‑volume transmission, and for conserving bandwidth; typical applications include email, text messages, documents, and VoIP.
+4) Packet switching offers accuracy and completeness through detection and retransmission of missing packets, resilience through dynamic routing, efficient shared bandwidth, and improved security; however, it can introduce delays for error correction, requires complex delivery protocols, and is unsuitable for real‑time transmission.
+5) Circuit switching uses a pre‑established dedicated path, keeps the message intact and in order, uses full bandwidth, operates at the physical layer, may end on error, and is simpler; packet switching splits data into packets that may take different routes and arrive out of order for reassembly, shares bandwidth, is implemented at the network layer, and supports retransmission.
+6) On the internet, packet switching splits a large message into equal‑size packets with headers that include source and destination IP addresses and sequence numbers; packets are dispatched independently along possibly different routes, the destination reassembles them into the original message, and missing or corrupted packets are requested again.
+7) In packet switching, a router reads the destination IP address from the packet header, consults its routing table and route status to choose the next hop, and forwards the packet along the selected route.

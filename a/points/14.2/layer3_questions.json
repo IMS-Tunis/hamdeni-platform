@@ -1,20 +1,44 @@
 [
   {
-    "point_id": "14.2",
-    "question_number": 1,
-    "question": "State one benefit of using binary in computers.",
-    "mark_scheme": "Binary is simple for electronic circuits, representing two states such as on/off."
+    "point_id": "",
+    "question_number": "1a",
+    "question": "An email is sent from one email server to another using packet switching.\n(a) State two items contained in a packet apart from the data.",
+    "mark_scheme": "Any two: destination IP address; sender IP address; packet sequence number; checksum."
   },
   {
-    "point_id": "14.2",
-    "question_number": 2,
-    "question": "Define the term 'protocol' in networking.",
-    "mark_scheme": "A protocol is a set of rules that allow devices to communicate."
+    "point_id": "",
+    "question_number": "1b",
+    "question": "An email is sent from one email server to another using packet switching.\n(b) Explain the role of routers in this transfer.",
+    "mark_scheme": "A router receives a packet, reads the header (destination address), consults stored data about nearby routers and link usage, and forwards to the next hop; packets to the same destination need not take the same link."
   },
   {
-    "point_id": "14.2",
-    "question_number": 3,
-    "question": "Explain the purpose of an IP address.",
-    "mark_scheme": "It uniquely identifies a device on a network."
+    "point_id": "",
+    "question_number": "1c",
+    "question": "An email is sent from one email server to another using packet switching.\n(c) Explain why packet switching is appropriate for email.",
+    "mark_scheme": "Email tolerates small delays, reordering, and retransmissions; packets can take different routes and be reassembled on arrival."
+  },
+  {
+    "point_id": "",
+    "question_number": "1d",
+    "question": "An email is sent from one email server to another using packet switching.\n(d) Name an alternative communication method.",
+    "mark_scheme": "Circuit switching."
+  },
+  {
+    "point_id": "",
+    "question_number": "1e",
+    "question": "An email is sent from one email server to another using packet switching.\n(e) Name an application for which the method in part d) is appropriate and justify.",
+    "mark_scheme": "Video conferencing or other real-time activity; dedicated route and guaranteed bandwidth with in-sequence delivery avoid delays and reordering issues."
+  },
+  {
+    "point_id": "",
+    "question_number": "2",
+    "question": "Circuit switching vs packet switching: for each statement, indicate whether it is true or false for each method.\nStatements: a dedicated circuit/path is needed at all times; the same route is used for every packet; bandwidth is shared with other packets of data; none of the available bandwidth is wasted during transmission; packets arrive at the destination in the correct order.",
+    "mark_scheme": "Circuit switching: True, True, False, False, True.\nPacket switching: False, False, True, True, False."
+  },
+  {
+    "point_id": "",
+    "question_number": "3",
+    "question": "Describe how a web page is transferred via packet switching from a web server to a home computer.",
+    "mark_scheme": "The page is divided into packets; each packet carries the destination address. Routers look up the IP address and, at each hop, decide the next router to reach the destination efficiently; packets may follow different routes and are reassembled by the receiving software."
   }
 ]

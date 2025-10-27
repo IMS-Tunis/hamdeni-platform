@@ -1,0 +1,38 @@
+[
+  {
+    "question": "Explain why a protocol is used in communication between computers.",
+    "answer": "MP1 protocols are set of rules which govern communication between devices/computers\nMP2 protocols are needed for devices/computers to communicate\nMP3 Protocols ensure that devices can co-ordinate their actions // data can be sent across a network using agreed formats"
+  },
+  {
+    "question": "The TCP/IP protocol implementation can be viewed as a stack.\nComplete the diagram for the TCP/IP protocol stack.\nTransport\nLink\n(Write the four TCP/IP layers in the correct order from lowest to highest as plain text using the set {Link, Internet, Transport, Application}.)",
+    "answer": "MP1 Link\nMP2 Internet\nMP3 Transport\nMP4 Application"
+  },
+  {
+    "question": "The TCP / IP protocol suite has four layers:\n\nTransport, Application, Link, Internet \n\n(a) Complete the diagram to show the correct order for these layers.\n(Write the four layers in the correct order from highest to lowest as plain text.)",
+    "answer": "Application\n\nTransport\n\nInternet\n\nLink"
+  },
+  {
+    "question": "4 The TCP/IP protocol may be viewed as a stack that contains four layers: Application, Transport, \nInternet, Link.\n\nDescribe how the layers of the TCP/IP protocol stack interact with each other.",
+    "answer": "MP1 Each layer can only accept input from the next higher layer or the next lower layer\nMP2 There is an interface between the adjacent layers which is the only interaction between layers\nMP3 Data is added to the headers as the frames/packets pass through the layers\nMP4 The interactions are carried out by installed software\nMP5 User interaction takes place at the highest/Application layer of the stack through protocols associated with that layer of the stack\nMP6 Direct access to hardware takes place at the lowest/Link layer of the stack."
+  },
+  {
+    "question": "Complete the following paragraph about a protocol suite, using words from the given list.\n\nSome words are not used.\n\nBitTorrent circuit switching layered link list\n\npeer-to-peer queue stack star TCP/IP\n\nThe protocols in a ............................................................................. determine the interconnectivity \nrules for a ............................................................................. network model such as the \n............................................................................. model.\n(Fill the three blanks by choosing words from the list and write the three chosen words in order, separated by commas.)",
+    "answer": "The protocols in a stack determine the interconnectivity rules for a layered network model such as the TCP/IP model."
+  },
+  {
+    "question": "(b) Describe the function of the Transport layer.",
+    "answer": "MP1 The transport layer is responsible for delivery of data from the source host to the destination host\nMP2 It is where data is broken up into packets and sent to the internet layer\nMP3 Adds the sequence number to the packet header\nMP4 It establishes end to end contact\nMP5 It ensures data arrives error free // It retransmits packets if lost."
+  },
+  {
+    "question": "3 (a) The Application Layer and Transport Layer are two layers of the TCP/IP protocol suite.\n\nDescribe the purpose of the Application Layer and the purpose of the Transport Layer.",
+    "answer": "One mark per mark point for purpose of Application Layer (Max 3)\nMP1 To provide services / interface with the user // access to applications, for example login, file transfer, network file access, email, etc\nMP2 To provide mechanisms for securing communication e.g. encryption/authentication\nMP3 To define/provide protocols used to allow the exchange of data/communication // to contain programs that exchange data\nMP4 Error detection and recovery mechanisms to handle application specific errors\n\nOne mark per mark point for purpose of Transport Layer (Max 3)\nMP5 To provide logical communication between applications running on different hosts // To ensure that data is delivered to the correct application process on the destination machine\nMP6 To ensure error-free, end-to-end delivery of data between a source and a destination, in sequence // to provide error recovery techniques such as error detection codes and automatic repeat request\nMP7 To break data into segments when sent and to reconstruct when received // To reassemble segments at destination\nMP8 To regulate network connections // to provide flow control mechanisms to prevent data loss."
+  },
+  {
+    "question": "Describe the purpose of the IMAP protocol.",
+    "answer": "MP1 IMAP is an email protocol // Internet Message Access Protocol\nMP2 It is used to receive/retrieve emails from the mail server\nMP3 It allows emails to be accessed from multiple devices because they remain on the server."
+  },
+  {
+    "question": "(c) Outline one protocol that is associated with the Application layer.\n(Give exactly one protocol name associated with the Application layer.)",
+    "answer": "HTTP(S) – responsible for correct transfer of files / hypertext documents that make up web pages on the world wide web\n\nFTP – used when transferring files from a server to a client on a network\n\nPOP3 – handles the receiving of emails\n\nIMAP – handles the receiving of emails\n\nSMTP – handles the sending of emails\n\nBitTorrent – provides peer-to-peer file sharing"
+  }
+]
