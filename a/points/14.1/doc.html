@@ -234,5 +234,13 @@
       localStorage.setItem('lessonTheme', body.className);
     });
   </script>
+      <script>
+        function notifyParentHeight() {
+            const height = document.body.scrollHeight;
+            window.parent.postMessage({ type: 'resize', height }, '*');
+        }
+
+        window.addEventListener('load', notifyParentHeight);
+    </script>
 </body>
 </html>

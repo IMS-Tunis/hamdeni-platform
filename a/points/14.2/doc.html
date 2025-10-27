@@ -175,5 +175,13 @@
 
     <div class="ribbon">End of Lesson 14.2 — Circuit Switching & Packet Switching</div>
   </div>
+      <script>
+        function notifyParentHeight() {
+            const height = document.body.scrollHeight;
+            window.parent.postMessage({ type: 'resize', height }, '*');
+        }
+
+        window.addEventListener('load', notifyParentHeight);
+    </script>
 </body>
 </html>
