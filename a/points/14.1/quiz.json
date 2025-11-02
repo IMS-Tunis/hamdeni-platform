@@ -34,11 +34,6 @@
       "answer": "Prevent receiver overload by limiting sent data before confirmation"
     },
     {
-      "type": "fill_blank",
-      "question": "A parity ______ is one extra 0 or 1 added so the total count of 1s matches an agreed rule.",
-      "answer": "bit"
-    },
-    {
       "type": "mcq",
       "question": "Under even parity, the total number of 1s in each transmitted data unit is:",
       "options": [
@@ -59,11 +54,6 @@
         "Operates only on physical media"
       ],
       "answer": "Offers services to the layer above and uses services of the layer below through interfaces"
-    },
-    {
-      "type": "fill_blank",
-      "question": "When a computer is receiving data, processing moves from the ______ layer to the ______ layer of the protocol stack.",
-      "answer": "bottom, top"
     },
     {
       "type": "mcq",
@@ -158,11 +148,6 @@
         "Link"
       ],
       "answer": "Internet"
-    },
-    {
-      "type": "fill_blank",
-      "question": "Ethernet frames include a ______ for integrity checking.",
-      "answer": "frame check"
     },
     {
       "type": "mcq",
