@@ -496,7 +496,14 @@
 window.addEventListener("message", function(event) {
   if (event.data && event.data.type === 'resize') {
     var frame = document.getElementById("doc-frame");
-    frame.style.height = (event.data.height + 10) + 'px';
+    if (!frame) return;
+
+    var newHeight = Math.ceil(event.data.height || 0);
+    if (!newHeight) return;
+
+    if (Math.abs(frame.clientHeight - newHeight) > 1) {
+      frame.style.height = newHeight + 'px';
+    }
   }
 });
 </script>
