@@ -72,21 +72,32 @@ export async function fetchProgressCounts() {
     const pointLayers = new Map();
     const legacyLayers = [];
     tData.forEach(record => {
-      const pointId = record.point_id;
+      const rawPointId = record.point_id;
       const parsedLayer = parseLayer(record.reached_layer);
 
-      if (pointId === undefined || pointId === null) {
+      const normalizedPointId =
+        typeof rawPointId === 'string'
+          ? rawPointId.trim().toLowerCase()
+          : rawPointId;
+
+      const hasValidPointId =
+        normalizedPointId !== undefined &&
+        normalizedPointId !== null &&
+        normalizedPointId !== '';
+
+      if (!hasValidPointId) {
         legacyLayers.push(parsedLayer);
         return;
       }
 
-      const existingLayer = pointLayers.get(pointId) ?? 0;
+      const existingLayer = pointLayers.get(normalizedPointId) ?? 0;
       if (parsedLayer > existingLayer) {
-        pointLayers.set(pointId, parsedLayer);
+        pointLayers.set(normalizedPointId, parsedLayer);
       }
     });
 
-    const dedupedLayers = [...pointLayers.values(), ...legacyLayers];
+    const dedupedLayers =
+      pointLayers.size > 0 ? [...pointLayers.values()] : legacyLayers;
     const passedPoints = dedupedLayers.filter(layer => layer === 4).length;
 
     const rawReachedLevel = lData.length ? lData[0]?.reached_level ?? 0 : 0;
