@@ -89,21 +89,19 @@ export async function fetchProgressCounts() {
     const dedupedLayers = [...pointLayers.values(), ...legacyLayers];
     const passedPoints = dedupedLayers.filter(layer => layer === 4).length;
 
-    const layer1Passed = dedupedLayers.filter(layer => layer >= 1).length;
-    const layer2Passed = dedupedLayers.filter(layer => layer >= 2).length;
-    const layer3Passed = dedupedLayers.filter(layer => layer >= 3).length;
-    const layer4Passed = dedupedLayers.filter(layer => layer >= 4).length;
-
     const rawReachedLevel = lData.length ? lData[0]?.reached_level ?? 0 : 0;
     const numericReachedLevel = Number(rawReachedLevel);
     const passedLevels = Number.isFinite(numericReachedLevel) ? numericReachedLevel : 0;
-    const rawTerm1Grade =
-      20 * passedLevels +
-      1 * layer1Passed +
-      2 * layer2Passed +
-      3 * layer3Passed +
-      4 * layer4Passed;
-    const term1Grade = Math.max(0, rawTerm1Grade - 3);
+
+    const pointScore = dedupedLayers.reduce((score, layer) => {
+      if (layer >= 4) return score + 10;
+      if (layer === 3) return score + 6;
+      if (layer === 2) return score + 3;
+      if (layer === 1) return score + 1;
+      return score;
+    }, 0);
+
+    const term1Grade = Math.max(0, 20 * passedLevels + pointScore);
 
     const result = { points: passedPoints, levels: passedLevels, term1Grade };
     console.log('[supabaseModule] Progress counts', result);
