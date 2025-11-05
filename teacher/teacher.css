@@ -108,8 +108,73 @@ header {
 .modal-content {
   background: #fff;
   padding: 20px;
-  border-radius: 4px;
+  border-radius: 8px;
   width: 300px;
+}
+
+.modal-content.grades-modal {
+  width: min(90vw, 780px);
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.modal-close {
+  border: none;
+  background: transparent;
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+  color: #555;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+  color: #000;
+}
+
+.grades-subtitle {
+  margin: 0;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+#grades-chart {
+  width: 100%;
+  max-height: 360px;
+}
+
+#grades-table-container {
+  overflow-x: auto;
+}
+
+.grades-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.grades-table thead {
+  background: #f0f4f8;
+}
+
+.grades-table th,
+.grades-table td {
+  padding: 10px 12px;
+  border: 1px solid #d6dee6;
+  text-align: left;
+}
+
+.grades-table tbody tr:nth-child(even) {
+  background: #f9fbfd;
 }
 
 .modal-content label {
