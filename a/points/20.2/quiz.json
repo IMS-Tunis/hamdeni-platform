@@ -20,10 +20,9 @@
     },
     {
       "type": "mcq",
-      "question": "In 'for line in f:', what naturally stops the loop?",
+      "question": "In the python code 'for line in f:', what naturally stops the loop?",
       "options": [
         "Manual counter",
-        "Sentinel in the file",
         "Automatic end-of-file detection",
         "Timeout"
       ],
@@ -31,7 +30,7 @@
     },
     {
       "type": "fill_blank",
-      "question": "According to the notes, to remove trailing newline characters after reading a line, use ________.",
+      "question": "To remove trailing newline characters after reading a line, use ________.",
       "answer": "strip()"
     },
     {
@@ -52,7 +51,7 @@
         "try/except",
         "if/else",
         "with open(...) as ...",
-        "close() before read()"
+        "close()"
       ],
       "answer": "with open(...) as ..."
     },

@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NRRL1TSE7Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NRRL1TSE7Z');
+</script>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layer 3 (point 20.2): Structured Questions about File Handling</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #2ecc71;
+            --light: #ecf0f1;
+            --dark: #34495e;
+            --warning: #e74c3c;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .skill-card {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 500;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            border-left: 4px solid var(--secondary);
+            padding-left: 20px;
+        }
+        
+        h2 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+        
+        h3 {
+            color: var(--dark);
+            margin: 15px 0 10px;
+            font-size: 1.3rem;
+        }
+        
+        .question {
+            background-color: var(--light);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
+        }
+        
+        .question p {
+            margin-bottom: 15px;
+        }
+        
+        .code-editor {
+            width: 100%;
+            height: 150px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 10px 0;
+            resize: vertical;
+            background-color: #f8f9fa;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary);
+            transform: translateY(-2px);
+        }
+        
+        .btn-accent {
+            background-color: var(--accent);
+        }
+        
+        .btn-accent:hover {
+            background-color: #27ae60;
+        }
+        
+        .answer-section {
+            margin-top: 15px;
+        }
+        
+        .answer {
+            background-color: #e8f5e9;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid var(--accent);
+            margin-top: 10px;
+            display: none;
+            white-space: pre-wrap;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px 15px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .note {
+            background-color: #fffde7;
+            padding: 15px;
+            border-left: 4px solid #ffd600;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .hint {
+            background-color: #e3f2fd;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-style: italic;
+        }
+        
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--light);
+            color: var(--dark);
+            margin-top: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .skills-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .skill-card {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .navigation {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+		 
+            <h1>20.2: File Handling</h1>
+            <p class="subtitle">Exam style questions Worksheet</p>
+            <div class="skills-container">
+                <div class="skill-card">Reading text files</div>
+                <div class="skill-card">Filtering records</div>
+                <div class="skill-card">Writing to files</div>
+                <div class="skill-card">2D Lists processing</div>
+            </div>
+        </header>
+        
+        <div class="content">
+      
+            
+            <div class="section" id="section-a">
+                <h2>A. Reading a text file using Python methods</h2>
+                
+                <div class="question">
+                    <p>i. A text file named BookDetails.txt consists of details of some books. In the space provided, create an empty text file named BookDetails.txt and copy the contents given in the text box below to that file. In this activity, we will be working with this file.</p>
+                </div>
+                
+                <div class="question">
+                    <p>ii. In the space provided below, write a statement to open the file BookDetails.txt in read mode. Let us name the file object bookFile.</p>
+                    <textarea class="code-editor" placeholder="Write your Python code here..."></textarea>
+                    <div class="answer-section">
+                        <button class="btn btn-accent toggle-answer">Show Answer</button>
+                        <div class="answer">bookFile = open("BookDetails.txt", "r")</div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>iii. Using read() method, read the contents of the file and display them.</p>
+                    <textarea class="code-editor" placeholder="Write your Python code here..."></textarea>
+                    <div class="answer-section">
+                        <button class="btn btn-accent toggle-answer">Show Answer</button>
+                        <div class="answer">bookFile = open("BookDetails.txt", "r")
+books = bookFile.read()
+print(books)</div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>iv. Now, replace the read() method in (iii) with readline() method. Execute the program and observe the result displayed.</p>
+                    <textarea class="code-editor" placeholder="Write your Python code here..."></textarea>
+                    <div class="answer-section">
+                        <button class="btn btn-accent toggle-answer">Show Answer</button>
+                        <div class="answer">bookFile = open("BookDetails.txt", "r")
+books = bookFile.readline()
+print(books)
+# Only the first line from BookDetails.txt is displayed.</div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>v. Now, replace the readline() method is (iv) with readlines() method. Execute the program and observe the result displayed.</p>
+                    <textarea class="code-editor" placeholder="Write your Python code here..."></textarea>
+                    <div class="answer-section">
+                        <button class="btn btn-accent toggle-answer">Show Answer</button>
+                        <div class="answer">bookFile = open("BookDetails.txt", "r")
+books = bookFile.readlines()
+print(books)
+# All the lines in BookDetails.txt are stored in a list, where each line is a list element.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section" id="section-b">
+                <h2>B. Filtering records from a file</h2>
+                
+                <div class="question">
+                    <p>i. In the space provided below, write a program to filter the books with pages less than 300 in BookDetails.txt. The ISBN, title, author and number of pages of filtered books must be displayed.</p>
+                    <textarea class="code-editor" placeholder="Write your Python code here..."></textarea>
+                    <div class="answer-section">
+                        <button class="btn btn-accent toggle-answer">Show Answer</button>
+                        <div class="answer">bookFile = open("BookDetails.txt", "r")
+books = bookFile.readline()  # Skip header line
+for row in bookFile:
+    field = row.split(",")
+    ISBN = field[0]
+    title = field[1]
+    author = field[2]
+    numOfPages = int(field[4])
+    if numOfPages < 300:
+        print(ISBN, title, author, numOfPages)
+bookFile.close()</div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>ii. In the space provided, write a program to filter books published by "Portfolio Hardcover". The ISBN, title, author and publisher of the filtered book must be displayed.</p>
+                    <div class="hint">
+                        <p><strong>Hint:</strong> Publisher is the last field of a record. Hence, a new line character (\n) is attached to it. For example, to search for "Portfolio Hardcover", use "Portfolio Hardcover\n"</p>
+                    </div>
+                    <textarea class="code-editor" placeholder="Write your Python code here..."></textarea>
+                    <div class="answer-section">
+                        <button class="btn btn-accent toggle-answer">Show Answer</button>
+                        <div class="answer">bookFile = open("BookDetails.txt", "r")
+books = bookFile.readline()  # Skip header line
+for row in bookFile:
+    field = row.split(",")
+    ISBN = field[0]
+    title = field[1]
+    author = field[2]
+    publisher = field[5]
+    if publisher == "Portfolio Hardcover\\n":
+        print(ISBN, title, author, publisher)
+bookFile.close()</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section" id="section-c">
+                <h2>C. Writing to a text file using Python methods</h2>
+                
+                <div class="question">
+                    <p>i. In the space provided below, write a program that receives StudentID, StudentName, Major and DateOfBirth from the user and stores the data entered in a text file named studentList.txt. User enters "done" when they have finished entering. The fields are separated by commas.</p>
+                    <table>
+                        <tr>
+                            <th>StudentID</th>
+                            <th>StudentName</th>
+                            <th>Major</th>
+                            <th>DateOfBirth</th>
+                        </tr>
+                        <tr>
+                            <td>S291</td>
+                            <td>David Watson</td>
+                            <td>Science</td>
+                            <td>21/03/1998</td>
+                        </tr>
+                        <tr>
+                            <td>S157</td>
+                            <td>Helen Williams</td>
+                            <td>Economics</td>
+                            <td>30/04/1999</td>
+                        </tr>
+                        <tr>
+                            <td>S918</td>
+                            <td>Paul Ingram</td>
+                            <td>Architecture</td>
+                            <td>14/05/1998</td>
+                        </tr>
+                        <tr>
+                            <td>S241</td>
+                            <td>Rosemarie Collin</td>
+                            <td>Science</td>
+                            <td>19/07/1999</td>
+                        </tr>
+                    </table>
+                    <textarea class="code-editor" placeholder="Write your Python code here..."></textarea>
+                    <div class="answer-section">
+                        <button class="btn btn-accent toggle-answer">Show Answer</button>
+                        <div class="answer">studentFile = open("studentList.txt", "a")
+studentId = input("Enter student ID (Enter done to end):")
+while (studentId != "done"):
+    studentName = input("Enter student Name:")
+    major = input("Enter major:")
+    dateOfBirth = input("Enter date of birth:")
+    studentFile.write(studentId + "," + studentName + "," + major + "," + dateOfBirth + "\n")
+    studentId = input("Enter student ID (Enter done to end):")
+studentFile.close()</div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>ii. Execute the program and enter the records given in the table. View the file studentList.txt once you have completed your execution.</p>
+                </div>
+                
+                <div class="question">
+                    <p>iii. In the space provided below, write a program to filter the records from studentList.txt with major=Science.</p>
+                    <textarea class="code-editor" placeholder="Write your Python code here..."></textarea>
+                    <div class="answer-section">
+                        <button class="btn btn-accent toggle-answer">Show Answer</button>
+                        <div class="answer">studentFile = open("studentList.txt", "r")
+record = studentFile.readline()  # Skip header line
+for record in studentFile:
+    field = record.split(",")
+    major = field[2]
+    if major == "Science":
+        print(record)
+studentFile.close()</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section" id="section-d">
+                <h2>D. Processing data in a file and storing them in two-dimensional lists</h2>
+                
+                <div class="question">
+                    <p>i. receipt.txt consists of some records as given below. Copy the text and create receipt.txt in the space provided. The fields for each record are in the order productID, productName, price, quantity.</p>
+                </div>
+                
+                <div class="question">
+                    <p>ii. In the space provided, create a blank two-dimensional list named prdCalculation. Calculate the subtotal for each product by multiplying the price with quantity. Print the list prdCalculation with subtotal values. Also, add the subtotal values to find the total value and print it.</p>
+                    <textarea class="code-editor" placeholder="Write your Python code here..."></textarea>
+                    <div class="answer-section">
+                        <button class="btn btn-accent toggle-answer">Show Answer</button>
+                        <div class="answer">myFile = open("receipt.txt", "r")
+prdCalculation = []
+newRecord = []
+total = 0
+for row in myFile:
+    prdRecord = row.split(",")
+    productID = prdRecord[0]
+    productName = prdRecord[1]
+    price = float(prdRecord[2])
+    quantity = int(prdRecord[3])
+    subtotal = price * quantity
+    subtotal = round(subtotal, 2)
+    total = total + subtotal
+    newRecord.append(productID)
+    newRecord.append(productName)
+    newRecord.append(price)
+    newRecord.append(quantity)
+    newRecord.append(subtotal)
+    prdCalculation.append(newRecord)
+    newRecord = []
+myFile.close()
+
+for row in prdCalculation:
+    for element in row:
+        print(element, end=" ")
+    print()
+    
+print("The total is:", round(total, 2))</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section" id="section-e">
+                <h2>E. File processing</h2>
+                
+                <div class="question">
+                    <p>i. In the space provided below, create a Python program to find whether a string is present in a file or not. If yes, print the line in which the string is present.</p>
+                    <textarea class="code-editor" placeholder="Write your Python code here..."></textarea>
+                    <div class="answer-section">
+                        <button class="btn btn-accent toggle-answer">Show Answer</button>
+                        <div class="answer">string = str(input("Enter string to be searched:"))
+search_flag = 0
+myFile = open("sample.txt", "r")
+for line in myFile:
+    if string in line:
+        search_flag = 1
+        print("String present at: ", line)
+if search_flag == 0:
+    print("String not found")</div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>ii. Use any text file to test your program.</p>
+                </div>
+            </div>
+            
+            <div class="navigation">
+                <button class="btn" onclick="resetAll()">Reset All Answers</button>
+                <a href="https://hamdeni-cs.tn/a/points/20.2/layer4.html" class="btn btn-accent">Continue to Next Section</a>
+            </div>
+        </div>
+        
+        <footer>
+            <p>File Handling Worksheet &copy; 2023 | A-Level Python</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Toggle answer visibility
+            const toggleButtons = document.querySelectorAll('.toggle-answer');
+            
+            toggleButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    
+                    if (answer.style.display === 'block') {
+                        answer.style.display = 'none';
+                        this.textContent = 'Show Answer';
+                    } else {
+                        answer.style.display = 'block';
+                        this.textContent = 'Hide Answer';
+                    }
+                });
+            });
+            
+            // Auto-expand textareas based on content
+            const textareas = document.querySelectorAll('.code-editor');
+            textareas.forEach(textarea => {
+                textarea.addEventListener('input', function() {
+                    this.style.height = 'auto';
+                    this.style.height = (this.scrollHeight) + 'px';
+                });
+            });
+        });
+        
+        function resetAll() {
+            const answers = document.querySelectorAll('.answer');
+            const buttons = document.querySelectorAll('.toggle-answer');
+            const textareas = document.querySelectorAll('.code-editor');
+            
+            answers.forEach(answer => {
+                answer.style.display = 'none';
+            });
+            
+            buttons.forEach(button => {
+                button.textContent = 'Show Answer';
+            });
+            
+            textareas.forEach(textarea => {
+                textarea.value = '';
+                textarea.style.height = '150px';
+            });
+            
+            alert('All answers have been reset!');
+        }
+    </script>
+</body>
+</html>
