@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-NRRL1TSE7Z"></script>
 <script>
@@ -15,6 +15,7 @@
   <meta charset="UTF-8" />
   <title>Teacher Dashboard</title>
   <link rel="stylesheet" href="teacher.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script type="module" src="teacher.js"></script>
 <script defer src="/assets/js/paste-guard.js"></script>
 </head>
@@ -32,6 +33,7 @@
     </select>
     <button id="load-students">Filter Students</button>
     <button id="open-add-student">Add Student</button>
+    <button id="show-term-grades" disabled>Show Term 1 Grades</button>
     <span id="load-msg"></span>
   </div>
 
@@ -78,6 +80,18 @@
         </div>
       </form>
       <div id="add-student-msg"></div>
+    </div>
+  </div>
+
+  <div id="grades-modal" class="modal" style="display: none;">
+    <div class="modal-content grades-modal">
+      <div class="modal-header">
+        <h3>Term 1 Grades Overview</h3>
+        <button id="close-grades" class="modal-close" aria-label="Close grades overview">&times;</button>
+      </div>
+      <p id="grades-platform-label" class="grades-subtitle"></p>
+      <canvas id="grades-chart" height="220" aria-label="Term 1 grades chart"></canvas>
+      <div id="grades-table-container"></div>
     </div>
   </div>
 

@@ -20,6 +20,34 @@ let selectedStudent = null; // { id, username }
 let selectedPlatform = null;
 let theoryPoints = [];
 let programmingLevels = [];
+let currentStudents = [];
+let gradesChart = null;
+
+const LAYER_WEIGHTS = Object.freeze({
+  0: 0,
+  1: 1,
+  2: 3,
+  3: 6,
+  4: 10
+});
+
+function parseLayerValue(value) {
+  if (typeof value === 'string' && value.trim().toUpperCase() === 'R') {
+    return 0;
+  }
+
+  const parsed = Number(value);
+  return Number.isFinite(parsed) ? parsed : 0;
+}
+
+function weightForLayer(value) {
+  const parsed = parseLayerValue(value);
+  return LAYER_WEIGHTS[parsed] ?? 0;
+}
+
+function platformLabel(value) {
+  return value ? value.replace(/_/g, ' ') : '';
+}
 
 // All platforms now store theory progress using a single
 // `reached_layer` column. Previously only the A Level table
@@ -42,6 +70,14 @@ function reachedLevelPlatform() {
   );
 }
 
+const showGradesBtn = document.getElementById('show-term-grades');
+const gradesModal = document.getElementById('grades-modal');
+const closeGradesBtn = document.getElementById('close-grades');
+const gradesPlatformLabel = document.getElementById('grades-platform-label');
+const gradesTableContainer = document.getElementById('grades-table-container');
+
+if (showGradesBtn) showGradesBtn.disabled = true;
+
 document.getElementById('load-students').onclick = async () => {
   selectedPlatform = document.getElementById('platform').value;
   console.log('[teacher] Loading students for', selectedPlatform);
@@ -62,6 +98,8 @@ document.getElementById('load-students').onclick = async () => {
   const msg = document.getElementById('load-msg');
   msg.textContent = '';
   list.innerHTML = '';
+  currentStudents = [];
+  if (showGradesBtn) showGradesBtn.disabled = true;
 
   if (error) {
     console.error('Failed to fetch students:', error);
@@ -76,6 +114,8 @@ document.getElementById('load-students').onclick = async () => {
   }
 
   console.log(`[teacher] Loaded ${students.length} students`);
+  currentStudents = students;
+  if (showGradesBtn) showGradesBtn.disabled = students.length === 0;
 
   students.forEach(s => {
     console.debug('[teacher] Adding student to list:', s.username);
@@ -326,10 +366,280 @@ if (addStudentBtn) {
   };
 }
 
+if (closeGradesBtn) {
+  closeGradesBtn.onclick = () => {
+    if (gradesModal) gradesModal.style.display = 'none';
+  };
+}
+
+if (gradesModal) {
+  gradesModal.addEventListener('click', evt => {
+    if (evt.target === gradesModal) {
+      gradesModal.style.display = 'none';
+    }
+  });
+}
+
+document.addEventListener('keydown', evt => {
+  if (evt.key === 'Escape' && gradesModal && gradesModal.style.display === 'flex') {
+    gradesModal.style.display = 'none';
+  }
+});
+
+if (showGradesBtn) {
+  showGradesBtn.onclick = async () => {
+    if (!selectedPlatform) {
+      alert('Select a platform and load students first.');
+      return;
+    }
+
+    if (!currentStudents.length) {
+      alert('No students loaded yet. Please filter students first.');
+      return;
+    }
+
+    const originalLabel = showGradesBtn.textContent;
+    showGradesBtn.disabled = true;
+    showGradesBtn.textContent = 'Loading grades...';
+
+    try {
+      const gradeRows = await fetchTerm1Grades();
+      renderGradesModal(gradeRows);
+    } catch (err) {
+      console.error('Failed to load Term 1 grades', err);
+      alert('Unable to load Term 1 grades. Please try again later.');
+    } finally {
+      showGradesBtn.disabled = currentStudents.length === 0;
+      showGradesBtn.textContent = originalLabel;
+    }
+  };
+}
+
 if (cancelAddStudentBtn) {
   cancelAddStudentBtn.onclick = () => {
     addStudentModal.style.display = 'none';
   };
+}
+
+async function fetchTerm1Grades() {
+  const usernames = currentStudents.map(s => s.username);
+  if (!usernames.length) return [];
+
+  const tTable = platformTable('theory');
+  const lTable = platformTable('programming');
+
+  console.log('[teacher] Fetching Term 1 grades for', usernames.length, 'students');
+
+  try {
+    const [{ data: theoryData, error: theoryErr }, { data: levelData, error: levelErr }] = await Promise.all([
+      supabase
+        .from(tTable)
+        .select('username, point_id, reached_layer')
+        .in('username', usernames),
+      supabase
+        .from(lTable)
+        .select('username, reached_level, level_number, level_done')
+        .in('username', usernames)
+    ]);
+
+    if (theoryErr) throw theoryErr;
+    if (levelErr) throw levelErr;
+
+    return currentStudents.map(student =>
+      computeTerm1Overview(student.username, theoryData || [], levelData || [])
+    );
+  } catch (err) {
+    console.error('Error fetching Term 1 grade data:', err);
+    throw err;
+  }
+}
+
+function computeTerm1Overview(username, theoryRows, levelRows) {
+  const normalizedUsername = typeof username === 'string' ? username.toLowerCase() : username;
+  const theory = theoryRows.filter(row =>
+    typeof row.username === 'string' && row.username.toLowerCase() === normalizedUsername
+  );
+  const levels = levelRows.filter(row =>
+    typeof row.username === 'string' && row.username.toLowerCase() === normalizedUsername
+  );
+
+  if (selectedPlatform === 'IGCSE') {
+    return computeIgcseGrade(username, theory, levels);
+  }
+
+  return computeLayeredGrade(username, theory, levels);
+}
+
+function computeLayeredGrade(username, theory, levels) {
+  const passedPoints = theory.filter(row => String(row.reached_layer) === '4').length;
+  const rawGrade = theory.reduce((total, row) => total + weightForLayer(row.reached_layer), 0);
+  const term1Grade = Math.max(0, rawGrade - 1);
+  const passedLevels = deriveReachedLevel(levels);
+
+  return {
+    username,
+    points: passedPoints,
+    levels: passedLevels,
+    term1Grade
+  };
+}
+
+function computeIgcseGrade(username, theory, levels) {
+  const pointLayers = new Map();
+  const legacyLayers = [];
+
+  theory.forEach(record => {
+    const normalizedPoint =
+      typeof record.point_id === 'string' ? record.point_id.trim().toLowerCase() : record.point_id;
+    const layer = parseLayerValue(record.reached_layer);
+
+    if (!normalizedPoint) {
+      legacyLayers.push(layer);
+      return;
+    }
+
+    const existingLayer = pointLayers.get(normalizedPoint) ?? 0;
+    if (layer > existingLayer) {
+      pointLayers.set(normalizedPoint, layer);
+    }
+  });
+
+  const dedupedLayers = pointLayers.size > 0 ? [...pointLayers.values()] : legacyLayers;
+  const passedPoints = dedupedLayers.filter(layer => layer === 4).length;
+
+  const pointScore = dedupedLayers.reduce((score, layer) => {
+    if (layer >= 4) return score + 10;
+    if (layer === 3) return score + 6;
+    if (layer === 2) return score + 3;
+    if (layer === 1) return score + 1;
+    return score;
+  }, 0);
+
+  const passedLevels = deriveReachedLevel(levels);
+  const term1Grade = Math.max(0, 20 * passedLevels + pointScore);
+
+  return {
+    username,
+    points: passedPoints,
+    levels: passedLevels,
+    term1Grade
+  };
+}
+
+function deriveReachedLevel(levelRows) {
+  if (!levelRows.length) return 0;
+
+  const maxReachedLevel = levelRows.reduce((max, row) => {
+    const candidate = Number(row.reached_level);
+    if (Number.isFinite(candidate) && candidate > max) {
+      return candidate;
+    }
+    return max;
+  }, 0);
+
+  if (maxReachedLevel > 0) return maxReachedLevel;
+
+  const completedLevels = levelRows.filter(row => row.level_done).length;
+  return completedLevels;
+}
+
+function renderGradesModal(rows) {
+  if (!gradesModal) return;
+
+  const sortedRows = [...rows].sort((a, b) => b.term1Grade - a.term1Grade);
+
+  if (gradesPlatformLabel) {
+    const platformText = platformLabel(selectedPlatform);
+    gradesPlatformLabel.textContent = `${platformText} · ${sortedRows.length} student${sortedRows.length === 1 ? '' : 's'}`;
+  }
+
+  if (gradesTableContainer) {
+    gradesTableContainer.innerHTML = '';
+
+    if (!sortedRows.length) {
+      const emptyState = document.createElement('p');
+      emptyState.textContent = 'No grades available yet for this platform.';
+      gradesTableContainer.appendChild(emptyState);
+    } else {
+      const table = document.createElement('table');
+      table.className = 'grades-table';
+
+      const thead = document.createElement('thead');
+      thead.innerHTML = '<tr><th>Student</th><th>Term 1 Grade</th><th>Points Completed</th><th>Programming Levels</th></tr>';
+      table.appendChild(thead);
+
+      const tbody = document.createElement('tbody');
+      sortedRows.forEach(row => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${row.username}</td>
+          <td>${Math.round(row.term1Grade)}</td>
+          <td>${row.points}</td>
+          <td>${row.levels}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+      table.appendChild(tbody);
+      gradesTableContainer.appendChild(table);
+    }
+  }
+
+  const chartCanvas = document.getElementById('grades-chart');
+  if (chartCanvas && window.Chart) {
+    const ctx = chartCanvas.getContext('2d');
+    if (gradesChart) {
+      gradesChart.destroy();
+    }
+
+    gradesChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: sortedRows.map(row => row.username),
+        datasets: [
+          {
+            label: 'Term 1 Grade',
+            data: sortedRows.map(row => row.term1Grade),
+            backgroundColor: '#3498db'
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Grade'
+            }
+          },
+          x: {
+            ticks: {
+              autoSkip: false,
+              maxRotation: 45,
+              minRotation: 45
+            }
+          }
+        },
+        plugins: {
+          legend: {
+            display: false
+          },
+          tooltip: {
+            callbacks: {
+              label(context) {
+                return `Grade: ${Math.round(context.parsed.y)}`;
+              }
+            }
+          }
+        }
+      }
+    });
+  }
+
+  gradesModal.style.display = 'flex';
 }
 
 if (addStudentForm) {
