@@ -12,7 +12,7 @@
     },
     {
       "type": "mcq",
-      "question": "Which statement is correct according to the syllabus?",
+      "question": "Which statement is correct?",
       "options": [
         "Binary prefixes scale by 1000",
         "Decimal prefixes scale by 1024",
@@ -30,28 +30,6 @@
         "1 GiB": "1024 MiB",
         "1 TiB": "1024 GiB"
       }
-    },
-    {
-      "type": "mcq",
-      "question": "Which of the following correctly describes typical file sizes for images based on resolution and colour depth?",
-      "options": [
-        "A few KiB to MiB",
-        "Tens of KiB to many MiB",
-        "MiB to GiB",
-        "Hundreds of MiB to many GiB"
-      ],
-      "answer": "Tens of KiB to many MiB"
-    },
-    {
-      "type": "mcq",
-      "question": "According to the binary prefix system, how many bytes are in 4 GiB?",
-      "options": [
-        "4,000,000,000",
-        "4,194,304",
-        "4,294,967,296",
-        "4,096,000,000"
-      ],
-      "answer": "4,294,967,296"
     },
     {
       "type": "mcq",
@@ -75,15 +53,7 @@
       ],
       "answer": "Lossy removes some information; lossless preserves all information"
     },
-    {
-      "type": "match",
-      "question": "Match each technique to its category.",
-      "pairs": {
-        "Huffman coding": "Lossless",
-        "LZ77 or LZ78": "Lossless",
-        "Transform coding with quantization": "Lossy"
-      }
-    },
+
     {
       "type": "match",
       "question": "Match the compression type to a common application.",
@@ -113,48 +83,6 @@
         "Both B and C"
       ],
       "answer": "Both B and C"
-    },
-    {
-      "type": "mcq",
-      "question": "Which pipeline aligns with typical lossy image compression?",
-      "options": [
-        "Run-length encoding then dictionary coding",
-        "Transform coding, quantization, then entropy coding",
-        "Arithmetic coding then LZ78",
-        "Plain text tokenization"
-      ],
-      "answer": "Transform coding, quantization, then entropy coding"
-    },
-    {
-      "type": "match",
-      "question": "Match each method to its short description.",
-      "pairs": {
-        "LZ77 or LZ78": "Replace repeated substrings with references to earlier occurrences",
-        "Run-length encoding": "Store a symbol and the length of its consecutive run",
-        "DEFLATE (as used in ZIP)": "Combines dictionary-based coding with Huffman coding"
-      }
-    },
-    {
-      "type": "mcq",
-      "question": "Compression ratio is calculated as:",
-      "options": [
-        "Compressed size ÷ original size",
-        "Original size ÷ compressed size",
-        "Original size − compressed size",
-        "Compressed size + original size"
-      ],
-      "answer": "Original size ÷ compressed size"
-    },
-    {
-      "type": "mcq",
-      "question": "What does MP3 or AAC lossy audio compression use to remove inaudible components?",
-      "options": [
-        "Visual perception models",
-        "Psychoacoustic models",
-        "Dictionary-based methods",
-        "Transform coding only"
-      ],
-      "answer": "Psychoacoustic models"
     }
   ]
 }

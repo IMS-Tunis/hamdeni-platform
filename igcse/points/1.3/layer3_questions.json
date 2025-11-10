@@ -8,32 +8,26 @@
 {
 "point_id": "1.3a",
 "question_number": 2,
-"question": "IEC binary units and conversions\nState the IEC binary units from KiB to EiB and describe how to convert between bits, bytes, KiB and MiB. Explain why 1 MiB equals 1 048 576 bytes.",
-"mark_scheme": "Answer 2:\n(State: express in clear terms) (Describe: state the points of a topic give characteristics and main features) (Explain: set out purposes or reasons make relationships evident provide why andor how)\nUnits in order: KiB, MiB, GiB, TiB, PiB, EiB. Each unit equals 1024 of the previous unit.\nConversions: bits to bytes divide by 8; bytes to KiB divide by 1024; KiB to MiB divide by 1024; bytes to MiB divide by 1024 twice.\nReason: 1 MiB equals 1 048 576 bytes because 1 MiB = 1024 KiB and 1 KiB = 1024 bytes, so 1 MiB = 1024 × 1024 = 1 048 576 bytes."
+"question": "State the binary units in order from Byte to TiB and describe how to convert between bits, bytes, KiB and MiB. Explain why 1 MiB equals 1 048 576 bytes.",
+"mark_scheme": "Answer 2:\n(State: express in clear terms)\n (Describe: state the points of a topic give characteristics and main features)\n (Explain: set out purposes or reasons make relationships evident provide why andor how)\nUnits in order: Byte, KiB, MiB, GiB, TiB. Each unit equals 1024 of the previous unit.\nConversions: bits to bytes divide by 8; bytes to KiB divide by 1024; KiB to MiB divide by 1024; bytes to MiB divide by 1024 twice.\nReason: 1 MiB equals 1 048 576 bytes because 1 MiB = 1024 KiB and 1 KiB = 1024 bytes, so 1 MiB = 1024 × 1024 = 1 048 576 bytes."
 },
 {
 "point_id": "1.3a",
 "question_number": 3,
 "question": "Calculate the exact number of bytes in 64 GiB.",
-"mark_scheme": "Answer 3:\n(Calculate: work out from given facts figures or information)\n64 GiB = 64 × 1024 × 1024 × 1024 bytes = 68 719 476 736 bytes."
+"mark_scheme": "Answer 3:\n(Calculate: work out from given facts figures or information)\n64 GiB = 64 × 1024 × 1024 × 1024 bytes."
 },
 {
 "point_id": "1.3b",
 "question_number": 4,
 "question": "Explain how to calculate the size of a bitmap image and how colour depth affects the total size.",
-"mark_scheme": "Answer 4:\n(Explain: set out purposes or reasons make relationships evident provide why andor how)\nFor an uncompressed bitmap: size in bits = width × height × colour depth. Convert to bytes by dividing by 8, then to KiB or MiB by dividing by 1024 per step. For multiple images, multiply by the number of images. Colour depth is bits per pixel; increasing colour depth increases total size proportionally.\nAssumption: uncompressed bitmap with no headers or metadata; filesystem overhead ignored."
+"mark_scheme": "Answer 4:\n(Explain: set out purposes or reasons make relationships evident provide why andor how)\nFor an uncompressed bitmap: size in bits = width × height × colour depth. Convert to bytes by dividing by 8, then to KiB or MiB by dividing by 1024 per step. For multiple images, multiply by the number of images. Colour depth is bits per pixel; increasing colour depth increases total size proportionally."
 },
 {
 "point_id": "1.3b",
 "question_number": 5,
 "question": "Calculate how many photographs of size 1024 × 1080 at 32-bit colour fit on a 64 GiB device.",
 "mark_scheme": "Answer 5:\n(Calculate: work out from given facts figures or information)\nPixels per photo = 1024 × 1080 = 1 105 920.\nBits per photo = 1 105 920 × 32 = 35 389 440.\nBytes per photo = 35 389 440 ÷ 8 = 4 423 680.\nCapacity = 64 × 1024 × 1024 × 1024 = 68 719 476 736 bytes.\nNumber of photos = 68 719 476 736 ÷ 4 423 680 = 15 534 photos.\nAssumption: uncompressed images; ignore filesystem overhead."
-},
-{
-"point_id": "1.3b",
-"question_number": 6,
-"question": "Explain sample rate and sample resolution and how they affect sound file size; give the formula.",
-"mark_scheme": "Answer 6:\n(Explain: set out purposes or reasons make relationships evident provide why andor how)\nSample rate is the number of samples per second. Sample resolution is the number of bits stored per sample. Higher sample rate and higher resolution both increase file size. Size in bits for mono = sample rate × sample resolution × length in seconds; for stereo, multiply by 2."
 },
 {
 "point_id": "1.3b",
@@ -46,12 +40,6 @@
 "question_number": 8,
 "question": "State three reasons for compressing files.",
 "mark_scheme": "Answer 8:\n(State: express in clear terms)\nReduces storage space.\nReduces upload and download time.\nReduces network bandwidth usage."
-},
-{
-"point_id": "1.3c",
-"question_number": 9,
-"question": "Define network bandwidth and give its usual unit.",
-"mark_scheme": "Answer 9:\n(Define: give precise meaning)\nNetwork bandwidth is the maximum rate of data transfer across a network; the usual unit is bits per second."
 },
 {
 "point_id": "1.3d",
@@ -68,25 +56,13 @@
 {
 "point_id": "1.3d",
 "question_number": 12,
-"question": "Explain perceptual music shaping and give two kinds of audio information that MP3 typically removes.",
-"mark_scheme": "Answer 12:\n(Explain: set out purposes or reasons make relationships evident provide why andor how) (Give: produce an answer from a given source or recall or memory)\nPerceptual music shaping is a lossy audio compression approach that removes audio components unlikely to be perceived, based on characteristics of human hearing, to reduce file size while keeping perceived quality acceptable. MP3 uses this approach.\nTwo removals: sounds outside the normal human hearing range; quieter sounds masked by simultaneous louder sounds."
+"question": "Explain perceptual music shaping",
+"mark_scheme": "Answer 12:\n(Explain: set out purposes or reasons make relationships evident provide why andor how) (Give: produce an answer from a given source or recall or memory)\nPerceptual music shaping is a lossy audio compression approach that removes audio components unlikely to be perceived, based on characteristics of human hearing, to reduce file size while keeping perceived quality acceptable. MP3 uses this approach."
 },
 {
 "point_id": "1.3d",
 "question_number": 13,
 "question": "Describe run-length encoding and when it is effective.",
 "mark_scheme": "Answer 13:\n(Describe: state the points of a topic give characteristics and main features)\nRun-length encoding stores runs of identical items as pairs giving the run length and the item value. It is effective when data contain long runs of repeated units."
-},
-{
-"point_id": "1.3b",
-"question_number": 14,
-"question": "Define image resolution and colour depth.",
-"mark_scheme": "Answer 14:\n(Define: give precise meaning)\nImage resolution: the number of pixels along the x and y dimensions of an image, for example 4096 × 3192 pixels.\nColour depth: the number of bits used to represent the colour of each pixel."
-},
-{
-"point_id": "1.3d",
-"question_number": 15,
-"question": "A 4 × 4 image uses grey squares coded as 0 and white squares coded as 1. Read each row left to right and then move to the next row.\nRow 1: 0, 1, 1, 0\nRow 2: 1, 0, 0, 1\nRow 3: 1, 0, 0, 1\nRow 4: 0, 1, 1, 0\nWrite the RLE pairs as (count, code).",
-"mark_scheme": "Answer 15:\n(Write: write an answer in a specific way)\n(1,0) (2,1) (1,0) (1,1) (2,0) (1,1) (1,1) (2,0) (1,1) (1,0) (2,1) (1,0)."
 }
 ]
