@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NRRL1TSE7Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NRRL1TSE7Z');
+</script>
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Python File Processing & Exception Handling</title>
@@ -29,7 +41,7 @@
         body {
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: var(--dark);
+            color: #000000;
             background-color: #ffffff;
             min-height: 100vh;
             padding-bottom: 2rem;
@@ -59,6 +71,8 @@
             font-size: 1.1rem;
             opacity: 0.9;
             font-weight: 400;
+			color: white;
+
         }
 
         .python-icon {
@@ -94,22 +108,19 @@
         }
 
         h3 {
-            color: var(--secondary);
+            color: #ff0000;
             margin: 2rem 0 1rem;
             font-size: 1.3rem;
             padding-bottom: 0.5rem;
             border-bottom: 1px solid var(--border);
-            counter-increment: subsection;
+            
         }
 
-        h3:before {
-            content: counter(section) "." counter(subsection) ". ";
-            font-weight: 600;
-        }
+
 
         p {
             margin-bottom: 1.2rem;
-            color: var(--secondary);
+            color: #000000;
         }
 
         .concept-box {
@@ -307,11 +318,8 @@
 <body>
     <header>
         <div class="container">
-            <div class="python-icon">
-                <i class="fab fa-python"></i>
-            </div>
-            <h1>20.2 File Processing & Exception Handling</h1>
-            <p class="subtitle">A Level theory notes prepared by Dr. Hamdeni</p>
+            <h1 align="center">20.2 File Processing & Exception Handling</h1>
+            <p align="center" class="subtitle">A Level theory notes prepared by Dr. Hamdeni</p>
         </div>
     </header>
 
@@ -419,7 +427,7 @@
                 Iteration over the file object processes lines in order and stops naturally at end-of-file. Note that <b>readlines()</b> often includes newline characters. <b>strip()</b>  removes trailing newline characters when needed.
             </div>
 
-            <h3>Complete Python Example: Student Marks Processing</h3>
+            <h3>Complete Example:</h3>
             <div class="code-container">
                 <pre><code><span class="code-comment"># Open the file with student marks</span>
 <span class="code-keyword">markFile</span> = <span class="code-function">open</span>(<span class="code-string">"stMarks.txt"</span>, <span class="code-string">"r"</span>)
@@ -675,6 +683,12 @@
             // Show selected tab content
             document.getElementById(tabId).classList.add('active');
         }
+    </script>
+	    <script>
+      window.addEventListener('load', function () {
+        const height = document.body.scrollHeight;
+        window.parent.postMessage({ type: 'resize', height }, '*');
+      });
     </script>
 </body>
 </html>
