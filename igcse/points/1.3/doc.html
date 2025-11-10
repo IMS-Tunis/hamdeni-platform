@@ -156,7 +156,7 @@
     <li><div class="example-box">Text compression using a lookup table<br>Message: WHEN IT IS SNOWING HEAVILY LOOK OUTSIDE. LOOK OUTSIDE IT IS SNOWING HEAVILY.<br>Step 1 (uncompressed size): 62 characters → 62 bytes (1 byte per character).<br>Step 2 (build the table): store repeated words once and record their positions.<br>Step 3 (compressed size): store references to repeated words → 46 bytes.<br>Step 4 (saving): 62 bytes - 46 bytes = 16 bytes saved (about 26 percent).<br>This shows how repeated items reduce storage when references are used instead of storing the same text many times.</div></li>
   </ul>
   <ul>
-    <li><span class="official-note">Run-length encoding RLE groups consecutive repeated data and stores the number of repeats together with the data value.</span></li>
+    <li><span class="official-note">Run-length encoding RLE is a lossless compression algorithm. It groups consecutive repeated data and stores the number of repeats together with the data value.</span></li>
     <li><span class="official-note">RLE is effective when long runs of identical items occur.</span></li>
   </ul>
   <ul class="no-bullets">
