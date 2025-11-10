@@ -1,24 +1,680 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NRRL1TSE7Z"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python File Processing & Exception Handling</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2c5aa0;
+            --secondary: #4a5568;
+            --accent: #2c5aa0;
+            --light: #f7fafc;
+            --dark: #2d3748;
+            --border: #e2e8f0;
+            --code-bg: #f8f9fa;
+            --card-bg: #ffffff;
+            --shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            --radius: 6px;
+        }
 
-  gtag('config', 'G-NRRL1TSE7Z');
-</script>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <meta charset="UTF-8">
-  <title>Content not ready</title>
-  <link rel="stylesheet" href="igcse-style.css">
-<script defer src="/assets/js/paste-guard.js"></script>
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #ffffff;
+            min-height: 100vh;
+            padding-bottom: 2rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 2.5rem 0;
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+
+        .python-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .section {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+
+        h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--primary);
+            counter-increment: section;
+        }
+
+        h2:before {
+            content: counter(section) ". ";
+            font-weight: 600;
+        }
+
+        h3 {
+            color: var(--secondary);
+            margin: 2rem 0 1rem;
+            font-size: 1.3rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+            counter-increment: subsection;
+        }
+
+        h3:before {
+            content: counter(section) "." counter(subsection) ". ";
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            color: var(--secondary);
+        }
+
+        .concept-box {
+            background: var(--light);
+            border-radius: var(--radius);
+            padding: 1.2rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--primary);
+        }
+
+        .concept-box strong {
+            color: var(--primary);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .code-container {
+            background: var(--code-bg);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+            border: 1px solid var(--border);
+        }
+
+        pre {
+            color: var(--dark);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin: 0;
+            white-space: pre-wrap;
+        }
+
+        .code-keyword {
+            color: #d73a49;
+        }
+
+        .code-string {
+            color: #032f62;
+        }
+
+        .code-comment {
+            color: #6a737d;
+            font-style: italic;
+        }
+
+        .code-function {
+            color: #6f42c1;
+        }
+
+        .code-number {
+            color: #005cc5;
+        }
+
+        .mode-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .mode-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            transition: all 0.2s;
+        }
+
+        .mode-card:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .mode-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .mode-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .mode-desc {
+            font-size: 0.9rem;
+            color: var(--secondary);
+        }
+
+        .exception-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .exception-type {
+            background: white;
+            border-radius: var(--radius);
+            padding: 1.2rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+
+        .exception-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .exception-desc {
+            font-size: 0.9rem;
+            color: var(--secondary);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            color: var(--secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .tabs {
+            display: flex;
+            margin: 1.5rem 0;
+            background: var(--light);
+            border-radius: var(--radius);
+            padding: 0.5rem;
+            gap: 0.5rem;
+            border: 1px solid var(--border);
+        }
+
+        .tab {
+            padding: 0.7rem 1.2rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-weight: 500;
+            flex: 1;
+            text-align: center;
+            background: white;
+            border: 1px solid var(--border);
+        }
+
+        .tab:hover {
+            background: #edf2f7;
+        }
+
+        .tab.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .file-org-tabs {
+            margin-top: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section {
+                padding: 1.5rem;
+            }
+            
+            .mode-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .tabs {
+                flex-direction: column;
+            }
+        }
+
+        body {
+            counter-reset: section subsection;
+        }
+    </style>
 </head>
 <body>
-   <div class="container">
-    <h1>Content will be ready soon!</h1>
-   
+    <header>
+        <div class="container">
+            <div class="python-icon">
+                <i class="fab fa-python"></i>
+            </div>
+            <h1>20.2 File Processing & Exception Handling</h1>
+            <p class="subtitle">A Level theory notes prepared by Dr. Hamdeni</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="section">
+            <h2><i class="fas fa-file-alt"></i> File-Processing Operations</h2>
+            <p>File processing involves reading data from files and writing data to files. A file must be opened before use and closed after the operation is completed.</p>
+            
+
+            <h3>Opening a File</h3>
+            <p>A file can be opened in different modes:</p>
+            
+            <div class="mode-cards">
+                <div class="mode-card">
+                    <div class="mode-icon"><i class="fas fa-book-open"></i></div>
+                    <div class="mode-title">Read Mode ('r')</div>
+                    <div class="mode-desc">Open an existing file to read its content</div>
+                </div>
+                <div class="mode-card">
+                    <div class="mode-icon"><i class="fas fa-pen"></i></div>
+                    <div class="mode-title">Write Mode ('w')</div>
+                    <div class="mode-desc">Create a new file or overwrite an existing file</div>
+                </div>
+                <div class="mode-card">
+                    <div class="mode-icon"><i class="fas fa-plus"></i></div>
+                    <div class="mode-title">Append Mode ('a')</div>
+                    <div class="mode-desc">Open a file and add new data at the end</div>
+                </div>
+            </div>
+
+            <div class="code-container">
+                <pre><code><span class="code-keyword">file</span> = <span class="code-function">open</span>(<span class="code-string">"data.txt"</span>, <span class="code-string">"r"</span>)     <span class="code-comment"># Open for reading</span>
+<span class="code-keyword">file</span> = <span class="code-function">open</span>(<span class="code-string">"data.txt"</span>, <span class="code-string">"w"</span>)     <span class="code-comment"># Open for writing</span>
+<span class="code-keyword">file</span> = <span class="code-function">open</span>(<span class="code-string">"data.txt"</span>, <span class="code-string">"a"</span>)     <span class="code-comment"># Open for appending</span></code></pre>
+            </div>
+
+            <div class="concept-box">
+                <strong>Choosing the Right Mode</strong>
+                Choose the mode that matches your intention. Reading inspects existing content. Writing replaces content. Appending grows the file.
+            </div>
+
+            <h3>Reading a Record</h3>
+            <p>Ways to read text from files:</p>
+
+            <div class="tabs">
+                <div class="tab active" onclick="switchTab(this, 'readline')">readline()</div>
+                <div class="tab" onclick="switchTab(this, 'readlines')">readlines()</div>
+                <div class="tab" onclick="switchTab(this, 'read')">read()</div>
+                <div class="tab" onclick="switchTab(this, 'iteration')">Iteration</div>
+            </div>
+
+            <div class="tab-content active" id="readline">
+                <div class="code-container">
+                    <pre><code><span class="code-comment"># Read one line at a time</span>
+<span class="code-keyword">file</span> = <span class="code-function">open</span>(<span class="code-string">"data.txt"</span>, <span class="code-string">"r"</span>)
+<span class="code-keyword">record</span> = <span class="code-keyword">file</span>.<span class="code-function">readline</span>()
+<span class="code-keyword">while</span> <span class="code-keyword">record</span>:
+    <span class="code-comment"># Process the record</span>
+    <span class="code-function">print</span>(<span class="code-keyword">record</span>.<span class="code-function">strip</span>())
+    <span class="code-keyword">record</span> = <span class="code-keyword">file</span>.<span class="code-function">readline</span>()
+<span class="code-keyword">file</span>.<span class="code-function">close</span>()</code></pre>
+                </div>
+            </div>
+
+            <div class="tab-content" id="readlines">
+                <div class="code-container">
+                    <pre><code><span class="code-comment"># Read all lines into a list</span>
+<span class="code-keyword">file</span> = <span class="code-function">open</span>(<span class="code-string">"data.txt"</span>, <span class="code-string">"r"</span>)
+<span class="code-keyword">records</span> = <span class="code-keyword">file</span>.<span class="code-function">readlines</span>()
+<span class="code-keyword">file</span>.<span class="code-function">close</span>()
+
+<span class="code-comment"># Process each record</span>
+<span class="code-keyword">for</span> record <span class="code-keyword">in</span> <span class="code-keyword">records</span>:
+    <span class="code-function">print</span>(record.<span class="code-function">strip</span>())</code></pre>
+                </div>
+            </div>
+
+            <div class="tab-content" id="read">
+                <div class="code-container">
+                    <pre><code><span class="code-comment"># Read the entire file as one string</span>
+<span class="code-keyword">file</span> = <span class="code-function">open</span>(<span class="code-string">"data.txt"</span>, <span class="code-string">"r"</span>)
+<span class="code-keyword">content</span> = <span class="code-keyword">file</span>.<span class="code-function">read</span>()
+<span class="code-keyword">file</span>.<span class="code-function">close</span>()
+
+<span class="code-comment"># Split content into lines</span>
+<span class="code-keyword">records</span> = <span class="code-keyword">content</span>.<span class="code-function">split</span>(<span class="code-string">"\n"</span>)
+<span class="code-keyword">for</span> record <span class="code-keyword">in</span> <span class="code-keyword">records</span>:
+    <span class="code-keyword">if</span> record:  <span class="code-comment"># Skip empty lines</span>
+        <span class="code-function">print</span>(record)</code></pre>
+                </div>
+            </div>
+
+            <div class="tab-content" id="iteration">
+                <div class="code-container">
+                    <pre><code><span class="code-comment"># Iterate directly over the file object</span>
+<span class="code-keyword">with</span> <span class="code-function">open</span>(<span class="code-string">"data.txt"</span>, <span class="code-string">"r"</span>) <span class="code-keyword">as</span> <span class="code-keyword">file</span>:
+    <span class="code-keyword">for</span> line <span class="code-keyword">in</span> <span class="code-keyword">file</span>:
+        <span class="code-comment"># Process line as a record</span>
+        <span class="code-function">print</span>(line.<span class="code-function">strip</span>())</code></pre>
+                </div>
+            </div>
+
+            <div class="concept-box">
+                <strong>File Iteration</strong>
+                Iteration over the file object processes lines in order and stops naturally at end-of-file. Note that <b>readlines()</b> often includes newline characters. <b>strip()</b>  removes trailing newline characters when needed.
+            </div>
+
+            <h3>Complete Python Example: Student Marks Processing</h3>
+            <div class="code-container">
+                <pre><code><span class="code-comment"># Open the file with student marks</span>
+<span class="code-keyword">markFile</span> = <span class="code-function">open</span>(<span class="code-string">"stMarks.txt"</span>, <span class="code-string">"r"</span>)
+
+<span class="code-comment"># Initialize a list to store the student marks table</span>
+<span class="code-keyword">stmarkTable</span> = []
+
+<span class="code-comment"># Loop through each line in the mark file</span>
+<span class="code-keyword">for</span> row <span class="code-keyword">in</span> <span class="code-keyword">markFile</span>:
+
+    <span class="code-comment"># Split the line by comma to get individual records</span>
+    <span class="code-keyword">stRecord</span> = row.<span class="code-function">split</span>(<span class="code-string">","</span>)
+
+    <span class="code-comment"># Extract student name and marks for each subject</span>
+    <span class="code-keyword">stName</span>    = <span class="code-keyword">stRecord</span>[<span class="code-number">0</span>]
+    <span class="code-keyword">mathMark</span>  = <span class="code-function">int</span>(<span class="code-keyword">stRecord</span>[<span class="code-number">1</span>])
+    <span class="code-keyword">sciMark</span>   = <span class="code-function">int</span>(<span class="code-keyword">stRecord</span>[<span class="code-number">2</span>])
+    <span class="code-keyword">geoMark</span>   = <span class="code-function">int</span>(<span class="code-keyword">stRecord</span>[<span class="code-number">3</span>])
+    <span class="code-keyword">compMark</span>  = <span class="code-function">int</span>(<span class="code-keyword">stRecord</span>[<span class="code-number">4</span>])
+
+    <span class="code-comment"># Calculate the total and average of the marks</span>
+    <span class="code-keyword">total</span>   = <span class="code-keyword">mathMark</span> + <span class="code-keyword">sciMark</span> + <span class="code-keyword">geoMark</span> + <span class="code-keyword">compMark</span>
+    <span class="code-keyword">average</span> = <span class="code-function">round</span>(<span class="code-keyword">total</span> / <span class="code-number">4</span>, <span class="code-number">2</span>)
+
+    <span class="code-comment"># Create a new record with the student's name,</span>
+    <span class="code-comment"># marks, total, and average</span>
+    <span class="code-keyword">newstRecord</span> = [<span class="code-keyword">stName</span>, <span class="code-keyword">mathMark</span>, <span class="code-keyword">sciMark</span>,
+                   <span class="code-keyword">geoMark</span>, <span class="code-keyword">compMark</span>, <span class="code-keyword">total</span>, <span class="code-keyword">average</span>]
+
+    <span class="code-comment"># Add the new record to the marks table</span>
+    <span class="code-keyword">stmarkTable</span>.<span class="code-function">append</span>(<span class="code-keyword">newstRecord</span>)
+
+    <span class="code-comment"># Reset the record list for the next student</span>
+    <span class="code-keyword">newstRecord</span> = []
+
+<span class="code-comment"># Close the mark file</span>
+<span class="code-keyword">markFile</span>.<span class="code-function">close</span>()
+
+<span class="code-comment"># Print the two-dimensional array of student marks</span>
+<span class="code-keyword">for</span> row <span class="code-keyword">in</span> <span class="code-keyword">stmarkTable</span>:
+    <span class="code-keyword">for</span> element <span class="code-keyword">in</span> row:
+        <span class="code-function">print</span>(element, end=<span class="code-string">" "</span>)
+    <span class="code-function">print</span>()</code></pre>
+            </div>
+
+            <div class="concept-box">
+                <strong>Record Processing</strong>
+                Each input line is treated as a record. Field conversion to integers enables arithmetic for totals and averages.
+            </div>
+
+            <h3>Writing a Record</h3>
+            <div class="code-container">
+                <pre><code><span class="code-comment"># Writing a single record</span>
+<span class="code-keyword">file</span> = <span class="code-function">open</span>(<span class="code-string">"data.txt"</span>, <span class="code-string">"w"</span>)
+<span class="code-keyword">file</span>.<span class="code-function">write</span>(<span class="code-string">"New record\n"</span>)
+<span class="code-keyword">file</span>.<span class="code-function">close</span>()
+
+<span class="code-comment"># Writing multiple records</span>
+<span class="code-keyword">records</span> = [<span class="code-string">"Record 1\n"</span>, <span class="code-string">"Record 2\n"</span>, <span class="code-string">"Record 3\n"</span>]
+<span class="code-keyword">with</span> <span class="code-function">open</span>(<span class="code-string">"data.txt"</span>, <span class="code-string">"w"</span>) <span class="code-keyword">as</span> <span class="code-keyword">file</span>:
+    <span class="code-keyword">file</span>.<span class="code-function">writelines</span>(<span class="code-keyword">records</span>)</code></pre>
+            </div>
+
+            <div class="concept-box">
+                <strong>Newline Characters</strong>
+                Include \n when a new record must start on a new line in the file. Without it, all records would be written on the same line.
+            </div>
+
+            <h3>Closing a File</h3>
+            <div class="code-container">
+                <pre><code><span class="code-comment"># Manual closing</span>
+<span class="code-keyword">file</span> = <span class="code-function">open</span>(<span class="code-string">"data.txt"</span>, <span class="code-string">"r"</span>)
+<span class="code-keyword">content</span> = <span class="code-keyword">file</span>.<span class="code-function">read</span>()
+<span class="code-keyword">file</span>.<span class="code-function">close</span>()
+
+<span class="code-comment"># Using a context manager (recommended)</span>
+<span class="code-keyword">with</span> <span class="code-function">open</span>(<span class="code-string">"data.txt"</span>, <span class="code-string">"r"</span>) <span class="code-keyword">as</span> <span class="code-keyword">file</span>:
+    <span class="code-keyword">data</span> = <span class="code-keyword">file</span>.<span class="code-function">read</span>()
+<span class="code-comment"># File is automatically closed here</span></code></pre>
+            </div>
+
+            <div class="concept-box">
+                <strong>Context Managers</strong>
+                Automatic closing ensures resources are released even if an error occurs. This is the preferred way to work with files in Python.
+            </div>
+
+            <h3>File-Processing for Different File Organizations</h3>
+            
+            <div class="tabs file-org-tabs">
+                <div class="tab active" onclick="switchTab(this, 'serial')">Serial Files</div>
+                <div class="tab" onclick="switchTab(this, 'sequential')">Sequential Files</div>
+                <div class="tab" onclick="switchTab(this, 'random')">Random Files</div>
+            </div>
+
+            <div class="tab-content active" id="serial">
+                <h4>Serial File</h4>
+                <p>Records are stored in the order they are entered. Appending adds new records at the end. Access is naturally in arrival order.</p>
+                
+                <div class="code-container">
+                    <pre><code><span class="code-comment"># Appending to a serial file</span>
+<span class="code-keyword">with</span> <span class="code-function">open</span>(<span class="code-string">"transactions.txt"</span>, <span class="code-string">"a"</span>) <span class="code-keyword">as</span> <span class="code-keyword">file</span>:
+    <span class="code-keyword">file</span>.<span class="code-function">write</span>(<span class="code-string">"Deposit: $100\n"</span>)</code></pre>
+                </div>
+
+                <div class="concept-box">
+                    <strong>Serial Files</strong>
+                    Best when you mainly add new records and read everything in the order it was recorded.
+                </div>
+            </div>
+
+            <div class="tab-content" id="sequential">
+                <h4>Sequential File</h4>
+                <p>Records are kept in a sorted order by a key, for example an ID. Reading proceeds from the beginning to the point of interest.</p>
+                
+                <div class="code-container">
+                    <pre><code><span class="code-comment"># Searching in a sequential file</span>
+<span class="code-keyword">with</span> <span class="code-function">open</span>(<span class="code-string">"customers.txt"</span>, <span class="code-string">"r"</span>) <span class="code-keyword">as</span> <span class="code-keyword">file</span>:
+    <span class="code-keyword">for</span> line <span class="code-keyword">in</span> <span class="code-keyword">file</span>:
+        <span class="code-keyword">name</span>, <span class="code-keyword">customer_id</span> = line.<span class="code-function">strip</span>().<span class="code-function">split</span>(<span class="code-string">","</span>)
+        <span class="code-keyword">if</span> <span class="code-keyword">customer_id</span> == <span class="code-string">"C105"</span>:
+            <span class="code-function">print</span>(<span class="code-string">f"Found customer: {name}"</span>)
+            <span class="code-keyword">break</span></code></pre>
+                </div>
+
+                <div class="concept-box">
+                    <strong>Sequential Files</strong>
+                    To keep the order after edits, the file is typically rewritten in the correct sequence.
+                </div>
+            </div>
+
+            <div class="tab-content" id="random">
+                <h4>Random File</h4>
+                <p>Records are accessed in any order by computing a position from a key. The program moves the file pointer to that position, then reads or writes at that address. If two keys compute to the same position, a collision handling method is needed.</p>
+                
+                <div class="concept-box">
+                    <strong>Random Access Files</strong>
+                    The key idea is position calculation, pointer movement, then direct access. Implementation details depend on the chosen addressing design.
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-exclamation-triangle"></i> Exception and Exception Handling</h2>
+            
+            <h3>What is an Exception</h3>
+            <p>An exception is an unexpected error during program execution, for example division by zero, opening a file that does not exist, or converting non-numeric input to an integer. If not handled, program execution stops at the error.</p>
+
+            <h3>Why Use Exception Handling</h3>
+            <p>Exception handling prevents crashes, allows controlled recovery, and displays clear messages for users. It improves robustness when operations might fail.</p>
+
+            <h3>When to Use Exception Handling</h3>
+            <p>Typical cases:</p>
+            
+            <div class="exception-types">
+                <div class="exception-type">
+                    <div class="exception-title">File Operations</div>
+                    <div class="exception-desc">Files may be missing or unreadable</div>
+                </div>
+                <div class="exception-type">
+                    <div class="exception-title">User Input</div>
+                    <div class="exception-desc">User input may be invalid</div>
+                </div>
+                <div class="exception-type">
+                    <div class="exception-title">Calculations</div>
+                    <div class="exception-desc">Calculations may fail (e.g., division by zero)</div>
+                </div>
+                <div class="exception-type">
+                    <div class="exception-title">Resources</div>
+                    <div class="exception-desc">Resources may be unavailable</div>
+                </div>
+            </div>
+
+            <h3>Python Exception Handling</h3>
+            <p>Python uses try, except, and optionally finally.</p>
+            
+            <div class="code-container">
+                <pre><code><span class="code-keyword">try</span>:
+    <span class="code-comment"># statements that might raise an exception</span>
+    <span class="code-keyword">pass</span>
+<span class="code-keyword">except</span> <span class="code-keyword">ExceptionType</span>:
+    <span class="code-comment"># handlers for specific exceptions</span>
+    <span class="code-keyword">pass</span>
+<span class="code-keyword">except</span> <span class="code-keyword">ExceptionType2</span>:
+    <span class="code-comment"># handlers for another type of exception</span>
+    <span class="code-keyword">pass</span>
+<span class="code-keyword">finally</span>:
+    <span class="code-comment"># statements that always run</span>
+    <span class="code-keyword">pass</span></code></pre>
+            </div>
+
+            <h3>File Exception Example</h3>
+            <div class="code-container">
+                <pre><code><span class="code-keyword">try</span>:
+    <span class="code-keyword">with</span> <span class="code-function">open</span>(<span class="code-string">"data.txt"</span>, <span class="code-string">"r"</span>) <span class="code-keyword">as</span> <span class="code-keyword">file</span>:
+        <span class="code-keyword">content</span> = <span class="code-keyword">file</span>.<span class="code-function">read</span>()
+        <span class="code-function">print</span>(<span class="code-keyword">content</span>)
+<span class="code-keyword">except</span> FileNotFoundError:
+    <span class="code-function">print</span>(<span class="code-string">"Error: The file was not found."</span>)
+<span class="code-keyword">except</span> IOError:
+    <span class="code-function">print</span>(<span class="code-string">"Error: Could not read the file."</span>)
+<span class="code-keyword">finally</span>:
+    <span class="code-function">print</span>(<span class="code-string">"Operation completed."</span>)</code></pre>
+            </div>
+
+            <div class="concept-box">
+                <strong>Multiple Exception Handlers</strong>
+                Multiple except blocks handle different error types. The finally block runs in all cases, whether an exception occurred or not.
+            </div>
+
+            <div class="code-container">
+                <pre><code><span class="code-keyword">def</span> <span class="code-function">division</span>(num1, num2):
+    <span class="code-keyword">try</span>:
+        <span class="code-keyword">result</span> = num1 / num2
+        <span class="code-function">print</span>(<span class="code-string">f"Result: {result}"</span>)
+    <span class="code-keyword">except</span> ZeroDivisionError:
+        <span class="code-function">print</span>(<span class="code-string">"Error: Division by zero is not allowed."</span>)
+    <span class="code-keyword">except</span> TypeError:
+        <span class="code-function">print</span>(<span class="code-string">"Error: Both arguments must be numbers."</span>)
+
+<span class="code-keyword">a</span> = <span class="code-function">int</span>(<span class="code-function">input</span>(<span class="code-string">"Enter num1: "</span>))
+<span class="code-keyword">b</span> = <span class="code-function">int</span>(<span class="code-function">input</span>(<span class="code-string">"Enter num2: "</span>))
+<span class="code-function">division</span>(<span class="code-keyword">a</span>, <span class="code-keyword">b</span>)</code></pre>
+            </div>
+
+            <div class="concept-box">
+                <strong>Defensive Programming</strong>
+                If an operation can fail, place it inside try and provide a clear response in except. This prevents crashes and improves user experience.
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>Python File Processing & Exception Handling Guide | Professional Reference</p>
+        </div>
+    </footer>
+
+    <script>
+        function switchTab(clickedTab, tabId) {
+            // Remove active class from all tabs in the same container
+            const tabsContainer = clickedTab.parentElement;
+            const tabs = tabsContainer.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Add active class to clicked tab
+            clickedTab.classList.add('active');
+            
+            // Hide all tab contents in the same section
+            const section = clickedTab.closest('.section');
+            const tabContents = section.querySelectorAll('.tab-content');
+            tabContents.forEach(content => content.classList.remove('active'));
+            
+            // Show selected tab content
+            document.getElementById(tabId).classList.add('active');
+        }
+    </script>
 </body>
 </html>

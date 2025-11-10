@@ -12,15 +12,6 @@
       "answer": "A single dedicated end-to-end route is reserved and all traffic follows it"
     },
     {
-      "type": "match",
-      "question": "Match each circuit-switching term to its corresponding feature.",
-      "pairs": {
-        "Dedicated circuit": "Guarantees constant-rate streams",
-        "Single route": "Ensures ordered delivery",
-        "Inefficiency when idle": "Bandwidth remains reserved even without data"
-      }
-    },
-    {
       "type": "mcq",
       "question": "Which description captures the main performance benefit of circuit switching?",
       "options": [
@@ -153,11 +144,6 @@
         "Fixed line reservation"
       ],
       "answer": "Protocol mechanisms handling independent packets"
-    },
-    {
-      "type": "fill_blank",
-      "question": "A router forwards a packet one _____ at a time toward its destination.",
-      "answer": "hop"
     }
   ]
 }

@@ -114,16 +114,6 @@
       "answer": "side effect"
     },
     {
-      "section": "20.1c",
-      "type": "match",
-      "question": "Match each control structure to its role.",
-      "pairs": {
-        "Sequence": "Executes steps in order",
-        "Selection": "Chooses a path based on a condition",
-        "Iteration": "Repeats steps until a stated condition is met"
-      }
-    },
-    {
       "section": "20.1d",
       "type": "fill_blank",
       "question": "In OOP, an __________ bundles state with the operations that act on that state.",

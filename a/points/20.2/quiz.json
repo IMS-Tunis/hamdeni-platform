@@ -1,102 +1,123 @@
 {
   "questions": [
     {
-      "type": "mcq",
-      "question": "What is the main reason computers use binary to represent all data?",
-      "options": [
-        "Binary numbers are easier for humans to read",
-        "Computers use logic gates that only understand ON and OFF states",
-        "It uses less power",
-        "Binary numbers are shorter than decimal numbers"
-      ],
-      "answer": "Computers use logic gates that only understand ON and OFF states"
-    },
-    {
-      "type": "mcq",
-      "question": "In an 8-bit binary number, what does the leftmost bit represent?",
-      "options": [
-        "Least Significant Bit",
-        "The parity bit",
-        "Most Significant Bit",
-        "The hexadecimal value"
-      ],
-      "answer": "Most Significant Bit"
-    },
-    {
-      "type": "mcq",
-      "question": "Which of the following is a hexadecimal digit?",
-      "options": [
-        "8",
-        "G",
-        "H",
-        "Q"
-      ],
-      "answer": "8"
-    },
-    {
-      "type": "mcq",
-      "question": "What is the maximum value that can be represented in an 8-bit binary number?",
-      "options": [
-        "255",
-        "256",
-        "128",
-        "1024"
-      ],
-      "answer": "255"
-    },
-    {
-      "type": "fill_blank",
-      "question": "The process of moving all bits in a binary number to the left or right and filling the emptied spaces with zeros is called a __________ shift.",
-      "answer": "Logical"
-    },
-    {
-      "type": "fill_blank",
-      "question": "In binary addition, if the result is too large for the register to hold, this is called an __________ error.",
-      "answer": "Overflow"
-    },
-    {
-      "type": "fill_blank",
-      "question": "Each hexadecimal digit can be represented by exactly ___ binary bits.",
-      "answer": "4"
-    },
-    {
-      "type": "true_false",
-      "question": "Digital data can take any value, just like analogue data.",
-      "answer": "False"
-    },
-    {
-      "type": "true_false",
-      "question": "In two’s complement, the most significant bit represents the sign of the number.",
-      "answer": "True"
-    },
-    {
-      "type": "true_false",
-      "question": "The denary number system is also known as base 16.",
-      "answer": "False"
+      "type": "match",
+      "question": "Match the file open mode to its description.",
+      "pairs": {
+        "'r'": "Open existing file to read",
+        "'w'": "Create new or overwrite existing file for writing",
+        "'a'": "Open file to add data at the end"
+      }
     },
     {
       "type": "match",
-      "question": "Match the term with its correct definition:",
+      "question": "Match each reading function to its behavior.",
       "pairs": {
-        "Register": "Used to temporarily hold binary data",
-        "Logic gate": "Basic building block for processing digital data",
-        "Two’s complement": "Method to represent negative binary"
+        "read()": "Whole file as one string",
+        "readline()": "One line",
+        "readlines()": "All lines as a list"
+      }
+    },
+    {
+      "type": "mcq",
+      "question": "In 'for line in f:', what naturally stops the loop?",
+      "options": [
+        "Manual counter",
+        "Sentinel in the file",
+        "Automatic end-of-file detection",
+        "Timeout"
+      ],
+      "answer": "Automatic end-of-file detection"
+    },
+    {
+      "type": "fill_blank",
+      "question": "According to the notes, to remove trailing newline characters after reading a line, use ________.",
+      "answer": "strip()"
+    },
+    {
+      "type": "mcq",
+      "question": "To start a new record on a new line when writing, end the string with:",
+      "options": [
+        "\\t",
+        "\\n",
+        "\\r",
+        "a space"
+      ],
+      "answer": "\\n"
+    },
+    {
+      "type": "mcq",
+      "question": "Which construct closes the file automatically even if an error occurs?",
+      "options": [
+        "try/except",
+        "if/else",
+        "with open(...) as ...",
+        "close() before read()"
+      ],
+      "answer": "with open(...) as ..."
+    },
+    {
+      "type": "fill_blank",
+      "question": "The explicit method to release a file resource is ________.",
+      "answer": "close()"
+    },
+    {
+      "type": "match",
+      "question": "Match the file organisation to its defining characteristic.",
+      "pairs": {
+        "Serial": "Arrival order, append at end",
+        "Sequential": "Sorted by key",
+        "Random": "Direct access via stored/computed position"
       }
     },
     {
       "type": "fill_blank",
-      "question": "Convert the binary number 1101 to denary: __________",
-      "answer": "13"
+      "question": "Random access relies on moving the ________ to a stored position before reading.",
+      "answer": "file pointer"
+    },
+    {
+      "type": "mcq",
+      "question": "Which scenario warrants exception handling?",
+      "options": [
+        "Printing a constant string",
+        "Converting user input to an integer that might be invalid",
+        "Concatenating two fixed literals",
+        "Assigning a variable to itself"
+      ],
+      "answer": "Converting user input to an integer that might be invalid"
+    },
+    {
+      "type": "match",
+      "question": "Match each block to its role.",
+      "pairs": {
+        "try": "Code that may raise an exception",
+        "except": "Handle errors",
+        "finally": "Always runs (cleanup)"
+      }
     },
     {
       "type": "fill_blank",
-      "question": "What is the hexadecimal equivalent of the denary number 15? __________",
-      "answer": "F"
+      "question": "The specific exception for a missing file in the example is ________.",
+      "answer": "FileNotFoundError"
     },
     {
-      "type": "fill_blank",
-      "question": "What is the binary value for the hexadecimal digit C? __________",
-      "answer": "1100"
+      "type": "mcq",
+      "question": "In the file-reading example, which parts may raise an exception?",
+      "options": [
+        "print(content) only",
+        "with open(\"data.txt\",\"r\") and file.read()",
+        "Only file.read()",
+        "None"
+      ],
+      "answer": "with open(\"data.txt\",\"r\") and file.read()"
+    },
+    {
+      "type": "match",
+      "question": "Match each operation from the examples to the function used.",
+      "pairs": {
+        "Convert text mark to numeric for arithmetic": "int()",
+        "Split a comma-separated record into fields": "split(\",\")"
+      }
     }
   ]
 }
