@@ -33,6 +33,15 @@ let completedBefore = false;
 
 init();
 
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, "&#39;");
+}
+
 async function init() {
   await checkInitialProgress();
   try {
@@ -120,11 +129,12 @@ function startQuiz(questions) {
     if (attempt > 1 && !q.retry) return;
     const div = document.createElement("div");
     div.className = "quiz-question";
-    let html = `<h3>Q${i + 1}: ${q.question}</h3>`;
+    let html = `<h3>Q${i + 1}: ${escapeHtml(q.question)}</h3>`;
     if (q.type === "mcq" || q.type === "true_false") {
       const opts = q.type === "mcq" ? q.options : ["True", "False"];
       opts.forEach(opt => {
-        html += `<label><input type="radio" name="q${i}" value="${opt}">${opt}</label><br>`;
+        const escaped = escapeHtml(opt);
+        html += `<label><input type="radio" name="q${i}" value="${escaped}">${escaped}</label><br>`;
       });
     } else if (q.type === "fill_blank") {
       html += `<input type="text" name="q${i}" placeholder="Your answer">`;
@@ -132,8 +142,14 @@ function startQuiz(questions) {
       const pairs = Object.entries(q.pairs);
       const values = shuffle(Object.values(q.pairs));
       pairs.forEach(([key, correct], j) => {
-        html += `<div class="match-item"><span>${key}</span><select name="q${i}_${j}"><option>Select</option>` +
-          values.map(v => `<option value="${v}">${v}</option>`).join('') + `</select></div>`;
+        const optionsMarkup = values
+          .map(v => {
+            const escapedVal = escapeHtml(v);
+            return `<option value="${escapedVal}">${escapedVal}</option>`;
+          })
+          .join('');
+        html += `<div class="match-item"><span>${escapeHtml(key)}</span>` +
+          `<select name="q${i}_${j}"><option value="">Select</option>${optionsMarkup}</select></div>`;
       });
     }
     div.innerHTML = html;
