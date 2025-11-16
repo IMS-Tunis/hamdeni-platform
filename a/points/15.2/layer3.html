@@ -195,12 +195,6 @@
     const supabase = createClient(SUPABASE_URL, SUPABASE_KEY, {
       auth: {
         persistSession: true
-      },
-      global: {
-        headers: {
-          apikey: SUPABASE_KEY,
-          Authorization: `Bearer ${SUPABASE_KEY}`
-        }
       }
     });
 
@@ -222,7 +216,7 @@
 
       try {
         const { data, error } = await supabase.auth.getUser();
-        if (error) throw error;
+        if (error && error.message !== 'Auth session missing!') throw error;
         const user = data?.user;
         if (!user) {
           throw new Error('Please log in to access this activity.');
