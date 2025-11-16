@@ -2,101 +2,307 @@
   "questions": [
     {
       "type": "mcq",
-      "question": "What is the main reason computers use binary to represent all data?",
+      "question": "Which feature is typical of a RISC processor instruction set?",
       "options": [
-        "Binary numbers are easier for humans to read",
-        "Computers use logic gates that only understand ON and OFF states",
-        "It uses less power",
-        "Binary numbers are shorter than decimal numbers"
+        "Large instruction set with many complex, variable length instructions",
+        "Small instruction set with simple, fixed length instructions",
+        "Small instruction set with complex, variable length instructions",
+        "Large instruction set with simple, fixed length instructions"
       ],
-      "answer": "Computers use logic gates that only understand ON and OFF states"
+      "answer": "Small instruction set with simple, fixed length instructions"
     },
     {
       "type": "mcq",
-      "question": "In an 8-bit binary number, what does the leftmost bit represent?",
+      "question": "In a RISC design, how are arithmetic and logic instructions allowed to access data?",
       "options": [
-        "Least Significant Bit",
-        "The parity bit",
-        "Most Significant Bit",
-        "The hexadecimal value"
+        "They operate directly on data in main memory",
+        "They operate only on data held in registers",
+        "They operate only on data stored on secondary storage",
+        "They operate only on data in cache memory"
       ],
-      "answer": "Most Significant Bit"
+      "answer": "They operate only on data held in registers"
     },
     {
       "type": "mcq",
-      "question": "Which of the following is a hexadecimal digit?",
+      "question": "Which statement correctly describes the use of general purpose registers in RISC compared with CISC?",
       "options": [
-        "8",
-        "G",
-        "H",
-        "Q"
+        "RISC designs use many general purpose registers to keep data inside the CPU",
+        "RISC designs avoid general purpose registers and always use memory instead",
+        "RISC designs always use fewer general purpose registers than CISC",
+        "RISC and CISC always have exactly the same number of general purpose registers"
       ],
-      "answer": "8"
+      "answer": "RISC designs use many general purpose registers to keep data inside the CPU"
     },
     {
       "type": "mcq",
-      "question": "What is the maximum value that can be represented in an 8-bit binary number?",
+      "question": "How is the control unit often implemented in a CISC processor?",
       "options": [
-        "255",
-        "256",
-        "128",
-        "1024"
+        "Using only simple fixed hardware circuits",
+        "Using a microprogram that stores sequences of micro instructions",
+        "Using a single general purpose register as a controller",
+        "Using a load–store architecture for control"
       ],
-      "answer": "255"
+      "answer": "Using a microprogram that stores sequences of micro instructions"
     },
     {
-      "type": "fill_blank",
-      "question": "The process of moving all bits in a binary number to the left or right and filling the emptied spaces with zeros is called a __________ shift.",
-      "answer": "Logical"
+      "type": "mcq",
+      "question": "Which statement about memory access is characteristic of CISC processors?",
+      "options": [
+        "Memory can only be accessed by special load and store instructions",
+        "Arithmetic instructions never access memory directly",
+        "Many instructions can load data from memory, operate on it, and store the result back in memory",
+        "Memory access is completely impossible during arithmetic operations"
+      ],
+      "answer": "Many instructions can load data from memory, operate on it, and store the result back in memory"
     },
     {
-      "type": "fill_blank",
-      "question": "In binary addition, if the result is too large for the register to hold, this is called an __________ error.",
-      "answer": "Overflow"
+      "type": "mcq",
+      "question": "Why is pipelining generally easier to design in RISC processors than in CISC processors?",
+      "options": [
+        "RISC instructions are variable length and complex",
+        "RISC instructions are simple and regular, often completing in a single cycle",
+        "CISC processors do not support pipelining at all",
+        "RISC processors do not use registers, so pipelines are simpler"
+      ],
+      "answer": "RISC instructions are simple and regular, often completing in a single cycle"
     },
     {
-      "type": "fill_blank",
-      "question": "Each hexadecimal digit can be represented by exactly ___ binary bits.",
-      "answer": "4"
+      "type": "mcq",
+      "question": "In the example from the notes, how does a CISC processor differ from a RISC processor when adding two values stored in memory locations A and B?",
+      "options": [
+        "CISC must always use four separate instructions to load, add and store",
+        "CISC uses a single instruction such as ADD A, B to load, add and store in one step",
+        "CISC cannot access memory during arithmetic instructions",
+        "CISC can only operate on registers and never on memory addresses"
+      ],
+      "answer": "CISC uses a single instruction such as ADD A, B to load, add and store in one step"
     },
     {
-      "type": "true_false",
-      "question": "Digital data can take any value, just like analogue data.",
-      "answer": "False"
+      "type": "mcq",
+      "question": "In standard interrupt handling for a non pipelined processor, what is the first action when an interrupt occurs?",
+      "options": [
+        "Immediately jump to the interrupt service routine without finishing the current instruction",
+        "Stop the processor and clear all registers",
+        "Allow the current instruction to finish before responding to the interrupt",
+        "Save only the program counter and ignore the current instruction"
+      ],
+      "answer": "Allow the current instruction to finish before responding to the interrupt"
     },
     {
-      "type": "true_false",
-      "question": "In two’s complement, the most significant bit represents the sign of the number.",
-      "answer": "True"
+      "type": "mcq",
+      "question": "Which description best matches an interrupt service routine (ISR)?",
+      "options": [
+        "A table that stores interrupt numbers and starting addresses",
+        "A special program that deals with a specific kind of interrupt",
+        "A hardware register that holds the current program counter",
+        "A microprogram that decodes complex instructions"
+      ],
+      "answer": "A special program that deals with a specific kind of interrupt"
     },
     {
-      "type": "true_false",
-      "question": "The denary number system is also known as base 16.",
-      "answer": "False"
+      "type": "mcq",
+      "question": "What is the role of the interrupt vector table in the interrupt handling process described?",
+      "options": [
+        "It stores the current contents of all general purpose registers",
+        "It stores a list of all running processes in the operating system",
+        "It stores the starting addresses of the interrupt service routines for each type of interrupt",
+        "It stores the machine code for all user programs"
+      ],
+      "answer": "It stores the starting addresses of the interrupt service routines for each type of interrupt"
+    },
+    {
+      "type": "mcq",
+      "question": "In a pipelined RISC processor, which strategy described reduces the delay before starting the interrupt service routine but increases the complexity of the hardware and control logic?",
+      "options": [
+        "Ignoring the interrupt until the pipeline is empty",
+        "Letting all instructions in the pipeline finish before servicing the interrupt",
+        "Saving the complete state of all instructions that are currently in the pipeline as soon as the interrupt occurs",
+        "Flushing the pipeline without saving any state and restarting program execution"
+      ],
+      "answer": "Saving the complete state of all instructions that are currently in the pipeline as soon as the interrupt occurs"
+    },
+    {
+      "type": "mcq",
+      "question": "What is the main idea of pipelining in a RISC processor?",
+      "options": [
+        "Executing multiple instructions in the same stage simultaneously",
+        "Dividing instruction execution into stages so several instructions are processed at the same time in different stages",
+        "Executing only one instruction at a time with no overlap",
+        "Storing all instructions in main memory instead of registers"
+      ],
+      "answer": "Dividing instruction execution into stages so several instructions are processed at the same time in different stages"
     },
     {
       "type": "match",
-      "question": "Match the term with its correct definition:",
+      "question": "Match each pipeline stage with its main role, according to the five stage pipeline described.",
       "pairs": {
-        "Register": "Used to temporarily hold binary data",
-        "Logic gate": "Basic building block for processing digital data",
-        "Two’s complement": "Method to represent negative binary"
+        "Instruction Fetch (IF)": "The next instruction is read from memory",
+        "Instruction Decode (ID)": "The instruction is decoded so the processor knows what operation to perform",
+        "Operand Fetch (OF)": "The required data values are read from registers",
+        "Instruction Execute (IE)": "The arithmetic or logic operation is carried out",
+        "Write Back (WB)": "The result is written back into a register"
       }
     },
     {
-      "type": "fill_blank",
-      "question": "Convert the binary number 1101 to denary: __________",
-      "answer": "13"
+      "type": "mcq",
+      "question": "After a five stage pipeline has been filled, what throughput effect is described?",
+      "options": [
+        "One instruction completes every five cycles",
+        "One instruction completes every ten cycles",
+        "One instruction completes on every clock cycle",
+        "No instruction completes once the pipeline is full"
+      ],
+      "answer": "One instruction completes on every clock cycle"
     },
     {
-      "type": "fill_blank",
-      "question": "What is the hexadecimal equivalent of the denary number 15? __________",
-      "answer": "F"
+      "type": "mcq",
+      "question": "Which statement correctly describes registers in the context of the notes on RISC and pipelining?",
+      "options": [
+        "Registers are large, slow storage locations in main memory",
+        "Registers are small, fast storage locations inside the CPU that hold instructions, data and addresses",
+        "Registers are only used to store the program counter",
+        "Registers are only used in CISC processors"
+      ],
+      "answer": "Registers are small, fast storage locations inside the CPU that hold instructions, data and addresses"
     },
     {
-      "type": "fill_blank",
-      "question": "What is the binary value for the hexadecimal digit C? __________",
-      "answer": "1100"
+      "type": "mcq",
+      "question": "Why does pipelining benefit from having many general purpose registers in RISC architectures,?",
+      "options": [
+        "Because registers remove the need for instruction fetch",
+        "Because pipeline stages can operate more independently when operands and results are kept in registers instead of main memory",
+        "Because registers make the pipeline stages longer and slower",
+        "Because registers remove the need for an instruction decode stage"
+      ],
+      "answer": "Because pipeline stages can operate more independently when operands and results are kept in registers instead of main memory"
+    },
+    {
+      "type": "match",
+      "question": "Match each architecture with its description,.",
+      "pairs": {
+        "SISD": "One processor executes a single instruction stream on a single data stream",
+        "SIMD": "One instruction stream is applied to many data items simultaneously",
+        "MISD": "Several instruction streams all operate on the same data stream",
+        "MIMD": "Multiple processors each execute a different instruction stream on different data streams"
+      }
+    },
+    {
+      "type": "mcq",
+      "question": "which architecture is typically used in graphics processing, where the same operation is applied simultaneously to every pixel in an image?",
+      "options": [
+        "SISD",
+        "SIMD",
+        "MISD",
+        "MIMD"
+      ],
+      "answer": "SIMD"
+    },
+    {
+      "type": "mcq",
+      "question": "modern multicore processors are examples of which architecture, because each core can work on a separate task or on a different part of a large problem?",
+      "options": [
+        "SISD",
+        "SIMD",
+        "MISD",
+        "MIMD"
+      ],
+      "answer": "MIMD"
+    },
+    {
+      "type": "mcq",
+      "question": "What is the key characteristic of massively parallel computers?",
+      "options": [
+        "A single processor that runs one program step by step",
+        "A small number of processors sharing a single bus",
+        "A very high number of processors working together on the same overall problem",
+        "One processor that emulates many virtual processors in software"
+      ],
+      "answer": "A very high number of processors working together on the same overall problem"
+    },
+    {
+      "type": "mcq",
+      "question": "how is the work typically divided in massively parallel systems?",
+      "options": [
+        "All processors execute exactly the same program on the same data",
+        "Each processor is responsible for a portion of the total data or for a specific subtask",
+        "Only one processor works while the others remain idle",
+        "Each processor executes random instructions without coordination"
+      ],
+      "answer": "Each processor is responsible for a portion of the total data or for a specific subtask"
+    },
+    {
+      "type": "mcq",
+      "question": "What requirement is stated for algorithms used on massively parallel computers?",
+      "options": [
+        "They must keep all work in a single sequential thread",
+        "They must be designed so that work can be divided into many independent or nearly independent pieces with limited communication and synchronisation",
+        "They must avoid dividing work into subtasks",
+        "They must always use a single shared data stream"
+      ],
+      "answer": "They must be designed so that work can be divided into many independent or nearly independent pieces with limited communication and synchronisation"
+    },
+    {
+      "type": "mcq",
+      "question": "Which statement best defines a virtual machine (VM)?",
+      "options": [
+        "A physical computer with multiple processors",
+        "An emulation of a complete computer system that behaves like a separate computer but runs as software",
+        "A single process running inside an operating system",
+        "A hardware device that replaces the operating system"
+      ],
+      "answer": "An emulation of a complete computer system that behaves like a separate computer but runs as software"
+    },
+    {
+      "type": "match",
+      "question": "Match each term with its description.",
+      "pairs": {
+        "Host operating system (host OS)": "The operating system that directly controls the physical hardware of the computer",
+        "Guest operating system (guest OS)": "The operating system that runs inside the virtual machine and controls its virtual hardware",
+        "Hypervisor": "The virtual machine software that creates, starts, stops and manages virtual machines"
+      }
+    },
+    {
+      "type": "mcq",
+      "question": "How does the hypervisor handle the interaction between the guest operating system and the physical hardware,?",
+      "options": [
+        "The guest OS interacts directly with the physical hardware without any translation",
+        "The hypervisor blocks all hardware access from the guest OS",
+        "The guest OS interacts with virtual hardware, and the hypervisor translates these operations into real operations on the physical hardware",
+        "The guest OS can only access disk devices directly, not other hardware"
+      ],
+      "answer": "The guest OS interacts with virtual hardware, and the hypervisor translates these operations into real operations on the physical hardware"
+    },
+    {
+      "type": "mcq",
+      "question": "Which benefit of virtual machines refers specifically to running several virtual machines on a single physical computer to reduce hardware and energy costs?",
+      "options": [
+        "Compatibility",
+        "Legacy software support",
+        "Flexibility",
+        "Cost reduction"
+      ],
+      "answer": "Cost reduction"
+    },
+    {
+      "type": "match",
+      "question": "Match each benefit of virtual machines with its description,.",
+      "pairs": {
+        "Compatibility": "Applications written for one platform can run on a different hardware and operating system platform by using a suitable VM",
+        "Legacy software support": "Old software that cannot run directly on modern hardware or operating systems can run inside a VM that emulates the original environment",
+        "Flexibility": "New operating systems and configurations can be tested on virtual hardware without buying extra physical computers",
+        "Isolation and protection": "If a guest OS crashes or is infected with malware, the effects are confined to that VM rather than affecting the host or other VMs"
+      }
+    },
+    {
+      "type": "match",
+      "question": "Match each limitation of virtual machines with its description.",
+      "pairs": {
+        "Performance overhead": "Sharing CPU, memory and input/output resources between the host and all guests can make programs inside virtual machines run more slowly",
+        "Measurement difficulty": "It can be hard to obtain accurate performance measurements from inside a guest OS because activity in other VMs or in the host may affect timing",
+        "Hardware support limitations": "Very new, unusual or highly specialised hardware devices may not be fully supported by the virtual machine",
+        "Dependence on the host": "If the physical machine fails, runs out of resources or is infected with malware, all virtual machines running on it are affected",
+        "Maintenance complexity": "Both the host operating system and every guest operating system must be installed, configured, updated and secured"
+      }
     }
   ]
 }

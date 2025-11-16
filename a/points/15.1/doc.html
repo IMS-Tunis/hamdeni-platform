@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-NRRL1TSE7Z"></script>
 <script>
@@ -11,14 +12,865 @@
   gtag('config', 'G-NRRL1TSE7Z');
 </script>
 
-  <meta charset="UTF-8">
-  <title>Content not ready</title>
-  <link rel="stylesheet" href="igcse-style.css">
-<script defer src="/assets/js/paste-guard.js"></script>
+
+  <meta charset="UTF-8" />
+  <title>IGCSE 15.1 - Processors, Parallel Processing and Virtual Machines</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #0f172a, #020617 55%, #020617 100%);
+      color: #e5e7eb;
+      line-height: 1.6;
+      padding: 2rem 1rem 4rem;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    body.light-mode {
+      background: #e5e7eb;
+      color: #111827;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: rgba(15, 23, 42, 0.93);
+      border-radius: 1.5rem;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      overflow: hidden;
+      transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    body.light-mode .page {
+      background: #ffffff;
+      border-color: #e5e7eb;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+    }
+
+    header {
+      padding: 2rem 3rem 1.75rem;
+      background: radial-gradient(circle at top left, #0ea5e9 0, #1d4ed8 30%, #020617 75%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    body.light-mode header {
+      background: radial-gradient(circle at top left, #bfdbfe 0, #60a5fa 30%, #1e293b 75%);
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(251, 191, 36, 0.25), transparent 55%);
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    .header-inner { position: relative; z-index: 1; }
+
+    h1 {
+      font-size: 1.9rem;       /* smaller to keep one line */
+      font-weight: 700;
+      color: #f9fafb;
+      margin-bottom: 0.4rem;
+      letter-spacing: 0.02em;
+    }
+
+    body.light-mode h1 {
+      color: #f9fafb;
+    }
+
+    .subtitle {
+      color: #e5e7eb;
+      opacity: 0.95;
+      font-size: 0.98rem;
+    }
+
+    body.light-mode .subtitle {
+      color: #e5e7eb;
+    }
+
+    .header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .theme-toggle {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(191, 219, 254, 0.8);
+      background: rgba(15, 23, 42, 0.75);
+      color: #e5e7eb;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s, transform 0.1s;
+      white-space: nowrap;
+    }
+
+    .theme-toggle span.icon {
+      width: 0.55rem;
+      height: 0.55rem;
+      border-radius: 999px;
+      background: #facc15;
+    }
+
+    body.light-mode .theme-toggle span.icon {
+      background: #0f172a;
+    }
+
+    .theme-toggle:hover {
+      background: rgba(15, 23, 42, 0.9);
+      border-color: #facc15;
+      transform: translateY(-1px);
+    }
+
+    body.light-mode .theme-toggle {
+      background: rgba(15, 23, 42, 0.85);
+      color: #e5e7eb;
+    }
+
+    main { padding: 2rem 3rem 2.5rem; }
+
+    @media (max-width: 768px) {
+      header { padding: 2rem 1.5rem 1.5rem; }
+      main { padding: 1.75rem 1.25rem 2rem; }
+      .header-bar { flex-direction: column-reverse; align-items: flex-start; }
+    }
+
+    .pill-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .pill-button {
+      font-size: 0.8rem;
+      border-radius: 999px;
+      padding: 0.3rem 0.8rem;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.7);
+      color: #e5e7eb;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s, transform 0.1s;
+    }
+
+    .pill-button:hover {
+      background: rgba(59, 130, 246, 0.25);
+      border-color: rgba(59, 130, 246, 0.9);
+      transform: translateY(-1px);
+    }
+
+    .pill-button.active {
+      background: rgba(59, 130, 246, 0.9);
+      border-color: rgba(191, 219, 254, 1);
+      color: #f9fafb;
+    }
+
+    body.light-mode .pill-button {
+      background: #e5e7eb;
+      color: #111827;
+      border-color: #cbd5f5;
+    }
+
+    body.light-mode .pill-button.active {
+      background: #2563eb;
+      color: #ffffff;
+      border-color: #93c5fd;
+    }
+
+    /* Main topic cards and headings */
+
+    section.topic {
+      position: relative;
+      margin: 2.4rem 0;
+      padding: 1.7rem 1.7rem 1.3rem;
+      border-radius: 1.2rem;
+      background: radial-gradient(circle at top left, rgba(37, 99, 235, 0.28), rgba(15, 23, 42, 0.98));
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
+      transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    body.light-mode section.topic {
+      background: #f9fafb;
+      border-color: #e5e7eb;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+    }
+
+    /* visual separator band before each major section */
+    section.topic::before {
+      content: "";
+      position: absolute;
+      top: -1.1rem;
+      left: 1.7rem;
+      right: 1.7rem;
+      height: 3px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #0ea5e9, #6366f1, #f97316);
+      opacity: 0.9;
+    }
+
+    .topic-header {
+      margin-bottom: 0.75rem;
+    }
+
+    .topic-title {
+      font-size: 1.2rem;
+      font-weight: 750;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #f9fafb;
+    }
+
+    body.light-mode .topic-title {
+      color: #111827;
+    }
+
+    section.topic.compact {
+      margin: 1.2rem 0;
+      padding: 1.25rem 1.35rem 1.1rem;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.92));
+      border-radius: 1rem;
+      box-shadow: none;
+    }
+
+    body.light-mode section.topic.compact {
+      background: #f3f4f6;
+      border-color: #e5e7eb;
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.06);
+    }
+
+    section.topic.compact::before {
+      display: none;
+    }
+
+    p {
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      color: #e5e7eb;
+    }
+
+    ul {
+      margin-left: 1.25rem;
+      margin-bottom: 0.4rem;
+    }
+
+    li {
+      margin-bottom: 0.2rem;
+      font-size: 0.9rem;
+      color: #e5e7eb;
+    }
+
+    body.light-mode p,
+    body.light-mode li {
+      color: #111827;
+    }
+
+    .keyword {
+      color: #fbbf24;
+      font-weight: 600;
+    }
+
+    body.light-mode .keyword {
+      color: #b45309;
+    }
+
+    .subtle-keyword {
+      color: #38bdf8;
+      font-weight: 500;
+    }
+
+    body.light-mode .subtle-keyword {
+      color: #0369a1;
+    }
+
+    .soft {
+      color: #cbd5f5;
+      font-size: 0.86rem;
+      opacity: 0.95;
+    }
+
+    body.light-mode .soft {
+      color: #4b5563;
+      opacity: 1;
+    }
+
+    .example-box {
+      margin-top: 0.5rem;
+      padding: 0.75rem 0.9rem;
+      border-radius: 0.9rem;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px dashed rgba(148, 163, 184, 0.7);
+      font-size: 0.85rem;
+    }
+
+    body.light-mode .example-box {
+      background: #f3f4f6;
+      border-color: #d1d5db;
+    }
+
+    .example-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #a5b4fc;
+      margin-bottom: 0.25rem;
+      font-weight: 600;
+    }
+
+    body.light-mode .example-label {
+      color: #4f46e5;
+    }
+
+    .code-inline {
+      font-family: "JetBrains Mono", "Fira Code", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.8rem;
+      background: rgba(15, 23, 42, 0.9);
+      padding: 0 0.3rem;
+      border-radius: 0.4rem;
+      border: 1px solid rgba(55, 65, 81, 0.8);
+      color: #bbf7d0;
+    }
+
+    body.light-mode .code-inline {
+      background: #111827;
+      border-color: #1f2937;
+      color: #bbf7d0;
+    }
+
+    .code-block {
+      margin-top: 0.35rem;
+      background: #020617;
+      border-radius: 0.75rem;
+      padding: 0.65rem 0.8rem;
+      font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.78rem;
+      border: 1px solid rgba(31, 41, 55, 0.95);
+      overflow-x: auto;
+      white-space: pre;
+      color: #e5e7eb;
+    }
+
+    body.light-mode .code-block {
+      background: #111827;
+      border-color: #1f2937;
+      color: #e5e7eb;
+    }
+
+    .compare-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 0.6rem;
+    }
+
+    .compare-card {
+      border-radius: 0.9rem;
+      padding: 0.8rem 0.85rem;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(51, 65, 85, 0.95);
+      font-size: 0.85rem;
+    }
+
+    body.light-mode .compare-card {
+      background: #f9fafb;
+      border-color: #d1d5db;
+    }
+
+    .compare-title {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      color: #fbbf24;
+      font-size: 0.9rem;
+    }
+
+    body.light-mode .compare-title {
+      color: #b45309;
+    }
+
+    .small-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.5rem;
+      font-size: 0.8rem;
+    }
+
+    .small-table th,
+    .small-table td {
+      border: 1px solid rgba(55, 65, 81, 0.95);
+      padding: 0.3rem 0.4rem;
+      text-align: left;
+      color: #e5e7eb;
+    }
+
+    .small-table th {
+      background: rgba(15, 23, 42, 0.95);
+      font-weight: 600;
+    }
+
+    .small-table tr:nth-child(even) td {
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    body.light-mode .small-table th,
+    body.light-mode .small-table td {
+      border-color: #d1d5db;
+      color: #111827;
+    }
+
+    body.light-mode .small-table th {
+      background: #e5e7eb;
+    }
+
+    body.light-mode .small-table tr:nth-child(even) td {
+      background: #f3f4f6;
+    }
+
+    /* Illustration figures */
+    figure.illustration {
+      margin: 0.9rem auto 0.6rem;
+      text-align: center;
+    }
+
+    figure.illustration img {
+      width: 70%;
+      max-width: 420px;
+      height: auto;
+      border-radius: 0.9rem;
+      border: 1px solid rgba(55, 65, 81, 0.95);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.7);
+      background: #0b1120;
+    }
+
+    body.light-mode figure.illustration img {
+      border-color: #d1d5db;
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.18);
+      background: #ffffff;
+    }
+
+    figure.illustration figcaption {
+      margin-top: 0.35rem;
+      font-size: 0.8rem;
+      color: #9ca3af;
+    }
+
+    body.light-mode figure.illustration figcaption {
+      color: #4b5563;
+    }
+
+    @media (max-width: 640px) {
+      figure.illustration img {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+  </style>
 </head>
-<body>
-   <div class="container">
-    <h1>Content will be ready soon!</h1>
-   
+<body class="dark-mode">
+  <div class="page">
+    <header>
+      <div class="header-bar">
+        <div class="header-inner">
+          <h1>15.1 Processors, Parallel Processing and Virtual Machines</h1>
+          <p class="subtitle">A level theory notes prepared by Dr. Hamdeni</p>
+        </div>
+        <button id="themeToggle" class="theme-toggle" type="button">
+          <span class="icon"></span>
+          <span class="label">Light mode</span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <nav class="pill-nav" aria-label="Lesson sections">
+        <button class="pill-button active" data-target="topic-15-1a">15.1a RISC and CISC</button>
+        <button class="pill-button" data-target="topic-15-1b">15.1b Pipelining and Registers</button>
+        <button class="pill-button" data-target="topic-15-1c">15.1c SISD SIMD MISD MIMD</button>
+        <button class="pill-button" data-target="topic-15-1d">15.1d Massively Parallel Computers</button>
+        <button class="pill-button" data-target="topic-15-1e">15.1e Virtual Machines</button>
+      </nav>
+
+      <!-- 15.1a -->
+      <section id="topic-15-1a" class="topic">
+        <div class="topic-header">
+          <h2 class="topic-title">15.1a RISC and CISC processors, including interrupt handling</h2>
+        </div>
+
+        <p><span class="keyword">RISC</span> processors use a relatively small instruction set made of simple, fixed length instructions. Most instructions are designed to execute in a single clock cycle, which makes the design regular and supports fast pipelines.</p>
+        <ul>
+          <li>RISC instructions have only a few formats and a small number of <span class="keyword">addressing modes</span>, which simplifies the hardware and makes pipelining easier to design and implement.</li>
+          <li>RISC designs use many <span class="keyword">general purpose registers</span> so that data can be kept inside the CPU instead of repeatedly accessing main memory.</li>
+          <li>Memory is usually accessed only by dedicated <span class="keyword">load</span> and <span class="keyword">store</span> instructions. Arithmetic and logic instructions work only on data in registers. This is called a <span class="keyword">load store architecture</span>.</li>
+          <li>In many RISC processors, the <span class="keyword">control unit</span> is implemented using simple fixed hardware circuits rather than using a stored microprogram. This reduces decoding work and helps the processor run at a high clock speed.</li>
+          <li><span class="keyword">Pipelining</span> is used extensively in RISC processors. The simple, regular instruction format and single cycle execution make it easier to overlap the execution of successive instructions.</li>
+        </ul>
+
+        <div class="example-box">
+          <div class="example-label">Example - adding two numbers in a RISC processor</div>
+          <p>To add the values stored at memory addresses <span class="code-inline">A</span> and <span class="code-inline">B</span> and store the result at address <span class="code-inline">C</span>:</p>
+          <div class="code-block">
+LOAD R1, A      ; load value at memory address A into register R1
+LOAD R2, B      ; load value at memory address B into register R2
+ADD  R3, R1, R2 ; add values in R1 and R2 and store result in R3
+STORE R3, C     ; store value in R3 into memory address C
+          </div>
+          <p class="soft">These four simple RISC instructions together perform the same work that a single complex CISC instruction might perform.</p>
+        </div>
+
+        <div class="compare-grid" style="margin-top: 1rem;">
+          <div class="compare-card">
+            <div class="compare-title">CISC processors</div>
+            <ul>
+              <li><span class="keyword">CISC</span> processors have a large and complex instruction set with many different instruction formats and addressing modes.</li>
+              <li>Instructions are often variable length and may take several clock cycles to execute.</li>
+              <li>Many CISC instructions can access <span class="keyword">memory directly</span>. A single instruction might load data from memory, perform an operation and store the result back in memory.</li>
+              <li>There are usually fewer general purpose registers than in RISC designs, and the hardware needed to decode and execute the rich set of instructions is more complex.</li>
+              <li>The control unit in a CISC processor is often <span class="keyword">microprogrammed</span>, meaning that the actions needed to execute each machine code instruction are stored as a sequence of simpler <span class="subtle-keyword">micro instructions</span>.</li>
+              <li>Because CISC instructions are more complex and less regular, pipelines for CISC processors are harder to design and may be less efficient than pipelines for RISC processors.</li>
+            </ul>
+            <div class="example-box" style="margin-top: 0.5rem;">
+              <div class="example-label">Example - adding two numbers in a CISC processor</div>
+              <div class="code-block">ADD A, B      ; load value at A, add value at B, store result back at A</div>
+            </div>
+          </div>
+
+          <div class="compare-card">
+            <div class="compare-title">RISC and CISC - summary table</div>
+            <table class="small-table">
+              <thead>
+                <tr>
+                  <th>Feature</th>
+                  <th>RISC</th>
+                  <th>CISC</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Instruction set size</td>
+                  <td>Small, simple</td>
+                  <td>Large, complex</td>
+                </tr>
+                <tr>
+                  <td>Instruction length</td>
+                  <td>Mainly fixed</td>
+                  <td>Often variable</td>
+                </tr>
+                <tr>
+                  <td>Clock cycles per instruction</td>
+                  <td>Usually 1</td>
+                  <td>Often more than 1</td>
+                </tr>
+                <tr>
+                  <td>Memory access</td>
+                  <td>Load and store only</td>
+                  <td>Many instructions access memory</td>
+                </tr>
+                <tr>
+                  <td>Control unit</td>
+                  <td>Hard wired</td>
+                  <td>Often microprogrammed</td>
+                </tr>
+                <tr>
+                  <td>Pipelining</td>
+                  <td>Regular and efficient</td>
+                  <td>More complex, less efficient</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <section class="topic compact" style="margin-top: 1.5rem;">
+          <div class="topic-header">
+            <h3 class="topic-title" style="font-size: 0.98rem; text-transform:none; letter-spacing:0.02em;">
+              Standard interrupt handling in a non pipelined processor
+            </h3>
+          </div>
+          <p>For both RISC and CISC processors without pipelining, the basic <span class="keyword">interrupt handling</span> mechanism is similar.</p>
+          <ul>
+            <li>The current instruction is allowed to finish before the processor responds to an interrupt.</li>
+            <li>The processor saves the current <span class="keyword">program counter</span> and the contents of the registers on a special memory area called the <span class="keyword">stack</span>.</li>
+            <li>The processor uses an <span class="keyword">interrupt vector table</span> that contains the starting addresses of all the <span class="keyword">interrupt service routines (ISRs)</span>. An interrupt number or identifier is used as an index into this table.</li>
+            <li>Program control then jumps to the ISR, which is a special piece of code that deals with this kind of interrupt.</li>
+            <li>While the ISR is running, further interrupts are usually disabled so that the current interrupt is handled completely before another one starts.</li>
+            <li>When the ISR has finished its work, it restores the saved registers and program counter from the stack and re enables interrupts.</li>
+            <li>Normal program execution then resumes from the point where it was interrupted.</li>
+          </ul>
+        </section>
+
+        <section class="topic compact">
+          <div class="topic-header">
+            <h3 class="topic-title" style="font-size: 0.98rem; text-transform:none; letter-spacing:0.02em;">
+              Interrupt handling in a pipelined RISC processor
+            </h3>
+          </div>
+          <p>In a pipelined <span class="keyword">RISC</span> processor, several instructions are active at the same time in different pipeline stages. An interrupt can therefore occur while many instructions are partway through execution.</p>
+          <ul>
+            <li>One strategy is to let all of the instructions currently in the pipeline finish before servicing the interrupt. This creates a delay between the interrupt and the start of the ISR, but the processor only needs to save the usual registers after the last in pipeline instruction has completed.</li>
+            <li>A second strategy is to save the complete state of all instructions that are currently in the pipeline as soon as the interrupt occurs. This means saving the relevant registers or pipeline registers for each stage. After the ISR has finished, the processor restores this saved state and the interrupted instructions continue from exactly where they left off. This reduces the delay but increases the complexity and overhead of the interrupt handling mechanism.</li>
+          </ul>
+        </section>
+      </section>
+
+      <!-- 15.1b -->
+      <section id="topic-15-1b" class="topic">
+        <div class="topic-header">
+          <h2 class="topic-title">15.1b Importance and use of pipelining and registers in RISC processors</h2>
+        </div>
+
+        <p><span class="keyword">Pipelining</span> divides instruction execution into separate stages and allows multiple instructions to be processed at the same time, each in a different stage.</p>
+        <ul>
+          <li>A typical RISC pipeline is organised into five stages:
+            <ul>
+              <li><span class="keyword">Instruction Fetch (IF)</span>: the next instruction is read from memory.</li>
+              <li><span class="keyword">Instruction Decode (ID)</span>: the instruction is decoded so the processor knows what operation to perform.</li>
+              <li><span class="keyword">Operand Fetch (OF)</span>: the data values, or operands, required by the instruction are read from registers.</li>
+              <li><span class="keyword">Instruction Execute (IE)</span>: the arithmetic or logic operation is carried out.</li>
+              <li><span class="keyword">Write Back (WB)</span>: the result of the instruction is written back into a register.</li>
+            </ul>
+          </li>
+          <li>Each stage is designed to take one clock cycle. After the pipeline has been filled, a new instruction enters the pipeline on each clock cycle and one completed instruction leaves the pipeline on each cycle.</li>
+        </ul>
+
+        <!-- Illustration: pipeline timing table -->
+        <figure class="illustration">
+          <img src="pipeline_timing.png" alt="Pipeline timing diagram showing IF, ID, OF, IE, WB units across clock cycles" />
+          <figcaption>
+            Pipeline timing for a sequence of instructions. Each row is a pipeline unit and each column is a clock cycle, showing how several instructions overlap in time.
+          </figcaption>
+        </figure>
+
+        <div class="example-box">
+          <div class="example-label">Example - cycles with and without pipelining</div>
+          <p class="soft">If every instruction needed five cycles to complete, then six instructions without pipelining would take about <span class="keyword">30 cycles</span> in total.</p>
+          <p class="soft">With a five stage pipeline, the same six instructions would take about <span class="keyword">10 cycles</span>, because once the pipeline is full the instructions overlap in time.</p>
+        </div>
+
+        <p style="margin-top: 1rem;">Registers are very small and very fast storage locations inside the CPU that temporarily hold <span class="keyword">instructions</span>, <span class="keyword">data</span> and <span class="keyword">addresses</span> during execution.</p>
+        <ul>
+          <li>RISC architectures provide many general purpose registers and sometimes several sets of registers. This allows data to remain in the CPU for longer and reduces the number of slow accesses to main memory.</li>
+          <li>Pipelining benefits from having many registers, because each pipeline stage needs rapid access to its input operands and to its results.</li>
+          <li>If operands and results are in registers rather than in main memory, pipeline stages can operate more independently and efficiently.</li>
+        </ul>
+      </section>
+
+      <!-- 15.1c -->
+      <section id="topic-15-1c" class="topic">
+        <div class="topic-header">
+          <h2 class="topic-title">15.1c Four basic computer architectures: SISD, SIMD, MISD, MIMD</h2>
+        </div>
+
+        <p>The four architectures describe how <span class="keyword">instruction streams</span> and <span class="keyword">data streams</span> are related in a computer system.</p>
+
+        <div class="compare-grid" style="margin-top: 0.6rem;">
+          <div class="compare-card">
+            <div class="compare-title">SISD - Single Instruction Single Data</div>
+            <ul>
+              <li>A SISD architecture has one processor that executes a single instruction stream on a single data stream.</li>
+              <li>Instructions are carried out one after another in strict sequence, so there is no built in parallel processing.</li>
+              <li>This corresponds to a conventional <span class="keyword">single core</span> computer that runs one program step by step.</li>
+            </ul>
+          </div>
+
+          <div class="compare-card">
+            <div class="compare-title">SIMD - Single Instruction Multiple Data</div>
+            <ul>
+              <li>A SIMD architecture uses one instruction stream that is applied to many data items at the same time.</li>
+              <li>A large number of processing units carry out exactly the same instruction at the same moment, but each unit uses a different data value.</li>
+              <li>A common example is <span class="keyword">graphics processing</span>, where the same operation, such as increasing brightness, is applied simultaneously to every pixel in an image.</li>
+            </ul>
+          </div>
+
+          <div class="compare-card">
+            <div class="compare-title">MISD - Multiple Instruction Single Data</div>
+            <ul>
+              <li>A MISD architecture has several instruction streams that all operate on the same data stream.</li>
+              <li>This arrangement is rare in practical systems, but it can be imagined as several processors that all receive the same input data while each processor performs a different operation on it.</li>
+              <li>Such a configuration can be used in specialised <span class="keyword">fault tolerant</span> systems where different computations are performed on the same data and the results are compared to detect errors.</li>
+            </ul>
+          </div>
+
+          <div class="compare-card">
+            <div class="compare-title">MIMD - Multiple Instruction Multiple Data</div>
+            <ul>
+              <li>A MIMD architecture uses multiple processors that each execute a different instruction stream on a different data stream at the same time.</li>
+              <li>Each processor or core can run its own program on its own data set independently of the others.</li>
+              <li>Modern <span class="keyword">multicore processors</span> and many parallel computer systems are examples of MIMD architectures, since each core can work on a separate task or on a different part of a large problem.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 15.1d -->
+      <section id="topic-15-1d" class="topic">
+        <div class="topic-header">
+          <h2 class="topic-title">15.1d Characteristics of massively parallel computers</h2>
+        </div>
+
+        <p><span class="keyword">Massively parallel computers</span> are large scale parallel systems that contain a very high number of processors working together on the same overall problem.</p>
+        <ul>
+          <li>They are practical implementations of the <span class="keyword">MIMD</span> model in which many processors, each with its own instruction stream and data stream, cooperate by exchanging information over a communication network.</li>
+          <li>Instead of sharing a single bus, the processors are connected through an <span class="keyword">interconnection network</span> that allows them to send messages and coordinate their work.</li>
+          <li>In typical applications, each processor is responsible for a portion of the total data or for a specific subtask. The final result is obtained by combining the partial results produced by all processors.</li>
+          <li>Massively parallel systems are often used as <span class="keyword">supercomputers</span> for tasks such as climate modelling, weather forecasting, simulations of physical and biological processes and other demanding scientific and engineering problems.</li>
+          <li>To use a massively parallel computer effectively, algorithms must be designed so that the work can be divided into many independent or nearly independent pieces.</li>
+          <li>The amount of <span class="keyword">communication</span> and <span class="keyword">synchronisation</span> between processors must be kept as small as possible, otherwise communication delays can reduce performance.</li>
+        </ul>
+      </section>
+
+      <!-- 15.1e -->
+      <section id="topic-15-1e" class="topic">
+        <div class="topic-header">
+          <h2 class="topic-title">15.1e Virtual machines - concept, roles, benefits and limitations</h2>
+        </div>
+
+        <p>A <span class="keyword">virtual machine (VM)</span> is an <span class="keyword">emulation</span> of a complete computer system. It behaves like a separate computer with its own operating system and virtual hardware, but it runs as software on a real physical computer.</p>
+
+        <!-- Illustration: virtual machine stack -->
+        <figure class="illustration">
+          <img src="vm_layers.png" alt="Diagram showing host hardware, host OS, virtual machine software and multiple virtual machines with guest OS and applications" />
+          <figcaption>
+            Layered view of virtualisation. Host hardware and host OS run the virtual machine software, which provides separate virtual machines, each with its own guest OS and application programs.
+          </figcaption>
+        </figure>
+
+        <section class="topic compact" style="margin-top: 1rem;">
+          <div class="topic-header">
+            <h3 class="topic-title" style="font-size: 0.98rem; text-transform:none; letter-spacing:0.02em;">
+              Definition and key terms
+            </h3>
+          </div>
+          <ul>
+            <li><span class="keyword">Emulation</span> uses software to imitate the behaviour of another device or system. For example, software can imitate a different type of processor so that programs written for that processor can run on a computer that does not physically contain it.</li>
+            <li>The <span class="keyword">host operating system (host OS)</span> is the operating system that directly controls the physical hardware of the computer.</li>
+            <li>The <span class="keyword">guest operating system (guest OS)</span> is the operating system that runs inside the virtual machine and controls the virtual hardware that the VM software presents to it.</li>
+            <li>The <span class="keyword">hypervisor</span> is the virtual machine software that creates, starts, stops and manages virtual machines. It maps the virtual CPUs, memory, storage and devices used by each guest OS onto the real physical resources of the host computer.</li>
+            <li>Some virtual machines can emulate a completely different <span class="keyword">instruction set architecture</span>, which allows software compiled for one type of processor to run on a machine that uses a different type of processor.</li>
+          </ul>
+        </section>
+
+        <section class="topic compact">
+          <div class="topic-header">
+            <h3 class="topic-title" style="font-size: 0.98rem; text-transform:none; letter-spacing:0.02em;">
+              How a virtual machine operates
+            </h3>
+          </div>
+          <ul>
+            <li>Virtual machine software, the <span class="keyword">hypervisor</span>, is installed on the host computer.</li>
+            <li>When a virtual machine is started, the selected guest operating system boots in a window or in its own screen environment provided by the host.</li>
+            <li>From the point of view of the guest OS, it appears as if it is running on its own physical computer.</li>
+            <li>The guest OS interacts only with the <span class="keyword">virtual hardware</span> that the hypervisor exposes.</li>
+            <li>The hypervisor translates these virtual operations into real operations on the physical hardware.</li>
+            <li>Several virtual machines, each with a different guest operating system or configuration, can run at the same time on a single physical machine. The hypervisor shares processor time, memory and input output devices between them.</li>
+          </ul>
+        </section>
+
+        <section class="topic compact">
+          <div class="topic-header">
+            <h3 class="topic-title" style="font-size: 0.98rem; text-transform:none; letter-spacing:0.02em;">
+              Benefits of virtual machines
+            </h3>
+          </div>
+          <ul>
+            <li><span class="keyword">Compatibility</span>: virtual machines allow applications written for one platform to run on a different hardware and operating system platform by creating a suitable guest environment.</li>
+            <li><span class="keyword">Legacy software support</span>: old or legacy software that cannot run directly on modern hardware or operating systems can run inside a virtual machine that emulates the original environment.</li>
+            <li><span class="keyword">Flexibility</span>: new operating systems, system configurations or software installations can be tested on virtual hardware without buying extra physical computers.</li>
+            <li><span class="keyword">Isolation and protection</span>: if a guest operating system crashes, becomes misconfigured or is infected with malware, the effects are normally confined to that virtual machine. The host OS and other VMs are protected because the hypervisor isolates each guest environment.</li>
+            <li><span class="keyword">Cost reduction</span>: several virtual machines can run on a single physical computer. This reduces the number of physical machines that an organisation needs to purchase and maintain and can lower hardware and energy costs.</li>
+          </ul>
+        </section>
+
+        <section class="topic compact">
+          <div class="topic-header">
+            <h3 class="topic-title" style="font-size: 0.98rem; text-transform:none; letter-spacing:0.02em;">
+              Limitations and disadvantages of virtual machines
+            </h3>
+          </div>
+          <ul>
+            <li><span class="keyword">Performance overhead</span>: running a guest operating system through a hypervisor introduces extra work and uses additional memory. Programs running inside a VM usually run more slowly than the same programs running directly on physical hardware.</li>
+            <li><span class="keyword">Hardware support limitations</span>: a virtual machine might not fully support very new, unusual or highly specialised hardware devices. Some device specific features may not be available inside the guest OS.</li>
+            <li><span class="keyword">Measurement difficulty</span>: because the hypervisor is sharing resources between different VMs and the host, it can be harder to obtain accurate performance measurements from inside a guest OS.</li>
+            <li><span class="keyword">Dependence on the host</span>: if the host machine fails, runs out of resources or becomes infected with malware, all virtual machines running on it are affected.</li>
+            <li><span class="keyword">Maintenance complexity</span>: both the host operating system and every guest operating system must be installed, configured, updated and secured. Managing a virtualised environment can therefore be more complex and time consuming than managing a single non virtualised system.</li>
+          </ul>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // Theme toggle with localStorage
+    const body = document.body;
+    const themeToggle = document.getElementById("themeToggle");
+    const themeLabel = themeToggle.querySelector(".label");
+
+    function applyTheme(theme) {
+      if (theme === "light") {
+        body.classList.add("light-mode");
+        body.classList.remove("dark-mode");
+        themeLabel.textContent = "Dark mode";
+      } else {
+        body.classList.add("dark-mode");
+        body.classList.remove("light-mode");
+        themeLabel.textContent = "Light mode";
+      }
+    }
+
+    const storedTheme = window.localStorage.getItem("igcse151-theme");
+    applyTheme(storedTheme === "light" ? "light" : "dark");
+
+    themeToggle.addEventListener("click", () => {
+      const newTheme = body.classList.contains("light-mode") ? "dark" : "light";
+      applyTheme(newTheme);
+      window.localStorage.setItem("igcse151-theme", newTheme);
+    });
+
+    // Pill navigation - scroll only, content always visible
+    const pillButtons = document.querySelectorAll(".pill-button");
+
+    pillButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        const targetId = button.getAttribute("data-target");
+        const section = document.getElementById(targetId);
+        if (section) {
+          section.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+        pillButtons.forEach(b => b.classList.remove("active"));
+        button.classList.add("active");
+      });
+    });
+  </script>
+    <script>
+    const notifyParentOfSize = () => {
+      if (window.parent) {
+        const height = document.documentElement.scrollHeight;
+        window.parent.postMessage({ type: 'resize', height }, '*');
+      }
+    };
+
+    window.addEventListener('load', () => {
+      notifyParentOfSize();
+      setTimeout(notifyParentOfSize, 200);
+    });
+
+    if ('ResizeObserver' in window) {
+      const observer = new ResizeObserver(() => notifyParentOfSize());
+      observer.observe(document.body);
+    } else {
+      window.addEventListener('resize', notifyParentOfSize);
+    }
+  </script>
 </body>
 </html>
