@@ -87,22 +87,7 @@
       padding: 40px 20px 60px;
     }
 
-    .post-submission-heading {
-      margin: 30px 0;
-      padding: 18px 24px;
-      background: linear-gradient(135deg, #fff4e6, #fffaf0);
-      border-left: 6px solid #f2994a;
-      border-radius: 12px;
-      color: #6b3b0f;
-      font-size: 1.2em;
-      line-height: 1.5;
-      box-shadow: 0 4px 16px rgba(102, 59, 15, 0.12);
-    }
-
-    .question-card,
-    .submission-panel,
-    .mark-scheme,
-    #review-notes {
+    .question-card {
       background: #fff;
       border-radius: 18px;
       box-shadow: 0 20px 70px rgba(15, 23, 42, 0.1);
@@ -158,113 +143,10 @@
       color: #fff;
     }
 
-    .submission-panel h2 {
-      margin-top: 0;
-    }
-
-    .file-drop {
-      border: 2px dashed #94a3b8;
-      padding: 30px;
-      border-radius: 16px;
-      text-align: center;
-      cursor: pointer;
-      transition: border-color 0.2s ease, background 0.2s ease;
-      background: #f8fafc;
-      margin-bottom: 20px;
-    }
-    .file-drop:hover {
-      border-color: #2563eb;
-      background: #eef2ff;
-    }
-    .file-drop strong { display: block; margin-bottom: 10px; }
-    .file-drop.disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-      border-color: #cbd5f5;
-    }
-
-    #work-upload { display: none; }
-
-    .preview-wrapper {
-      margin-bottom: 20px;
-      text-align: center;
-    }
-    .preview-wrapper img {
-      max-width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.15);
-    }
-
-    textarea {
-      width: 100%;
-      border-radius: 12px;
-      border: 1px solid #cbd5f5;
-      padding: 12px 16px;
-      font-size: 1em;
-      resize: vertical;
-      min-height: 120px;
-      font-family: inherit;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    }
-    textarea:focus {
-      border-color: #2563eb;
-      outline: none;
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
-    }
-
-    .primary-btn {
-      border: none;
-      border-radius: 999px;
-      padding: 12px 32px;
-      font-size: 1.05em;
-      color: #fff;
-      background: linear-gradient(135deg, #2563eb, #7c3aed);
-      cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .primary-btn:hover:not(:disabled) {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 24px rgba(124, 58, 237, 0.35);
-    }
-    .primary-btn:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-    }
-
-    .mark-scheme {
-      border: 1px solid #ffe4c7;
-      background: #fffdf7;
-    }
-    .mark-scheme ul {
-      padding-left: 20px;
-    }
-
-    #submission-status {
-      font-weight: 600;
-      min-height: 24px;
-      margin-top: 12px;
-    }
-    #submission-status.success { color: #0f9d58; }
-    #submission-status.error { color: #d93025; }
-    #submission-status.info { color: #2563eb; }
-
-    #review-notes textarea {
-      min-height: 80px;
-      margin-bottom: 10px;
-    }
-    #review-notes button {
-      margin-bottom: 15px;
-    }
-    #notes-list {
-      list-style: disc;
-      padding-left: 22px;
-    }
-    #notes-list li { margin-bottom: 8px; }
-
     @media (max-width: 768px) {
       header { flex-direction: column; text-align: center; }
       .header-left, .header-right { margin-bottom: 10px; }
-      .question-card, .submission-panel, #review-notes, .mark-scheme {
+      .question-card {
         padding: 22px;
       }
     }
@@ -296,13 +178,8 @@
   </div>
 
   <main>
-    <h2 class="post-submission-heading">Answer the questions that appear in the PNG below. Upload a clear image of your workings, type your final answer, then check the mark scheme and note any weaknesses.</h2>
-
     <section class="question-card">
-      <h2>
-        <span>📄 Structured question image</span>
-        <button id="download-question" class="ghost-btn" type="button">Download PNG</button>
-      </h2>
+      <h2>📄 Structured question image</h2>
       <div class="question-image-wrapper">
         <img id="question-image" alt="Layer 3 question image" loading="lazy" />
       </div>
@@ -311,43 +188,9 @@
         <button id="regenerate-fallback" class="ghost-btn" type="button">Regenerate fallback image</button>
       </div>
     </section>
-
-    <section class="submission-panel" aria-labelledby="submit-heading">
-      <h2 id="submit-heading">📤 Upload your working and submit the answer</h2>
-      <p>Make sure your handwriting is readable. Upload an image (PNG/JPG/HEIC) that shows the full solution.</p>
-      <label class="file-drop" for="work-upload">
-        <strong>Drop your hand-written work or click to choose a file.</strong>
-        <span>Accepted formats: PNG, JPG, JPEG, HEIC</span>
-      </label>
-      <input type="file" id="work-upload" accept="image/png,image/jpeg,image/jpg,image/heic" />
-      <div class="preview-wrapper" id="preview-wrapper" hidden>
-        <p><strong>Preview:</strong></p>
-        <img id="work-preview" alt="Preview of uploaded work" />
-      </div>
-      <label for="typed-answer"><strong>Your final typed answer</strong></label>
-      <textarea id="typed-answer" placeholder="Type the final answer that matches your uploaded work..."></textarea>
-      <button id="submit-answer" class="primary-btn" type="button">Submit my answer</button>
-      <p id="submission-status" role="status"></p>
-    </section>
-
-    <section class="mark-scheme" id="mark-scheme" hidden>
-      <h2>✅ Mark scheme</h2>
-      <p>The mark scheme appears after you submit your answer.</p>
-      <ul id="mark-scheme-list"></ul>
-    </section>
-
     <div style="text-align:center; margin:20px;">
-      <button id="layer4-btn" class="nav-btn" disabled>Go to Layer 4</button>
+      <button id="layer4-btn" class="nav-btn">Go to Layer 4</button>
     </div>
-
-    <section id="review-notes">
-      <h2 id="notes-title">📝 My Notes</h2>
-      <textarea id="note-input" placeholder="Write the misconceptions you need to revise..."></textarea>
-      <button id="save-note-btn" class="primary-btn" type="button">Save note</button>
-      <p id="note-status" role="status"></p>
-      <ul id="notes-list"></ul>
-      <button id="export-btn" class="ghost-btn" type="button">Export my notes as PDF</button>
-    </section>
   </main>
 
   <script type="module" src="layer3.js"></script>
