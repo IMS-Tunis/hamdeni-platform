@@ -1,0 +1,19 @@
+{
+  "pointId": "15.1",
+  "questionImageUrl": "",
+  "questionImageAlt": "Layer 3 structured question for point 15.1",
+  "onedriveFolderUrl": "https://turkiyemaarif-my.sharepoint.com/:f:/g/personal/chams-eddine_hemdani_tn_maarifschools_org/EqoQ7tt1gxFPnmMc2EcMZNEBPUlyvDRUHW5SZVD_nGrOIQ?e=mK5ISH",
+  "fallbackLines": [
+    "Communication and Internet technologies (Point 15.1)",
+    "Layer 3 – Structured questions",
+    "",
+    "1. State one benefit of using binary in computers.",
+    "2. Define the term 'protocol' in networking.",
+    "3. Explain the purpose of an IP address."
+  ],
+  "markSchemeNotes": [
+    "Q1: Binary is simple for electronic circuits with two states (on/off).",
+    "Q2: A protocol is a set of rules that allow devices to communicate.",
+    "Q3: An IP address uniquely identifies a device on a network."
+  ]
+}
