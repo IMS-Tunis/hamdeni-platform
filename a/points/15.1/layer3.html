@@ -5,7 +5,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NRRL1TSE7Z"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag(){dataLayer.push(arguments);} 
     gtag('js', new Date());
     gtag('config', 'G-NRRL1TSE7Z');
   </script>
@@ -18,9 +18,10 @@
       --card: #ffffff;
       --text: #0f172a;
       --muted: #475569;
-      --primary: #2563eb;
-      --primary-dark: #1d4ed8;
+      --primary: #0b4d8c;
+      --primary-dark: #04305b;
       --accent: #10b981;
+      --border: #d6e3f3;
     }
 
     * { box-sizing: border-box; }
@@ -34,23 +35,59 @@
     }
 
     header {
-      background: linear-gradient(135deg, #0ea5e9, #6366f1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 22px;
+      background: linear-gradient(135deg, #062648, #0b4d8c);
       color: #fff;
-      padding: 28px 18px 22px;
-      text-align: center;
-      box-shadow: 0 12px 30px rgba(99, 102, 241, 0.25);
+      box-shadow: 0 12px 30px rgba(0, 26, 52, 0.35);
+      flex-wrap: wrap;
     }
 
-    header h1 {
-      margin: 0 0 8px;
-      font-size: 2rem;
-      letter-spacing: 0.4px;
+    .header-left,
+    .header-right { flex: 1; }
+
+    .header-left a { display: inline-flex; align-items: center; }
+
+    .header-center { flex: 2; text-align: center; }
+
+    .header-center h1 {
+      margin: 4px 0;
+      font-size: clamp(1.2rem, 3vw, 1.8rem);
+      letter-spacing: 0.5px;
     }
 
-    header h2 {
+    .header-center p {
       margin: 0;
-      font-weight: 500;
-      opacity: 0.95;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .info-line {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 6px;
+      flex-wrap: wrap;
+      font-weight: 600;
+    }
+
+    .logo { height: 54px; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      color: #e2e8f0;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin: 0;
+      text-transform: uppercase;
+      font-size: 0.9rem;
     }
 
     .page {
@@ -59,17 +96,8 @@
       padding: 28px 18px 60px;
     }
 
-    .top-actions {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-      align-items: center;
-      margin-bottom: 18px;
-    }
-
     .primary-btn {
-      background: linear-gradient(135deg, var(--primary), #5b8df7);
+      background: linear-gradient(135deg, var(--primary), #0f6fc0);
       color: #fff;
       border: none;
       border-radius: 10px;
@@ -78,22 +106,13 @@
       font-weight: 600;
       cursor: pointer;
       transition: transform 0.15s ease, box-shadow 0.2s ease, filter 0.2s ease;
-      box-shadow: 0 12px 24px rgba(37, 99, 235, 0.22);
+      box-shadow: 0 12px 24px rgba(11, 77, 140, 0.25);
+      width: 100%;
+      max-width: 320px;
     }
 
-    .primary-btn:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 16px 30px rgba(37, 99, 235, 0.28); }
+    .primary-btn:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 16px 30px rgba(11, 77, 140, 0.3); }
     .primary-btn:disabled { cursor: not-allowed; opacity: 0.6; filter: grayscale(0.4); }
-
-    .pill {
-      background: rgba(37, 99, 235, 0.1);
-      color: var(--primary);
-      padding: 8px 14px;
-      border-radius: 999px;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
 
     .card {
       background: var(--card);
@@ -101,21 +120,69 @@
       padding: 22px;
       box-shadow: 0 14px 45px rgba(15, 23, 42, 0.1);
       margin-bottom: 20px;
+      border: 1px solid #e2e8f0;
     }
 
-    .intro p { margin: 6px 0; color: var(--muted); }
+    .card-header { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .card-header h3 { margin: 0; }
+
+    .label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: #eef3fb;
+      color: var(--primary);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      font-size: 0.9rem;
+    }
+
+    .instruction-body {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-top: 12px;
+    }
+
+    .instruction-copy {
+      background: #f8fafc;
+      border: 1px dashed var(--border);
+      border-radius: 14px;
+      padding: 14px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .instruction-copy ul { margin: 0; padding-left: 20px; }
 
     .file-rules {
-      border: 1px dashed #cbd5f5;
+      border: 1px dashed var(--border);
       background: #f8fafc;
       border-radius: 14px;
-      padding: 16px;
+      padding: 14px;
       display: grid;
       gap: 8px;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      color: var(--text);
     }
 
     .file-rules strong { color: var(--text); }
+
+    .filename-note { margin: 0 0 6px; color: var(--muted); font-size: 0.95rem; }
+
+    .submission-access { margin-top: 16px; text-align: center; }
+
+    .status-message {
+      margin-top: 8px;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .status-message.success { color: #047857; }
+    .status-message.error { color: #dc2626; }
 
     .activity-grid {
       display: grid;
@@ -180,10 +247,11 @@
       overflow: hidden;
       display: none;
       background: #f8fafc;
+      text-align: center;
+      padding: 10px;
     }
 
-    .markscheme-viewer iframe,
-    .markscheme-viewer object { width: 100%; height: 320px; border: none; }
+    .markscheme-viewer img { width: 100%; height: auto; display: block; border-radius: 10px; }
 
     .footer-actions { margin-top: 26px; text-align: center; }
 
@@ -192,30 +260,53 @@
 </head>
 <body>
   <header>
-    <h1>Layer 3: Exam style questions</h1>
-    <h2>Layer 3 – Self correction with Cambridge and Hodder end of chapter questions</h2>
+    <div class="header-left">
+      <a href="../../dashboard.html">
+        <img src="../../../images/maarifLOGO.png" class="logo" alt="Maarif logo" />
+      </a>
+    </div>
+    <div class="header-center">
+      <p class="eyebrow">Point <span id="point-title">15.1</span></p>
+      <h1>Layer 3: Exam style questions</h1>
+      <p>Self correction with Cambridge and Hodder end of chapter questions</p>
+      <div class="info-line">
+        <span id="student-name"></span>
+        <span id="platform-name"></span>
+      </div>
+    </div>
+    <div class="header-right" style="text-align:right;">
+      <img src="../../../images/cambridge.png" class="logo" alt="Cambridge logo" />
+    </div>
   </header>
 
   <div class="page">
-    <div class="top-actions">
-      <button id="open-folder" class="primary-btn" type="button" disabled>Open your submission folder</button>
-      <span id="folder-status" class="pill muted">Checking your submission link…</span>
-    </div>
-
-    <section class="card intro">
-      <p>Students first upload their answers (good handwriting, clear separation between questions).</p>
-      <p>Then check the mark scheme and correct what is wrong or missing.</p>
-      <p>Then upload corrected work with corrections in a different color.</p>
-      <p class="muted">Use the submission folder button above to open your personal folder and upload both attempts manually.</p>
-    </section>
-
     <section class="card">
-      <h3 style="margin-top:0;">File naming instructions</h3>
-      <div class="file-rules">
-        <div><strong>15.1_Cambridge_FirstAttempt</strong></div>
-        <div><strong>15.1_Cambridge_Corrected</strong></div>
-        <div><strong>15.1_Hodder_FirstAttempt</strong></div>
-        <div><strong>15.1_Hodder_Corrected</strong></div>
+      <div class="card-header">
+        <span class="label">Instruction guide</span>
+        <h3 style="margin:0;">How to complete this layer</h3>
+      </div>
+      <div class="instruction-body">
+        <div class="instruction-copy">
+          <ul>
+            <li>Upload your first attempt with clear handwriting and clear separation between questions.</li>
+            <li>Check the Cambridge or Hodder mark scheme, then correct anything missing or wrong in a different color.</li>
+            <li>Upload your corrected work after reviewing the mark scheme.</li>
+            <li>Use the submission folder button below to open your personal folder and upload both attempts manually.</li>
+          </ul>
+        </div>
+        <div>
+          <p class="filename-note">Name the documents you upload using the following filenames:</p>
+          <div class="file-rules">
+            <div><strong>15.1_Cambridge_FirstAttempt</strong></div>
+            <div><strong>15.1_Cambridge_Corrected</strong></div>
+            <div><strong>15.1_Hodder_FirstAttempt</strong></div>
+            <div><strong>15.1_Hodder_Corrected</strong></div>
+          </div>
+        </div>
+      </div>
+      <div class="submission-access">
+        <button id="open-folder" class="primary-btn" type="button" disabled>Open your submission folder</button>
+        <p id="folder-status" class="status-message">Checking your submission link…</p>
       </div>
     </section>
 
@@ -232,9 +323,7 @@
         </ul>
         <button class="toggle-btn" data-target="cambridge-markscheme" type="button">Show/Hide Cambridge mark scheme</button>
         <div id="cambridge-markscheme" class="markscheme-viewer">
-          <object data="15_1_cambridge_markscheme.pdf" type="application/pdf">
-            <p style="padding:12px;">View the Cambridge mark scheme: <a href="15_1_cambridge_markscheme.pdf" target="_blank" rel="noopener">Open PDF</a></p>
-          </object>
+          <img src="15_1_cambridge_markscheme.png" alt="Cambridge mark scheme image" loading="lazy" />
         </div>
       </article>
 
@@ -250,9 +339,7 @@
         </ul>
         <button class="toggle-btn" data-target="hodder-markscheme" type="button">Show/Hide Hodder mark scheme</button>
         <div id="hodder-markscheme" class="markscheme-viewer">
-          <object data="15_1_hodder_markscheme.pdf" type="application/pdf">
-            <p style="padding:12px;">View the Hodder mark scheme: <a href="15_1_hodder_markscheme.pdf" target="_blank" rel="noopener">Open PDF</a></p>
-          </object>
+          <img src="15_1_hodder_markscheme.png" alt="Hodder mark scheme image" loading="lazy" />
         </div>
       </article>
     </section>
@@ -267,12 +354,39 @@
 
     const folderButton = document.getElementById('open-folder');
     const folderStatus = document.getElementById('folder-status');
-    let submissionLink = '';
+    const pointTitle = document.getElementById('point-title');
+    const studentNameEl = document.getElementById('student-name');
+    const platformNameEl = document.getElementById('platform-name');
+
+    const submissionState = {
+      link: ''
+    };
+
+    function setStatus(message, variant = '') {
+      if (!folderStatus) return;
+      folderStatus.textContent = message;
+      folderStatus.className = `status-message${variant ? ' ' + variant : ''}`;
+    }
+
+    function initHeader() {
+      const studentName = localStorage.getItem('student_name');
+      const platform = localStorage.getItem('platform');
+      if (pointTitle) {
+        pointTitle.textContent = '15.1';
+      }
+      if (studentNameEl && studentName) {
+        studentNameEl.textContent = `👤 ${studentName}`;
+      }
+      if (platformNameEl && platform) {
+        platformNameEl.textContent = `🎓 Platform: ${platform}`;
+      }
+    }
 
     async function loadSubmissionLink() {
+      setStatus('Checking your submission link…');
       const { data: userData, error: userError } = await supabase.auth.getUser();
       if (userError || !userData?.user) {
-        folderStatus.textContent = 'No user found. Please sign in to access your folder.';
+        setStatus('No user found. Please sign in to access your folder.', 'error');
         folderButton.disabled = true;
         return;
       }
@@ -283,20 +397,19 @@
         : await baseQuery.single();
 
       if (error || !data?.LINK) {
-        folderStatus.textContent = 'Your submission link is not configured. Please contact your teacher.';
+        setStatus('Your submission link is not configured. Please contact your teacher.', 'error');
         folderButton.disabled = true;
         return;
       }
 
-      submissionLink = data.LINK;
-      folderStatus.textContent = 'Submission link ready.';
-      folderStatus.classList.remove('muted');
+      submissionState.link = data.LINK;
+      setStatus('Submission link ready.', 'success');
       folderButton.disabled = false;
     }
 
     folderButton.addEventListener('click', () => {
-      if (submissionLink) {
-        window.open(submissionLink, '_blank');
+      if (submissionState.link) {
+        window.open(submissionState.link, '_blank');
       }
     });
 
@@ -309,6 +422,7 @@
       });
     });
 
+    initHeader();
     loadSubmissionLink();
   </script>
 </body>
