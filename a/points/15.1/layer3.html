@@ -384,27 +384,112 @@
 
     async function loadSubmissionLink() {
       setStatus('Checking your submission link…');
-      const { data: userData, error: userError } = await supabase.auth.getUser();
-      if (userError || !userData?.user) {
-        setStatus('No user found. Please sign in to access your folder.', 'error');
+
+      const identifiers = await collectIdentifiers();
+      const link = await fetchSubmissionLink(identifiers);
+
+      if (!link) {
+        setStatus('We could not match your account to a submission folder. Please sign in again from the dashboard or contact your teacher.', 'error');
         folderButton.disabled = true;
         return;
       }
 
-      const baseQuery = supabase.from('students').select('LINK').eq('user_id', userData.user.id);
-      const { data, error } = typeof baseQuery.maybeSingle === 'function'
-        ? await baseQuery.maybeSingle()
-        : await baseQuery.single();
-
-      if (error || !data?.LINK) {
-        setStatus('Your submission link is not configured. Please contact your teacher.', 'error');
-        folderButton.disabled = true;
-        return;
-      }
-
-      submissionState.link = data.LINK;
+      submissionState.link = link;
       setStatus('Submission link ready.', 'success');
       folderButton.disabled = false;
+    }
+
+    async function fetchSubmissionLink(identifiers) {
+      for (const [column, value] of identifiers) {
+        if (!value) continue;
+
+        try {
+          const { data, error } = await supabase
+            .from('students')
+            .select('*')
+            .eq(column, value)
+            .maybeSingle();
+
+          if (error) {
+            if (error.code === 'PGRST116') continue;
+            console.warn(`[Layer3] Lookup by ${column} failed:`, error);
+            continue;
+          }
+
+          const link = data?.LINK || data?.Link || data?.link || data?.folder_link || data?.submission_link;
+          if (link) {
+            return link;
+          }
+        } catch (err) {
+          console.warn(`[Layer3] Request error for ${column}:`, err);
+        }
+      }
+
+      return null;
+    }
+
+    async function collectIdentifiers() {
+      const identifiers = [];
+
+      const { data: sessionData, error: sessionError } = await supabase.auth.getSession();
+      if (sessionError && sessionError.message !== 'Auth session missing!') {
+        console.warn('[Layer3] Session lookup failed', sessionError);
+      }
+
+      let user = sessionData?.session?.user;
+      if (!user) {
+        const { data: userData, error: userError } = await supabase.auth.getUser();
+        if (userError && userError.message !== 'Auth session missing!') {
+          console.warn('[Layer3] User lookup failed', userError);
+        }
+        user = userData?.user;
+      }
+
+      if (user) {
+        identifiers.push(['user_id', user.id]);
+        identifiers.push(['auth_user_id', user.id]);
+        identifiers.push(['id', user.id]);
+        identifiers.push(['email', user.email]);
+        identifiers.push(['username', user.user_metadata?.username]);
+        identifiers.push(['student_id', user.user_metadata?.student_id]);
+        const metaName = user.user_metadata?.student_name || user.user_metadata?.full_name;
+        identifiers.push(['student_name', metaName]);
+        identifiers.push(['name', metaName]);
+        identifiers.push(['StudentName', metaName]);
+        identifiers.push(['full_name', metaName]);
+      }
+
+      const localStudentId = localStorage.getItem('student_id');
+      const localUsername = localStorage.getItem('username') || localStorage.getItem('student_name');
+      const localStudentName = localStorage.getItem('student_name');
+      const localEmail = localStorage.getItem('email');
+
+      identifiers.push(['id', localStudentId]);
+      identifiers.push(['student_id', localStudentId]);
+      identifiers.push(['username', localUsername]);
+      identifiers.push(['student_name', localStudentName]);
+      identifiers.push(['name', localStudentName]);
+      identifiers.push(['full_name', localStudentName]);
+      identifiers.push(['StudentName', localStudentName]);
+      identifiers.push(['display_name', localStudentName]);
+      identifiers.push(['email', localEmail]);
+
+      return dedupeIdentifiers(identifiers);
+    }
+
+    function dedupeIdentifiers(pairs) {
+      const seen = new Set();
+      const cleaned = [];
+
+      for (const [column, value] of pairs) {
+        if (!value) continue;
+        const key = `${column}:${value}`;
+        if (seen.has(key)) continue;
+        seen.add(key);
+        cleaned.push([column, value]);
+      }
+
+      return cleaned;
     }
 
     folderButton.addEventListener('click', () => {
