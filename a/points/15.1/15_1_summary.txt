@@ -1,0 +1,158 @@
+15.1 Processors, Parallel Processing and Virtual Machines  
+
+---
+
+15.1a RISC and CISC processors, including interrupt handling  
+
+RISC (Reduced Instruction Set Computer)  
+
+- RISC processors use a relatively small instruction set made of simple, fixed length instructions; most instructions are designed to execute in a single clock cycle.  
+- Instructions have only a few formats and a small number of addressing modes. This simplifies the hardware and makes pipelining easier to design and implement.  
+- RISC designs use many general purpose registers so that data can be kept inside the CPU instead of repeatedly accessing main memory.  
+- Memory is usually accessed only by dedicated load and store instructions. Arithmetic and logic instructions work only on data in registers; this is called a load store architecture.  
+- The control unit in many RISC processors is implemented using simple fixed hardware circuits rather than using a stored microprogram. This reduces the amount of decoding work needed for each instruction and helps the processor run at a high clock speed.  
+- Pipelining is used extensively in RISC processors. The simple, regular instruction format and single cycle execution make it easier to overlap the execution of successive instructions in a pipeline.  
+
+Example of adding two numbers in RISC  
+
+- LOAD R1, A  
+  Load the value stored at memory address A into register R1.  
+- LOAD R2, B  
+  Load the value stored at memory address B into register R2.  
+- ADD R3, R1, R2  
+  Add the values in R1 and R2 and store the result in register R3.  
+- STORE R3, C  
+  Store the value in register R3 into memory address C.  
+
+These four simple RISC instructions together perform the same work that a single complex CISC instruction might perform.  
+
+CISC (Complex Instruction Set Computer)  
+
+- CISC processors have a large and complex instruction set, with many different instruction formats and addressing modes.  
+- Instructions are often variable length and may take several clock cycles to execute.  
+- Many CISC instructions can access memory directly. For example, a single instruction might load data from memory, perform an arithmetic operation on it and then store the result back in memory.  
+- There are usually fewer general purpose registers than in RISC designs, and the hardware needed to decode and execute the rich set of instructions is more complex.  
+- The control unit in a CISC processor is often microprogrammed. This means that the actions needed to execute each machine code instruction are themselves stored as a sequence of simpler micro instructions, which the control unit reads and executes.  
+- Because instructions are more complex and less regular, pipelines for CISC processors are harder to design and may be less efficient than pipelines for RISC processors.  
+
+Example of adding two numbers in CISC  
+
+- ADD A, B  
+  Load the value at address A, add the value at address B to it and store the result back into address A, all in a single complex instruction.  
+
+Standard interrupt handling in a non pipelined processor  
+
+The basic interrupt handling mechanism is similar for both RISC and CISC when they are considered without pipelining.  
+
+- The current instruction is allowed to finish before the processor responds to an interrupt.  
+- The processor saves the current program counter and the contents of the registers on a special memory area called the stack.  
+- The processor uses an interrupt table, often called an interrupt vector table, that contains the starting addresses of all the interrupt service routines. An interrupt number or identifier is used as an index into this table to find the correct routine.  
+- Program control then jumps to the interrupt service routine (ISR), which is a special piece of code that deals with this kind of interrupt.  
+- While the ISR is running, further interrupts are usually disabled so that the current interrupt is handled completely before another one starts.  
+- When the ISR has finished its work, it restores the saved registers and program counter from the stack and re enables interrupts.  
+- Normal program execution then resumes from the point where it was interrupted.  
+
+Interrupt handling in a pipelined RISC processor  
+
+- In a pipelined RISC processor, several instructions are active at the same time in different pipeline stages. An interrupt can therefore occur while many instructions are partway through execution.  
+- One strategy is to let all of the instructions currently in the pipeline finish before servicing the interrupt. This creates a delay between the interrupt and the start of the ISR, but it keeps the interrupt handling logic relatively simple because the processor only needs to save the usual registers after the last in pipeline instruction has completed.  
+- A second strategy is to save the complete state of all instructions that are currently in the pipeline as soon as the interrupt occurs. This means saving the relevant registers or pipeline registers for each stage. After the ISR has finished, the processor restores this saved state and the interrupted instructions continue from exactly where they left off. This reduces the delay before the interrupt is serviced but increases the complexity and overhead of the interrupt handling mechanism.  
+
+---
+
+15.1b Importance and use of pipelining and registers in RISC processors  
+
+Pipelining  
+
+- Pipelining divides instruction execution into separate stages and allows multiple instructions to be processed at the same time, each in a different stage.  
+- A typical RISC pipeline is organised into five stages:  
+  1. Instruction Fetch (IF) the next instruction is read from memory.  
+  2. Instruction Decode (ID) the instruction is decoded so the processor knows what operation to perform.  
+  3. Operand Fetch (OF) the data values, or operands, required by the instruction are read from registers.  
+  4. Instruction Execute (IE) the arithmetic or logic operation is carried out.  
+  5. Write Back (WB) the result of the instruction is written back into a register.  
+- Each stage is designed to take one clock cycle. After the pipeline has been filled, a new instruction enters the pipeline on each clock cycle and one completed instruction leaves the pipeline on each cycle.  
+- For example, without pipelining, if every instruction needed five cycles to complete, then six instructions would take about 30 cycles in total. With a five stage pipeline, the same six instructions would take about 10 cycles, because once the pipeline is full they overlap in time.  
+
+Registers in RISC and their relation to pipelining  
+
+- Registers are very small and very fast storage locations inside the CPU that temporarily hold instructions, data and addresses during execution.  
+- RISC architectures provide many general purpose registers and sometimes several sets of registers. This allows data to remain in the CPU for longer and reduces the number of slow accesses to main memory.  
+- Pipelining benefits from having many registers, because each pipeline stage needs rapid access to its input operands and to its results. If these values are in registers rather than in main memory, pipeline stages can operate more independently and efficiently.  
+
+---
+
+15.1c Four basic computer architectures: SISD, SIMD, MISD, MIMD  
+
+The four architectures describe how instruction streams and data streams are related in a computer system.  
+
+SISD Single Instruction, Single Data  
+
+- A SISD architecture has one processor that executes a single instruction stream on a single data stream.  
+- Instructions are carried out one after another in strict sequence, so there is no built in parallel processing.  
+- This corresponds to a conventional single core computer that runs one program step by step.  
+
+SIMD Single Instruction, Multiple Data  
+
+- A SIMD architecture uses one instruction stream that is applied to many data items at the same time.  
+- A large number of processing units carry out exactly the same instruction at the same moment, but each unit uses a different data value.  
+- A common example is graphics processing, where the same operation, such as increasing brightness, is applied simultaneously to every pixel in an image.  
+
+MISD Multiple Instruction, Single Data  
+
+- A MISD architecture has several instruction streams that all operate on the same data stream.  
+- This arrangement is rare in practical systems, but it can be imagined as several processors that all receive the same input data while each processor performs a different operation on it.  
+- Such a configuration can be used in specialised fault tolerant systems where different computations are performed on the same data and the results are compared to detect errors.  
+
+MIMD Multiple Instruction, Multiple Data  
+
+- A MIMD architecture uses multiple processors that each execute a different instruction stream on a different data stream at the same time.  
+- Each processor or core can run its own program on its own data set independently of the others.  
+- Modern multicore processors and many parallel computer systems are examples of MIMD architectures, since each core can work on a separate task or on a different part of a large problem.  
+
+---
+
+15.1d Characteristics of massively parallel computers  
+
+- Massively parallel computers are large scale parallel systems that contain a very high number of processors working together on the same overall problem.  
+- They are practical implementations of the MIMD model in which many processors, each with its own instruction stream and data stream, cooperate by exchanging information over a communication network.  
+- Instead of sharing a single bus, the processors are connected through an interconnection network that allows them to send messages to one another and to coordinate their work.  
+- In typical applications, each processor is responsible for a portion of the total data or for a specific subtask. The final result is obtained by combining the partial results produced by all processors.  
+- Massively parallel systems are often used as supercomputers for tasks such as climate modelling, weather forecasting, simulations of physical and biological processes and other highly demanding scientific and engineering problems.  
+- To use a massively parallel computer effectively, algorithms must be designed so that the work can be divided into many independent or nearly independent pieces, and so that the amount of communication and synchronisation between processors is kept as small as possible.  
+
+---
+
+15.1e Virtual machines: concept, roles, benefits and limitations  
+
+Definition and key terms  
+
+- A virtual machine, VM, is an emulation of a complete computer system. It behaves like a separate computer with its own operating system and virtual hardware, but it runs as software on top of a real physical computer.  
+- Emulation means using software to imitate the behaviour of another device or system. For example, software can imitate a different type of processor so that programs written for that processor can run on a computer that does not physically contain it.  
+- The host operating system, host OS, is the operating system that directly controls the physical hardware of the computer.  
+- The guest operating system, guest OS, is the operating system that runs inside the virtual machine. It controls the virtual hardware that the VM software presents to it.  
+- The hypervisor is the virtual machine software that creates, starts, stops and manages virtual machines. It maps the virtual CPUs, memory, storage and devices used by each guest OS onto the real physical CPU, memory, disks and devices of the host computer.  
+- Some virtual machines can emulate a completely different instruction set architecture, which allows software compiled for one type of processor to run on a machine that uses a different type of processor.  
+
+How a virtual machine operates  
+
+- Virtual machine software, the hypervisor, is installed on the host computer.  
+- When a virtual machine is started, the selected guest operating system boots in a window or in its own screen environment provided by the host. From the point of view of the guest OS, it appears as if it is running on its own physical computer.  
+- The guest OS interacts only with the virtual hardware that the hypervisor exposes. The hypervisor translates these virtual operations into real operations on the physical hardware.  
+- Several virtual machines, each with a different guest operating system or configuration, can run at the same time on a single physical machine. The hypervisor is responsible for sharing processor time, memory and input output devices between them.  
+
+Benefits of virtual machines  
+
+- Compatibility virtual machines allow applications written for one platform to run on a different hardware and operating system platform by creating a suitable guest environment.  
+- Legacy software support old or legacy software that cannot run directly on modern hardware or operating systems can run inside a virtual machine that emulates the original environment for which it was written.  
+- Flexibility new operating systems, system configurations or software installations can be tested on virtual hardware without buying extra physical computers. Different virtual hardware setups can be tried easily.  
+- Isolation and protection if a guest operating system crashes, becomes misconfigured or is infected with malware, the effects are normally confined to that virtual machine. The host OS and other VMs are protected because the hypervisor isolates each guest environment. This makes VMs useful for testing untrusted or experimental software.  
+- Cost reduction several virtual machines can run on a single physical computer. This reduces the number of physical machines that an organisation needs to purchase and maintain, which can lower hardware and energy costs.  
+
+Limitations and disadvantages of virtual machines  
+
+- Performance overhead running a guest operating system through a hypervisor introduces extra work for the processor and uses additional memory. CPU, memory and input output resources are shared between the host and all guests, so programs running inside a VM usually run more slowly than the same programs running directly on physical hardware.  
+- Hardware support limitations a virtual machine might not be able to provide full support for very new, unusual or highly specialised hardware devices. As a result, some device specific features may not be available inside the guest OS.  
+- Measurement difficulty because the hypervisor is constantly sharing resources between different VMs and the host, it can be harder to obtain accurate performance measurements from inside a guest OS. Measurements taken in the guest may be influenced by activity in other VMs or in the host.  
+- Dependence on the host if the host machine fails, runs out of resources or becomes infected with malware, all virtual machines running on it are affected.  
+- Maintenance complexity both the host operating system and every guest operating system must be installed, configured, updated and secured. Managing a virtualised environment can therefore be more complex and time consuming than managing a single non virtualised system.  
