@@ -384,14 +384,28 @@
 
     async function loadSubmissionLink() {
       setStatus('Checking your submission link…');
-      const { data: userData, error: userError } = await supabase.auth.getUser();
-      if (userError || !userData?.user) {
-        setStatus('No user found. Please sign in to access your folder.', 'error');
+
+      const { data: sessionData, error: sessionError } = await supabase.auth.getSession();
+      if (sessionError && sessionError.message !== 'Auth session missing!') {
+        console.warn('[Layer3] Session lookup failed', sessionError);
+      }
+
+      let user = sessionData?.session?.user;
+      if (!user) {
+        const { data: userData, error: userError } = await supabase.auth.getUser();
+        if (userError && userError.message !== 'Auth session missing!') {
+          console.warn('[Layer3] User lookup failed', userError);
+        }
+        user = userData?.user;
+      }
+
+      if (!user) {
+        setStatus('We could not verify your account. Please sign in again to access your folder.', 'error');
         folderButton.disabled = true;
         return;
       }
 
-      const baseQuery = supabase.from('students').select('LINK').eq('user_id', userData.user.id);
+      const baseQuery = supabase.from('students').select('LINK').eq('user_id', user.id);
       const { data, error } = typeof baseQuery.maybeSingle === 'function'
         ? await baseQuery.maybeSingle()
         : await baseQuery.single();
