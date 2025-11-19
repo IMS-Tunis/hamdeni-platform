@@ -28,123 +28,143 @@
 
     body {
       margin: 0;
-      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.6;
     }
 
     header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: linear-gradient(to right, #0b4d8c, #1e293b);
+      color: white;
+      padding: 16px 18px 14px;
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.45);
+    }
+
+    .header-inner {
+      max-width: 960px;
+      margin: 0 auto;
       display: flex;
-      justify-content: space-between;
+      flex-wrap: wrap;
       align-items: center;
-      gap: 16px;
-      padding: 16px 22px;
-      background: linear-gradient(135deg, #062648, #0b4d8c);
-      color: #fff;
-      box-shadow: 0 12px 30px rgba(0, 26, 52, 0.35);
-      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px 16px;
     }
 
-    .header-left,
-    .header-right { flex: 1; }
-
-    .header-left a { display: inline-flex; align-items: center; }
-
-    .header-center { flex: 2; text-align: center; }
-
-    .header-center h1 {
-      margin: 4px 0;
-      font-size: clamp(1.2rem, 3vw, 1.8rem);
-      letter-spacing: 0.5px;
-    }
-
-    .header-center p {
-      margin: 0;
-      color: rgba(255, 255, 255, 0.85);
-    }
-
-    .info-line {
+    .header-main {
       display: flex;
-      justify-content: center;
-      gap: 16px;
-      margin-top: 6px;
-      flex-wrap: wrap;
-      font-weight: 600;
+      flex-direction: column;
+      gap: 4px;
     }
 
-    .logo { height: 54px; }
+    .header-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 0;
+    }
 
-    .eyebrow {
+    .header-subtitle {
+      margin: 0;
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    .header-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.9rem;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .meta-pill {
+      border-radius: 999px;
+      padding: 4px 10px;
+      background: rgba(15, 23, 42, 0.32);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .meta-pill span {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 6px 12px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.12);
-      color: #e2e8f0;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-      margin: 0;
-      text-transform: uppercase;
-      font-size: 0.9rem;
+      gap: 4px;
     }
 
     .page {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 28px 18px 60px;
+      max-width: 960px;
+      margin: 16px auto 24px;
+      padding: 0 16px 24px;
     }
-
-    .primary-btn {
-      background: linear-gradient(135deg, var(--primary), #0f6fc0);
-      color: #fff;
-      border: none;
-      border-radius: 10px;
-      padding: 12px 20px;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: transform 0.15s ease, box-shadow 0.2s ease, filter 0.2s ease;
-      box-shadow: 0 12px 24px rgba(11, 77, 140, 0.25);
-      width: 100%;
-      max-width: 320px;
-    }
-
-    .primary-btn:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 16px 30px rgba(11, 77, 140, 0.3); }
-    .primary-btn:disabled { cursor: not-allowed; opacity: 0.6; filter: grayscale(0.4); }
 
     .card {
       background: var(--card);
-      border-radius: 18px;
-      padding: 22px;
-      box-shadow: 0 14px 45px rgba(15, 23, 42, 0.1);
-      margin-bottom: 20px;
-      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 16px 18px 18px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      margin-bottom: 16px;
     }
 
-    .card-header { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-    .card-header h3 { margin: 0; }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .card-header h3 {
+      margin: 0;
+      font-size: 1.05rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
 
     .label {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 6px 12px;
+      padding: 3px 8px;
       border-radius: 999px;
-      background: #eef3fb;
-      color: var(--primary);
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
-      font-size: 0.9rem;
+      font-size: 0.8rem;
+      background: rgba(15, 23, 42, 0.04);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: var(--muted);
+    }
+
+    .label span {
+      font-size: 1rem;
+    }
+
+    .toggle-btn {
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 0.8rem;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.02);
+      color: var(--muted);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .toggle-btn:hover {
+      background: rgba(15, 23, 42, 0.06);
     }
 
     .instruction-body {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 16px;
-      margin-top: 12px;
+      gap: 12px;
     }
 
     .instruction-copy {
@@ -175,6 +195,33 @@
 
     .submission-access { margin-top: 16px; text-align: center; }
 
+    .primary-btn {
+      background: var(--primary);
+      border: none;
+      color: white;
+      padding: 9px 18px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.3);
+    }
+
+    .primary-btn:hover {
+      background: var(--primary-dark);
+    }
+
+    .primary-btn:disabled {
+      opacity: 0.6;
+      cursor: default;
+      box-shadow: none;
+    }
+
+    .primary-btn span { font-size: 1.1rem; }
+
     .status-message {
       margin-top: 8px;
       font-size: 0.92rem;
@@ -193,96 +240,143 @@
     }
 
     .activity h3 {
+      margin-top: 0;
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    .activity p {
       margin: 0 0 10px;
-      font-size: 1.2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
+      font-size: 0.92rem;
+      color: var(--muted);
     }
 
-    .badge {
-      background: rgba(16, 185, 129, 0.1);
-      color: #047857;
-      padding: 6px 12px;
-      border-radius: 999px;
+    .activity ul {
+      margin: 0 0 10px;
+      padding-left: 20px;
       font-size: 0.9rem;
-      font-weight: 700;
+      color: var(--muted);
     }
 
-    .preview {
-      border: 1px solid #e2e8f0;
-      border-radius: 12px;
-      padding: 12px;
+    .activity ul li { margin-bottom: 4px; }
+
+    .mark-scheme-box {
       background: #f8fafc;
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-size: 0.9rem;
+      border: 1px dashed var(--border);
+      margin-top: 8px;
     }
 
-    .preview img { max-width: 100%; border-radius: 10px; display: block; }
+    .mark-scheme-box p { margin: 0 0 6px; }
 
-    .instructions { margin: 12px 0 0; color: var(--muted); }
-
-    .steps { list-style: none; padding: 0; margin: 10px 0 0; color: var(--text); }
-    .steps li { margin: 6px 0; padding-left: 10px; position: relative; }
-    .steps li::before { content: "•"; position: absolute; left: -10px; color: var(--primary); font-weight: 700; }
-
-    .toggle-btn {
-      margin-top: 10px;
-      width: 100%;
-      border: 1px solid #e2e8f0;
-      background: #fff;
-      color: var(--text);
-      border-radius: 10px;
-      padding: 10px 14px;
-      font-weight: 700;
+    .mark-scheme-box button {
+      font-size: 0.85rem;
+      padding: 5px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      background: white;
       cursor: pointer;
-      transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
     }
 
-    .toggle-btn:hover { background: #0f172a; color: #fff; border-color: #0f172a; }
+    .mark-scheme-box button:hover {
+      background: #e5f0ff;
+    }
 
-    .markscheme-viewer {
-      margin-top: 10px;
-      border: 1px solid #e2e8f0;
+    .mark-scheme-box button span { font-size: 1rem; }
+
+    .file-naming {
+      background: #f1f5f9;
       border-radius: 12px;
-      overflow: hidden;
-      display: none;
-      background: #f8fafc;
-      text-align: center;
-      padding: 10px;
+      padding: 10px 12px;
+      font-size: 0.9rem;
     }
 
-    .markscheme-viewer img { width: 100%; height: auto; display: block; border-radius: 10px; }
+    .file-naming ul { margin: 6px 0 0; padding-left: 18px; }
 
-    .footer-actions { margin-top: 26px; text-align: center; }
+    .file-naming li { margin-bottom: 2px; }
 
-    .muted { color: var(--muted); }
+    .note {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    .alert {
+      border-radius: 12px;
+      padding: 10px 12px;
+      background: #fef3c7;
+      border: 1px solid #facc15;
+      font-size: 0.9rem;
+      margin-top: 10px;
+    }
+
+    .alert strong { color: #92400e; }
+
+    .file-columns {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px 16px;
+      margin-top: 4px;
+      font-size: 0.9rem;
+    }
+
+    .file-column h4 {
+      margin: 0 0 4px;
+      font-size: 0.95rem;
+    }
+
+    .file-column p {
+      margin: 0;
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+
+    .file-column code {
+      background: rgba(15, 23, 42, 0.04);
+      border-radius: 6px;
+      padding: 1px 6px;
+      font-family: "Consolas", "SF Mono", ui-monospace, Menlo, Monaco, monospace;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 600px) {
+      header { padding: 12px 14px; }
+      .page { padding: 0 12px 20px; }
+      .card { padding: 12px 13px 14px; }
+      .header-title { font-size: 1.05rem; }
+      .header-inner { gap: 6px 10px; }
+    }
   </style>
 </head>
 <body>
   <header>
-    <div class="header-left">
-      <a href="../../dashboard.html">
-        <img src="../../../images/maarifLOGO.png" class="logo" alt="Maarif logo" />
-      </a>
-    </div>
-    <div class="header-center">
-      <p class="eyebrow">Point <span id="point-title">15.1</span></p>
-      <h1>Layer 3: Exam style questions</h1>
-      <p>Self correction with Cambridge and Hodder end of chapter questions</p>
-      <div class="info-line">
-        <span id="student-name"></span>
-        <span id="platform-name"></span>
+    <div class="header-inner">
+      <div class="header-main">
+        <h1 class="header-title">Layer 3: Self correction for point <span id="point-title">15.1</span></h1>
+        <p class="header-subtitle">
+          Upload your answers, compare with the mark schemes, and upload your corrected work.
+        </p>
       </div>
-    </div>
-    <div class="header-right" style="text-align:right;">
-      <img src="../../../images/cambridge.png" class="logo" alt="Cambridge logo" />
+      <div class="header-meta">
+        <div class="meta-pill">
+          <span id="student-name">👤 Student</span>
+        </div>
+        <div class="meta-pill">
+          <span id="platform-name">🎓 Platform</span>
+        </div>
+      </div>
     </div>
   </header>
 
   <div class="page">
     <section class="card">
       <div class="card-header">
-        <span class="label">Instruction guide</span>
+        <span class="label"><span>🧭</span> Instruction guide</span>
         <h3 style="margin:0;">How to complete this layer</h3>
       </div>
       <div class="instruction-body">
@@ -291,19 +385,48 @@
             <li>Upload your first attempt with clear handwriting and clear separation between questions.</li>
             <li>Check the Cambridge or Hodder mark scheme, then correct anything missing or wrong in a different color.</li>
             <li>Upload your corrected work after reviewing the mark scheme.</li>
-            <li>Use the submission folder button below to open your personal folder and upload both attempts manually.</li>
+            <li>Use the submission folder button below to open your personal folder and upload all four files listed.</li>
           </ul>
         </div>
-        <div>
-          <p class="filename-note">Name the documents you upload using the following filenames:</p>
-          <div class="file-rules">
-            <div><strong>15.1_Cambridge_FirstAttempt</strong></div>
-            <div><strong>15.1_Cambridge_Corrected</strong></div>
-            <div><strong>15.1_Hodder_FirstAttempt</strong></div>
-            <div><strong>15.1_Hodder_Corrected</strong></div>
+
+        <div class="file-rules">
+          <div>
+            <p class="filename-note"><strong>File naming rules</strong></p>
+            <div class="file-naming">
+              <p>Each file name must follow this pattern:</p>
+              <ul>
+                <li><code>Point_Resource_Attempt</code></li>
+              </ul>
+              <p class="note">For example: <code>15.1_Cambridge_FirstAttempt</code></p>
+            </div>
+          </div>
+          <div>
+            <p class="filename-note"><strong>Files you must upload</strong></p>
+            <div class="file-columns">
+              <div class="file-column">
+                <h4>Cambridge</h4>
+                <p>
+                  <code>15.1_Cambridge_FirstAttempt</code><br/>
+                  <code>15.1_Cambridge_AfterCorrection</code>
+                </p>
+              </div>
+              <div class="file-column">
+                <h4>Hodder</h4>
+                <p>
+                  <code>15.1_Hodder_FirstAttempt</code><br/>
+                  <code>15.1_Hodder_AfterCorrection</code>
+                </p>
+              </div>
+            </div>
+            <p class="note">Make sure the point number, resource (Cambridge/Hodder), and attempt (FirstAttempt/AfterCorrection) are all visible in the file name.</p>
           </div>
         </div>
+
+        <div class="alert">
+          <strong>Important</strong>: The folder link is personal. Do not share it with other students.
+        </div>
       </div>
+
       <div class="submission-access">
         <button id="open-folder" class="primary-btn" type="button" disabled>Open your submission folder</button>
         <p id="folder-status" class="status-message">Checking your submission link…</p>
@@ -312,41 +435,38 @@
 
     <section class="activity-grid">
       <article class="card activity">
-        <h3>Activity 1: Cambridge end of chapter questions <span class="badge">Cambridge</span></h3>
-        <div class="preview">
-          <img src="15_1_cambridge_questions.png" alt="Cambridge end of chapter questions" loading="lazy" />
-        </div>
-        <p class="instructions">Complete the Cambridge questions, then self-mark and submit corrections.</p>
-        <ul class="steps">
-          <li>Step 1: Upload the first attempt (clear handwriting and clear separation between questions).</li>
-          <li>Step 2: After checking the Cambridge mark scheme, upload a corrected version (different color).</li>
+        <h3>Activity 1: Cambridge end of chapter questions</h3>
+        <p>
+          Answer the Cambridge end of chapter questions for point 15.1 in your notebook or on paper.<br/>
+          Then scan or photograph your work and upload it.
+        </p>
+        <ul>
+          <li>Use clear handwriting and number your questions.</li>
+          <li>Keep the file size reasonable and make sure the image is readable.</li>
         </ul>
-        <button class="toggle-btn" data-target="cambridge-markscheme" type="button">Show/Hide Cambridge mark scheme</button>
-        <div id="cambridge-markscheme" class="markscheme-viewer">
-          <img src="15_1_cambridge_markscheme.png" alt="Cambridge mark scheme image" loading="lazy" />
+        <div class="mark-scheme-box">
+          <p><strong>Step 1</strong>: Upload your first attempt as <code>15.1_Cambridge_FirstAttempt</code>.</p>
+          <p><strong>Step 2</strong>: Open the Cambridge mark scheme PDF provided in the same folder as this page and correct your answers using a different color.</p>
+          <p><strong>Step 3</strong>: Upload your corrected work as <code>15.1_Cambridge_AfterCorrection</code>.</p>
         </div>
       </article>
 
       <article class="card activity">
-        <h3>Activity 2: Hodder end of chapter questions <span class="badge">Hodder</span></h3>
-        <div class="preview">
-          <img src="15_1_hodder_questions.png" alt="Hodder end of chapter questions" loading="lazy" />
-        </div>
-        <p class="instructions">Work through the Hodder questions, mark them, then upload corrections.</p>
-        <ul class="steps">
-          <li>Step 1: Upload the first attempt (clear handwriting and clear separation between questions).</li>
-          <li>Step 2: After checking the Hodder mark scheme, upload a corrected version (different color).</li>
+        <h3>Activity 2: Hodder end of chapter questions</h3>
+        <p>
+          Answer the Hodder end of chapter questions for point 15.1 in your notebook or on paper, then upload your work.
+        </p>
+        <ul>
+          <li>Write the answers clearly and separate each question.</li>
+          <li>Keep the file size reasonable and ensure all pages are visible.</li>
         </ul>
-        <button class="toggle-btn" data-target="hodder-markscheme" type="button">Show/Hide Hodder mark scheme</button>
-        <div id="hodder-markscheme" class="markscheme-viewer">
-          <img src="15_1_hodder_markscheme.png" alt="Hodder mark scheme image" loading="lazy" />
+        <div class="mark-scheme-box">
+          <p><strong>Step 1</strong>: Upload your first attempt as <code>15.1_Hodder_FirstAttempt</code>.</p>
+          <p><strong>Step 2</strong>: Open the Hodder mark scheme PDF provided in the same folder as this page and correct your answers using a different color.</p>
+          <p><strong>Step 3</strong>: Upload your corrected work as <code>15.1_Hodder_AfterCorrection</code>.</p>
         </div>
       </article>
     </section>
-
-    <div class="footer-actions">
-      <a href="layer4.html" class="primary-btn" style="text-decoration:none;">Go to Layer 4</a>
-    </div>
   </div>
 
   <script type="module">
@@ -382,46 +502,34 @@
       }
     }
 
+    async function loadSubmissionLink() {
+      setStatus('Checking your submission link…');
 
+      // Prefer username (used in progress tracking); fall back to full name
+      const username = localStorage.getItem('username');
+      const studentName = localStorage.getItem('student_name');
 
-async function loadSubmissionLink() {
-  setStatus('Checking your submission link…');
+      const identifiers = [];
+      if (username) identifiers.push(['username', username]);
+      if (studentName) identifiers.push(['student_name', studentName]);
 
-  // Gather all possible identifiers from Supabase auth (if any) and localStorage
-  const identifiers = await collectIdentifiers();
+      if (!identifiers.length) {
+        console.warn('[Layer3] No usable identifier in localStorage');
+        setStatus(
+          'We could not match your account to a submission folder. Please sign in again from the dashboard or contact your teacher.',
+          'error'
+        );
+        if (folderButton) folderButton.disabled = true;
+        return;
+      }
 
-  if (!identifiers.length) {
-    setStatus(
-      'We could not match your account to a submission folder. Please sign in again from the dashboard or contact your teacher.',
-      'error'
-    );
-    folderButton.disabled = true;
-    return;
-  }
+      console.log('[Layer3] Looking up LINK using identifiers:', identifiers);
 
-  // Try to find LINK in the students table using these identifiers
-  const link = await fetchSubmissionLink(identifiers);
+      let link = null;
+      let lastError = null;
 
-  if (!link) {
-    setStatus(
-      'We could not match your account to a submission folder. Please sign in again from the dashboard or contact your teacher.',
-      'error'
-    );
-    folderButton.disabled = true;
-    return;
-  }
-
-  submissionState.link = link;
-  setStatus('Submission link ready.', 'success');
-  folderButton.disabled = false;
-}
-
-
-
-    async function fetchSubmissionLink(identifiers) {
       for (const [column, value] of identifiers) {
         if (!value) continue;
-
         try {
           const { data, error } = await supabase
             .from('students')
@@ -430,80 +538,48 @@ async function loadSubmissionLink() {
             .maybeSingle();
 
           if (error) {
-            if (error.code === 'PGRST116') continue;
+            if (error.code === 'PGRST116') {
+              // no rows found, try next identifier
+              continue;
+            }
             console.warn(`[Layer3] Lookup by ${column} failed:`, error);
+            lastError = error;
             continue;
           }
 
-          if (data?.LINK) {
-            return data.LINK;
+          if (data && data.LINK) {
+            link = data.LINK;
+            console.log(`[Layer3] Found LINK via ${column}:`, link);
+            break;
           }
         } catch (err) {
           console.warn(`[Layer3] Request error for ${column}:`, err);
+          lastError = err;
         }
       }
 
-      return null;
-    }
-
-    async function collectIdentifiers() {
-      const identifiers = [];
-
-      const { data: sessionData, error: sessionError } = await supabase.auth.getSession();
-      if (sessionError && sessionError.message !== 'Auth session missing!') {
-        console.warn('[Layer3] Session lookup failed', sessionError);
+      if (!link) {
+        console.warn('[Layer3] No LINK found for any identifier', { identifiers, lastError });
+        setStatus(
+          'No submission folder is configured for your account. Please contact your teacher.',
+          'error'
+        );
+        if (folderButton) folderButton.disabled = true;
+        return;
       }
 
-      let user = sessionData?.session?.user;
-      if (!user) {
-        const { data: userData, error: userError } = await supabase.auth.getUser();
-        if (userError && userError.message !== 'Auth session missing!') {
-          console.warn('[Layer3] User lookup failed', userError);
+      submissionState.link = link;
+      setStatus('Submission link ready.', 'success');
+      if (folderButton) folderButton.disabled = false;
+    }
+
+    if (folderButton) {
+      folderButton.addEventListener('click', () => {
+        if (submissionState.link) {
+          window.open(submissionState.link, '_blank');
         }
-        user = userData?.user;
-      }
-
-      if (user) {
-        identifiers.push(['user_id', user.id]);
-        identifiers.push(['auth_user_id', user.id]);
-        identifiers.push(['id', user.id]);
-        identifiers.push(['email', user.email]);
-        identifiers.push(['username', user.user_metadata?.username]);
-        identifiers.push(['student_id', user.user_metadata?.student_id]);
-      }
-
-      const localStudentId = localStorage.getItem('student_id');
-      const localUsername = localStorage.getItem('username') || localStorage.getItem('student_name');
-      const localEmail = localStorage.getItem('email');
-
-      identifiers.push(['id', localStudentId]);
-      identifiers.push(['student_id', localStudentId]);
-      identifiers.push(['username', localUsername]);
-      identifiers.push(['email', localEmail]);
-
-      return dedupeIdentifiers(identifiers);
+      });
     }
-
-    function dedupeIdentifiers(pairs) {
-      const seen = new Set();
-      const cleaned = [];
-
-      for (const [column, value] of pairs) {
-        if (!value) continue;
-        const key = `${column}:${value}`;
-        if (seen.has(key)) continue;
-        seen.add(key);
-        cleaned.push([column, value]);
-      }
-
-      return cleaned;
-    }
-
-    folderButton.addEventListener('click', () => {
-      if (submissionState.link) {
-        window.open(submissionState.link, '_blank');
-      }
-    });
 
     document.querySelectorAll('.toggle-btn').forEach(btn => {
       btn.addEventListener('click', () => {
