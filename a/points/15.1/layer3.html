@@ -410,6 +410,12 @@
         ? await baseQuery.maybeSingle()
         : await baseQuery.single();
 
+      if (error && error.code !== 'PGRST116') {
+        console.warn('[Layer3] Primary lookup failed', error);
+      }
+
+      const link = Array.isArray(data) ? data[0]?.LINK : data?.LINK;
+
       if (!link) {
         setStatus('We could not match your account to a submission folder. Please sign in again from the dashboard or contact your teacher.', 'error');
         folderButton.disabled = true;
