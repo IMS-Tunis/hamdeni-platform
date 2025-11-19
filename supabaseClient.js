@@ -7,6 +7,10 @@ export const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdX
 
 console.log('[supabaseClient] Creating client with URL:', SUPABASE_URL);
 export const supabase = createClient(SUPABASE_URL, SUPABASE_KEY, {
+  auth: {
+    persistSession: true,
+    autoRefreshToken: true
+  },
   global: {
     headers: {
       apikey: SUPABASE_KEY,
