@@ -385,8 +385,30 @@
     async function loadSubmissionLink() {
       setStatus('Checking your submission link…');
 
-      const identifiers = await collectIdentifiers();
-      const link = await fetchSubmissionLink(identifiers);
+      const { data: sessionData, error: sessionError } = await supabase.auth.getSession();
+      if (sessionError && sessionError.message !== 'Auth session missing!') {
+        console.warn('[Layer3] Session lookup failed', sessionError);
+      }
+
+      let user = sessionData?.session?.user;
+      if (!user) {
+        const { data: userData, error: userError } = await supabase.auth.getUser();
+        if (userError && userError.message !== 'Auth session missing!') {
+          console.warn('[Layer3] User lookup failed', userError);
+        }
+        user = userData?.user;
+      }
+
+      if (!user) {
+        setStatus('We could not verify your account. Please sign in again to access your folder.', 'error');
+        folderButton.disabled = true;
+        return;
+      }
+
+      const baseQuery = supabase.from('students').select('LINK').eq('user_id', user.id);
+      const { data, error } = typeof baseQuery.maybeSingle === 'function'
+        ? await baseQuery.maybeSingle()
+        : await baseQuery.single();
 
       if (!link) {
         setStatus('We could not match your account to a submission folder. Please sign in again from the dashboard or contact your teacher.', 'error');
@@ -406,7 +428,7 @@
         try {
           const { data, error } = await supabase
             .from('students')
-            .select('*')
+            .select('LINK')
             .eq(column, value)
             .maybeSingle();
 
@@ -416,9 +438,8 @@
             continue;
           }
 
-          const link = data?.LINK || data?.Link || data?.link || data?.folder_link || data?.submission_link;
-          if (link) {
-            return link;
+          if (data?.LINK) {
+            return data.LINK;
           }
         } catch (err) {
           console.warn(`[Layer3] Request error for ${column}:`, err);
@@ -452,26 +473,15 @@
         identifiers.push(['email', user.email]);
         identifiers.push(['username', user.user_metadata?.username]);
         identifiers.push(['student_id', user.user_metadata?.student_id]);
-        const metaName = user.user_metadata?.student_name || user.user_metadata?.full_name;
-        identifiers.push(['student_name', metaName]);
-        identifiers.push(['name', metaName]);
-        identifiers.push(['StudentName', metaName]);
-        identifiers.push(['full_name', metaName]);
       }
 
       const localStudentId = localStorage.getItem('student_id');
       const localUsername = localStorage.getItem('username') || localStorage.getItem('student_name');
-      const localStudentName = localStorage.getItem('student_name');
       const localEmail = localStorage.getItem('email');
 
       identifiers.push(['id', localStudentId]);
       identifiers.push(['student_id', localStudentId]);
       identifiers.push(['username', localUsername]);
-      identifiers.push(['student_name', localStudentName]);
-      identifiers.push(['name', localStudentName]);
-      identifiers.push(['full_name', localStudentName]);
-      identifiers.push(['StudentName', localStudentName]);
-      identifiers.push(['display_name', localStudentName]);
       identifiers.push(['email', localEmail]);
 
       return dedupeIdentifiers(identifiers);
