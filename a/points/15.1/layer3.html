@@ -382,50 +382,41 @@
       }
     }
 
-    async function loadSubmissionLink() {
-      setStatus('Checking your submission link…');
 
-      const { data: sessionData, error: sessionError } = await supabase.auth.getSession();
-      if (sessionError && sessionError.message !== 'Auth session missing!') {
-        console.warn('[Layer3] Session lookup failed', sessionError);
-      }
 
-      let user = sessionData?.session?.user;
-      if (!user) {
-        const { data: userData, error: userError } = await supabase.auth.getUser();
-        if (userError && userError.message !== 'Auth session missing!') {
-          console.warn('[Layer3] User lookup failed', userError);
-        }
-        user = userData?.user;
-      }
+async function loadSubmissionLink() {
+  setStatus('Checking your submission link…');
 
-      if (!user) {
-        setStatus('We could not verify your account. Please sign in again to access your folder.', 'error');
-        folderButton.disabled = true;
-        return;
-      }
+  // Gather all possible identifiers from Supabase auth (if any) and localStorage
+  const identifiers = await collectIdentifiers();
 
-      const baseQuery = supabase.from('students').select('LINK').eq('user_id', user.id);
-      const { data, error } = typeof baseQuery.maybeSingle === 'function'
-        ? await baseQuery.maybeSingle()
-        : await baseQuery.single();
+  if (!identifiers.length) {
+    setStatus(
+      'We could not match your account to a submission folder. Please sign in again from the dashboard or contact your teacher.',
+      'error'
+    );
+    folderButton.disabled = true;
+    return;
+  }
 
-      if (error && error.code !== 'PGRST116') {
-        console.warn('[Layer3] Primary lookup failed', error);
-      }
+  // Try to find LINK in the students table using these identifiers
+  const link = await fetchSubmissionLink(identifiers);
 
-      const link = Array.isArray(data) ? data[0]?.LINK : data?.LINK;
+  if (!link) {
+    setStatus(
+      'We could not match your account to a submission folder. Please sign in again from the dashboard or contact your teacher.',
+      'error'
+    );
+    folderButton.disabled = true;
+    return;
+  }
 
-      if (!link) {
-        setStatus('We could not match your account to a submission folder. Please sign in again from the dashboard or contact your teacher.', 'error');
-        folderButton.disabled = true;
-        return;
-      }
+  submissionState.link = link;
+  setStatus('Submission link ready.', 'success');
+  folderButton.disabled = false;
+}
 
-      submissionState.link = link;
-      setStatus('Submission link ready.', 'success');
-      folderButton.disabled = false;
-    }
+
 
     async function fetchSubmissionLink(identifiers) {
       for (const [column, value] of identifiers) {
