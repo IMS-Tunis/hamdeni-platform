@@ -410,15 +410,96 @@
         ? await baseQuery.maybeSingle()
         : await baseQuery.single();
 
-      if (error || !data?.LINK) {
-        setStatus('Your submission link is not configured. Please contact your teacher.', 'error');
+      if (!link) {
+        setStatus('We could not match your account to a submission folder. Please sign in again from the dashboard or contact your teacher.', 'error');
         folderButton.disabled = true;
         return;
       }
 
-      submissionState.link = data.LINK;
+      submissionState.link = link;
       setStatus('Submission link ready.', 'success');
       folderButton.disabled = false;
+    }
+
+    async function fetchSubmissionLink(identifiers) {
+      for (const [column, value] of identifiers) {
+        if (!value) continue;
+
+        try {
+          const { data, error } = await supabase
+            .from('students')
+            .select('LINK')
+            .eq(column, value)
+            .maybeSingle();
+
+          if (error) {
+            if (error.code === 'PGRST116') continue;
+            console.warn(`[Layer3] Lookup by ${column} failed:`, error);
+            continue;
+          }
+
+          if (data?.LINK) {
+            return data.LINK;
+          }
+        } catch (err) {
+          console.warn(`[Layer3] Request error for ${column}:`, err);
+        }
+      }
+
+      return null;
+    }
+
+    async function collectIdentifiers() {
+      const identifiers = [];
+
+      const { data: sessionData, error: sessionError } = await supabase.auth.getSession();
+      if (sessionError && sessionError.message !== 'Auth session missing!') {
+        console.warn('[Layer3] Session lookup failed', sessionError);
+      }
+
+      let user = sessionData?.session?.user;
+      if (!user) {
+        const { data: userData, error: userError } = await supabase.auth.getUser();
+        if (userError && userError.message !== 'Auth session missing!') {
+          console.warn('[Layer3] User lookup failed', userError);
+        }
+        user = userData?.user;
+      }
+
+      if (user) {
+        identifiers.push(['user_id', user.id]);
+        identifiers.push(['auth_user_id', user.id]);
+        identifiers.push(['id', user.id]);
+        identifiers.push(['email', user.email]);
+        identifiers.push(['username', user.user_metadata?.username]);
+        identifiers.push(['student_id', user.user_metadata?.student_id]);
+      }
+
+      const localStudentId = localStorage.getItem('student_id');
+      const localUsername = localStorage.getItem('username') || localStorage.getItem('student_name');
+      const localEmail = localStorage.getItem('email');
+
+      identifiers.push(['id', localStudentId]);
+      identifiers.push(['student_id', localStudentId]);
+      identifiers.push(['username', localUsername]);
+      identifiers.push(['email', localEmail]);
+
+      return dedupeIdentifiers(identifiers);
+    }
+
+    function dedupeIdentifiers(pairs) {
+      const seen = new Set();
+      const cleaned = [];
+
+      for (const [column, value] of pairs) {
+        if (!value) continue;
+        const key = `${column}:${value}`;
+        if (seen.has(key)) continue;
+        seen.add(key);
+        cleaned.push([column, value]);
+      }
+
+      return cleaned;
     }
 
     folderButton.addEventListener('click', () => {
