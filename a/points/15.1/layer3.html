@@ -14,22 +14,23 @@
   <title>Layer 3 – Self correction</title>
   <style>
     :root {
-      --bg: #f5f7fb;
+      --bg: #f6f8fc;
       --card: #ffffff;
       --text: #0f172a;
-      --muted: #475569;
-      --primary: #0b4d8c;
-      --primary-dark: #04305b;
-      --accent: #10b981;
-      --border: #d6e3f3;
+      --muted: #4b5563;
+      --primary: #0f68c3;
+      --primary-dark: #0a4e93;
+      --accent: #22c55e;
+      --border: #d8e2f1;
+      --soft: #eef2ff;
     }
 
     * { box-sizing: border-box; }
 
     body {
       margin: 0;
-      font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg);
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top left, #f0f4ff, #f8fbff 40%, #f5f7fb 80%);
       color: var(--text);
     }
 
@@ -37,14 +38,14 @@
       position: sticky;
       top: 0;
       z-index: 10;
-      background: linear-gradient(to right, #0b4d8c, #1e293b);
+      background: linear-gradient(120deg, #0f68c3, #0a4e93);
       color: white;
       padding: 16px 18px 14px;
-      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.45);
+      box-shadow: 0 8px 20px rgba(15, 104, 195, 0.28);
     }
 
     .header-inner {
-      max-width: 960px;
+      max-width: 1080px;
       margin: 0 auto;
       display: flex;
       flex-wrap: wrap;
@@ -75,8 +76,9 @@
     }
 
     .header-title {
-      font-size: 1.2rem;
-      font-weight: 600;
+      font-size: 1.24rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
       margin: 0;
     }
 
@@ -84,16 +86,16 @@
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      font-size: 0.9rem;
+      font-size: 0.92rem;
       align-items: center;
       justify-content: center;
     }
 
     .meta-pill {
-      border-radius: 999px;
-      padding: 4px 10px;
-      background: rgba(15, 23, 42, 0.32);
-      border: 1px solid rgba(148, 163, 184, 0.7);
+      border-radius: 12px;
+      padding: 6px 12px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       display: flex;
       align-items: center;
       gap: 6px;
@@ -107,18 +109,19 @@
     }
 
     .page {
-      max-width: 960px;
-      margin: 16px auto 24px;
+      max-width: 1080px;
+      margin: 16px auto 32px;
       padding: 0 16px 24px;
+      display: grid;
+      gap: 16px;
     }
 
     .card {
       background: var(--card);
       border-radius: 16px;
       padding: 16px 18px 18px;
-      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      margin-bottom: 16px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      border: 1px solid rgba(148, 163, 184, 0.28);
     }
 
     .card-header {
@@ -150,25 +153,12 @@
       color: var(--muted);
     }
 
-    .label span {
-      font-size: 1rem;
-    }
+    .label span { font-size: 1rem; }
 
-    .toggle-btn {
-      border-radius: 999px;
-      padding: 4px 10px;
-      font-size: 0.8rem;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      background: rgba(15, 23, 42, 0.02);
-      color: var(--muted);
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    .toggle-btn:hover {
-      background: rgba(15, 23, 42, 0.06);
+    .instruction-card {
+      border: 1px dashed var(--border);
+      background: #f8fafc;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
     }
 
     .instruction-body {
@@ -177,9 +167,9 @@
     }
 
     .instruction-copy {
-      background: #f8fafc;
-      border: 1px dashed var(--border);
-      border-radius: 14px;
+      background: #f8fbff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
       padding: 14px;
       color: var(--muted);
       font-size: 0.95rem;
@@ -188,13 +178,13 @@
     .instruction-copy ul { margin: 0; padding-left: 20px; }
 
     .file-rules {
-      border: 1px dashed var(--border);
-      background: #f8fafc;
-      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: #f7faff;
+      border-radius: 12px;
       padding: 14px;
       display: grid;
       gap: 8px;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       color: var(--text);
     }
 
@@ -208,25 +198,29 @@
       background: var(--primary);
       border: none;
       color: white;
-      padding: 9px 18px;
-      border-radius: 999px;
+      padding: 10px 18px;
+      border-radius: 12px;
       cursor: pointer;
-      font-size: 0.95rem;
-      font-weight: 500;
+      font-size: 0.96rem;
+      font-weight: 600;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.3);
+      box-shadow: 0 10px 25px rgba(15, 104, 195, 0.35);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
     }
 
     .primary-btn:hover {
       background: var(--primary-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 12px 30px rgba(10, 78, 147, 0.35);
     }
 
     .primary-btn:disabled {
       opacity: 0.6;
       cursor: default;
       box-shadow: none;
+      transform: none;
     }
 
     .primary-btn span { font-size: 1.1rem; }
@@ -237,21 +231,42 @@
       color: var(--muted);
     }
 
-    .status-message.success { color: #047857; }
+    .status-message.success { color: #0f766e; }
     .status-message.error { color: #dc2626; }
 
-    .activity-grid {
+    .activity-layout {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 18px;
+      gap: 16px;
       align-items: start;
-      margin-top: 14px;
+    }
+
+    .activity-card {
+      position: relative;
+      border: 1px solid var(--border);
+      background: white;
+      overflow: hidden;
+    }
+
+    .activity-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(15, 104, 195, 0.06), rgba(34, 197, 94, 0.05));
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .activity-card-inner {
+      position: relative;
+      display: grid;
+      gap: 10px;
     }
 
     .activity h3 {
-      margin-top: 0;
-      font-size: 1rem;
-      margin-bottom: 10px;
+      margin: 0;
+      font-size: 1.05rem;
+      margin-bottom: 4px;
     }
 
     .activity p {
@@ -270,7 +285,7 @@
     .activity ul li { margin-bottom: 4px; }
 
     .mark-scheme-box {
-      background: #f8fafc;
+      background: var(--soft);
       border-radius: 12px;
       padding: 10px 12px;
       font-size: 0.9rem;
@@ -314,17 +329,6 @@
       color: var(--muted);
       margin-top: 6px;
     }
-
-    .alert {
-      border-radius: 12px;
-      padding: 10px 12px;
-      background: #fef3c7;
-      border: 1px solid #facc15;
-      font-size: 0.9rem;
-      margin-top: 10px;
-    }
-
-    .alert strong { color: #92400e; }
 
     .file-columns {
       display: grid;
@@ -391,10 +395,10 @@
   </header>
 
   <div class="page">
-    <section class="card">
+    <section class="card instruction-card">
       <div class="card-header">
-        <span class="label"><span>🧭</span> Instruction guide</span>
-        <h3 style="margin:0;">How to complete this layer</h3>
+        <span class="label"><span>🧭</span> Quick guide</span>
+        <h3 style="margin:0;">Complete this layer in three steps</h3>
       </div>
       <div class="instruction-body">
         <div class="instruction-copy">
@@ -402,23 +406,13 @@
             <li>Upload your first attempt with clear handwriting and clear separation between questions.</li>
             <li>Check the Cambridge or Hodder mark scheme, then correct anything missing or wrong in a different color.</li>
             <li>Upload your corrected work after reviewing the mark scheme.</li>
-            <li>Use the submission folder button below to open your personal folder and upload all four files listed.</li>
+            <li>Use the submission folder button below to open your personal folder and upload the four files.</li>
           </ul>
         </div>
 
         <div class="file-rules">
           <div>
-            <p class="filename-note"><strong>File naming rules</strong></p>
-            <div class="file-naming">
-              <p>Each file name must follow this pattern:</p>
-              <ul>
-                <li><code>Point_Resource_Attempt</code></li>
-              </ul>
-              <p class="note">For example: <code>15.1_Cambridge_FirstAttempt</code></p>
-            </div>
-          </div>
-          <div>
-            <p class="filename-note"><strong>Files you must upload</strong></p>
+            <p class="filename-note"><strong>Upload these four files</strong></p>
             <div class="file-columns">
               <div class="file-column">
                 <h4>Cambridge</h4>
@@ -435,12 +429,13 @@
                 </p>
               </div>
             </div>
-            <p class="note">Make sure the point number, resource (Cambridge/Hodder), and attempt (FirstAttempt/AfterCorrection) are all visible in the file name.</p>
           </div>
-        </div>
-
-        <div class="alert">
-          <strong>Important</strong>: The folder link is personal. Do not share it with other students.
+          <div>
+            <p class="filename-note"><strong>File names</strong></p>
+            <div class="file-naming">
+              <p>Keep the names exactly as written above so we can match your uploads quickly.</p>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -450,37 +445,43 @@
       </div>
     </section>
 
-    <section class="activity-grid">
-      <article class="card activity">
-        <h3>Activity 1: Cambridge end of chapter questions</h3>
-        <p>
-          Answer the Cambridge end of chapter questions for point 15.1 in your notebook or on paper.<br/>
-          Then scan or photograph your work and upload it.
-        </p>
-        <ul>
-          <li>Use clear handwriting and number your questions.</li>
-          <li>Keep the file size reasonable and make sure the image is readable.</li>
-        </ul>
-        <div class="mark-scheme-box">
-          <p><strong>Step 1</strong>: Upload your first attempt as <code>15.1_Cambridge_FirstAttempt</code>.</p>
-          <p><strong>Step 2</strong>: Open the Cambridge mark scheme PDF provided in the same folder as this page and correct your answers using a different color.</p>
-          <p><strong>Step 3</strong>: Upload your corrected work as <code>15.1_Cambridge_AfterCorrection</code>.</p>
+    <section class="activity-layout">
+      <article class="card activity activity-card">
+        <div class="activity-card-inner">
+          <div class="label" aria-hidden="true"><span>📘</span> Cambridge</div>
+          <h3>Activity 1: Cambridge end of chapter questions</h3>
+          <p>
+            Answer the Cambridge end of chapter questions for point 15.1 in your notebook or on paper.<br/>
+            Then scan or photograph your work and upload it.
+          </p>
+          <ul>
+            <li>Use clear handwriting and number your questions.</li>
+            <li>Keep the file size reasonable and make sure the image is readable.</li>
+          </ul>
+          <div class="mark-scheme-box">
+            <p><strong>Step 1</strong>: Upload your first attempt as <code>15.1_Cambridge_FirstAttempt</code>.</p>
+            <p><strong>Step 2</strong>: Open the Cambridge mark scheme PDF in this folder and correct your answers using a different color.</p>
+            <p><strong>Step 3</strong>: Upload your corrected work as <code>15.1_Cambridge_AfterCorrection</code>.</p>
+          </div>
         </div>
       </article>
 
-      <article class="card activity">
-        <h3>Activity 2: Hodder end of chapter questions</h3>
-        <p>
-          Answer the Hodder end of chapter questions for point 15.1 in your notebook or on paper, then upload your work.
-        </p>
-        <ul>
-          <li>Write the answers clearly and separate each question.</li>
-          <li>Keep the file size reasonable and ensure all pages are visible.</li>
-        </ul>
-        <div class="mark-scheme-box">
-          <p><strong>Step 1</strong>: Upload your first attempt as <code>15.1_Hodder_FirstAttempt</code>.</p>
-          <p><strong>Step 2</strong>: Open the Hodder mark scheme PDF provided in the same folder as this page and correct your answers using a different color.</p>
-          <p><strong>Step 3</strong>: Upload your corrected work as <code>15.1_Hodder_AfterCorrection</code>.</p>
+      <article class="card activity activity-card">
+        <div class="activity-card-inner">
+          <div class="label" aria-hidden="true"><span>📗</span> Hodder</div>
+          <h3>Activity 2: Hodder end of chapter questions</h3>
+          <p>
+            Answer the Hodder end of chapter questions for point 15.1 in your notebook or on paper, then upload your work.
+          </p>
+          <ul>
+            <li>Write the answers clearly and separate each question.</li>
+            <li>Keep the file size reasonable and ensure all pages are visible.</li>
+          </ul>
+          <div class="mark-scheme-box">
+            <p><strong>Step 1</strong>: Upload your first attempt as <code>15.1_Hodder_FirstAttempt</code>.</p>
+            <p><strong>Step 2</strong>: Open the Hodder mark scheme PDF in this folder and correct your answers using a different color.</p>
+            <p><strong>Step 3</strong>: Upload your corrected work as <code>15.1_Hodder_AfterCorrection</code>.</p>
+          </div>
         </div>
       </article>
     </section>
