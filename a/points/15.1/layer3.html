@@ -505,13 +505,11 @@
     async function loadSubmissionLink() {
       setStatus('Checking your submission link…');
 
-      // Prefer username (used in progress tracking); fall back to full name
-      const username = localStorage.getItem('username');
-      const studentName = localStorage.getItem('student_name');
-
-      const identifiers = [];
-      if (username) identifiers.push(['username', username]);
-      if (studentName) identifiers.push(['student_name', studentName]);
+      const identifiers = [
+        ['id', localStorage.getItem('student_id')],
+        ['username', localStorage.getItem('username')],
+        ['uuid', localStorage.getItem('uuid')]
+      ].filter(([, value]) => Boolean(value));
 
       if (!identifiers.length) {
         console.warn('[Layer3] No usable identifier in localStorage');
@@ -523,23 +521,21 @@
         return;
       }
 
-      console.log('[Layer3] Looking up LINK using identifiers:', identifiers);
+      console.log('[Layer3] Looking up Link using identifiers:', identifiers);
 
       let link = null;
       let lastError = null;
 
       for (const [column, value] of identifiers) {
-        if (!value) continue;
         try {
           const { data, error } = await supabase
             .from('students')
-            .select('LINK')
+            .select('Link')
             .eq(column, value)
             .maybeSingle();
 
           if (error) {
             if (error.code === 'PGRST116') {
-              // no rows found, try next identifier
               continue;
             }
             console.warn(`[Layer3] Lookup by ${column} failed:`, error);
@@ -547,9 +543,9 @@
             continue;
           }
 
-          if (data && data.LINK) {
-            link = data.LINK;
-            console.log(`[Layer3] Found LINK via ${column}:`, link);
+          if (data && data.Link) {
+            link = data.Link;
+            console.log(`[Layer3] Found Link via ${column}:`, link);
             break;
           }
         } catch (err) {
@@ -559,7 +555,7 @@
       }
 
       if (!link) {
-        console.warn('[Layer3] No LINK found for any identifier', { identifiers, lastError });
+        console.warn('[Layer3] No Link found for any identifier', { identifiers, lastError });
         setStatus(
           'No submission folder is configured for your account. Please contact your teacher.',
           'error'
