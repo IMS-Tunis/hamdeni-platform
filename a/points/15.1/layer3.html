@@ -16,8 +16,8 @@
     :root {
       --bg: #f6f8fc;
       --card: #ffffff;
-      --text: #0f172a;
-      --muted: #4b5563;
+      --text: #000000;
+      --muted: #1f2937;
       --primary: #0f68c3;
       --primary-dark: #0a4e93;
       --accent: #22c55e;
@@ -171,26 +171,11 @@
       border: 1px solid var(--border);
       border-radius: 12px;
       padding: 14px;
-      color: var(--muted);
+      color: var(--text);
       font-size: 0.95rem;
     }
 
     .instruction-copy ul { margin: 0; padding-left: 20px; }
-
-    .file-rules {
-      border: 1px solid var(--border);
-      background: #f7faff;
-      border-radius: 12px;
-      padding: 14px;
-      display: grid;
-      gap: 8px;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      color: var(--text);
-    }
-
-    .file-rules strong { color: var(--text); }
-
-    .filename-note { margin: 0 0 6px; color: var(--muted); font-size: 0.95rem; }
 
     .submission-access { margin-top: 16px; text-align: center; }
 
@@ -272,62 +257,23 @@
     .activity p {
       margin: 0 0 10px;
       font-size: 0.92rem;
-      color: var(--muted);
+      color: var(--text);
     }
 
     .activity ul {
       margin: 0 0 10px;
       padding-left: 20px;
       font-size: 0.9rem;
-      color: var(--muted);
+      color: var(--text);
     }
 
     .activity ul li { margin-bottom: 4px; }
-
-    .mark-scheme-box {
-      background: var(--soft);
-      border-radius: 12px;
-      padding: 10px 12px;
-      font-size: 0.9rem;
-      border: 1px dashed var(--border);
-      margin-top: 8px;
-    }
-
-    .mark-scheme-box p { margin: 0 0 6px; }
-
-    .mark-scheme-box button {
-      font-size: 0.85rem;
-      padding: 5px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.8);
-      background: white;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .mark-scheme-box button:hover {
-      background: #e5f0ff;
-    }
-
-    .mark-scheme-box button span { font-size: 1rem; }
 
     .resource-block {
       border: 1px solid var(--border);
       border-radius: 12px;
       overflow: hidden;
       background: #f8fbff;
-    }
-
-    .resource-block figure {
-      margin: 0;
-    }
-
-    .resource-block img {
-      display: block;
-      width: 100%;
-      height: auto;
     }
 
     .resource-header {
@@ -346,24 +292,33 @@
       font-weight: 600;
     }
 
-    .toggle-btn {
+    .resource-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+      padding: 12px;
+    }
+
+    .resource-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 10px;
       border: 1px solid rgba(15, 104, 195, 0.3);
       background: white;
       color: var(--primary);
       font-weight: 600;
-      border-radius: 999px;
-      padding: 8px 14px;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      box-shadow: 0 6px 18px rgba(15, 104, 195, 0.18);
+      text-decoration: none;
+      box-shadow: 0 6px 18px rgba(15, 104, 195, 0.12);
       transition: all 0.15s ease;
     }
 
-    .toggle-btn:hover { background: #e6f1ff; }
-
-    .mark-scheme-panel { display: none; }
+    .resource-link:hover {
+      background: #e6f1ff;
+      color: var(--primary-dark);
+    }
 
     .nav-footer {
       margin-top: 8px;
@@ -386,33 +341,6 @@
       font-size: 0.85rem;
       color: var(--muted);
       margin-top: 6px;
-    }
-
-    .file-columns {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 10px 16px;
-      margin-top: 4px;
-      font-size: 0.9rem;
-    }
-
-    .file-column h4 {
-      margin: 0 0 4px;
-      font-size: 0.95rem;
-    }
-
-    .file-column p {
-      margin: 0;
-      font-size: 0.86rem;
-      color: var(--muted);
-    }
-
-    .file-column code {
-      background: rgba(15, 23, 42, 0.04);
-      border-radius: 6px;
-      padding: 1px 6px;
-      font-family: "Consolas", "SF Mono", ui-monospace, Menlo, Monaco, monospace;
-      font-size: 0.85rem;
     }
 
     @media (max-width: 600px) {
@@ -460,45 +388,17 @@
       <div class="instruction-body">
         <div class="instruction-copy">
           <ol>
-            <li>Step 1: Upload your first attempt with clear handwriting and clear separation between questions.</li>
-            <li>Step 2: Check the Cambridge or Hodder mark scheme, then correct anything missing or wrong in a different color.</li>
-            <li>Step 3: Upload your corrected work after reviewing the mark scheme.</li>
+            <li>Step 1: Download the PDFs for each activity and complete the questions with clear handwriting.</li>
+            <li>Step 2: Open the correction PDF for that activity, then correct anything missing or wrong in a different color.</li>
+            <li>Step 3: Upload your first and corrected attempts using the agreed file names for each activity.</li>
           </ol>
-          <p><strong>Notes:</strong> Use the submission folder button below to open your personal folder and upload the four files using the exact file names as follows:</p>
+          <p><strong>File names:</strong> use these exact names for your uploads so we can match them quickly.</p>
           <ul>
-            <li><code>15.1_Cambridge_FirstAttempt</code></li>
-            <li><code>15.1_Cambridge_AfterCorrection</code></li>
-            <li><code>15.1_Hodder_FirstAttempt</code></li>
-            <li><code>15.1_Hodder_AfterCorrection</code></li>
+            <li><code>15.1_Cambridge_FirstAttempt</code> and <code>15.1_Cambridge_AfterCorrection</code></li>
+            <li><code>15.1_Hodder_FirstAttempt</code> and <code>15.1_Hodder_AfterCorrection</code></li>
+            <li><code>15.1_Worksheet_FirstAttempt</code> and <code>15.1_Worksheet_AfterCorrection</code></li>
           </ul>
-        </div>
-
-        <div class="file-rules">
-          <div>
-            <p class="filename-note"><strong>Upload these four files</strong></p>
-            <div class="file-columns">
-              <div class="file-column">
-                <h4>Cambridge</h4>
-                <p>
-                  <code>15.1_Cambridge_FirstAttempt</code><br/>
-                  <code>15.1_Cambridge_AfterCorrection</code>
-                </p>
-              </div>
-              <div class="file-column">
-                <h4>Hodder</h4>
-                <p>
-                  <code>15.1_Hodder_FirstAttempt</code><br/>
-                  <code>15.1_Hodder_AfterCorrection</code>
-                </p>
-              </div>
-            </div>
-          </div>
-          <div>
-            <p class="filename-note"><strong>File names</strong></p>
-            <div class="file-naming">
-              <p>Keep the names exactly as written above so we can match your uploads quickly.</p>
-            </div>
-          </div>
+          <p class="note">Click any resource button to open its PDF in a new tab.</p>
         </div>
       </div>
 
@@ -511,11 +411,10 @@
     <section class="activity-layout">
       <article class="card activity activity-card">
         <div class="activity-card-inner">
-          <div class="label" aria-hidden="true"><span>📘</span> Cambridge</div>
-          <h3>Activity 1: <span style="color: var(--primary);">Cambridge</span> end of chapter questions</h3>
+          <div class="label" aria-hidden="true"><span>📘</span> Cambridge Coursebook</div>
+          <h3>Activity 1: <span style="color: var(--primary);">Cambridge Coursebook</span> questions</h3>
           <p>
-            Answer the Cambridge end of chapter questions for point 15.1 in your notebook or on paper.<br/>
-            Then scan or photograph your work and upload it.
+            Answer the Cambridge Coursebook questions for point 15.1 in your notebook or on paper. Once finished, scan or photograph your work and upload it.
           </p>
           <ul>
             <li>Use clear handwriting and number your questions.</li>
@@ -524,37 +423,22 @@
 
           <div class="resource-block">
             <div class="resource-header">
-              <p class="resource-title">Cambridge questions</p>
+              <p class="resource-title">Cambridge Coursebook resources</p>
             </div>
-            <figure>
-              <img src="cambridgequestions.png" alt="Cambridge end of chapter questions" />
-            </figure>
-          </div>
-
-          <div class="resource-block" style="margin-top: 12px;">
-            <div class="resource-header">
-              <p class="resource-title">Cambridge mark scheme</p>
-              <button class="toggle-btn" data-target="cambridge-mark-scheme" type="button"><span>👁️</span> Show / hide</button>
+            <div class="resource-links">
+              <a class="resource-link" href="cambridge.pdf" target="_blank" rel="noopener"><span>📄</span>Open questions PDF</a>
+              <a class="resource-link" href="cambridgecorrection.pdf" target="_blank" rel="noopener"><span>✅</span>Open correction PDF</a>
             </div>
-            <figure id="cambridge-mark-scheme" class="mark-scheme-panel">
-              <img src="cambridgemarkscheme.png" alt="Cambridge mark scheme" />
-            </figure>
-          </div>
-
-          <div class="mark-scheme-box">
-            <p><strong>Step 1</strong>: Upload your first attempt as <code>15.1_Cambridge_FirstAttempt</code>.</p>
-            <p><strong>Step 2</strong>: Open the Cambridge mark scheme and correct your answers using a different color.</p>
-            <p><strong>Step 3</strong>: Upload your corrected work as <code>15.1_Cambridge_AfterCorrection</code>.</p>
           </div>
         </div>
       </article>
 
       <article class="card activity activity-card">
         <div class="activity-card-inner">
-          <div class="label" aria-hidden="true"><span>📗</span> Hodder</div>
-          <h3>Activity 2: <span style="color: #16a34a;">Hodder</span> end of chapter questions</h3>
+          <div class="label" aria-hidden="true"><span>📗</span> Hodder Coursebook</div>
+          <h3>Activity 2: <span style="color: #16a34a;">Hodder Coursebook</span> questions</h3>
           <p>
-            Answer the Hodder end of chapter questions for point 15.1 in your notebook or on paper, then upload your work.
+            Complete the Hodder Coursebook questions for point 15.1, then upload your work after checking the correction PDF.
           </p>
           <ul>
             <li>Write the answers clearly and separate each question.</li>
@@ -563,27 +447,36 @@
 
           <div class="resource-block">
             <div class="resource-header">
-              <p class="resource-title">Hodder questions</p>
+              <p class="resource-title">Hodder Coursebook resources</p>
             </div>
-            <figure>
-              <img src="hodderquestions.png" alt="Hodder end of chapter questions" />
-            </figure>
+            <div class="resource-links">
+              <a class="resource-link" href="hodder.pdf" target="_blank" rel="noopener"><span>📄</span>Open questions PDF</a>
+              <a class="resource-link" href="hoddercorrection.pdf" target="_blank" rel="noopener"><span>✅</span>Open correction PDF</a>
+            </div>
           </div>
+        </div>
+      </article>
 
-          <div class="resource-block" style="margin-top: 12px;">
+      <article class="card activity activity-card">
+        <div class="activity-card-inner">
+          <div class="label" aria-hidden="true"><span>📝</span> Cambridge Worksheet</div>
+          <h3>Activity 3: <span style="color: var(--primary);">Cambridge Worksheet</span> practice</h3>
+          <p>
+            Work through the Cambridge Worksheet for point 15.1, then review your answers using the correction PDF before uploading.
+          </p>
+          <ul>
+            <li>Show each step of your working clearly.</li>
+            <li>Double-check that the scans or photos are easy to read.</li>
+          </ul>
+
+          <div class="resource-block">
             <div class="resource-header">
-              <p class="resource-title">Hodder mark scheme</p>
-              <button class="toggle-btn" data-target="hodder-mark-scheme" type="button"><span>👁️</span> Show / hide</button>
+              <p class="resource-title">Cambridge Worksheet resources</p>
             </div>
-            <figure id="hodder-mark-scheme" class="mark-scheme-panel">
-              <img src="hoddermarkscheme.png" alt="Hodder mark scheme" />
-            </figure>
-          </div>
-
-          <div class="mark-scheme-box">
-            <p><strong>Step 1</strong>: Upload your first attempt as <code>15.1_Hodder_FirstAttempt</code>.</p>
-            <p><strong>Step 2</strong>: Open the Hodder mark scheme and correct your answers using a different color.</p>
-            <p><strong>Step 3</strong>: Upload your corrected work as <code>15.1_Hodder_AfterCorrection</code>.</p>
+            <div class="resource-links">
+              <a class="resource-link" href="worksheet.pdf" target="_blank" rel="noopener"><span>📄</span>Open worksheet PDF</a>
+              <a class="resource-link" href="worksheetcorrection.pdf" target="_blank" rel="noopener"><span>✅</span>Open correction PDF</a>
+            </div>
           </div>
         </div>
       </article>
@@ -701,15 +594,6 @@
         }
       });
     }
-
-    document.querySelectorAll('.toggle-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const target = document.getElementById(btn.dataset.target);
-        if (!target) return;
-        const isVisible = target.style.display === 'block';
-        target.style.display = isVisible ? 'none' : 'block';
-      });
-    });
 
     initHeader();
     loadSubmissionLink();
