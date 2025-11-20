@@ -248,6 +248,38 @@
       gap: 10px;
     }
 
+    .activity-header {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .activity-cover {
+      width: 82px;
+      height: 104px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(15, 23, 42, 0.1);
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.12);
+      background: linear-gradient(145deg, #f8fbff, #eef2ff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .activity-cover img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .activity-heading-text {
+      display: grid;
+      gap: 6px;
+    }
+
     .activity h3 {
       margin: 0;
       font-size: 1.05rem;
@@ -411,8 +443,15 @@
     <section class="activity-layout">
       <article class="card activity activity-card">
         <div class="activity-card-inner">
-          <div class="label" aria-hidden="true"><span>📘</span> Cambridge Coursebook</div>
-          <h3>Activity 1: <span style="color: var(--primary);">Cambridge Coursebook</span> questions</h3>
+          <div class="activity-header">
+            <div class="activity-cover" aria-hidden="true">
+              <img src="../../covercambridge.png" alt="Cambridge coursebook cover" />
+            </div>
+            <div class="activity-heading-text">
+              <div class="label" aria-hidden="true"><span>📘</span> Cambridge Coursebook</div>
+              <h3>Activity 1: <span style="color: var(--primary);">Cambridge Coursebook</span> questions</h3>
+            </div>
+          </div>
           <p>
             Answer the Cambridge Coursebook questions for point 15.1 in your notebook or on paper. Once finished, scan or photograph your work and upload it.
           </p>
@@ -435,8 +474,15 @@
 
       <article class="card activity activity-card">
         <div class="activity-card-inner">
-          <div class="label" aria-hidden="true"><span>📗</span> Hodder Coursebook</div>
-          <h3>Activity 2: <span style="color: #16a34a;">Hodder Coursebook</span> questions</h3>
+          <div class="activity-header">
+            <div class="activity-cover" aria-hidden="true">
+              <img src="../../coverhodder.png" alt="Hodder coursebook cover" />
+            </div>
+            <div class="activity-heading-text">
+              <div class="label" aria-hidden="true"><span>📗</span> Hodder Coursebook</div>
+              <h3>Activity 2: <span style="color: #16a34a;">Hodder Coursebook</span> questions</h3>
+            </div>
+          </div>
           <p>
             Complete the Hodder Coursebook questions for point 15.1, then upload your work after checking the correction PDF.
           </p>
@@ -459,8 +505,15 @@
 
       <article class="card activity activity-card">
         <div class="activity-card-inner">
-          <div class="label" aria-hidden="true"><span>📝</span> Cambridge Worksheet</div>
-          <h3>Activity 3: <span style="color: var(--primary);">Cambridge Worksheet</span> practice</h3>
+          <div class="activity-header">
+            <div class="activity-cover" aria-hidden="true">
+              <img src="../../coverworksheet.png" alt="Cambridge worksheet cover" />
+            </div>
+            <div class="activity-heading-text">
+              <div class="label" aria-hidden="true"><span>📝</span> Cambridge Worksheet</div>
+              <h3>Activity 3: <span style="color: var(--primary);">Cambridge Worksheet</span> practice</h3>
+            </div>
+          </div>
           <p>
             Work through the Cambridge Worksheet for point 15.1, then review your answers using the correction PDF before uploading.
           </p>
