@@ -374,6 +374,14 @@
       color: var(--muted);
       margin-top: 6px;
     }
+	
+	code {
+  color: #555;           /* text color */
+  background-color: #f2f2f2; /* optional: light background */
+  padding: 2px 4px;      /* optional: nicer look */
+  border-radius: 4px;    /* optional */
+  font-size: 90%;        /* optional */
+}
 
     @media (max-width: 600px) {
       header { padding: 12px 14px; }
@@ -418,20 +426,46 @@
         <span class="label"><span>🧭</span> Quick guide for completing this layer</span>
       </div>
       <div class="instruction-body">
-        <div class="instruction-copy">
-          <p>You will complete three sets of exam-style questions (Cambridge Coursebook, Hodder Coursebook, and Cambridge Worksheet). For each activity, follow these steps:</p>
-          <ol>
-            <li>Download the questions PDF, then answer every question with clean, clear handwriting and separate each question clearly.</li>
-            <li>Open the correction PDF and make any fixes in a different color so the changes stand out.</li>
-            <li>Scan or photograph both your first attempt and your corrected work, then upload them using the exact file names below.</li>
-          </ol>
-          <p><strong>File names:</strong> use these exact names for your uploads so we can match them quickly.</p>
-          <ul>
-            <li><code>15.1_Cambridge_FirstAttempt</code> and <code>15.1_Cambridge_AfterCorrection</code></li>
-            <li><code>15.1_Hodder_FirstAttempt</code> and <code>15.1_Hodder_AfterCorrection</code></li>
-            <li><code>15.1_Worksheet_FirstAttempt</code> and <code>15.1_Worksheet_AfterCorrection</code></li>
-          </ul>
-        </div>
+
+
+
+
+<div class="instruction-copy">
+  <p>You will complete three activities:</p>
+  <ul>
+    <li>Activity 1: Cambridge Coursebook (exam style questions)</li>
+    <li>Activity 2: Hodder Coursebook (end of chapter questions)</li>
+    <li>Activity 3: Cambridge worksheet</li>
+  </ul>
+
+  <p>For each activity, follow these steps:</p>
+  <ol>
+    <li>
+      Step 1: Open the questions PDF and answer all questions in a notebook or on paper, 
+      using clear handwriting and separating each question.
+    </li>
+    <li>
+      Step 2: Open the correction PDF and make all changes 
+      <strong>in a different color</strong> so they are easy to see.
+    </li>
+    <li>
+      Step 3: Scan or photograph both your first attempt and your corrected work, 
+      then upload them using these <strong>exact file names</strong>:
+      <ul>
+        <li>For Cambridge: <code>15.1_Cambridge_FirstAttempt</code> and <code>15.1_Cambridge_AfterCorrection</code></li>
+        <li>For Hodder: <code>15.1_Hodder_FirstAttempt</code> and <code>15.1_Hodder_AfterCorrection</code></li>
+        <li>For the worksheet: <code>15.1_Worksheet_FirstAttempt</code> and <code>15.1_Worksheet_AfterCorrection</code></li>
+      </ul>
+    </li>
+  </ol>
+</div>
+
+
+
+
+
+
+
       </div>
 
       <div class="submission-access">
@@ -449,22 +483,17 @@
             </div>
             <div class="activity-heading-text">
               <div class="label" aria-hidden="true"><span>📘</span> Cambridge Coursebook</div>
-              <h3>Activity 1: <span style="color: var(--primary);">Cambridge Coursebook</span> questions</h3>
+              <h3>Activity 1: Cambridge Coursebook questions</h3>
             </div>
           </div>
-          <p>
-            Answer the Cambridge Coursebook questions for point 15.1 in your notebook or on paper. Once finished, scan or photograph your work and upload it.
-          </p>
+      
 
-          <div class="resource-block">
-            <div class="resource-header">
-              <p class="resource-title">Cambridge Coursebook resources</p>
-            </div>
+       
             <div class="resource-links">
-              <a class="resource-link" href="cambridge.pdf" target="_blank" rel="noopener"><span>📄</span>Open questions PDF</a>
-              <a class="resource-link" href="cambridgecorrection.pdf" target="_blank" rel="noopener"><span>✅</span>Open correction PDF</a>
+              <a class="resource-link" href="cambridge.pdf" target="_blank" rel="noopener"><span>📄</span>Open questions</a>
+              <a class="resource-link" href="cambridgecorrection.pdf" target="_blank" rel="noopener"><span>✅</span>Open correction</a>
             </div>
-          </div>
+        
         </div>
       </article>
 
@@ -476,22 +505,17 @@
             </div>
             <div class="activity-heading-text">
               <div class="label" aria-hidden="true"><span>📗</span> Hodder Coursebook</div>
-              <h3>Activity 2: <span style="color: #16a34a;">Hodder Coursebook</span> questions</h3>
+              <h3>Activity 2: Hodder Coursebook questions</h3>
             </div>
           </div>
-          <p>
-            Complete the Hodder Coursebook questions for point 15.1, then upload your work after checking the correction PDF.
-          </p>
 
-          <div class="resource-block">
-            <div class="resource-header">
-              <p class="resource-title">Hodder Coursebook resources</p>
-            </div>
+
+ 
             <div class="resource-links">
-              <a class="resource-link" href="hodder.pdf" target="_blank" rel="noopener"><span>📄</span>Open questions PDF</a>
-              <a class="resource-link" href="hoddercorrection.pdf" target="_blank" rel="noopener"><span>✅</span>Open correction PDF</a>
+              <a class="resource-link" href="hodder.pdf" target="_blank" rel="noopener"><span>📄</span>Open questions </a>
+              <a class="resource-link" href="hoddercorrection.pdf" target="_blank" rel="noopener"><span>✅</span>Open correction </a>
             </div>
-          </div>
+
         </div>
       </article>
 
@@ -503,22 +527,17 @@
             </div>
             <div class="activity-heading-text">
               <div class="label" aria-hidden="true"><span>📝</span> Cambridge Worksheet</div>
-              <h3>Activity 3: <span style="color: var(--primary);">Cambridge Worksheet</span> practice</h3>
+              <h3>Activity 3: Cambridge Worksheet practice</h3>
             </div>
           </div>
-          <p>
-            Work through the Cambridge Worksheet for point 15.1, then review your answers using the correction PDF before uploading.
-          </p>
+ 
 
-          <div class="resource-block">
-            <div class="resource-header">
-              <p class="resource-title">Cambridge Worksheet resources</p>
-            </div>
+  
             <div class="resource-links">
-              <a class="resource-link" href="worksheet.pdf" target="_blank" rel="noopener"><span>📄</span>Open worksheet PDF</a>
-              <a class="resource-link" href="worksheetcorrection.pdf" target="_blank" rel="noopener"><span>✅</span>Open correction PDF</a>
+              <a class="resource-link" href="worksheet.pdf" target="_blank" rel="noopener"><span>📄</span>Open worksheet </a>
+              <a class="resource-link" href="worksheetcorrection.pdf" target="_blank" rel="noopener"><span>✅</span>Open correction </a>
             </div>
-          </div>
+         
         </div>
       </article>
     </section>
