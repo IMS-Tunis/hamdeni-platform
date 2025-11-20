@@ -50,13 +50,28 @@
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      gap: 8px 16px;
+      gap: 12px 18px;
+    }
+
+    .header-logo {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .header-logo img {
+      height: 52px;
+      width: auto;
+      display: block;
+      filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.25));
     }
 
     .header-main {
+      flex: 1;
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      align-items: center;
+      gap: 8px;
+      text-align: center;
     }
 
     .header-title {
@@ -65,19 +80,13 @@
       margin: 0;
     }
 
-    .header-subtitle {
-      margin: 0;
-      font-size: 0.9rem;
-      opacity: 0.9;
-    }
-
     .header-meta {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
       font-size: 0.9rem;
       align-items: center;
-      justify-content: flex-end;
+      justify-content: center;
     }
 
     .meta-pill {
@@ -349,26 +358,34 @@
       .page { padding: 0 12px 20px; }
       .card { padding: 12px 13px 14px; }
       .header-title { font-size: 1.05rem; }
-      .header-inner { gap: 6px 10px; }
+      .header-inner { gap: 8px 10px; }
+      .header-main { align-items: center; }
+      .header-logo img { height: 44px; }
     }
   </style>
 </head>
 <body>
   <header>
     <div class="header-inner">
+      <a class="header-logo" href="../../dashboard.html">
+        <img src="../../../images/maarifLOGO.png" alt="Maarif logo" />
+      </a>
       <div class="header-main">
-        <h1 class="header-title">Layer 3: Self correction for point <span id="point-title">15.1</span></h1>
-        <p class="header-subtitle">
-          Upload your answers, compare with the mark schemes, and upload your corrected work.
-        </p>
+        <h1 class="header-title">Layer 3: Exam style questions</h1>
+        <div class="header-meta">
+          <div class="meta-pill">
+            <span id="point-title">Point 15.1</span>
+          </div>
+          <div class="meta-pill">
+            <span id="student-name">👤 Student</span>
+          </div>
+          <div class="meta-pill">
+            <span id="platform-name">🎓 Platform</span>
+          </div>
+        </div>
       </div>
-      <div class="header-meta">
-        <div class="meta-pill">
-          <span id="student-name">👤 Student</span>
-        </div>
-        <div class="meta-pill">
-          <span id="platform-name">🎓 Platform</span>
-        </div>
+      <div class="header-logo header-logo--right">
+        <img src="../../../images/cambridge.png" alt="Cambridge logo" />
       </div>
     </div>
   </header>
@@ -492,7 +509,7 @@
       const studentName = localStorage.getItem('student_name');
       const platform = localStorage.getItem('platform');
       if (pointTitle) {
-        pointTitle.textContent = '15.1';
+        pointTitle.textContent = 'Point 15.1';
       }
       if (studentNameEl && studentName) {
         studentNameEl.textContent = `👤 ${studentName}`;
