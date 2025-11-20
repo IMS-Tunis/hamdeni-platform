@@ -387,10 +387,11 @@
       </div>
       <div class="instruction-body">
         <div class="instruction-copy">
+          <p>You will complete three sets of exam-style questions (Cambridge Coursebook, Hodder Coursebook, and Cambridge Worksheet). For each activity, follow these steps:</p>
           <ol>
-            <li>Step 1: Download the PDFs for each activity and complete the questions with clear handwriting.</li>
-            <li>Step 2: Open the correction PDF for that activity, then correct anything missing or wrong in a different color.</li>
-            <li>Step 3: Upload your first and corrected attempts using the agreed file names for each activity.</li>
+            <li>Download the questions PDF, then answer every question with clean, clear handwriting and separate each question clearly.</li>
+            <li>Open the correction PDF and make any fixes in a different color so the changes stand out.</li>
+            <li>Scan or photograph both your first attempt and your corrected work, then upload them using the exact file names below.</li>
           </ol>
           <p><strong>File names:</strong> use these exact names for your uploads so we can match them quickly.</p>
           <ul>
@@ -398,7 +399,6 @@
             <li><code>15.1_Hodder_FirstAttempt</code> and <code>15.1_Hodder_AfterCorrection</code></li>
             <li><code>15.1_Worksheet_FirstAttempt</code> and <code>15.1_Worksheet_AfterCorrection</code></li>
           </ul>
-          <p class="note">Click any resource button to open its PDF in a new tab.</p>
         </div>
       </div>
 
@@ -416,10 +416,6 @@
           <p>
             Answer the Cambridge Coursebook questions for point 15.1 in your notebook or on paper. Once finished, scan or photograph your work and upload it.
           </p>
-          <ul>
-            <li>Use clear handwriting and number your questions.</li>
-            <li>Keep the file size reasonable and make sure the image is readable.</li>
-          </ul>
 
           <div class="resource-block">
             <div class="resource-header">
@@ -440,10 +436,6 @@
           <p>
             Complete the Hodder Coursebook questions for point 15.1, then upload your work after checking the correction PDF.
           </p>
-          <ul>
-            <li>Write the answers clearly and separate each question.</li>
-            <li>Keep the file size reasonable and ensure all pages are visible.</li>
-          </ul>
 
           <div class="resource-block">
             <div class="resource-header">
@@ -464,10 +456,6 @@
           <p>
             Work through the Cambridge Worksheet for point 15.1, then review your answers using the correction PDF before uploading.
           </p>
-          <ul>
-            <li>Show each step of your working clearly.</li>
-            <li>Double-check that the scans or photos are easy to read.</li>
-          </ul>
 
           <div class="resource-block">
             <div class="resource-header">
@@ -504,6 +492,7 @@
       if (!folderStatus) return;
       folderStatus.textContent = message;
       folderStatus.className = `status-message${variant ? ' ' + variant : ''}`;
+      folderStatus.style.display = message ? 'block' : 'none';
     }
 
     function initHeader() {
@@ -583,7 +572,7 @@
       }
 
       submissionState.link = link;
-      setStatus('Submission link ready.', 'success');
+      setStatus('', 'success');
       if (folderButton) folderButton.disabled = false;
     }
 
