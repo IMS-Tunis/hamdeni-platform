@@ -313,6 +313,64 @@
 
     .mark-scheme-box button span { font-size: 1rem; }
 
+    .resource-block {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      background: #f8fbff;
+    }
+
+    .resource-block figure {
+      margin: 0;
+    }
+
+    .resource-block img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .resource-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      padding: 12px;
+      background: rgba(15, 104, 195, 0.06);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .resource-title {
+      margin: 0;
+      font-size: 0.98rem;
+      font-weight: 600;
+    }
+
+    .toggle-btn {
+      border: 1px solid rgba(15, 104, 195, 0.3);
+      background: white;
+      color: var(--primary);
+      font-weight: 600;
+      border-radius: 999px;
+      padding: 8px 14px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 6px 18px rgba(15, 104, 195, 0.18);
+      transition: all 0.15s ease;
+    }
+
+    .toggle-btn:hover { background: #e6f1ff; }
+
+    .mark-scheme-panel { display: none; }
+
+    .nav-footer {
+      margin-top: 8px;
+      display: flex;
+      justify-content: flex-end;
+    }
+
     .file-naming {
       background: #f1f5f9;
       border-radius: 12px;
@@ -449,7 +507,7 @@
       <article class="card activity activity-card">
         <div class="activity-card-inner">
           <div class="label" aria-hidden="true"><span>📘</span> Cambridge</div>
-          <h3>Activity 1: Cambridge end of chapter questions</h3>
+          <h3>Activity 1: <span style="color: var(--primary);">Cambridge</span> end of chapter questions</h3>
           <p>
             Answer the Cambridge end of chapter questions for point 15.1 in your notebook or on paper.<br/>
             Then scan or photograph your work and upload it.
@@ -458,9 +516,29 @@
             <li>Use clear handwriting and number your questions.</li>
             <li>Keep the file size reasonable and make sure the image is readable.</li>
           </ul>
+
+          <div class="resource-block">
+            <div class="resource-header">
+              <p class="resource-title">Cambridge questions</p>
+            </div>
+            <figure>
+              <img src="cambridgequestions.png" alt="Cambridge end of chapter questions" />
+            </figure>
+          </div>
+
+          <div class="resource-block" style="margin-top: 12px;">
+            <div class="resource-header">
+              <p class="resource-title">Cambridge mark scheme</p>
+              <button class="toggle-btn" data-target="cambridge-mark-scheme" type="button"><span>👁️</span> Show / hide</button>
+            </div>
+            <figure id="cambridge-mark-scheme" class="mark-scheme-panel">
+              <img src="cambridgemarkscheme.png" alt="Cambridge mark scheme" />
+            </figure>
+          </div>
+
           <div class="mark-scheme-box">
             <p><strong>Step 1</strong>: Upload your first attempt as <code>15.1_Cambridge_FirstAttempt</code>.</p>
-            <p><strong>Step 2</strong>: Open the Cambridge mark scheme PDF in this folder and correct your answers using a different color.</p>
+            <p><strong>Step 2</strong>: Open the Cambridge mark scheme and correct your answers using a different color.</p>
             <p><strong>Step 3</strong>: Upload your corrected work as <code>15.1_Cambridge_AfterCorrection</code>.</p>
           </div>
         </div>
@@ -469,7 +547,7 @@
       <article class="card activity activity-card">
         <div class="activity-card-inner">
           <div class="label" aria-hidden="true"><span>📗</span> Hodder</div>
-          <h3>Activity 2: Hodder end of chapter questions</h3>
+          <h3>Activity 2: <span style="color: #16a34a;">Hodder</span> end of chapter questions</h3>
           <p>
             Answer the Hodder end of chapter questions for point 15.1 in your notebook or on paper, then upload your work.
           </p>
@@ -477,14 +555,38 @@
             <li>Write the answers clearly and separate each question.</li>
             <li>Keep the file size reasonable and ensure all pages are visible.</li>
           </ul>
+
+          <div class="resource-block">
+            <div class="resource-header">
+              <p class="resource-title">Hodder questions</p>
+            </div>
+            <figure>
+              <img src="hodderquestions.png" alt="Hodder end of chapter questions" />
+            </figure>
+          </div>
+
+          <div class="resource-block" style="margin-top: 12px;">
+            <div class="resource-header">
+              <p class="resource-title">Hodder mark scheme</p>
+              <button class="toggle-btn" data-target="hodder-mark-scheme" type="button"><span>👁️</span> Show / hide</button>
+            </div>
+            <figure id="hodder-mark-scheme" class="mark-scheme-panel">
+              <img src="hoddermarkscheme.png" alt="Hodder mark scheme" />
+            </figure>
+          </div>
+
           <div class="mark-scheme-box">
             <p><strong>Step 1</strong>: Upload your first attempt as <code>15.1_Hodder_FirstAttempt</code>.</p>
-            <p><strong>Step 2</strong>: Open the Hodder mark scheme PDF in this folder and correct your answers using a different color.</p>
+            <p><strong>Step 2</strong>: Open the Hodder mark scheme and correct your answers using a different color.</p>
             <p><strong>Step 3</strong>: Upload your corrected work as <code>15.1_Hodder_AfterCorrection</code>.</p>
           </div>
         </div>
       </article>
     </section>
+
+    <div class="nav-footer">
+      <a class="primary-btn" href="layer4.html"><span>➡️</span> Go to Layer 4</a>
+    </div>
   </div>
 
   <script type="module">
