@@ -330,7 +330,22 @@
           if (doc) {
             const frame = document.getElementById("doc-frame");
             frame.addEventListener("load", function() {
-              this.style.height = this.contentWindow.document.documentElement.scrollHeight + "px";
+              const docEl = this.contentWindow?.document?.documentElement;
+              if (!docEl) return;
+
+              const resize = () => {
+                this.style.height = docEl.scrollHeight + "px";
+              };
+
+              resize();
+
+              if ("ResizeObserver" in window) {
+                const observer = new ResizeObserver(resize);
+                observer.observe(docEl);
+              } else {
+                this.contentWindow.addEventListener("resize", resize);
+                setTimeout(resize, 500);
+              }
             });
             frame.src = doc.url;
           }
