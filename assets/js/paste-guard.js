@@ -1,6 +1,10 @@
 (function () {
   "use strict";
 
+  if (window.PASTE_GUARD_READY) {
+    return;
+  }
+
   // Optional runtime configuration
   // window.PASTE_GUARD_CONFIG = {
   //   allowSelector: 'input[name="email"]',
@@ -38,6 +42,17 @@
 
   const hiddenFlags = new WeakMap();
   const warnings = new WeakMap();
+
+  window.PASTE_GUARD_READY = true;
+  window.PASTE_GUARD_READY_AT = Date.now();
+  try {
+    document.documentElement.dataset.pasteGuard = 'active';
+  } catch (_) {
+    // Best-effort marker only; ignore environments where dataset is not writable
+  }
+  if (typeof console !== 'undefined' && typeof console.info === 'function') {
+    console.info('[Paste Guard] Listeners attached at', new Date(window.PASTE_GUARD_READY_AT).toISOString());
+  }
 
   function isGuarded(el) {
     if (!(el instanceof HTMLElement)) return false;
