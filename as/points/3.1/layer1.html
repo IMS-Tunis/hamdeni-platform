@@ -305,51 +305,73 @@
   const platform = localStorage.getItem("platform");
   const point_id = "3.1";
 
-  if (!username || !student_name) {
-    document.getElementById("error-message").style.display = "block";
-  } else {
-    document.getElementById("student-name").textContent = "👤 " + student_name;
-    document.getElementById("platform-name").textContent = "🎓 Platform: " + platform;
-    document.getElementById("content-area").style.display = "block";
+  const errorMessageEl = document.getElementById("error-message");
+  const contentAreaEl = document.getElementById("content-area");
+  const studentNameEl = document.getElementById("student-name");
+  const platformNameEl = document.getElementById("platform-name");
 
-    fetch("../index.json")
-      .then(res => res.json())
-      .then(list => {
-        const found = list.find(p => p.id.toLowerCase() === point_id.toLowerCase());
-        if (found) {
-          document.getElementById("point-title").textContent = "📍 " + found.title;
-        }
-      });
-
-    fetch("videos.json")
-      .then(res => res.json())
-      .then(data => {
-        if (data[point_id]) {
-          const { videos = [], doc } = data[point_id];
-
-          if (doc) {
-            const frame = document.getElementById("doc-frame");
-            frame.src = doc.url;
-            const height = 4750;
-            
-            
-          }
-
-          if (videos.length > 0) {
-            document.getElementById("video-section").style.display = "block";
-            const container = document.getElementById("videos-container");
-            videos.forEach(video => {
-              const wrapper = document.createElement("div");
-              wrapper.innerHTML = video.iframe;
-              wrapper.style.marginBottom = "20px";
-              container.appendChild(wrapper);
-            });
-          }
-        }
-      });
+  const displayName = student_name || "Guest";
+  if (displayName && studentNameEl) {
+    studentNameEl.textContent = "👤 " + displayName;
   }
 
-  async function updateProgress() {
+  const displayPlatform = platform || "AS Level (Guest)";
+  if (platformNameEl) {
+    platformNameEl.textContent = "🎓 Platform: " + displayPlatform;
+  }
+
+  if (errorMessageEl) {
+    errorMessageEl.style.display = "none";
+  }
+  if (contentAreaEl) {
+    contentAreaEl.style.display = "block";
+  }
+
+  fetch("../index.json")
+    .then(res => res.json())
+    .then(list => {
+      const found = list.find(p => p.id.toLowerCase() === point_id.toLowerCase());
+      if (found) {
+        document.getElementById("point-title").textContent = "📍 " + found.title;
+      }
+    });
+
+  const docFrame = document.getElementById("doc-frame");
+  if (docFrame) {
+    docFrame.src = "doc.html"; // Fallback so the document always loads even if fetch fails.
+    docFrame.addEventListener("load", function() {
+      this.style.height = this.contentWindow.document.documentElement.scrollHeight + "px";
+    });
+  }
+
+  fetch("videos.json")
+    .then(res => res.json())
+    .then(data => {
+      if (data[point_id]) {
+        const { videos = [], doc } = data[point_id];
+
+        if (doc && doc.url && docFrame) {
+          docFrame.src = doc.url;
+        }
+
+        if (videos.length > 0) {
+          document.getElementById("video-section").style.display = "block";
+          const container = document.getElementById("videos-container");
+          videos.forEach(video => {
+            const wrapper = document.createElement("div");
+            wrapper.innerHTML = video.iframe;
+            wrapper.style.marginBottom = "20px";
+            container.appendChild(wrapper);
+          });
+        }
+      }
+    })
+    .catch(err => {
+      console.error("Failed to load videos.json", err);
+      // Fallback doc frame already set; nothing else to do.
+    });
+
+async function updateProgress() {
     const platform = localStorage.getItem("platform");
     const username = localStorage.getItem("username");
 
