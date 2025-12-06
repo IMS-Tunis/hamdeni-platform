@@ -49,7 +49,10 @@ export async function fetchProgressCounts() {
   const username = localStorage.getItem('username');
   const platform = localStorage.getItem('platform');
 
-  if (!username || !platform) return { points: 0, levels: 0, term1Grade: 0 };
+  if (!username || !platform) {
+    console.info('[supabaseModule] Guest mode detected, skipping Supabase fetch');
+    return { points: 0, levels: 0, term1Grade: 0, guest: true };
+  }
 
   const encodedUsername = encodeURIComponent(username);
 
@@ -126,7 +129,7 @@ export async function fetchProgressCounts() {
     return result;
   } catch (err) {
     console.error('❌ Failed fetching progress counts:', err);
-    return { points: 0, levels: 0, term1Grade: 0 };
+    return { points: 0, levels: 0, term1Grade: 0, guest: true };
   }
 }
 
