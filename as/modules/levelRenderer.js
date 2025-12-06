@@ -1,5 +1,6 @@
 
 import { fetchProgressCounts } from "./supabase.js";
+import { storage } from "../../shared/safeStorage.js";
 
 export const levels = [
     { title: "Basic Constructs", id: "level1", status: "locked" },
@@ -23,12 +24,15 @@ export async function renderProgrammingLevels() {
   }
 
   const progress = await fetchProgressCounts();
-  let reached = Number(progress?.levels ?? 0);
+  const guestAccess = !storage.getItem('username');
+  const totalLevels = levels.length;
+
+  let reached = guestAccess ? totalLevels : Number(progress?.levels ?? 0);
   if (!Number.isFinite(reached)) {
-    reached = 0;
+    reached = guestAccess ? totalLevels : 0;
   }
   if (reached < 1) {
-    reached = 1;
+    reached = guestAccess ? totalLevels : 1;
   }
 
   levels.forEach((level, index) => {
