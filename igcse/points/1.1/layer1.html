@@ -337,18 +337,22 @@
       }
     });
 
+  const docFrame = document.getElementById("doc-frame");
+  if (docFrame) {
+    docFrame.src = "doc.html"; // Fallback so the document always loads even if fetch fails.
+    docFrame.addEventListener("load", function() {
+      this.style.height = this.contentWindow.document.documentElement.scrollHeight + "px";
+    });
+  }
+
   fetch("videos.json")
     .then(res => res.json())
     .then(data => {
       if (data[point_id]) {
         const { videos = [], doc } = data[point_id];
 
-        if (doc) {
-          const frame = document.getElementById("doc-frame");
-          frame.addEventListener("load", function() {
-            this.style.height = this.contentWindow.document.documentElement.scrollHeight + "px";
-          });
-          frame.src = doc.url;
+        if (doc && doc.url && docFrame) {
+          docFrame.src = doc.url;
         }
 
         if (videos.length > 0) {
@@ -362,6 +366,10 @@
           });
         }
       }
+    })
+    .catch(err => {
+      console.error("Failed to load videos.json", err);
+      // Fallback doc frame already set; nothing else to do.
     });
 
   async function updateProgress() {
