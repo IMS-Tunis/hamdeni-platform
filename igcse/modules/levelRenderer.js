@@ -28,7 +28,7 @@ export async function renderProgrammingLevels() {
   }
 
   const progress = await fetchProgressCounts();
-  const guestAccess = !localStorage.getItem('username');
+  const guestAccess = progress?.guest || !localStorage.getItem('username');
   const totalLevels = levels.length;
 
   let completed = guestAccess ? totalLevels : Number(progress?.levels ?? 0);
