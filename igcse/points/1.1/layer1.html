@@ -323,6 +323,9 @@
   if (errorMessageEl) {
     errorMessageEl.style.display = "none";
   }
+  if (contentAreaEl) {
+    contentAreaEl.style.display = "block";
+  }
 
   fetch("../index.json")
     .then(res => res.json())
@@ -368,7 +371,7 @@
       // Fallback doc frame already set; nothing else to do.
     });
 
-  async function updateProgress() {
+async function updateProgress() {
     const platform = localStorage.getItem("platform");
     const username = localStorage.getItem("username");
 
