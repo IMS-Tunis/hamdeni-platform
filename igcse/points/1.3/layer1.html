@@ -95,6 +95,7 @@
       border: 1px solid #ccc;
       border-radius: 6px;
       margin-bottom: 20px;
+      height: 1000px;
     }
 
     .videos iframe {
@@ -164,6 +165,9 @@
       cursor: pointer;
       transition: background 0.3s, transform 0.2s;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
     }
 
     .highlight-button:hover {
@@ -279,7 +283,7 @@
   </script>
   <div class="actions">
     <p class="actions-heading">Now that you have a general overview of the basics, you can move to Layer 2 by clicking on one of the following buttons:</p>
-    <button class="highlight-button btn-clear" onclick="markClear()">✅ Notes are clear</button>
+    <a class="highlight-button btn-clear" href="layer2.html">✅ Notes are clear</a>
     <div class="help-wrapper">
       <button class="highlight-button btn-help" onclick="showHelp()">🆘 Need help</button>
       <div id="help-section">
@@ -357,17 +361,6 @@
   const docFrame = document.getElementById("doc-frame");
   if (docFrame) {
     docFrame.src = "doc.html"; // Fallback so the document always loads even if fetch fails.
-    const resizeDocFrame = () => {
-      try {
-        const doc = docFrame.contentDocument || docFrame.contentWindow?.document;
-        const docHeight = doc?.documentElement?.scrollHeight;
-        docFrame.style.height = (docHeight ? docHeight + "px" : "100vh");
-      } catch (err) {
-        console.warn("Unable to resize doc iframe:", err);
-        docFrame.style.height = "100vh";
-      }
-    };
-    docFrame.addEventListener("load", resizeDocFrame);
   }
 
   fetch("videos.json")
@@ -508,13 +501,5 @@ async function updateProgress() {
   window.submitHelp = submitHelp;
 </script>
 
-<script>
-window.addEventListener("message", function(event) {
-  if (event.data && event.data.type === 'resize') {
-    var frame = document.getElementById("doc-frame");
-    frame.style.height = (event.data.height + 10) + 'px';
-  }
-});
-</script>
 </body>
 </html>
