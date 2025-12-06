@@ -28,8 +28,8 @@ export function tableName(base) {
   };
   const prefix = prefixMap[platform];
   if (!prefix) {
-    alert('Unable to determine platform. Please select a platform before saving.');
-    throw new Error('Unknown platform: ' + platform);
+    console.warn('[supabaseClient] Missing platform in localStorage, defaulting to base table', base);
+    return base;
   }
   return `${prefix}${base}`;
 }
