@@ -258,7 +258,7 @@
     ⚠️ You must be logged in to view this content.
   </div>
 
-  <main id="content-area" style="display: none;">
+  <main id="content-area">
   <iframe id="doc-frame" class="official-doc" scrolling="no" ></iframe>
   </main>
   <div class="actions">
@@ -322,10 +322,6 @@
 
   if (errorMessageEl) {
     errorMessageEl.style.display = "none";
-  }
-
-  if (contentAreaEl) {
-    contentAreaEl.style.display = "block";
   }
 
   fetch("../index.json")
