@@ -1,4 +1,4 @@
-import { SUPABASE_URL, SUPABASE_KEY } from '../../supabaseClient.js';
+import { SUPABASE_URL, SUPABASE_KEY } from '../../supabaseConfig.js';
 
 const EXPECTED_PLATFORM = 'AS_Level';
 

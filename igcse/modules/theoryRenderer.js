@@ -1,4 +1,4 @@
-import { SUPABASE_URL, SUPABASE_KEY } from '../../supabaseClient.js';
+import { SUPABASE_URL, SUPABASE_KEY } from '../../supabaseConfig.js';
 
 export async function renderTheoryPoints() {
   console.log("📦 Loading theory points from index.json...");
