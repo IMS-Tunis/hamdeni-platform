@@ -1,20 +1,12 @@
 import { SUPABASE_URL, SUPABASE_KEY } from '../../supabaseClient.js';
-import { storage } from '../../shared/safeStorage.js';
 
 const EXPECTED_PLATFORM = 'AS_Level';
 
 export function verifyPlatform() {
-  const stored = storage.getItem('platform');
-
-  if (!stored) {
-    console.info('[supabaseModule] Enabling guest access for', EXPECTED_PLATFORM);
-    storage.setItem('platform', EXPECTED_PLATFORM);
-    return;
-  }
-
-  if (stored !== EXPECTED_PLATFORM) {
-    console.warn('[supabaseModule] Overriding stored platform for open access');
-    storage.setItem('platform', EXPECTED_PLATFORM);
+  const stored = localStorage.getItem('platform');
+  if (stored && stored !== EXPECTED_PLATFORM) {
+    alert(`Access restricted to ${EXPECTED_PLATFORM} students.`);
+    localStorage.clear();
   }
 }
 
@@ -53,8 +45,8 @@ function weightForLayer(value) {
 
 export async function fetchProgressCounts() {
   console.log('[supabaseModule] Fetching progress counts');
-  const username = storage.getItem('username');
-  const platform = storage.getItem('platform');
+  const username = localStorage.getItem('username');
+  const platform = localStorage.getItem('platform');
 
   if (!username || !platform) return { points: 0, levels: 0, term1Grade: 0 };
 
@@ -108,12 +100,9 @@ export function initializeLogin() {
   const logoutBtn = document.getElementById("logout-btn");
   const studentLabel = document.getElementById("student-name-bar");
 
-  const studentName = storage.getItem("student_name");
+  const studentName = localStorage.getItem("student_name");
   if (studentName) {
     studentLabel.textContent = "Computer Science Journey progress of: " + studentName;
-  } else if (studentLabel) {
-    studentLabel.textContent = "Guest access enabled – no login required";
-    storage.setItem('platform', EXPECTED_PLATFORM);
   }
 
   if (loginBtn) {
@@ -137,10 +126,10 @@ export function initializeLogin() {
       .then(data => {
         console.log("📦 Supabase response:", data);
         if (data.length === 1 && data[0].platform === EXPECTED_PLATFORM) {
-          storage.setItem('username', data[0].username);
-          storage.setItem('student_name', data[0].username);
-          storage.setItem('platform', data[0].platform);
-          storage.setItem('student_id', data[0].id);
+          localStorage.setItem('username', data[0].username);
+          localStorage.setItem('student_name', data[0].username);
+          localStorage.setItem('platform', data[0].platform);
+          localStorage.setItem('student_id', data[0].id);
           console.log('[supabaseModule] Login successful for', data[0].username);
           location.reload();
         } else if (data.length === 1) {
@@ -160,7 +149,7 @@ export function initializeLogin() {
 
   if (logoutBtn) {
     logoutBtn.onclick = () => {
-      storage.clear();
+      localStorage.clear();
       location.reload();
     };
   }

@@ -37,8 +37,8 @@
     },
     {
       "type": "fill_blank",
-      "question": "In the structure of packets, the [____] contains source/destination IP addresses and sequencing information, while the payload is the actual data being carried.",
-      "answer": "header"
+      "question": "The [____] contains source/destination IP addresses and sequencing information, while the payload is the actual data being carried.",
+      "answer": "packet header"
     },
     {
       "type": "mcq",
@@ -69,8 +69,8 @@
     },
     {
       "type": "fill_blank",
-      "question": "________ is a method of transmitting data packets independently along network paths, then placing them back in the correct order at the destination using header information.",
-      "answer": "packet switching"
+      "question": "________ switching is a method of transmitting data packets independently along network paths, then placing them back in the correct order at the destination using header information.",
+      "answer": "packet"
     },
     {
       "type": "mcq",
@@ -132,8 +132,8 @@
     },
     {
       "type": "fill_blank",
-      "question": " ________ sends several bits at the same time over multiple wires, for example a byte.",
-      "answer": "parallel transmission"
+      "question": "In the notes, ________ transmission sends several bits at the same time over multiple wires, for example a byte.",
+      "answer": "parallel"
     },
     {
       "type": "mcq",
@@ -169,9 +169,41 @@
       "answer": "Serial transmission"
     },
     {
+      "type": "fill_blank",
+      "question": "According to the notes, ________ transmission is preferred for short distances and time-critical tasks because it is faster, but it needs more hardware and is therefore more expensive.",
+      "answer": "parallel"
+    },
+    {
       "type": "true_false",
-      "question": "Parallel transmission is generally less expensive than serial for long-distance transmission.",
+      "question": "The notes say that parallel is generally less expensive than serial for long-distance transmission.",
       "answer": "False"
+    },
+    {
+      "type": "mcq",
+      "question": "Which feature is explicitly listed as a benefit in the notes?",
+      "options": [
+        "Guaranteed faster file transfer than Ethernet",
+        "Provision of a +5 volt power supply through the cable",
+        "Unlimited cable length without signal loss",
+        "No need to share bandwidth between connected devices"
+      ],
+      "answer": "Provision of a +5 volt power supply through the cable"
+    },
+    {
+      "type": "mcq",
+      "question": "What is a listed benefit of USB automatic device detection?",
+      "options": [
+        "It reduces cable length requirements",
+        "It provides setup without manual configuration",
+        "It increases data transfer speeds",
+        "It eliminates the need for power supply"
+      ],
+      "answer": "It provides setup without manual configuration"
+    },
+    {
+      "type": "fill_blank",
+      "question": "For error handling, the USB protocol requires the sender to re-send data until errors are detected to be absent, so that the final received data is ________.",
+      "answer": "error-free"
     },
     {
       "type": "fill_blank",
@@ -180,18 +212,28 @@
     },
     {
       "type": "mcq",
-      "question": "Which statement describes USB-C?",
+      "question": "Which statement from the notes describes USB-C?",
       "options": [
         "A legacy connector that is not backward compatible",
-        "A 24-pin symmetrical connector",
+        "A 24-pin symmetrical connector that can be inserted either way and remains backward compatible when a suitable adaptor is used",
         "A connector limited to one orientation and incompatible with older USB devices",
         "A connector that carries no power"
       ],
-      "answer": "A 24-pin symmetrical connector"
+      "answer": "A 24-pin symmetrical connector that can be inserted either way and remains backward compatible when a suitable adaptor is used"
+    },
+    {
+      "type": "match",
+      "question": "Match each statement to category.",
+      "pairs": {
+        "Range of transfer speeds, for example up to Gbps": "Benefit",
+        "File transfer that can be slower than Ethernet on comparable systems": "Drawback",
+        "Standardised connector types": "Benefit",
+        "Bandwidth is shared among attached devices": "Drawback"
+      }
     },
     {
       "type": "mcq",
-      "question": "What power delivery capability does USB-C support?",
+      "question": "What power delivery capability does USB-C support according to the notes?",
       "options": [
         "Up to about 50 watts at 10 volts",
         "Up to about 100 watts at 20 volts",

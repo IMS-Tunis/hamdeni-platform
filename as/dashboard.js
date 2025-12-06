@@ -2,7 +2,6 @@
 import { renderTheoryPoints } from "./modules/theoryRenderer.js";
 import { renderProgrammingLevels } from "./modules/levelRenderer.js";
 import { initializeLogin, fetchProgressCounts, verifyPlatform } from "./modules/supabase.js";
-import { storage } from "../shared/safeStorage.js";
 
 async function updateGeneralProgress() {
   const fill = document.querySelector(".general-progress-fill");
@@ -77,6 +76,6 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   }
 
-  const studentName = storage.getItem("student_name");
+  const studentName = localStorage.getItem("student_name");
   console.log("👤 Logged in as:", studentName);
 });

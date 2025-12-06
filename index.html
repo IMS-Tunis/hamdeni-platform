@@ -125,56 +125,46 @@
 
 
 <script>
-window.addEventListener('DOMContentLoaded', () => {
-  console.log('[index] Ripple script loaded');
-  document.querySelectorAll('.ripple-container, .ripple-button').forEach(button => {
-    button.addEventListener('click', function(e) {
-      try {
-        const circle = document.createElement('span');
-        circle.classList.add('ripple');
-        const rect = button.getBoundingClientRect();
-        circle.style.left = `${e.clientX - rect.left}px`;
-        circle.style.top = `${e.clientY - rect.top}px`;
-        this.appendChild(circle);
-        setTimeout(() => circle.remove(), 600);
-      } catch(err) {
-        console.error('[index] Ripple effect error:', err);
-      }
-    });
+console.log('[index] Ripple script loaded');
+document.querySelectorAll('.ripple-container, .ripple-button').forEach(button => {
+  button.addEventListener('click', function(e) {
+    try {
+      const circle = document.createElement('span');
+      circle.classList.add('ripple');
+      const rect = button.getBoundingClientRect();
+      circle.style.left = `${e.clientX - rect.left}px`;
+      circle.style.top = `${e.clientY - rect.top}px`;
+      this.appendChild(circle);
+      setTimeout(() => circle.remove(), 600);
+    } catch(err) {
+      console.error('[index] Ripple effect error:', err);
+    }
   });
+});
 
-  // Image-capable popover for feature chips
+// Image-capable popover for feature chips
+window.addEventListener('DOMContentLoaded', function() {
   const chips = document.querySelectorAll('.feature-chip.has-popover');
   const pop = document.getElementById('chipPopover');
-  const img = document.getElementById('chipPopoverImg');
-  const text = document.getElementById('chipPopoverText');
-
-  if (!pop || !img || !text) {
-    console.warn('[index] Popover elements missing; skipping feature popovers');
-    return;
-  }
-
+  const img = document.getElementById('chipPopoverImg');const text = document.getElementById('chipPopoverText');
   let activeChip = null;
 
   function clamp(val, min, max){ return Math.min(Math.max(val, min), max); }
 
   function openPopoverFor(chip) {
-    activeChip = chip;
-    const x = chip.getAttribute('data-text') || '';
-    const src = chip.getAttribute('data-img') || '';
-    text.textContent = x;
+    activeChip = chip;const x = chip.getAttribute('data-text') || '';
+    const src = chip.getAttribute('data-img') || '';text.textContent = x;
 
-    const media = pop.querySelector('.chip-popover-media');
     if (src) {
       img.src = src;
       img.alt = 'Feature illustration';
       img.style.display = 'block';
-      if (media) media.style.display = 'block';
+      pop.querySelector('.chip-popover-media').style.display = 'block';
     } else {
       img.removeAttribute('src');
       img.alt = '';
       img.style.display = 'none';
-      if (media) media.style.display = 'none';
+      pop.querySelector('.chip-popover-media').style.display = 'none';
     }
 
     // Position near the chip

@@ -6,21 +6,16 @@ import { applyPasteFlags } from './paste-flags.js';
 
 const ROOT_DIR = path.resolve(fileURLToPath(new URL('.', import.meta.url)), '..');
 const PUBLIC_DIR = ROOT_DIR;
-const SCRIPT_TAGS = [
-  '<script src="/assets/js/storage-fallback.js"></script>',
-  '<script defer src="/assets/js/paste-guard.js"></script>'
-];
+const SCRIPT_TAG = '<script defer src="/assets/js/paste-guard.js"></script>';
 const submissions = [];
 
 function injectPasteGuard(html) {
-  const missing = SCRIPT_TAGS.filter(tag => !html.includes(tag));
-  if (!missing.length) return html;
+  if (html.includes(SCRIPT_TAG)) return html;
   const closingHead = '</head>';
   if (html.includes(closingHead)) {
-    const injection = missing.map(tag => `  ${tag}`).join('\n');
-    return html.replace(closingHead, `${injection}\n${closingHead}`);
+    return html.replace(closingHead, `  ${SCRIPT_TAG}\n${closingHead}`);
   }
-  return `${SCRIPT_TAGS.join('\n')}\n${html}`;
+  return `${SCRIPT_TAG}\n${html}`;
 }
 
 function getMimeType(filePath) {

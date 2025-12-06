@@ -4,16 +4,9 @@ const EXPECTED_PLATFORM = 'A_Level';
 
 export function verifyPlatform() {
   const stored = localStorage.getItem('platform');
-
-  if (!stored) {
-    console.info('[supabaseModule] Enabling guest access for', EXPECTED_PLATFORM);
-    localStorage.setItem('platform', EXPECTED_PLATFORM);
-    return;
-  }
-
-  if (stored !== EXPECTED_PLATFORM) {
-    console.warn('[supabaseModule] Overriding stored platform for open access');
-    localStorage.setItem('platform', EXPECTED_PLATFORM);
+  if (stored && stored !== EXPECTED_PLATFORM) {
+    alert(`Access restricted to ${EXPECTED_PLATFORM} students.`);
+    localStorage.clear();
   }
 }
 
@@ -113,9 +106,6 @@ export function initializeLogin() {
   const studentName = localStorage.getItem("student_name");
   if (studentName) {
     studentLabel.textContent = "Computer Science Journey progress of: " + studentName;
-  } else if (studentLabel) {
-    studentLabel.textContent = "Guest access enabled – no login required";
-    localStorage.setItem('platform', EXPECTED_PLATFORM);
   }
 
   if (loginBtn) {

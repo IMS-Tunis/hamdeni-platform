@@ -4,16 +4,9 @@ const EXPECTED_PLATFORM = 'IGCSE';
 
 export function verifyPlatform() {
   const stored = localStorage.getItem('platform');
-
-  if (!stored) {
-    console.info('[supabaseModule] Enabling guest access for', EXPECTED_PLATFORM);
-    localStorage.setItem('platform', EXPECTED_PLATFORM);
-    return;
-  }
-
-  if (stored !== EXPECTED_PLATFORM) {
-    console.warn('[supabaseModule] Overriding stored platform for open access');
-    localStorage.setItem('platform', EXPECTED_PLATFORM);
+  if (stored && stored !== EXPECTED_PLATFORM) {
+    alert(`Access restricted to ${EXPECTED_PLATFORM} students.`);
+    localStorage.clear();
   }
 }
 
@@ -49,10 +42,7 @@ export async function fetchProgressCounts() {
   const username = localStorage.getItem('username');
   const platform = localStorage.getItem('platform');
 
-  if (!username || !platform) {
-    console.info('[supabaseModule] Guest mode detected, skipping Supabase fetch');
-    return { points: 0, levels: 0, term1Grade: 0, guest: true };
-  }
+  if (!username || !platform) return { points: 0, levels: 0, term1Grade: 0 };
 
   const encodedUsername = encodeURIComponent(username);
 
@@ -129,7 +119,7 @@ export async function fetchProgressCounts() {
     return result;
   } catch (err) {
     console.error('❌ Failed fetching progress counts:', err);
-    return { points: 0, levels: 0, term1Grade: 0, guest: true };
+    return { points: 0, levels: 0, term1Grade: 0 };
   }
 }
 
@@ -143,9 +133,6 @@ export function initializeLogin() {
   const studentName = localStorage.getItem("student_name");
   if (studentName) {
     studentLabel.textContent = "Computer Science Journey progress of: " + studentName;
-  } else if (studentLabel) {
-    studentLabel.textContent = "Guest access enabled – no login required";
-    localStorage.setItem('platform', EXPECTED_PLATFORM);
   }
 
   if (loginBtn) {

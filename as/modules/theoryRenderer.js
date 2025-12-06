@@ -1,9 +1,8 @@
 import { SUPABASE_URL, SUPABASE_KEY } from '../../supabaseClient.js';
-import { storage } from '../../shared/safeStorage.js';
 
 export async function renderTheoryPoints() {
   console.log("📦 Loading theory points from index.json...");
-  const username = storage.getItem("username");
+  const username = localStorage.getItem("username");
 
   if (!username) {
     console.warn("🚫 No student logged in. Rendering default grey boxes.");
@@ -71,7 +70,7 @@ export async function renderTheoryPoints() {
       </div>
     `;
     box.onclick = () => {
-      storage.setItem("current_point", point.id);
+      localStorage.setItem("current_point", point.id);
       window.location.href = `./points/${point.id}/layer1.html`;
     };
     container.appendChild(box);
@@ -81,7 +80,7 @@ export async function renderTheoryPoints() {
 }
 
 async function fetchProgress(username) {
-  const platform = storage.getItem('platform');
+  const platform = localStorage.getItem('platform');
   const tables = {
     A_Level: 'a_theory_progress',
     AS_Level: 'as_theory_progress',
@@ -97,6 +96,4 @@ async function fetchProgress(username) {
     }
   });
 
-  const data = await res.json();
-  return { data };
-}
+  const data = await res.json();  return { data };}

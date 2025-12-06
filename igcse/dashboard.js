@@ -1,6 +1,6 @@
 
 import { renderTheoryPoints } from "./modules/theoryRenderer.js";
-import { renderProgrammingLevels, levels } from "./modules/levelRenderer.js";
+import { renderProgrammingLevels } from "./modules/levelRenderer.js";
 import { initializeLogin, fetchProgressCounts, verifyPlatform } from "./modules/supabase.js";
 
 async function updateGeneralProgress() {
@@ -20,9 +20,9 @@ async function updateGeneralProgress() {
     console.error("Failed to load points index:", err);
   }
 
-  const totalLevels = levels.length;
+  const totalLevels = 16; // defined in levelRenderer
 
-  const { points, levels: levelsDone, term1Grade, guest } = await fetchProgressCounts();
+  const { points, levels, term1Grade } = await fetchProgressCounts();
 
   if (termGradeEl) {
     const numericGrade = Number(term1Grade);
@@ -37,9 +37,7 @@ async function updateGeneralProgress() {
   }
 
   const total = totalPoints + totalLevels;
-  const doneLevels = guest ? totalLevels : levelsDone;
-  const donePoints = guest ? totalPoints : points;
-  const done = doneLevels + donePoints;
+  const done = points + levels;
   const percent = total ? (done / total) * 100 : 0;
   const roundedPercent = Math.round(percent);
   const clampedPercent = Math.max(0, Math.min(100, percent));
