@@ -1,30 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NRRL1TSE7Z"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-NRRL1TSE7Z');
-</script>
-
   <meta charset="UTF-8" />
-  <title>Layer 1 - Theory Note</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Point 13.2 - Layer 1</title>
   <link rel="stylesheet" href="../../dashboard.css" />
-
   <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
-    }
+    *, *::before, *::after { box-sizing: border-box; }
     body {
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
       background: #dbe8f6;
+      color: #0b1b35;
     }
-
     header {
       display: flex;
       justify-content: space-between;
@@ -33,186 +21,74 @@
       background-color: #003366;
       color: white;
     }
-
-    .header-left,
-    .header-right {
-      flex: 1;
-    }
-
-    .header-center {
-      flex: 2;
-      text-align: center;
-    }
-
-    .header-center h1 {
-      margin: 0;
-      font-size: 1.8em;
-    }
-
+    .header-left, .header-right { flex: 1; }
+    .header-center { flex: 2; text-align: center; }
+    .header-center h1 { margin: 0; font-size: 1.8em; }
     .info-line {
       display: flex;
       justify-content: center;
-      gap: 20px;
-      margin-top: 3px;
+      gap: 12px;
+      margin-top: 6px;
       font-size: 1em;
       color: #f0f0f0;
+      flex-wrap: wrap;
     }
-
-    .logo {
-      height: 45px;
-    }
-
-    #maarif-logo {
-      height: 55px;
-    }
-
-    main {
-      padding: 50px;
-    }
-
-
-    .section-title {
+    .pill {
       display: inline-block;
-      font-weight: bold;
-      margin: 15px 0 8px;
-      font-size: 1.2em;
-      color: #fff;
-      background: #003366;
       padding: 6px 10px;
-      border-radius: 4px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.4);
       white-space: nowrap;
-      max-width: none;
     }
-
-    #video-section {
-      width: 90%;
-      margin: 20px auto;
-      padding-bottom: 20px;
+    .logo { height: 45px; }
+    #maarif-logo { height: 55px; }
+    main {
+      padding: clamp(24px, 5vw, 70px);
+      margin: 0 auto;
+      max-width: 1500px;
+      width: min(100%, 1500px);
     }
-
-    iframe {
-      width: 100%;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      margin-bottom: 20px;
-    }
-
-    .videos iframe {
-      height: 250px;
-    }
-
-    .resources-grid {
-      display: flex;
-      gap: 20px;
-    }
-
-    .videos-column, .extras-column {
-      flex: 1;
-    }
-
-    .extras-column {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .placeholder {
-      background: #f0f0f0;
-      border: 1px solid #ccc;
-      border-radius: 6px;
+    .section-card {
+      background: #ffffff;
+      border-radius: 10px;
+      border: 1px solid #c8d6e5;
       padding: 20px;
-      text-align: center;
-      height: 250px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
     }
-
+    .section-card h2 { margin-top: 0; }
+    .official-doc {
+      display: block;
+      width: min(100%, 1350px);
+      height: 1200px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin: 20px auto 10px auto;
+      background: #fff;
+    }
     .actions {
       display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-      margin-top: 30px;
-    }
-
-    .actions-heading {
-      flex-basis: 100%;
-      text-align: center;
-      margin: 0;
-    }
-
-    .help-wrapper {
-      display: flex;
       flex-direction: column;
       align-items: center;
+      gap: 12px;
+      margin-top: 24px;
     }
-
-    #help-section {
-      display: none;
-      margin-top: 10px;
-    }
-
-
+    .actions-heading { margin: 0; text-align: center; }
     .highlight-button {
-      background-color: #007bff;
+      display: inline-block;
+      text-decoration: none;
+      text-align: center;
+      background-color: #28a745;
       color: white;
       border: none;
       padding: 15px 25px;
-      margin: 10px;
       border-radius: 8px;
-      font-size: 1.2em;
+      font-size: 1.1em;
       cursor: pointer;
-      transition: background 0.3s, transform 0.2s;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: background 0.2s ease;
     }
-
-    .highlight-button:hover {
-      transform: scale(1.05);
-    }
-
-    .btn-clear {
-      background-color: #28a745;
-    }
-
-    .btn-clear:hover {
-      background-color: #218838;
-    }
-
-    .btn-help {
-      background-color: #ff9800;
-    }
-
-    .btn-help:hover {
-      background-color: #e68900;
-    }
-
-    .btn-confused {
-      background-color: #dc3545;
-    }
-
-    .btn-confused:hover {
-      background-color: #c82333;
-    }
-
-    #help-section {
-      display: none;
-      text-align: center;
-      margin-top: 20px;
-    }
-
-    #error-message {
-      text-align: center;
-      margin: 50px auto;
-      padding: 30px;
-      font-size: 1.3em;
-      color: red;
-      max-width: 600px;
-      background: #ffe5e5;
-      border-radius: 10px;
-      font-weight: bold;
-    }
-
+    .highlight-button:hover { background-color: #218838; }
     footer {
       margin-top: 50px;
       text-align: center;
@@ -221,284 +97,42 @@
       color: #333;
       font-size: 0.95em;
     }
-
-    .section-divider {
-      height: 4px;
-      width: 100%;
-      margin: 40px 0;
-      background: linear-gradient(to right, #003366, #00bfff, #003366);
-      border-radius: 2px;
-    }
-
-</style>
-<script defer src="/assets/js/paste-guard.js"></script>
+  </style>
 </head>
 <body>
   <header>
-
     <div class="header-left">
       <a href="../../dashboard.html">
-        <img src="../../../images/maarifLOGO.png" class="logo" id="maarif-logo" />
+        <img src="../../../images/maarifLOGO.png" class="logo" id="maarif-logo" alt="Maarif Schools logo" />
       </a>
     </div>
     <div class="header-center">
       <h1>Layer 1: Theoretical Foundation</h1>
       <div class="info-line">
-        <span id="point-title"></span>
-        <span id="student-name"></span>
-        <span id="platform-name"></span>
+        <span class="pill">Point 13.2</span>
+        <span class="pill">A Level Platform</span>
+        <span class="pill">Open access</span>
       </div>
     </div>
     <div class="header-right" style="text-align:right;">
-      <img src="../../../images/cambridge.png" class="logo" />
-
+      <img src="../../../images/cambridge.png" class="logo" alt="Cambridge logo" />
     </div>
   </header>
 
-  <div id="error-message" style="display: none;">
-    ⚠️ You must be logged in to view this content.
-  </div>
-
-  <main id="content-area" style="display: none;">
-  <iframe id="doc-frame" class="official-doc" scrolling="no" ></iframe>
+  <main>
+    <div class="section-card">
+      <h2>Official document</h2>
+      <p>This layer is always available so that anyone can review the supporting document without logging in or using scripts.</p>
+      <iframe src="doc.html" title="Point 13.2 reference document" class="official-doc"></iframe>
+      <div class="actions">
+        <p class="actions-heading">Continue to the exercises when you are ready.</p>
+        <a class="highlight-button" href="layer2.html">✅ Notes are clear &mdash; go to Layer 2</a>
+      </div>
+    </div>
   </main>
-  <div class="actions">
-    <p class="actions-heading">Now that you have a general overview of the basics, you can move to Layer 2 by clicking on one of the following buttons:</p>
-    <button class="highlight-button btn-clear" onclick="markClear()">✅ Notes are clear</button>
-    <div class="help-wrapper">
-      <button class="highlight-button btn-help" onclick="showHelp()">🆘 Need help</button>
-      <div id="help-section">
-        <textarea id="unclear" rows="4" cols="60" placeholder="Describe what you need help with..."></textarea><br />
-        <button class="highlight-button" onclick="submitHelp()">Submit Help Request</button>
-      </div>
-    </div>
-    <button class="highlight-button btn-confused" onclick="markConfused()">😕 I'm confused</button>
-  </div>
-  <div class="section-divider"></div>
-    <div id="video-section" class="videos" style="display:none;">
-    <div class="section-title">🎥 Additional Resources</div>
-    <div class="resources-grid">
-      <div class="videos-column">
-        <div id="videos-container"></div>
-      </div>
-      <div class="extras-column">
-        <div class="placeholder" id="mind-map-placeholder">🧠 Mind Map (coming soon)</div>
-        <div class="placeholder" id="references-placeholder">📚 Reference Documents (coming soon)</div>
-      </div>
-    </div>
-  </div>
-
 
   <footer>
     📧 Contact Dr. Hamdeni at <a href="mailto:chams-eddine.hemdani@tn.maarifschools.org">chams-eddine.hemdani@tn.maarifschools.org</a>
   </footer>
-
-<script type="module">
-  import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
-
-  const SUPABASE_URL = "https://tsmzmuclrnyryuvanlxl.supabase.co";
-  const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzbXptdWNscm55cnl1dmFubHhsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc3MzM5NjUsImV4cCI6MjA2MzMwOTk2NX0.-l7Klmp5hKru3w2HOWLRPjCiQprJ2pOjsI-HPTGtAiw";
-
-  const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
-
-  const username = localStorage.getItem("username");
-  const student_name = localStorage.getItem("student_name");
-  const platform = localStorage.getItem("platform");
-  const point_id = "13.2";
-
-  const errorMessageEl = document.getElementById("error-message");
-  const contentAreaEl = document.getElementById("content-area");
-  const studentNameEl = document.getElementById("student-name");
-  const platformNameEl = document.getElementById("platform-name");
-
-  const displayName = student_name || "Guest";
-  if (displayName && studentNameEl) {
-    studentNameEl.textContent = "👤 " + displayName;
-  }
-
-  const displayPlatform = platform || "A Level (Guest)";
-  if (platformNameEl) {
-    platformNameEl.textContent = "🎓 Platform: " + displayPlatform;
-  }
-
-  if (errorMessageEl) {
-    errorMessageEl.style.display = "none";
-  }
-  if (contentAreaEl) {
-    contentAreaEl.style.display = "block";
-  }
-
-  fetch("../index.json")
-    .then(res => res.json())
-    .then(list => {
-      const found = list.find(p => p.id.toLowerCase() === point_id.toLowerCase());
-      if (found) {
-        document.getElementById("point-title").textContent = "📍 " + found.title;
-      }
-    });
-
-  const docFrame = document.getElementById("doc-frame");
-  if (docFrame) {
-    docFrame.src = "doc.html"; // Fallback so the document always loads even if fetch fails.
-    const resizeDocFrame = () => {
-      try {
-        const doc = docFrame.contentDocument || docFrame.contentWindow?.document;
-        const docHeight = doc?.documentElement?.scrollHeight;
-        docFrame.style.height = (docHeight ? docHeight + "px" : "100vh");
-      } catch (err) {
-        console.warn("Unable to resize doc iframe:", err);
-        docFrame.style.height = "100vh";
-      }
-    };
-    docFrame.addEventListener("load", resizeDocFrame);
-  }
-
-  fetch("videos.json")
-    .then(res => res.json())
-    .then(data => {
-      if (data[point_id]) {
-        const { videos = [], doc } = data[point_id];
-
-        if (doc && doc.url && docFrame) {
-          docFrame.src = doc.url;
-        }
-
-        if (videos.length > 0) {
-          document.getElementById("video-section").style.display = "block";
-          const container = document.getElementById("videos-container");
-          videos.forEach(video => {
-            const wrapper = document.createElement("div");
-            wrapper.innerHTML = video.iframe;
-            wrapper.style.marginBottom = "20px";
-            container.appendChild(wrapper);
-          });
-        }
-      }
-    })
-    .catch(err => {
-      console.error("Failed to load videos.json", err);
-      // Fallback doc frame already set; nothing else to do.
-    });
-
-async function updateProgress() {
-    const platform = localStorage.getItem("platform");
-    const username = localStorage.getItem("username");
-
-    if (!username || !platform) {
-      alert("❌ Missing student information. Please log in again.");
-      return false;
-    }
-
-    const tables = {
-      A_Level: 'a_theory_progress',
-      AS_Level: 'as_theory_progress',
-      IGCSE: 'igcse_theory_progress'
-    };
-    const table = tables[platform];
-
-    const { data: existing } = await supabase
-      .from(table)
-      .select('reached_layer')
-      .eq('username', username)
-      .eq('point_id', point_id.toLowerCase())
-      .maybeSingle();
-
-    const score = v => v === 'R' ? 4 : (parseInt(v, 10) || 0);
-    if (score(existing?.reached_layer) < 1) {
-      const { error } = await supabase
-        .from(table)
-        .upsert({
-          username: username,
-          point_id: point_id.toLowerCase(),
-          reached_layer: '1'
-        }, { onConflict: ['username', 'point_id'] });
-
-      if (error) {
-        console.error("❌ Supabase Error:", error);
-        alert(`❌ Failed to update progress: ${error.message}`);
-        return false;
-      }
-      console.log("✅ Progress updated in table:", table);
-    }
-
-    return true;
-  }
-
-  async function sendFeedback(feedback_type, comment = "") {
-    const feedbackTable = {
-      A_Level: 'a_theory_feedback',
-      AS_Level: 'as_theory_feedback',
-      IGCSE: 'igcse_theory_feedback'
-    }[platform];
-    const fullFeedback = comment
-      ? `${feedback_type}: ${comment}`
-      : feedback_type;
-    try {
-      const { error } = await supabase
-        .from(feedbackTable)
-        .upsert([
-          {
-            username: username,
-            point_id: point_id.toLowerCase(),
-            feedback: fullFeedback,
-            date: new Date().toISOString().slice(0, 10)
-          }
-        ], { onConflict: ['username', 'point_id'] });
-
-      if (error) {
-        console.error("❌ Feedback insert error:", error);
-        alert(`❌ Failed to submit feedback: ${error.message}`);
-      }
-    } catch (err) {
-      console.error("❌ Feedback insert error:", err);
-      alert("❌ Failed to submit feedback.");
-    }
-  }
-
-  async function markClear() {
-    if (await updateProgress()) {
-      await sendFeedback("clear");
-      window.location.href = "layer2.html";
-    }
-  }
-  window.markClear = markClear;
-
-  async function markConfused() {
-    if (await updateProgress()) {
-      await sendFeedback("confused");
-      window.location.href = "layer2.html";
-    }
-  }
-  window.markConfused = markConfused;
-
-  function showHelp() {
-    const section = document.getElementById("help-section");
-    section.style.display = section.style.display === "block" ? "none" : "block";
-  }
-  window.showHelp = showHelp;
-
-  async function submitHelp() {
-    const comment = document.getElementById("unclear").value.trim();
-    if (!comment) {
-      alert("Please describe what you need help with.");
-      return;
-    }
-
-    if (await updateProgress()) {
-      await sendFeedback("help", comment);
-      window.location.href = "layer2.html";
-    }
-  }
-  window.submitHelp = submitHelp;
-</script>
-
-<script>
-window.addEventListener("message", function(event) {
-  if (event.data && event.data.type === 'resize') {
-    var frame = document.getElementById("doc-frame");
-    frame.style.height = (event.data.height + 10) + 'px';
-  }
-});
-</script>
 </body>
 </html>
