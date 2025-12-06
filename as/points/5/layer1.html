@@ -339,9 +339,17 @@
   const docFrame = document.getElementById("doc-frame");
   if (docFrame) {
     docFrame.src = "doc.html"; // Fallback so the document always loads even if fetch fails.
-    docFrame.addEventListener("load", function() {
-      this.style.height = this.contentWindow.document.documentElement.scrollHeight + "px";
-    });
+    const resizeDocFrame = () => {
+      try {
+        const doc = docFrame.contentDocument || docFrame.contentWindow?.document;
+        const docHeight = doc?.documentElement?.scrollHeight;
+        docFrame.style.height = (docHeight ? docHeight + "px" : "100vh");
+      } catch (err) {
+        console.warn("Unable to resize doc iframe:", err);
+        docFrame.style.height = "100vh";
+      }
+    };
+    docFrame.addEventListener("load", resizeDocFrame);
   }
 
   fetch("videos.json")
