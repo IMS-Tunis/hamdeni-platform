@@ -1,4 +1,5 @@
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+import { storage } from './shared/safeStorage.js';
 
 console.log('[supabaseClient] Loading Supabase client module');
 
@@ -20,7 +21,7 @@ export const supabase = createClient(SUPABASE_URL, SUPABASE_KEY, {
 });
 
 export function tableName(base) {
-  const platform = localStorage.getItem('platform');
+  const platform = storage.getItem('platform');
   const prefixMap = {
     A_Level: 'a_',
     AS_Level: 'as_',
@@ -28,8 +29,8 @@ export function tableName(base) {
   };
   const prefix = prefixMap[platform];
   if (!prefix) {
-    alert('Unable to determine platform. Please select a platform before saving.');
-    throw new Error('Unknown platform: ' + platform);
+    console.warn('[supabaseClient] Missing platform in localStorage, defaulting to base table', base);
+    return base;
   }
   return `${prefix}${base}`;
 }

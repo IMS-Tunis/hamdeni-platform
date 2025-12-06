@@ -4,7 +4,10 @@ import { fileURLToPath } from 'url';
 
 const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
 const ROOT_DIR = path.resolve(SCRIPT_DIR, '..');
-const TARGET_TAG = '<script defer src="/assets/js/paste-guard.js"></script>';
+const TARGET_TAGS = [
+  '<script src="/assets/js/storage-fallback.js"></script>',
+  '<script defer src="/assets/js/paste-guard.js"></script>'
+];
 const HEAD_CLOSE_REGEX = /([ \t]*)<\/head\s*>/i;
 const IGNORED_DIRS = new Set(['node_modules', '.git', 'tests']);
 
@@ -25,7 +28,8 @@ async function collectHtmlFiles(dir) {
 
 async function injectIntoFile(filePath) {
   const original = await readFile(filePath, 'utf8');
-  if (original.includes(TARGET_TAG)) {
+  const missingTags = TARGET_TAGS.filter(tag => !original.includes(tag));
+  if (missingTags.length === 0) {
     return false;
   }
 
@@ -35,7 +39,8 @@ async function injectIntoFile(filePath) {
   }
 
   const indent = match[1] ?? '';
-  const injection = `${indent}${TARGET_TAG}\n${indent}</head>`;
+  const injectionTags = missingTags.map(tag => `${indent}${tag}`).join('\n');
+  const injection = `${injectionTags}\n${indent}</head>`;
   const updated = original.replace(HEAD_CLOSE_REGEX, injection);
   if (updated === original) {
     return false;
@@ -56,7 +61,7 @@ async function main() {
   }
 
   if (modified.length) {
-    console.log('Injected paste guard script into:');
+    console.log('Injected required scripts into:');
     for (const file of modified) {
       console.log(` - ${file}`);
     }
