@@ -1,4 +1,23 @@
-import { supabase, tableName } from './supabaseClient.js';
+let supabase = null;
+let tableNameFn = null;
+
+/**
+ * Safely load the Supabase client. Some browsers may block module execution
+ * if external imports fail strict MIME or CORS checks; we fall back gracefully
+ * so core question rendering still works.
+ */
+async function ensureSupabase() {
+  if (supabase && tableNameFn) return { supabase, tableName: tableNameFn };
+  try {
+    const mod = await import('./supabaseClient.js');
+    supabase = mod.supabase;
+    tableNameFn = mod.tableName;
+    return { supabase, tableName: tableNameFn };
+  } catch (error) {
+    console.error('[layer3] Supabase client failed to load. Persistence features are disabled.', error);
+    return {};
+  }
+}
 
 /**
  * Initialize Layer 3 logic for a point.
@@ -199,8 +218,10 @@ export default function initLayer3(pointId, options = {}) {
   document.getElementById('point-title').textContent = pointId;
 
   async function loadSaved() {
+    const { supabase: client, tableName } = await ensureSupabase();
+    if (!client || !tableName) return {};
     if (!username) return {};
-    const { data, error } = await supabase
+    const { data, error } = await client
       .from(tableName('layer3'))
       .select('*')
       .eq('username', username)
@@ -244,6 +265,8 @@ export default function initLayer3(pointId, options = {}) {
   }
 
   async function updateProgress() {
+    const { supabase: client, tableName } = await ensureSupabase();
+    if (!client || !tableName) return;
     const tables = {
       A_Level: 'a_theory_progress',
       AS_Level: 'as_theory_progress',
@@ -251,7 +274,7 @@ export default function initLayer3(pointId, options = {}) {
     };
     const table = tables[platform];
     if (!username || !table) return;
-    const { data: existing } = await supabase
+    const { data: existing } = await client
       .from(table)
       .select('reached_layer')
       .eq('username', username)
@@ -259,7 +282,7 @@ export default function initLayer3(pointId, options = {}) {
       .maybeSingle();
     const score = v => v === 'R' ? 4 : (parseInt(v, 10) || 0);
     if (score(existing?.reached_layer) < 3) {
-      const { error } = await supabase
+      const { error } = await client
         .from(table)
         .upsert(
           { username, point_id: pointId.toLowerCase(), reached_layer: 3 },
@@ -319,10 +342,17 @@ export default function initLayer3(pointId, options = {}) {
           btn.addEventListener('click', async () => {
             const ans = textarea.value.trim();
             if (!ans) return;
+            const { supabase: client, tableName } = await ensureSupabase();
+            if (!client || !tableName) {
+              alert('Saving answers is unavailable in this browser.');
+              btn.disabled = false;
+              textarea.disabled = false;
+              return;
+            }
             btn.disabled = true;
             textarea.disabled = true;
             ms.style.display = 'block';
-            const { data, error } = await supabase
+            const { data, error } = await client
               .from(tableName('layer3'))
               .upsert(
                 {
@@ -352,7 +382,12 @@ export default function initLayer3(pointId, options = {}) {
           saveBtn.addEventListener('click', async () => {
             const note = noteTA.value.trim();
             if (!note) return;
-            const { data, error } = await supabase
+            const { supabase: client, tableName } = await ensureSupabase();
+            if (!client || !tableName) {
+              alert('Saving notes is unavailable in this browser.');
+              return;
+            }
+            const { data, error } = await client
               .from(tableName('layer3'))
               .upsert(
                 {
@@ -391,7 +426,12 @@ export default function initLayer3(pointId, options = {}) {
   }
 
   exportBtn.addEventListener('click', async () => {
-    const { data, error } = await supabase
+    const { supabase: client, tableName } = await ensureSupabase();
+    if (!client || !tableName) {
+      alert('Exporting notes is unavailable in this browser.');
+      return;
+    }
+    const { data, error } = await client
       .from(tableName('layer3'))
       .select('*')
       .eq('username', username)
