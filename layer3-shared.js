@@ -257,11 +257,8 @@ export default function initLayer3(pointId, options = {}) {
 
   function updateLayer4ButtonState() {
     if (!layer4Btn) return;
-    const shouldDisable = totalQuestions === 0 || answeredQuestions.size < totalQuestions;
-    layer4Btn.disabled = shouldDisable;
-    if (!shouldDisable) {
-      hideLayer4Tooltip();
-    }
+    layer4Btn.disabled = false;
+    hideLayer4Tooltip();
   }
 
   async function updateProgress() {
