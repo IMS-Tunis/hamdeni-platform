@@ -187,16 +187,17 @@
   </main>
 
   <script type="module">
-    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
-
-    const SUPABASE_URL = 'https://tsmzmuclrnyryuvanlxl.supabase.co';
-    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzbXptdWNscm55cnl1dmFubHhsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc3MzM5NjUsImV4cCI6MjA2MzMwOTk2NX0.-l7Klmp5hKru3w2HOWLRPjCiQprJ2pOjsI-HPTGtAiw';
-
-    const supabase = createClient(SUPABASE_URL, SUPABASE_KEY, {
-      auth: {
-        persistSession: true
+    async function loadSupabaseClient() {
+      try {
+        const mod = await import('../../../supabaseClient.js');
+        return mod.supabase;
+      } catch (error) {
+        console.error('[Layer3] Supabase client failed to load. Submission links are unavailable.', error);
+        return null;
       }
-    });
+    }
+
+    const supabasePromise = loadSupabaseClient();
 
     const submitBtn = document.getElementById('submit-btn');
     const statusEl = document.getElementById('status');
@@ -215,6 +216,14 @@
       submitBtn.disabled = true;
 
       try {
+        const supabase = await supabasePromise;
+        if (!supabase) {
+          statusEl.textContent = 'Submission links are unavailable in this browser. Please contact your teacher.';
+          statusEl.classList.add('error');
+          submitBtn.disabled = true;
+          return;
+        }
+
         const { data, error } = await supabase.auth.getUser();
         if (error && error.message !== 'Auth session missing!') throw error;
         const user = data?.user;
@@ -222,7 +231,7 @@
           throw new Error('Please log in to access this activity.');
         }
 
-        const link = await fetchUploadLink(user);
+        const link = await fetchUploadLink(user, supabase);
         if (!link) {
           throw new Error('No upload link was found for your account. Please contact your teacher.');
         }
@@ -237,7 +246,7 @@
       }
     }
 
-    async function fetchUploadLink(user) {
+    async function fetchUploadLink(user, supabase) {
       const candidates = [
         ['auth_user_id', user.id],
         ['id', user.id],
