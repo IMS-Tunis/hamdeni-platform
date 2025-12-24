@@ -546,17 +546,7 @@
   </div>
 
   <script type="module">
-    async function loadSupabaseClient() {
-      try {
-        const mod = await import('../../../supabaseClient.js');
-        return mod.supabase;
-      } catch (error) {
-        console.error('[Layer3] Supabase client failed to load. Submission links are unavailable.', error);
-        return null;
-      }
-    }
-
-    const supabasePromise = loadSupabaseClient();
+    import { supabase } from '../../../supabaseClient.js';
 
     const folderButton = document.getElementById('open-folder');
     const folderStatus = document.getElementById('folder-status');
@@ -591,6 +581,9 @@
 
     async function loadSubmissionLink() {
       setStatus('Checking your submission link…');
+      let link = null;
+      let lastError = null;
+
 
       const identifiers = [
         ['id', localStorage.getItem('student_id')],
@@ -609,16 +602,6 @@
       }
 
       console.log('[Layer3] Looking up Link using identifiers:', identifiers);
-
-      const supabase = await supabasePromise;
-      if (!supabase) {
-        setStatus(
-          'Submission links are unavailable in this browser. Please contact your teacher.',
-          'error'
-        );
-        if (folderButton) folderButton.disabled = true;
-        return;
-      }
 
       let link = null;
       let lastError = null;

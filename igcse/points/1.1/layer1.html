@@ -95,7 +95,6 @@
       border: 1px solid #ccc;
       border-radius: 6px;
       margin-bottom: 20px;
-      height: 1000px;
     }
 
     .videos iframe {
@@ -165,9 +164,6 @@
       cursor: pointer;
       transition: background 0.3s, transform 0.2s;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      text-decoration: none;
-      display: inline-block;
-      text-align: center;
     }
 
     .highlight-button:hover {
@@ -262,12 +258,12 @@
     ⚠️ You must be logged in to view this content.
   </div>
 
-  <main id="content-area">
-  <iframe id="doc-frame" class="official-doc" scrolling="auto" src="doc.html"></iframe>
+  <main id="content-area" style="display: none;">
+  <iframe id="doc-frame" class="official-doc" scrolling="no" ></iframe>
   </main>
   <div class="actions">
     <p class="actions-heading">Now that you have a general overview of the basics, you can move to Layer 2 by clicking on one of the following buttons:</p>
-    <a class="highlight-button btn-clear" href="layer2.html">✅ Notes are clear</a>
+    <button class="highlight-button btn-clear" onclick="markClear()">✅ Notes are clear</button>
     <div class="help-wrapper">
       <button class="highlight-button btn-help" onclick="showHelp()">🆘 Need help</button>
       <div id="help-section">
@@ -327,6 +323,7 @@
   if (errorMessageEl) {
     errorMessageEl.style.display = "none";
   }
+
   if (contentAreaEl) {
     contentAreaEl.style.display = "block";
   }
@@ -340,19 +337,18 @@
       }
     });
 
-  const docFrame = document.getElementById("doc-frame");
-  if (docFrame) {
-    docFrame.src = "doc.html"; // Fallback so the document always loads even if fetch fails.
-  }
-
   fetch("videos.json")
     .then(res => res.json())
     .then(data => {
       if (data[point_id]) {
         const { videos = [], doc } = data[point_id];
 
-        if (doc && doc.url && docFrame) {
-          docFrame.src = doc.url;
+        if (doc) {
+          const frame = document.getElementById("doc-frame");
+          frame.addEventListener("load", function() {
+            this.style.height = this.contentWindow.document.documentElement.scrollHeight + "px";
+          });
+          frame.src = doc.url;
         }
 
         if (videos.length > 0) {
@@ -366,13 +362,9 @@
           });
         }
       }
-    })
-    .catch(err => {
-      console.error("Failed to load videos.json", err);
-      // Fallback doc frame already set; nothing else to do.
     });
 
-async function updateProgress() {
+  async function updateProgress() {
     const platform = localStorage.getItem("platform");
     const username = localStorage.getItem("username");
 
@@ -491,5 +483,13 @@ async function updateProgress() {
   window.submitHelp = submitHelp;
 </script>
 
+<script>
+window.addEventListener("message", function(event) {
+  if (event.data && event.data.type === 'resize') {
+    var frame = document.getElementById("doc-frame");
+    frame.style.height = (event.data.height + 10) + 'px';
+  }
+});
+</script>
 </body>
 </html>
