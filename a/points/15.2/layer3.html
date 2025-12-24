@@ -1,190 +1,549 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NRRL1TSE7Z"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);} 
+    gtag('js', new Date());
+    gtag('config', 'G-NRRL1TSE7Z');
+  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Point 15.2 · Layer 3</title>
+  <title>Layer 3 – Self correction</title>
   <style>
     :root {
-      color-scheme: light;
-      --deep-blue: #042b4f;
-      --accent: #0a84ff;
-      --accent-dark: #0563c1;
-      --surface: #f5f7fb;
+      --bg: #f6f8fc;
       --card: #ffffff;
+      --text: #000000;
+      --muted: #1f2937;
+      --primary: #0f68c3;
+      --primary-dark: #0a4e93;
+      --accent: #22c55e;
+      --border: #d8e2f1;
+      --soft: #eef2ff;
     }
-    * {
-      box-sizing: border-box;
-    }
+
+    * { box-sizing: border-box; }
+
     body {
       margin: 0;
-      font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background: radial-gradient(circle at top, rgba(10,132,255,0.07), transparent 50%), var(--surface);
-      color: #1f2933;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top left, #f0f4ff, #f8fbff 40%, #f5f7fb 80%);
+      color: var(--text);
     }
+
     header {
-      background: var(--deep-blue);
-      color: #fff;
-      padding: 18px clamp(16px, 4vw, 48px);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-      box-shadow: 0 8px 30px rgba(4, 43, 79, 0.35);
       position: sticky;
       top: 0;
       z-index: 10;
+      background: linear-gradient(120deg, #0f68c3, #0a4e93);
+      color: white;
+      padding: 16px 18px 14px;
+      box-shadow: 0 8px 20px rgba(15, 104, 195, 0.28);
     }
-    header h1 {
-      margin: 0;
-      font-size: clamp(1.2rem, 3vw, 1.8rem);
-      font-weight: 600;
-    }
-    .nav-actions {
+
+    .header-inner {
+      max-width: 1080px;
+      margin: 0 auto;
       display: flex;
-      gap: 12px;
       flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px 18px;
     }
-    .nav-btn {
-      border: none;
-      text-decoration: none;
-      padding: 10px 18px;
-      border-radius: 999px;
-      font-weight: 600;
-      background: rgba(255, 255, 255, 0.16);
-      color: #fff;
-      transition: background 0.2s ease, transform 0.2s ease;
+
+    .header-logo {
+      display: inline-flex;
+      align-items: center;
     }
-    .nav-btn:hover,
-    .nav-btn:focus-visible {
-      background: rgba(255, 255, 255, 0.3);
-      transform: translateY(-1px);
+
+    .header-logo img {
+      height: 52px;
+      width: auto;
+      display: block;
+      filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.25));
     }
-    main {
-      width: min(960px, 100%);
-      margin: 40px auto;
-      padding: 0 clamp(16px, 5vw, 32px) 80px;
+
+    .header-main {
       flex: 1;
       display: flex;
       flex-direction: column;
-      gap: 32px;
-    }
-    .hero-card {
-      background: var(--card);
-      border-radius: 28px;
-      padding: clamp(20px, 6vw, 48px);
-      box-shadow: 0 20px 70px rgba(15, 23, 42, 0.08);
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-card::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top right, rgba(10,132,255,0.18), transparent 55%);
-      pointer-events: none;
-    }
-    .hero-card h2 {
-      margin-top: 0;
-      font-size: clamp(1.2rem, 3.2vw, 1.6rem);
-      color: var(--deep-blue);
-    }
-    .questions-board {
-      background: #0a1b2d;
-      border-radius: 24px;
-      padding: clamp(16px, 4vw, 32px);
-      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
-    }
-    .questions-board img {
-      width: 100%;
-      display: block;
-      border-radius: 16px;
-      box-shadow: 0 15px 40px rgba(4, 43, 79, 0.35);
-    }
-    .cta-area {
-      text-align: center;
-      display: flex;
-      flex-direction: column;
       align-items: center;
+      gap: 8px;
+      text-align: center;
+    }
+
+    .header-title {
+      font-size: 1.24rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      margin: 0;
+    }
+
+    .header-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.92rem;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .meta-pill {
+      border-radius: 12px;
+      padding: 6px 12px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .meta-pill span {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .page {
+      max-width: 1080px;
+      margin: 16px auto 32px;
+      padding: 0 16px 24px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 16px 18px 18px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      border: 1px solid rgba(148, 163, 184, 0.28);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .card-header h3 {
+      margin: 0;
+      font-size: 1.05rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      background: rgba(15, 23, 42, 0.04);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: var(--muted);
+    }
+
+    .label span { font-size: 1rem; }
+
+    .instruction-card {
+      border: 1px dashed var(--border);
+      background: #f8fafc;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+    }
+
+    .instruction-body {
+      display: grid;
       gap: 12px;
     }
-    .primary-btn {
-      border: none;
-      border-radius: 999px;
-      padding: 14px 44px;
-      font-size: 1rem;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      color: #fff;
-      background: linear-gradient(135deg, var(--accent), #5ac8fa);
-      box-shadow: 0 15px 40px rgba(10, 132, 255, 0.35);
-      cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
-    }
-    .primary-btn:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-      box-shadow: none;
-    }
-    .primary-btn:not(:disabled):hover,
-    .primary-btn:not(:disabled):focus-visible {
-      transform: translateY(-1px) scale(1.01);
-      box-shadow: 0 20px 50px rgba(10, 132, 255, 0.4);
-    }
-    .status-message {
-      margin: 0;
+
+    .instruction-copy {
+      background: #f8fbff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px;
+      color: var(--text);
       font-size: 0.95rem;
-      color: #4b5563;
-      text-align: center;
     }
-    .status-message.error {
-      color: #c62828;
+
+    .instruction-copy ul { margin: 0; padding-left: 20px; }
+
+    .submission-access { margin-top: 16px; text-align: center; }
+
+    .primary-btn {
+      background: var(--primary);
+      border: none;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 0.96rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 10px 25px rgba(15, 104, 195, 0.35);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
     }
-    @media (max-width: 640px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .nav-actions {
-        width: 100%;
-      }
-      .nav-btn {
-        flex: 1;
-        text-align: center;
-      }
+
+    .primary-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 12px 30px rgba(10, 78, 147, 0.35);
+    }
+
+    .primary-btn:disabled {
+      opacity: 0.6;
+      cursor: default;
+      box-shadow: none;
+      transform: none;
+    }
+
+    .primary-btn span { font-size: 1.1rem; }
+
+    .status-message {
+      margin-top: 8px;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .status-message.success { color: #0f766e; }
+    .status-message.error { color: #dc2626; }
+
+    .activity-layout {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 16px;
+      align-items: start;
+    }
+
+    .activity-card {
+      position: relative;
+      border: 1px solid var(--border);
+      background: white;
+      overflow: hidden;
+    }
+
+    .activity-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(15, 104, 195, 0.06), rgba(34, 197, 94, 0.05));
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .activity-card-inner {
+      position: relative;
+      display: grid;
+      gap: 10px;
+    }
+
+    .activity-header {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .activity-cover {
+      width: 82px;
+      height: 104px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(15, 23, 42, 0.1);
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.12);
+      background: linear-gradient(145deg, #f8fbff, #eef2ff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .activity-cover img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .activity-heading-text {
+      display: grid;
+      gap: 6px;
+    }
+
+    .activity h3 {
+      margin: 0;
+      font-size: 1.05rem;
+      margin-bottom: 4px;
+    }
+
+    .activity p {
+      margin: 0 0 10px;
+      font-size: 0.92rem;
+      color: var(--text);
+    }
+
+    .activity ul {
+      margin: 0 0 10px;
+      padding-left: 20px;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+
+    .activity ul li { margin-bottom: 4px; }
+
+    .resource-block {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      background: #f8fbff;
+    }
+
+    .resource-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      padding: 12px;
+      background: rgba(15, 104, 195, 0.06);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .resource-title {
+      margin: 0;
+      font-size: 0.98rem;
+      font-weight: 600;
+    }
+
+    .resource-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+      padding: 12px;
+    }
+
+    .resource-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(15, 104, 195, 0.3);
+      background: white;
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 6px 18px rgba(15, 104, 195, 0.12);
+      transition: all 0.15s ease;
+    }
+
+    .resource-link:hover {
+      background: #e6f1ff;
+      color: var(--primary-dark);
+    }
+
+    .nav-footer {
+      margin-top: 8px;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .file-naming {
+      background: #f1f5f9;
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-size: 0.9rem;
+    }
+
+    .file-naming ul { margin: 6px 0 0; padding-left: 18px; }
+
+    .file-naming li { margin-bottom: 2px; }
+
+    .note {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+	
+	code {
+  color: #555;           /* text color */
+  background-color: #f2f2f2; /* optional: light background */
+  padding: 2px 4px;      /* optional: nicer look */
+  border-radius: 4px;    /* optional */
+  font-size: 90%;        /* optional */
+}
+
+    @media (max-width: 600px) {
+      header { padding: 12px 14px; }
+      .page { padding: 0 12px 20px; }
+      .card { padding: 12px 13px 14px; }
+      .header-title { font-size: 1.05rem; }
+      .header-inner { gap: 8px 10px; }
+      .header-main { align-items: center; }
+      .header-logo img { height: 44px; }
     }
   </style>
 </head>
 <body>
   <header>
-    <div>
-      <p style="margin:0;font-size:0.9rem;opacity:0.8;">Point 15.2</p>
-      <h1>Layer 3 · Exam-style questions</h1>
-    </div>
-    <div class="nav-actions">
-      <a class="nav-btn" href="../../../dashboard.html">Dashboard</a>
-      <a class="nav-btn" href="layer2.html">← Back to Layer 2</a>
+    <div class="header-inner">
+      <a class="header-logo" href="../../dashboard.html">
+        <img src="../../../images/maarifLOGO.png" alt="Maarif logo" />
+      </a>
+      <div class="header-main">
+        <h1 class="header-title">Layer 3: Exam style questions</h1>
+        <div class="header-meta">
+          <div class="meta-pill">
+            <span id="point-title">Point 15.2</span>
+          </div>
+          <div class="meta-pill">
+            <span id="student-name">👤 Student</span>
+          </div>
+          <div class="meta-pill">
+            <span id="platform-name">🎓 Platform</span>
+          </div>
+        </div>
+      </div>
+      <div class="header-logo header-logo--right">
+        <img src="../../../images/cambridge.png" alt="Cambridge logo" />
+      </div>
     </div>
   </header>
 
-  <main>
-    <section class="hero-card">
-      <h2>Answer all of the questions shown below before submitting.</h2>
-      <p style="max-width:65ch;margin-bottom:24px;">Carefully work through each question on paper. Once you are ready, tap the button below to upload your written answers using your personal submission link.</p>
-      <div class="questions-board">
-        <img src="layer3-questions.png" alt="Layer 3 questions for point 15.2" loading="lazy" />
+  <div class="page">
+    <section class="card instruction-card">
+      <div class="card-header">
+        <span class="label"><span>🧭</span> Quick guide for completing this layer</span>
+      </div>
+      <div class="instruction-body">
+
+
+
+
+<div class="instruction-copy">
+  <p>You will complete three activities:</p>
+  <ul>
+    <li>Activity 1: Cambridge Coursebook (exam style questions)</li>
+    <li>Activity 2: Hodder Coursebook (end of chapter questions)</li>
+    <li>Activity 3: Cambridge worksheet</li>
+  </ul>
+
+  <p>For each activity, follow these steps:</p>
+  <ol>
+    <li>
+      Step 1: Open the questions PDF and answer all questions in a notebook or on paper, 
+      using clear handwriting and separating each question.
+    </li>
+    <li>
+      Step 2: Open the correction PDF and make all changes 
+      <strong>in a different color</strong> so they are easy to see.
+    </li>
+    <li>
+      Step 3: Scan or photograph both your first attempt and your corrected work, 
+      then upload them using these <strong>exact file names</strong>:
+      <ul>
+        <li>For Cambridge: <code>15.2_Cambridge_FirstAttempt</code> and <code>15.2_Cambridge_AfterCorrection</code></li>
+        <li>For Hodder: <code>15.2_Hodder_FirstAttempt</code> and <code>15.2_Hodder_AfterCorrection</code></li>
+        <li>For the worksheet: <code>15.2_Worksheet_FirstAttempt</code> and <code>15.2_Worksheet_AfterCorrection</code></li>
+      </ul>
+    </li>
+  </ol>
+</div>
+
+
+
+
+
+      </div>
+
+      <div class="submission-access">
+        <button id="open-folder" class="primary-btn" type="button" disabled>Open your submission folder</button>
+        <p id="folder-status" class="status-message">Checking your submission link…</p>
       </div>
     </section>
 
-    <div class="cta-area">
-      <button id="submit-btn" class="primary-btn" disabled>Submit answers</button>
-      <p id="status" class="status-message">Checking your submission link…</p>
+    <section class="activity-layout">
+      <article class="card activity activity-card">
+        <div class="activity-card-inner">
+          <div class="activity-header">
+            <div class="activity-cover" aria-hidden="true">
+              <img src="../../covercambridge.png" alt="Cambridge coursebook cover" />
+            </div>
+            <div class="activity-heading-text">
+              <div class="label" aria-hidden="true"><span>📘</span> Cambridge Coursebook</div>
+              <h3>Activity 1: Cambridge Coursebook questions</h3>
+            </div>
+          </div>
+      
+
+       
+            <div class="resource-links">
+              <a class="resource-link" href="cambridge.pdf" target="_blank" rel="noopener"><span>📄</span>Open questions</a>
+              <a class="resource-link" href="cambridgecorrection.pdf" target="_blank" rel="noopener"><span>✅</span>Open correction</a>
+            </div>
+        
+        </div>
+      </article>
+
+      <article class="card activity activity-card">
+        <div class="activity-card-inner">
+          <div class="activity-header">
+            <div class="activity-cover" aria-hidden="true">
+              <img src="../../coverhodder.png" alt="Hodder coursebook cover" />
+            </div>
+            <div class="activity-heading-text">
+              <div class="label" aria-hidden="true"><span>📗</span> Hodder Coursebook</div>
+              <h3>Activity 2: Hodder Coursebook questions</h3>
+            </div>
+          </div>
+
+
+ 
+            <div class="resource-links">
+              <a class="resource-link" href="hodder.pdf" target="_blank" rel="noopener"><span>📄</span>Open questions </a>
+              <a class="resource-link" href="hoddercorrection.pdf" target="_blank" rel="noopener"><span>✅</span>Open correction </a>
+            </div>
+
+        </div>
+      </article>
+
+      <article class="card activity activity-card">
+        <div class="activity-card-inner">
+          <div class="activity-header">
+            <div class="activity-cover" aria-hidden="true">
+              <img src="../../coverworksheet.png" alt="Cambridge worksheet cover" />
+            </div>
+            <div class="activity-heading-text">
+              <div class="label" aria-hidden="true"><span>📝</span> Cambridge Worksheet</div>
+              <h3>Activity 3: Cambridge Worksheet practice</h3>
+            </div>
+          </div>
+ 
+
+  
+            <div class="resource-links">
+              <a class="resource-link" href="worksheet.pdf" target="_blank" rel="noopener"><span>📄</span>Open worksheet </a>
+              <a class="resource-link" href="worksheetcorrection.pdf" target="_blank" rel="noopener"><span>✅</span>Open correction </a>
+            </div>
+         
+        </div>
+      </article>
+    </section>
+
+    <div class="nav-footer">
+      <a class="primary-btn" href="layer4.html"><span>➡️</span> Go to Layer 4</a>
     </div>
-  </main>
+  </div>
 
   <script type="module">
     async function loadSupabaseClient() {
@@ -199,64 +558,72 @@
 
     const supabasePromise = loadSupabaseClient();
 
-    const submitBtn = document.getElementById('submit-btn');
-    const statusEl = document.getElementById('status');
+    const folderButton = document.getElementById('open-folder');
+    const folderStatus = document.getElementById('folder-status');
+    const pointTitle = document.getElementById('point-title');
+    const studentNameEl = document.getElementById('student-name');
+    const platformNameEl = document.getElementById('platform-name');
 
-    submitBtn.addEventListener('click', () => {
-      if (submitBtn.disabled) return;
-      const target = submitBtn.dataset.link;
-      if (target) {
-        window.location.href = target;
+    const submissionState = {
+      link: ''
+    };
+
+    function setStatus(message, variant = '') {
+      if (!folderStatus) return;
+      folderStatus.textContent = message;
+      folderStatus.className = `status-message${variant ? ' ' + variant : ''}`;
+      folderStatus.style.display = message ? 'block' : 'none';
+    }
+
+    function initHeader() {
+      const studentName = localStorage.getItem('student_name');
+      const platform = localStorage.getItem('platform');
+      if (pointTitle) {
+        pointTitle.textContent = 'Point 15.2';
       }
-    });
-
-    async function loadPersonalLink() {
-      statusEl.textContent = 'Checking your submission link…';
-      statusEl.classList.remove('error');
-      submitBtn.disabled = true;
-
-      try {
-        const supabase = await supabasePromise;
-        if (!supabase) {
-          statusEl.textContent = 'Submission links are unavailable in this browser. Please contact your teacher.';
-          statusEl.classList.add('error');
-          submitBtn.disabled = true;
-          return;
-        }
-
-        const { data, error } = await supabase.auth.getUser();
-        if (error && error.message !== 'Auth session missing!') throw error;
-        const user = data?.user;
-        if (!user) {
-          throw new Error('Please log in to access this activity.');
-        }
-
-        const link = await fetchUploadLink(user, supabase);
-        if (!link) {
-          throw new Error('No upload link was found for your account. Please contact your teacher.');
-        }
-
-        submitBtn.dataset.link = link;
-        submitBtn.disabled = false;
-        statusEl.textContent = 'All set! Click the button when you are ready to upload your answers.';
-      } catch (err) {
-        console.error('[Layer3] Failed to prepare submission link', err);
-        statusEl.textContent = err.message || 'Unable to prepare your submission link right now.';
-        statusEl.classList.add('error');
+      if (studentNameEl && studentName) {
+        studentNameEl.textContent = `👤 ${studentName}`;
+      }
+      if (platformNameEl && platform) {
+        platformNameEl.textContent = `🎓 Platform: ${platform}`;
       }
     }
 
-    async function fetchUploadLink(user, supabase) {
-      const candidates = [
-        ['auth_user_id', user.id],
-        ['id', user.id],
-        ['email', user.email],
-        ['username', user.user_metadata?.username],
-        ['student_id', user.user_metadata?.student_id]
-      ];
+    async function loadSubmissionLink() {
+      setStatus('Checking your submission link…');
 
-      for (const [column, value] of candidates) {
-        if (!value) continue;
+      const identifiers = [
+        ['id', localStorage.getItem('student_id')],
+        ['username', localStorage.getItem('username')],
+        ['uuid', localStorage.getItem('uuid')]
+      ].filter(([, value]) => Boolean(value));
+
+      if (!identifiers.length) {
+        console.warn('[Layer3] No usable identifier in localStorage');
+        setStatus(
+          'We could not match your account to a submission folder. Please sign in again from the dashboard or contact your teacher.',
+          'error'
+        );
+        if (folderButton) folderButton.disabled = true;
+        return;
+      }
+
+      console.log('[Layer3] Looking up Link using identifiers:', identifiers);
+
+      const supabase = await supabasePromise;
+      if (!supabase) {
+        setStatus(
+          'Submission links are unavailable in this browser. Please contact your teacher.',
+          'error'
+        );
+        if (folderButton) folderButton.disabled = true;
+        return;
+      }
+
+      let link = null;
+      let lastError = null;
+
+      for (const [column, value] of identifiers) {
         try {
           const { data, error } = await supabase
             .from('students')
@@ -268,22 +635,47 @@
             if (error.code === 'PGRST116') {
               continue;
             }
-            console.warn(`[Layer3] Unable to fetch link by ${column}:`, error);
+            console.warn(`[Layer3] Lookup by ${column} failed:`, error);
+            lastError = error;
             continue;
           }
 
           if (data && data.Link) {
-            return data.Link;
+            link = data.Link;
+            console.log(`[Layer3] Found Link via ${column}:`, link);
+            break;
           }
-        } catch (requestError) {
-          console.warn(`[Layer3] Request failed for ${column}`, requestError);
+        } catch (err) {
+          console.warn(`[Layer3] Request error for ${column}:`, err);
+          lastError = err;
         }
       }
 
-      return null;
+      if (!link) {
+        console.warn('[Layer3] No Link found for any identifier', { identifiers, lastError });
+        setStatus(
+          'No submission folder is configured for your account. Please contact your teacher.',
+          'error'
+        );
+        if (folderButton) folderButton.disabled = true;
+        return;
+      }
+
+      submissionState.link = link;
+      setStatus('', 'success');
+      if (folderButton) folderButton.disabled = false;
     }
 
-    loadPersonalLink();
+    if (folderButton) {
+      folderButton.addEventListener('click', () => {
+        if (submissionState.link) {
+          window.open(submissionState.link, '_blank');
+        }
+      });
+    }
+
+    initHeader();
+    loadSubmissionLink();
   </script>
 </body>
 </html>
