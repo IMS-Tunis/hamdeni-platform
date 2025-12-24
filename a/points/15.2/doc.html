@@ -1,24 +1,1517 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NRRL1TSE7Z"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-NRRL1TSE7Z');
-</script>
-
   <meta charset="UTF-8">
-  <title>Content not ready</title>
-  <link rel="stylesheet" href="igcse-style.css">
-<script defer src="/assets/js/paste-guard.js"></script>
+  <title>15.2 Boolean algebra and logic circuits</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --accent: #153f71;
+      --accent-soft: #e3eefc;
+      --accent-strong: #0c2847;
+      --accent-alt: #00a3b4;
+      --page-bg: #f4f6fb;
+      --card-bg: #ffffff;
+      --text-main: #000000;
+      --border-soft: #d0d7e2;
+      --shadow-soft: 0 14px 40px rgba(15, 23, 42, 0.14);
+      --keyword-bg: rgba(0, 163, 180, 0.1);
+      --keyword-border: rgba(0, 163, 180, 0.4);
+      --keyword-text: #005e6b;
+    }
+    body.dark-mode {
+      --page-bg: #050816;
+      --card-bg: #0b1220;
+      --text-main: #e5e9ff;
+      --border-soft: #1f2937;
+      --accent-soft: rgba(21, 63, 113, 0.3);
+      --keyword-bg: rgba(56, 189, 248, 0.18);
+      --keyword-border: rgba(56, 189, 248, 0.6);
+      --keyword-text: #e0f2fe;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--page-bg);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+    .page {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 4rem;
+    }
+    header.main-header {
+      position: relative;
+      background: radial-gradient(circle at 10% 0%, #00a3b4 0, #153f71 40%, #0c2847 100%);
+      border-radius: 1.4rem;
+      padding: 1.8rem 2rem 2.1rem;
+      color: #fff;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+    header.main-header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 80% 0%, rgba(255, 255, 255, 0.16), transparent 55%),
+        radial-gradient(circle at 0% 100%, rgba(0, 163, 180, 0.3), transparent 60%);
+      mix-blend-mode: screen;
+      opacity: 0.7;
+      pointer-events: none;
+    }
+    header.main-header-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header.main-header h1 {
+      margin: 0 0 0.25rem;
+      font-size: 2rem;
+      letter-spacing: 0.02em;
+    }
+    header.main-header p {
+      margin: 0.1rem 0;
+      font-size: 0.95rem;
+      opacity: 0.94;
+    }
+    .header-right {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      align-items: flex-end;
+    }
+    .badge-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      justify-content: flex-end;
+    }
+    .badge {
+      font-size: 0.78rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(248, 250, 252, 0.7);
+      background: rgba(15, 23, 42, 0.3);
+      backdrop-filter: blur(6px);
+    }
+    .theme-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      border-radius: 999px;
+      border: 1px solid rgba(248, 250, 252, 0.6);
+      background: rgba(15, 23, 42, 0.4);
+      color: #f9fafb;
+      padding: 0.25rem 0.75rem;
+      font-size: 0.8rem;
+      cursor: pointer;
+      backdrop-filter: blur(6px);
+      transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .theme-toggle:hover {
+      background: rgba(15, 23, 42, 0.7);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.4);
+    }
+    .theme-toggle-icon {
+      font-size: 0.95rem;
+    }
+    .toc-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin: 0 auto 1.8rem;
+      justify-content: center;
+    }
+    .toc-chip {
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      background: rgba(255, 255, 255, 0.8);
+      color: var(--accent-strong);
+      font-size: 0.8rem;
+      padding: 0.35rem 0.85rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+      backdrop-filter: blur(8px);
+      transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.15s ease, border-color 0.2s ease;
+    }
+    .toc-chip span.index {
+      font-size: 0.75rem;
+      opacity: 0.8;
+    }
+    .toc-chip:hover {
+      background: var(--accent-soft);
+      transform: translateY(-1px);
+      border-color: rgba(21, 63, 113, 0.35);
+      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.14);
+    }
+    .toc-chip.active {
+      background: linear-gradient(135deg, var(--accent-alt), var(--accent));
+      color: #f9fafb;
+      border-color: transparent;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.4);
+    }
+    .toc-chip.active span.index {
+      opacity: 1;
+    }
+    .collapsible-section {
+      background: var(--card-bg);
+      border-radius: 1.1rem;
+      margin-bottom: 1.6rem;
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      position: relative;
+      isolation: isolate;
+    }
+    .collapsible-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 0 0, rgba(0, 163, 180, 0.11), transparent 60%);
+      opacity: 0.5;
+      pointer-events: none;
+      z-index: -1;
+    }
+    .collapsible-header {
+      margin: 0;
+      padding: 0.9rem 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: linear-gradient(90deg, rgba(15, 23, 42, 0.03), transparent);
+      cursor: pointer;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.5);
+    }
+    .collapsible-header .title {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      align-items: baseline;
+    }
+    .collapsible-header h2 {
+      margin: 0;
+      font-size: 1.05rem;
+      color: var(--accent-strong);
+    }
+    body.dark-mode .collapsible-header h2 {
+      color: #e5e7eb;
+    }
+    .collapsible-header span.section-label {
+      font-size: 0.82rem;
+      padding: 0.08rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(21, 63, 113, 0.25);
+      color: var(--accent-strong);
+      background: rgba(226, 232, 240, 0.7);
+    }
+    body.dark-mode .collapsible-header span.section-label {
+      background: rgba(15, 23, 42, 0.9);
+      color: #e5e7eb;
+      border-color: rgba(148, 163, 184, 0.8);
+    }
+    .collapsible-header button.section-toggle {
+      border: none;
+      background: rgba(226, 232, 240, 0.7);
+      color: var(--accent-strong);
+      font-size: 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      cursor: pointer;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      transition: background 0.18s ease, transform 0.12s ease, box-shadow 0.12s ease;
+    }
+    .collapsible-header button.section-toggle span.chevron {
+      display: inline-block;
+      transition: transform 0.2s ease;
+      font-size: 0.9rem;
+    }
+    .collapsible-header button.section-toggle:hover {
+      background: var(--accent-soft);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.2);
+    }
+    body.dark-mode .collapsible-header button.section-toggle {
+      background: rgba(15, 23, 42, 0.9);
+      color: #e5e7eb;
+    }
+    .collapsible-section.collapsed .section-content {
+      display: none;
+    }
+    .collapsible-section.collapsed button.section-toggle span.chevron {
+      transform: rotate(-90deg);
+    }
+    .section-content {
+      padding: 1.05rem 1.45rem 1.35rem;
+      font-size: 0.95rem;
+    }
+    .section-content h3 {
+      margin-top: 0.3rem;
+      color: var(--accent-strong);
+      font-size: 0.98rem;
+    }
+    body.dark-mode .section-content h3 {
+      color: #e5e7eb;
+    }
+    ul {
+      margin: 0.35rem 0 0.7rem 1.2rem;
+      padding-left: 0.4rem;
+      font-size: 0.94rem;
+    }
+    ul ul {
+      margin-top: 0.2rem;
+      margin-bottom: 0.4rem;
+    }
+    .keyword {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-weight: 600;
+      padding: 0.05rem 0.55rem 0.08rem;
+      border-radius: 999px;
+      background: var(--keyword-bg);
+      border: 1px solid var(--keyword-border);
+      color: var(--keyword-text);
+      font-size: 0.9em;
+      position: relative;
+      top: -0.03rem;
+    }
+    .keyword::before {
+      content: "";
+      width: 0.32rem;
+      height: 0.32rem;
+      border-radius: 999px;
+      background: var(--keyword-border);
+    }
+    .keyword:hover {
+      box-shadow: 0 0 0 2px rgba(0, 163, 180, 0.15);
+      cursor: default;
+    }
+    figure.figure {
+      margin: 1.3rem auto;
+      max-width: 420px;
+      background: var(--card-bg);
+      border-radius: 0.85rem;
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      padding: 0.65rem 0.65rem 0.7rem;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.25);
+    }
+    figure.figure img {
+      display: block;
+      max-width: 72%;
+      height: auto;
+      margin: 0.1rem auto 0.5rem;
+      border-radius: 0.4rem;
+      object-fit: contain;
+    }
+    figure.figure figcaption {
+      font-size: 0.85rem;
+      text-align: left;
+      color: var(--text-main);
+    }
+    figure.figure figcaption strong {
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+    .styled-table {
+      border-collapse: collapse;
+      margin: 1.1rem auto;
+      font-size: 0.9rem;
+      min-width: 260px;
+      max-width: 80%;
+      background: var(--card-bg);
+      border-radius: 0.8rem;
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.22);
+    }
+    .styled-table caption {
+      text-align: left;
+      padding: 0.55rem 0.9rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--accent-strong);
+      background: rgba(226, 232, 240, 0.9);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.9);
+    }
+    body.dark-mode .styled-table caption {
+      background: rgba(15, 23, 42, 0.96);
+      color: #e5e7eb;
+      border-bottom-color: rgba(30, 64, 175, 0.85);
+    }
+    .table-description {
+      font-size: 0.84rem;
+      padding: 0.45rem 0.9rem 0.6rem;
+      background: rgba(248, 250, 252, 0.9);
+      border-top: 1px solid rgba(209, 213, 219, 0.95);
+      text-align: left;
+    }
+    body.dark-mode .table-description {
+      background: rgba(15, 23, 42, 0.96);
+      border-top-color: rgba(31, 41, 55, 0.98);
+    }
+    .styled-table th,
+    .styled-table td {
+      padding: 0.45rem 0.65rem;
+      text-align: center;
+      border-bottom: 1px solid rgba(209, 213, 219, 0.9);
+    }
+    .styled-table th {
+      background: rgba(226, 232, 240, 0.9);
+      font-weight: 600;
+      font-size: 0.88rem;
+    }
+    body.dark-mode .styled-table th {
+      background: rgba(15, 23, 42, 0.98);
+      color: #e5e7eb;
+      border-bottom-color: rgba(55, 65, 81, 0.9);
+    }
+    .styled-table tr:last-child td {
+      border-bottom: none;
+    }
+    .styled-table tbody tr:nth-child(even) {
+      background: rgba(249, 250, 251, 0.95);
+    }
+    body.dark-mode .styled-table tbody tr:nth-child(even) {
+      background: rgba(15, 23, 42, 0.96);
+    }
+    .styled-table thead tr th:first-child,
+    .styled-table tbody tr td:first-child {
+      border-right: 1px solid rgba(209, 213, 219, 0.85);
+    }
+    body.dark-mode .styled-table thead tr th:first-child,
+    body.dark-mode .styled-table tbody tr td:first-child {
+      border-right-color: rgba(55, 65, 81, 0.9);
+    }
+    .worked-example {
+      background: var(--card-bg);
+      border-left: 3px solid var(--accent);
+      position: relative;
+      padding: 0.9rem 1rem 0.95rem;
+      border-radius: 0.85rem;
+      margin: 1.1rem 0;
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(148, 163, 184, 0.5);
+      border-right: 1px solid rgba(148, 163, 184, 0.5);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.5);
+      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.22);
+    }
+    .worked-header {
+      font-weight: 700;
+      margin-bottom: 0.15rem;
+      color: var(--accent-strong);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    body.dark-mode .worked-header {
+      color: #e5e7eb;
+    }
+    .worked-subtitle {
+      font-size: 0.86rem;
+      margin-bottom: 0.35rem;
+      color: rgba(75, 85, 99, 0.95);
+    }
+    body.dark-mode .worked-subtitle {
+      color: rgba(209, 213, 219, 0.9);
+    }
+    .worked-example .toggle-btn {
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.9);
+      cursor: button;
+      padding: 0.2rem 0.55rem;
+      background: rgba(248, 250, 252, 0.95);
+      color: var(--accent-strong);
+      font-size: 0.78rem;
+      transition: background 0.16s ease, transform 0.12s ease, box-shadow 0.12s ease;
+    }
+    body.dark-mode .worked-example .toggle-btn {
+      background: rgba(17, 24, 39, 0.96);
+      color: #e5e7eb;
+      border-color: rgba(55, 65, 81, 0.98);
+    }
+    .worked-example .toggle-btn:hover {
+      background: var(--accent-soft);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.22);
+    }
+    .toggle-target.hidden {
+      display: none;
+    }
+    .worked-example ul {
+      margin-left: 1.1rem;
+    }
+    .scroll-top {
+      position: fixed;
+      right: 1.4rem;
+      bottom: 1.4rem;
+      width: 2.6rem;
+      height: 2.6rem;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg, var(--accent-alt), var(--accent));
+      color: #f9fafb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.5);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(10px);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      z-index: 50;
+    }
+    .scroll-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    @media (max-width: 720px) {
+      header.main-header {
+        padding: 1.4rem 1.25rem 1.6rem;
+      }
+      header.main-header-inner {
+        align-items: flex-start;
+      }
+      header.main-header h1 {
+        font-size: 1.6rem;
+      }
+      .header-right {
+        align-items: flex-start;
+      }
+      .section-content {
+        padding: 0.95rem 1.1rem 1.15rem;
+      }
+      .styled-table {
+        max-width: 100%;
+      }
+      figure.figure {
+        max-width: 100%;
+      }
+      figure.figure img {
+        max-width: 78%;
+      }
+    }
+
+    .tooltip {
+      position: relative;
+      cursor: help;
+    }
+    .tooltip::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%) translateY(-2px);
+      bottom: 125%;
+      min-width: 220px;
+      max-width: 320px;
+      padding: 0.5rem 0.7rem;
+      border-radius: 0.6rem;
+      background: rgba(15, 23, 42, 0.98);
+      color: #f9fafb;
+      font-size: 0.78rem;
+      line-height: 1.4;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.6);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.15s ease, transform 0.15s ease;
+      z-index: 40;
+      white-space: normal;
+    }
+    body.dark-mode .tooltip::after {
+      background: rgba(15, 23, 42, 0.98);
+    }
+    .tooltip::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: calc(125% - 4px);
+      transform: translateX(-50%);
+      border-width: 6px;
+      border-style: solid;
+      border-color: rgba(15, 23, 42, 0.98) transparent transparent transparent;
+      opacity: 0;
+      transition: opacity 0.15s ease;
+      z-index: 39;
+    }
+    .tooltip:hover::after,
+    .tooltip:hover::before {
+      opacity: 1;
+    }
+
+  </style>
 </head>
 <body>
-   <div class="container">
-    <h1>Content will be ready soon!</h1>
-   
+<div class="page">
+  <header class="main-header">
+    <div class="main-header-inner">
+      <div>
+        <h1>15.2 Boolean algebra and logic circuits</h1>
+        <p>Theory notes based on the Cambridge coursebook, enriched with Hodder explanations and official past paper mark schemes, compiled and organised by Dr Hamdeni.</p>
+      </div>
+      <div class="header-right">
+        <div class="badge-strip">
+          <span class="badge">Digital logic</span>
+          <span class="badge">Algebraic simplification</span>
+          <span class="badge">Circuit design</span>
+        </div>
+        <button type="button" id="theme-toggle" class="theme-toggle">
+          <span class="theme-toggle-icon" aria-hidden="true">🌙</span>
+          <span class="theme-toggle-text">Dark mode</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="toc-nav" aria-label="Section navigation">
+    <button class="toc-chip active" data-target="sec-15-2a">
+      <span class="index">15.2a</span>
+      <span>Adders</span>
+    </button>
+    <button class="toc-chip" data-target="sec-15-2b">
+      <span class="index">15.2b</span>
+      <span>Flip-flops</span>
+    </button>
+    <button class="toc-chip" data-target="sec-15-2c">
+      <span class="index">15.2c</span>
+      <span>Boolean laws</span>
+    </button>
+    <button class="toc-chip" data-target="sec-15-2d">
+      <span class="index">15.2d</span>
+      <span>From tables to circuits</span>
+    </button>
+    <button class="toc-chip" data-target="sec-15-2e">
+      <span class="index">15.2e</span>
+      <span>Karnaugh maps</span>
+    </button>
+  </nav>
+
+  <section class="collapsible-section" id="sec-15-2a">
+    <div class="collapsible-header">
+      <div class="title">
+        <span class="section-label">15.2a</span>
+        <h2>Logic circuits: half adders and full adders</h2>
+      </div>
+      <button class="section-toggle" type="button">
+        <span>Collapse</span>
+        <span class="chevron">▾</span>
+      </button>
+    </div>
+    <div class="section-content">
+      <h3>General idea</h3>
+      <ul>
+        <li><span class="keyword">Logic gates</span> can be combined to build circuits that perform arithmetic in hardware.</li>
+        <li><span class="keyword tooltip" data-tooltip="Binary addition means adding 0s and 1s in columns, with carries passed to the next column when the sum in a column is 2 or 3.">Binary addition</span> is a core operation in processors, so we design circuits that add bits efficiently.</li>
+        <li>At each bit position in a multi-bit addition there are two outputs:
+          <ul>
+            <li>a <span class="keyword">sum</span> bit for that position</li>
+            <li>a <span class="keyword tooltip" data-tooltip="The carry bit is the overflow from this bit position that must be added into the next, more significant bit position.">carry</span> bit passed to the next more significant bit.</li>
+          </ul>
+        </li>
+        <li>In a multi-bit adder, identical adder stages are chained so that the carry out from each stage becomes the carry in of the next one; these stages are implemented as <span class="keyword">full adders</span> with three inputs and two outputs.</li>
+      </ul>
+
+      <h3>The half adder</h3>
+      <ul>
+        <li>A <span class="keyword">half adder</span> adds two single input bits, normally called A and B.</li>
+        <li>Outputs:
+          <ul>
+            <li><span class="keyword">S</span> (sum) for the bit position</li>
+            <li><span class="keyword">C</span> (carry) that moves to the next position.</li>
+          </ul>
+        </li>
+        <li>Behaviour:
+          <ul>
+            <li>0 + 0 gives S = 0 and C = 0</li>
+            <li>0 + 1 or 1 + 0 gives S = 1 and C = 0</li>
+            <li>1 + 1 gives S = 0 and C = 1 (because 1 + 1 = 10 in binary).</li>
+          </ul>
+        </li>
+        <li>The logic functions are:
+          <ul>
+            <li>C behaves as A.B (AND)</li>
+            <li>S behaves as A XOR B (exclusive OR).</li>
+          </ul>
+        </li>
+      </ul>
+
+      <figure class="figure">
+        <img src="images15.2/19.01.png" alt="Logic diagram of a half adder using XOR and AND gates">
+        <figcaption>
+          <strong>Half adder circuit</strong>
+          Inputs A and B are fed to an XOR gate to produce the sum output S and to an AND gate to produce the carry output C.
+          The circuit therefore implements single-bit binary addition for two inputs.
+        </figcaption>
+      </figure>
+
+      <table class="styled-table">
+        <caption>Half adder <span class="tooltip" data-tooltip="A truth table lists all possible input combinations and shows the corresponding output for a logic circuit or Boolean expression.">truth table</span></caption>
+        <thead>
+        <tr>
+          <th colspan="2">Inputs</th>
+          <th colspan="2">Outputs</th>
+        </tr>
+        <tr>
+          <th>A</th>
+          <th>B</th>
+          <th>S (sum)</th>
+          <th>C (carry)</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td>0</td><td>1</td><td>1</td><td>0</td></tr>
+        <tr><td>1</td><td>0</td><td>1</td><td>0</td></tr>
+        <tr><td>1</td><td>1</td><td>0</td><td>1</td></tr>
+        </tbody>
+        <tr class="table-description">
+          <td colspan="4">
+            For two input bits A and B, the table shows the resulting sum S and carry C.
+            The sum is 1 when exactly one input is 1, while the carry is 1 only when both inputs are 1.
+          </td>
+        </tr>
+      </table>
+
+      <ul>
+        <li>In exam-style questions, <span class="tooltip" data-tooltip="A truth table lists all possible input combinations and shows the corresponding output for a logic circuit or Boolean expression.">truth table</span>s often contain extra columns for intermediate signals (for example P, Q, R, S); to fill them correctly, each gate output must be evaluated step by step before writing the final output column.</li>
+        <li>In integrated circuit design it is often useful to implement everything using a single type of gate such as the <span class="keyword tooltip" data-tooltip="A NAND gate outputs 0 only when all its inputs are 1; otherwise it outputs 1. Many logic circuits can be built using NAND gates only.">NAND gate</span>.</li>
+        <li>A half adder can be reconstructed entirely from NAND gates by building equivalent structures for XOR and AND.</li>
+      </ul>
+
+      <figure class="figure">
+        <img src="images15.2/19.02.png" alt="Half adder implemented using only NAND gates with internal signals">
+        <figcaption>
+          <strong>Half adder using only NAND gates</strong>
+          Multiple NAND gates create internal signals that are combined to produce the sum S and carry C.
+          The <span class="tooltip" data-tooltip="A truth table lists all possible input combinations and shows the corresponding output for a logic circuit or Boolean expression.">truth table</span> remains identical to the simpler XOR plus AND implementation.
+        </figcaption>
+      </figure>
+
+      <h3>The full adder</h3>
+      <ul>
+        <li>When adding multi-bit binary numbers, the circuit must include the <span class="keyword">carry in</span> from the previous bit position.</li>
+        <li>A <span class="keyword">full adder</span> has three inputs:
+          <ul>
+            <li>A and B, the bits being added at this position</li>
+            <li><span class="keyword tooltip" data-tooltip="C_in (carry in) is the carry bit received from the previous, less significant adder stage.">C<sub>in</sub></span>, the carry coming from the previous position.</li>
+          </ul>
+        </li>
+        <li>Outputs:
+          <ul>
+            <li><span class="keyword">S</span>, the sum for this position</li>
+            <li><span class="keyword tooltip" data-tooltip="C_out (carry out) is the carry bit produced by this stage and sent to the next, more significant adder stage.">C<sub>out</sub></span>, the carry that goes to the next position.</li>
+          </ul>
+        </li>
+        <li>To build an n-bit adder, n full adders are connected in series so that the carry out from each stage becomes the carry in of the next stage, starting from a carry in of 0 at the least significant bit.</li>
+      </ul>
+
+      <table class="styled-table">
+        <caption>Full adder <span class="tooltip" data-tooltip="A truth table lists all possible input combinations and shows the corresponding output for a logic circuit or Boolean expression.">truth table</span></caption>
+        <thead>
+        <tr>
+          <th colspan="3">Inputs</th>
+          <th colspan="2">Outputs</th>
+        </tr>
+        <tr>
+          <th>A</th>
+          <th>B</th>
+          <th>C<sub>in</sub></th>
+          <th>S (sum)</th>
+          <th>C<sub>out</sub></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td></tr>
+        <tr><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td></tr>
+        <tr><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td></tr>
+        <tr><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td></tr>
+        <tr><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td></tr>
+        <tr><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+        <tr><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+        </tbody>
+        <tr class="table-description">
+          <td colspan="5">
+            The table lists all eight combinations of A, B and C<sub>in</sub>.
+            For each case the sum S is the least significant bit of A + B + C<sub>in</sub>, and C<sub>out</sub> is the carry bit.
+          </td>
+        </tr>
+      </table>
+
+      <ul>
+        <li>A standard implementation of a full adder uses:
+          <ul>
+            <li>two <span class="keyword">half adders</span>, to add A and B then add C<sub>in</sub></li>
+            <li>an <span class="keyword">OR gate</span> to combine the intermediate carries into C<sub>out</sub>.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <figure class="figure">
+        <img src="images15.2/19.03.png" alt="Full adder built from two half adders and an OR gate">
+        <figcaption>
+          <strong>Full adder built from half adders</strong>
+          The first half adder adds A and B to produce an intermediate sum and carry.
+          The second half adder adds this intermediate sum to C<sub>in</sub>, and an OR gate combines the two carry outputs into C<sub>out</sub>.
+        </figcaption>
+      </figure>
+
+      <ul>
+        <li>As with the half adder, the full adder can be re-expressed using only <span class="keyword">NAND gates</span>, which simplifies fabrication on chips.</li>
+      </ul>
+
+      <figure class="figure">
+        <img src="images15.2/19.04.png" alt="Full adder implemented only with NAND gates">
+        <figcaption>
+          <strong>Full adder using only NAND gates</strong>
+          Inputs A, B and C<sub>in</sub> pass through several layers of NAND gates.
+          Internal signals are combined so that the final outputs behave exactly like a full adder <span class="tooltip" data-tooltip="A truth table lists all possible input combinations and shows the corresponding output for a logic circuit or Boolean expression.">truth table</span>, even though only one gate type is used.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="collapsible-section" id="sec-15-2b">
+    <div class="collapsible-header">
+      <div class="title">
+        <span class="section-label">15.2b</span>
+        <h2>Sequential logic: SR and JK flip-flops</h2>
+      </div>
+      <button class="section-toggle" type="button">
+        <span>Collapse</span>
+        <span class="chevron">▾</span>
+      </button>
+    </div>
+    <div class="section-content">
+      <h3>From combinational to sequential logic</h3>
+      <ul>
+        <li>In a <span class="keyword tooltip" data-tooltip="In a combinational circuit, outputs depend only on the current inputs, with no memory of past values.">combinational circuit</span>, outputs depend only on current inputs.</li>
+        <li>In a <span class="keyword tooltip" data-tooltip="In a sequential circuit, outputs depend on current inputs and on stored past information, so the circuit has memory.">sequential circuit</span>, outputs depend on both:
+          <ul>
+            <li>current inputs</li>
+            <li>previous stored outputs (the internal state).</li>
+          </ul>
+        </li>
+        <li>Sequential circuits can remember bits and are used for storage elements, registers and counters.</li>
+        <li>A collection of flip-flop cells, each storing 1 bit, can be combined to form larger memories such as registers and RAM, with one flip-flop per stored bit.</li>
+      </ul>
+
+      <h3>The SR flip-flop</h3>
+      <ul>
+        <li>An <span class="keyword tooltip" data-tooltip="An SR flip-flop is a basic one-bit memory using S (set) and R (reset) inputs to store a 1 or 0 until changed.">SR flip-flop</span> (or SR latch) is a 1 bit memory element.</li>
+        <li>It can be built from:
+          <ul>
+            <li>two cross-coupled <span class="keyword">NOR gates</span> or</li>
+            <li>two cross-coupled <span class="keyword">NAND gates</span>.</li>
+          </ul>
+        </li>
+        <li>Inputs:
+          <ul>
+            <li><span class="keyword">S</span> (set)</li>
+            <li><span class="keyword">R</span> (reset).</li>
+          </ul>
+        </li>
+        <li>Outputs:
+          <ul>
+            <li><span class="keyword">Q</span>, the stored bit</li>
+            <li><span class="keyword">Qʹ</span>, the complement of Q.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <figure class="figure">
+        <img src="images15.2/19.05.png" alt="SR flip-flop built from two cross-coupled NOR gates">
+        <figcaption>
+          <strong>SR flip-flop using NOR gates</strong>
+          Two NOR gates are cross-coupled so that each output feeds back to the other gate.
+          Inputs S and R control whether the stored output Q is set to 1 or reset to 0,
+          and the feedback maintains the stored state when both S and R are inactive.
+        </figcaption>
+      </figure>
+
+      <ul>
+        <li>Stable states:
+          <ul>
+            <li>Q = 1 and Qʹ = 0 (set state)</li>
+            <li>Q = 0 and Qʹ = 1 (reset state).</li>
+          </ul>
+        </li>
+        <li>For the NOR-based SR flip-flop:
+          <ul>
+            <li>S = 0 and R = 0 cause the flip-flop to hold its previous state</li>
+            <li>S = 1 and R = 0 set Q to 1</li>
+            <li>S = 0 and R = 1 reset Q to 0</li>
+            <li>S = 1 and R = 1 is an invalid input combination and must be avoided.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <table class="styled-table">
+        <caption>SR flip-flop behaviour (NOR implementation)</caption>
+        <thead>
+        <tr>
+          <th colspan="2">Inputs</th>
+          <th colspan="2">Initial state</th>
+          <th colspan="2">Final state</th>
+        </tr>
+        <tr>
+          <th>S</th>
+          <th>R</th>
+          <th>Q</th>
+          <th>Qʹ</th>
+          <th>Q</th>
+          <th>Qʹ</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td></tr>
+        <tr><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td></tr>
+        <tr><td>0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+        <tr><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td></tr>
+        <tr><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td></tr>
+        <tr><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td></tr>
+        </tbody>
+        <tr class="table-description">
+          <td colspan="6">
+            The table illustrates how different combinations of S and R move the flip-flop between set and reset states or leave the previous state unchanged.
+          </td>
+        </tr>
+      </table>
+
+      <ul>
+        <li>Weaknesses of the basic SR design:
+          <ul>
+            <li>the combination S = 1 and R = 1 is forbidden, because it tries to force both Q and Qʹ to 0 at the same time</li>
+            <li>if S and R change very close together in time, small timing differences can make the final stored state unstable or unpredictable.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <ul>
+        <li>Because the SR flip-flop retains a 1 or 0 until a change is requested, it can be used as a basic building block for <span class="keyword tooltip" data-tooltip="A memory circuit stores one or more bits so that their values remain available even after inputs change.">memory</span> circuits.</li>
+      </ul>
+
+      <h3>The JK flip-flop</h3>
+      <ul>
+        <li>The <span class="keyword tooltip" data-tooltip="A JK flip-flop is an improved SR flip-flop with J and K inputs and a clock; it avoids the invalid SR case and can toggle its state.">JK flip-flop</span> extends the SR design to remove the forbidden input case and to improve timing control.</li>
+        <li>Inputs:
+          <ul>
+            <li><span class="keyword">J</span>, a set-like control</li>
+            <li><span class="keyword">K</span>, a reset-like control</li>
+            <li>a <span class="keyword">clock</span> signal that determines when Q is allowed to change.</li>
+          </ul>
+        </li>
+        <li>Outputs:
+          <ul>
+            <li><span class="keyword">Q</span></li>
+            <li><span class="keyword">Qʹ</span>.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <figure class="figure">
+        <img src="images15.2/19.06.png" alt="JK flip-flop symbol and example NAND-gate implementation">
+        <figcaption>
+          <strong>JK flip-flop symbol and circuit</strong>
+          The symbol shows inputs J and K, a clock input and outputs Q and Qʹ.
+          An internal implementation based on NAND gates uses feedback so that changes in J and K affect Q only on active clock edges.
+        </figcaption>
+      </figure>
+
+      <table class="styled-table">
+        <caption>Core behaviour of a JK flip-flop on an active clock edge</caption>
+        <thead>
+        <tr>
+          <th>J</th>
+          <th>K</th>
+          <th>Clock edge</th>
+          <th>Next Q</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr><td>0</td><td>0</td><td><span class="tooltip" data-tooltip="This symbol shows a rising clock edge: the instant when the clock signal changes from 0 to 1, triggering the flip-flop.">↑</span></td><td>Q unchanged</td></tr>
+        <tr><td>1</td><td>0</td><td><span class="tooltip" data-tooltip="This symbol shows a rising clock edge: the instant when the clock signal changes from 0 to 1, triggering the flip-flop.">↑</span></td><td>1 (set)</td></tr>
+        <tr><td>0</td><td>1</td><td><span class="tooltip" data-tooltip="This symbol shows a rising clock edge: the instant when the clock signal changes from 0 to 1, triggering the flip-flop.">↑</span></td><td>0 (reset)</td></tr>
+        <tr><td>1</td><td>1</td><td><span class="tooltip" data-tooltip="This symbol shows a rising clock edge: the instant when the clock signal changes from 0 to 1, triggering the flip-flop.">↑</span></td><td>Q toggles</td></tr>
+        </tbody>
+        <tr class="table-description">
+          <td colspan="4">
+            When the clock edge occurs, the values of J and K determine how Q changes: hold, set, reset or toggle.
+          </td>
+        </tr>
+      </table>
+
+      <ul>
+        <li>The JK flip-flop overcomes the weaknesses of the SR latch:
+          <ul>
+            <li>all four combinations of J and K are valid on the active clock edge</li>
+            <li>the combinations (0,0), (1,0), (0,1) and (1,1) correspond to hold, set, reset and toggle, so the behaviour of Q is fully defined for every input case.</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="collapsible-section" id="sec-15-2c">
+    <div class="collapsible-header">
+      <div class="title">
+        <span class="section-label">15.2c</span>
+        <h2>Boolean algebra: notation and identities</h2>
+      </div>
+      <button class="section-toggle" type="button">
+        <span>Collapse</span>
+        <span class="chevron">▾</span>
+      </button>
+    </div>
+    <div class="section-content">
+      <h3>Meaning of Boolean algebra</h3>
+      <ul>
+        <li><span class="keyword tooltip" data-tooltip="Boolean algebra is a system of rules for working with only two values, 0 (FALSE) and 1 (TRUE), used to describe and simplify logic circuits.">Boolean algebra</span> works with two logic values:
+          <ul>
+            <li>1 for TRUE</li>
+            <li>0 for FALSE.</li>
+          </ul>
+        </li>
+        <li>In this algebra:
+          <ul>
+            <li><span class="keyword">AND</span> is written as A.B or simply AB</li>
+            <li><span class="keyword">OR</span> is written as A + B</li>
+            <li><span class="keyword">NOT</span> is written using a bar, for example Ā.</li>
+          </ul>
+        </li>
+        <li>In Boolean algebra, expressions such as 1 + 1 are logical OR operations rather than ordinary arithmetic, so 1 + 1 evaluates to 1, not 2.</li>
+      </ul>
+
+      <h3>Main Boolean identities</h3>
+      <ul>
+        <li><span class="keyword">Boolean identities</span> are rules that always hold for logic expressions and can be used to simplify them.</li>
+        <li>Many laws have an AND version and an OR version that mirror each other.</li>
+      </ul>
+
+      <table class="styled-table">
+        <caption>Core Boolean algebra identities</caption>
+        <thead>
+        <tr>
+          <th>Law</th>
+          <th>AND form</th>
+          <th>OR form</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr><td>Identity</td><td>1.A = A</td><td>0 + A = A</td></tr>
+        <tr><td>Null</td><td>0.A = 0</td><td>1 + A = 1</td></tr>
+        <tr><td>Idempotent</td><td>A.A = A</td><td>A + A = A</td></tr>
+        <tr><td>Inverse</td><td>A.Ā = 0</td><td>A + Ā = 1</td></tr>
+        <tr><td>Commutative</td><td>A.B = B.A</td><td>A + B = B + A</td></tr>
+        <tr><td>Associative</td><td>(A.B).C = A.(B.C)</td><td>(A + B) + C = A + (B + C)</td></tr>
+        <tr><td>Distributive</td><td>A + B.C = (A + B).(A + C)</td><td>A.(B + C) = A.B + A.C</td></tr>
+        <tr><td>Absorption</td><td>A.(A + B) = A</td><td>A + A.B = A</td></tr>
+        <tr><td>De Morgan</td><td>(A.B)̄ = Ā + B̄</td><td>(A + B)̄ = Ā.B̄</td></tr>
+        <tr><td>Double complement</td><td>Ā̄ = A</td><td>&nbsp;</td></tr>
+        </tbody>
+        <tr class="table-description">
+          <td colspan="3">
+            These identities provide standard moves for simplifying logic expressions or converting one form into another.
+          </td>
+        </tr>
+      </table>
+
+      <div class="worked-example">
+        <div class="worked-header">
+          <span>WORKED EXAMPLE 1</span>
+          <button class="toggle-btn" type="button" data-toggle-target="we19-01">Hide</button>
+        </div>
+        <div class="worked-subtitle">Using Boolean algebra to simplify an expression</div>
+        <div class="toggle-target" id="we19-01">
+          <ul>
+            <li>Consider the expression:
+              <ul>
+                <li>X = A + Ā.B.</li>
+              </ul>
+            </li>
+            <li>Objective:
+              <ul>
+                <li>show that this expression simplifies to X = A + B.</li>
+              </ul>
+            </li>
+            <li>Step 1 - apply the distributive law:
+              <ul>
+                <li>rewrite A + Ā.B as (A + B).(A + Ā).</li>
+                <li>This comes from expanding (A + B).(A + Ā) and then recognising that A + Ā = 1.</li>
+              </ul>
+            </li>
+            <li>Step 2 - apply the inverse law:
+              <ul>
+                <li>use A + Ā = 1 so (A + B).(A + Ā) becomes (A + B).1.</li>
+              </ul>
+            </li>
+            <li>Step 3 - apply the identity law:
+              <ul>
+                <li>multiplying by 1 does not change a Boolean value, so (A + B).1 simplifies to A + B.</li>
+              </ul>
+            </li>
+            <li>Conclusion:
+              <ul>
+                <li>the expression A + Ā.B is equivalent to A + B, and we have shown this using standard Boolean identities.</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="collapsible-section" id="sec-15-2d">
+    <div class="collapsible-header">
+      <div class="title">
+        <span class="section-label">15.2d</span>
+        <h2>From <span class="tooltip" data-tooltip="A truth table lists all possible input combinations and shows the corresponding output for a logic circuit or Boolean expression.">truth table</span>s to Boolean expressions and circuits</h2>
+      </div>
+      <button class="section-toggle" type="button">
+        <span>Collapse</span>
+        <span class="chevron">▾</span>
+      </button>
+    </div>
+    <div class="section-content">
+      <h3>Sum of products and minterms</h3>
+      <ul>
+        <li>The <span class="keyword tooltip" data-tooltip="A sum-of-products expression is an OR of several product (AND) terms, each term usually matching one or more rows where the output is 1.">sum-of-products</span> method systematically creates a Boolean expression from a <span class="tooltip" data-tooltip="A truth table lists all possible input combinations and shows the corresponding output for a logic circuit or Boolean expression.">truth table</span>.</li>
+        <li>For each row where the output is 1:
+          <ul>
+            <li>write a product (AND) term that matches the inputs in that row</li>
+            <li>use the complement of any input that is 0 in the row.</li>
+          </ul>
+        </li>
+        <li>Each such product is a <span class="keyword tooltip" data-tooltip="A minterm is a product (AND) term that matches one exact combination of input bits in a <span class="tooltip" data-tooltip="A truth table lists all possible input combinations and shows the corresponding output for a logic circuit or Boolean expression.">truth table</span> where the output is 1.">minterm</span>, and the full expression is the OR of all minterms.</li>
+        <li>In exams this procedure is often described as "forming a sum-of-products expression from the minterms where the output is 1", then simplifying using the Boolean identities.</li>
+      </ul>
+
+      <ul>
+        <li>For the half adder:
+          <ul>
+            <li>the carry output C is 1 only when A = 1 and B = 1, so C = A.B</li>
+            <li>the sum output S is 1 when (A = 0, B = 1) or (A = 1, B = 0), so S = Ā.B + A.B̄.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <table class="styled-table">
+        <caption>Example fragment of a <span class="tooltip" data-tooltip="A truth table lists all possible input combinations and shows the corresponding output for a logic circuit or Boolean expression.">truth table</span></caption>
+        <thead>
+        <tr>
+          <th>A</th>
+          <th>B</th>
+          <th>C</th>
+          <th>X</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr><td>0</td><td>1</td><td>0</td><td>1</td></tr>
+        <tr><td>0</td><td>1</td><td>1</td><td>1</td></tr>
+        </tbody>
+        <tr class="table-description">
+          <td colspan="4">
+            In both rows X = 1 while A is always 0 and B is always 1.
+            The output does not depend on C in these cases, so a single minterm Ā.B covers both rows.
+          </td>
+        </tr>
+      </table>
+
+      <h3>Deriving expressions from circuits</h3>
+      <ul>
+        <li>We can also start with a circuit diagram and:
+          <ul>
+            <li>write the Boolean expression for each gate output</li>
+            <li>combine these expressions step by step</li>
+            <li>simplify the final result using the identities from the previous section.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="worked-example">
+        <div class="worked-header">
+          <span>WORKED EXAMPLE 2</span>
+          <button class="toggle-btn" type="button" data-toggle-target="we19-02">Hide</button>
+        </div>
+        <div class="worked-subtitle">Algebraic analysis of a NAND-based half adder</div>
+        <div class="toggle-target" id="we19-02">
+          <figure class="figure">
+            <img src="images15.2/19.07.png" alt="Half adder circuit with several NAND gates and internal signals W, X and Y">
+            <figcaption>
+              <strong>NAND-only half adder</strong>
+              The circuit uses several NAND gates to generate intermediate signals W, X and Y from inputs A and B.
+              These intermediate values are then recombined to produce the sum S and carry C.
+            </figcaption>
+          </figure>
+          <ul>
+            <li>We are given a half adder circuit built entirely from NAND gates that has internal outputs labelled W, X and Y.</li>
+            <li>Objective:
+              <ul>
+                <li>confirm that the NAND-only circuit behaves like a standard half adder by deriving expressions for its outputs.</li>
+              </ul>
+            </li>
+            <li>Step 1 - interpret each NAND gate:
+              <ul>
+                <li>a NAND gate can be treated as an AND gate followed by a NOT operation</li>
+                <li>this means we can write the AND of the inputs first and then apply a complement at the end.</li>
+              </ul>
+            </li>
+            <li>Step 2 - write an expression for an intermediate signal:
+              <ul>
+                <li>suppose the intermediate output W has already been expressed as a sum of products in terms of A and B</li>
+                <li>to find the output X of a NAND gate that takes A and W as inputs we first form the AND A.W</li>
+                <li>we then expand the product and simplify using distributive, inverse and idempotent laws to obtain a compact expression for A.W.</li>
+              </ul>
+            </li>
+            <li>Step 3 - complete the NAND operation for X:
+              <ul>
+                <li>because the gate is NAND, the actual output is X = (A.W)̄</li>
+                <li>applying the AND version of <span class="keyword tooltip" data-tooltip="De Morgan’s laws show how to move a NOT over AND and OR: (A.B)̄ = Ā + B̄ and (A + B)̄ = Ā.B̄. They are very useful for simplifying logic.">De Morgan’s law</span> converts this into a sum:
+                  <ul>
+                    <li>(A.W)̄ = Ā + W̄.</li>
+                  </ul>
+                </li>
+                <li>after substituting the simplified form of W̄ and tidying up, X reduces to A + B.</li>
+              </ul>
+            </li>
+            <li>Step 4 - repeat for Y:
+              <ul>
+                <li>the other intermediate NAND gate produces Y in a symmetric way</li>
+                <li>by the same reasoning we obtain Y = A + B.</li>
+              </ul>
+            </li>
+            <li>Step 5 - final NAND gate for the sum output:
+              <ul>
+                <li>the final NAND gate takes X and Y as inputs, so the AND at its input is X.Y = (A + B).(A + B)</li>
+                <li>rather than expanding the product, we again apply De Morgan’s law to the complement:
+                  <ul>
+                    <li>S = (X.Y)̄ = (A + B).(A + B) all complemented, which simplifies to Ā.B̄ + Ā.B.</li>
+                  </ul>
+                </li>
+                <li>this expression for S matches the sum output of a half adder:
+                  <ul>
+                    <li>S = Ā.B + A.B̄ (equivalent to A XOR B).</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>Step 6 - carry output:
+              <ul>
+                <li>a similar analysis of the carry path shows that C simplifies to A.B</li>
+                <li>this is exactly the carry behaviour required for a half adder.</li>
+              </ul>
+            </li>
+            <li>Conclusion:
+              <ul>
+                <li>the NAND-only network is algebraically equivalent to the basic half adder built from XOR and AND gates.</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="collapsible-section" id="sec-15-2e">
+    <div class="collapsible-header">
+      <div class="title">
+        <span class="section-label">15.2e</span>
+        <h2>Karnaugh maps (K-maps)</h2>
+      </div>
+      <button class="section-toggle" type="button">
+        <span>Collapse</span>
+        <span class="chevron">▾</span>
+      </button>
+    </div>
+    <div class="section-content">
+      <h3>Purpose of Karnaugh maps</h3>
+      <ul>
+        <li>A <span class="keyword tooltip" data-tooltip="A Karnaugh map (K-map) is a grid version of a <span class="tooltip" data-tooltip="A truth table lists all possible input combinations and shows the corresponding output for a logic circuit or Boolean expression.">truth table</span> that helps you visually group 1s to get a simpler Boolean expression.">Karnaugh map</span> (K-map) is a visual method for simplifying Boolean expressions.</li>
+        <li>It reorganises a <span class="tooltip" data-tooltip="A truth table lists all possible input combinations and shows the corresponding output for a logic circuit or Boolean expression.">truth table</span> into a grid where adjacent cells differ in only one input bit, which makes patterns easier to see.</li>
+        <li>The goal is to identify groups of 1s that can be merged into simpler terms in a sum-of-products expression.</li>
+        <li>K-maps are especially useful when the straightforward sum-of-products expression from the <span class="tooltip" data-tooltip="A truth table lists all possible input combinations and shows the corresponding output for a logic circuit or Boolean expression.">truth table</span> is long, because grouping the 1s often leads to a minimal expression and a circuit with fewer gates.</li>
+      </ul>
+
+      <h3>Simple example: the OR function</h3>
+      <ul>
+        <li>For two inputs A and B with output X = A + B, the <span class="tooltip" data-tooltip="A truth table lists all possible input combinations and shows the corresponding output for a logic circuit or Boolean expression.">truth table</span> is:</li>
+      </ul>
+
+      <table class="styled-table">
+        <caption>OR gate <span class="tooltip" data-tooltip="A truth table lists all possible input combinations and shows the corresponding output for a logic circuit or Boolean expression.">truth table</span></caption>
+        <thead>
+        <tr>
+          <th>A</th>
+          <th>B</th>
+          <th>X = A + B</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td>0</td><td>1</td><td>1</td></tr>
+        <tr><td>1</td><td>0</td><td>1</td></tr>
+        <tr><td>1</td><td>1</td><td>1</td></tr>
+        </tbody>
+        <tr class="table-description">
+          <td colspan="3">
+            X is 1 whenever at least one of A or B is 1.
+            The only row with X = 0 is A = 0 and B = 0.
+          </td>
+        </tr>
+      </table>
+
+      <figure class="figure">
+        <img src="images15.2/19.08.png" alt="Karnaugh map for the OR function using inputs A and B">
+        <figcaption>
+          <strong>K-map for an OR gate</strong>
+          The 2 by 2 grid is filled with 1s in all cells except the cell corresponding to A = 0 and B = 0.
+          One group can cover the entire row where A = 1, giving the term A, and another group can cover the column where B = 1, giving the term B.
+          Combining these gives the simplified expression X = A + B.
+        </figcaption>
+      </figure>
+
+      <h3>General rules for using K-maps</h3>
+      <ul>
+        <li>Row and column labels use <span class="keyword tooltip" data-tooltip="Gray code is an ordering of binary patterns where each adjacent pattern differs in only one bit, making K-map adjacency match single-bit changes.">Gray code</span>, so that moving to an adjacent cell changes only one input bit and every rectangle of adjacent 1s corresponds to a clean product term.</li>
+        <li>Only cells that contain a 1 are used to form groups.</li>
+        <li>Groups:
+          <ul>
+            <li>must contain 1, 2, 4, 8, and so on cells <span class="tooltip" data-tooltip="Numbers like 1, 2, 4, 8, 16, ... each double the previous. K-map groups must have one of these sizes.">(powers of two)</span></li>
+            <li>must be rectangular in shape</li>
+            <li>should be as large as possible to give simpler expressions.</li>
+          </ul>
+        </li>
+        <li>A single isolated 1 may form a group by itself if it cannot be combined into a larger group.</li>
+        <li>Groups may overlap, and overlapping is sometimes essential for maximum simplification.</li>
+        <li>Cells on opposite edges of the map are adjacent because the map <span class="keyword tooltip" data-tooltip="In a K-map the left and right edges, and the top and bottom edges, are considered adjacent, so groups of 1s can cross the map borders.">wraps around</span>.</li>
+        <li>For each group:
+          <ul>
+            <li>identify which input variables remain constant inside the group</li>
+            <li>drop any variable that changes within the group.</li>
+          </ul>
+        </li>
+        <li>The final expression is the OR (sum) of the individual group terms.</li>
+        <li>Different valid ways of grouping the same map can give different simplified expressions, but they are all logically equivalent if they match the same <span class="tooltip" data-tooltip="A truth table lists all possible input combinations and shows the corresponding output for a logic circuit or Boolean expression.">truth table</span>.</li>
+      </ul>
+
+      <div class="worked-example">
+        <div class="worked-header">
+          <span>WORKED EXAMPLE 3</span>
+          <button class="toggle-btn" type="button" data-toggle-target="we19-03">Hide</button>
+        </div>
+        <div class="worked-subtitle">Using a K-map for a three-input problem</div>
+        <div class="toggle-target" id="we19-03">
+          <ul>
+            <li>We are given a function X with three inputs A, B and C and the following <span class="tooltip" data-tooltip="A truth table lists all possible input combinations and shows the corresponding output for a logic circuit or Boolean expression.">truth table</span>:</li>
+          </ul>
+
+          <table class="styled-table">
+            <caption>Three-input <span class="tooltip" data-tooltip="A truth table lists all possible input combinations and shows the corresponding output for a logic circuit or Boolean expression.">truth table</span> for X</caption>
+            <thead>
+            <tr>
+              <th>A</th><th>B</th><th>C</th><th>X</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+            <tr><td>0</td><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td>0</td><td>1</td><td>0</td><td>1</td></tr>
+            <tr><td>0</td><td>1</td><td>1</td><td>1</td></tr>
+            <tr><td>1</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>1</td><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td>1</td><td>1</td><td>0</td><td>1</td></tr>
+            <tr><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+            </tbody>
+            <tr class="table-description">
+              <td colspan="4">
+                Whenever B = 1 the output X is 1.
+                When B = 0, X is 1 only in the case A = 0 and C = 0.
+              </td>
+            </tr>
+          </table>
+
+          <ul>
+            <li>Initial inspection:
+              <ul>
+                <li>from the table we can already suspect that B will appear as a separate term in the simplified expression.</li>
+              </ul>
+            </li>
+          </ul>
+
+          <figure class="figure">
+            <img src="images15.2/19.09.png" alt="Three-variable Karnaugh map for the function X with inputs A, B and C">
+            <figcaption>
+              <strong>Three-input K-map</strong>
+              The rows correspond to A = 0 and A = 1.
+              The columns correspond to the pair (B, C) in Gray-code order: 00, 01, 11, 10.
+              The map is filled with 1s at the positions indicated by the <span class="tooltip" data-tooltip="A truth table lists all possible input combinations and shows the corresponding output for a logic circuit or Boolean expression.">truth table</span>.
+            </figcaption>
+          </figure>
+
+          <ul>
+            <li>Step 1 - identify a group for B:
+              <ul>
+                <li>all four cells with B = 1 contain a 1, forming a group of four cells</li>
+                <li>within this group A and C vary, but B remains 1, so the corresponding term is <span class="keyword">B</span>.</li>
+              </ul>
+            </li>
+            <li>Step 2 - identify the remaining 1s:
+              <ul>
+                <li>the remaining 1 corresponds to A = 0, B = 0, C = 0</li>
+                <li>because the map wraps around, this cell can form a group of two with the cell at A = 0, B = 1, C = 0</li>
+                <li>in this two-cell group A = 0 and C = 0 stay constant, while B changes, so the term is Ā.C̄.</li>
+              </ul>
+            </li>
+            <li>Step 3 - write the final simplified expression:
+              <ul>
+                <li>combining the group terms gives X = Ā.C̄ + B.</li>
+              </ul>
+            </li>
+            <li>Conclusion:
+              <ul>
+                <li>the K-map has reduced a five-minterm expression from the <span class="tooltip" data-tooltip="A truth table lists all possible input combinations and shows the corresponding output for a logic circuit or Boolean expression.">truth table</span> to a much simpler two-term sum-of-products expression.</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <figure class="figure">
+        <img src="images15.2/19.10.png" alt="Four-variable Karnaugh map with wrapping groups of 1s">
+        <figcaption>
+          <strong>Four-input K-map</strong>
+          This map has two input bits on the rows and two on the columns arranged in Gray-code order.
+          Groups of 1s can wrap horizontally and vertically, allowing large rectangles such as groups of four or eight cells.
+          Applying the grouping rules leads to a simplified expression using only a few product terms instead of many minterms, and different valid groupings can still represent the same logic function.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+</div>
+
+<button class="scroll-top" id="scroll-top" aria-label="Scroll to top">↑</button>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.collapsible-header').forEach(function (header) {
+      const section = header.closest('.collapsible-section');
+      const btn = header.querySelector('.section-toggle');
+      if (!section || !btn) return;
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        const collapsed = section.classList.toggle('collapsed');
+        btn.querySelector('span:first-child').textContent = collapsed ? 'Expand' : 'Collapse';
+      });
+      header.addEventListener('click', function (e) {
+        if (e.target.closest('.section-toggle')) return;
+        btn.click();
+      });
+    });
+
+    document.querySelectorAll('.worked-example .toggle-btn').forEach(function (btn) {
+      const targetId = btn.getAttribute('data-toggle-target');
+      const target = document.getElementById(targetId);
+      if (!target) return;
+      btn.addEventListener('click', function () {
+        const hidden = target.classList.toggle('hidden');
+        btn.textContent = hidden ? 'Show' : 'Hide';
+      });
+    });
+
+    const chips = document.querySelectorAll('.toc-chip');
+    const sections = Array.from(document.querySelectorAll('.collapsible-section'));
+
+    chips.forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        const targetId = chip.getAttribute('data-target');
+        const target = document.getElementById(targetId);
+        if (!target) return;
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        chips.forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+      });
+    });
+
+    window.addEventListener('scroll', function () {
+      const scrollPos = window.scrollY || window.pageYOffset;
+      let currentId = null;
+      sections.forEach(function (sec) {
+        const rect = sec.getBoundingClientRect();
+        const offsetTop = rect.top + window.scrollY;
+        if (scrollPos >= offsetTop - 150) {
+          currentId = sec.id;
+        }
+      });
+      if (currentId) {
+        chips.forEach(function (chip) {
+          chip.classList.toggle('active', chip.getAttribute('data-target') === currentId);
+        });
+      }
+    });
+
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeText = themeToggle.querySelector('.theme-toggle-text');
+    const themeIcon = themeToggle.querySelector('.theme-toggle-icon');
+
+    function setTheme(dark) {
+      if (dark) {
+        document.body.classList.add('dark-mode');
+        themeText.textContent = 'Light mode';
+        themeIcon.textContent = '☀️';
+        localStorage.setItem('logic-notes-theme', 'dark');
+      } else {
+        document.body.classList.remove('dark-mode');
+        themeText.textContent = 'Dark mode';
+        themeIcon.textContent = '🌙';
+        localStorage.setItem('logic-notes-theme', 'light');
+      }
+    }
+
+    try {
+      const saved = localStorage.getItem('logic-notes-theme');
+      if (saved === 'dark') {
+        setTheme(true);
+      }
+    } catch (e) {}
+
+    themeToggle.addEventListener('click', function () {
+      const isDark = document.body.classList.contains('dark-mode');
+      setTheme(!isDark);
+    });
+
+    const scrollTopBtn = document.getElementById('scroll-top');
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 350) {
+        scrollTopBtn.classList.add('visible');
+      } else {
+        scrollTopBtn.classList.remove('visible');
+      }
+    });
+    scrollTopBtn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+</script>
 </body>
 </html>
