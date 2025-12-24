@@ -1513,5 +1513,25 @@
     });
   });
 </script>
+ <script>
+    const notifyParentOfSize = () => {
+      if (window.parent) {
+        const height = document.documentElement.scrollHeight;
+        window.parent.postMessage({ type: 'resize', height }, '*');
+      }
+    };
+
+    window.addEventListener('load', () => {
+      notifyParentOfSize();
+      setTimeout(notifyParentOfSize, 200);
+    });
+
+    if ('ResizeObserver' in window) {
+      const observer = new ResizeObserver(() => notifyParentOfSize());
+      observer.observe(document.body);
+    } else {
+      window.addEventListener('resize', notifyParentOfSize);
+    }
+  </script>
 </body>
 </html>
