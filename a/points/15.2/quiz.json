@@ -2,101 +2,154 @@
   "questions": [
     {
       "type": "mcq",
-      "question": "What is the main reason computers use binary to represent all data?",
+      "question": "In a multi-bit addition, each bit position produces which pair of outputs?",
       "options": [
-        "Binary numbers are easier for humans to read",
-        "Computers use logic gates that only understand ON and OFF states",
-        "It uses less power",
-        "Binary numbers are shorter than decimal numbers"
+        "Two sums",
+        "Sum and carry",
+        "Two carries",
+        "Sum and clock"
       ],
-      "answer": "Computers use logic gates that only understand ON and OFF states"
+      "answer": "Sum and carry"
     },
     {
       "type": "mcq",
-      "question": "In an 8-bit binary number, what does the leftmost bit represent?",
+      "question": "In a half adder, which input combination produces S = 0 and C = 1?",
       "options": [
-        "Least Significant Bit",
-        "The parity bit",
-        "Most Significant Bit",
-        "The hexadecimal value"
+        "00",
+        "01",
+        "10",
+        "11"
       ],
-      "answer": "Most Significant Bit"
+      "answer": "11"
     },
     {
       "type": "mcq",
-      "question": "Which of the following is a hexadecimal digit?",
+      "question": "What is correct about chaining stages in a multi-bit adder?",
       "options": [
-        "8",
-        "G",
-        "H",
-        "Q"
+        "The sum output becomes the next stage input",
+        "The carry out becomes the next stage carry in",
+        "The clock becomes the next stage input",
+        "The carry in becomes the previous stage carry out"
       ],
-      "answer": "8"
+      "answer": "The carry out becomes the next stage carry in"
     },
     {
       "type": "mcq",
-      "question": "What is the maximum value that can be represented in an 8-bit binary number?",
+      "question": "A combinational circuit has outputs that depend on:",
       "options": [
-        "255",
-        "256",
-        "128",
-        "1024"
+        "Current inputs only",
+        "Previous outputs only",
+        "Inputs and stored past information",
+        "Clock edges only"
       ],
-      "answer": "255"
+      "answer": "Current inputs only"
     },
     {
-      "type": "fill_blank",
-      "question": "The process of moving all bits in a binary number to the left or right and filling the emptied spaces with zeros is called a __________ shift.",
-      "answer": "Logical"
+      "type": "mcq",
+      "question": "A sequential circuit has outputs that depend on:",
+      "options": [
+        "Current inputs only",
+        "Current inputs and internal state (previous stored outputs)",
+        "Internal state only",
+        "Input frequency only"
+      ],
+      "answer": "Current inputs and internal state (previous stored outputs)"
     },
     {
-      "type": "fill_blank",
-      "question": "In binary addition, if the result is too large for the register to hold, this is called an __________ error.",
-      "answer": "Overflow"
+      "type": "mcq",
+      "question": "The SR flip-flop has a forbidden input combination:",
+      "options": [
+        "00",
+        "01",
+        "10",
+        "11"
+      ],
+      "answer": "11"
     },
     {
-      "type": "fill_blank",
-      "question": "Each hexadecimal digit can be represented by exactly ___ binary bits.",
-      "answer": "4"
+      "type": "match",
+      "question": "Match (J,K) to the next-Q behaviour on an active clock edge.",
+      "pairs": {
+        "(0,0)": "Q unchanged",
+        "(1,0)": "1 (set)",
+        "(0,1)": "0 (reset)",
+        "(1,1)": "Q toggles"
+      }
+    },
+    {
+      "type": "mcq",
+      "question": "Which symbol represents OR?",
+      "options": [
+        ".",
+        "+",
+        "(bar)",
+        "↑"
+      ],
+      "answer": "+"
+    },
+    {
+      "type": "match",
+      "question": "Match each law name to the correct example.",
+      "pairs": {
+        "Identity": "A + 0 = A and A.1 = A",
+        "Null": "A + 1 = 1 and A.0 = 0",
+        "Idempotent": "A + A = A and A.A = A",
+        "Inverse": "A + Ā = 1 and A.Ā = 0"
+      }
+    },
+    {
+      "type": "mcq",
+      "question": "Which option is an Absorption law?",
+      "options": [
+        "A + 0 = A",
+        "A + A.B = A",
+        "A + A = A",
+        "(Ā)̄ = A"
+      ],
+      "answer": "A + A.B = A"
     },
     {
       "type": "true_false",
-      "question": "Digital data can take any value, just like analogue data.",
-      "answer": "False"
-    },
-    {
-      "type": "true_false",
-      "question": "In two’s complement, the most significant bit represents the sign of the number.",
+      "question": "The commutative law states that A.B = B.A and A + B = B + A.",
       "answer": "True"
     },
     {
       "type": "true_false",
-      "question": "The denary number system is also known as base 16.",
-      "answer": "False"
+      "question": "To derive an expression from a circuit, write the expression for each gate output, combine step by step, then simplify.",
+      "answer": "True"
     },
     {
-      "type": "match",
-      "question": "Match the term with its correct definition:",
-      "pairs": {
-        "Register": "Used to temporarily hold binary data",
-        "Logic gate": "Basic building block for processing digital data",
-        "Two’s complement": "Method to represent negative binary"
-      }
+      "type": "mcq",
+      "question": "What is the primary purpose of a Karnaugh map?",
+      "options": [
+        "Design sequential circuits",
+        "Visually simplify Boolean expressions",
+        "Replace truth tables",
+        "Implement using only NAND"
+      ],
+      "answer": "Visually simplify Boolean expressions"
     },
     {
-      "type": "fill_blank",
-      "question": "Convert the binary number 1101 to denary: __________",
-      "answer": "13"
+      "type": "mcq",
+      "question": "What is the relationship between truth tables and Karnaugh maps?",
+      "options": [
+        "K-maps replace truth tables",
+        "K-maps are an alternative representation of truth tables",
+        "Truth tables are simplified versions of K-maps",
+        "They are used for completely different purposes"
+      ],
+      "answer": "K-maps are an alternative representation of truth tables"
     },
     {
-      "type": "fill_blank",
-      "question": "What is the hexadecimal equivalent of the denary number 15? __________",
-      "answer": "F"
-    },
-    {
-      "type": "fill_blank",
-      "question": "What is the binary value for the hexadecimal digit C? __________",
-      "answer": "1100"
+      "type": "mcq",
+      "question": "Valid K-map group sizes must be:",
+      "options": [
+        "Any prime number",
+        "3,5,6,7,...",
+        "1,2,4,8,...",
+        "Exactly 4 only"
+      ],
+      "answer": "1,2,4,8,..."
     }
   ]
 }
