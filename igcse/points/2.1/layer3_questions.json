@@ -3,7 +3,7 @@
 "point_id": "2.1",
 "question_number": 1,
 "question": "Explain why messages are split into packets and how packet switching operates, including why packets may arrive out of order.",
-"mark_scheme": "(Explain: set out purposes or reasons / make the relationships between things evident / provide why and/or how and support with relevant evidence)\nMessages are divided into packets so they can be managed efficiently and routed independently. Each packet is forwarded according to its header information along available paths. Because different packets may take different routes, they can arrive out of order; the destination uses sequence information to reassemble the original message."
+"mark_scheme": "(Explain: set out purposes or reasons / make the relationships between things evident / provide why and/or how and support with relevant evidence)\nMessages are divided into packets so they can be managed efficiently and routed independently.\n Each packet is forwarded according to its header information along available paths.\n Because different packets may take different routes, they can arrive out of order; the destination uses sequence information to reassemble the original message."
 },
 {
 "point_id": "2.1",
@@ -21,7 +21,7 @@
 "point_id": "2.1",
 "question_number": 4,
 "question": "Compare serial and parallel transmission with respect to distance, speed, and synchronisation, and explain why data skew can occur in parallel links.",
-"mark_scheme": "(Compare: identify/comment on similarities and/or differences)\n(Explain: set out purposes or reasons / make the relationships between things evident / provide why and/or how and support with relevant evidence)\nSerial sends one bit at a time on a single channel, maintains synchronisation, and is better for longer distances but usually has a lower data rate. Parallel sends multiple bits simultaneously on several channels, giving higher data rates over short distances but poorer performance over long distances. In parallel links, small differences in path length and greater susceptibility to interference cause some bits to arrive at different times, producing data skew."
+"mark_scheme": "(Compare: identify/comment on similarities and/or differences)\n(Explain: set out purposes or reasons / make the relationships between things evident / provide why and/or how and support with relevant evidence)\nSerial sends one bit at a time on a single channel, maintains synchronisation, and is better for longer distances but usually has a lower data rate.\n Parallel sends multiple bits simultaneously on several channels, giving higher data rates over short distances but poorer performance over long distances.\n In parallel links, small differences in path length and greater susceptibility to interference cause some bits to arrive at different times, producing data skew."
 },
 {
 "point_id": "2.1",
@@ -40,12 +40,6 @@
 "question_number": "6b",
 "question": "Assess the most appropriate transmission choice for a computer sending print data to a printer 3 metres away, as quickly as possible, and justify your answer.",
 "mark_scheme": "(Assess: make an informed judgement)\n(Justify: support a case with evidence/argument)\nParallel (simplex) to the printer: higher data rate over the short distance typical of device interconnects."
-},
-{
-"point_id": "2.1",
-"question_number": 7,
-"question": "Identify and describe two methods of error checking used in data transmission other than CRC.",
-"mark_scheme": "(Identify: name/select/recognise)\n(Describe: state the points of a topic / give characteristics and main features)\nParity check: adds a parity bit according to an agreed rule and the receiver verifies parity.\nChecksum: computes a value from a block of data that the receiver recomputes and compares; a mismatch prompts re-send."
 },
 {
 "point_id": "2.1",

@@ -28,12 +28,14 @@ export async function renderProgrammingLevels() {
   }
 
   const progress = await fetchProgressCounts();
-  let completed = Number(progress?.levels ?? 0);
+  const guestAccess = progress?.guest || !localStorage.getItem('username');
+  const totalLevels = levels.length;
+
+  let completed = guestAccess ? totalLevels : Number(progress?.levels ?? 0);
   if (!Number.isFinite(completed) || completed < 0) {
-    completed = 0;
+    completed = guestAccess ? totalLevels : 0;
   }
 
-  const totalLevels = levels.length;
   const hasRemainingLevels = completed < totalLevels;
   const nextUnlock = hasRemainingLevels ? completed + 1 : null;
 

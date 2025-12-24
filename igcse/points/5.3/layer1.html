@@ -259,7 +259,7 @@
   </div>
 
   <main id="content-area" style="display: none;">
-  <iframe id="doc-frame" class="official-doc" scrolling="auto" ></iframe>
+  <iframe id="doc-frame" class="official-doc" scrolling="no" ></iframe>
   </main>
   <div class="actions">
     <p class="actions-heading">Now that you have a general overview of the basics, you can move to Layer 2 by clicking on one of the following buttons:</p>
@@ -305,81 +305,51 @@
   const platform = localStorage.getItem("platform");
   const point_id = "5.3";
 
-  const errorMessageEl = document.getElementById("error-message");
-  const contentAreaEl = document.getElementById("content-area");
-  const studentNameEl = document.getElementById("student-name");
-  const platformNameEl = document.getElementById("platform-name");
+  if (!username || !student_name) {
+    document.getElementById("error-message").style.display = "block";
+  } else {
+    document.getElementById("student-name").textContent = "👤 " + student_name;
+    document.getElementById("platform-name").textContent = "🎓 Platform: " + platform;
+    document.getElementById("content-area").style.display = "block";
 
-  const displayName = student_name || "Guest";
-  if (displayName && studentNameEl) {
-    studentNameEl.textContent = "👤 " + displayName;
-  }
-
-  const displayPlatform = platform || "IGCSE (Guest)";
-  if (platformNameEl) {
-    platformNameEl.textContent = "🎓 Platform: " + displayPlatform;
-  }
-
-  if (errorMessageEl) {
-    errorMessageEl.style.display = "none";
-  }
-  if (contentAreaEl) {
-    contentAreaEl.style.display = "block";
-  }
-
-  fetch("../index.json")
-    .then(res => res.json())
-    .then(list => {
-      const found = list.find(p => p.id.toLowerCase() === point_id.toLowerCase());
-      if (found) {
-        document.getElementById("point-title").textContent = "📍 " + found.title;
-      }
-    });
-
-  const docFrame = document.getElementById("doc-frame");
-  if (docFrame) {
-    docFrame.src = "doc.html"; // Fallback so the document always loads even if fetch fails.
-    const resizeDocFrame = () => {
-      try {
-        const doc = docFrame.contentDocument || docFrame.contentWindow?.document;
-        const docHeight = doc?.documentElement?.scrollHeight;
-        docFrame.style.height = (docHeight ? docHeight + "px" : "100vh");
-      } catch (err) {
-        console.warn("Unable to resize doc iframe:", err);
-        docFrame.style.height = "100vh";
-      }
-    };
-    docFrame.addEventListener("load", resizeDocFrame);
-  }
-
-  fetch("videos.json")
-    .then(res => res.json())
-    .then(data => {
-      if (data[point_id]) {
-        const { videos = [], doc } = data[point_id];
-
-        if (doc && doc.url && docFrame) {
-          docFrame.src = doc.url;
+    fetch("../index.json")
+      .then(res => res.json())
+      .then(list => {
+        const found = list.find(p => p.id.toLowerCase() === point_id.toLowerCase());
+        if (found) {
+          document.getElementById("point-title").textContent = "📍 " + found.title;
         }
+      });
 
-        if (videos.length > 0) {
-          document.getElementById("video-section").style.display = "block";
-          const container = document.getElementById("videos-container");
-          videos.forEach(video => {
-            const wrapper = document.createElement("div");
-            wrapper.innerHTML = video.iframe;
-            wrapper.style.marginBottom = "20px";
-            container.appendChild(wrapper);
-          });
+    fetch("videos.json")
+      .then(res => res.json())
+      .then(data => {
+        if (data[point_id]) {
+          const { videos = [], doc } = data[point_id];
+
+          if (doc) {
+            const frame = document.getElementById("doc-frame");
+            frame.addEventListener("load", function() {
+              this.style.height = this.contentWindow.document.documentElement.scrollHeight + "px";
+            });
+            frame.src = doc.url;
+          }
+
+          if (videos.length > 0) {
+            document.getElementById("video-section").style.display = "block";
+            const container = document.getElementById("videos-container");
+            videos.forEach(video => {
+              const wrapper = document.createElement("div");
+              wrapper.innerHTML = video.iframe;
+              wrapper.style.marginBottom = "20px";
+              container.appendChild(wrapper);
+            });
+          }
         }
-      }
-    })
-    .catch(err => {
-      console.error("Failed to load videos.json", err);
-      // Fallback doc frame already set; nothing else to do.
-    });
+      });
+  }
 
-async function updateProgress() {
+  async function updateProgress() {
     const platform = localStorage.getItem("platform");
     const username = localStorage.getItem("username");
 
