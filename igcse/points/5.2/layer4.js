@@ -1,4 +1,4 @@
-import { supabase, tableName } from '../../../supabaseClient.js';
+import { ensureSupabase } from '../../../layer4-shared.js';
 
 const studentName = localStorage.getItem('student_name');
 const username = localStorage.getItem('username');
@@ -52,15 +52,26 @@ function renderQuestions(questions) {
 }
 
 async function markReady() {
-  const { data: existing } = await supabase
+  const { supabase, tableName } = await ensureSupabase();
+  const btn = document.getElementById('ready-btn');
+  const msg = document.getElementById('ready-message');
+
+  if (!supabase || !tableName) {
+    msg.textContent = 'Your teacher could not be informed because the connection was blocked in this browser.';
+    msg.style.display = 'block';
+    btn.disabled = true;
+    return;
+  }
+
+  const { data: existing, error: fetchError } = await supabase
     .from(tableName('theory_progress'))
     .select('reached_layer')
     .eq('username', username)
     .eq('point_id', pointId.toLowerCase())
     .maybeSingle();
   const score = v => v === 'R' ? 4 : (parseInt(v, 10) || 0);
-  let error = null;
-  if (score(existing?.reached_layer) < 4) {
+  let error = fetchError || null;
+  if (!error && score(existing?.reached_layer) < 4) {
     ({ error } = await supabase.from(tableName('theory_progress')).upsert({
       username,
       point_id: pointId.toLowerCase(),
@@ -68,8 +79,6 @@ async function markReady() {
     }, { onConflict: ['username','point_id'] }));
   }
 
-  const btn = document.getElementById('ready-btn');
-  const msg = document.getElementById('ready-message');
   if (error) {
     console.error('Failed to update progress', error);
     msg.textContent = '❌ Failed to inform the teacher.';
@@ -80,6 +89,7 @@ async function markReady() {
   }
   msg.style.display = 'block';
 }
+
 
 const readyBtn = document.getElementById('ready-btn');
 const readyMsg = document.getElementById('ready-message');

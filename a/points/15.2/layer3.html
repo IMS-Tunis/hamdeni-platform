@@ -548,6 +548,7 @@
   </div>
 
   <script type="module">
+<<<<<<< HEAD
     import { supabase } from '../../../supabaseClient.js';
 
     const folderButton = document.getElementById('open-folder');
@@ -583,6 +584,75 @@
 
     async function loadSubmissionLink() {
       setStatus('Checking your submission link…');
+=======
+    async function loadSupabaseClient() {
+      try {
+        const mod = await import('../../../supabaseClient.js');
+        return mod.supabase;
+      } catch (error) {
+        console.error('[Layer3] Supabase client failed to load. Submission links are unavailable.', error);
+        return null;
+      }
+    }
+
+    const supabasePromise = loadSupabaseClient();
+
+    const submitBtn = document.getElementById('submit-btn');
+    const statusEl = document.getElementById('status');
+
+    submitBtn.addEventListener('click', () => {
+      if (submitBtn.disabled) return;
+      const target = submitBtn.dataset.link;
+      if (target) {
+        window.location.href = target;
+      }
+    });
+
+    async function loadPersonalLink() {
+      statusEl.textContent = 'Checking your submission link…';
+      statusEl.classList.remove('error');
+      submitBtn.disabled = true;
+
+      try {
+        const supabase = await supabasePromise;
+        if (!supabase) {
+          statusEl.textContent = 'Submission links are unavailable in this browser. Please contact your teacher.';
+          statusEl.classList.add('error');
+          submitBtn.disabled = true;
+          return;
+        }
+
+        const { data, error } = await supabase.auth.getUser();
+        if (error && error.message !== 'Auth session missing!') throw error;
+        const user = data?.user;
+        if (!user) {
+          throw new Error('Please log in to access this activity.');
+        }
+
+        const link = await fetchUploadLink(user, supabase);
+        if (!link) {
+          throw new Error('No upload link was found for your account. Please contact your teacher.');
+        }
+
+        submitBtn.dataset.link = link;
+        submitBtn.disabled = false;
+        statusEl.textContent = 'All set! Click the button when you are ready to upload your answers.';
+      } catch (err) {
+        console.error('[Layer3] Failed to prepare submission link', err);
+        statusEl.textContent = err.message || 'Unable to prepare your submission link right now.';
+        statusEl.classList.add('error');
+      }
+    }
+
+    async function fetchUploadLink(user, supabase) {
+      const candidates = [
+        ['auth_user_id', user.id],
+        ['id', user.id],
+        ['email', user.email],
+        ['username', user.user_metadata?.username],
+        ['student_id', user.user_metadata?.student_id]
+      ];
+>>>>>>> 544d1aeb6ff38aa2fb467a7069a1baf70d47680c
 
       const identifiers = [
         ['id', localStorage.getItem('student_id')],
