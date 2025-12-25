@@ -1,102 +1,314 @@
 {
   "questions": [
     {
+      "id": 1,
       "type": "mcq",
-      "question": "What is the main reason computers use binary to represent all data?",
+      "question": "In a graph data structure, what term is used for the numerical value representing the cost, distance, or time associated with a connection between two nodes?",
       "options": [
-        "Binary numbers are easier for humans to read",
-        "Computers use logic gates that only understand ON and OFF states",
-        "It uses less power",
-        "Binary numbers are shorter than decimal numbers"
+        "Node",
+        "Edge",
+        "Path",
+        "Weight"
       ],
-      "answer": "Computers use logic gates that only understand ON and OFF states"
+      "answer": "Weight"
     },
     {
+      "id": 2,
       "type": "mcq",
-      "question": "In an 8-bit binary number, what does the leftmost bit represent?",
+      "question": "In the notes, artificial neural networks can be drawn as graphs where",
       "options": [
-        "Least Significant Bit",
-        "The parity bit",
-        "Most Significant Bit",
-        "The hexadecimal value"
+        "Each neuron is an edge and each connection is a node",
+        "Each neuron is a node and each connection is an edge",
+        "Each neuron is a path and each connection is a graph",
+        "Each neuron is a weight and each connection is a node"
       ],
-      "answer": "Most Significant Bit"
+      "answer": "Each neuron is a node and each connection is an edge"
     },
     {
+      "id": 3,
       "type": "mcq",
-      "question": "Which of the following is a hexadecimal digit?",
+      "question": "According to the notes, Dijkstra’s algorithm is used to find",
       "options": [
-        "8",
-        "G",
-        "H",
-        "Q"
+        "The largest cluster in unlabelled data",
+        "The shortest path between two nodes in a weighted graph",
+        "A classification category",
+        "A polynomial curve from data points"
       ],
-      "answer": "8"
+      "answer": "The shortest path between two nodes in a weighted graph"
     },
     {
+      "id": 4,
       "type": "mcq",
-      "question": "What is the maximum value that can be represented in an 8-bit binary number?",
+      "question": "According to the notes, the first distance assignment step in Dijkstra’s algorithm sets",
       "options": [
-        "255",
-        "256",
-        "128",
-        "1024"
+        "All nodes to 0",
+        "All nodes to infinity, except the start node to 0",
+        "Only the destination to 0",
+        "Only neighbors to infinity"
       ],
-      "answer": "255"
+      "answer": "All nodes to infinity, except the start node to 0"
     },
     {
-      "type": "fill_blank",
-      "question": "The process of moving all bits in a binary number to the left or right and filling the emptied spaces with zeros is called a __________ shift.",
-      "answer": "Logical"
+      "id": 5,
+      "type": "mcq",
+      "question": "In A*, which option correctly states both the formula and the meaning of h(n) as described in the notes?",
+      "options": [
+        "f(n) = g(n) + h(n), and h(n) is a heuristic estimate of the cost from the current node to the goal",
+        "f(n) = g(n) − h(n), and h(n) is the cost from the start node to the current node",
+        "f(n) = h(n) − g(n), and h(n) is the cost from the start node to the current node",
+        "f(n) = g(n) + h(n), and h(n) is the cost from the start node to the current node"
+      ],
+      "answer": "f(n) = g(n) + h(n), and h(n) is a heuristic estimate of the cost from the current node to the goal"
     },
     {
-      "type": "fill_blank",
-      "question": "In binary addition, if the result is too large for the register to hold, this is called an __________ error.",
-      "answer": "Overflow"
-    },
-    {
-      "type": "fill_blank",
-      "question": "Each hexadecimal digit can be represented by exactly ___ binary bits.",
-      "answer": "4"
-    },
-    {
-      "type": "true_false",
-      "question": "Digital data can take any value, just like analogue data.",
-      "answer": "False"
-    },
-    {
-      "type": "true_false",
-      "question": "In two’s complement, the most significant bit represents the sign of the number.",
-      "answer": "True"
-    },
-    {
-      "type": "true_false",
-      "question": "The denary number system is also known as base 16.",
-      "answer": "False"
-    },
-    {
+      "id": 6,
       "type": "match",
-      "question": "Match the term with its correct definition:",
+      "question": "Match each term (1 to 4) with its description (A to D). 1. Node (Vertex) 2. Edge 3. Weights 4. Path A. Numerical values representing cost, distance, or time on a connection B. Sequence of edges connecting two nodes C. Entity such as a location, object, or point in a network D. Connection or relationship between two nodes",
       "pairs": {
-        "Register": "Used to temporarily hold binary data",
-        "Logic gate": "Basic building block for processing digital data",
-        "Two’s complement": "Method to represent negative binary"
+        "Node (Vertex)": "Entity such as a location, object, or point in a network",
+        "Edge": "Connection or relationship between two nodes",
+        "Weights": "Numerical values representing cost, distance, or time on a connection",
+        "Path": "Sequence of edges connecting two nodes"
       }
     },
     {
-      "type": "fill_blank",
-      "question": "Convert the binary number 1101 to denary: __________",
-      "answer": "13"
+      "id": 7,
+      "type": "match",
+      "question": "Match each AI graph application (1 to 3) with its description (A to C). 1. Pathfinding and Navigation 2. Network Routing 3. Knowledge Representation A. Optimizing data transfer in communication networks B. Finding the shortest or optimal route in GPS systems C. Representing relationships between concepts, such as in semantic networks",
+      "pairs": {
+        "Pathfinding and Navigation": "Finding the shortest or optimal route in GPS systems",
+        "Network Routing": "Optimizing data transfer in communication networks",
+        "Knowledge Representation": "Representing relationships between concepts, such as in semantic networks"
+      }
     },
     {
-      "type": "fill_blank",
-      "question": "What is the hexadecimal equivalent of the denary number 15? __________",
-      "answer": "F"
+      "id": 8,
+      "type": "mcq",
+      "question": "In the notes, the input layer primarily",
+      "options": [
+        "Extracts abstract features from previous layers",
+        "Receives raw data, such as images, text, or numerical values",
+        "Produces the final classification or prediction",
+        "Computes heuristic estimates to the goal"
+      ],
+      "answer": "Receives raw data, such as images, text, or numerical values"
     },
     {
-      "type": "fill_blank",
-      "question": "What is the binary value for the hexadecimal digit C? __________",
-      "answer": "1100"
+      "id": 9,
+      "type": "mcq",
+      "question": "In the notes, a bias is described as",
+      "options": [
+        "A fixed output label",
+        "An extra adjustable value added to help the neuron produce the right output",
+        "A cost from start to current node",
+        "A list of nodes marked finalized"
+      ],
+      "answer": "An extra adjustable value added to help the neuron produce the right output"
+    },
+    {
+      "id": 10,
+      "type": "mcq",
+      "question": "In the notes, an activation function is described as",
+      "options": [
+        "A rule that converts the combined value into the neuron’s output signal",
+        "A rule that assigns infinity to all nodes",
+        "A clustering method for unlabelled data",
+        "A polynomial equation using squared terms"
+      ],
+      "answer": "A rule that converts the combined value into the neuron’s output signal"
+    },
+    {
+      "id": 11,
+      "type": "mcq",
+      "question": "In the notes, if an input is not numerical, it must be",
+      "options": [
+        "Ignored",
+        "Converted to a numerical value so weighted values can be summed",
+        "Placed in the output layer directly",
+        "Turned into a heuristic value h(n)"
+      ],
+      "answer": "Converted to a numerical value so weighted values can be summed"
+    },
+    {
+      "id": 12,
+      "type": "mcq",
+      "question": "In the notes, training of an ANN involves",
+      "options": [
+        "Deleting hidden layers",
+        "Adjusting weights based on error feedback during training",
+        "Replacing edges with nodes",
+        "Assigning infinity to all nodes"
+      ],
+      "answer": "Adjusting weights based on error feedback during training"
+    },
+    {
+      "id": 13,
+      "type": "match",
+      "question": "Match each ANN layer (1 to 3) with its role (A to C). 1. Input layer 2. Hidden layers 3. Output layer A. Produces the final classification or prediction B. Receives raw data C. Extracts features and patterns",
+      "pairs": {
+        "Input layer": "Receives raw data",
+        "Hidden layers": "Extracts features and patterns",
+        "Output layer": "Produces the final classification or prediction"
+      }
+    },
+    {
+      "id": 14,
+      "type": "mcq",
+      "question": "In the notes, machine learning enables systems to learn from data and improve performance without",
+      "options": [
+        "Any data at all",
+        "Explicit programming",
+        "Any weights",
+        "Any output layer"
+      ],
+      "answer": "Explicit programming"
+    },
+    {
+      "id": 15,
+      "type": "mcq",
+      "question": "In the notes, unsupervised learning groups data into",
+      "options": [
+        "Layers",
+        "Clusters",
+        "Nodes",
+        "Biases"
+      ],
+      "answer": "Clusters"
+    },
+    {
+      "id": 16,
+      "type": "mcq",
+      "question": "In the notes, reinforcement learning is guided by",
+      "options": [
+        "Rewards and penalties",
+        "Labels and categories",
+        "Nodes and edges",
+        "Straight line equations only"
+      ],
+      "answer": "Rewards and penalties"
+    },
+    {
+      "id": 17,
+      "type": "mcq",
+      "question": "In the notes, deep learning is",
+      "options": [
+        "A different name for unsupervised learning",
+        "A subset of machine learning using ANNs with multiple layers",
+        "Only graph routing in networks",
+        "Only a statistical technique for prediction"
+      ],
+      "answer": "A subset of machine learning using ANNs with multiple layers"
+    },
+    {
+      "id": 18,
+      "type": "mcq",
+      "question": "In the notes, in a deep learning network, each connection between two neurons has a weight that controls",
+      "options": [
+        "How strongly the signal from one neuron affects the next neuron",
+        "Which node is marked finalized",
+        "Which data items are labelled",
+        "Which cluster name is chosen"
+      ],
+      "answer": "How strongly the signal from one neuron affects the next neuron"
+    },
+    {
+      "id": 19,
+      "type": "match",
+      "question": "Match each learning type (1 to 3) with its defining description (A to C). 1. Supervised learning 2. Unsupervised learning 3. Reinforcement learning A. Learns by interacting with an environment using rewards and penalties B. Uses labelled data with known outputs C. Finds patterns in unlabelled data and forms clusters or associations",
+      "pairs": {
+        "Supervised learning": "Uses labelled data with known outputs",
+        "Unsupervised learning": "Finds patterns in unlabelled data and forms clusters or associations",
+        "Reinforcement learning": "Learns by interacting with an environment using rewards and penalties"
+      }
+    },
+    {
+      "id": 20,
+      "type": "match",
+      "question": "Match each term (1 to 2) with the output description in the notes (A to B). 1. Classification 2. Regression A. Output is a category B. Output is a number",
+      "pairs": {
+        "Classification": "Output is a category",
+        "Regression": "Output is a number"
+      }
+    },
+    {
+      "id": 21,
+      "type": "mcq",
+      "question": "In the notes, backpropagation is an optimization technique used in training ANNs to",
+      "options": [
+        "Increase the number of layers permanently",
+        "Minimize errors by adjusting weights of connections based on feedback from the output layer",
+        "Convert graphs into semantic networks",
+        "Replace labelled data with unlabelled data"
+      ],
+      "answer": "Minimize errors by adjusting weights of connections based on feedback from the output layer"
+    },
+    {
+      "id": 22,
+      "type": "mcq",
+      "question": "In the notes, the adjustment method that changes weights step by step in the direction that makes the error smaller is called",
+      "options": [
+        "Forward pass",
+        "Error calculation",
+        "Gradient descent",
+        "Repeat"
+      ],
+      "answer": "Gradient descent"
+    },
+    {
+      "id": 23,
+      "type": "match",
+      "question": "Match each backpropagation step (1 to 4) with its description (A to D). 1. Forward pass 2. Error calculation 3. Backward pass 4. Repeat A. Compute difference between predicted and actual outputs B. Continue the process until the error is minimized C. Process input data to make predictions D. Send error backward and adjust weights using gradient descent",
+      "pairs": {
+        "Forward pass": "Process input data to make predictions",
+        "Error calculation": "Compute difference between predicted and actual outputs",
+        "Backward pass": "Send error backward and adjust weights using gradient descent",
+        "Repeat": "Continue the process until the error is minimized"
+      }
+    },
+    {
+      "id": 24,
+      "type": "mcq",
+      "question": "In the notes, regression is described as a technique used to",
+      "options": [
+        "Produce category outputs only",
+        "Model relationships between variables and make continuous predictions",
+        "Find shortest paths in weighted graphs",
+        "Create clusters from similarity"
+      ],
+      "answer": "Model relationships between variables and make continuous predictions"
+    },
+    {
+      "id": 25,
+      "type": "mcq",
+      "question": "In the notes, the output value in regression (example: house price) is called the",
+      "options": [
+        "Independent variable",
+        "Dependent variable",
+        "Heuristic estimate",
+        "Finalized node"
+      ],
+      "answer": "Dependent variable"
+    },
+    {
+      "id": 26,
+      "type": "mcq",
+      "question": "In the notes, linear regression models",
+      "options": [
+        "A curved relationship using squared terms",
+        "A straight line relationship between variables",
+        "Only classification categories",
+        "Only unlabelled data patterns"
+      ],
+      "answer": "A straight line relationship between variables"
+    },
+    {
+      "id": 27,
+      "type": "match",
+      "question": "Match each regression type (1 to 2) with its description (A to B). 1. Linear regression 2. Polynomial regression A. Straight line relationship B. Curved (non linear) relationship using polynomial terms such as x²",
+      "pairs": {
+        "Linear regression": "Straight line relationship",
+        "Polynomial regression": "Curved (non linear) relationship using polynomial terms such as x²"
+      }
     }
   ]
 }
