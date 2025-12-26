@@ -88,16 +88,6 @@
       "answer": "+"
     },
     {
-      "type": "match",
-      "question": "Match each law name to the correct example.",
-      "pairs": {
-        "Identity": "A + 0 = A and A.1 = A",
-        "Null": "A + 1 = 1 and A.0 = 0",
-        "Idempotent": "A + A = A and A.A = A",
-        "Inverse": "A + Ā = 1 and A.Ā = 0"
-      }
-    },
-    {
       "type": "mcq",
       "question": "Which option is an Absorption law?",
       "options": [

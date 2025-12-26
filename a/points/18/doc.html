@@ -1,24 +1,410 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NRRL1TSE7Z"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IGCSE 18.1 - AI & Machine Learning Notes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  gtag('config', 'G-NRRL1TSE7Z');
-</script>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
 
-  <meta charset="UTF-8">
-  <title>Content not ready</title>
-  <link rel="stylesheet" href="igcse-style.css">
-<script defer src="/assets/js/paste-guard.js"></script>
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+
+        .content {
+            padding: 50px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+        }
+
+        .section-title {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .subsection {
+            margin: 25px 0;
+        }
+
+        .subsection-title {
+            color: #764ba2;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .keyword {
+            background: #e8eaf6;
+            color: #5e35b1;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            display: inline-block;
+            margin: 2px 0;
+        }
+
+        ul {
+            margin: 15px 0 15px 30px;
+        }
+
+        li {
+            margin: 10px 0;
+            padding-left: 10px;
+        }
+
+        li::marker {
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .formula {
+            background: #e8eaf6;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            border-left: 4px solid #764ba2;
+        }
+
+        .highlight-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .download-btn {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .download-btn {
+                bottom: 20px;
+                right: 20px;
+                padding: 12px 20px;
+                font-size: 0.9em;
+            }
+        }
+
+        .process-step {
+            background: white;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 8px;
+            border-left: 3px solid #667eea;
+        }
+    </style>
 </head>
 <body>
-   <div class="container">
-    <h1>Content will be ready soon!</h1>
-   
+    <div class="container">
+        <div class="header">
+            <h1>IGCSE 18.1</h1>
+            <p>Artificial Intelligence & Machine Learning</p>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h2 class="section-title">18.1 Point 1: Show understanding of how graphs can be used to aid Artificial Intelligence (AI)</h2>
+                
+                <p>Graphs are a key data structure in AI, representing relationships between data points. They are used in various AI applications for solving problems involving paths, networks, and relational data.</p>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Key Concepts in Graphs:</h3>
+                    <ul>
+                        <li><span class="keyword">Node (Vertex)</span>: Represents an entity, such as a location, object, or point in a network.</li>
+                        <li><span class="keyword">Edge</span>: Represents the connection or relationship between two nodes.</li>
+                        <li><span class="keyword">Weights</span>: Numerical values representing the cost, distance, or time associated with the connection.</li>
+                        <li><span class="keyword">Path</span>: A sequence of edges connecting two nodes.</li>
+                        <li>Artificial neural networks can be drawn as graphs, where each neuron is a node and each connection is an edge. A value (weight) can be attached to each connection to show how strongly one neuron influences another.</li>
+                    </ul>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Applications of Graphs in AI:</h3>
+                    <ul>
+                        <li><strong>Pathfinding and Navigation:</strong> Finding the shortest or optimal route in GPS systems.</li>
+                        <li><strong>Network Routing:</strong> Optimizing data transfer in communication networks.</li>
+                        <li><strong>Knowledge Representation:</strong> Representing relationships between concepts, such as in semantic networks.</li>
+                    </ul>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Graph Search Algorithms:</h3>
+                    
+                    <div class="highlight-box">
+                        <strong>1. Dijkstra's Algorithm:</strong>
+                        <ul>
+                            <li>Used to find the shortest path between two nodes in a weighted graph.</li>
+                            <li>Dijkstra's algorithm finds the best route from one node to all of the remaining nodes.</li>
+                        </ul>
+                        <strong>Process:</strong>
+                        <div class="process-step">Assign initial distances to all nodes (infinity for all except the start node, which is 0).</div>
+                        <div class="process-step">Update the distances of neighboring nodes iteratively.</div>
+                        <div class="process-step">Select the node with the smallest distance and mark it as finalized.</div>
+                        <div class="process-step">Repeat until the shortest path to the destination is determined.</div>
+ <strong>Example:</strong>
+                        <div style="margin-top: 20px; text-align: center;">
+                            <img src="dijkstra-example.png" alt="Dijkstra's Algorithm Example" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                            <p style="margin-top: 10px; font-size: 0.9em; color: #666; font-style: italic;">Example: Dijkstra's Algorithm working through a graph</p>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <strong>2. A* Algorithm:</strong>
+                        <ul>
+                            <li>A search algorithm that uses both actual costs (g(n)) and estimated costs to the goal (h(n)) to find the shortest path.</li>
+                        </ul>
+                        <div class="formula">
+                            <strong>Formula:</strong><br>
+                            f(n) = g(n) + h(n), where:<br>
+                            • g(n): Cost from the start node to the current node.<br>
+                            • h(n): Heuristic estimate of the cost from the current node to the goal.
+                        </div>
+                        <ul>
+                            <li>A* algorithm is based on Dijkstra, but adds an extra heuristic (h) value, an intelligent guess on how far we have to go to reach the destination most efficiently.</li>
+                        </ul>
+                        <strong>Key Features:</strong>
+                        <ul>
+                            <li>More efficient in finding paths in large graphs.</li>
+                        </ul>
+						
+						 <strong>Worked example:</strong>
+                        <div style="margin-top: 20px;">
+                            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+							
+					
+								
+								<iframe width="560" height="315" src="https://www.youtube.com/embed/L10EhczFLxo?si=EMqCcgnyhG40wKY9&amp;start=2043" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+								
+								
+                            </div>
+                            <p style="margin-top: 10px; font-size: 0.9em; color: #666; font-style: italic; text-align: center;">Video: A* Algorithm Explanation</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">18.1 Point 2: Show understanding of how artificial neural networks have helped with machine learning</h2>
+                
+                <p>Artificial Neural Networks are computational models inspired by the structure and functioning of the human brain. They process data through interconnected layers of nodes (neurons) to identify patterns and make predictions.</p>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Structure of ANNs:</h3>
+                    <ul>
+                        <li><strong>1. Input Layer:</strong>
+                            <ul>
+                                <li>Receives raw data, such as images, text, or numerical values.</li>
+                            </ul>
+                        </li>
+                        <li><strong>2. Hidden Layers:</strong>
+                            <ul>
+                                <li>Hidden layers process the input by combining the inputs using numerical connection strengths called weights. A bias is an extra adjustable value added to help the neuron produce the right output, and an activation function is a rule that converts the combined value into the neuron's output signal.</li>
+                                <li>Extract features and patterns.</li>
+                            </ul>
+                        </li>
+                        <li><strong>3. Output Layer:</strong>
+                            <ul>
+                                <li>Produces the final result, such as a classification (e.g., spam or not spam) or prediction (e.g., next word in a sentence).</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Key Features of ANNs:</h3>
+                    <ul>
+                        <li><span class="keyword">Weights</span>: Determine the importance of input data during processing.</li>
+                        <li>Each neuron multiplies each input by its weight, adds these weighted values together, and then applies an activation function (a rule that converts the total into an output value).</li>
+                        <li>If the input is not a numerical value it must be converted to one so that the weighted values can be summed.</li>
+                        <li><span class="keyword">Training</span>: ANNs learn by adjusting weights based on error feedback during training.</li>
+                    </ul>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Advantages of ANNs:</h3>
+                    <ul>
+                        <li>Capable of handling large datasets and identifying patterns.</li>
+                        <li>Versatile in applications like image recognition, voice recognition, and natural language processing.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">18.1 Point 3: Show understanding of Deep Learning, Machine Learning and Reinforcement Learning and the reasons for using these methods</h2>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Machine Learning (ML):</h3>
+                    <p>Machine learning enables systems to learn from data and improve performance without explicit programming. It is divided into three categories:</p>
+                    
+                    <div class="highlight-box">
+                        <strong>1. Supervised Learning:</strong>
+                        <ul>
+                            <li>Uses labelled data (data with known outputs) for training.</li>
+                            <li>Supervised learning can be used in two common ways: classification, where the output is a category (for example, spam or not spam), and regression, where the output is a number (for example, a predicted house price).</li>
+                            <li><strong>Example tasks:</strong> Predicting housing prices, spam detection.</li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight-box">
+                        <strong>2. Unsupervised Learning:</strong>
+                        <ul>
+                            <li>Finds hidden patterns in unlabelled data.</li>
+                            <li>Unlabelled data is data without predefined categories and the system learns without explicit labels.</li>
+                            <li>Groups data into clusters based on similarity, and finds associations between data items.</li>
+                            <li><strong>Example tasks:</strong> Customer segmentation.</li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight-box">
+                        <strong>3. Reinforcement Learning:</strong>
+                        <ul>
+                            <li>An agent learns to make decisions by interacting with its environment.</li>
+                            <li>Rewards and penalties guide the learning process.</li>
+                            <li><strong>Example tasks:</strong> Robotics, game AI.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Deep Learning (DL):</h3>
+                    <p>Deep learning is a subset of machine learning that uses artificial neural networks with multiple layers to process data and learn hierarchical features.</p>
+                    <ul>
+                        <li>In a deep learning network, each connection between two neurons has a weight, which is a number that controls how strongly the signal from one neuron affects the next neuron.</li>
+                    </ul>
+                    <strong>Key Concepts:</strong>
+                    <ul>
+                        <li>Processes data through multiple layers of neurons, each layer extracting more abstract features.</li>
+                        <li>Suitable for tasks like image recognition, speech synthesis, and autonomous driving.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">18.1 Point 4: Show understanding of back propagation of errors and regression methods in machine learning</h2>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Backpropagation:</h3>
+                    <p>Backpropagation is an optimization technique used in training artificial neural networks. It minimizes errors by adjusting the weights of connections based on feedback from the output layer.</p>
+                    <p>It is applied first to the nodes in the output layer and then works backward through the nodes in hidden layers.</p>
+                    
+                    <strong>Key Steps:</strong>
+                    <div class="process-step"><strong>1. Forward Pass:</strong> Input data is processed, and predictions are made.</div>
+                    <div class="process-step"><strong>2. Error Calculation:</strong> The difference between predicted and actual outputs is calculated.</div>
+                    <div class="process-step"><strong>3. Backward Pass:</strong> The network sends the error information backward from the output layer to earlier layers and slightly adjusts the weights to reduce the error. This adjustment method is called gradient descent, which means changing the weights step by step in the direction that makes the error smaller.</div>
+                    <div class="process-step"><strong>4. Repeat:</strong> This process continues until the error is minimized.</div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Regression in Machine Learning:</h3>
+                    <p>Regression is a statistical technique used to model relationships between variables and make continuous predictions.</p>
+                    <p>It helps us understand how an output value (dependent variable, such as house price) changes when one or more input values (independent variables, such as area or number of rooms) change. This makes regression useful for prediction tasks such as weather forecasting.</p>
+                    
+                    <strong>Key Features:</strong>
+                    <ul>
+                        <li><span class="keyword">Linear Regression</span>: Models a straight-line relationship between variables.</li>
+                        <li><span class="keyword">Polynomial Regression</span>: Models a curved (non-linear) relationship between inputs and outputs by using a polynomial equation, such as one that includes squared or cubed terms (for example, x²).</li>
+                    </ul>
+                    
+                    <strong>Applications:</strong>
+                    <ul>
+                        <li>Predicting sales trends.</li>
+                        <li>Forecasting weather patterns.</li>
+                        <li>Estimating housing prices.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="download-btn" onclick="downloadHTML()">📥 Download Notes</button>
+
+    <script>
+        function downloadHTML() {
+            const htmlContent = document.documentElement.outerHTML;
+            const blob = new Blob([htmlContent], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'IGCSE_18.1_AI_Machine_Learning_Notes.html';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        document.querySelectorAll('.section').forEach(section => {
+            section.addEventListener('mouseenter', function() {
+                this.style.backgroundColor = '#f0f4ff';
+            });
+            section.addEventListener('mouseleave', function() {
+                this.style.backgroundColor = '#f8f9fa';
+            });
+        });
+    </script>
 </body>
 </html>
