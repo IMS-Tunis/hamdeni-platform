@@ -15,7 +15,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Layer 1 - Theory Note</title>
   <link rel="stylesheet" href="../../dashboard.css" />
-  <script type="module" src="../../../shared/auth-session.js"></script>
 
   <style>
     *, *::before, *::after {
@@ -1864,18 +1863,21 @@
 <script type="module">
   import { supabase } from '../../../supabaseClient.js';
 
-  if (window.authSessionReady) {
-    await window.authSessionReady;
-  }
-
+  const point_id = "15.2";
   const username = localStorage.getItem("username");
   const student_name = localStorage.getItem("student_name");
   const platform = localStorage.getItem("platform");
-  const point_id = "15.2";
 
-  if (!username || !student_name) {
-    document.getElementById("error-message").style.display = "block";
-  } else {
+  async function initializePage() {
+    if (window.authSessionReady) {
+      await window.authSessionReady;
+    }
+
+    if (!username || !student_name) {
+      document.getElementById("error-message").style.display = "block";
+      return;
+    }
+
     document.getElementById("student-name").textContent = "👤 " + student_name;
     document.getElementById("platform-name").textContent = "🎓 Platform: " + platform;
     document.getElementById("content-area").style.display = "block";
@@ -1908,6 +1910,8 @@
         }
       });
   }
+
+  initializePage();
 
   async function updateProgress() {
     const platform = localStorage.getItem("platform");
