@@ -1,23 +1,10 @@
-const SUPABASE_URL = "https://tsmzmuclrnyryuvanlxl.supabase.co";
-const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI6InRzbXptdWNscm55cnl1dmFubHhsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc3MzM5NjUsImV4cCI6MjA2MzMwOTk2NX0.-l7Klmp5hKru3w2HOWLRPjCiQprJ2pOjsI-HPTGtAiw";
 // `window.supabase` already holds the Supabase client instance created in
 // `layer2.html`. Just reuse it instead of trying to call `createClient` again
 // on an undefined object.
 const supabase = window.supabase;
-const username = localStorage.getItem("username");
-const platform = localStorage.getItem("platform");
-const pointId = (() => {
-  if (typeof point_id !== 'undefined' && point_id) {
-    return String(point_id).trim();
-  }
-
-  const segment = location.pathname
-    .split('/')
-    .filter(Boolean)
-    .find(part => /^\d+(?:\.\d+)?$/.test(part));
-
-  return segment || '';
-})().toLowerCase();
+let username = null;
+let platform = null;
+let pointId = '';
 
 const PROGRESS_TABLES = {
   A_Level: 'a_theory_progress',
@@ -34,6 +21,12 @@ let completedBefore = false;
 init();
 
 async function init() {
+  if (window.authSessionReady) {
+    await window.authSessionReady;
+  }
+  username = localStorage.getItem("username");
+  platform = localStorage.getItem("platform");
+  pointId = resolvePointId();
   await checkInitialProgress();
   try {
     const response = await fetch("quiz.json");
@@ -47,6 +40,19 @@ async function init() {
       container.innerHTML = "<p>Unable to load the quiz right now. Please try again later.</p>";
     }
   }
+}
+
+function resolvePointId() {
+  if (typeof window.point_id !== 'undefined' && window.point_id) {
+    return String(window.point_id).trim().toLowerCase();
+  }
+
+  const segment = location.pathname
+    .split('/')
+    .filter(Boolean)
+    .find(part => /^\d+(?:\.\d+)?$/.test(part));
+
+  return (segment || '').toLowerCase();
 }
 
 async function checkInitialProgress() {

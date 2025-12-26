@@ -545,8 +545,13 @@
     </div>
   </div>
 
+  <script type="module" src="../../../shared/auth-session.js"></script>
   <script type="module">
     import { supabase } from '../../../supabaseClient.js';
+
+    if (window.authSessionReady) {
+      await window.authSessionReady;
+    }
 
     const folderButton = document.getElementById('open-folder');
     const folderStatus = document.getElementById('folder-status');
@@ -581,10 +586,6 @@
 
     async function loadSubmissionLink() {
       setStatus('Checking your submission link…');
-      let link = null;
-      let lastError = null;
-
-
       const identifiers = [
         ['id', localStorage.getItem('student_id')],
         ['username', localStorage.getItem('username')],
