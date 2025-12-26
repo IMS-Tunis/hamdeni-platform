@@ -229,6 +229,159 @@
       border-radius: 2px;
     }
 
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.7;
+      color: #2c3e50;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 20px;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 40px;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .header p {
+      font-size: 1.2em;
+      opacity: 0.95;
+    }
+
+    .content {
+      padding: 50px;
+    }
+
+    .section {
+      margin-bottom: 50px;
+      padding: 30px;
+      background: #f8f9fa;
+      border-radius: 15px;
+      border-left: 5px solid #667eea;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+    }
+
+    .section-title {
+      color: #667eea;
+      font-size: 1.8em;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 3px solid #667eea;
+    }
+
+    .subsection {
+      margin: 25px 0;
+    }
+
+    .subsection-title {
+      color: #764ba2;
+      font-size: 1.4em;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    .keyword {
+      background: #e8eaf6;
+      color: #5e35b1;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+      display: inline-block;
+      margin: 2px 0;
+    }
+
+    ul {
+      margin: 15px 0 15px 30px;
+    }
+
+    li {
+      margin: 10px 0;
+      padding-left: 10px;
+    }
+
+    li::marker {
+      color: #667eea;
+      font-weight: bold;
+    }
+
+    .formula {
+      background: #e8eaf6;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 15px 0;
+      font-family: 'Courier New', monospace;
+      border-left: 4px solid #764ba2;
+    }
+
+    .highlight-box {
+      background: #fff3cd;
+      border-left: 4px solid #ffc107;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 5px;
+    }
+
+    .download-btn {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .content {
+        padding: 30px 20px;
+      }
+
+      .header h1 {
+        font-size: 1.8em;
+      }
+
+      .section {
+        padding: 20px;
+      }
+
+      .download-btn {
+        bottom: 20px;
+        right: 20px;
+        padding: 12px 20px;
+        font-size: 0.9em;
+      }
+    }
+
+    .process-step {
+      background: white;
+      padding: 12px;
+      margin: 8px 0;
+      border-radius: 8px;
+      border-left: 3px solid #667eea;
+    }
+
 </style>
 <script defer src="/assets/js/paste-guard.js"></script>
 </head>
@@ -259,7 +412,280 @@
   </div>
 
   <main id="content-area" style="display: none;">
-  <iframe id="doc-frame" class="official-doc" scrolling="no" ></iframe>
+    <div class="container">
+        <div class="header">
+            <h1>IGCSE 18.1</h1>
+            <p>Artificial Intelligence & Machine Learning</p>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h2 class="section-title">18.1 Point 1: Show understanding of how graphs can be used to aid Artificial Intelligence (AI)</h2>
+
+                <p>Graphs are a key data structure in AI, representing relationships between data points. They are used in various AI applications for solving problems involving paths, networks, and relational data.</p>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Key Concepts in Graphs:</h3>
+                    <ul>
+                        <li><span class="keyword">Node (Vertex)</span>: Represents an entity, such as a location, object, or point in a network.</li>
+                        <li><span class="keyword">Edge</span>: Represents the connection or relationship between two nodes.</li>
+                        <li><span class="keyword">Weights</span>: Numerical values representing the cost, distance, or time associated with the connection.</li>
+                        <li><span class="keyword">Path</span>: A sequence of edges connecting two nodes.</li>
+                        <li>Artificial neural networks can be drawn as graphs, where each neuron is a node and each connection is an edge. A value (weight) can be attached to each connection to show how strongly one neuron influences another.</li>
+                    </ul>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Applications of Graphs in AI:</h3>
+                    <ul>
+                        <li><strong>Pathfinding and Navigation:</strong> Finding the shortest or optimal route in GPS systems.</li>
+                        <li><strong>Network Routing:</strong> Optimizing data transfer in communication networks.</li>
+                        <li><strong>Knowledge Representation:</strong> Representing relationships between concepts, such as in semantic networks.</li>
+                    </ul>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Graph Search Algorithms:</h3>
+
+                    <div class="highlight-box">
+                        <strong>1. Dijkstra's Algorithm:</strong>
+                        <ul>
+                            <li>Used to find the shortest path between two nodes in a weighted graph.</li>
+                            <li>Dijkstra's algorithm finds the best route from one node to all of the remaining nodes.</li>
+                        </ul>
+                        <strong>Process:</strong>
+                        <div class="process-step">Assign initial distances to all nodes (infinity for all except the start node, which is 0).</div>
+                        <div class="process-step">Update the distances of neighboring nodes iteratively.</div>
+                        <div class="process-step">Select the node with the smallest distance and mark it as finalized.</div>
+                        <div class="process-step">Repeat until the shortest path to the destination is determined.</div>
+                        <strong>Example:</strong>
+                        <div style="margin-top: 20px; text-align: center;">
+                            <img src="dijkstra-example.png" alt="Dijkstra's Algorithm Example" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                            <p style="margin-top: 10px; font-size: 0.9em; color: #666; font-style: italic;">Example: Dijkstra's Algorithm working through a graph</p>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <strong>2. A* Algorithm:</strong>
+                        <ul>
+                            <li>A search algorithm that uses both actual costs (g(n)) and estimated costs to the goal (h(n)) to find the shortest path.</li>
+                        </ul>
+                        <div class="formula">
+                            <strong>Formula:</strong><br>
+                            f(n) = g(n) + h(n), where:<br>
+                            • g(n): Cost from the start node to the current node.<br>
+                            • h(n): Heuristic estimate of the cost from the current node to the goal.
+                        </div>
+                        <ul>
+                            <li>A* algorithm is based on Dijkstra, but adds an extra heuristic (h) value, an intelligent guess on how far we have to go to reach the destination most efficiently.</li>
+                        </ul>
+                        <strong>Key Features:</strong>
+                        <ul>
+                            <li>More efficient in finding paths in large graphs.</li>
+                        </ul>
+
+                        <strong>Worked example:</strong>
+                        <div style="margin-top: 20px;">
+                            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/L10EhczFLxo?si=EMqCcgnyhG40wKY9&amp;start=2043" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                            <p style="margin-top: 10px; font-size: 0.9em; color: #666; font-style: italic; text-align: center;">Video: A* Algorithm Explanation</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">18.1 Point 2: Show understanding of how artificial neural networks have helped with machine learning</h2>
+
+                <p>Artificial Neural Networks are computational models inspired by the structure and functioning of the human brain. They process data through interconnected layers of nodes (neurons) to identify patterns and make predictions.</p>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Structure of ANNs:</h3>
+                    <ul>
+                        <li><strong>1. Input Layer:</strong>
+                            <ul>
+                                <li>Receives input data (e.g., pixel values of an image).</li>
+                            </ul>
+                        </li>
+                        <li><strong>2. Hidden Layers:</strong>
+                            <ul>
+                                <li>Process and transform inputs into patterns through calculations.</li>
+                            </ul>
+                        </li>
+                        <li><strong>3. Output Layer:</strong>
+                            <ul>
+                                <li>Produces final output (e.g., classification or prediction).</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">How ANNs Help Machine Learning:</h3>
+                    <ul>
+                        <li><span class="keyword">Pattern Recognition</span>: ANNs can identify patterns in complex datasets.</li>
+                        <li><span class="keyword">Learning from Data</span>: They improve accuracy through training with data.</li>
+                        <li><span class="keyword">Applications</span>: Image recognition, speech recognition, medical diagnosis, and more.</li>
+                    </ul>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Example Applications:</h3>
+                    <ul>
+                        <li>Spam email filtering.</li>
+                        <li>Self-driving cars.</li>
+                        <li>Facial recognition systems.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">18.1 Point 3: Show understanding of how artificial neural networks are used in machine learning</h2>
+
+                <p>Artificial Neural Networks are used in machine learning to solve complex tasks by learning from examples and adjusting their internal weights.</p>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Steps in Using ANNs:</h3>
+                    <ul>
+                        <li><strong>1. Data Input:</strong> Data is fed into the input layer.</li>
+                        <li><strong>2. Weighted Summation:</strong> Each input is multiplied by a weight, then summed in hidden layers.</li>
+                        <li><strong>3. Activation Function:</strong> Determines whether a neuron should fire based on the input sum.</li>
+                        <li><strong>4. Output:</strong> Final prediction or classification.</li>
+                    </ul>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Training the Network:</h3>
+                    <ul>
+                        <li>Uses labeled data for supervised learning.</li>
+                        <li>Adjusts weights based on errors (backpropagation).</li>
+                        <li>Improves with more training data.</li>
+                    </ul>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Example:</h3>
+                    <p>Training a neural network to recognize handwritten digits using the MNIST dataset.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">18.1 Point 4: Show understanding of how different algorithms are used in machine learning</h2>
+
+                <p>Machine learning uses various algorithms, depending on the task at hand. These algorithms can be classified as supervised, unsupervised, or reinforcement learning.</p>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Supervised Learning Algorithms:</h3>
+                    <ul>
+                        <li><span class="keyword">Decision Trees</span>: Used for classification and regression tasks.</li>
+                        <li><span class="keyword">K-Nearest Neighbors (KNN)</span>: Classifies based on the majority of nearest neighbors.</li>
+                        <li><span class="keyword">Support Vector Machines (SVM)</span>: Finds a hyperplane that separates data classes.</li>
+                    </ul>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Unsupervised Learning Algorithms:</h3>
+                    <ul>
+                        <li><span class="keyword">Clustering (e.g., K-Means)</span>: Groups similar data points.</li>
+                        <li><span class="keyword">Principal Component Analysis (PCA)</span>: Reduces dimensionality while preserving variance.</li>
+                    </ul>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Reinforcement Learning Algorithms:</h3>
+                    <ul>
+                        <li><span class="keyword">Q-Learning</span>: Learns optimal actions through rewards and penalties.</li>
+                        <li><span class="keyword">Policy Gradients</span>: Optimizes policies using gradient ascent.</li>
+                    </ul>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Applications:</h3>
+                    <ul>
+                        <li>Recommendation systems (e.g., Netflix, Spotify).</li>
+                        <li>Fraud detection in banking.</li>
+                        <li>Robotics and game AI.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">18.1 Point 5: Show understanding of how and why machine learning is used in problem-solving</h2>
+
+                <p>Machine learning is used in problem-solving because it can handle complex tasks, improve over time, and automate decision-making.</p>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Reasons for Using Machine Learning:</h3>
+                    <ul>
+                        <li><span class="keyword">Automation</span>: Solves tasks without manual intervention.</li>
+                        <li><span class="keyword">Adaptability</span>: Learns and improves with more data.</li>
+                        <li><span class="keyword">Efficiency</span>: Handles large datasets and complex patterns quickly.</li>
+                    </ul>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Examples:</h3>
+                    <ul>
+                        <li>Predicting customer behavior in marketing.</li>
+                        <li>Detecting anomalies in cybersecurity.</li>
+                        <li>Optimizing supply chain management.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">18.1 Point 6: Show understanding of how regression is used in machine learning</h2>
+
+                <p>Regression is a statistical technique used to model relationships between variables and make continuous predictions.</p>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Regression in Machine Learning:</h3>
+                    <p>Regression is a statistical technique used to model relationships between variables and make continuous predictions.</p>
+                    <p>It helps us understand how an output value (dependent variable, such as house price) changes when one or more input values (independent variables, such as area or number of rooms) change. This makes regression useful for prediction tasks such as weather forecasting.</p>
+
+                    <strong>Key Features:</strong>
+                    <ul>
+                        <li><span class="keyword">Linear Regression</span>: Models a straight-line relationship between variables.</li>
+                        <li><span class="keyword">Polynomial Regression</span>: Models a curved (non-linear) relationship between inputs and outputs by using a polynomial equation, such as one that includes squared or cubed terms (for example, x²).</li>
+                    </ul>
+
+                    <strong>Applications:</strong>
+                    <ul>
+                        <li>Predicting sales trends.</li>
+                        <li>Forecasting weather patterns.</li>
+                        <li>Estimating housing prices.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="download-btn" onclick="downloadHTML()">📥 Download Notes</button>
+
+    <script>
+        function downloadHTML() {
+            const htmlContent = document.documentElement.outerHTML;
+            const blob = new Blob([htmlContent], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'IGCSE_18.1_AI_Machine_Learning_Notes.html';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        document.querySelectorAll('.section').forEach(section => {
+            section.addEventListener('mouseenter', function() {
+                this.style.backgroundColor = '#f0f4ff';
+            });
+            section.addEventListener('mouseleave', function() {
+                this.style.backgroundColor = '#f8f9fa';
+            });
+        });
+    </script>
   </main>
   <div class="actions">
     <p class="actions-heading">Now that you have a general overview of the basics, you can move to Layer 2 by clicking on one of the following buttons:</p>
@@ -325,15 +751,7 @@
       .then(res => res.json())
       .then(data => {
         if (data[point_id]) {
-          const { videos = [], doc } = data[point_id];
-
-          if (doc) {
-            const frame = document.getElementById("doc-frame");
-            frame.src = doc.url;
-            const height = 4750;
-            
-            
-          }
+          const { videos = [] } = data[point_id];
 
           if (videos.length > 0) {
             document.getElementById("video-section").style.display = "block";
@@ -459,15 +877,6 @@
     }
   }
   window.submitHelp = submitHelp;
-</script>
-
-<script>
-window.addEventListener("message", function(event) {
-  if (event.data && event.data.type === 'resize') {
-    var frame = document.getElementById("doc-frame");
-    frame.style.height = (event.data.height + 10) + 'px';
-  }
-});
 </script>
 </body>
 </html>

@@ -229,6 +229,196 @@
       border-radius: 2px;
     }
 
+    body {
+      font-family: 'Segoe UI', 'Arial', sans-serif;
+      background: #fafbfc;
+      color: #222326;
+      line-height: 1.7;
+    }
+    .container {
+      max-width: 850px;
+      margin: 2.5rem auto;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 4px 16px rgba(60,70,90,0.07);
+      padding: 2.2rem 2.5rem;
+    }
+    h1 {
+      font-size: 2.18em;
+      text-align: center;
+      margin-bottom: 0.15em;
+      font-weight: 700;
+      color: #a50035;
+    }
+    .subtitle {
+      text-align: center;
+      color: #d35b5b;
+      font-size: 1.12em;
+      margin-top: 0;
+      margin-bottom: 2em;
+      font-weight: 500;
+    }
+    .section {
+      background: #f9fcff;
+      border: 2px solid #e2e9ee;
+      border-radius: 12px;
+      margin-bottom: 2.1em;
+      padding: 1.2em 1.4em;
+      box-shadow: 0 2px 12px rgba(45,100,180,0.06);
+      transition: box-shadow 0.2s;
+    }
+    .section:hover {
+      box-shadow: 0 4px 20px rgba(45,100,180,0.14);
+    }
+    h2 {
+      font-size: 1.17em;
+      color: #153238;
+      background: #c1ffff;
+      border-left: 6px solid #a50035;
+      padding: 0.63em 0.8em;
+      margin-bottom: 1em;
+      border-radius: 6px;
+      font-weight: 600;
+      margin-top: 0;
+    }
+    ul, ol {
+      margin: 0 0 1.2em 1.7em;
+      padding: 0;
+      line-height: 1.7;
+    }
+    li {
+      margin-bottom: 0.62em;
+    }
+    .official-note {
+      color: #31363c;
+      background: #ffffff;
+      padding: 0.3em 1em 0.3em 0.8em;
+      border-radius: 0 7px 7px 0;
+      font-weight: 500;
+    }
+    .no-bullets {
+      list-style-type: none;
+      margin-left: 2.5em;
+      padding-left: 0;
+    }
+    .example-box {
+      background: #faf3f3;
+      border-radius: 0 7px 7px 0;
+      margin: 0.7em 0 0.7em 0.7em;
+      padding: 0.52em 1em;
+      color: #7c241c;
+      font-size: 1em;
+      font-weight: 500;
+      position: relative;
+      box-shadow: 0 2px 6px rgba(200, 30, 60, 0.04);
+      margin-left: 2em;
+    }
+    .example-box::before {
+      content: "Example:";
+      font-weight: bold;
+      color: #b11414;
+      margin-right: 0.5em;
+    }
+    .fun-tip {
+      color: #255124;
+      background: #f1faf1;
+      padding: 0.32em 1em 0.32em 2.3em;
+      border-radius: 0 7px 7px 0;
+      font-style: italic;
+      position: relative;
+      margin-left: 2em;
+      display: inline-block;
+      margin-top: 0.4em;
+      margin-bottom: 0.4em;
+    }
+    .fun-tip::before {
+      content: "😄";
+      position: absolute;
+      left: 0.68em;
+      top: 0.18em;
+      font-size: 1.16em;
+    }
+    .keyword {
+      font-weight: bold;
+      color: #cb0000;
+      background: none !important;
+      border-radius: 0;
+      padding: 1px 0;
+      position: relative;
+      cursor: help;
+      transition: background 0.12s;
+      border-bottom: 2.5px dotted #cb0000;
+    }
+    .keyword[data-tooltip]:hover::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      left: 50%;
+      bottom: 140%;
+      transform: translateX(-50%);
+      min-width: 120px;
+      max-width: 260px;
+      background: #fffbea;
+      color: #d12525;
+      padding: 0.25em 0.7em;
+      border-radius: 7px;
+      font-size: 0.83em;
+      white-space: pre-line;
+      z-index: 99;
+      opacity: 1;
+      box-shadow: 0 2px 8px rgba(180,100,30,0.10);
+      border: 1px solid #ffe480;
+    }
+    .keyword[data-tooltip]:hover::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 133%;
+      transform: translateX(-50%);
+      border-width: 5px;
+      border-style: solid;
+      border-color: #fffbea transparent transparent transparent;
+    }
+    .table-wrap {
+      background: #fafbfc;
+      border-radius: 7px;
+      padding: 0.7em 1em;
+      margin: 1em 0 1.2em 0;
+      overflow-x: auto;
+    }
+    table {
+      border-collapse: collapse;
+      font-size: 1em;
+      margin: 0 auto;
+    }
+    th, td {
+      padding: 0.36em 0.8em;
+      text-align: center;
+      border: 1px solid #e2e9ee;
+    }
+    th {
+      background: #f6e6f1;
+      color: #8c0632;
+      font-weight: 700;
+    }
+    tr:nth-child(even) td {
+      background: #f8fafd;
+    }
+    .diagram {
+      display: flex;
+      justify-content: center;
+      margin: 1.2em 0;
+    }
+    .diagram img {
+      max-width: 90%;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(60,70,90,0.08);
+    }
+    @media (max-width: 600px) {
+      .container { padding: 1.1em 0.7em; }
+      h1 { font-size: 1.55em; }
+      h2 { font-size: 1em; }
+    }
+
 </style>
 <script defer src="/assets/js/paste-guard.js"></script>
 </head>
@@ -259,7 +449,9 @@
   </div>
 
   <main id="content-area" style="display: none;">
-  <iframe id="doc-frame" class="official-doc" scrolling="no" ></iframe>
+  <div class="container">
+    <h1>Content will be ready soon!</h1>
+  </div>
   </main>
   <div class="actions">
     <p class="actions-heading">Now that you have a general overview of the basics, you can move to Layer 2 by clicking on one of the following buttons:</p>
@@ -325,15 +517,7 @@
       .then(res => res.json())
       .then(data => {
         if (data[point_id]) {
-          const { videos = [], doc } = data[point_id];
-
-          if (doc) {
-            const frame = document.getElementById("doc-frame");
-            frame.src = doc.url;
-            const height = 4750;
-            
-            
-          }
+          const { videos = [] } = data[point_id];
 
           if (videos.length > 0) {
             document.getElementById("video-section").style.display = "block";
@@ -459,15 +643,6 @@
     }
   }
   window.submitHelp = submitHelp;
-</script>
-
-<script>
-window.addEventListener("message", function(event) {
-  if (event.data && event.data.type === 'resize') {
-    var frame = document.getElementById("doc-frame");
-    frame.style.height = (event.data.height + 10) + 'px';
-  }
-});
 </script>
 </body>
 </html>
