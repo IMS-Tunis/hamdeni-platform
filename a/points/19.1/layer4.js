@@ -1,5 +1,9 @@
 import { ensureSupabase } from '../../../layer4-shared.js';
 
+if (window.authSessionReady) {
+  await window.authSessionReady;
+}
+
 const studentName = localStorage.getItem('student_name');
 const username = localStorage.getItem('username');
 const platform = localStorage.getItem('platform');

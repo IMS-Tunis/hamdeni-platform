@@ -14,6 +14,7 @@
   <meta charset="UTF-8" />
   <title>Layer 1 - Theory Note</title>
   <link rel="stylesheet" href="../../dashboard.css" />
+  <script type="module" src="../../../shared/auth-session.js"></script>
 
   <style>
     *, *::before, *::after {
@@ -709,12 +710,12 @@
   </footer>
 
 <script type="module">
-  import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+  import { supabase } from '../../../supabaseClient.js';
 
-  const SUPABASE_URL = "https://tsmzmuclrnyryuvanlxl.supabase.co";
-  const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzbXptdWNscm55cnl1dmFubHhsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc3MzM5NjUsImV4cCI6MjA2MzMwOTk2NX0.-l7Klmp5hKru3w2HOWLRPjCiQprJ2pOjsI-HPTGtAiw";
+  if (window.authSessionReady) {
+    await window.authSessionReady;
+  }
 
-  const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
   const username = localStorage.getItem("username");
   const student_name = localStorage.getItem("student_name");
