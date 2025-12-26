@@ -144,16 +144,25 @@
     }
 
     .layer-menu {
-      margin: 10px auto 25px;
-      text-align: center;
+      position: absolute;
+      top: 1.25rem;
+      left: 1.25rem;
+      text-align: left;
+      z-index: 2;
+    }
+
+    .layer-menu-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin: 0 0 0.45rem;
+      color: rgba(255, 255, 255, 0.85);
     }
 
     .layer-menu-links {
       display: flex;
-      gap: 12px;
-      justify-content: center;
+      gap: 10px;
       flex-wrap: wrap;
-      margin-top: 12px;
+      margin-top: 0.4rem;
     }
 
     .layer-link {
@@ -861,6 +870,14 @@
   <main id="content-area" style="display: none;">
   <div class="page">
   <header class="main-header">
+    <div class="layer-menu" aria-label="Layer navigation">
+      <p class="layer-menu-title">Quick navigation</p>
+      <div class="layer-menu-links">
+        <a class="layer-link" href="layer2.html"><span class="layer-number">2</span> Layer 2</a>
+        <a class="layer-link" href="layer3.html"><span class="layer-number">3</span> Layer 3</a>
+        <a class="layer-link" href="layer4.html"><span class="layer-number">4</span> Layer 4</a>
+      </div>
+    </div>
     <div class="main-header-inner">
       <div>
         <h1>15.2 Boolean algebra and logic circuits</h1>
