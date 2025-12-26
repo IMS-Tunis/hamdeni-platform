@@ -142,6 +142,52 @@
       margin: 0;
     }
 
+    .layer-menu {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      text-align: center;
+      margin-bottom: 1.2rem;
+    }
+
+    .layer-menu-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+      margin-top: 0.4rem;
+    }
+
+    .layer-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: #ffffff;
+      color: #003366;
+      text-decoration: none;
+      font-weight: 600;
+      border: 1px solid #c9d5e5;
+      box-shadow: 0 6px 16px rgba(0, 51, 102, 0.12);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .layer-link:hover {
+      background: #e6f0ff;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(0, 51, 102, 0.18);
+    }
+
+    .layer-link .layer-number {
+      background: #003366;
+      color: #ffffff;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 0.85em;
+    }
+
     .help-wrapper {
       display: flex;
       flex-direction: column;
@@ -259,19 +305,22 @@
   </div>
 
   <main id="content-area" style="display: none;">
+  <div class="layer-menu" aria-label="Layer navigation">
+    <div class="layer-menu-links">
+      <a class="layer-link" href="layer2.html"><span class="layer-number">2</span> Layer 2</a>
+      <a class="layer-link" href="layer3.html"><span class="layer-number">3</span> Layer 3</a>
+      <a class="layer-link" href="layer4.html"><span class="layer-number">4</span> Layer 4</a>
+    </div>
+  </div>
   <iframe id="doc-frame" class="official-doc" scrolling="no" ></iframe>
   </main>
-  <div class="actions">
-    <p class="actions-heading">Now that you have a general overview of the basics, you can move to Layer 2 by clicking on one of the following buttons:</p>
-    <button class="highlight-button btn-clear" onclick="markClear()">✅ Notes are clear</button>
-    <div class="help-wrapper">
-      <button class="highlight-button btn-help" onclick="showHelp()">🆘 Need help</button>
-      <div id="help-section">
-        <textarea id="unclear" rows="4" cols="60" placeholder="Describe what you need help with..."></textarea><br />
-        <button class="highlight-button" onclick="submitHelp()">Submit Help Request</button>
-      </div>
+  <div class="layer-menu">
+    <p class="actions-heading">Quick navigation: jump to another layer</p>
+    <div class="layer-menu-links">
+      <a class="layer-link" href="layer2.html"><span class="layer-number">2</span> Layer 2</a>
+      <a class="layer-link" href="layer3.html"><span class="layer-number">3</span> Layer 3</a>
+      <a class="layer-link" href="layer4.html"><span class="layer-number">4</span> Layer 4</a>
     </div>
-    <button class="highlight-button btn-confused" onclick="markConfused()">😕 I'm confused</button>
   </div>
   <div class="section-divider"></div>
     <div id="video-section" class="videos" style="display:none;">
