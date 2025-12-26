@@ -162,13 +162,13 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>IGCSE 18.1</h1>
-            <p>Artificial Intelligence & Machine Learning</p>
+            <h1>18. Artificial Intelligence</h1>
+            <p>A level Theory notes prepared by Dr. Hamdeni</p>
         </div>
 
         <div class="content">
             <div class="section">
-                <h2 class="section-title">18.1 Point 1: Show understanding of how graphs can be used to aid Artificial Intelligence (AI)</h2>
+                <h2 class="section-title">18.a: Show understanding of how graphs can be used to aid Artificial Intelligenc</h2>
                 
                 <p>Graphs are a key data structure in AI, representing relationships between data points. They are used in various AI applications for solving problems involving paths, networks, and relational data.</p>
 
@@ -190,6 +190,23 @@
                         <li><strong>Network Routing:</strong> Optimizing data transfer in communication networks.</li>
                         <li><strong>Knowledge Representation:</strong> Representing relationships between concepts, such as in semantic networks.</li>
                     </ul>
+                    
+                    <div style="background: white; padding: 20px; margin-top: 20px; border-radius: 10px; border-left: 4px solid #764ba2;">
+                        <h4 style="color: #764ba2; margin-bottom: 15px; font-size: 1.2em;">Example: How graphs can be used in AI in pathfinding</h4>
+                        <div style="display: flex; align-items: flex-start; gap: 15px; flex-wrap: wrap;">
+                            <img src="graph.png" alt="Graph Example" style="max-width: 200px; height: auto; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                            <div style="flex: 1; min-width: 300px;">
+                                <p style="margin-bottom: 15px;">We could use our intelligence to find the shortest route between node A and node D by considering all of the possible routes and calculating the overall distance for each route. We would calculate the following values:</p>
+                                <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 10px;">
+                                    <p style="margin-bottom: 8px;"><strong>For A to B to C to D</strong><br>overall distance is 40 + 10 + 40 = 90</p>
+                                    <p style="margin-bottom: 8px;"><strong>For A to B to F to E to D</strong><br>overall distance is 40 + 15 + 20 + 5 = 80, which is the shortest</p>
+                                    <p style="margin-bottom: 8px;"><strong>For A to F to E to D</strong><br>overall distance is 60 + 20 + 5 = 85</p>
+                                    <p><strong>For A to F to B to C to D</strong><br>overall distance is 60 + 15 + 10 + 40 = 125</p>
+                                </div>
+                                <p style="font-style: italic; color: #666;">For a graph containing 100 nodes this could be quite time consuming. Fortunately, a number of artificial intelligence algorithms have been developed to solve this type of problem.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="subsection">
@@ -202,13 +219,13 @@
                             <li>Dijkstra's algorithm finds the best route from one node to all of the remaining nodes.</li>
                         </ul>
                         <strong>Process:</strong>
-                        <div class="process-step">Assign initial distances to all nodes (infinity for all except the start node, which is 0).</div>
-                        <div class="process-step">Update the distances of neighboring nodes iteratively.</div>
-                        <div class="process-step">Select the node with the smallest distance and mark it as finalized.</div>
-                        <div class="process-step">Repeat until the shortest path to the destination is determined.</div>
- <strong>Example:</strong>
+                        <div class="process-step">1. Assign initial distances to all nodes (infinity for all except the start node, which is 0).</div>
+                        <div class="process-step">2. Update the distances of neighboring nodes iteratively.</div>
+                        <div class="process-step">3. Select the node with the smallest distance and mark it as finalized.</div>
+                        <div class="process-step">4. Repeat until the shortest path to the destination is determined.</div>
+						 <strong>Worked example:</strong>
                         <div style="margin-top: 20px; text-align: center;">
-                            <img src="dijkstra-example.png" alt="Dijkstra's Algorithm Example" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                            <img src="dijkstra-example.png" alt="Dijkstra's Algorithm Example" style="max-width: 80%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                             <p style="margin-top: 10px; font-size: 0.9em; color: #666; font-style: italic;">Example: Dijkstra's Algorithm working through a graph</p>
                         </div>
                     </div>
@@ -231,25 +248,27 @@
                         <ul>
                             <li>More efficient in finding paths in large graphs.</li>
                         </ul>
-						
-						 <strong>Worked example:</strong>
-                        <div style="margin-top: 20px;">
-                            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-							
-					
-								
-								<iframe width="560" height="315" src="https://www.youtube.com/embed/L10EhczFLxo?si=EMqCcgnyhG40wKY9&amp;start=2043" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-								
-								
-                            </div>
-                            <p style="margin-top: 10px; font-size: 0.9em; color: #666; font-style: italic; text-align: center;">Video: A* Algorithm Explanation</p>
-                        </div>
+						 <strong>Solved past paper example:</strong>
+
+<div style="margin-top: 20px;">
+    <a href="https://www.youtube.com/watch?v=L10EhczFLxo&t=2046s" target="_blank" style="display: block; text-decoration: none; max-width: 400px;">
+        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); background: #000;">
+            <img src="https://img.youtube.com/vi/L10EhczFLxo/maxresdefault.jpg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity 0.3s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60px; height: 60px; background: rgba(255, 0, 0, 0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: transform 0.3s;" onmouseover="this.style.transform='translate(-50%, -50%) scale(1.1)'" onmouseout="this.style.transform='translate(-50%, -50%) scale(1)'">
+                <div style="width: 0; height: 0; border-left: 20px solid white; border-top: 12px solid transparent; border-bottom: 12px solid transparent; margin-left: 6px;"></div>
+            </div>
+        </div>
+    </a>
+    <p style="margin-top: 10px; font-size: 0.9em; color: #666; font-style: italic; text-align: center;">Click to watch on YouTube</p>
+</div>
+
+
                     </div>
                 </div>
             </div>
 
             <div class="section">
-                <h2 class="section-title">18.1 Point 2: Show understanding of how artificial neural networks have helped with machine learning</h2>
+                <h2 class="section-title">18.b: How artificial neural networks have helped with machine learning</h2>
                 
                 <p>Artificial Neural Networks are computational models inspired by the structure and functioning of the human brain. They process data through interconnected layers of nodes (neurons) to identify patterns and make predictions.</p>
 
@@ -295,7 +314,7 @@
             </div>
 
             <div class="section">
-                <h2 class="section-title">18.1 Point 3: Show understanding of Deep Learning, Machine Learning and Reinforcement Learning and the reasons for using these methods</h2>
+                <h2 class="section-title">18.c: Deep Learning, Machine Learning and Reinforcement Learning</h2>
 
                 <div class="subsection">
                     <h3 class="subsection-title">Machine Learning (ML):</h3>
@@ -345,7 +364,7 @@
             </div>
 
             <div class="section">
-                <h2 class="section-title">18.1 Point 4: Show understanding of back propagation of errors and regression methods in machine learning</h2>
+                <h2 class="section-title">18.d: Back propagation of errors and regression methods in machine learning</h2>
 
                 <div class="subsection">
                     <h3 class="subsection-title">Backpropagation:</h3>
@@ -381,7 +400,6 @@
         </div>
     </div>
 
-    <button class="download-btn" onclick="downloadHTML()">📥 Download Notes</button>
 
     <script>
         function downloadHTML() {
