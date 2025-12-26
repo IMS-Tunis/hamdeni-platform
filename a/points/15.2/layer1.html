@@ -171,9 +171,14 @@
 
     .layer-menu-links {
       display: flex;
+      flex-direction: column;
       gap: 10px;
-      flex-wrap: wrap;
+      align-items: center;
       margin-top: 0.4rem;
+    }
+
+    header.main-header .layer-menu-links {
+      align-items: flex-start;
     }
 
     .layer-link {
