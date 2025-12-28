@@ -1,205 +1,647 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NRRL1TSE7Z"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-NRRL1TSE7Z');
-</script>
-
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NRRL1TSE7Z"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);} 
+    gtag('js', new Date());
+    gtag('config', 'G-NRRL1TSE7Z');
+  </script>
   <meta charset="UTF-8" />
-  <title>Layer 3 - Structured Questions</title>
-  <link rel="stylesheet" href="../../dashboard.css" />
-  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Layer 3 – Self correction</title>
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      background: #f4f7fb;
+    :root {
+      --bg: #f6f8fc;
+      --card: #ffffff;
+      --text: #000000;
+      --muted: #1f2937;
+      --primary: #0f68c3;
+      --primary-dark: #0a4e93;
+      --accent: #22c55e;
+      --border: #d8e2f1;
+      --soft: #eef2ff;
     }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top left, #f0f4ff, #f8fbff 40%, #f5f7fb 80%);
+      color: var(--text);
+    }
+
     header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: linear-gradient(120deg, #0f68c3, #0a4e93);
+      color: white;
+      padding: 16px 18px 14px;
+      box-shadow: 0 8px 20px rgba(15, 104, 195, 0.28);
+    }
+
+    .header-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px 18px;
+    }
+
+    .header-logo {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .header-logo img {
+      height: 52px;
+      width: auto;
+      display: block;
+      filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.25));
+    }
+
+    .header-main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      text-align: center;
+    }
+
+    .header-title {
+      font-size: 1.24rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      margin: 0;
+    }
+
+    .header-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.92rem;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .meta-pill {
+      border-radius: 12px;
+      padding: 6px 12px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .meta-pill span {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .page {
+      max-width: 1080px;
+      margin: 16px auto 32px;
+      padding: 0 16px 24px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 16px 18px 18px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      border: 1px solid rgba(148, 163, 184, 0.28);
+    }
+
+    .card-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 30px;
-      background-color: #003366;
-      color: white;
-    }
-    .header-left,
-    .header-right { flex: 1; }
-    .header-center { flex: 2; text-align: center; }
-    .header-center h1 { margin: 0; font-size: 1.8em; }
-    .info-line {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 3px;
-      font-size: 1em;
-      color: #f0f0f0;
-    }
-    .logo { height: 55px; }
-
-    .nav-btn {
-      padding: 10px 20px;
-      background: linear-gradient(135deg, #007bff, #66b3ff);
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-      margin-right: 10px;
-      transition: background 0.3s, transform 0.2s;
-      display: inline-block;
-    }
-    .nav-btn:hover {
-      background: linear-gradient(135deg, #0062cc, #3399ff);
-      transform: scale(1.05);
-    }
-    #layer4-btn {
-      font-size: 1.1em;
-      padding: 12px 28px;
-      border-radius: 30px;
-      border: none;
-      background: linear-gradient(45deg, #12c2e9, #c471ed, #f64f59);
-      background-size: 200% 200%;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      cursor: pointer;
-      transition: background-position 0.5s, transform 0.3s, box-shadow 0.3s;
-    }
-    #layer4-btn:hover:not(:disabled) {
-      background-position: right center;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.2);
-    }
-    #layer4-btn:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-    }
-
-    .task-box {
-      background: #eef2f7;
-      border-radius: 10px;
-      padding: 20px;
-      margin-bottom: 20px;
-      text-align: left;
-      border: 1px solid #ccc;
-    }
-    .task-box textarea {
-      width: 100%;
-      min-height: 60px;
-      margin: 10px 0;
-      padding: 8px;
-      font-size: 1em;
-    }
-    .task-box button {
+      gap: 8px;
       margin-bottom: 10px;
-      color: #fff;
-      border: none;
-      padding: 10px 20px;
-      font-size: 1em;
-      font-weight: bold;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.3s, transform 0.2s;
-    }
-    .submit-btn {
-      background: linear-gradient(135deg, #007bff, #66b3ff);
-    }
-    .submit-btn:hover {
-      background: linear-gradient(135deg, #0062cc, #3399ff);
-      transform: scale(1.05);
-    }
-    .save-note-btn {
-      background: linear-gradient(135deg, #ff5722, #ff9800);
-    }
-    .save-note-btn:hover {
-      background: linear-gradient(135deg, #e64a19, #ff7043);
-      transform: scale(1.05);
     }
 
-    #review-notes {
-      background: #fff;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      padding: 20px;
-    }
-    #export-btn {
-      margin-top: 10px;
-      padding: 10px 20px;
-      background: linear-gradient(135deg, #ff9800, #ffc107);
-      color: #fff;
-      border: none;
-      font-weight: bold;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.3s, transform 0.2s;
-    }
-    #export-btn:hover {
-      background: linear-gradient(135deg, #e68900, #e0a800);
-      transform: scale(1.05);
+    .card-header h3 {
+      margin: 0;
+      font-size: 1.05rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
-    main {
-      max-width: 900px;
-      margin: 0 auto;
+    .label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      background: rgba(15, 23, 42, 0.04);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: var(--muted);
     }
 
-    .post-submission-heading {
-      margin: 30px 0;
-      padding: 18px 24px;
-      background: linear-gradient(135deg, #fff4e6, #fffaf0);
-      border-left: 6px solid #f2994a;
+    .label span { font-size: 1rem; }
+
+    .instruction-card {
+      border: 1px dashed var(--border);
+      background: #f8fafc;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+    }
+
+    .instruction-body {
+      display: grid;
+      gap: 12px;
+    }
+
+    .instruction-copy {
+      background: #f8fbff;
+      border: 1px solid var(--border);
       border-radius: 12px;
-      color: #6b3b0f;
-      font-size: 1.2em;
-      line-height: 1.5;
-      box-shadow: 0 4px 16px rgba(102, 59, 15, 0.12);
+      padding: 14px;
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+
+    .instruction-copy ul { margin: 0; padding-left: 20px; }
+
+    .submission-access { margin-top: 16px; text-align: center; }
+
+    .primary-btn {
+      background: var(--primary);
+      border: none;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 0.96rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 10px 25px rgba(15, 104, 195, 0.35);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+
+    .primary-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 12px 30px rgba(10, 78, 147, 0.35);
+    }
+
+    .primary-btn:disabled {
+      opacity: 0.6;
+      cursor: default;
+      box-shadow: none;
+      transform: none;
+    }
+
+    .primary-btn span { font-size: 1.1rem; }
+
+    .status-message {
+      margin-top: 8px;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .status-message.success { color: #0f766e; }
+    .status-message.error { color: #dc2626; }
+
+    .activity-layout {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 16px;
+      align-items: start;
+    }
+
+    .activity-card {
+      position: relative;
+      border: 1px solid var(--border);
+      background: white;
+      overflow: hidden;
+    }
+
+    .activity-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(15, 104, 195, 0.06), rgba(34, 197, 94, 0.05));
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .activity-card-inner {
+      position: relative;
+      display: grid;
+      gap: 10px;
+    }
+
+    .activity-header {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .activity-cover {
+      width: 82px;
+      height: 104px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(15, 23, 42, 0.1);
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.12);
+      background: linear-gradient(145deg, #f8fbff, #eef2ff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .activity-cover img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .activity-heading-text {
+      display: grid;
+      gap: 6px;
+    }
+
+    .activity h3 {
+      margin: 0;
+      font-size: 1.05rem;
+      margin-bottom: 4px;
+    }
+
+    .activity p {
+      margin: 0 0 10px;
+      font-size: 0.92rem;
+      color: var(--text);
+    }
+
+    .activity ul {
+      margin: 0 0 10px;
+      padding-left: 20px;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+
+    .activity ul li { margin-bottom: 4px; }
+
+    .resource-block {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      background: #f8fbff;
+    }
+
+    .resource-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      padding: 12px;
+      background: rgba(15, 104, 195, 0.06);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .resource-title {
+      margin: 0;
+      font-size: 0.98rem;
+      font-weight: 600;
+    }
+
+    .resource-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+      padding: 12px;
+    }
+
+    .resource-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(15, 104, 195, 0.3);
+      background: white;
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 6px 18px rgba(15, 104, 195, 0.12);
+      transition: all 0.15s ease;
+    }
+
+    .resource-link:hover {
+      background: #e6f1ff;
+      color: var(--primary-dark);
+    }
+
+    .nav-footer {
+      margin-top: 8px;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .file-naming {
+      background: #f1f5f9;
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-size: 0.9rem;
+    }
+
+    .file-naming ul { margin: 6px 0 0; padding-left: 18px; }
+
+    .file-naming li { margin-bottom: 2px; }
+
+    .note {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    code {
+      color: #555;
+      background-color: #f2f2f2;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-size: 90%;
+    }
+
+    @media (max-width: 600px) {
+      header { padding: 12px 14px; }
+      .page { padding: 0 12px 20px; }
+      .card { padding: 12px 13px 14px; }
+      .header-title { font-size: 1.05rem; }
+      .header-inner { gap: 8px 10px; }
+      .header-main { align-items: center; }
+      .header-logo img { height: 44px; }
     }
   </style>
-<script defer src="/assets/js/paste-guard.js"></script>
-<script type="module" src="../../../shared/auth-session.js"></script>
 </head>
 <body>
   <header>
-    <div class="header-left">
-      <a href="../../dashboard.html">
-        <img src="../../../images/maarifLOGO.png" class="logo" />
+    <div class="header-inner">
+      <a class="header-logo" href="../../dashboard.html">
+        <img src="../../../images/maarifLOGO.png" alt="Maarif logo" />
       </a>
-    </div>
-    <div class="header-center">
-      <h1>Layer 3: Exam style questions</h1>
-      <div class="info-line">
-        <span id="point-title"></span>
-        <span id="student-name"></span>
-        <span id="platform-name"></span>
+      <div class="header-main">
+        <h1 class="header-title">Layer 3: Exam style questions</h1>
+        <div class="header-meta">
+          <div class="meta-pill">
+            <span id="point-title">Point 18</span>
+          </div>
+          <div class="meta-pill">
+            <span id="student-name">👤 Student</span>
+          </div>
+          <div class="meta-pill">
+            <span id="platform-name">🎓 Platform</span>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="header-right" style="text-align:right;">
-      <img src="../../../images/cambridge.png" class="logo" />
+      <div class="header-logo header-logo--right">
+        <img src="../../../images/cambridge.png" alt="Cambridge logo" />
+      </div>
     </div>
   </header>
 
-  <div style="text-align:left; padding:10px;">
-    <a href="layer2.html" class="nav-btn">← Back to Layer 2</a>
+  <div class="page">
+    <section class="card instruction-card">
+      <div class="card-header">
+        <span class="label"><span>🧭</span> Quick guide for completing this layer</span>
+      </div>
+      <div class="instruction-body">
+        <div class="instruction-copy">
+          <p>You will complete three activities:</p>
+          <ul>
+            <li>Activity 1: Cambridge Coursebook (exam style questions)</li>
+            <li>Activity 2: Hodder Coursebook (end of chapter questions)</li>
+            <li>Activity 3: Cambridge worksheet</li>
+          </ul>
+
+          <p>For each activity, follow these steps:</p>
+          <ol>
+            <li>
+              Step 1: Open the questions PDF and answer all questions in a notebook or on paper,
+              using clear handwriting and separating each question.
+            </li>
+            <li>
+              Step 2: Open the correction PDF and make all changes
+              <strong>in a different color</strong> so they are easy to see.
+            </li>
+            <li>
+              Step 3: Scan or photograph both your first attempt and your corrected work,
+              then upload them using these <strong>exact file names</strong>:
+              <ul>
+                <li>For Cambridge: <code>18_Cambridge_FirstAttempt</code> and <code>18_Cambridge_AfterCorrection</code></li>
+                <li>For Hodder: <code>18_Hodder_FirstAttempt</code> and <code>18_Hodder_AfterCorrection</code></li>
+                <li>For the worksheet: <code>18_Worksheet_FirstAttempt</code> and <code>18_Worksheet_AfterCorrection</code></li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="submission-access">
+        <button id="open-folder" class="primary-btn" type="button" disabled>Open your submission folder</button>
+        <p id="folder-status" class="status-message">Checking your submission link…</p>
+      </div>
+    </section>
+
+    <section class="activity-layout">
+      <article class="card activity activity-card">
+        <div class="activity-card-inner">
+          <div class="activity-header">
+            <div class="activity-cover" aria-hidden="true">
+              <img src="../../covercambridge.png" alt="Cambridge coursebook cover" />
+            </div>
+            <div class="activity-heading-text">
+              <div class="label" aria-hidden="true"><span>📘</span> Cambridge Coursebook</div>
+              <h3>Activity 1: Cambridge Coursebook questions</h3>
+            </div>
+          </div>
+
+          <div class="resource-links">
+            <a class="resource-link" href="cambridge.pdf" target="_blank" rel="noopener"><span>📄</span>Open questions</a>
+            <a class="resource-link" href="cambridgecorrection.pdf" target="_blank" rel="noopener"><span>✅</span>Open correction</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card activity activity-card">
+        <div class="activity-card-inner">
+          <div class="activity-header">
+            <div class="activity-cover" aria-hidden="true">
+              <img src="../../coverhodder.png" alt="Hodder coursebook cover" />
+            </div>
+            <div class="activity-heading-text">
+              <div class="label" aria-hidden="true"><span>📗</span> Hodder Coursebook</div>
+              <h3>Activity 2: Hodder Coursebook questions</h3>
+            </div>
+          </div>
+
+          <div class="resource-links">
+            <a class="resource-link" href="hodder.pdf" target="_blank" rel="noopener"><span>📄</span>Open questions </a>
+            <a class="resource-link" href="hoddercorrection.pdf" target="_blank" rel="noopener"><span>✅</span>Open correction </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card activity activity-card">
+        <div class="activity-card-inner">
+          <div class="activity-header">
+            <div class="activity-cover" aria-hidden="true">
+              <img src="../../coverworksheet.png" alt="Cambridge worksheet cover" />
+            </div>
+            <div class="activity-heading-text">
+              <div class="label" aria-hidden="true"><span>📝</span> Cambridge Worksheet</div>
+              <h3>Activity 3: Cambridge Worksheet practice</h3>
+            </div>
+          </div>
+
+          <div class="resource-links">
+            <a class="resource-link" href="Worksheet.pdf" target="_blank" rel="noopener"><span>📄</span>Open worksheet </a>
+            <a class="resource-link" href="worksheetcorrection.pdf" target="_blank" rel="noopener"><span>✅</span>Open correction </a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <div class="nav-footer">
+      <a class="primary-btn" href="layer4.html"><span>➡️</span> Go to Layer 4</a>
+    </div>
   </div>
 
-  <main style="padding:40px;">
-    <h2 class="post-submission-heading">Answer all the questions. After submitting your answer, check it against the mark scheme and record any weaknesses in your personal notes for future review.</h2>
-    <div id="questions-container"></div>
+  <script type="module" src="../../../shared/auth-session.js"></script>
+  <script type="module">
+    import { supabase } from '../../../supabaseClient.js';
 
-    <div style="text-align:center; margin:20px;">
-      <button id="layer4-btn" class="nav-btn" disabled>Go to Layer 4</button>
-    </div>
+    if (window.authSessionReady) {
+      await window.authSessionReady;
+    }
 
-    <section id="review-notes">
-      <h2 id="notes-title">📝 My Notes</h2>
-      <ul id="notes-list"></ul>
-      <button id="export-btn">Export My Notes as PDF</button>
-    </section>
-  </main>
+    const folderButton = document.getElementById('open-folder');
+    const folderStatus = document.getElementById('folder-status');
+    const pointTitle = document.getElementById('point-title');
+    const studentNameEl = document.getElementById('student-name');
+    const platformNameEl = document.getElementById('platform-name');
 
-  <script type="module" src="layer3.js"></script>
+    const submissionState = {
+      link: ''
+    };
+
+    function setStatus(message, variant = '') {
+      if (!folderStatus) return;
+      folderStatus.textContent = message;
+      folderStatus.className = `status-message${variant ? ' ' + variant : ''}`;
+      folderStatus.style.display = message ? 'block' : 'none';
+    }
+
+    function initHeader() {
+      const studentName = localStorage.getItem('student_name');
+      const platform = localStorage.getItem('platform');
+      if (pointTitle) {
+        pointTitle.textContent = 'Point 18';
+      }
+      if (studentNameEl && studentName) {
+        studentNameEl.textContent = `👤 ${studentName}`;
+      }
+      if (platformNameEl && platform) {
+        platformNameEl.textContent = `🎓 Platform: ${platform}`;
+      }
+    }
+
+    async function loadSubmissionLink() {
+      setStatus('Checking your submission link…');
+      const identifiers = [
+        ['id', localStorage.getItem('student_id')],
+        ['username', localStorage.getItem('username')],
+        ['uuid', localStorage.getItem('uuid')]
+      ].filter(([, value]) => Boolean(value));
+
+      if (!identifiers.length) {
+        console.warn('[Layer3] No usable identifier in localStorage');
+        setStatus(
+          'We could not match your account to a submission folder. Please sign in again from the dashboard or contact your teacher.',
+          'error'
+        );
+        if (folderButton) folderButton.disabled = true;
+        return;
+      }
+
+      console.log('[Layer3] Looking up Link using identifiers:', identifiers);
+
+      let link = null;
+      let lastError = null;
+
+      for (const [column, value] of identifiers) {
+        try {
+          const { data, error } = await supabase
+            .from('students')
+            .select('Link')
+            .eq(column, value)
+            .maybeSingle();
+
+          if (error) {
+            if (error.code === 'PGRST116') {
+              continue;
+            }
+            console.warn(`[Layer3] Lookup by ${column} failed:`, error);
+            lastError = error;
+            continue;
+          }
+
+          if (data && data.Link) {
+            link = data.Link;
+            console.log(`[Layer3] Found Link via ${column}:`, link);
+            break;
+          }
+        } catch (err) {
+          console.warn(`[Layer3] Request error for ${column}:`, err);
+          lastError = err;
+        }
+      }
+
+      if (!link) {
+        console.warn('[Layer3] No Link found for any identifier', { identifiers, lastError });
+        setStatus(
+          'No submission folder is configured for your account. Please contact your teacher.',
+          'error'
+        );
+        if (folderButton) folderButton.disabled = true;
+        return;
+      }
+
+      submissionState.link = link;
+      setStatus('', 'success');
+      if (folderButton) folderButton.disabled = false;
+    }
+
+    if (folderButton) {
+      folderButton.addEventListener('click', () => {
+        if (submissionState.link) {
+          window.open(submissionState.link, '_blank');
+        }
+      });
+    }
+
+    initHeader();
+    loadSubmissionLink();
+  </script>
 </body>
 </html>
