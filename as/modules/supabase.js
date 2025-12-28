@@ -48,7 +48,9 @@ export async function fetchProgressCounts() {
   const username = localStorage.getItem('username');
   const platform = localStorage.getItem('platform');
 
-  if (!username || !platform) return { points: 0, levels: 0, term1Grade: 0 };
+  if (!username || !platform) {
+    return { points: 0, levels: 0, term1Grade: 0, midTermGrade: 0 };
+  }
 
   const encodedUsername = encodeURIComponent(username);
 
@@ -57,7 +59,7 @@ export async function fetchProgressCounts() {
   const base = `${SUPABASE_URL}/rest/v1`;
 
   try {
-    const [tRes, lRes] = await Promise.all([
+    const [tRes, lRes, sRes] = await Promise.all([
       fetch(`${base}/${theoryTable}?select=reached_layer&username=eq.${encodedUsername}`, {
         headers: {
           apikey: SUPABASE_KEY,
@@ -69,11 +71,18 @@ export async function fetchProgressCounts() {
           apikey: SUPABASE_KEY,
           Authorization: 'Bearer ' + SUPABASE_KEY
         }
+      }),
+      fetch(`${base}/students?select=MidTerm&username=eq.${encodedUsername}`, {
+        headers: {
+          apikey: SUPABASE_KEY,
+          Authorization: 'Bearer ' + SUPABASE_KEY
+        }
       })
     ]);
 
     const tData = await tRes.json();
     const lData = await lRes.json();
+    const sData = await sRes.json();
 
     const passedPoints = tData.filter(r => String(r.reached_layer) === '4').length;
     const rawGrade = tData.reduce(
@@ -84,12 +93,15 @@ export async function fetchProgressCounts() {
     const rawReachedLevel = lData.length ? lData[0]?.reached_level ?? 0 : 0;
     const numericReachedLevel = Number(rawReachedLevel);
     const passedLevels = Number.isFinite(numericReachedLevel) ? numericReachedLevel : 0;
-    const result = { points: passedPoints, levels: passedLevels, term1Grade };
+    const rawMidTerm = sData.length ? sData[0]?.MidTerm ?? 0 : 0;
+    const numericMidTerm = Number(rawMidTerm);
+    const midTermGrade = Number.isFinite(numericMidTerm) ? numericMidTerm : 0;
+    const result = { points: passedPoints, levels: passedLevels, term1Grade, midTermGrade };
     console.log('[supabaseModule] Progress counts', result);
     return result;
   } catch (err) {
     console.error('❌ Failed fetching progress counts:', err);
-    return { points: 0, levels: 0, term1Grade: 0 };
+    return { points: 0, levels: 0, term1Grade: 0, midTermGrade: 0 };
   }
 }
 
