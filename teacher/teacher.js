@@ -75,6 +75,9 @@ const gradesModal = document.getElementById('grades-modal');
 const closeGradesBtn = document.getElementById('close-grades');
 const gradesPlatformLabel = document.getElementById('grades-platform-label');
 const gradesTableContainer = document.getElementById('grades-table-container');
+const midtermSection = document.getElementById('midterm-section');
+const midtermInput = document.getElementById('midterm-grade');
+const midtermCurrent = document.getElementById('midterm-current');
 
 if (showGradesBtn) showGradesBtn.disabled = true;
 
@@ -131,11 +134,15 @@ document.getElementById('load-students').onclick = async () => {
 };
 
 async function loadStudentProgress(student) {
-  selectedStudent = { id: student.id, username: student.username };
+  const midtermValue = resolveStudentMidterm(student);
+  selectedStudent = { id: student.id, username: student.username, midterm: midtermValue };
   const username = student.username;
   console.log('[teacher] Loading progress for', username);
   document.getElementById('student-title').textContent = "Progress of " + username;
   document.getElementById('save-progress').style.display = 'block';
+  if (midtermSection) midtermSection.style.display = 'block';
+  if (midtermInput) midtermInput.value = midtermValue ?? '';
+  updateMidtermDisplay(midtermValue);
 
   const tTable = platformTable('theory');
   const lTable = platformTable('programming');
@@ -266,6 +273,12 @@ document.getElementById('save-progress').onclick = async () => {
   document.getElementById('save-progress').disabled = true;
   const msg = document.getElementById('save-msg');
   msg.textContent = "Saving...";
+  const pendingMidtermValue = parseMidtermInputValue();
+  if (pendingMidtermValue === undefined) {
+    msg.textContent = "❌ Midterm grade must be a number.";
+    document.getElementById('save-progress').disabled = false;
+    return;
+  }
 
   for (let point of theoryPoints) {
     console.debug('[teacher] Updating point', point);
@@ -327,7 +340,23 @@ document.getElementById('save-progress').onclick = async () => {
     console.error('[teacher] Failed saving reached_level', err);
   }
 
-  msg.textContent = "✅ Progress saved.";
+  let midtermUpdated = true;
+  if (selectedStudent && selectedStudent.id && midtermInput) {
+    try {
+      await supabase
+        .from('students')
+        .update({ MidTerm: pendingMidtermValue })
+        .eq('id', selectedStudent.id);
+      selectedStudent.midterm = pendingMidtermValue;
+      updateCurrentStudentMidterm(selectedStudent.id, pendingMidtermValue);
+      updateMidtermDisplay(pendingMidtermValue);
+    } catch (err) {
+      midtermUpdated = false;
+      console.error('[teacher] Failed updating MidTerm', err);
+    }
+  }
+
+  msg.textContent = midtermUpdated ? "✅ Progress saved." : "⚠️ Progress saved, but midterm grade failed.";
   document.getElementById('save-progress').disabled = false;
   console.log('[teacher] Progress saved for', selectedStudent.username);
 };
@@ -349,6 +378,38 @@ function platformTable(type) {
     }
   };
   return map[selectedPlatform][type];
+}
+
+function resolveStudentMidterm(student) {
+  if (!student) return null;
+  if (Object.prototype.hasOwnProperty.call(student, 'MidTerm')) return student.MidTerm;
+  if (Object.prototype.hasOwnProperty.call(student, 'midterm')) return student.midterm;
+  return null;
+}
+
+function updateCurrentStudentMidterm(studentId, value) {
+  const idx = currentStudents.findIndex(s => s.id === studentId);
+  if (idx !== -1) {
+    currentStudents[idx] = { ...currentStudents[idx], MidTerm: value };
+  }
+}
+
+function updateMidtermDisplay(value) {
+  if (!midtermCurrent) return;
+  if (value === null || value === undefined || value === '') {
+    midtermCurrent.textContent = 'Current: Not set';
+  } else {
+    midtermCurrent.textContent = `Current: ${value}`;
+  }
+}
+
+function parseMidtermInputValue() {
+  if (!midtermInput) return null;
+  const raw = midtermInput.value.trim();
+  if (raw === '') return null;
+  const parsed = Number(raw);
+  if (!Number.isFinite(parsed)) return undefined;
+  return parsed;
 }
 
 // Add Student modal handlers
