@@ -51,7 +51,7 @@ export async function fetchProgressCounts() {
 
   if (!username || !platform) {
     console.info('[supabaseModule] Guest mode detected, skipping Supabase fetch');
-    return { points: 0, levels: 0, term1Grade: 0, guest: true };
+    return { points: 0, levels: 0, term1Grade: 0, midTermGrade: 0, guest: true };
   }
 
   const encodedUsername = encodeURIComponent(username);
@@ -61,7 +61,7 @@ export async function fetchProgressCounts() {
   const base = `${SUPABASE_URL}/rest/v1`;
 
   try {
-    const [tRes, lRes] = await Promise.all([
+    const [tRes, lRes, sRes] = await Promise.all([
       fetch(`${base}/${theoryTable}?select=point_id,reached_layer&username=eq.${encodedUsername}`, {
         headers: {
           apikey: SUPABASE_KEY,
@@ -73,11 +73,18 @@ export async function fetchProgressCounts() {
           apikey: SUPABASE_KEY,
           Authorization: 'Bearer ' + SUPABASE_KEY
         }
+      }),
+      fetch(`${base}/students?select=MidTerm&username=eq.${encodedUsername}`, {
+        headers: {
+          apikey: SUPABASE_KEY,
+          Authorization: 'Bearer ' + SUPABASE_KEY
+        }
       })
     ]);
 
     const tData = await tRes.json();
     const lData = await lRes.json();
+    const sData = await sRes.json();
 
     const pointLayers = new Map();
     const legacyLayers = [];
@@ -124,12 +131,16 @@ export async function fetchProgressCounts() {
 
     const term1Grade = Math.max(0, 20 * passedLevels + pointScore);
 
-    const result = { points: passedPoints, levels: passedLevels, term1Grade };
+    const rawMidTerm = sData.length ? sData[0]?.MidTerm ?? 0 : 0;
+    const numericMidTerm = Number(rawMidTerm);
+    const midTermGrade = Number.isFinite(numericMidTerm) ? numericMidTerm : 0;
+
+    const result = { points: passedPoints, levels: passedLevels, term1Grade, midTermGrade };
     console.log('[supabaseModule] Progress counts', result);
     return result;
   } catch (err) {
     console.error('❌ Failed fetching progress counts:', err);
-    return { points: 0, levels: 0, term1Grade: 0, guest: true };
+    return { points: 0, levels: 0, term1Grade: 0, midTermGrade: 0, guest: true };
   }
 }
 
