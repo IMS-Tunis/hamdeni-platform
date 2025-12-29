@@ -3,6 +3,7 @@ import { SUPABASE_URL, SUPABASE_KEY } from '../../supabaseConfig.js';
 export async function renderTheoryPoints() {
   console.log("📦 Loading theory points from index.json...");
   const username = localStorage.getItem("username");
+  const guestAccess = !username;
 
   if (!username) {
     console.warn("🚫 No student logged in. Rendering default grey boxes.");
@@ -41,7 +42,7 @@ export async function renderTheoryPoints() {
     return;
   }
 
-  points.forEach(point => {
+  points.forEach((point, index) => {
     console.debug('[theoryRenderer] Rendering point', point.id);
     const entry = progressMap[point.id.toLowerCase()] || {};
     const reached = entry.reached_layer || '0';
@@ -70,6 +71,10 @@ export async function renderTheoryPoints() {
       </div>
     `;
     box.onclick = () => {
+      if (guestAccess && index > 0) {
+        alert("You must log in to see content.");
+        return;
+      }
       localStorage.setItem("current_point", point.id);
       window.location.href = `./points/${point.id}/layer1.html`;
     };

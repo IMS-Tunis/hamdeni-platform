@@ -28,12 +28,15 @@ export async function renderProgrammingLevels() {
   }
 
   const progress = await fetchProgressCounts();
-  const guestAccess = progress?.guest || !localStorage.getItem('username');
+  const guestAccess = !localStorage.getItem('username');
   const totalLevels = levels.length;
 
-  let completed = guestAccess ? totalLevels : Number(progress?.levels ?? 0);
+  let completed = Number(progress?.levels ?? 0);
   if (!Number.isFinite(completed) || completed < 0) {
-    completed = guestAccess ? totalLevels : 0;
+    completed = 0;
+  }
+  if (guestAccess) {
+    completed = 0;
   }
 
   const hasRemainingLevels = completed < totalLevels;
@@ -71,6 +74,10 @@ export async function renderProgrammingLevels() {
     `;
     box.addEventListener("click", () => {
       try {
+        if (guestAccess && levelNumber > 1) {
+          alert("You must log in to see content.");
+          return;
+        }
         if (box.classList.contains("locked")) {
           alert("This level is locked.");
         } else {
