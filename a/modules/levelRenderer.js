@@ -30,14 +30,16 @@ export async function renderProgrammingLevels() {
 
   const progress = await fetchProgressCounts();
   const guestAccess = !localStorage.getItem('username');
-  const totalLevels = levels.length;
 
-  let reached = guestAccess ? totalLevels : Number(progress?.levels ?? 0);
+  let reached = Number(progress?.levels ?? 0);
   if (!Number.isFinite(reached)) {
-    reached = guestAccess ? totalLevels : 0;
+    reached = 0;
   }
   if (reached < 1) {
-    reached = guestAccess ? totalLevels : 1;
+    reached = 1;
+  }
+  if (guestAccess) {
+    reached = 1;
   }
 
   levels.forEach((level, index) => {
@@ -76,6 +78,10 @@ export async function renderProgrammingLevels() {
     `;
     box.addEventListener("click", () => {
       try {
+        if (guestAccess && levelNumber > 1) {
+          alert("You must log in to see content.");
+          return;
+        }
         if (box.classList.contains("locked")) {
           alert("This level is locked.");
         } else {

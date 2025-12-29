@@ -22,7 +22,7 @@ async function updateGeneralProgress() {
 
   const totalLevels = levels.length;
 
-  const { points, levels: levelsDone, guest, midTermGrade } = await fetchProgressCounts();
+  const { points, levels: levelsDone, midTermGrade } = await fetchProgressCounts();
 
   if (termGradeEl) {
     const numericGrade = Number(midTermGrade);
@@ -37,8 +37,8 @@ async function updateGeneralProgress() {
   }
 
   const total = totalPoints + totalLevels;
-  const doneLevels = guest ? totalLevels : levelsDone;
-  const donePoints = guest ? totalPoints : points;
+  const doneLevels = levelsDone;
+  const donePoints = points;
   const done = doneLevels + donePoints;
   const percent = total ? (done / total) * 100 : 0;
   const roundedPercent = Math.round(percent);
