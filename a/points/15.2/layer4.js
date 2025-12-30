@@ -11,6 +11,9 @@ const pointId = (location.pathname.split('/')
   .find(p => /^p\d+$/i.test(p)) || '15.2').toUpperCase();
 const readyKey = `${pointId.toLowerCase()}_layer4_ready`;
 
+const manualLayerPoints = new Set(['15.2', '16.1', '16.2', '17', '18', '19.1']);
+const isManualPoint = manualLayerPoints.has(pointId.toLowerCase());
+
 document.getElementById('point-title').textContent = pointId;
 if (studentName) {
   document.getElementById('student-name').textContent = '👤 ' + studentName;
@@ -60,6 +63,13 @@ async function markReady() {
   const btn = document.getElementById('ready-btn');
   const msg = document.getElementById('ready-message');
 
+  if (isManualPoint) {
+    msg.textContent = 'Progress for this point is recorded manually. Please contact your teacher if you need an update.';
+    msg.style.display = 'block';
+    btn.disabled = true;
+    return;
+  }
+
   if (!supabase || !tableName) {
     msg.textContent = 'Your teacher could not be informed because the connection was blocked in this browser.';
     msg.style.display = 'block';
@@ -98,7 +108,11 @@ async function markReady() {
 const readyBtn = document.getElementById('ready-btn');
 const readyMsg = document.getElementById('ready-message');
 
-if (localStorage.getItem(readyKey)) {
+if (isManualPoint) {
+  readyBtn.disabled = true;
+  readyMsg.textContent = 'Progress for this point is recorded manually. Please contact your teacher if you need an update.';
+  readyMsg.style.display = 'block';
+} else if (localStorage.getItem(readyKey)) {
   readyBtn.disabled = true;
   readyMsg.textContent = 'The teacher has been informed that you are ready for the test. You will sit for a validation test soon.';
   readyMsg.style.display = 'block';
