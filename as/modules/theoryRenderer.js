@@ -1,4 +1,5 @@
 import { SUPABASE_URL, SUPABASE_KEY } from '../../supabaseConfig.js';
+import { showWarning } from '../../shared/guestWarning.js';
 
 export async function renderTheoryPoints() {
   console.log("📦 Loading theory points from index.json...");
@@ -72,7 +73,7 @@ export async function renderTheoryPoints() {
     `;
     box.onclick = () => {
       if (guestAccess && index > 0) {
-        alert("You must log in to see content.");
+        showWarning("You must log in to see content.");
         return;
       }
       localStorage.setItem("current_point", point.id);

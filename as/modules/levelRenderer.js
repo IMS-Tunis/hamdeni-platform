@@ -1,5 +1,6 @@
 
 import { fetchProgressCounts } from "./supabase.js";
+import { showWarning } from "../../shared/guestWarning.js";
 
 export const levels = [
     { title: "Basic Constructs", id: "level1", status: "locked" },
@@ -62,11 +63,11 @@ export async function renderProgrammingLevels() {
     box.addEventListener("click", () => {
       try {
         if (guestAccess && index + 1 > 1) {
-          alert("You must log in to see content.");
+          showWarning("You must log in to see content.");
           return;
         }
         if (box.classList.contains("locked")) {
-          alert("This level is locked.");
+          showWarning("This level is locked.");
         } else {
           window.location.href = `./levels/level${index + 1}.html`;
         }
