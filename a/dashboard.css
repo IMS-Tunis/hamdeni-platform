@@ -273,6 +273,8 @@ body {
   position: relative !important;
   overflow: hidden !important;
   isolation: isolate !important;
+  text-decoration: none !important;
+  color: inherit !important;
   transition: transform 0.3s ease, box-shadow 0.3s ease !important;
 }
 
