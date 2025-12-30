@@ -1,19 +1,14 @@
 import { SUPABASE_URL, SUPABASE_KEY } from '../../supabaseClient.js';
+import { showWarning } from '../../shared/guestWarning.js';
 
 const EXPECTED_PLATFORM = 'IGCSE';
 
 export function verifyPlatform() {
   const stored = localStorage.getItem('platform');
 
-  if (!stored) {
-    console.info('[supabaseModule] Enabling guest access for', EXPECTED_PLATFORM);
-    localStorage.setItem('platform', EXPECTED_PLATFORM);
-    return;
-  }
-
-  if (stored !== EXPECTED_PLATFORM) {
-    console.warn('[supabaseModule] Overriding stored platform for open access');
-    localStorage.setItem('platform', EXPECTED_PLATFORM);
+  if (stored && stored !== EXPECTED_PLATFORM) {
+    showWarning(`Access restricted to ${EXPECTED_PLATFORM} students.`);
+    localStorage.clear();
   }
 }
 
@@ -50,8 +45,8 @@ export async function fetchProgressCounts() {
   const platform = localStorage.getItem('platform');
 
   if (!username || !platform) {
-    console.info('[supabaseModule] Guest mode detected, skipping Supabase fetch');
-    return { points: 0, levels: 0, term1Grade: 0, midTermGrade: 0, guest: true };
+    console.info('[supabaseModule] No login detected, skipping Supabase fetch');
+    return { points: 0, levels: 0, term1Grade: 0, midTermGrade: 0 };
   }
 
   const encodedUsername = encodeURIComponent(username);
@@ -140,7 +135,7 @@ export async function fetchProgressCounts() {
     return result;
   } catch (err) {
     console.error('❌ Failed fetching progress counts:', err);
-    return { points: 0, levels: 0, term1Grade: 0, midTermGrade: 0, guest: true };
+    return { points: 0, levels: 0, term1Grade: 0, midTermGrade: 0 };
   }
 }
 
@@ -154,9 +149,6 @@ export function initializeLogin() {
   const studentName = localStorage.getItem("student_name");
   if (studentName) {
     studentLabel.textContent = "Computer Science Journey progress of: " + studentName;
-  } else if (studentLabel) {
-    studentLabel.textContent = "Guest access enabled – no login required";
-    localStorage.setItem('platform', EXPECTED_PLATFORM);
   }
 
   if (loginBtn) {
@@ -187,16 +179,16 @@ export function initializeLogin() {
           console.log('[supabaseModule] Login successful for', data[0].username);
           location.reload();
         } else if (data.length === 1) {
-          alert(`Please log in through the ${data[0].platform} dashboard.`);
+          showWarning(`Please log in through the ${data[0].platform} dashboard.`);
           console.warn('[supabaseModule] Login blocked for', username);
         } else {
-          alert("Login failed. Check your credentials.");
+          showWarning("Login failed. Check your credentials.");
           console.warn('[supabaseModule] Login failed for', username);
         }
       })
       .catch(error => {
         console.error("❌ Supabase fetch error:", error);
-        alert("Connection to Supabase failed. Check console for details.");
+        showWarning("Connection to Supabase failed. Check console for details.");
       });
     };
   }
