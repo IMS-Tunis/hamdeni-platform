@@ -273,6 +273,8 @@ body {
   position: relative !important;
   overflow: hidden !important;
   isolation: isolate !important;
+  text-decoration: none !important;
+  color: inherit !important;
   transition: transform 0.3s ease, box-shadow 0.3s ease !important;
 }
 
@@ -1237,7 +1239,7 @@ footer {
   border-radius: 2px !important;
 }
 
-/* Compact TERM 1 GRADE badge; sits higher */
+/* Compact TERM 2 GRADE badge; sits higher */
 .header-background + .header-row .term-grade-badge{
   grid-column: 2 / 3 !important;
   grid-row: 1 / 3 !important;      /* span both rows */

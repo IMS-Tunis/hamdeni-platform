@@ -47,6 +47,8 @@ export default function initLayer3(pointId, options = {}) {
   const studentName = localStorage.getItem('student_name');
   const platform = localStorage.getItem('platform');
   const progressKey = `layer3-progress-${pointId}`;
+  const manualLayerPoints = new Set(['15.2', '16.1', '16.2', '17', '18', '19.1']);
+  const isManualPoint = manualLayerPoints.has(String(pointId).toLowerCase());
 
   if (!document.getElementById('layer3-question-style')) {
     const style = document.createElement('style');
@@ -262,6 +264,7 @@ export default function initLayer3(pointId, options = {}) {
   }
 
   async function updateProgress() {
+    if (isManualPoint) return;
     const { supabase: client, tableName } = await ensureSupabase();
     if (!client || !tableName) return;
     const tables = {

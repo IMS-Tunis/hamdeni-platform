@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script src="/assets/js/storage-fallback.js"></script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-NRRL1TSE7Z"></script>
 <script>
@@ -14,11 +15,10 @@
   <meta charset="UTF-8" />
   <title>Layer 2 - Quiz</title>
   <link rel="stylesheet" href="../../dashboard.css" />
+  <script type="module" src="../../../shared/auth-session.js"></script>
   <script type="module">
-    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
-    const SUPABASE_URL = "https://tsmzmuclrnyryuvanlxl.supabase.co";
-    const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzbXptdWNscm55cnl1dmFubHhsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc3MzM5NjUsImV4cCI6MjA2MzMwOTk2NX0.-l7Klmp5hKru3w2HOWLRPjCiQprJ2pOjsI-HPTGtAiw";
-    window.supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+    import { supabase } from '../../../supabaseClient.js';
+    window.supabase = supabase;
   </script>
   <style>
     body {
@@ -295,10 +295,14 @@
     <div id="quiz-result"></div>
   </div>
 
-  <script>
+  <script type="module">
+    if (window.authSessionReady) {
+      await window.authSessionReady;
+    }
     const student_name = localStorage.getItem("student_name");
     const layerPlatform = localStorage.getItem("platform");
     const point_id = "18";
+    window.point_id = point_id;
 
     if (student_name) {
       document.getElementById("student-name").textContent = "👤 " + student_name;

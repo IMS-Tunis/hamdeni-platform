@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+<script src="/assets/js/storage-fallback.js"></script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-NRRL1TSE7Z"></script>
 <script>
@@ -45,6 +46,13 @@
 
     <main class="student-progress">
       <h3 id="student-title">Select a student to view progress</h3>
+      <section class="midterm-section" id="midterm-section" style="display: none;">
+        <label for="midterm-grade">Midterm Grade</label>
+        <div class="midterm-inputs">
+          <input type="number" id="midterm-grade" min="0" step="1" />
+          <span id="midterm-current" class="midterm-current"></span>
+        </div>
+      </section>
       <div class="progress-columns">
         <div id="theory-progress"></div>
         <div id="programming-progress"></div>

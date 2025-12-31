@@ -22,17 +22,16 @@ async function updateGeneralProgress() {
 
   const totalLevels = 16; // defined in levelRenderer
 
-  const { points, levels, term1Grade } = await fetchProgressCounts();
+  const { points, levels, midTermGrade } = await fetchProgressCounts();
 
   if (termGradeEl) {
-    const numericGrade = Number(term1Grade);
+    const numericGrade = Number(midTermGrade);
     const sanitizedGrade = Number.isFinite(numericGrade)
       ? Math.min(100, Math.max(0, numericGrade))
       : 0;
-    const adjustedGrade = Math.max(0, sanitizedGrade - 2);
-    const formattedGrade = Number.isInteger(adjustedGrade)
-      ? adjustedGrade.toString()
-      : adjustedGrade.toFixed(1);
+    const formattedGrade = Number.isInteger(sanitizedGrade)
+      ? sanitizedGrade.toString()
+      : sanitizedGrade.toFixed(1);
 
     termGradeEl.textContent = `${formattedGrade}%`;
   }

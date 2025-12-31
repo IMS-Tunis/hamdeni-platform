@@ -1,19 +1,14 @@
 import { SUPABASE_URL, SUPABASE_KEY } from '../../supabaseClient.js';
+import { showWarning } from '../../shared/guestWarning.js';
 
 const EXPECTED_PLATFORM = 'A_Level';
 
 export function verifyPlatform() {
   const stored = localStorage.getItem('platform');
 
-  if (!stored) {
-    console.info('[supabaseModule] Enabling guest access for', EXPECTED_PLATFORM);
-    localStorage.setItem('platform', EXPECTED_PLATFORM);
-    return;
-  }
-
-  if (stored !== EXPECTED_PLATFORM) {
-    console.warn('[supabaseModule] Overriding stored platform for open access');
-    localStorage.setItem('platform', EXPECTED_PLATFORM);
+  if (stored && stored !== EXPECTED_PLATFORM) {
+    showWarning(`Access restricted to ${EXPECTED_PLATFORM} students.`);
+    localStorage.clear();
   }
 }
 
@@ -55,7 +50,9 @@ export async function fetchProgressCounts() {
   const username = localStorage.getItem('username');
   const platform = localStorage.getItem('platform');
 
-  if (!username || !platform) return { points: 0, levels: 0, term1Grade: 0 };
+  if (!username || !platform) {
+    return { points: 0, levels: 0, term1Grade: 0, midTermGrade: 0 };
+  }
 
   const encodedUsername = encodeURIComponent(username);
 
@@ -64,7 +61,7 @@ export async function fetchProgressCounts() {
   const base = `${SUPABASE_URL}/rest/v1`;
 
   try {
-    const [tRes, lRes] = await Promise.all([
+    const [tRes, lRes, sRes] = await Promise.all([
       fetch(`${base}/${theoryTable}?select=reached_layer&username=eq.${encodedUsername}`, {
         headers: {
           apikey: SUPABASE_KEY,
@@ -76,11 +73,18 @@ export async function fetchProgressCounts() {
           apikey: SUPABASE_KEY,
           Authorization: 'Bearer ' + SUPABASE_KEY
         }
+      }),
+      fetch(`${base}/students?select=MidTerm&username=eq.${encodedUsername}`, {
+        headers: {
+          apikey: SUPABASE_KEY,
+          Authorization: 'Bearer ' + SUPABASE_KEY
+        }
       })
     ]);
 
     const tData = await tRes.json();
     const lData = await lRes.json();
+    const sData = await sRes.json();
 
     const passedPoints = tData.filter(r => String(r.reached_layer) === '4').length;
     const rawGrade = tData.reduce(
@@ -94,12 +98,15 @@ export async function fetchProgressCounts() {
     } else {
       passedLevels = lData.filter(r => r.level_done).length;
     }
-    const result = { points: passedPoints, levels: passedLevels, term1Grade };
+    const rawMidTerm = sData.length ? sData[0]?.MidTerm ?? 0 : 0;
+    const numericMidTerm = Number(rawMidTerm);
+    const midTermGrade = Number.isFinite(numericMidTerm) ? numericMidTerm : 0;
+    const result = { points: passedPoints, levels: passedLevels, term1Grade, midTermGrade };
     console.log('[supabaseModule] Progress counts', result);
     return result;
   } catch (err) {
     console.error('❌ Failed fetching progress counts:', err);
-    return { points: 0, levels: 0, term1Grade: 0 };
+    return { points: 0, levels: 0, term1Grade: 0, midTermGrade: 0 };
   }
 }
 
@@ -113,9 +120,6 @@ export function initializeLogin() {
   const studentName = localStorage.getItem("student_name");
   if (studentName) {
     studentLabel.textContent = "Computer Science Journey progress of: " + studentName;
-  } else if (studentLabel) {
-    studentLabel.textContent = "Guest access enabled – no login required";
-    localStorage.setItem('platform', EXPECTED_PLATFORM);
   }
 
   if (loginBtn) {
@@ -146,16 +150,16 @@ export function initializeLogin() {
           console.log('[supabaseModule] Login successful for', data[0].username);
           location.reload();
         } else if (data.length === 1) {
-          alert(`Please log in through the ${data[0].platform} dashboard.`);
+          showWarning(`Please log in through the ${data[0].platform} dashboard.`);
           console.warn('[supabaseModule] Login blocked for', username);
         } else {
-          alert("Login failed. Check your credentials.");
+          showWarning("Login failed. Check your credentials.");
           console.warn('[supabaseModule] Login failed for', username);
         }
       })
       .catch(error => {
         console.error("❌ Supabase fetch error:", error);
-        alert("Connection to Supabase failed. Check console for details.");
+        showWarning("Connection to Supabase failed. Check console for details.");
       });
     };
   }

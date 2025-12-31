@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script src="/assets/js/storage-fallback.js"></script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-NRRL1TSE7Z"></script>
 <script>
@@ -171,9 +172,14 @@
 
     .layer-menu-links {
       display: flex;
+      flex-direction: column;
       gap: 10px;
-      flex-wrap: wrap;
+      align-items: center;
       margin-top: 0.4rem;
+    }
+
+    header.main-header .layer-menu-links {
+      align-items: flex-start;
     }
 
     .layer-link {
@@ -1856,21 +1862,23 @@
   </footer>
 
 <script type="module">
-  import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+  import { supabase } from '../../../supabaseClient.js';
 
-  const SUPABASE_URL = "https://tsmzmuclrnyryuvanlxl.supabase.co";
-  const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzbXptdWNscm55cnl1dmFubHhsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc3MzM5NjUsImV4cCI6MjA2MzMwOTk2NX0.-l7Klmp5hKru3w2HOWLRPjCiQprJ2pOjsI-HPTGtAiw";
-
-  const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
-
+  const point_id = "15.2";
   const username = localStorage.getItem("username");
   const student_name = localStorage.getItem("student_name");
   const platform = localStorage.getItem("platform");
-  const point_id = "15.2";
 
-  if (!username || !student_name) {
-    document.getElementById("error-message").style.display = "block";
-  } else {
+  async function initializePage() {
+    if (window.authSessionReady) {
+      await window.authSessionReady;
+    }
+
+    if (!username || !student_name) {
+      document.getElementById("error-message").style.display = "block";
+      return;
+    }
+
     document.getElementById("student-name").textContent = "👤 " + student_name;
     document.getElementById("platform-name").textContent = "🎓 Platform: " + platform;
     document.getElementById("content-area").style.display = "block";
@@ -1903,6 +1911,8 @@
         }
       });
   }
+
+  initializePage();
 
   async function updateProgress() {
     const platform = localStorage.getItem("platform");
