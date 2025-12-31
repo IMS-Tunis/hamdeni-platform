@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Level 4: Iteration – WHILE and REPEAT…UNTIL Loops</title>
+  <link rel="stylesheet" href="../levels.css">
+</head>
+<body>
+
+<!-- Header (mirrors prior level structure) -->
+<div class="header">
+  <div class="container">
+    <div class="header-bar">
+      <a class="brand" href="../../dashboard.html" aria-label="Go to dashboard">
+        <img src="../logo.png" alt="logo" class="brand-logo">
+      </a>
+      <div class="header-main">
+        <h1>Level 4: Iteration – WHILE and REPEAT…UNTIL Loops</h1>
+        <p>IGCSE Computer Science (0478): student notes, prepared by Dr. Hamdeni</p>
+      </div>
+      <a class="btn btn-home" href="../../dashboard.html" aria-label="Go to dashboard">
+        <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+          <path d="M3 10.5L12 3l9 7.5v9a1 1 0 0 1-1 1h-5.5a1 1 0 0 1-1-1v-5h-3v5a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-9zM5 11.1V19h3.5v-5a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v5H19v-7.9L12 5.6 5 11.1z"/>
+        </svg>
+        <span>Home</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="toc">
+    <strong>Contents</strong>
+    <ol>
+      <li><a href="#s1">WHILE loop</a></li>
+      <li><a href="#s2">REPEAT…UNTIL loop</a></li>
+    </ol>
+  </div>
+
+  <!-- Section 1: WHILE loop -->
+  <div class="section" id="s1">
+    <h2>1. WHILE loop</h2>
+    <ul class="bullets">
+      <li>A WHILE loop is a pre-condition loop that tests the condition before the first iteration; it repeats while the condition is TRUE and stops when the condition becomes FALSE.
+        <ul>
+          <li>If the condition is FALSE at the start, the statements inside the loop do not run.</li>
+          <li>Cambridge pseudocode structure: WHILE condition DO … ENDWHILE.</li>
+          <li>The test for exiting the loop is at the beginning of the loop.</li>
+        </ul>
+
+        <div class="example">
+          <p>This example shows a WHILE loop that outputs ten stars using a counter.</p>
+          <div class="pseudocode">
+            <div class="pc-line">
+              <span class="comment" data-tooltip="initialise counter to 0">
+                <em>Counter ← 0</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment" data-tooltip="start loop while counter is less than 10">
+                <em>WHILE Counter &lt; 10 DO</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment" data-tooltip="display an asterisk">
+                <em>  OUTPUT "*"</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment" data-tooltip="increase counter by 1">
+                <em>  Counter ← Counter + 1</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment" data-tooltip="end of WHILE loop">
+                <em>ENDWHILE</em>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="example">
+          <p>This example shows a WHILE loop using a counter to output 1 to 10.</p>
+          <div class="pseudocode">
+            <div class="pc-line">
+              <span class="comment" data-tooltip="initialise Number to 1">
+                <em>Number &lt;- 1</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment" data-tooltip="start loop while Number is less than 11">
+                <em>WHILE Number &lt; 11 DO</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment" data-tooltip="display the value of Number">
+                <em>  OUTPUT(Number)</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment" data-tooltip="increase Number by 1">
+                <em>  Number &lt;- Number + 1</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment" data-tooltip="end of WHILE loop">
+                <em>ENDWHILE</em>
+              </span>
+            </div>
+          </div>
+        </div>
+
+      </li>
+    </ul>
+  </div>
+
+  <!-- Section 2: REPEAT…UNTIL loop -->
+  <div class="section" id="s2">
+    <h2>2. REPEAT…UNTIL loop</h2>
+    <ul class="bullets">
+      <li>A REPEAT…UNTIL loop is a post-condition loop that runs its statements once and then checks the condition at the end; it repeats until the condition becomes TRUE (that is, it loops while the condition is FALSE).
+        <ul>
+          <li>Cambridge pseudocode structure: REPEAT … UNTIL Condition.</li>
+          <li>The actions in this loop are always completed at least once.</li>
+          <li>The test for exiting the loop is at the end of the loop.</li>
+        </ul>
+
+        <div class="example">
+          <p>This example shows a REPEAT … UNTIL loop that outputs ten stars using a counter.</p>
+          <div class="pseudocode">
+            <div class="pc-line">
+              <span class="comment" data-tooltip="initialise counter to 0">
+                <em>Counter ← 0</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment" data-tooltip="begin repeat block">
+                <em>REPEAT</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment" data-tooltip="display an asterisk">
+                <em>  OUTPUT "*"</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment" data-tooltip="increase counter by 1">
+                <em>  Counter ← Counter + 1</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment" data-tooltip="stop when counter is greater than 9">
+                <em>UNTIL Counter &gt; 9</em>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="example">
+          <p>This example shows a REPEAT…UNTIL loop that continues asking until the user enters "Yes".</p>
+          <div class="pseudocode">
+            <div class="pc-line">
+              <span class="comment" data-tooltip="begin repeat block">
+                <em>REPEAT</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment" data-tooltip="display the question">
+                <em>  OUTPUT ("Do you want to stop?")</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment" data-tooltip="read input into Answer">
+                <em>  INPUT Answer</em>
+              </span>
+            </div>
+            <div class="pc-line">
+              <span class="comment" data-tooltip="stop when Answer equals Yes">
+                <em>UNTIL Answer = "Yes"</em>
+              </span>
+            </div>
+          </div>
+        </div>
+
+      </li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="footer">© IGCSE CS (0478) - Student notes prepared by Dr. Hamdeni</div>
+
+<center> <a href="exercises.html" class="btn btn-cta" role="button">Ready to Practice</a> </center>
+
+</body>
+</html>

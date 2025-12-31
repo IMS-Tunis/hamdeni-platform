@@ -88,17 +88,6 @@
       "answer": "+"
     },
     {
-      "type": "mcq",
-      "question": "Which option is an Absorption law?",
-      "options": [
-        "A + 0 = A",
-        "A + A.B = A",
-        "A + A = A",
-        "(Ā)̄ = A"
-      ],
-      "answer": "A + A.B = A"
-    },
-    {
       "type": "true_false",
       "question": "The commutative law states that A.B = B.A and A + B = B + A.",
       "answer": "True"

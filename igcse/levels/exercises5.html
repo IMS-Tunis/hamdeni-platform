@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Level 5 - Conditional Loops</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ms-bg:#eafaf1;        /* light green background for mark scheme */
+      --ms-border:#b7e4c7;    /* green border */
+      --ms-title:#065f46;     /* deep green title */
+
+      /* Rose Noir theme: darker pink + darker grey */
+      --bg:#eef0f4;
+      --panel:#ffffff;
+      --panel-2:#f6f7fa;
+      --text:#1f2937;        /* slate-800 */
+      --muted:#475569;       /* slate-600 */
+      --accent:#e11d48;      /* rose-600 */
+      --accent-2:#be185d;    /* rose-700 */
+      --link:#db2777;        /* rose-600 link */
+      --ok:#16a34a;          /* green-600 */
+      --code-bg:#f4f5f7;
+      --code-text:#111827;
+      --border:#cbd5e1;      /* slate-300 */
+      --shadow:0 10px 28px rgba(2,6,23,.08);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      background:
+        radial-gradient(800px 400px at 85% -10%, rgba(225,29,72,.10), transparent 60%),
+        radial-gradient(700px 380px at 5% 20%, rgba(190,24,93,.10), transparent 60%),
+        linear-gradient(180deg,#f4f6fa 0%, var(--bg) 100%);
+      color:var(--text);
+      display:flex;
+      min-height:100vh;
+    }
+    /* Top-right actions */
+    .top-right-actions{
+      position:fixed;
+      top:12px; right:12px; z-index:1200;
+      display:flex; gap:10px; align-items:center;
+    }
+    .pill-btn{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:10px 14px; border-radius:999px; text-decoration:none;
+      color:#fff; font-weight:700; letter-spacing:.2px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      box-shadow:0 8px 20px rgba(225,29,72,.28);
+      border:1px solid rgba(225,29,72,.25);
+    }
+    .pill-btn.secondary{
+      background:linear-gradient(135deg,#94a3b8,#64748b);
+      color:#f8fafc; border:1px solid rgba(100,116,139,.35);
+      box-shadow:0 8px 20px rgba(100,116,139,.25);
+    }
+    /* Sidebar */
+    .sidebar{
+      width:280px;
+      background:linear-gradient(180deg,var(--panel) 0%, var(--panel-2) 100%);
+      border-right:1px solid var(--border);
+      padding:18px 16px;
+      position:sticky;
+      top:0;
+      height:100vh;
+      overflow:auto;
+      box-shadow:var(--shadow);
+    }
+    .brand{display:flex; align-items:center; gap:12px; margin-bottom:12px}
+    .logo{
+      width:44px; height:44px; border-radius:10px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:flex; align-items:center; justify-content:center;
+      font-weight:800; color:#fff5f7;
+      box-shadow:0 8px 22px rgba(190,24,93,.25);
+    }
+    .brand-text .title{font-weight:800; letter-spacing:.2px}
+    .brand-text .subtitle{color:var(--muted); font-size:.92rem}
+    .nav{display:flex; flex-direction:column; gap:6px; margin-top:8px}
+    .nav-item{
+      display:block; padding:10px 12px; border-radius:10px; text-decoration:none;
+      color:var(--text); border:1px solid transparent; background:transparent; transition:.15s;
+    }
+    .nav-item:hover{background:#ffe4ec}
+    .nav-item.active{border-color:var(--accent); background:#ffe1ea}
+    .sidebar-footer{display:flex; flex-direction:column; gap:8px; margin-top:16px}
+    .btn{
+      border:none; padding:10px 12px; border-radius:10px; cursor:pointer; font-weight:700;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2)); color:#fff5f7;
+      box-shadow:0 8px 20px rgba(225,29,72,.28);
+    }
+    .btn.ghost{
+      background:transparent; color:var(--text); border:1px solid var(--border); box-shadow:none
+    }
+    .btn.ghost:hover{border-color:var(--accent); background:#fff1f5}
+    /* Main content */
+    .content{flex:1; padding:82px 22px 22px 22px; display:flex; flex-direction:column; gap:16px}
+    .points-container{display:grid; gap:16px}
+    /* Cards */
+    .card{
+      background:var(--panel);
+      border:1px solid var(--border);
+      border-radius:16px; overflow:hidden;
+      box-shadow:var(--shadow);
+    }
+    .card-header{
+      display:flex; align-items:center; justify-content:space-between; gap:8px;
+      padding:12px 14px; border-bottom:1px solid var(--border);
+      background:linear-gradient(180deg,#ffffff 0%, #fff0f4 100%);
+    }
+    .card-header h3{margin:0; font-size:1rem; letter-spacing:.2px}
+    .card-body{padding:14px}
+    .card-body p{margin:0 0 10px 0}
+    pre.code, pre.ms{
+      background:var(--code-bg); color:var(--code-text); border:1px solid var(--border);
+      padding:12px; border-radius:12px; overflow:auto;
+      font-family:'JetBrains Mono',ui-monospace,Consolas,monospace; font-size:.95rem; line-height:1.45
+    }
+    .mark-scheme{padding:12px 14px 14px 14px; border-top:1px dashed var(--ms-border); background:var(--ms-bg); border-radius:0 0 16px 16px}
+    .ms-title{display:flex; align-items:center; gap:8px; margin:12px 0 8px 0; font-weight:800; color:var(--ms-title)}
+    .ms-title .dot{width:10px; height:10px; border-radius:999px; background:var(--ok)}
+    .actions{display:flex; gap:8px; align-items:center}
+    table.trace{width:100%; border-collapse:collapse; margin:10px 0; font-size:.95rem; background:#fff}
+    table.trace th, table.trace td{border:1px solid var(--border); padding:8px; text-align:center}
+    @media (max-width: 900px){
+      .top-right-actions{top:56px}
+      .content{padding-top:120px}
+
+      .sidebar{position:fixed; transform:translateX(-100%); transition:.2s; z-index:1000}
+      .sidebar.open{transform:none}
+      .content{padding:16px}
+      .mobile-toggle{display:inline-flex}
+      .top-right-actions{right:8px}
+    }
+    .mobile-toggle{display:none; position:fixed; top:12px; left:12px; z-index:1100; background:#ffffff; border:1px solid var(--border); color:var(--text); padding:10px 12px; border-radius:10px; box-shadow:var(--shadow)}
+  </style>
+</head>
+<body>
+  <!-- Top-right Home/Theory buttons -->
+  <div class="top-right-actions" role="navigation" aria-label="Quick links">
+    <a class="pill-btn secondary" href="./index.html" title="Home">🏠 Home</a>
+    <a class="pill-btn" href="./theory.html" title="Theory Notes">📚 Theory Notes</a>
+  </div>
+
+  <button class="mobile-toggle" id="mobileToggle" aria-controls="sidebar" aria-expanded="false">Menu</button>
+  <aside class="sidebar" id="sidebar" aria-label="Exercise navigation">
+    <div class="brand">
+      <div class="logo">0478</div>
+      <div class="brand-text">
+        <div class="title">Level 5</div>
+        <div class="subtitle">Conditional Loops (WHILE, REPEAT UNTIL)</div>
+      </div>
+    </div>
+
+    <nav class="nav" id="nav"></nav>
+
+    <div class="sidebar-footer">
+      <button id="expandAll" class="btn ghost">Show all mark schemes</button>
+      <button id="collapseAll" class="btn ghost">Hide all mark schemes</button>
+    </div>
+  </aside>
+
+  <main class="content">
+
+    <section id="pointsContainer" class="points-container" aria-live="polite">
+
+      <!-- Exercise 1 -->
+      <article class="card exercise" id="ex-1" data-idx="1">
+        <header class="card-header">
+          <h3>Exercise 1 - Identify loop type</h3>
+          <div class="actions">
+            <button class="btn ghost toggle-ms" aria-expanded="false" aria-controls="ms-1">Show mark scheme</button>
+          </div>
+        </header>
+        <div class="card-body">
+          <p>For each snippet, state: 1) whether it is a pre-condition or post-condition loop, and 2) whether the body runs at least once.</p>
+          <pre class="code"><code>A)
+WHILE x &lt; 5 DO
+  x ← x + 1
+ENDWHILE
+
+B)
+REPEAT
+  x ← x + 1
+UNTIL x ≥ 5</code></pre>
+        </div>
+        <div class="mark-scheme" id="ms-1" hidden>
+          <div class="ms-title"><span class="dot"></span>Mark scheme</div>
+          <pre class="ms"><code>A) pre-condition; may run zero times
+B) post-condition; runs at least once
+
+Explanation: WHILE tests before the body; REPEAT...UNTIL tests after the body.</code></pre>
+        </div>
+      </article>
+
+      <!-- Exercise 2 -->
+      <article class="card exercise" id="ex-2" data-idx="2">
+        <header class="card-header">
+          <h3>Exercise 2 - State the purpose</h3>
+          <div class="actions">
+            <button class="btn ghost toggle-ms" aria-expanded="false" aria-controls="ms-2">Show mark scheme</button>
+          </div>
+        </header>
+        <div class="card-body">
+          <p>Read the algorithm and write one clear sentence that explains what it does overall.</p>
+          <pre class="code"><code>ValidCount ← 0
+REPEAT
+  INPUT Mark
+  IF Mark ≥ 0 AND Mark ≤ 100 THEN
+    ValidCount ← ValidCount + 1
+  ENDIF
+UNTIL Mark = -1
+OUTPUT "Valid entries: ", ValidCount</code></pre>
+        </div>
+        <div class="mark-scheme" id="ms-2" hidden>
+          <div class="ms-title"><span class="dot"></span>Mark scheme</div>
+          <pre class="ms"><code>Counts how many marks in 0..100 are entered before -1 is input.
+Reason: Only values in 0..100 increase ValidCount; -1 ends the loop.</code></pre>
+        </div>
+      </article>
+
+      <!-- Exercise 3 -->
+      <article class="card exercise" id="ex-3" data-idx="3">
+        <header class="card-header">
+          <h3>Exercise 3 - Input validation with WHILE</h3>
+          <div class="actions">
+            <button class="btn ghost toggle-ms" aria-expanded="false" aria-controls="ms-3">Show mark scheme</button>
+          </div>
+        </header>
+        <div class="card-body">
+          <p>Write pseudocode that repeatedly asks for an integer <strong>Score</strong> until it is in 0..20 inclusive, then outputs: <code>Accepted score: &lt;value&gt;</code>.</p>
+        </div>
+        <div class="mark-scheme" id="ms-3" hidden>
+          <div class="ms-title"><span class="dot"></span>Mark scheme</div>
+          <pre class="ms"><code>INPUT Score
+WHILE Score &lt; 0 OR Score &gt; 20 DO
+  OUTPUT "Invalid. Enter a value from 0 to 20."
+  INPUT Score
+ENDWHILE
+OUTPUT "Accepted score: ", Score
+
+Key points: out-of-range condition uses OR; re-input occurs inside loop.</code></pre>
+        </div>
+      </article>
+
+      <!-- Exercise 4 -->
+      <article class="card exercise" id="ex-4" data-idx="4">
+        <header class="card-header">
+          <h3>Exercise 4 - Trace a post-condition loop</h3>
+          <div class="actions">
+            <button class="btn ghost toggle-ms" aria-expanded="false" aria-controls="ms-4">Show mark scheme</button>
+          </div>
+        </header>
+        <div class="card-body">
+          <p>Using the input sequence, complete the trace table and state the final output.</p>
+          <pre class="code"><code>Algorithm:
+Sum ← 0
+REPEAT
+  INPUT V
+  IF V ≥ 0 THEN
+    Sum ← Sum + V
+  ENDIF
+UNTIL V = -1
+OUTPUT Sum
+
+Input sequence: 4, 7, -2, 5, -1</code></pre>
+          <table class="trace" aria-label="Trace table">
+            <thead><tr><th>Iteration</th><th>V</th><th>Sum</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td></td><td></td></tr>
+              <tr><td>2</td><td></td><td></td></tr>
+              <tr><td>3</td><td></td><td></td></tr>
+              <tr><td>4</td><td></td><td></td></tr>
+              <tr><td>End</td><td>-</td><td></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="mark-scheme" id="ms-4" hidden>
+          <div class="ms-title"><span class="dot"></span>Mark scheme</div>
+          <pre class="ms"><code>Iteration  V   Sum
+1          4   4
+2          7   11
+3          -2  11
+4          5   16
+End        -   16
+
+Final output: 16
+Reason: Only non-negative inputs add; -1 ends the loop.</code></pre>
+        </div>
+      </article>
+
+      <!-- Exercise 5 -->
+      <article class="card exercise" id="ex-5" data-idx="5">
+        <header class="card-header">
+          <h3>Exercise 5 - Convert WHILE to REPEAT UNTIL</h3>
+          <div class="actions">
+            <button class="btn ghost toggle-ms" aria-expanded="false" aria-controls="ms-5">Show mark scheme</button>
+          </div>
+        </header>
+        <div class="card-body">
+          <p>Rewrite the WHILE loop using REPEAT...UNTIL so that it behaves the same in all cases, including when the first input is 0.</p>
+          <pre class="code"><code>Total ← 0
+INPUT X
+WHILE X ≠ 0 DO
+  Total ← Total + X
+  INPUT X
+ENDWHILE
+OUTPUT Total</code></pre>
+        </div>
+        <div class="mark-scheme" id="ms-5" hidden>
+          <div class="ms-title"><span class="dot"></span>Mark scheme</div>
+          <pre class="ms"><code>Total ← 0
+REPEAT
+  INPUT X
+  IF X ≠ 0 THEN
+    Total ← Total + X
+  ENDIF
+UNTIL X = 0
+OUTPUT Total
+
+Explanation: Do not add the terminating 0; input occurs inside the loop.</code></pre>
+        </div>
+      </article>
+
+      <!-- Exercise 6 -->
+      <article class="card exercise" id="ex-6" data-idx="6">
+        <header class="card-header">
+          <h3>Exercise 6 - Fix the termination condition</h3>
+          <div class="actions">
+            <button class="btn ghost toggle-ms" aria-expanded="false" aria-controls="ms-6">Show mark scheme</button>
+          </div>
+        </header>
+        <div class="card-body">
+          <p>The algorithm should count positive integers and stop when a non-positive value is entered. Identify the error and write a corrected version.</p>
+          <pre class="code"><code>Count ← 0
+INPUT N
+REPEAT
+  IF N &gt; 0 THEN
+    Count ← Count + 1
+  ENDIF
+UNTIL N &gt; 0
+OUTPUT Count</code></pre>
+        </div>
+        <div class="mark-scheme" id="ms-6" hidden>
+          <div class="ms-title"><span class="dot"></span>Mark scheme</div>
+          <pre class="ms"><code>Count ← 0
+REPEAT
+  INPUT N
+  IF N &gt; 0 THEN
+    Count ← Count + 1
+  ENDIF
+UNTIL N ≤ 0
+OUTPUT Count
+
+Explanation: Terminate on N ≤ 0 and re-input N inside the loop.</code></pre>
+        </div>
+      </article>
+
+      <!-- Exercise 7 -->
+      <article class="card exercise" id="ex-7" data-idx="7">
+        <header class="card-header">
+          <h3>Exercise 7 - WHILE with a compound condition</h3>
+          <div class="actions">
+            <button class="btn ghost toggle-ms" aria-expanded="false" aria-controls="ms-7">Show mark scheme</button>
+          </div>
+        </header>
+        <div class="card-body">
+          <p>How many iterations execute, and what are the final values of <code>x</code> and <code>y</code>?</p>
+          <pre class="code"><code>x ← 1
+y ← 6
+WHILE (x &lt; 5) AND (y &lt; 10) DO
+  x ← x + 2
+  y ← y + 1
+ENDWHILE</code></pre>
+        </div>
+        <div class="mark-scheme" id="ms-7" hidden>
+          <div class="ms-title"><span class="dot"></span>Mark scheme</div>
+          <pre class="ms"><code>Iterations: 3
+Final values: x = 5, y = 8
+Reason: After passes → (3,7), (5,8); third test fails because x &lt; 5 is false.</code></pre>
+        </div>
+      </article>
+
+      <!-- Exercise 8 -->
+      <article class="card exercise" id="ex-8" data-idx="8">
+        <header class="card-header">
+          <h3>Exercise 8 - Sentinel-controlled average</h3>
+          <div class="actions">
+            <button class="btn ghost toggle-ms" aria-expanded="false" aria-controls="ms-8">Show mark scheme</button>
+          </div>
+        </header>
+        <div class="card-body">
+          <p>Write pseudocode that repeatedly inputs non-negative integers, stops when −1 is entered, and outputs the integer average of the values entered before −1. If none are entered, output 0. Do not use arrays.</p>
+        </div>
+        <div class="mark-scheme" id="ms-8" hidden>
+          <div class="ms-title"><span class="dot"></span>Mark scheme</div>
+          <pre class="ms"><code>Total ← 0
+Count ← 0
+INPUT Value
+WHILE Value ≠ -1 DO
+  Total ← Total + Value
+  Count ← Count + 1
+  INPUT Value
+ENDWHILE
+IF Count = 0 THEN
+  OUTPUT 0
+ELSE
+  OUTPUT Total DIV Count
+ENDIF</code></pre>
+        </div>
+      </article>
+
+      <!-- Exercise 9 -->
+      <article class="card exercise" id="ex-9" data-idx="9">
+        <header class="card-header">
+          <h3>Exercise 9 - Explain precise termination</h3>
+          <div class="actions">
+            <button class="btn ghost toggle-ms" aria-expanded="false" aria-controls="ms-9">Show mark scheme</button>
+          </div>
+        </header>
+        <div class="card-body">
+          <p>Read the algorithm and explain exactly when and why the loop stops, in one clear sentence.</p>
+          <pre class="code"><code>Word ← INPUT()
+L ← 1
+R ← LEN(Word)
+Result ← TRUE
+WHILE (L &lt; R) AND (Result = TRUE) DO
+  IF Word[L] ≠ Word[R] THEN
+    Result ← FALSE
+  ELSE
+    L ← L + 1
+    R ← R - 1
+  ENDIF
+ENDWHILE
+OUTPUT Result</code></pre>
+        </div>
+        <div class="mark-scheme" id="ms-9" hidden>
+          <div class="ms-title"><span class="dot"></span>Mark scheme</div>
+          <pre class="ms"><code>The loop stops if a mismatch is found (Result becomes FALSE) or when pointers meet or cross (L ≥ R), meaning all mirrored characters matched.</code></pre>
+        </div>
+      </article>
+
+      <!-- Exercise 10 -->
+      <article class="card exercise" id="ex-10" data-idx="10">
+        <header class="card-header">
+          <h3>Exercise 10 - Trace and justify termination</h3>
+          <div class="actions">
+            <button class="btn ghost toggle-ms" aria-expanded="false" aria-controls="ms-10">Show mark scheme</button>
+          </div>
+        </header>
+        <div class="card-body">
+          <p>For <code>N = 20</code>, trace each iteration, then state: 1) the number of iterations and 2) the final value of <code>K</code>.</p>
+          <pre class="code"><code>K ← 0
+P ← 1
+WHILE P &lt; N DO
+  P ← P * 2
+  K ← K + 1
+ENDWHILE
+OUTPUT K</code></pre>
+        </div>
+        <div class="mark-scheme" id="ms-10" hidden>
+          <div class="ms-title"><span class="dot"></span>Mark scheme</div>
+          <pre class="ms"><code>Trace:
+Start: K = 0, P = 1
+After 1st: P = 2,  K = 1
+After 2nd: P = 4,  K = 2
+After 3rd: P = 8,  K = 3
+After 4th: P = 16, K = 4
+After 5th: P = 32, K = 5 → stop (P &lt; N is false)
+
+Iterations: 5
+Final K = 5</code></pre>
+        </div>
+      </article>
+
+    </section>
+
+  </main>
+
+  <script>
+  // Build sidebar nav, toggle mark schemes, expand or collapse all, and mobile menu.
+  document.addEventListener('DOMContentLoaded', () => {
+    const sidebar = document.getElementById('sidebar');
+    const mobileToggle = document.getElementById('mobileToggle');
+    const cards = Array.from(document.querySelectorAll('.exercise'));
+    const nav = document.getElementById('nav');
+    const expandAllBtn = document.getElementById('expandAll');
+    const collapseAllBtn = document.getElementById('collapseAll');
+
+    // Mobile menu toggling
+    mobileToggle?.addEventListener('click', () => {
+      const open = sidebar.classList.toggle('open');
+      mobileToggle.setAttribute('aria-expanded', String(open));
+    });
+
+    // Build sidebar nav items
+    const frag = document.createDocumentFragment();
+    cards.forEach((card) => {
+      const idx = card.getAttribute('data-idx');
+      const a = document.createElement('a');
+      a.href = `#ex-${idx}`;
+      a.className = 'nav-item';
+      a.textContent = `Exercise ${idx}`;
+      frag.appendChild(a);
+    });
+    nav.appendChild(frag);
+
+    // Scroll spy highlight
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const id = entry.target.getAttribute('id');
+        const link = nav.querySelector(`a[href="#${id}"]`);
+        if (link) {
+          if (entry.isIntersecting) link.classList.add('active');
+          else link.classList.remove('active');
+        }
+      });
+    }, {rootMargin: "0px 0px -70% 0px", threshold: 0.1});
+    cards.forEach(c => obs.observe(c));
+
+    // Per-card toggle
+    cards.forEach((card) => {
+      const btn = card.querySelector('.toggle-ms');
+      const ms = card.querySelector('.mark-scheme');
+      btn.addEventListener('click', () => {
+        const isHidden = ms.hasAttribute('hidden');
+        if (isHidden) {
+          ms.removeAttribute('hidden');
+          btn.setAttribute('aria-expanded', 'true');
+          btn.textContent = 'Hide mark scheme';
+        } else {
+          ms.setAttribute('hidden', '');
+          btn.setAttribute('aria-expanded', 'false');
+          btn.textContent = 'Show mark scheme';
+        }
+      });
+    });
+
+    // Global expand/collapse
+    expandAllBtn?.addEventListener('click', () => {
+      cards.forEach((card) => {
+        const ms = card.querySelector('.mark-scheme');
+        const btn = card.querySelector('.toggle-ms');
+        if (ms && ms.hasAttribute('hidden')) {
+          ms.removeAttribute('hidden');
+          btn?.setAttribute('aria-expanded', 'true');
+          if (btn) btn.textContent = 'Hide mark scheme';
+        }
+      });
+    });
+    collapseAllBtn?.addEventListener('click', () => {
+      cards.forEach((card) => {
+        const ms = card.querySelector('.mark-scheme');
+        const btn = card.querySelector('.toggle-ms');
+        if (ms && !ms.hasAttribute('hidden')) {
+          ms.setAttribute('hidden', '');
+          btn?.setAttribute('aria-expanded', 'false');
+          if (btn) btn.textContent = 'Show mark scheme';
+        }
+      });
+    });
+  });
+  </script>
+</body>
+</html>
