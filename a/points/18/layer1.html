@@ -51,6 +51,73 @@
       font-size: 1.8em;
     }
 
+    .syllabus-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 2px solid #ffd54f;
+      background: #ffb300;
+      color: #0b1b3a;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .syllabus-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+    }
+
+    .syllabus-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 9999;
+    }
+
+    .syllabus-modal.is-open {
+      display: flex;
+    }
+
+    .syllabus-modal-content {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 24px;
+      max-width: 900px;
+      width: 100%;
+      max-height: 85vh;
+      overflow: auto;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+      position: relative;
+    }
+
+    .syllabus-modal-content img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      border: 1px solid #e0e0e0;
+    }
+
+    .syllabus-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: #003366;
+      color: #ffffff;
+      border: none;
+      border-radius: 999px;
+      padding: 6px 12px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
     .info-line {
       display: flex;
       justify-content: center;
@@ -480,10 +547,20 @@
       </div>
     </div>
     <div class="header-right" style="text-align:right;">
+      <button class="syllabus-button" type="button" id="open-syllabus" aria-haspopup="dialog" aria-controls="syllabus-modal">
+        📌 Syllabus
+      </button>
       <img src="../../../images/cambridge.png" class="logo" />
 
     </div>
   </header>
+  <div class="syllabus-modal" id="syllabus-modal" role="dialog" aria-modal="true" aria-labelledby="syllabus-title">
+    <div class="syllabus-modal-content">
+      <button class="syllabus-close" type="button" id="close-syllabus">Close ✕</button>
+      <h2 id="syllabus-title" style="margin-top: 0; color: #003366;">AI Syllabus Points</h2>
+      <img src="AI%20syllabus.png" alt="AI syllabus points for this page">
+    </div>
+  </div>
 
   <div id="error-message" style="display: none;">
     ⚠️ You must be logged in to view this content.
@@ -763,6 +840,23 @@
             section.addEventListener('mouseleave', function() {
                 this.style.backgroundColor = '#f8f9fa';
             });
+        });
+
+        const syllabusModal = document.getElementById('syllabus-modal');
+        const openSyllabus = document.getElementById('open-syllabus');
+        const closeSyllabus = document.getElementById('close-syllabus');
+
+        const toggleSyllabus = (show) => {
+            syllabusModal.classList.toggle('is-open', show);
+        };
+
+        openSyllabus.addEventListener('click', () => toggleSyllabus(true));
+        closeSyllabus.addEventListener('click', () => toggleSyllabus(false));
+
+        syllabusModal.addEventListener('click', (event) => {
+            if (event.target === syllabusModal) {
+                toggleSyllabus(false);
+            }
         });
     </script>
   </main>
