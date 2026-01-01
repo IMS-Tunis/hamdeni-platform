@@ -404,6 +404,13 @@
       text-align: left;
     }
 
+    .header-title-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
     .header h1 {
       font-size: 2.5em;
       margin-bottom: 10px;
@@ -551,7 +558,6 @@
         📌 Syllabus
       </button>
       <img src="../../../images/cambridge.png" class="logo" />
-
     </div>
   </header>
   <div class="syllabus-modal" id="syllabus-modal" role="dialog" aria-modal="true" aria-labelledby="syllabus-title">
@@ -578,7 +584,12 @@
                     </div>
                 </div>
                 <div class="header-text">
-                    <h1>18. Artificial Intelligence</h1>
+                    <div class="header-title-row">
+                        <h1>18. Artificial Intelligence</h1>
+                        <button class="syllabus-button" type="button" id="open-syllabus" aria-haspopup="dialog" aria-controls="syllabus-modal">
+                          📌 Syllabus
+                        </button>
+                    </div>
                     <p>A level Theory notes prepared by Dr. Hamdeni</p>
                 </div>
             </div>
