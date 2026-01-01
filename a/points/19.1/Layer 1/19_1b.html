@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>19.1b</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <h1 class="main-title">19.1 Algorithms</h1>
+      <div class="sub-title">Theory notes prepared by Dr. Hamdeni</div>
+      <nav class="nav"><a class='nav-link' href='19_1a.html'>19.1a</a>
+<a class='nav-link active' href='19_1b.html'>19.1b</a>
+<a class='nav-link' href='19_1c.html'>19.1c</a>
+<a class='nav-link' href='19_1d.html'>19.1d</a>
+<a class='nav-link' href='19_1e.html'>19.1e</a>
+<a class='nav-link' href='annex_19_1.html'>Annex</a></nav>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="sidebar"><div class='sommaire'><div class='sommaire-title'>Sommaire</div><ul class='sommaire-list'><li class='sommaire-item'><a href='#sec_1_Insertion_sort_algorithm_idea'>1) Insertion sort (algorithm idea)</a></li><li class='sommaire-item'><a href='#sec_2_Bubble_sort_algorithm_idea'>2) Bubble sort (algorithm idea)</a></li><li class='sommaire-item'><a href='#sec_3_Performance_depends_on_initial_order_and_number_of_items'>3) Performance depends on initial order and number of items</a></li><li class='sommaire-subsub'><a href='#sec_3_Performance_depends_on_initial_order_and_number_of_items__A_Effect_of_the_number_of_items'>A. Effect of the number of items</a></li><li class='sommaire-subsub'><a href='#sec_3_Performance_depends_on_initial_order_and_number_of_items__B_Effect_of_the_initial_order_of_the_data'>B. Effect of the initial order of the data</a></li><li class='sommaire-subsub2'><a href='#sec_3_Performance_depends_on_initial_order_and_number_of_items__Example'>Example:</a></li></ul></div></aside>
+
+    <section class="content">
+      <section class="syllabus-card">
+        <div class="hero-title"><div class='hero-code'>19.1b:</div><div class='hero-rest'>Show understanding of insertion sort and bubble sort methods:</div></div>
+        <div class="targets-wrap"><ul class='targets level-0'>
+<li>Write an algorithm to implement an insertion sort</li>
+<li>Write an algorithm to implement a bubble sort</li>
+<li>Performance of a sorting routine may depend on the initial order of the data and the number of data items</li>
+</ul></div>
+      </section>
+      
+<section class="note-card" id="sec_1_Insertion_sort_algorithm_idea">
+  <h2 class="subheading">1) Insertion sort (algorithm idea)</h2>
+  <div class="note-body"><ul class='note-list level-0'>
+<li>Insertion sort treats the list as having a sorted part and an unsorted part. Each new item from the unsorted part is inserted into its correct position in the sorted part.</li>
+<li>The loop takes the next item (ItemToBeInserted), then shifts larger sorted items one position to the right until the correct insertion position is reached, then inserts the item.</li>
+<li><a class="annex-link" href="annex_19_1.html#InsertionSortPseudo" data-annex="InsertionSortPseudo">See <a class="annex-link" href="annex_19_1.html#InsertionSortPseudo" data-annex="InsertionSortPseudo">Annex: InsertionSortPseudo</a></a> and <a class="annex-link" href="annex_19_1.html#InsertionSortPython" data-annex="InsertionSortPython">Annex: InsertionSortPython</a>.</li>
+</ul></div>
+</section>
+
+<section class="note-card" id="sec_2_Bubble_sort_algorithm_idea">
+  <h2 class="subheading">2) Bubble sort (algorithm idea)</h2>
+  <div class="note-body"><ul class='note-list level-0'>
+<li>Bubble sort repeatedly compares adjacent items and swaps them if they are in the wrong order.</li>
+<li>An inner loop performs adjacent comparisons and swaps; a variable (Unsorted) is reduced each outer pass, so the algorithm does fewer comparisons as the largest items move into their final positions.</li>
+<li><a class="annex-link" href="annex_19_1.html#BubbleSortPseudo" data-annex="BubbleSortPseudo">See <a class="annex-link" href="annex_19_1.html#BubbleSortPseudo" data-annex="BubbleSortPseudo">Annex: BubbleSortPseudo</a></a> and <a class="annex-link" href="annex_19_1.html#BubbleSortPython" data-annex="BubbleSortPython">Annex: BubbleSortPython</a>.</li>
+</ul></div>
+</section>
+
+<section class="note-card" id="sec_3_Performance_depends_on_initial_order_and_number_of_items">
+  <h2 class="subheading">3) Performance depends on initial order and number of items</h2>
+  <div class="note-body"><p class='note-paragraph'>How fast a sorting method works depends on two things: how many items there are and how the data is arranged at the start.</p>
+<a id='sec_3_Performance_depends_on_initial_order_and_number_of_items__A_Effect_of_the_number_of_items'></a><h3 class='subsub-heading level3'>A. Effect of the number of items</h3>
+<ul class='note-list level-0'>
+<li>When the list has more items, the sorting method must do more repeated steps, so the sorting time increases.</li>
+<li>Bubble sort repeats many comparisons (and swaps when needed). The key repeated check is: IF MyList[j] &gt; MyList[j + 1].</li>
+<li>Example (bubble sort, worst case): the number of comparisons grows quickly as n increases.</li>
+</ul>
+<div class='table-wrap'><table class='doc-table'><thead><tr><th>n (items)</th><th>comparisons</th></tr></thead><tbody><tr><td>1</td><td>0</td></tr><tr><td>2</td><td>1</td></tr><tr><td>3</td><td>3</td></tr><tr><td>4</td><td>6</td></tr><tr><td>5</td><td>10</td></tr><tr><td>6</td><td>15</td></tr></tbody></table></div>
+<ul class='note-list level-0'>
+<ul class='note-list level-1'>
+<li>The total number of comparisons follows the sum of the first (n minus 1) whole numbers, giving 1/2 × n × (n − 1).</li>
+</ul>
+<li>As the number of elements increases, bubble sort performance can worsen faster than insertion sort. See the curve in the figure below:</li>
+</ul>
+<p class='note-paragraph'>Figure : bubblke sort VS insertion Sort evolution</p>
+<div class='figure-wrap'><img class='doc-figure' src='images/img_01.png' alt=''></div>
+<ul class='note-list level-0'>
+<ul class='note-list level-1'>
+<li>What the figure should show: when the number of items becomes large, the bubble sort curve rises more sharply than the insertion sort curve.</li>
+</ul>
+</ul>
+<a id='sec_3_Performance_depends_on_initial_order_and_number_of_items__B_Effect_of_the_initial_order_of_the_data'></a><h3 class='subsub-heading level3'>B. Effect of the initial order of the data</h3>
+<ul class='note-list level-0'>
+<li>To test performance properly, change the starting order of items (already in order, reverse order, mixed) and observe the effect.</li>
+<li>both algorithms are fast on sorted data and slow on reversed data, but on partially sorted data insertion sort typically performs better because it can place an item into its correct position in one insertion step, while bubble sort moves items gradually via neighbour swaps across multiple passes.:</li>
+</ul>
+<a id='sec_3_Performance_depends_on_initial_order_and_number_of_items__Example'></a><h4 class='subsub-heading level4'>Example:</h4>
+<p class='note-paragraph'>List: [1,2,3,4,6,7,8,9,5]</p>
+<p class='note-paragraph'>Insertion sort</p>
+<ul class='note-list level-0'>
+<li>When it reaches the last item 5, it inserts it after 4 by shifting 6,7,8,9 right once.</li>
+<li>Sorted immediately: [1,2,3,4,5,6,7,8,9] (done in one outer step)</li>
+</ul>
+<p class='note-paragraph'>Bubble sort</p>
+<ul class='note-list level-0'>
+<li>5 moves left only one position per pass (neighbour swaps):</li>
+<ul class='note-list level-1'>
+<li>Pass 1: [1,2,3,4,6,7,8,5,9]</li>
+<li>Pass 2: [1,2,3,4,6,7,5,8,9]</li>
+<li>Pass 3: [1,2,3,4,6,5,7,8,9]</li>
+<li>Pass 4: [1,2,3,4,5,6,7,8,9]</li>
+</ul>
+</ul>
+<p class='note-paragraph'>Point: insertion places 5 correctly in one step; bubble needs several passes because it keeps finding a new swap each pass.</p></div>
+</section>
+
+    </section>
+  </main>
+
+  <div class="modal-backdrop" id="annexModalBackdrop" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-label="Annex code">
+    <div class="modal-header">
+      <div class="modal-title" id="annexModalTitle"></div>
+      <button class="modal-close" id="annexModalClose" type="button">Close</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-codewrap" id="annexModalCodeWrap"></div>
+      <div class="tip-panel visible" id="modalTipPanel" aria-hidden="false"></div>
+    </div>
+  </div>
+</div>
+  <script src="script.js"></script>
+</body>
+</html>

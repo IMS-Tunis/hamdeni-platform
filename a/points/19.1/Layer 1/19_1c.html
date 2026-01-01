@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>19.1c</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <h1 class="main-title">19.1 Algorithms</h1>
+      <div class="sub-title">Theory notes prepared by Dr. Hamdeni</div>
+      <nav class="nav"><a class='nav-link' href='19_1a.html'>19.1a</a>
+<a class='nav-link' href='19_1b.html'>19.1b</a>
+<a class='nav-link active' href='19_1c.html'>19.1c</a>
+<a class='nav-link' href='19_1d.html'>19.1d</a>
+<a class='nav-link' href='19_1e.html'>19.1e</a>
+<a class='nav-link' href='annex_19_1.html'>Annex</a></nav>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="sidebar"><div class='sommaire'><div class='sommaire-title'>Sommaire</div><ul class='sommaire-list'><li class='sommaire-item'><a href='#sec_1_Linked_List'>1) Linked List</a></li><li class='sommaire-subsub'><a href='#sec_1_Linked_List__What_a_linked_list_node_stores'>What a linked list node stores</a></li><li class='sommaire-subsub'><a href='#sec_1_Linked_List__Array_based_linked_list'>Array based linked list</a></li><li class='sommaire-subsub'><a href='#sec_1_Linked_List__The_free_list_how_unused_nodes_are_tracked'>The free list (how unused nodes are tracked)</a></li><li class='sommaire-subsub'><a href='#sec_1_Linked_List__Algorithm_1_Find_search_in_a_linked_list'>Algorithm 1: Find (search) in a linked list</a></li><li class='sommaire-subsub'><a href='#sec_1_Linked_List__Algorithm_2_Insertion_of_a_new_node'>Algorithm 2: Insertion of a new node</a></li><li class='sommaire-subsub'><a href='#sec_1_Linked_List__Algorithm_3_Delete_remove_one_item'>Algorithm 3: Delete (remove one item)</a></li><li class='sommaire-item'><a href='#sec_2_Stack'>2) Stack</a></li><li class='sommaire-subsub'><a href='#sec_2_Stack__Algorithm_0_Initialise_the_stack'>Algorithm 0: Initialise the stack</a></li><li class='sommaire-subsub'><a href='#sec_2_Stack__Algorithm_1_Check_if_the_stack_is_empty'>Algorithm 1: Check if the stack is empty</a></li><li class='sommaire-subsub'><a href='#sec_2_Stack__Algorithm_2_Check_if_the_stack_is_full'>Algorithm 2: Check if the stack is full</a></li><li class='sommaire-subsub'><a href='#sec_2_Stack__Algorithm_3_Push'>Algorithm 3: Push</a></li><li class='sommaire-subsub'><a href='#sec_2_Stack__Algorithm_4_Pop'>Algorithm 4: Pop</a></li><li class='sommaire-subsub2'><a href='#sec_2_Stack__Underflow_and_overflow'>Underflow and overflow</a></li><li class='sommaire-item'><a href='#sec_3_Queue'>3) Queue</a></li><li class='sommaire-subsub'><a href='#sec_3_Queue__Core_idea_FIFO'>Core idea (FIFO)</a></li><li class='sommaire-subsub'><a href='#sec_3_Queue__Array_based_queue_representation_fixed_size'>Array-based queue representation (fixed size)</a></li><li class='sommaire-subsub'><a href='#sec_3_Queue__Wrap_round_circular_queue'>Wrap-round (circular queue)</a></li><li class='sommaire-subsub'><a href='#sec_3_Queue__Algorithm_1_Initialise_a_queue'>Algorithm 1: Initialise a queue</a></li><li class='sommaire-subsub'><a href='#sec_3_Queue__Algorithm_2_Add_an_item_enQueue'>Algorithm 2: Add an item (enQueue)</a></li><li class='sommaire-subsub'><a href='#sec_3_Queue__Algorithm_3_Remove_an_item_deQueue'>Algorithm 3: Remove an item (deQueue)</a></li><li class='sommaire-item'><a href='#sec_4_Binary_Tree'>4) Binary Tree</a></li><li class='sommaire-subsub'><a href='#sec_4_Binary_Tree__Core_idea_and_key_terms'>Core idea and key terms</a></li><li class='sommaire-subsub'><a href='#sec_4_Binary_Tree__Array_representation_of_the_tree'>Array representation of the tree</a></li><li class='sommaire-subsub'><a href='#sec_4_Binary_Tree__Initialising_an_empty_tree'>Initialising an empty tree</a></li><li class='sommaire-subsub'><a href='#sec_4_Binary_Tree__Inserting_a_new_value'>Inserting a new value</a></li><li class='sommaire-subsub'><a href='#sec_4_Binary_Tree__Finding_a_value_search'>Finding a value (search)</a></li><li class='sommaire-subsub'><a href='#sec_4_Binary_Tree__Why_this_tree_supports_faster_search_than_linear_scanning'>Why this tree supports faster search than linear scanning</a></li><li class='sommaire-item'><a href='#sec_5_Graph'>5) Graph</a></li><li class='sommaire-subsub'><a href='#sec_5_Graph__What_a_graph_is'>What a graph is</a></li><li class='sommaire-subsub'><a href='#sec_5_Graph__Key_features_of_a_graph'>Key features of a graph</a></li><li class='sommaire-subsub'><a href='#sec_5_Graph__Weighted_graphs'>Weighted graphs</a></li><li class='sommaire-subsub'><a href='#sec_5_Graph__Directed_and_undirected'>Directed and undirected</a></li><li class='sommaire-subsub'><a href='#sec_5_Graph__Paths_and_cycles'>Paths and cycles</a></li><li class='sommaire-subsub'><a href='#sec_5_Graph__Why_graphs_are_useful'>Why graphs are useful</a></li><li class='sommaire-subsub'><a href='#sec_5_Graph__How_a_graph_can_be_stored'>How a graph can be stored</a></li><li class='sommaire-subsub2'><a href='#sec_5_Graph__Adjacency_matrix'>Adjacency matrix</a></li><li class='sommaire-subsub2'><a href='#sec_5_Graph__Adjacency_list'>Adjacency list</a></li></ul></div></aside>
+
+    <section class="content">
+      <section class="syllabus-card">
+        <div class="hero-title"><div class='hero-code'>19.1c:</div><div class='hero-rest'>Show understanding of and use Abstract Data Types (ADT):</div></div>
+        <div class="targets-wrap"><ul class='targets level-0'>
+<li>Write algorithms to find an item in each of the following: linked list, binary tree</li>
+<li>Write algorithms to insert an item into each of the following: stack, queue, linked list, binary tree</li>
+<li>Write algorithms to delete an item from each of the following: stack, queue, linked list</li>
+<li>Show understanding that a graph is an example of an ADT. Describe the key features of a graph and justify its use for a given situation. (Candidates will not be required to write code for this structure.)</li>
+</ul></div>
+      </section>
+      
+<section class="note-card" id="sec_1_Linked_List">
+  <h2 class="subheading">1) Linked List</h2>
+  <div class="note-body"><a id='sec_1_Linked_List__What_a_linked_list_node_stores'></a><h3 class='subsub-heading level3'>What a linked list node stores</h3>
+<ul class='note-list level-0'>
+<li>A linked list is made of nodes.</li>
+<li>Each node stores:</li>
+<ul class='note-list level-1'>
+<li>a Data field (the value)</li>
+<li>a Pointer (also called link) field that stores where the next node is.</li>
+</ul>
+<li>The pointer of the last node stores a null value (meaning “no next node”).</li>
+</ul>
+<a id='sec_1_Linked_List__Array_based_linked_list'></a><h3 class='subsub-heading level3'>Array based linked list</h3>
+<p class='note-paragraph'>A common way to implement a linked list is to store nodes inside an array:</p>
+<ul class='note-list level-0'>
+<li>Each array position is a node record with:</li>
+<ul class='note-list level-1'>
+<li>Data</li>
+<li>Pointer (the index of the next node, or NullPointer).</li>
+</ul>
+<li>StartPointer stores the index of the first node in the list (or NullPointer if the list is empty).</li>
+<li>FreeListPtr stores the index of the first free (unused) node.</li>
+<li>NullPointer is often -1 when array indices start at 0.</li>
+</ul>
+<a id='sec_1_Linked_List__The_free_list_how_unused_nodes_are_tracked'></a><h3 class='subsub-heading level3'>The free list (how unused nodes are tracked)</h3>
+<ul class='note-list level-0'>
+<li>Unused nodes are connected together in their own linked list called the free list.</li>
+<li>FreeListPtr points to the first free node, and each free node’s pointer links to the next free node.</li>
+<li>When you insert a node, you take the first node from the free list and move FreeListPtr forward.</li>
+<li>When you delete a node, you return that node to the free list by linking it back to FreeListPtr.</li>
+</ul>
+<a id='sec_1_Linked_List__Algorithm_1_Find_search_in_a_linked_list'></a><h3 class='subsub-heading level3'>Algorithm 1: Find (search) in a linked list</h3>
+<p class='note-paragraph'>Goal: locate the node whose Data equals a target value.</p>
+<ul class='note-list level-0'>
+<li>Start from StartPointer.</li>
+<li>Repeat:</li>
+<ul class='note-list level-1'>
+<li>compare the current node’s Data to the target</li>
+<li>if not equal, follow the pointer to the next node</li>
+</ul>
+<li>Stop when:</li>
+<ul class='note-list level-1'>
+<li>the item is found, or</li>
+<li>the pointer becomes NullPointer (end of list).</li>
+</ul>
+</ul>
+<p class='note-paragraph'>See:</p>
+<ul class='note-list level-0'>
+<li>linkedFindPseudo (annex) for the pseudocode</li>
+<li>linkedFindPython (annex) for the Python version</li>
+</ul>
+<a id='sec_1_Linked_List__Algorithm_2_Insertion_of_a_new_node'></a><h3 class='subsub-heading level3'>Algorithm 2: Insertion of a new node</h3>
+<p class='note-paragraph'>To make it simple: insert at the front of the list.</p>
+<p class='note-paragraph'>This is a standard special case of linked list insertion where the new node becomes the first node:</p>
+<ul class='note-list level-0'>
+<li>take a free node</li>
+<li>store the new data in it</li>
+<li>make its pointer point to the old first node</li>
+<li>move StartPointer to the new node</li>
+</ul>
+<p class='note-paragraph'>Important outcomes:</p>
+<ul class='note-list level-0'>
+<li>If FreeListPtr is NullPointer, there is no space, so insertion fails.</li>
+<li>If the list is empty (StartPointer = NullPointer), insertion still works because the new node’s pointer becomes NullPointer.</li>
+</ul>
+<p class='note-paragraph'>Variants students may meet in the exam:</p>
+<ul class='note-list level-0'>
+<li>insert at the end</li>
+<li>insert into an ordered position (insert between nodes after searching for the correct position)</li>
+</ul>
+<p class='note-paragraph'>See:</p>
+<ul class='note-list level-0'>
+<li>linkedInsertPseudo (annex)</li>
+<li>linkedInsertPython (annex)</li>
+</ul>
+<a id='sec_1_Linked_List__Algorithm_3_Delete_remove_one_item'></a><h3 class='subsub-heading level3'>Algorithm 3: Delete (remove one item)</h3>
+<p class='note-paragraph'>Goal: remove the first node whose Data matches the target.</p>
+<p class='note-paragraph'>Core idea:</p>
+<ul class='note-list level-0'>
+<li>traverse the list to find the node to delete, while also tracking the previous node</li>
+<li>if deleting the first node, update StartPointer to the second node</li>
+<li>otherwise, change the previous node’s pointer to skip the deleted node</li>
+<li>return the deleted node to the free list:</li>
+<ul class='note-list level-1'>
+<li>point the deleted node to FreeListPtr</li>
+<li>update FreeListPtr to the deleted node</li>
+</ul>
+</ul>
+<p class='note-paragraph'>See:</p>
+<ul class='note-list level-0'>
+<li>linkedDeletePseudo (annex)</li>
+<li>linkedDeletePython (annex)</li>
+</ul></div>
+</section>
+
+<section class="note-card" id="sec_2_Stack">
+  <h2 class="subheading">2) Stack</h2>
+  <div class="note-body"><a id='sec_2_Stack__Algorithm_0_Initialise_the_stack'></a><h3 class='subsub-heading level3'>Algorithm 0: Initialise the stack</h3>
+<ul class='note-list level-0'>
+<li>Before using a stack, the pointers must be set to represent an empty stack.</li>
+<li>Initialise sets the stack to empty by setting the top pointer to the empty value</li>
+</ul>
+<p class='note-paragraph'>See Annex:</p>
+<ul class='note-list level-0'>
+<li><a class="annex-link" href="annex_19_1.html#stackInitialisePseudo" data-annex="stackInitialisePseudo">stackInitialisePseudo</a></li>
+<li><a class="annex-link" href="annex_19_1.html#stackInitialisePython" data-annex="stackInitialisePython">stackInitialisePython</a></li>
+</ul>
+<p class='note-paragraph'>What a stack is</p>
+<ul class='note-list level-0'>
+<li>A stack is a data structure where the last item added is the first item removed (LIFO).</li>
+<li>Items are added to the top and removed from the top.</li>
+</ul>
+<p class='note-paragraph'>How the stack is stored</p>
+<ul class='note-list level-0'>
+<li>A stack can be stored in a fixed size array plus an integer pointer called TopPointer (TopOfStackPointer).</li>
+<li>The pointer always shows the position of the current top item.</li>
+<li>When an item is pushed, TopPointer moves up.</li>
+<li>When an item is popped, TopPointer moves down.</li>
+</ul>
+<a id='sec_2_Stack__Algorithm_1_Check_if_the_stack_is_empty'></a><h3 class='subsub-heading level3'>Algorithm 1: Check if the stack is empty</h3>
+<ul class='note-list level-0'>
+<li>A stack is empty when it contains no items.</li>
+<li>The empty check prevents underflow (trying to pop from an empty stack).</li>
+</ul>
+<p class='note-paragraph'>See Annex:</p>
+<ul class='note-list level-0'>
+<li><a class="annex-link" href="annex_19_1.html#stackIsEmptyPseudo" data-annex="stackIsEmptyPseudo">stackIsEmptyPseudo</a></li>
+<li><a class="annex-link" href="annex_19_1.html#stackIsEmptyPython" data-annex="stackIsEmptyPython">stackIsEmptyPython</a></li>
+</ul>
+<a id='sec_2_Stack__Algorithm_2_Check_if_the_stack_is_full'></a><h3 class='subsub-heading level3'>Algorithm 2: Check if the stack is full</h3>
+<ul class='note-list level-0'>
+<li>A stack is full when it has no free space left.</li>
+<li>The full check prevents overflow (trying to push to a full stack).</li>
+</ul>
+<p class='note-paragraph'>See Annex:</p>
+<ul class='note-list level-0'>
+<li><a class="annex-link" href="annex_19_1.html#stackIsFullPseudo" data-annex="stackIsFullPseudo">stackIsFullPseudo</a></li>
+<li><a class="annex-link" href="annex_19_1.html#stackIsFullPython" data-annex="stackIsFullPython">stackIsFullPython</a></li>
+</ul>
+<a id='sec_2_Stack__Algorithm_3_Push'></a><h3 class='subsub-heading level3'>Algorithm 3: Push</h3>
+<ul class='note-list level-0'>
+<li>Push adds an item to the top of the stack.</li>
+<li>Steps:</li>
+<ul class='note-list level-1'>
+<li>Check the stack is not full.</li>
+<li>Move TopPointer to the next free position.</li>
+<li>Store the new item at the top.</li>
+</ul>
+</ul>
+<p class='note-paragraph'>See Annex:</p>
+<ul class='note-list level-0'>
+<li><a class="annex-link" href="annex_19_1.html#stackPushPseudo" data-annex="stackPushPseudo">stackPushPseudo</a></li>
+<li><a class="annex-link" href="annex_19_1.html#stackPushPython" data-annex="stackPushPython">stackPushPython</a></li>
+</ul>
+<a id='sec_2_Stack__Algorithm_4_Pop'></a><h3 class='subsub-heading level3'>Algorithm 4: Pop</h3>
+<ul class='note-list level-0'>
+<li>Pop removes and returns the item at the top of the stack.</li>
+<li>Steps:</li>
+<ul class='note-list level-1'>
+<li>Check the stack is not empty.</li>
+<li>Read the item at the top.</li>
+<li>Move TopPointer down by one position.</li>
+<li>Return the removed item.</li>
+</ul>
+</ul>
+<p class='note-paragraph'>See Annex:</p>
+<ul class='note-list level-0'>
+<li><a class="annex-link" href="annex_19_1.html#stackPopPseudo" data-annex="stackPopPseudo">stackPopPseudo</a></li>
+<li><a class="annex-link" href="annex_19_1.html#stackPopPython" data-annex="stackPopPython">stackPopPython</a></li>
+</ul>
+<a id='sec_2_Stack__Underflow_and_overflow'></a><h4 class='subsub-heading level4'>Underflow and overflow</h4>
+<ul class='note-list level-0'>
+<li>Underflow means trying to pop when the stack is empty.</li>
+<li>Overflow means trying to push when the stack is full.</li>
+</ul></div>
+</section>
+
+<section class="note-card" id="sec_3_Queue">
+  <h2 class="subheading">3) Queue</h2>
+  <div class="note-body"><a id='sec_3_Queue__Core_idea_FIFO'></a><h3 class='subsub-heading level3'>Core idea (FIFO)</h3>
+<ul class='note-list level-0'>
+<li>A queue is a First-In, First-Out (FIFO) structure: the first item added is the first item removed.</li>
+<li>The front is the end where items are removed (deQueue).</li>
+<li>The rear (end) is the end where items are added (enQueue).</li>
+</ul>
+<a id='sec_3_Queue__Array_based_queue_representation_fixed_size'></a><h3 class='subsub-heading level3'>Array-based queue representation (fixed size)</h3>
+<p class='note-paragraph'>A queue can be stored in a fixed-size 1D array. Three control variables are commonly used:</p>
+<ul class='note-list level-0'>
+<li>FrontOfQueuePointer (front pointer): points to the first item in the queue (next item to remove).</li>
+<li>EndOfQueuePointer (rear pointer): points to the last item in the queue (most recently added item).</li>
+<li>NumberInQueue (counter): how many items are currently stored.</li>
+</ul>
+<p class='note-paragraph'>A counter makes it easier to check:</p>
+<ul class='note-list level-0'>
+<li>Queue full when NumberInQueue equals the maximum size.</li>
+<li>Queue empty when NumberInQueue equals 0.</li>
+</ul>
+<a id='sec_3_Queue__Wrap_round_circular_queue'></a><h3 class='subsub-heading level3'>Wrap-round (circular queue)</h3>
+<p class='note-paragraph'>If the queue uses a fixed-size array, the pointers must “wrap” back to the start when they reach the last index.</p>
+<ul class='note-list level-0'>
+<li>When increasing a pointer causes it to go past the last index, it is reset to 0.</li>
+<li>This allows reusing spaces that were freed at the start of the array after removals.</li>
+</ul>
+<a id='sec_3_Queue__Algorithm_1_Initialise_a_queue'></a><h3 class='subsub-heading level3'>Algorithm 1: Initialise a queue</h3>
+<ul class='note-list level-0'>
+<li>Purpose: set the queue to an empty state and reset control variables.</li>
+<li>Result: the queue contains no items and is ready to accept new items.</li>
+<li><a class="annex-link" href="annex_19_1.html#queueInitialisePseudo" data-annex="queueInitialisePseudo">See <a class="annex-link" href="annex_19_1.html#queueInitialisePseudo" data-annex="queueInitialisePseudo">Annex: queueInitialisePseudo</a></a> and queueInitialisePython.</li>
+</ul>
+<a id='sec_3_Queue__Algorithm_2_Add_an_item_enQueue'></a><h3 class='subsub-heading level3'>Algorithm 2: Add an item (enQueue)</h3>
+<ul class='note-list level-0'>
+<li>Purpose: add a new item at the rear of the queue.</li>
+<li>Typical steps:</li>
+<ul class='note-list level-1'>
+<li>Check there is space (queue is not full).</li>
+<li>Move the rear pointer forward by 1 (with wrap-round if needed).</li>
+<li>Store the new item at the rear position.</li>
+<li>Increase the counter.</li>
+</ul>
+<li><a class="annex-link" href="annex_19_1.html#queueEnqueuePseudo" data-annex="queueEnqueuePseudo">See <a class="annex-link" href="annex_19_1.html#queueEnqueuePseudo" data-annex="queueEnqueuePseudo">Annex: queueEnqueuePseudo</a></a> and queueEnqueuePython.</li>
+</ul>
+<a id='sec_3_Queue__Algorithm_3_Remove_an_item_deQueue'></a><h3 class='subsub-heading level3'>Algorithm 3: Remove an item (deQueue)</h3>
+<ul class='note-list level-0'>
+<li>Purpose: remove and return the item at the front of the queue.</li>
+<li>Typical steps:</li>
+<ul class='note-list level-1'>
+<li>Check there is at least one item (queue is not empty).</li>
+<li>Read the item at the front position.</li>
+<li>Decrease the counter.</li>
+<li>If the queue becomes empty, reset the queue to the empty state.</li>
+<li>Otherwise, move the front pointer forward by 1 (with wrap-round if needed).</li>
+</ul>
+<li><a class="annex-link" href="annex_19_1.html#queueDequeuePseudo" data-annex="queueDequeuePseudo">See <a class="annex-link" href="annex_19_1.html#queueDequeuePseudo" data-annex="queueDequeuePseudo">Annex: queueDequeuePseudo</a></a> and queueDequeuePython.</li>
+</ul></div>
+</section>
+
+<section class="note-card" id="sec_4_Binary_Tree">
+  <h2 class="subheading">4) Binary Tree</h2>
+  <div class="note-body"><a id='sec_4_Binary_Tree__Core_idea_and_key_terms'></a><h3 class='subsub-heading level3'>Core idea and key terms</h3>
+<ul class='note-list level-0'>
+<li>A binary tree is a structure in which each node can have at most two children.</li>
+<li>An ordered binary tree (binary search tree) stores values so that:</li>
+<ul class='note-list level-1'>
+<li>if the new value is smaller than the current node’s value, follow the left pointer</li>
+<li>if the new value is greater than or equal to the current node’s value, follow the right pointer</li>
+</ul>
+<li>Root: the first node in the tree; RootPointer stores the index of the root node.</li>
+<li>A null pointer indicates “no child” below a node on that side.</li>
+<li>The following image shows a Conceptual diagram of an ordered binary tree:</li>
+</ul>
+<p class='note-paragraph'>Figure : Conceptual diagram of a binary tree</p>
+<div class='figure-wrap'><img class='doc-figure' src='images/img_02.png' alt=''></div>
+<p class='note-paragraph'>For example, if we want to add a new node with data value D to the binary tree in Figure 23.03,
+we execute the following steps:
+1 Start at the root node.
+2 D is smaller than F, so turn left.
+3 D is greater than C, so turn right.
+4 D is smaller than E, so turn left.
+5 There is no branch going left from E, so we add D as a left child from E</p>
+<a id='sec_4_Binary_Tree__Array_representation_of_the_tree'></a><h3 class='subsub-heading level3'>Array representation of the tree</h3>
+<ul class='note-list level-0'>
+<li>The tree can be stored in an array of records, where each record represents one node and contains:</li>
+<ul class='note-list level-1'>
+<li>Data</li>
+<li>LeftPointer</li>
+<li>RightPointer</li>
+</ul>
+<li>A constant NullPointer = -1 is used when array indices start at 0.</li>
+<li>Unused nodes are tracked so that insertion can take the next available space. (In pseudocode this is done using a free list.)</li>
+</ul>
+<a id='sec_4_Binary_Tree__Initialising_an_empty_tree'></a><h3 class='subsub-heading level3'>Initialising an empty tree</h3>
+<ul class='note-list level-0'>
+<li>Initialisation sets:</li>
+<ul class='note-list level-1'>
+<li>RootPointer to NullPointer (empty tree)</li>
+<li>the “free space” pointer so that insertions know where unused nodes are</li>
+</ul>
+<li>See binaryTreeInitialisePseudo and binaryTreeInitialisePython (Annex).</li>
+</ul>
+<a id='sec_4_Binary_Tree__Inserting_a_new_value'></a><h3 class='subsub-heading level3'>Inserting a new value</h3>
+<ul class='note-list level-0'>
+<li>Insertion first checks there is space available in the array.</li>
+<li>A new node is created in a free position, its Data is stored, and both child pointers are set to NullPointer (it starts as a leaf).</li>
+<li>If the tree is empty, the new node becomes the root.</li>
+<li>Otherwise, start at the root and repeatedly compare:</li>
+<ul class='note-list level-1'>
+<li>if current node value &gt; new value, go left</li>
+<li>otherwise go right
+Stop when there is no pointer to follow, then attach the new node at that leaf position.</li>
+</ul>
+<li>Example reasoning (conceptual): to insert D, compare at each node and turn left or right until there is no branch, then insert at that position.</li>
+<li>See binaryTreeInsertPseudo and binaryTreeInsertPython (Annex).</li>
+</ul>
+<a id='sec_4_Binary_Tree__Finding_a_value_search'></a><h3 class='subsub-heading level3'>Finding a value (search)</h3>
+<ul class='note-list level-0'>
+<li>Searching starts from the root and follows pointers while:</li>
+<ul class='note-list level-1'>
+<li>the current pointer is not NullPointer</li>
+<li>and the data does not match the search item</li>
+</ul>
+<li>At each step:</li>
+<ul class='note-list level-1'>
+<li>if current node value &gt; search item, go left</li>
+<li>otherwise go right</li>
+</ul>
+<li>If the search fails, the algorithm returns NullPointer.</li>
+<li>See binaryTreeFindPseudo and binaryTreeFindPython (Output 2).</li>
+</ul>
+<a id='sec_4_Binary_Tree__Why_this_tree_supports_faster_search_than_linear_scanning'></a><h3 class='subsub-heading level3'>Why this tree supports faster search than linear scanning</h3>
+<ul class='note-list level-0'>
+<li>Because it is ordered and branches left or right based on comparisons, it provides faster search than linear search and linked-list search.</li>
+<li>When inserting, existing nodes are not moved; only one pointer is updated to link the new node into the tree.</li>
+</ul></div>
+</section>
+
+<section class="note-card" id="sec_5_Graph">
+  <h2 class="subheading">5) Graph</h2>
+  <div class="note-body"><a id='sec_5_Graph__What_a_graph_is'></a><h3 class='subsub-heading level3'>What a graph is</h3>
+<ul class='note-list level-0'>
+<li>A graph is an abstract data type made of vertices (nodes) and edges.</li>
+<li>Graphs are used to represent relationships between items.</li>
+<li>A graph is a non-linear data structure.</li>
+</ul>
+<a id='sec_5_Graph__Key_features_of_a_graph'></a><h3 class='subsub-heading level3'>Key features of a graph</h3>
+<ul class='note-list level-0'>
+<li>Vertices (nodes) represent the items being connected (for example, stations in a transport network).</li>
+<li>Edges represent the connections between vertices (for example, train lines between stations).</li>
+<li>Two vertices connected by an edge are neighbours.</li>
+</ul>
+<p class='note-paragraph'>The following image is a graph showing part of the London Underground map:</p>
+<p class='note-paragraph'>Figure : Graph example</p>
+<div class='figure-wrap'><img class='doc-figure' src='images/img_03.png' alt=''></div>
+<p class='note-paragraph'>The vertices labelled A to F are the underground stations and the edges represent train
+lines connecting the stations</p>
+<a id='sec_5_Graph__Weighted_graphs'></a><h3 class='subsub-heading level3'>Weighted graphs</h3>
+<ul class='note-list level-0'>
+<li>In a weighted (labelled) graph, an edge stores a value that represents something meaningful (for example, travel time).</li>
+<li>Weights can represent measures such as distance or cost in a network.</li>
+</ul>
+<p class='note-paragraph'>The following Weighted graph shows the travelling times between stations</p>
+<p class='note-paragraph'>Figure : Weighted graph example</p>
+<div class='figure-wrap'><img class='doc-figure' src='images/img_03.png' alt=''></div>
+<a id='sec_5_Graph__Directed_and_undirected'></a><h3 class='subsub-heading level3'>Directed and undirected</h3>
+<ul class='note-list level-0'>
+<li>Graphs can be undirected or directed.</li>
+<li>A directed graph is used when the connection has a direction (for example, a one-way system).</li>
+<li>Direction may matter because the relationship or cost may differ depending on the direction.</li>
+</ul>
+<p class='note-paragraph'>The following is a directed graph:</p>
+<p class='note-paragraph'>Figure : Directed graph example</p>
+<div class='figure-wrap'><img class='doc-figure' src='images/img_03.png' alt=''></div>
+<a id='sec_5_Graph__Paths_and_cycles'></a><h3 class='subsub-heading level3'>Paths and cycles</h3>
+<ul class='note-list level-0'>
+<li>A path is a sequence of connected nodes between two nodes.</li>
+<li>A cycle is a path that returns to the starting node.</li>
+</ul>
+<a id='sec_5_Graph__Why_graphs_are_useful'></a><h3 class='subsub-heading level3'>Why graphs are useful</h3>
+<p class='note-paragraph'>Graphs are appropriate when a problem is naturally a network of connected items:</p>
+<ul class='note-list level-0'>
+<li>Transport networks: nodes are stations; edges are direct connections; weights can store time, distance, or cost.</li>
+<li>Websites: each page is a node; edges represent links between pages.</li>
+<li>Social networks: each person is a node; edges connect friends.</li>
+<li>Route choice: routes can be compared by using the weights along each route (for example, comparing travel-time routes).</li>
+</ul>
+<a id='sec_5_Graph__How_a_graph_can_be_stored'></a><h3 class='subsub-heading level3'>How a graph can be stored</h3>
+<p class='note-paragraph'>Even though you are not required to write code, it is important to understand common representations.</p>
+<a id='sec_5_Graph__Adjacency_matrix'></a><h4 class='subsub-heading level4'>Adjacency matrix</h4>
+<ul class='note-list level-0'>
+<li>An adjacency matrix stores the relationship between every vertex and all other vertices.</li>
+<li>For an unweighted graph:</li>
+<ul class='note-list level-1'>
+<li>1 means an edge exists, 0 means no edge.</li>
+</ul>
+<li>For a weighted graph:</li>
+<ul class='note-list level-1'>
+<li>the weight replaces the 1,</li>
+<li>and ∞ can be used when there is no edge.</li>
+</ul>
+</ul>
+<p class='note-paragraph'>The following shows the adjacency matrix for the previous unweighted and weighted graphs:</p>
+<p class='note-paragraph'>Figure : Adjacency matrix</p>
+<div class='figure-wrap'><img class='doc-figure' src='images/img_06.png' alt=''></div>
+<a id='sec_5_Graph__Adjacency_list'></a><h4 class='subsub-heading level4'>Adjacency list</h4>
+<ul class='note-list level-0'>
+<li>An adjacency list stores, for each vertex, only the vertices it is connected to (so entries exist only when there is an edge).</li>
+<li>For a weighted graph, each connection also stores its weight. This is shown in the following:</li>
+</ul>
+<p class='note-paragraph'>Figure : Adjacency List</p>
+<div class='figure-wrap'><img class='doc-figure' src='images/img_07.png' alt=''></div></div>
+</section>
+
+    </section>
+  </main>
+
+  <div class="modal-backdrop" id="annexModalBackdrop" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-label="Annex code">
+    <div class="modal-header">
+      <div class="modal-title" id="annexModalTitle"></div>
+      <button class="modal-close" id="annexModalClose" type="button">Close</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-codewrap" id="annexModalCodeWrap"></div>
+      <div class="tip-panel visible" id="modalTipPanel" aria-hidden="false"></div>
+    </div>
+  </div>
+</div>
+  <script src="script.js"></script>
+</body>
+</html>

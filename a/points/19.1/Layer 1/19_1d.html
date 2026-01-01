@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>19.1d</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <h1 class="main-title">19.1 Algorithms</h1>
+      <div class="sub-title">Theory notes prepared by Dr. Hamdeni</div>
+      <nav class="nav"><a class='nav-link' href='19_1a.html'>19.1a</a>
+<a class='nav-link' href='19_1b.html'>19.1b</a>
+<a class='nav-link' href='19_1c.html'>19.1c</a>
+<a class='nav-link active' href='19_1d.html'>19.1d</a>
+<a class='nav-link' href='19_1e.html'>19.1e</a>
+<a class='nav-link' href='annex_19_1.html'>Annex</a></nav>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="sidebar"><div class='sommaire'><div class='sommaire-title'>Sommaire</div><ul class='sommaire-list'><li class='sommaire-item'><a href='#sec_1_Stack_common_implementation_choices'>1) Stack: common implementation choices</a></li><li class='sommaire-subsub'><a href='#sec_1_Stack_common_implementation_choices__A_Stack_implemented_using_an_array_built_in_type'>A) Stack implemented using an array (built in type)</a></li><li class='sommaire-subsub'><a href='#sec_1_Stack_common_implementation_choices__B_Stack_implemented_using_a_linked_list_ADT_implemented_from_another_ADT'>B) Stack implemented using a linked list (ADT implemented from another ADT)</a></li><li class='sommaire-subsub'><a href='#sec_1_Stack_common_implementation_choices__A_Queue_implemented_using_an_array_built_in_type'>A) Queue implemented using an array (built in type)</a></li><li class='sommaire-subsub'><a href='#sec_1_Stack_common_implementation_choices__B_Queue_implemented_using_a_linked_list_ADT_implemented_from_another_ADT'>B) Queue implemented using a linked list (ADT implemented from another ADT)</a></li><li class='sommaire-item'><a href='#sec_3_Linked_list_common_implementation_style_used_for_algorithms'>3) Linked list: common implementation style used for algorithms</a></li><li class='sommaire-item'><a href='#sec_4_Dictionary_implemented_using_a_hash_table'>4) Dictionary: implemented using a hash table</a></li><li class='sommaire-subsub'><a href='#sec_4_Dictionary_implemented_using_a_hash_table__A_Dictionary_as_key_value_pairs'>A) Dictionary as key value pairs</a></li><li class='sommaire-subsub'><a href='#sec_4_Dictionary_implemented_using_a_hash_table__B_How_a_dictionary_is_implemented_hash_table_direct_access'>B) How a dictionary is implemented: hash table (direct access)</a></li><li class='sommaire-item'><a href='#sec_5_Binary_tree_commonly_implemented_using_an_array_of_records'>5) Binary tree: commonly implemented using an array of records</a></li></ul></div></aside>
+
+    <section class="content">
+      <section class="syllabus-card">
+        <div class="hero-title"><div class='hero-code'>19.1d:</div><div class='hero-rest'>Show how it is possible for ADTs to be implemented from another ADT:</div></div>
+        <div class="targets-wrap"><ul class='targets level-0'>
+<li>Describe the following ADTs and demonstrate how they can be implemented from appropriate builtin types or other ADTs: stack, queue, linked list, dictionary, binary tree</li>
+<li>An Abstract Data Type (ADT) is defined by two parts: the data it stores and the operations that act on that data. An ADT definition can use existing data types inside it.</li>
+<li>The same ADT can be implemented in different ways (for example, using arrays, records, linked lists, or a combination). The choice affects how you store items and how you update the structure.</li>
+</ul></div>
+      </section>
+      
+<section class="note-card" id="sec_1_Stack_common_implementation_choices">
+  <h2 class="subheading">1) Stack: common implementation choices</h2>
+  <div class="note-body"><a id='sec_1_Stack_common_implementation_choices__A_Stack_implemented_using_an_array_built_in_type'></a><h3 class='subsub-heading level3'>A) Stack implemented using an array (built in type)</h3>
+<ul class='note-list level-0'>
+<li>The stack items are stored in a 1D array.</li>
+<li>A pointer/index is used to indicate where the current “top” of the stack is.</li>
+<li>Because an array has a fixed size, this implementation can become full.</li>
+</ul>
+<a id='sec_1_Stack_common_implementation_choices__B_Stack_implemented_using_a_linked_list_ADT_implemented_from_another_ADT'></a><h3 class='subsub-heading level3'>B) Stack implemented using a linked list (ADT implemented from another ADT)</h3>
+<ul class='note-list level-0'>
+<li>Stack items are stored as nodes, with each node pointing to the next.</li>
+<li>A pointer identifies the first node (the current top of the stack).</li>
+<li>Insert and delete only at the front of the list.</li>
+<li>A linked list implementation can avoid a fixed maximum, which is one reason it can be better than an array implementation in some situations.</li>
+</ul>
+<p class='note-paragraph'>2) Queue: common implementation choices</p>
+<a id='sec_1_Stack_common_implementation_choices__A_Queue_implemented_using_an_array_built_in_type'></a><h3 class='subsub-heading level3'>A) Queue implemented using an array (built in type)</h3>
+<ul class='note-list level-0'>
+<li>The queue items are stored in a 1D array.</li>
+<li>Two pointers/indexes are typically used:</li>
+<ul class='note-list level-1'>
+<li>one for the front (where items are removed)</li>
+<li>one for the rear (where items are added)</li>
+</ul>
+<li>Because an array has a fixed size, this implementation can become full.</li>
+</ul>
+<a id='sec_1_Stack_common_implementation_choices__B_Queue_implemented_using_a_linked_list_ADT_implemented_from_another_ADT'></a><h3 class='subsub-heading level3'>B) Queue implemented using a linked list (ADT implemented from another ADT)</h3>
+<ul class='note-list level-0'>
+<li>Queue items are stored as nodes, with pointers linking nodes.</li>
+<li>Pointers are used to identify the front and the rear of the queue (so items can be added at the rear and removed from the front).</li>
+<li>Like stacks, linked list based queues can avoid a fixed maximum size.</li>
+</ul></div>
+</section>
+
+<section class="note-card" id="sec_3_Linked_list_common_implementation_style_used_for_algorithms">
+  <h2 class="subheading">3) Linked list: common implementation style used for algorithms</h2>
+  <div class="note-body"><p class='note-paragraph'>  A linked list can be implemented using an array of records, where each array element (node) has two fields: Data and Pointer.</p>
+<p class='note-paragraph'>  The Pointer field stores the index of the next node in the array; a special value such as -1 is used as a null pointer to mean “no next node”.</p>
+<p class='note-paragraph'>  The list is accessed using StartPointer, which stores the index of the first node in the list.</p>
+<p class='note-paragraph'>  Unused array positions are managed using a free list; its first node index is stored in FreeListPtr, and the unused nodes are linked together so their space can be reused.</p>
+<p class='note-paragraph'>  In an ordered linked list, insertion first finds the correct position, then links the new node either at the start or between two nodes by updating pointer values.</p></div>
+</section>
+
+<section class="note-card" id="sec_4_Dictionary_implemented_using_a_hash_table">
+  <h2 class="subheading">4) Dictionary: implemented using a hash table</h2>
+  <div class="note-body"><a id='sec_4_Dictionary_implemented_using_a_hash_table__A_Dictionary_as_key_value_pairs'></a><h3 class='subsub-heading level3'>A) Dictionary as key value pairs</h3>
+<ul class='note-list level-0'>
+<li>A dictionary stores key value pairs; the key is used to look up the value. Example: key &quot;book&quot; maps to value &quot;livre&quot;.</li>
+<li>Many languages provide a built in dictionary type, for example Python:</li>
+<ul class='note-list level-1'>
+<li>EnglishFrench[&quot;book&quot;] = &quot;livre&quot; adds a key value pair</li>
+<li>EnglishFrench[&quot;book&quot;] accesses the value for key &quot;book&quot;</li>
+</ul>
+</ul>
+<a id='sec_4_Dictionary_implemented_using_a_hash_table__B_How_a_dictionary_is_implemented_hash_table_direct_access'></a><h3 class='subsub-heading level3'>B) How a dictionary is implemented: hash table (direct access)</h3>
+<ul class='note-list level-0'>
+<li>A computer science dictionary is implemented using a hash table so that a value can be looked up using a direct access method.</li>
+<li>A hash table is a 1D array of records, where an address (array index) is calculated from the record key (hashing).</li>
+<li>Example hashing function: Address ← Key MOD(n + 1)</li>
+<li>If two different keys hash to the same address, this is a collision.</li>
+<li>Collision handling methods include:</li>
+<ul class='note-list level-1'>
+<li>Chaining: create a linked list for collisions starting at the hashed address</li>
+<li>Closed hashing: store collisions in a separate overflow area</li>
+<li>Open hashing: search neighbouring slots to find an empty slot</li>
+</ul>
+</ul></div>
+</section>
+
+<section class="note-card" id="sec_5_Binary_tree_commonly_implemented_using_an_array_of_records">
+  <h2 class="subheading">5) Binary tree: commonly implemented using an array of records</h2>
+  <div class="note-body"><ul class='note-list level-0'>
+<li>A binary tree can be implemented using an array, where each element is a record containing:</li>
+<ul class='note-list level-1'>
+<li>the data value</li>
+<li>a left pointer</li>
+<li>a right pointer</li>
+</ul>
+<li>Pointers are often stored as integer indexes (pointing to positions in the array), and a special value such as -1 is used to indicate “no child” (null pointer).</li>
+</ul></div>
+</section>
+
+    </section>
+  </main>
+
+  <div class="modal-backdrop" id="annexModalBackdrop" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-label="Annex code">
+    <div class="modal-header">
+      <div class="modal-title" id="annexModalTitle"></div>
+      <button class="modal-close" id="annexModalClose" type="button">Close</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-codewrap" id="annexModalCodeWrap"></div>
+      <div class="tip-panel visible" id="modalTipPanel" aria-hidden="false"></div>
+    </div>
+  </div>
+</div>
+  <script src="script.js"></script>
+</body>
+</html>
