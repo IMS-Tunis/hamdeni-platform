@@ -400,10 +400,10 @@ body{
   display: inline-block;
   padding: 2px 8px;
   border-radius: 999px;
-  background: rgba(99, 102, 241, 0.12);
-  border: 1px solid rgba(99, 102, 241, 0.35);
-  font-weight: 700;
-  color: #0b1b3a;
+  background: rgba(15, 23, 42, 0.05);
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  font-weight: 600;
+  color: #1f2937;
 }
 
 .doc-figure{
@@ -603,5 +603,6 @@ body.single-view .code-wrap{ max-height: none; }
 .modal-close{border:1px solid rgba(0,0,0,.12);background:#fff;border-radius:10px;padding:8px 12px;cursor:pointer;font-weight:800}
 .modal-body{display:grid;grid-template-columns: 1fr 320px;gap:12px;padding:14px 16px}
 .modal-codewrap{overflow:auto;max-height:78vh;border-radius:14px}
+.modal-desc{margin:0 0 12px 0;padding:10px 12px;border-radius:12px;background:rgba(15,23,42,0.04);border:1px solid rgba(15,23,42,0.1);white-space:pre-line;color:#0f172a;font-size:13px;line-height:1.5}
 .modal-body .tip-panel{max-height:78vh;overflow:auto}
 @media (max-width:900px){.modal-body{grid-template-columns:1fr}.modal-body .tip-panel{max-height:220px}}
