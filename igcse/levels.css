@@ -551,8 +551,8 @@ ul.bullets > li > ul {
 .btn.btn-home:hover{ background:#00a3b4 !important; color:#ffffff !important; border-color:transparent !important; transform:translateY(-1px); }
 .btn.btn-home:active{ transform:none; }
 
-/* Override: show Python label on all code callouts */
-.pseudocode::before { content: "Python Code"; }
+/* Override: show Pseudocode label on all code callouts */
+.pseudocode::before { content: "Pseudocode"; }
 
 /* Make the title block sit between logo and Home button on the same row */
 .header .header-bar .header-main { flex: 1; text-align: center; }
