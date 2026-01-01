@@ -8,31 +8,40 @@
 </head>
 <body>
   <header class="header">
-    <div class="brand-bar">
-      <a class="brand-link" href="../../../dashboard.html">
-        <img src="../../../../images/maarifLOGO.png" class="brand-logo" alt="Maarif logo">
-      </a>
-      <img src="../../../../images/cambridge.png" class="brand-logo" alt="Cambridge logo">
+    <div class="header-top">
+      <div class="header-left">
+        <a class="brand-link" href="../../../dashboard.html">
+          <img src="../../../../images/maarifLOGO.png" class="brand-logo" alt="Maarif logo">
+        </a>
+      </div>
+      <div class="header-center">
+        <p class="header-kicker">Layer 1: Theoretical Foundation</p>
+        <h1 class="main-title">19.1 Algorithms</h1>
+        <div class="sub-title">Theory notes prepared by Dr. Hamdeni</div>
+      </div>
+      <div class="header-right">
+        <img src="../../../../images/cambridge.png" class="brand-logo" alt="Cambridge logo">
+      </div>
     </div>
-    <div class="header-inner">
-      <h1 class="main-title">19.1 Algorithms</h1>
-      <div class="sub-title">Theory notes prepared by Dr. Hamdeni</div>
+    <div class="header-bottom">
       <nav class="nav"><a class='nav-link active' href='19_1a.html'>19.1a</a>
 <a class='nav-link' href='19_1b.html'>19.1b</a>
 <a class='nav-link' href='19_1c.html'>19.1c</a>
 <a class='nav-link' href='19_1d.html'>19.1d</a>
 <a class='nav-link' href='19_1e.html'>19.1e</a>
 <a class='nav-link' href='annex_19_1.html'>Annex</a></nav>
-      <div class="layer-nav">
-        <a class="layer-link" href="../layer2.html">Layer 2</a>
-        <a class="layer-link" href="../layer3.html">Layer 3</a>
-        <a class="layer-link" href="../layer4.html">Layer 4</a>
+      <div class="layer-menu" aria-label="Layer navigation">
+        <div class="layer-menu-links">
+          <a class="layer-link" href="../layer2.html"><span class="layer-number">2</span> Layer 2</a>
+          <a class="layer-link" href="../layer3.html"><span class="layer-number">3</span> Layer 3</a>
+          <a class="layer-link" href="../layer4.html"><span class="layer-number">4</span> Layer 4</a>
+        </div>
       </div>
     </div>
   </header>
 
   <main class="layout">
-    <aside class="sidebar"><div class='sommaire'><div class='sommaire-title'>Sommaire</div><ul class='sommaire-list'><li class='sommaire-item'><a href='#sec_1_Linear_search_algorithm_idea'>1) Linear search (algorithm idea)</a></li><li class='sommaire-item'><a href='#sec_See_Annex_LinearSearchPseudo_and_Annex_LinearSearchPython'>See Annex: LinearSearchPseudo and Annex: LinearSearchPython.</a></li><li class='sommaire-item'><a href='#sec_2_Binary_search_algorithm_idea'>2) Binary search (algorithm idea)</a></li><li class='sommaire-item'><a href='#sec_3_Conditions_necessary_for_using_a_binary_search'>3) Conditions necessary for using a binary search</a></li><li class='sommaire-item'><a href='#sec_4_How_binary_search_performance_varies_with_the_number_of_data_items'>4) How binary-search performance varies with the number of data items</a></li><li class='sommaire-subsub'><a href='#sec_4_How_binary_search_performance_varies_with_the_number_of_data_items__A_Example_1_search_for_1024_in_a_sorted_list_of_1024_items_1_1024'>A. Example 1: search for 1024 in a sorted list of 1024 items (1..1024)</a></li><li class='sommaire-subsub'><a href='#sec_4_How_binary_search_performance_varies_with_the_number_of_data_items__B_Example_2_search_for_W_in_the_sorted_letters_A_Z_26_letters'>B. Example 2: search for W in the sorted letters A..Z (26 letters)</a></li></ul></div></aside>
+    <aside class="sidebar"><div class='sommaire'><div class='sommaire-title'>Sommaire</div><ul class='sommaire-list'><li class='sommaire-item'><a href='#sec_1_Linear_search_algorithm_idea'>1) Linear search (algorithm idea)</a></li><li class='sommaire-item'><a href='#sec_2_Binary_search_algorithm_idea'>2) Binary search (algorithm idea)</a></li><li class='sommaire-item'><a href='#sec_3_Conditions_necessary_for_using_a_binary_search'>3) Conditions necessary for using a binary search</a></li><li class='sommaire-item'><a href='#sec_4_How_binary_search_performance_varies_with_the_number_of_data_items'>4) How binary-search performance varies with the number of data items</a></li><li class='sommaire-subsub'><a href='#sec_4_How_binary_search_performance_varies_with_the_number_of_data_items__A_Example_1_search_for_1024_in_a_sorted_list_of_1024_items_1_1024'>A. Example 1: search for 1024 in a sorted list of 1024 items (1..1024)</a></li><li class='sommaire-subsub'><a href='#sec_4_How_binary_search_performance_varies_with_the_number_of_data_items__B_Example_2_search_for_W_in_the_sorted_letters_A_Z_26_letters'>B. Example 2: search for W in the sorted letters A..Z (26 letters)</a></li></ul></div></aside>
 
     <section class="content">
       <section class="syllabus-card">
@@ -51,12 +60,8 @@
 <li>A linear search checks each element of an array in order, starting from the lower bound and moving to the upper bound, until the required item is found or the upper bound is reached.</li>
 <li>This method can be used even when items are stored in any order (no sorting requirement).</li>
 <li>As the size of the list increases, the average time to retrieve an item increases correspondingly.</li>
-</ul></div>
-</section>
-
-<section class="note-card" id="sec_See_Annex_LinearSearchPseudo_and_Annex_LinearSearchPython">
-  <h2 class="subheading">See Annex: LinearSearchPseudo and Annex: LinearSearchPython.</h2>
-  <div class="note-body"></div>
+</ul>
+<p class='note-paragraph'>See <a class="annex-link" href="annex_19_1.html#LinearSearchPseudo" data-annex="LinearSearchPseudo">Annex: LinearSearchPseudo</a> and <a class="annex-link" href="annex_19_1.html#LinearSearchPython" data-annex="LinearSearchPython">Annex: LinearSearchPython</a> for the full algorithm.</p></div>
 </section>
 
 <section class="note-card" id="sec_2_Binary_search_algorithm_idea">
@@ -84,17 +89,21 @@
   <div class="note-body"><ul class='note-list level-0'>
 <li>Binary search typically uses far fewer comparisons than linear search because it discards half of the list that cannot contain the required item at each step.</li>
 </ul>
-<a id='sec_4_How_binary_search_performance_varies_with_the_number_of_data_items__A_Example_1_search_for_1024_in_a_sorted_list_of_1024_items_1_1024'></a><h3 class='subsub-heading level3'>A. Example 1: search for 1024 in a sorted list of 1024 items (1..1024)</h3>
-<ul class='note-list level-0'>
-<li>Linear search (from start): compares 1, 2, 3, …, 1024 → 1024 comparisons</li>
-<li>Binary search: compares middle items 512, 768, 896, 960, 992, 1008, 1016, 1020, 1022, 1023, 1024 → 11 comparisons</li>
-</ul>
-<a id='sec_4_How_binary_search_performance_varies_with_the_number_of_data_items__B_Example_2_search_for_W_in_the_sorted_letters_A_Z_26_letters'></a><h3 class='subsub-heading level3'>B. Example 2: search for W in the sorted letters A..Z (26 letters)</h3>
-<ul class='note-list level-0'>
-<li>Linear search (from A): W is the 23rd letter → 23 comparisons</li>
-<li>Binary search: compares M, then T, then W → 3 comparisons</li>
-<li><a class="annex-link" href="annex_19_1.html#BinarySearchPython" data-annex="BinarySearchPython">See <a class="annex-link" href="annex_19_1.html#BinarySearchPython" data-annex="BinarySearchPython">Annex: BinarySearchPython</a></a> for a direct implementation that performs this “halve the search area” process.</li>
-</ul></div>
+<a id='sec_4_How_binary_search_performance_varies_with_the_number_of_data_items__A_Example_1_search_for_1024_in_a_sorted_list_of_1024_items_1_1024'></a><div class="example-box">
+  <div class="example-title">A. Example 1: search for 1024 in a sorted list of 1024 items (1..1024)</div>
+  <ul class='note-list level-0'>
+  <li>Linear search (from start): compares 1, 2, 3, …, 1024 → 1024 comparisons</li>
+  <li>Binary search: compares middle items 512, 768, 896, 960, 992, 1008, 1016, 1020, 1022, 1023, 1024 → 11 comparisons</li>
+  </ul>
+</div>
+<a id='sec_4_How_binary_search_performance_varies_with_the_number_of_data_items__B_Example_2_search_for_W_in_the_sorted_letters_A_Z_26_letters'></a><div class="example-box">
+  <div class="example-title">B. Example 2: search for W in the sorted letters A..Z (26 letters)</div>
+  <ul class='note-list level-0'>
+  <li>Linear search (from A): W is the 23rd letter → 23 comparisons</li>
+  <li>Binary search: compares M, then T, then W → 3 comparisons</li>
+  <li><a class="annex-link" href="annex_19_1.html#BinarySearchPython" data-annex="BinarySearchPython">See <a class="annex-link" href="annex_19_1.html#BinarySearchPython" data-annex="BinarySearchPython">Annex: BinarySearchPython</a></a> for a direct implementation that performs this “halve the search area” process.</li>
+  </ul>
+</div></div>
 </section>
 
     </section>
