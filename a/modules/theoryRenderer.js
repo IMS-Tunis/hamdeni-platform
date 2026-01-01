@@ -77,7 +77,10 @@ export async function renderTheoryPoints() {
         return;
       }
       localStorage.setItem("current_point", point.id);
-      window.location.href = `./points/${point.id}/layer1.html`;
+      const layer1Overrides = {
+        '19.1': './points/19.1/Layer%201/19_1a.html'
+      };
+      window.location.href = layer1Overrides[point.id] || `./points/${point.id}/layer1.html`;
     };
     container.appendChild(box);
     console.debug('[theoryRenderer] Added box for', point.id);
