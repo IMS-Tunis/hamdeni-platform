@@ -8,25 +8,34 @@
 </head>
 <body>
   <header class="header">
-    <div class="brand-bar">
-      <a class="brand-link" href="../../../dashboard.html">
-        <img src="../../../../images/maarifLOGO.png" class="brand-logo" alt="Maarif logo">
-      </a>
-      <img src="../../../../images/cambridge.png" class="brand-logo" alt="Cambridge logo">
+    <div class="header-top">
+      <div class="header-left">
+        <a class="brand-link" href="../../../dashboard.html">
+          <img src="../../../../images/maarifLOGO.png" class="brand-logo" alt="Maarif logo">
+        </a>
+      </div>
+      <div class="header-center">
+        <p class="header-kicker">Layer 1: Theoretical Foundation</p>
+        <h1 class="main-title">19.1 Algorithms</h1>
+        <div class="sub-title">Theory notes prepared by Dr. Hamdeni</div>
+      </div>
+      <div class="header-right">
+        <img src="../../../../images/cambridge.png" class="brand-logo" alt="Cambridge logo">
+      </div>
     </div>
-    <div class="header-inner">
-      <h1 class="main-title">19.1 Algorithms</h1>
-      <div class="sub-title">Theory notes prepared by Dr. Hamdeni</div>
+    <div class="header-bottom">
       <nav class="nav"><a class='nav-link' href='19_1a.html'>19.1a</a>
 <a class='nav-link active' href='19_1b.html'>19.1b</a>
 <a class='nav-link' href='19_1c.html'>19.1c</a>
 <a class='nav-link' href='19_1d.html'>19.1d</a>
 <a class='nav-link' href='19_1e.html'>19.1e</a>
 <a class='nav-link' href='annex_19_1.html'>Annex</a></nav>
-      <div class="layer-nav">
-        <a class="layer-link" href="../layer2.html">Layer 2</a>
-        <a class="layer-link" href="../layer3.html">Layer 3</a>
-        <a class="layer-link" href="../layer4.html">Layer 4</a>
+      <div class="layer-menu" aria-label="Layer navigation">
+        <div class="layer-menu-links">
+          <a class="layer-link" href="../layer2.html"><span class="layer-number">2</span> Layer 2</a>
+          <a class="layer-link" href="../layer3.html"><span class="layer-number">3</span> Layer 3</a>
+          <a class="layer-link" href="../layer4.html"><span class="layer-number">4</span> Layer 4</a>
+        </div>
       </div>
     </div>
   </header>
@@ -79,7 +88,7 @@
 <li>As the number of elements increases, bubble sort performance can worsen faster than insertion sort. See the curve in the figure below:</li>
 </ul>
 <p class='note-paragraph'>Figure : bubblke sort VS insertion Sort evolution</p>
-<div class='figure-wrap'><img class='doc-figure' src='images/img_01.png' alt=''></div>
+<div class='figure-wrap figure-small'><img class='doc-figure' src='images/img_01.png' alt=''></div>
 <ul class='note-list level-0'>
 <ul class='note-list level-1'>
 <li>What the figure should show: when the number of items becomes large, the bubble sort curve rises more sharply than the insertion sort curve.</li>
@@ -90,24 +99,26 @@
 <li>To test performance properly, change the starting order of items (already in order, reverse order, mixed) and observe the effect.</li>
 <li>both algorithms are fast on sorted data and slow on reversed data, but on partially sorted data insertion sort typically performs better because it can place an item into its correct position in one insertion step, while bubble sort moves items gradually via neighbour swaps across multiple passes.:</li>
 </ul>
-<a id='sec_3_Performance_depends_on_initial_order_and_number_of_items__Example'></a><h4 class='subsub-heading level4'>Example:</h4>
-<p class='note-paragraph'>List: [1,2,3,4,6,7,8,9,5]</p>
-<p class='note-paragraph'>Insertion sort</p>
-<ul class='note-list level-0'>
-<li>When it reaches the last item 5, it inserts it after 4 by shifting 6,7,8,9 right once.</li>
-<li>Sorted immediately: [1,2,3,4,5,6,7,8,9] (done in one outer step)</li>
-</ul>
-<p class='note-paragraph'>Bubble sort</p>
-<ul class='note-list level-0'>
-<li>5 moves left only one position per pass (neighbour swaps):</li>
-<ul class='note-list level-1'>
-<li>Pass 1: [1,2,3,4,6,7,8,5,9]</li>
-<li>Pass 2: [1,2,3,4,6,7,5,8,9]</li>
-<li>Pass 3: [1,2,3,4,6,5,7,8,9]</li>
-<li>Pass 4: [1,2,3,4,5,6,7,8,9]</li>
-</ul>
-</ul>
-<p class='note-paragraph'>Point: insertion places 5 correctly in one step; bubble needs several passes because it keeps finding a new swap each pass.</p></div>
+<a id='sec_3_Performance_depends_on_initial_order_and_number_of_items__Example'></a><div class="example-box">
+  <div class="example-title">Example</div>
+  <p class='note-paragraph'>List: [1,2,3,4,6,7,8,9,5]</p>
+  <p class='note-paragraph'>Insertion sort</p>
+  <ul class='note-list level-0'>
+  <li>When it reaches the last item 5, it inserts it after 4 by shifting 6,7,8,9 right once.</li>
+  <li>Sorted immediately: [1,2,3,4,5,6,7,8,9] (done in one outer step)</li>
+  </ul>
+  <p class='note-paragraph'>Bubble sort</p>
+  <ul class='note-list level-0'>
+  <li>5 moves left only one position per pass (neighbour swaps):</li>
+  <ul class='note-list level-1'>
+  <li>Pass 1: [1,2,3,4,6,7,8,5,9]</li>
+  <li>Pass 2: [1,2,3,4,6,7,5,8,9]</li>
+  <li>Pass 3: [1,2,3,4,6,5,7,8,9]</li>
+  <li>Pass 4: [1,2,3,4,5,6,7,8,9]</li>
+  </ul>
+  </ul>
+  <p class='note-paragraph'>Point: insertion places 5 correctly in one step; bubble needs several passes because it keeps finding a new swap each pass.</p>
+</div></div>
 </section>
 
     </section>
