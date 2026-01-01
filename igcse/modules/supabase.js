@@ -156,7 +156,7 @@ export function initializeLogin() {
       const username = document.getElementById("username").value;
       const password = document.getElementById("password").value;
 
-      const url = `${SUPABASE_URL}/rest/v1/students?select=*&username=eq.${encodeURIComponent(username)}&password=eq.${encodeURIComponent(password)}`;
+      const url = `${SUPABASE_URL}/rest/v1/students?select=*&username=ilike.${encodeURIComponent(username)}&password=ilike.${encodeURIComponent(password)}`;
 
       console.log("🔍 Sending login request to Supabase:", url);
 
