@@ -51,6 +51,10 @@
       font-size: 1.8em;
     }
 
+    header .syllabus-button {
+      display: none;
+    }
+
     .syllabus-button {
       display: inline-flex;
       align-items: center;
@@ -586,7 +590,7 @@
                 <div class="header-text">
                     <div class="header-title-row">
                         <h1>18. Artificial Intelligence</h1>
-                        <button class="syllabus-button" type="button" id="open-syllabus" aria-haspopup="dialog" aria-controls="syllabus-modal">
+                        <button class="syllabus-button" type="button" data-syllabus-trigger="true" aria-haspopup="dialog" aria-controls="syllabus-modal">
                           📌 Syllabus
                         </button>
                     </div>
@@ -854,14 +858,16 @@
         });
 
         const syllabusModal = document.getElementById('syllabus-modal');
-        const openSyllabus = document.getElementById('open-syllabus');
+        const openSyllabusButtons = document.querySelectorAll('[data-syllabus-trigger="true"]');
         const closeSyllabus = document.getElementById('close-syllabus');
 
         const toggleSyllabus = (show) => {
             syllabusModal.classList.toggle('is-open', show);
         };
 
-        openSyllabus.addEventListener('click', () => toggleSyllabus(true));
+        openSyllabusButtons.forEach(button => {
+            button.addEventListener('click', () => toggleSyllabus(true));
+        });
         closeSyllabus.addEventListener('click', () => toggleSyllabus(false));
 
         syllabusModal.addEventListener('click', (event) => {
