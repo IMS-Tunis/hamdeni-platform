@@ -1,71 +1,68 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Annex 19.1</title>
-  <link rel="stylesheet" href="styles.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Annex 19.1</title>
+<link href="styles.css" rel="stylesheet"/>
 </head>
 <body>
-  <header class="header">
-    <div class="header-inner">
-      <h1 class="main-title">19.1 Algorithms</h1>
-      <div class="sub-title">Theory notes prepared by Dr. Hamdeni</div>
-      <nav class="nav"><a class='nav-link' href='19_1a.html'>19.1a</a>
-<a class='nav-link' href='19_1b.html'>19.1b</a>
-<a class='nav-link' href='19_1c.html'>19.1c</a>
-<a class='nav-link' href='19_1d.html'>19.1d</a>
-<a class='nav-link' href='19_1e.html'>19.1e</a>
-<a class='nav-link active' href='annex_19_1.html'>Annex</a></nav>
-    </div>
-  </header>
-
-  <main class="container">
-    <div class="annex-columns-title">
-      <div class="col-title">Pseudocode</div>
-      <div class="col-title">Python</div>
-    </div>
-
-    
-<section class="annex-pair">
-  <div class="code-panel pseudo-panel">
-<div class="code-title">2) Binary search (algorithm idea)</div>
-<div class="code-id">Annex: BinarySearchPseudo</div>
-<div class="code-wrap pseudo" id="BinarySearchPseudo"><div class='code-line' data-tip="// Binary search in a sorted (ascending) 1D array List
-// Repeatedly checks the middle element and discards the half that cannot contain SearchItem"></div>
-<div class='code-line'>Found ← FALSE</div>
-<div class='code-line'>SearchFailed ← FALSE</div>
-<div class='code-line'>First ← 0</div>
-<div class='code-line'>Last ← MaxItems - 1</div>
-<div class='code-line'></div>
-<div class='code-line'>WHILE NOT Found AND NOT SearchFailed DO</div>
-<div class='code-line'>    Middle ← (First + Last) DIV 2</div>
-<div class='code-line'></div>
-<div class='code-line'>    IF List[Middle] = SearchItem THEN</div>
-<div class='code-line'>        Found ← TRUE</div>
-<div class='code-line'>    ELSE</div>
-<div class='code-line'>        IF First &gt;= Last THEN</div>
-<div class='code-line'>            SearchFailed ← TRUE</div>
-<div class='code-line'>        ELSE</div>
-<div class='code-line'>            IF List[Middle] &gt; SearchItem THEN</div>
-<div class='code-line'>                Last ← Middle - 1</div>
-<div class='code-line'>            ELSE</div>
-<div class='code-line'>                First ← Middle + 1</div>
-<div class='code-line'>            ENDIF</div>
-<div class='code-line'>        ENDIF</div>
-<div class='code-line'>    ENDIF</div>
-<div class='code-line'>ENDWHILE</div>
-<div class='code-line'></div>
-<div class='code-line'>IF Found = TRUE THEN</div>
-<div class='code-line'>    OUTPUT Middle</div>
-<div class='code-line'>ELSE</div>
-<div class='code-line'>    OUTPUT &quot;Item not present in array&quot;</div>
-<div class='code-line'>ENDIF</div></div>
+<header class="header">
+<div class="header-inner">
+<h1 class="main-title">19.1 Algorithms</h1>
+<div class="sub-title">Theory notes prepared by Dr. Hamdeni</div>
+<nav class="nav"><a class="nav-link" href="19_1a.html">19.1a</a>
+<a class="nav-link" href="19_1b.html">19.1b</a>
+<a class="nav-link" href="19_1c.html">19.1c</a>
+<a class="nav-link" href="19_1d.html">19.1d</a>
+<a class="nav-link" href="19_1e.html">19.1e</a>
+<a class="nav-link active" href="annex_19_1.html">Annex</a></nav>
 </div>
-  <div class="code-panel python-panel">
-<div class="code-title">2) Binary search (algorithm idea)</div>
-<div class="code-id">Annex: BinarySearchPython</div>
-<div class="code-wrap python" id="BinarySearchPython"><div class='code-line' data-tip="    &quot;&quot;&quot;
+</header>
+<main class="container">
+<div class="annex-columns-title">
+<div class="col-title">Pseudocode</div>
+<div class="col-title">Python</div>
+</div>
+<section class="annex-pair">
+<div class="code-panel pseudo-panel">
+<div class="code-title">BinarySearchPseudo</div>
+
+<div class="code-wrap pseudo" id="BinarySearchPseudo"><div class="code-line" data-tip="// Binary search in a sorted (ascending) 1D array List
+// Repeatedly checks the middle element and discards the half that cannot contain SearchItem"></div>
+<div class="code-line">Found ← FALSE</div>
+<div class="code-line">SearchFailed ← FALSE</div>
+<div class="code-line">First ← 0</div>
+<div class="code-line">Last ← MaxItems - 1</div>
+<div class="code-line"></div>
+<div class="code-line">WHILE NOT Found AND NOT SearchFailed DO</div>
+<div class="code-line">    Middle ← (First + Last) DIV 2</div>
+<div class="code-line"></div>
+<div class="code-line">    IF List[Middle] = SearchItem THEN</div>
+<div class="code-line">        Found ← TRUE</div>
+<div class="code-line">    ELSE</div>
+<div class="code-line">        IF First &gt;= Last THEN</div>
+<div class="code-line">            SearchFailed ← TRUE</div>
+<div class="code-line">        ELSE</div>
+<div class="code-line">            IF List[Middle] &gt; SearchItem THEN</div>
+<div class="code-line">                Last ← Middle - 1</div>
+<div class="code-line">            ELSE</div>
+<div class="code-line">                First ← Middle + 1</div>
+<div class="code-line">            ENDIF</div>
+<div class="code-line">        ENDIF</div>
+<div class="code-line">    ENDIF</div>
+<div class="code-line">ENDWHILE</div>
+<div class="code-line"></div>
+<div class="code-line">IF Found = TRUE THEN</div>
+<div class="code-line">    OUTPUT Middle</div>
+<div class="code-line">ELSE</div>
+<div class="code-line">    OUTPUT "Item not present in array"</div>
+<div class="code-line">ENDIF</div></div>
+</div>
+<div class="code-panel python-panel">
+<div class="code-title">BinarySearchPython</div>
+
+<div class="code-wrap python" id="BinarySearchPython"><div class="code-line" data-tip='    """
     Binary search on a list sorted in ascending order.
 
     Preconditions:
@@ -73,45 +70,44 @@
 
     Returns:
         int: index of search_item if found, otherwise -1.
-    &quot;&quot;&quot;">def binary_search(sorted_list, search_item):</div>
-<div class='code-line'>    first = 0</div>
-<div class='code-line'>    last = len(sorted_list) - 1</div>
-<div class='code-line'>    while first &lt;= last:</div>
-<div class='code-line'>        middle = (first + last) // 2</div>
-<div class='code-line'>        if sorted_list[middle] == search_item:</div>
-<div class='code-line'>            return middle</div>
-<div class='code-line'>        elif sorted_list[middle] &gt; search_item:</div>
-<div class='code-line'>            last = middle - 1</div>
-<div class='code-line'>        else:</div>
-<div class='code-line'>            first = middle + 1</div>
-<div class='code-line'>    return -1</div></div>
+    """'>def binary_search(sorted_list, search_item):</div>
+<div class="code-line">    first = 0</div>
+<div class="code-line">    last = len(sorted_list) - 1</div>
+<div class="code-line">    while first &lt;= last:</div>
+<div class="code-line">        middle = (first + last) // 2</div>
+<div class="code-line">        if sorted_list[middle] == search_item:</div>
+<div class="code-line">            return middle</div>
+<div class="code-line">        elif sorted_list[middle] &gt; search_item:</div>
+<div class="code-line">            last = middle - 1</div>
+<div class="code-line">        else:</div>
+<div class="code-line">            first = middle + 1</div>
+<div class="code-line">    return -1</div></div>
 </div>
 </section>
-
 <section class="annex-pair">
-  <div class="code-panel pseudo-panel">
-<div class="code-title">2) Bubble sort (algorithm idea)</div>
-<div class="code-id">Annex: BubbleSortPseudo</div>
-<div class="code-wrap pseudo" id="BubbleSortPseudo"><div class='code-line' data-tip="// Bubble sort (nested loop structure)
+<div class="code-panel pseudo-panel">
+<div class="code-title">BubbleSortPseudo</div>
+
+<div class="code-wrap pseudo" id="BubbleSortPseudo"><div class="code-line" data-tip="// Bubble sort (nested loop structure)
 // Values are stored in a 1D array MyList of size n"></div>
-<div class='code-line'>Unsorted ← n - 1</div>
-<div class='code-line'></div>
-<div class='code-line'>FOR i ← 0 TO n - 2</div>
-<div class='code-line'>    FOR j ← 0 TO Unsorted - 1</div>
-<div class='code-line'>        IF MyList[j] &gt; MyList[j + 1] THEN</div>
-<div class='code-line'>            Temp ← MyList[j]</div>
-<div class='code-line'>            MyList[j] ← MyList[j + 1]</div>
-<div class='code-line'>            MyList[j + 1] ← Temp</div>
-<div class='code-line'>        ENDIF</div>
-<div class='code-line'>    NEXT j</div>
-<div class='code-line'></div>
-<div class='code-line' data-tip="// After each pass, the largest remaining item is at the end">    Unsorted ← Unsorted - 1</div>
-<div class='code-line'>NEXT i</div></div>
+<div class="code-line">Unsorted ← n - 1</div>
+<div class="code-line"></div>
+<div class="code-line">FOR i ← 0 TO n - 2</div>
+<div class="code-line">    FOR j ← 0 TO Unsorted - 1</div>
+<div class="code-line">        IF MyList[j] &gt; MyList[j + 1] THEN</div>
+<div class="code-line">            Temp ← MyList[j]</div>
+<div class="code-line">            MyList[j] ← MyList[j + 1]</div>
+<div class="code-line">            MyList[j + 1] ← Temp</div>
+<div class="code-line">        ENDIF</div>
+<div class="code-line">    NEXT j</div>
+<div class="code-line"></div>
+<div class="code-line" data-tip="// After each pass, the largest remaining item is at the end">    Unsorted ← Unsorted - 1</div>
+<div class="code-line">NEXT i</div></div>
 </div>
-  <div class="code-panel python-panel">
-<div class="code-title">2) Bubble sort (algorithm idea)</div>
-<div class="code-id">Annex: BubbleSortPython</div>
-<div class="code-wrap python" id="BubbleSortPython"><div class='code-line' data-tip="    &quot;&quot;&quot;
+<div class="code-panel python-panel">
+<div class="code-title">BubbleSortPython</div>
+
+<div class="code-wrap python" id="BubbleSortPython"><div class="code-line" data-tip='    """
     Bubble sort (ascending).
 
     How it works:
@@ -122,42 +118,41 @@
 
     Returns:
         list: the same list object, sorted in ascending order.
-    &quot;&quot;&quot;">def bubble_sort(a):</div>
-<div class='code-line'>    n = len(a)</div>
-<div class='code-line'>    unsorted = n - 1</div>
-<div class='code-line' data-tip="# Repeat passes through the list">    for _ in range(n - 1):</div>
-<div class='code-line' data-tip="# Compare only within the unsorted part">        for j in range(unsorted):</div>
-<div class='code-line'>            if a[j] &gt; a[j + 1]:</div>
-<div class='code-line'>                temp = a[j]</div>
-<div class='code-line'>                a[j] = a[j + 1]</div>
-<div class='code-line'>                a[j + 1] = temp</div>
-<div class='code-line' data-tip="# One more item is in the correct final position">        unsorted -= 1</div>
-<div class='code-line'>    return a</div></div>
+    """'>def bubble_sort(a):</div>
+<div class="code-line">    n = len(a)</div>
+<div class="code-line">    unsorted = n - 1</div>
+<div class="code-line" data-tip="# Repeat passes through the list">    for _ in range(n - 1):</div>
+<div class="code-line" data-tip="# Compare only within the unsorted part">        for j in range(unsorted):</div>
+<div class="code-line">            if a[j] &gt; a[j + 1]:</div>
+<div class="code-line">                temp = a[j]</div>
+<div class="code-line">                a[j] = a[j + 1]</div>
+<div class="code-line">                a[j + 1] = temp</div>
+<div class="code-line" data-tip="# One more item is in the correct final position">        unsorted -= 1</div>
+<div class="code-line">    return a</div></div>
 </div>
 </section>
-
 <section class="annex-pair">
-  <div class="code-panel pseudo-panel">
-<div class="code-title">1) Insertion sort (algorithm idea)</div>
-<div class="code-id">Annex: InsertionSortPseudo</div>
-<div class="code-wrap pseudo" id="InsertionSortPseudo"><div class='code-line' data-tip="// Insertion sort
+<div class="code-panel pseudo-panel">
+<div class="code-title">InsertionSortPseudo</div>
+
+<div class="code-wrap pseudo" id="InsertionSortPseudo"><div class="code-line" data-tip="// Insertion sort
 // Values to be sorted are stored in a 1D array, List"></div>
-<div class='code-line'>FOR Pointer ← 1 TO NumberOfItems - 1</div>
-<div class='code-line'>    ItemToBeInserted ← List[Pointer]</div>
-<div class='code-line'>    CurrentItem ← Pointer - 1   // last item in the sorted part</div>
-<div class='code-line'></div>
-<div class='code-line' data-tip="// Move larger items one place to the right until the correct position is reached">    WHILE (List[CurrentItem] &gt; ItemToBeInserted) AND (CurrentItem &gt; -1) DO</div>
-<div class='code-line'>        List[CurrentItem + 1] ← List[CurrentItem]  // move item down</div>
-<div class='code-line'>        CurrentItem ← CurrentItem - 1              // look at the item above</div>
-<div class='code-line'>    ENDWHILE</div>
-<div class='code-line'></div>
-<div class='code-line' data-tip="// Insert the item into the gap created">    List[CurrentItem + 1] ← ItemToBeInserted</div>
-<div class='code-line'>NEXT Pointer</div></div>
+<div class="code-line">FOR Pointer ← 1 TO NumberOfItems - 1</div>
+<div class="code-line">    ItemToBeInserted ← List[Pointer]</div>
+<div class="code-line">    CurrentItem ← Pointer - 1   // last item in the sorted part</div>
+<div class="code-line"></div>
+<div class="code-line" data-tip="// Move larger items one place to the right until the correct position is reached">    WHILE (List[CurrentItem] &gt; ItemToBeInserted) AND (CurrentItem &gt; -1) DO</div>
+<div class="code-line">        List[CurrentItem + 1] ← List[CurrentItem]  // move item down</div>
+<div class="code-line">        CurrentItem ← CurrentItem - 1              // look at the item above</div>
+<div class="code-line">    ENDWHILE</div>
+<div class="code-line"></div>
+<div class="code-line" data-tip="// Insert the item into the gap created">    List[CurrentItem + 1] ← ItemToBeInserted</div>
+<div class="code-line">NEXT Pointer</div></div>
 </div>
-  <div class="code-panel python-panel">
-<div class="code-title">1) Insertion sort (algorithm idea)</div>
-<div class="code-id">Annex: InsertionSortPython</div>
-<div class="code-wrap python" id="InsertionSortPython"><div class='code-line' data-tip="    &quot;&quot;&quot;
+<div class="code-panel python-panel">
+<div class="code-title">InsertionSortPython</div>
+
+<div class="code-wrap python" id="InsertionSortPython"><div class="code-line" data-tip='    """
     Insertion sort (ascending).
 
     How it works:
@@ -168,713 +163,694 @@
 
     Returns:
         list: the same list object, sorted in ascending order.
-    &quot;&quot;&quot;">def insertion_sort(a):</div>
-<div class='code-line'>    n = len(a)</div>
-<div class='code-line' data-tip="# Start from index 1 because a[0] alone is already a sorted part">    for pointer in range(1, n):</div>
-<div class='code-line' data-tip="# the item to insert">        key = a[pointer]</div>
-<div class='code-line' data-tip="# last index in the sorted part">        current = pointer - 1</div>
-<div class='code-line' data-tip="# Shift larger items to the right">        while current &gt;= 0 and a[current] &gt; key:</div>
-<div class='code-line'>            a[current + 1] = a[current]</div>
-<div class='code-line'>            current -= 1</div>
-<div class='code-line' data-tip="# Insert key into its correct position">        a[current + 1] = key</div>
-<div class='code-line'>    return a</div></div>
+    """'>def insertion_sort(a):</div>
+<div class="code-line">    n = len(a)</div>
+<div class="code-line" data-tip="# Start from index 1 because a[0] alone is already a sorted part">    for pointer in range(1, n):</div>
+<div class="code-line" data-tip="# the item to insert">        key = a[pointer]</div>
+<div class="code-line" data-tip="# last index in the sorted part">        current = pointer - 1</div>
+<div class="code-line" data-tip="# Shift larger items to the right">        while current &gt;= 0 and a[current] &gt; key:</div>
+<div class="code-line">            a[current + 1] = a[current]</div>
+<div class="code-line">            current -= 1</div>
+<div class="code-line" data-tip="# Insert key into its correct position">        a[current + 1] = key</div>
+<div class="code-line">    return a</div></div>
 </div>
 </section>
-
 <section class="annex-pair">
-  <div class="code-panel pseudo-panel">
-<div class="code-title">1) Linear search (algorithm idea)</div>
-<div class="code-id">Annex: LinearSearchPseudo</div>
-<div class="code-wrap pseudo" id="LinearSearchPseudo"><div class='code-line' data-tip="// Linear search in a 1D array myList between lowerBound and upperBound (inclusive)
+<div class="code-panel pseudo-panel">
+<div class="code-title">LinearSearchPseudo</div>
+
+<div class="code-wrap pseudo" id="LinearSearchPseudo"><div class="code-line" data-tip="// Linear search in a 1D array myList between lowerBound and upperBound (inclusive)
 // Checks each element in order until the item is found or the upper bound is reached"></div>
-<div class='code-line'>found ← FALSE</div>
-<div class='code-line'>index ← lowerBound</div>
-<div class='code-line'></div>
-<div class='code-line'>WHILE (index ≤ upperBound) AND (found = FALSE) DO</div>
-<div class='code-line'>    IF myList[index] = item THEN</div>
-<div class='code-line'>        found ← TRUE</div>
-<div class='code-line'>    ELSE</div>
-<div class='code-line'>        index ← index + 1</div>
-<div class='code-line'>    ENDIF</div>
-<div class='code-line'>ENDWHILE</div>
-<div class='code-line'></div>
-<div class='code-line'>IF found = TRUE THEN</div>
-<div class='code-line'>    OUTPUT index</div>
-<div class='code-line'>ELSE</div>
-<div class='code-line'>    OUTPUT &quot;Not found&quot;</div>
-<div class='code-line'>ENDIF</div></div>
+<div class="code-line">found ← FALSE</div>
+<div class="code-line">index ← lowerBound</div>
+<div class="code-line"></div>
+<div class="code-line">WHILE (index ≤ upperBound) AND (found = FALSE) DO</div>
+<div class="code-line">    IF myList[index] = item THEN</div>
+<div class="code-line">        found ← TRUE</div>
+<div class="code-line">    ELSE</div>
+<div class="code-line">        index ← index + 1</div>
+<div class="code-line">    ENDIF</div>
+<div class="code-line">ENDWHILE</div>
+<div class="code-line"></div>
+<div class="code-line">IF found = TRUE THEN</div>
+<div class="code-line">    OUTPUT index</div>
+<div class="code-line">ELSE</div>
+<div class="code-line">    OUTPUT "Not found"</div>
+<div class="code-line">ENDIF</div></div>
 </div>
-  <div class="code-panel python-panel">
-<div class="code-title">1) Linear search (algorithm idea)</div>
-<div class="code-id">Annex: LinearSearchPython</div>
-<div class="code-wrap python" id="LinearSearchPython"><div class='code-line' data-tip="    &quot;&quot;&quot;
+<div class="code-panel python-panel">
+<div class="code-title">LinearSearchPython</div>
+
+<div class="code-wrap python" id="LinearSearchPython"><div class="code-line" data-tip='    """
     Linear search: checks each element in order from lower_bound to upper_bound (inclusive)
     until the item is found or the upper bound is reached.
 
     Returns:
         int: index of item if found, otherwise -1.
-    &quot;&quot;&quot;">def linear_search(my_list, item, lower_bound=0, upper_bound=None):</div>
-<div class='code-line'>    if upper_bound is None:</div>
-<div class='code-line'>        upper_bound = len(my_list) - 1</div>
-<div class='code-line'>    index = lower_bound</div>
-<div class='code-line'>    while index &lt;= upper_bound:</div>
-<div class='code-line'>        if my_list[index] == item:</div>
-<div class='code-line'>            return index</div>
-<div class='code-line'>        index += 1</div>
-<div class='code-line'>    return -1</div></div>
+    """'>def linear_search(my_list, item, lower_bound=0, upper_bound=None):</div>
+<div class="code-line">    if upper_bound is None:</div>
+<div class="code-line">        upper_bound = len(my_list) - 1</div>
+<div class="code-line">    index = lower_bound</div>
+<div class="code-line">    while index &lt;= upper_bound:</div>
+<div class="code-line">        if my_list[index] == item:</div>
+<div class="code-line">            return index</div>
+<div class="code-line">        index += 1</div>
+<div class="code-line">    return -1</div></div>
 </div>
 </section>
-
 <section class="annex-pair">
-  <div class="code-panel pseudo-panel">
-<div class="code-title">Annex: binaryTreeFindPseudo</div>
-<div class="code-id">Annex: binaryTreeFindPseudo</div>
-<div class="code-wrap pseudo" id="binaryTreeFindPseudo"><div class='code-line'>FUNCTION FindNode(SearchItem) RETURNS INTEGER // returns pointer to node</div>
-<div class='code-line'>  ThisNodePtr ← RootPointer // start at the root of the tree</div>
-<div class='code-line'>  WHILE ThisNodePtr &lt;&gt; NullPointer // while a pointer to follow</div>
-<div class='code-line'>    AND Tree[ThisNodePtr].Data &lt;&gt; SearchItem DO // and search item not found</div>
-<div class='code-line'>    IF Tree[ThisNodePtr].Data &gt; SearchItem</div>
-<div class='code-line'>    THEN // follow left pointer</div>
-<div class='code-line'>      ThisNodePtr ← Tree[ThisNodePtr].LeftPointer</div>
-<div class='code-line'>    ELSE // follow right pointer</div>
-<div class='code-line'>      ThisNodePtr ← Tree[ThisNodePtr].RightPointer</div>
-<div class='code-line'>    ENDIF</div>
-<div class='code-line'>  ENDWHILE</div>
-<div class='code-line'>  RETURN ThisNodePtr // will return null pointer if search item not found</div>
-<div class='code-line'>ENDFUNCTION</div></div>
+<div class="code-panel pseudo-panel">
+<div class="code-title">binaryTreeFindPseudo</div>
+
+<div class="code-wrap pseudo" id="binaryTreeFindPseudo"><div class="code-line">FUNCTION FindNode(SearchItem) RETURNS INTEGER // returns pointer to node</div>
+<div class="code-line">  ThisNodePtr ← RootPointer // start at the root of the tree</div>
+<div class="code-line">  WHILE ThisNodePtr &lt;&gt; NullPointer // while a pointer to follow</div>
+<div class="code-line">    AND Tree[ThisNodePtr].Data &lt;&gt; SearchItem DO // and search item not found</div>
+<div class="code-line">    IF Tree[ThisNodePtr].Data &gt; SearchItem</div>
+<div class="code-line">    THEN // follow left pointer</div>
+<div class="code-line">      ThisNodePtr ← Tree[ThisNodePtr].LeftPointer</div>
+<div class="code-line">    ELSE // follow right pointer</div>
+<div class="code-line">      ThisNodePtr ← Tree[ThisNodePtr].RightPointer</div>
+<div class="code-line">    ENDIF</div>
+<div class="code-line">  ENDWHILE</div>
+<div class="code-line">  RETURN ThisNodePtr // will return null pointer if search item not found</div>
+<div class="code-line">ENDFUNCTION</div></div>
 </div>
-  <div class="code-panel python-panel">
-<div class="code-title">Annex: binaryTreeFindPython</div>
-<div class="code-id">Annex: binaryTreeFindPython</div>
-<div class="code-wrap python" id="binaryTreeFindPython"><div class='code-line' data-tip="    &quot;&quot;&quot;
+<div class="code-panel python-panel">
+<div class="code-title">binaryTreeFindPython</div>
+
+<div class="code-wrap python" id="binaryTreeFindPython"><div class="code-line" data-tip='    """
     Search for SearchItem in the binary search tree.
 
     Returns:
         - the array index of the node containing SearchItem, if found
         - -1 if SearchItem is not in the tree
-    &quot;&quot;&quot;">def binaryTreeFindPython(ArrayNodes, RootPointer: int, SearchItem: int) -&gt; int:</div>
-<div class='code-line' data-tip="# Start searching from the root node">    CurrentNode = RootPointer</div>
-<div class='code-line' data-tip="# Keep following pointers while:
+    """'>def binaryTreeFindPython(ArrayNodes, RootPointer: int, SearchItem: int) -&gt; int:</div>
+<div class="code-line" data-tip="# Start searching from the root node">    CurrentNode = RootPointer</div>
+<div class="code-line" data-tip="# Keep following pointers while:
 #   - we have not fallen off the tree (CurrentNode != -1)
 #   - and we have not found the value yet">    while CurrentNode != -1 and ArrayNodes[CurrentNode][1] != SearchItem:</div>
-<div class='code-line' data-tip="# Decide which branch to follow based on the ordered-tree rule">        if SearchItem &lt; ArrayNodes[CurrentNode][1]:</div>
-<div class='code-line' data-tip="# Move to the left child">            CurrentNode = ArrayNodes[CurrentNode][0]</div>
-<div class='code-line'>        else:</div>
-<div class='code-line' data-tip="# Move to the right child">            CurrentNode = ArrayNodes[CurrentNode][2]</div>
-<div class='code-line' data-tip="# Either CurrentNode is the index where the value was found,
-# or it is -1 (null pointer) meaning &quot;not found&quot;">    return CurrentNode</div></div>
+<div class="code-line" data-tip="# Decide which branch to follow based on the ordered-tree rule">        if SearchItem &lt; ArrayNodes[CurrentNode][1]:</div>
+<div class="code-line" data-tip="# Move to the left child">            CurrentNode = ArrayNodes[CurrentNode][0]</div>
+<div class="code-line">        else:</div>
+<div class="code-line" data-tip="# Move to the right child">            CurrentNode = ArrayNodes[CurrentNode][2]</div>
+<div class="code-line" data-tip='# Either CurrentNode is the index where the value was found,
+# or it is -1 (null pointer) meaning "not found"'>    return CurrentNode</div></div>
 </div>
 </section>
-
 <section class="annex-pair">
-  <div class="code-panel pseudo-panel">
-<div class="code-title">Annex: binaryTreeInitialisePseudo</div>
-<div class="code-id">Annex: binaryTreeInitialisePseudo</div>
-<div class="code-wrap pseudo" id="binaryTreeInitialisePseudo"><div class='code-line' data-tip="// NullPointer should be set to -1 if using array element with index 0">CONSTANT NullPointer = -1</div>
-<div class='code-line'></div>
-<div class='code-line' data-tip="// Declare record type to store data and pointers">TYPE TreeNode</div>
-<div class='code-line'>  DECLARE Data : STRING</div>
-<div class='code-line'>  DECLARE LeftPointer : INTEGER</div>
-<div class='code-line'>  DECLARE RightPointer : INTEGER</div>
-<div class='code-line'>ENDTYPE</div>
-<div class='code-line'></div>
-<div class='code-line'>DECLARE RootPointer : INTEGER</div>
-<div class='code-line'>DECLARE FreePtr : INTEGER</div>
-<div class='code-line'>DECLARE Tree : ARRAY[0 : 6] OF TreeNode</div>
-<div class='code-line'></div>
-<div class='code-line'>PROCEDURE InitialiseTree</div>
-<div class='code-line'>  RootPointer ← NullPointer // set start pointer</div>
-<div class='code-line'>  FreePtr ← 0 // set starting position of free list</div>
-<div class='code-line'>  FOR Index ← 0 TO 5 // link all nodes to make free list</div>
-<div class='code-line'>    Tree[Index].LeftPointer ← Index + 1</div>
-<div class='code-line'>  NEXT Index</div>
-<div class='code-line'>  Tree[6].LeftPointer ← NullPointer // last node of free list</div>
-<div class='code-line'>ENDPROCEDURE</div></div>
+<div class="code-panel pseudo-panel">
+<div class="code-title">binaryTreeInitialisePseudo</div>
+
+<div class="code-wrap pseudo" id="binaryTreeInitialisePseudo"><div class="code-line" data-tip="// NullPointer should be set to -1 if using array element with index 0">CONSTANT NullPointer = -1</div>
+<div class="code-line"></div>
+<div class="code-line" data-tip="// Declare record type to store data and pointers">TYPE TreeNode</div>
+<div class="code-line">  DECLARE Data : STRING</div>
+<div class="code-line">  DECLARE LeftPointer : INTEGER</div>
+<div class="code-line">  DECLARE RightPointer : INTEGER</div>
+<div class="code-line">ENDTYPE</div>
+<div class="code-line"></div>
+<div class="code-line">DECLARE RootPointer : INTEGER</div>
+<div class="code-line">DECLARE FreePtr : INTEGER</div>
+<div class="code-line">DECLARE Tree : ARRAY[0 : 6] OF TreeNode</div>
+<div class="code-line"></div>
+<div class="code-line">PROCEDURE InitialiseTree</div>
+<div class="code-line">  RootPointer ← NullPointer // set start pointer</div>
+<div class="code-line">  FreePtr ← 0 // set starting position of free list</div>
+<div class="code-line">  FOR Index ← 0 TO 5 // link all nodes to make free list</div>
+<div class="code-line">    Tree[Index].LeftPointer ← Index + 1</div>
+<div class="code-line">  NEXT Index</div>
+<div class="code-line">  Tree[6].LeftPointer ← NullPointer // last node of free list</div>
+<div class="code-line">ENDPROCEDURE</div></div>
 </div>
-  <div class="code-panel python-panel">
-<div class="code-title">Annex: binaryTreeInitialisePython</div>
-<div class="code-id">Annex: binaryTreeInitialisePython</div>
-<div class="code-wrap python" id="binaryTreeInitialisePython"><div class='code-line' data-tip="    &quot;&quot;&quot;
+<div class="code-panel python-panel">
+<div class="code-title">binaryTreeInitialisePython</div>
+
+<div class="code-wrap python" id="binaryTreeInitialisePython"><div class="code-line" data-tip='    """
     Create an empty binary search tree stored in an array.
 
     Each node is stored as:
         ArrayNodes[index] = [LeftPointer, Data, RightPointer]
 
-    Pointer value -1 means &quot;null pointer&quot; (no child).
+    Pointer value -1 means "null pointer" (no child).
     RootPointer is the index of the root node, or -1 if the tree is empty.
     FreeNode is the index of the next free row in ArrayNodes.
-    &quot;&quot;&quot;">def binaryTreeInitialisePython(max_nodes: int = 20):</div>
-<div class='code-line' data-tip="# Create the array that will hold all nodes (fixed size)
+    """'>def binaryTreeInitialisePython(max_nodes: int = 20):</div>
+<div class="code-line" data-tip="# Create the array that will hold all nodes (fixed size)
 # [-1, -1, -1] means unused node">    ArrayNodes = [[-1, -1, -1] for _ in range(max_nodes)]</div>
-<div class='code-line' data-tip="# Start with an empty tree, so there is no root yet">    RootPointer = -1</div>
-<div class='code-line' data-tip="# The first free node is at index 0">    FreeNode = 0</div>
-<div class='code-line' data-tip="# Return all structures so they can be used by insert/search routines">    return ArrayNodes, RootPointer, FreeNode</div></div>
+<div class="code-line" data-tip="# Start with an empty tree, so there is no root yet">    RootPointer = -1</div>
+<div class="code-line" data-tip="# The first free node is at index 0">    FreeNode = 0</div>
+<div class="code-line" data-tip="# Return all structures so they can be used by insert/search routines">    return ArrayNodes, RootPointer, FreeNode</div></div>
 </div>
 </section>
-
 <section class="annex-pair">
-  <div class="code-panel pseudo-panel">
-<div class="code-title">Annex: binaryTreeInsertPseudo</div>
-<div class="code-id">Annex: binaryTreeInsertPseudo</div>
-<div class="code-wrap pseudo" id="binaryTreeInsertPseudo"><div class='code-line'>PROCEDURE InsertNode(NewItem)</div>
-<div class='code-line'>  IF FreePtr &lt;&gt; NullPointer</div>
-<div class='code-line'>  THEN // there is space in the array</div>
-<div class='code-line' data-tip="// take node from free list, store data item, set null pointers">    NewNodePtr ← FreePtr</div>
-<div class='code-line'>    FreePtr ← Tree[FreePtr].LeftPointer</div>
-<div class='code-line'>    Tree[NewNodePtr].Data ← NewItem</div>
-<div class='code-line'>    Tree[NewNodePtr].LeftPointer ← NullPointer</div>
-<div class='code-line'>    Tree[NewNodePtr].RightPointer ← NullPointer</div>
-<div class='code-line'></div>
-<div class='code-line' data-tip="// check if empty tree">    IF RootPointer = NullPointer</div>
-<div class='code-line'>    THEN // insert new node at root</div>
-<div class='code-line'>      RootPointer ← NewNodePtr</div>
-<div class='code-line'>    ELSE // find insertion point</div>
-<div class='code-line'>      ThisNodePtr ← RootPointer // start at the root of the tree</div>
-<div class='code-line'>      WHILE ThisNodePtr &lt;&gt; NullPointer DO // while not a leaf node</div>
-<div class='code-line'>        PreviousNodePtr ← ThisNodePtr // remember this node</div>
-<div class='code-line'>        IF Tree[ThisNodePtr].Data &gt; NewItem</div>
-<div class='code-line'>        THEN // follow left pointer</div>
-<div class='code-line'>          TurnedLeft ← TRUE</div>
-<div class='code-line'>          ThisNodePtr ← Tree[ThisNodePtr].LeftPointer</div>
-<div class='code-line'>        ELSE // follow right pointer</div>
-<div class='code-line'>          TurnedLeft ← FALSE</div>
-<div class='code-line'>          ThisNodePtr ← Tree[ThisNodePtr].RightPointer</div>
-<div class='code-line'>        ENDIF</div>
-<div class='code-line'>      ENDWHILE</div>
-<div class='code-line'></div>
-<div class='code-line'>      IF TurnedLeft = TRUE</div>
-<div class='code-line'>      THEN</div>
-<div class='code-line'>        Tree[PreviousNodePtr].LeftPointer ← NewNodePtr</div>
-<div class='code-line'>      ELSE</div>
-<div class='code-line'>        Tree[PreviousNodePtr].RightPointer ← NewNodePtr</div>
-<div class='code-line'>      ENDIF</div>
-<div class='code-line'>    ENDIF</div>
-<div class='code-line'>  ENDIF</div>
-<div class='code-line'>ENDPROCEDURE</div></div>
+<div class="code-panel pseudo-panel">
+<div class="code-title">binaryTreeInsertPseudo</div>
+
+<div class="code-wrap pseudo" id="binaryTreeInsertPseudo"><div class="code-line">PROCEDURE InsertNode(NewItem)</div>
+<div class="code-line">  IF FreePtr &lt;&gt; NullPointer</div>
+<div class="code-line">  THEN // there is space in the array</div>
+<div class="code-line" data-tip="// take node from free list, store data item, set null pointers">    NewNodePtr ← FreePtr</div>
+<div class="code-line">    FreePtr ← Tree[FreePtr].LeftPointer</div>
+<div class="code-line">    Tree[NewNodePtr].Data ← NewItem</div>
+<div class="code-line">    Tree[NewNodePtr].LeftPointer ← NullPointer</div>
+<div class="code-line">    Tree[NewNodePtr].RightPointer ← NullPointer</div>
+<div class="code-line"></div>
+<div class="code-line" data-tip="// check if empty tree">    IF RootPointer = NullPointer</div>
+<div class="code-line">    THEN // insert new node at root</div>
+<div class="code-line">      RootPointer ← NewNodePtr</div>
+<div class="code-line">    ELSE // find insertion point</div>
+<div class="code-line">      ThisNodePtr ← RootPointer // start at the root of the tree</div>
+<div class="code-line">      WHILE ThisNodePtr &lt;&gt; NullPointer DO // while not a leaf node</div>
+<div class="code-line">        PreviousNodePtr ← ThisNodePtr // remember this node</div>
+<div class="code-line">        IF Tree[ThisNodePtr].Data &gt; NewItem</div>
+<div class="code-line">        THEN // follow left pointer</div>
+<div class="code-line">          TurnedLeft ← TRUE</div>
+<div class="code-line">          ThisNodePtr ← Tree[ThisNodePtr].LeftPointer</div>
+<div class="code-line">        ELSE // follow right pointer</div>
+<div class="code-line">          TurnedLeft ← FALSE</div>
+<div class="code-line">          ThisNodePtr ← Tree[ThisNodePtr].RightPointer</div>
+<div class="code-line">        ENDIF</div>
+<div class="code-line">      ENDWHILE</div>
+<div class="code-line"></div>
+<div class="code-line">      IF TurnedLeft = TRUE</div>
+<div class="code-line">      THEN</div>
+<div class="code-line">        Tree[PreviousNodePtr].LeftPointer ← NewNodePtr</div>
+<div class="code-line">      ELSE</div>
+<div class="code-line">        Tree[PreviousNodePtr].RightPointer ← NewNodePtr</div>
+<div class="code-line">      ENDIF</div>
+<div class="code-line">    ENDIF</div>
+<div class="code-line">  ENDIF</div>
+<div class="code-line">ENDPROCEDURE</div></div>
 </div>
-  <div class="code-panel python-panel">
-<div class="code-title">Annex: binaryTreeInsertPython</div>
-<div class="code-id">Annex: binaryTreeInsertPython</div>
-<div class="code-wrap python" id="binaryTreeInsertPython"><div class='code-line' data-tip="    &quot;&quot;&quot;
+<div class="code-panel python-panel">
+<div class="code-title">binaryTreeInsertPython</div>
+
+<div class="code-wrap python" id="binaryTreeInsertPython"><div class="code-line" data-tip='    """
     Insert one integer value into the binary search tree.
 
     Returns:
         ArrayNodes, RootPointer, FreeNode, Success
     where Success is True if insertion happened, False if the array is full.
-    &quot;&quot;&quot;">def binaryTreeInsertPython(ArrayNodes, RootPointer: int, FreeNode: int, NodeData: int):</div>
-<div class='code-line' data-tip="# maximum number of nodes that can be stored">    max_nodes = len(ArrayNodes)</div>
-<div class='code-line' data-tip="# Check if there is space to insert a new node">    if FreeNode &gt;= max_nodes:</div>
-<div class='code-line' data-tip="# no space">        return ArrayNodes, RootPointer, FreeNode, False</div>
-<div class='code-line' data-tip="# Initialise the new node at index FreeNode
+    """'>def binaryTreeInsertPython(ArrayNodes, RootPointer: int, FreeNode: int, NodeData: int):</div>
+<div class="code-line" data-tip="# maximum number of nodes that can be stored">    max_nodes = len(ArrayNodes)</div>
+<div class="code-line" data-tip="# Check if there is space to insert a new node">    if FreeNode &gt;= max_nodes:</div>
+<div class="code-line" data-tip="# no space">        return ArrayNodes, RootPointer, FreeNode, False</div>
+<div class="code-line" data-tip="# Initialise the new node at index FreeNode
 # LeftPointer: no left child yet">    ArrayNodes[FreeNode][0] = -1</div>
-<div class='code-line' data-tip="# Data: store the value being inserted">    ArrayNodes[FreeNode][1] = NodeData</div>
-<div class='code-line' data-tip="# RightPointer: no right child yet">    ArrayNodes[FreeNode][2] = -1</div>
-<div class='code-line' data-tip="# Case 1: tree is empty, so the new node becomes the root">    if RootPointer == -1:</div>
-<div class='code-line'>        RootPointer = FreeNode</div>
-<div class='code-line'>    else:</div>
-<div class='code-line' data-tip="# Case 2: tree is not empty, so find where to attach the new node
+<div class="code-line" data-tip="# Data: store the value being inserted">    ArrayNodes[FreeNode][1] = NodeData</div>
+<div class="code-line" data-tip="# RightPointer: no right child yet">    ArrayNodes[FreeNode][2] = -1</div>
+<div class="code-line" data-tip="# Case 1: tree is empty, so the new node becomes the root">    if RootPointer == -1:</div>
+<div class="code-line">        RootPointer = FreeNode</div>
+<div class="code-line">    else:</div>
+<div class="code-line" data-tip="# Case 2: tree is not empty, so find where to attach the new node
 # becomes True when we attach the new node">        Placed = False</div>
-<div class='code-line' data-tip="# start at the root">        CurrentNode = RootPointer</div>
-<div class='code-line' data-tip="# Repeat until we find a missing child pointer (-1) where we can attach">        while not Placed:</div>
-<div class='code-line' data-tip="# If new value is smaller, move left">            if NodeData &lt; ArrayNodes[CurrentNode][1]:</div>
-<div class='code-line' data-tip="# If there is no left child, attach the new node here">                if ArrayNodes[CurrentNode][0] == -1:</div>
-<div class='code-line'>                    ArrayNodes[CurrentNode][0] = FreeNode</div>
-<div class='code-line'>                    Placed = True</div>
-<div class='code-line'>                else:</div>
-<div class='code-line' data-tip="# Follow the left pointer and continue searching for a place">                    CurrentNode = ArrayNodes[CurrentNode][0]</div>
-<div class='code-line'>            else:</div>
-<div class='code-line' data-tip="# Otherwise (equal or larger), move right
+<div class="code-line" data-tip="# start at the root">        CurrentNode = RootPointer</div>
+<div class="code-line" data-tip="# Repeat until we find a missing child pointer (-1) where we can attach">        while not Placed:</div>
+<div class="code-line" data-tip="# If new value is smaller, move left">            if NodeData &lt; ArrayNodes[CurrentNode][1]:</div>
+<div class="code-line" data-tip="# If there is no left child, attach the new node here">                if ArrayNodes[CurrentNode][0] == -1:</div>
+<div class="code-line">                    ArrayNodes[CurrentNode][0] = FreeNode</div>
+<div class="code-line">                    Placed = True</div>
+<div class="code-line">                else:</div>
+<div class="code-line" data-tip="# Follow the left pointer and continue searching for a place">                    CurrentNode = ArrayNodes[CurrentNode][0]</div>
+<div class="code-line">            else:</div>
+<div class="code-line" data-tip="# Otherwise (equal or larger), move right
 # If there is no right child, attach the new node here">                if ArrayNodes[CurrentNode][2] == -1:</div>
-<div class='code-line'>                    ArrayNodes[CurrentNode][2] = FreeNode</div>
-<div class='code-line'>                    Placed = True</div>
-<div class='code-line'>                else:</div>
-<div class='code-line' data-tip="# Follow the right pointer and continue searching for a place">                    CurrentNode = ArrayNodes[CurrentNode][2]</div>
-<div class='code-line' data-tip="# Move FreeNode to the next free position for the next insertion">    FreeNode = FreeNode + 1</div>
-<div class='code-line' data-tip="# Insertion succeeded">    return ArrayNodes, RootPointer, FreeNode, True</div></div>
+<div class="code-line">                    ArrayNodes[CurrentNode][2] = FreeNode</div>
+<div class="code-line">                    Placed = True</div>
+<div class="code-line">                else:</div>
+<div class="code-line" data-tip="# Follow the right pointer and continue searching for a place">                    CurrentNode = ArrayNodes[CurrentNode][2]</div>
+<div class="code-line" data-tip="# Move FreeNode to the next free position for the next insertion">    FreeNode = FreeNode + 1</div>
+<div class="code-line" data-tip="# Insertion succeeded">    return ArrayNodes, RootPointer, FreeNode, True</div></div>
 </div>
 </section>
-
 <section class="annex-pair">
-  <div class="code-panel pseudo-panel">
-<div class="code-title">Annex: linkedDeletePseudo</div>
-<div class="code-id">Annex: linkedDeletePseudo</div>
-<div class="code-wrap pseudo" id="linkedDeletePseudo"><div class='code-line'>FUNCTION linkedDeletePseudo(DeleteItem) RETURNS BOOLEAN</div>
-<div class='code-line'>    ThisPtr &lt;- StartPointer</div>
-<div class='code-line'>    PrevPtr &lt;- NullPointer</div>
-<div class='code-line'></div>
-<div class='code-line'>    WHILE ThisPtr &lt;&gt; NullPointer AND List[ThisPtr].Data &lt;&gt; DeleteItem DO</div>
-<div class='code-line'>        PrevPtr &lt;- ThisPtr</div>
-<div class='code-line'>        ThisPtr &lt;- List[ThisPtr].Pointer</div>
-<div class='code-line'>    ENDWHILE</div>
-<div class='code-line'></div>
-<div class='code-line'>    IF ThisPtr = NullPointer THEN</div>
-<div class='code-line'>        RETURN FALSE</div>
-<div class='code-line'>    ENDIF</div>
-<div class='code-line'></div>
-<div class='code-line'>    IF ThisPtr = StartPointer THEN</div>
-<div class='code-line'>        StartPointer &lt;- List[StartPointer].Pointer</div>
-<div class='code-line'>    ELSE</div>
-<div class='code-line'>        List[PrevPtr].Pointer &lt;- List[ThisPtr].Pointer</div>
-<div class='code-line'>    ENDIF</div>
-<div class='code-line'></div>
-<div class='code-line'>    List[ThisPtr].Pointer &lt;- FreeListPtr</div>
-<div class='code-line'>    FreeListPtr &lt;- ThisPtr</div>
-<div class='code-line'></div>
-<div class='code-line'>    RETURN TRUE</div>
-<div class='code-line'>ENDFUNCTION</div></div>
+<div class="code-panel pseudo-panel">
+<div class="code-title">linkedDeletePseudo</div>
+
+<div class="code-wrap pseudo" id="linkedDeletePseudo"><div class="code-line">FUNCTION linkedDeletePseudo(DeleteItem) RETURNS BOOLEAN</div>
+<div class="code-line">    ThisPtr &lt;- StartPointer</div>
+<div class="code-line">    PrevPtr &lt;- NullPointer</div>
+<div class="code-line"></div>
+<div class="code-line">    WHILE ThisPtr &lt;&gt; NullPointer AND List[ThisPtr].Data &lt;&gt; DeleteItem DO</div>
+<div class="code-line">        PrevPtr &lt;- ThisPtr</div>
+<div class="code-line">        ThisPtr &lt;- List[ThisPtr].Pointer</div>
+<div class="code-line">    ENDWHILE</div>
+<div class="code-line"></div>
+<div class="code-line">    IF ThisPtr = NullPointer THEN</div>
+<div class="code-line">        RETURN FALSE</div>
+<div class="code-line">    ENDIF</div>
+<div class="code-line"></div>
+<div class="code-line">    IF ThisPtr = StartPointer THEN</div>
+<div class="code-line">        StartPointer &lt;- List[StartPointer].Pointer</div>
+<div class="code-line">    ELSE</div>
+<div class="code-line">        List[PrevPtr].Pointer &lt;- List[ThisPtr].Pointer</div>
+<div class="code-line">    ENDIF</div>
+<div class="code-line"></div>
+<div class="code-line">    List[ThisPtr].Pointer &lt;- FreeListPtr</div>
+<div class="code-line">    FreeListPtr &lt;- ThisPtr</div>
+<div class="code-line"></div>
+<div class="code-line">    RETURN TRUE</div>
+<div class="code-line">ENDFUNCTION</div></div>
 </div>
-  <div class="code-panel python-panel">
-<div class="code-title">Annex: linkedDeletePython</div>
-<div class="code-id">Annex: linkedDeletePython</div>
-<div class="code-wrap python" id="linkedDeletePython"><div class='code-line' data-tip="    &quot;&quot;&quot;
+<div class="code-panel python-panel">
+<div class="code-title">linkedDeletePython</div>
+
+<div class="code-wrap python" id="linkedDeletePython"><div class="code-line" data-tip='    """
     Delete the first node containing item_to_delete.
 
     Returns:
       True  if deletion succeeded
       False if the item was not found
-    &quot;&quot;&quot;">def linkedDeletePython(item_to_delete):</div>
-<div class='code-line'>    global LinkedList</div>
-<div class='code-line'>    global FirstNode</div>
-<div class='code-line'>    global FirstEmpty</div>
-<div class='code-line' data-tip="# Start searching from the first node in the linked list">    this_ptr = FirstNode</div>
-<div class='code-line' data-tip="# prev_ptr tracks the node before this_ptr">    prev_ptr = NULL_POINTER</div>
-<div class='code-line' data-tip="# Move through the list until we find the item or reach the end">    while this_ptr != NULL_POINTER and LinkedList[this_ptr][0] != item_to_delete:</div>
-<div class='code-line' data-tip="# The current node becomes the previous node">        prev_ptr = this_ptr</div>
-<div class='code-line' data-tip="# Follow the pointer to move to the next node">        this_ptr = LinkedList[this_ptr][1]</div>
-<div class='code-line' data-tip="# If this_ptr is -1, we reached the end without finding the item">    if this_ptr == NULL_POINTER:</div>
-<div class='code-line'>        return False</div>
-<div class='code-line' data-tip="# Remove the node from the linked list">    if this_ptr == FirstNode:</div>
-<div class='code-line' data-tip="# Deleting the first node:
+    """'>def linkedDeletePython(item_to_delete):</div>
+<div class="code-line">    global LinkedList</div>
+<div class="code-line">    global FirstNode</div>
+<div class="code-line">    global FirstEmpty</div>
+<div class="code-line" data-tip="# Start searching from the first node in the linked list">    this_ptr = FirstNode</div>
+<div class="code-line" data-tip="# prev_ptr tracks the node before this_ptr">    prev_ptr = NULL_POINTER</div>
+<div class="code-line" data-tip="# Move through the list until we find the item or reach the end">    while this_ptr != NULL_POINTER and LinkedList[this_ptr][0] != item_to_delete:</div>
+<div class="code-line" data-tip="# The current node becomes the previous node">        prev_ptr = this_ptr</div>
+<div class="code-line" data-tip="# Follow the pointer to move to the next node">        this_ptr = LinkedList[this_ptr][1]</div>
+<div class="code-line" data-tip="# If this_ptr is -1, we reached the end without finding the item">    if this_ptr == NULL_POINTER:</div>
+<div class="code-line">        return False</div>
+<div class="code-line" data-tip="# Remove the node from the linked list">    if this_ptr == FirstNode:</div>
+<div class="code-line" data-tip="# Deleting the first node:
 # FirstNode must move to the second node">        FirstNode = LinkedList[FirstNode][1]</div>
-<div class='code-line'>    else:</div>
-<div class='code-line' data-tip="# Deleting a middle or last node:
+<div class="code-line">    else:</div>
+<div class="code-line" data-tip="# Deleting a middle or last node:
 # Make the previous node skip over the deleted node">        LinkedList[prev_ptr][1] = LinkedList[this_ptr][1]</div>
-<div class='code-line' data-tip="# Return the deleted node to the free list
+<div class="code-line" data-tip="# Return the deleted node to the free list
 # Step 1: make the deleted node point to the current first free node">    LinkedList[this_ptr][1] = FirstEmpty</div>
-<div class='code-line' data-tip="# Step 2: update the free list head so it becomes the deleted node
+<div class="code-line" data-tip="# Step 2: update the free list head so it becomes the deleted node
 # This means the deleted node is now the first free node available for reuse">    FirstEmpty = this_ptr</div>
-<div class='code-line' data-tip="# Optional: clear the data to show this node is now empty">    LinkedList[this_ptr][0] = -1</div>
-<div class='code-line'>    return True</div></div>
+<div class="code-line" data-tip="# Optional: clear the data to show this node is now empty">    LinkedList[this_ptr][0] = -1</div>
+<div class="code-line">    return True</div></div>
 </div>
 </section>
-
 <section class="annex-pair">
-  <div class="code-panel pseudo-panel">
-<div class="code-title">Annex: linkedFindPseudo</div>
-<div class="code-id">Annex: linkedFindPseudo</div>
-<div class="code-wrap pseudo" id="linkedFindPseudo"><div class='code-line'>FUNCTION linkedFindPseudo(SearchItem) RETURNS INTEGER</div>
-<div class='code-line'>    CurrentPtr &lt;- StartPointer</div>
-<div class='code-line'></div>
-<div class='code-line'>    WHILE CurrentPtr &lt;&gt; NullPointer AND List[CurrentPtr].Data &lt;&gt; SearchItem DO</div>
-<div class='code-line'>        CurrentPtr &lt;- List[CurrentPtr].Pointer</div>
-<div class='code-line'>    ENDWHILE</div>
-<div class='code-line'></div>
-<div class='code-line'>    RETURN CurrentPtr   // returns -1 if not found</div>
-<div class='code-line'>ENDFUNCTION</div></div>
+<div class="code-panel pseudo-panel">
+<div class="code-title">linkedFindPseudo</div>
+
+<div class="code-wrap pseudo" id="linkedFindPseudo"><div class="code-line">FUNCTION linkedFindPseudo(SearchItem) RETURNS INTEGER</div>
+<div class="code-line">    CurrentPtr &lt;- StartPointer</div>
+<div class="code-line"></div>
+<div class="code-line">    WHILE CurrentPtr &lt;&gt; NullPointer AND List[CurrentPtr].Data &lt;&gt; SearchItem DO</div>
+<div class="code-line">        CurrentPtr &lt;- List[CurrentPtr].Pointer</div>
+<div class="code-line">    ENDWHILE</div>
+<div class="code-line"></div>
+<div class="code-line">    RETURN CurrentPtr   // returns -1 if not found</div>
+<div class="code-line">ENDFUNCTION</div></div>
 </div>
-  <div class="code-panel python-panel">
-<div class="code-title">Annex: linkedFindPython</div>
-<div class="code-id">Annex: linkedFindPython</div>
-<div class="code-wrap python" id="linkedFindPython"><div class='code-line' data-tip="    &quot;&quot;&quot;
+<div class="code-panel python-panel">
+<div class="code-title">linkedFindPython</div>
+
+<div class="code-wrap python" id="linkedFindPython"><div class="code-line" data-tip='    """
     Find the first node containing search_item.
 
     Returns:
       index of the node if found
       -1 if not found
-    &quot;&quot;&quot;">def linkedFindPython(search_item):</div>
-<div class='code-line'>    global LinkedList</div>
-<div class='code-line'>    global FirstNode</div>
-<div class='code-line' data-tip="# Start from the first node in the linked list">    current_ptr = FirstNode</div>
-<div class='code-line' data-tip="# Keep going until we either reach the end (-1) or find the item">    while current_ptr != NULL_POINTER and LinkedList[current_ptr][0] != search_item:</div>
-<div class='code-line' data-tip="# Move to the next node by following the stored pointer">        current_ptr = LinkedList[current_ptr][1]</div>
-<div class='code-line' data-tip="# If found, current_ptr is the node index; if not, it is -1">    return current_ptr</div></div>
+    """'>def linkedFindPython(search_item):</div>
+<div class="code-line">    global LinkedList</div>
+<div class="code-line">    global FirstNode</div>
+<div class="code-line" data-tip="# Start from the first node in the linked list">    current_ptr = FirstNode</div>
+<div class="code-line" data-tip="# Keep going until we either reach the end (-1) or find the item">    while current_ptr != NULL_POINTER and LinkedList[current_ptr][0] != search_item:</div>
+<div class="code-line" data-tip="# Move to the next node by following the stored pointer">        current_ptr = LinkedList[current_ptr][1]</div>
+<div class="code-line" data-tip="# If found, current_ptr is the node index; if not, it is -1">    return current_ptr</div></div>
 </div>
 </section>
-
 <section class="annex-pair">
-  <div class="code-panel pseudo-panel">
-<div class="code-title">Annex: linkedInitialisePseudo</div>
-<div class="code-id">Annex: linkedInitialisePseudo</div>
-<div class="code-wrap pseudo" id="linkedInitialisePseudo"><div class='code-line'>PROCEDURE linkedInitialisePseudo(Size)</div>
-<div class='code-line'>    NullPointer &lt;- -1</div>
-<div class='code-line'></div>
-<div class='code-line'>    StartPointer &lt;- NullPointer</div>
-<div class='code-line'>    FreeListPtr &lt;- 0</div>
-<div class='code-line'></div>
-<div class='code-line'>    FOR i &lt;- 0 TO Size - 2</div>
-<div class='code-line'>        List[i].Pointer &lt;- i + 1</div>
-<div class='code-line'>        List[i].Data &lt;- Null   // optional placeholder</div>
-<div class='code-line'>    NEXT i</div>
-<div class='code-line'></div>
-<div class='code-line'>    List[Size - 1].Pointer &lt;- NullPointer</div>
-<div class='code-line'>    List[Size - 1].Data &lt;- Null  // optional placeholder</div>
-<div class='code-line'>ENDPROCEDURE</div></div>
+<div class="code-panel pseudo-panel">
+<div class="code-title">linkedInitialisePseudo</div>
+
+<div class="code-wrap pseudo" id="linkedInitialisePseudo"><div class="code-line">PROCEDURE linkedInitialisePseudo(Size)</div>
+<div class="code-line">    NullPointer &lt;- -1</div>
+<div class="code-line"></div>
+<div class="code-line">    StartPointer &lt;- NullPointer</div>
+<div class="code-line">    FreeListPtr &lt;- 0</div>
+<div class="code-line"></div>
+<div class="code-line">    FOR i &lt;- 0 TO Size - 2</div>
+<div class="code-line">        List[i].Pointer &lt;- i + 1</div>
+<div class="code-line">        List[i].Data &lt;- Null   // optional placeholder</div>
+<div class="code-line">    NEXT i</div>
+<div class="code-line"></div>
+<div class="code-line">    List[Size - 1].Pointer &lt;- NullPointer</div>
+<div class="code-line">    List[Size - 1].Data &lt;- Null  // optional placeholder</div>
+<div class="code-line">ENDPROCEDURE</div></div>
 </div>
-  <div class="code-panel python-panel">
-<div class="code-title">Annex: linkedInitialisePython</div>
-<div class="code-id">Annex: linkedInitialisePython</div>
-<div class="code-wrap python" id="linkedInitialisePython"><div class='code-line' data-tip="Null pointer value used in this linked list">NULL_POINTER = -1</div>
-<div class='code-line' data-tip="LinkedList will store nodes as: [data, nextPointer]
+<div class="code-panel python-panel">
+<div class="code-title">linkedInitialisePython</div>
+
+<div class="code-wrap python" id="linkedInitialisePython"><div class="code-line" data-tip="Null pointer value used in this linked list">NULL_POINTER = -1</div>
+<div class="code-line" data-tip="LinkedList will store nodes as: [data, nextPointer]
 Example: LinkedList[3] = [56, -1] means:
 data = 56
 nextPointer = -1 (end of list)">LinkedList = []</div>
-<div class='code-line' data-tip="FirstNode is the start pointer (index of first node in the list)">FirstNode = NULL_POINTER</div>
-<div class='code-line' data-tip="FirstEmpty is the free list pointer (index of first free node)">FirstEmpty = NULL_POINTER</div>
-<div class='code-line' data-tip="    &quot;&quot;&quot;
+<div class="code-line" data-tip="FirstNode is the start pointer (index of first node in the list)">FirstNode = NULL_POINTER</div>
+<div class="code-line" data-tip="FirstEmpty is the free list pointer (index of first free node)">FirstEmpty = NULL_POINTER</div>
+<div class="code-line" data-tip='    """
     Create an empty linked list of a fixed size.
     Also create a free list that chains all nodes together.
 
     Returns nothing because it sets the global variables:
       LinkedList, FirstNode, FirstEmpty
-    &quot;&quot;&quot;">def linkedInitialisePython(size):</div>
-<div class='code-line'>    global LinkedList</div>
-<div class='code-line'>    global FirstNode</div>
-<div class='code-line'>    global FirstEmpty</div>
-<div class='code-line' data-tip="# The linked list is empty at the start, so there is no first node">    FirstNode = NULL_POINTER</div>
-<div class='code-line' data-tip="# The first free node will be index 0 (the start of the free list)">    FirstEmpty = 0</div>
-<div class='code-line' data-tip="# Create the array of nodes, each node initially stores:
-#   data = -1 (meaning &quot;no real data stored yet&quot;)
-#   nextPointer = index of next free node (set below)">    LinkedList = []</div>
-<div class='code-line'>    for i in range(size):</div>
-<div class='code-line' data-tip="# Temporarily set nextPointer to -1, we will fix pointers after">        LinkedList.append([-1, NULL_POINTER])</div>
-<div class='code-line' data-tip="# Link all nodes into the free list:
+    """'>def linkedInitialisePython(size):</div>
+<div class="code-line">    global LinkedList</div>
+<div class="code-line">    global FirstNode</div>
+<div class="code-line">    global FirstEmpty</div>
+<div class="code-line" data-tip="# The linked list is empty at the start, so there is no first node">    FirstNode = NULL_POINTER</div>
+<div class="code-line" data-tip="# The first free node will be index 0 (the start of the free list)">    FirstEmpty = 0</div>
+<div class="code-line" data-tip='# Create the array of nodes, each node initially stores:
+#   data = -1 (meaning "no real data stored yet")
+#   nextPointer = index of next free node (set below)'>    LinkedList = []</div>
+<div class="code-line">    for i in range(size):</div>
+<div class="code-line" data-tip="# Temporarily set nextPointer to -1, we will fix pointers after">        LinkedList.append([-1, NULL_POINTER])</div>
+<div class="code-line" data-tip="# Link all nodes into the free list:
 # node 0 points to node 1, node 1 points to node 2, ..., last points to -1">    for i in range(size - 1):</div>
-<div class='code-line' data-tip="# next free node index">        LinkedList[i][1] = i + 1</div>
-<div class='code-line' data-tip="# The last node in the free list points to -1 to show end of free list">    LinkedList[size - 1][1] = NULL_POINTER</div></div>
+<div class="code-line" data-tip="# next free node index">        LinkedList[i][1] = i + 1</div>
+<div class="code-line" data-tip="# The last node in the free list points to -1 to show end of free list">    LinkedList[size - 1][1] = NULL_POINTER</div></div>
 </div>
 </section>
-
 <section class="annex-pair">
-  <div class="code-panel pseudo-panel">
-<div class="code-title">Annex: linkedInsertPseudo</div>
-<div class="code-id">Annex: linkedInsertPseudo</div>
-<div class="code-wrap pseudo" id="linkedInsertPseudo"><div class='code-line'>Insertion rule used here: insert at the front.</div>
-<div class='code-line'>FUNCTION linkedInsertPseudo(NewItem) RETURNS BOOLEAN</div>
-<div class='code-line'>    IF FreeListPtr = NullPointer THEN</div>
-<div class='code-line'>        RETURN FALSE</div>
-<div class='code-line'>    ENDIF</div>
-<div class='code-line'></div>
-<div class='code-line'>    NewNodePtr &lt;- FreeListPtr</div>
-<div class='code-line'>    FreeListPtr &lt;- List[FreeListPtr].Pointer</div>
-<div class='code-line'></div>
-<div class='code-line'>    List[NewNodePtr].Data &lt;- NewItem</div>
-<div class='code-line'>    List[NewNodePtr].Pointer &lt;- StartPointer</div>
-<div class='code-line'>    StartPointer &lt;- NewNodePtr</div>
-<div class='code-line'></div>
-<div class='code-line'>    RETURN TRUE</div>
-<div class='code-line'>ENDFUNCTION</div></div>
+<div class="code-panel pseudo-panel">
+<div class="code-title">linkedInsertPseudo</div>
+
+<div class="code-wrap pseudo" id="linkedInsertPseudo"><div class="code-line">Insertion rule used here: insert at the front.</div>
+<div class="code-line">FUNCTION linkedInsertPseudo(NewItem) RETURNS BOOLEAN</div>
+<div class="code-line">    IF FreeListPtr = NullPointer THEN</div>
+<div class="code-line">        RETURN FALSE</div>
+<div class="code-line">    ENDIF</div>
+<div class="code-line"></div>
+<div class="code-line">    NewNodePtr &lt;- FreeListPtr</div>
+<div class="code-line">    FreeListPtr &lt;- List[FreeListPtr].Pointer</div>
+<div class="code-line"></div>
+<div class="code-line">    List[NewNodePtr].Data &lt;- NewItem</div>
+<div class="code-line">    List[NewNodePtr].Pointer &lt;- StartPointer</div>
+<div class="code-line">    StartPointer &lt;- NewNodePtr</div>
+<div class="code-line"></div>
+<div class="code-line">    RETURN TRUE</div>
+<div class="code-line">ENDFUNCTION</div></div>
 </div>
-  <div class="code-panel python-panel">
-<div class="code-title">Annex: linkedInsertPython</div>
-<div class="code-id">Annex: linkedInsertPython</div>
-<div class="code-wrap python" id="linkedInsertPython"><div class='code-line' data-tip="    &quot;&quot;&quot;
+<div class="code-panel python-panel">
+<div class="code-title">linkedInsertPython</div>
+
+<div class="code-wrap python" id="linkedInsertPython"><div class="code-line" data-tip='    """
     Insert new_item at the front of the linked list.
 
     Returns:
       True  if insertion succeeded
       False if there is no free node (list is full)
-    &quot;&quot;&quot;">def linkedInsertPython(new_item):</div>
-<div class='code-line'>    global LinkedList</div>
-<div class='code-line'>    global FirstNode</div>
-<div class='code-line'>    global FirstEmpty</div>
-<div class='code-line' data-tip="# If FirstEmpty is -1, the free list is empty, so there is no space">    if FirstEmpty == NULL_POINTER:</div>
-<div class='code-line'>        return False</div>
-<div class='code-line' data-tip="# Take the first free node from the free list">    new_ptr = FirstEmpty</div>
-<div class='code-line' data-tip="# Save the next free node index BEFORE we reuse this node">    next_free = LinkedList[new_ptr][1]</div>
-<div class='code-line' data-tip="# Move the free list head forward">    FirstEmpty = next_free</div>
-<div class='code-line' data-tip="# Store the new data in the node we just took">    LinkedList[new_ptr][0] = new_item</div>
-<div class='code-line' data-tip="# Make the new node point to the current first node of the list">    LinkedList[new_ptr][1] = FirstNode</div>
-<div class='code-line' data-tip="# Update FirstNode so the linked list now starts at the new node">    FirstNode = new_ptr</div>
-<div class='code-line'>    return True</div></div>
+    """'>def linkedInsertPython(new_item):</div>
+<div class="code-line">    global LinkedList</div>
+<div class="code-line">    global FirstNode</div>
+<div class="code-line">    global FirstEmpty</div>
+<div class="code-line" data-tip="# If FirstEmpty is -1, the free list is empty, so there is no space">    if FirstEmpty == NULL_POINTER:</div>
+<div class="code-line">        return False</div>
+<div class="code-line" data-tip="# Take the first free node from the free list">    new_ptr = FirstEmpty</div>
+<div class="code-line" data-tip="# Save the next free node index BEFORE we reuse this node">    next_free = LinkedList[new_ptr][1]</div>
+<div class="code-line" data-tip="# Move the free list head forward">    FirstEmpty = next_free</div>
+<div class="code-line" data-tip="# Store the new data in the node we just took">    LinkedList[new_ptr][0] = new_item</div>
+<div class="code-line" data-tip="# Make the new node point to the current first node of the list">    LinkedList[new_ptr][1] = FirstNode</div>
+<div class="code-line" data-tip="# Update FirstNode so the linked list now starts at the new node">    FirstNode = new_ptr</div>
+<div class="code-line">    return True</div></div>
 </div>
 </section>
-
 <section class="annex-pair">
-  <div class="code-panel pseudo-panel">
-<div class="code-title">Algorithm 3: Remove an item (deQueue)</div>
-<div class="code-id">Annex: queueDequeuePseudo</div>
-<div class="code-wrap pseudo" id="queueDequeuePseudo"><div class='code-line'>FUNCTION RemoveFromQueue()</div>
-<div class='code-line'>  DECLARE Item : STRING</div>
-<div class='code-line'>  Item ← EMPTYSTRING</div>
-<div class='code-line'></div>
-<div class='code-line'>  IF NumberInQueue &gt; 0</div>
-<div class='code-line'>  THEN // there is at least one item in the queue</div>
-<div class='code-line'></div>
-<div class='code-line' data-tip="// remove item from the front of the queue">    Item ← Queue[FrontOfQueuePointer]</div>
-<div class='code-line'>    NumberInQueue ← NumberInQueue – 1</div>
-<div class='code-line'></div>
-<div class='code-line'>    IF NumberInQueue = 0</div>
-<div class='code-line'>    THEN // if queue empty, reset pointers</div>
-<div class='code-line'>      CALL InitialiseQueue</div>
-<div class='code-line'>    ELSE</div>
-<div class='code-line' data-tip="// increment front of queue pointer">      FrontOfQueuePointer ← FrontOfQueuePointer + 1</div>
-<div class='code-line'></div>
-<div class='code-line' data-tip="// check for wrap-round">      IF FrontOfQueuePointer &gt; MaxQueueSize – 1</div>
-<div class='code-line'>      THEN // wrap to beginning of array</div>
-<div class='code-line'>        FrontOfQueuePointer ← 0</div>
-<div class='code-line'>      ENDIF</div>
-<div class='code-line'>    ENDIF</div>
-<div class='code-line'>  ENDIF</div>
-<div class='code-line'></div>
-<div class='code-line'>  RETURN Item</div>
-<div class='code-line'>ENDFUNCTION</div></div>
+<div class="code-panel pseudo-panel">
+<div class="code-title">queueDequeuePseudo</div>
+
+<div class="code-wrap pseudo" id="queueDequeuePseudo"><div class="code-line">FUNCTION RemoveFromQueue()</div>
+<div class="code-line">  DECLARE Item : STRING</div>
+<div class="code-line">  Item ← EMPTYSTRING</div>
+<div class="code-line"></div>
+<div class="code-line">  IF NumberInQueue &gt; 0</div>
+<div class="code-line">  THEN // there is at least one item in the queue</div>
+<div class="code-line"></div>
+<div class="code-line" data-tip="// remove item from the front of the queue">    Item ← Queue[FrontOfQueuePointer]</div>
+<div class="code-line">    NumberInQueue ← NumberInQueue – 1</div>
+<div class="code-line"></div>
+<div class="code-line">    IF NumberInQueue = 0</div>
+<div class="code-line">    THEN // if queue empty, reset pointers</div>
+<div class="code-line">      CALL InitialiseQueue</div>
+<div class="code-line">    ELSE</div>
+<div class="code-line" data-tip="// increment front of queue pointer">      FrontOfQueuePointer ← FrontOfQueuePointer + 1</div>
+<div class="code-line"></div>
+<div class="code-line" data-tip="// check for wrap-round">      IF FrontOfQueuePointer &gt; MaxQueueSize – 1</div>
+<div class="code-line">      THEN // wrap to beginning of array</div>
+<div class="code-line">        FrontOfQueuePointer ← 0</div>
+<div class="code-line">      ENDIF</div>
+<div class="code-line">    ENDIF</div>
+<div class="code-line">  ENDIF</div>
+<div class="code-line"></div>
+<div class="code-line">  RETURN Item</div>
+<div class="code-line">ENDFUNCTION</div></div>
 </div>
-  <div class="code-panel python-panel">
-<div class="code-title">Annex: queueDequeuePython</div>
-<div class="code-id">Annex: queueDequeuePython</div>
-<div class="code-wrap python" id="queueDequeuePython"><div class='code-line' data-tip="    &quot;&quot;&quot;
+<div class="code-panel python-panel">
+<div class="code-title">queueDequeuePython</div>
+
+<div class="code-wrap python" id="queueDequeuePython"><div class="code-line" data-tip='    """
     Removes one item from the front of the circular queue.
 
     Returns:
         The removed value.
         If the queue is empty, returns -1 (sentinel value).
-    &quot;&quot;&quot;">def queueDequeuePython():</div>
-<div class='code-line'>    global Queue, HeadPointer, TailPointer, NumberItems</div>
-<div class='code-line' data-tip="# 1) Check for underflow (queue empty)">    if NumberItems &lt;= 0:</div>
-<div class='code-line'>        return -1</div>
-<div class='code-line' data-tip="# 2) Read the item at the head (front)">    return_value = Queue[HeadPointer]</div>
-<div class='code-line' data-tip="# 3) Move HeadPointer forward (wrap-round if needed)">    HeadPointer += 1</div>
-<div class='code-line'>    if HeadPointer &gt;= MAX_QUEUE_SIZE:</div>
-<div class='code-line'>        HeadPointer = 0</div>
-<div class='code-line' data-tip="# 4) Decrease the item count because one item was removed">    NumberItems -= 1</div>
-<div class='code-line' data-tip="# 5) If the queue becomes empty, reset both pointers">    if NumberItems == 0:</div>
-<div class='code-line'>        HeadPointer = -1</div>
-<div class='code-line'>        TailPointer = -1</div>
-<div class='code-line' data-tip="# 6) Return the removed item">    return return_value</div></div>
+    """'>def queueDequeuePython():</div>
+<div class="code-line">    global Queue, HeadPointer, TailPointer, NumberItems</div>
+<div class="code-line" data-tip="# 1) Check for underflow (queue empty)">    if NumberItems &lt;= 0:</div>
+<div class="code-line">        return -1</div>
+<div class="code-line" data-tip="# 2) Read the item at the head (front)">    return_value = Queue[HeadPointer]</div>
+<div class="code-line" data-tip="# 3) Move HeadPointer forward (wrap-round if needed)">    HeadPointer += 1</div>
+<div class="code-line">    if HeadPointer &gt;= MAX_QUEUE_SIZE:</div>
+<div class="code-line">        HeadPointer = 0</div>
+<div class="code-line" data-tip="# 4) Decrease the item count because one item was removed">    NumberItems -= 1</div>
+<div class="code-line" data-tip="# 5) If the queue becomes empty, reset both pointers">    if NumberItems == 0:</div>
+<div class="code-line">        HeadPointer = -1</div>
+<div class="code-line">        TailPointer = -1</div>
+<div class="code-line" data-tip="# 6) Return the removed item">    return return_value</div></div>
 </div>
 </section>
-
 <section class="annex-pair">
-  <div class="code-panel pseudo-panel">
-<div class="code-title">Algorithm 2: Add an item (enQueue)</div>
-<div class="code-id">Annex: queueEnqueuePseudo</div>
-<div class="code-wrap pseudo" id="queueEnqueuePseudo"><div class='code-line'>PROCEDURE AddToQueue(NewItem)</div>
-<div class='code-line'>  IF NumberInQueue &lt; MaxQueueSize</div>
-<div class='code-line'>  THEN // there is space in the queue</div>
-<div class='code-line'></div>
-<div class='code-line' data-tip="// increment end of queue pointer">    EndOfQueuePointer ← EndOfQueuePointer + 1</div>
-<div class='code-line'></div>
-<div class='code-line' data-tip="// check for wrap-round">    IF EndOfQueuePointer &gt; MaxQueueSize – 1</div>
-<div class='code-line'>    THEN // wrap to beginning of array</div>
-<div class='code-line'>      EndOfQueuePointer ← 0</div>
-<div class='code-line'>    ENDIF</div>
-<div class='code-line'></div>
-<div class='code-line' data-tip="// add item to end of queue">    Queue[EndOfQueuePointer] ← NewItem</div>
-<div class='code-line'></div>
-<div class='code-line' data-tip="// increment counter">    NumberInQueue ← NumberInQueue + 1</div>
-<div class='code-line'></div>
-<div class='code-line'>  ENDIF</div>
-<div class='code-line'>ENDPROCEDURE</div></div>
+<div class="code-panel pseudo-panel">
+<div class="code-title">queueEnqueuePseudo</div>
+
+<div class="code-wrap pseudo" id="queueEnqueuePseudo"><div class="code-line">PROCEDURE AddToQueue(NewItem)</div>
+<div class="code-line">  IF NumberInQueue &lt; MaxQueueSize</div>
+<div class="code-line">  THEN // there is space in the queue</div>
+<div class="code-line"></div>
+<div class="code-line" data-tip="// increment end of queue pointer">    EndOfQueuePointer ← EndOfQueuePointer + 1</div>
+<div class="code-line"></div>
+<div class="code-line" data-tip="// check for wrap-round">    IF EndOfQueuePointer &gt; MaxQueueSize – 1</div>
+<div class="code-line">    THEN // wrap to beginning of array</div>
+<div class="code-line">      EndOfQueuePointer ← 0</div>
+<div class="code-line">    ENDIF</div>
+<div class="code-line"></div>
+<div class="code-line" data-tip="// add item to end of queue">    Queue[EndOfQueuePointer] ← NewItem</div>
+<div class="code-line"></div>
+<div class="code-line" data-tip="// increment counter">    NumberInQueue ← NumberInQueue + 1</div>
+<div class="code-line"></div>
+<div class="code-line">  ENDIF</div>
+<div class="code-line">ENDPROCEDURE</div></div>
 </div>
-  <div class="code-panel python-panel">
-<div class="code-title">Annex: queueEnqueuePython</div>
-<div class="code-id">Annex: queueEnqueuePython</div>
-<div class="code-wrap python" id="queueEnqueuePython"><div class='code-line' data-tip="    &quot;&quot;&quot;
+<div class="code-panel python-panel">
+<div class="code-title">queueEnqueuePython</div>
+
+<div class="code-wrap python" id="queueEnqueuePython"><div class="code-line" data-tip='    """
     Adds one item to the rear of the circular queue.
 
     Returns:
         True  if the item was added
         False if the queue is full
-    &quot;&quot;&quot;">def queueEnqueuePython(input_data):</div>
-<div class='code-line'>    global Queue, HeadPointer, TailPointer, NumberItems</div>
-<div class='code-line' data-tip="# 1) Check for overflow (queue full)">    if NumberItems &gt;= MAX_QUEUE_SIZE:</div>
-<div class='code-line'>        return False</div>
-<div class='code-line' data-tip="# 2) If the queue is empty, the first item sets both head and tail">    if TailPointer == -1:</div>
-<div class='code-line' data-tip="# Tail now points to index 0">        TailPointer = 0</div>
-<div class='code-line' data-tip="# Head also points to index 0">        HeadPointer = 0</div>
-<div class='code-line' data-tip="# Store the first item">        Queue[TailPointer] = input_data</div>
-<div class='code-line'>    else:</div>
-<div class='code-line' data-tip="# 3) Move TailPointer forward (wrap-round if at the end)">        if TailPointer &gt;= MAX_QUEUE_SIZE - 1:</div>
-<div class='code-line' data-tip="# Wrap to the start of the array">            TailPointer = 0</div>
-<div class='code-line'>        else:</div>
-<div class='code-line' data-tip="# Move to the next index">            TailPointer += 1</div>
-<div class='code-line' data-tip="# 4) Store the new item at the new tail position">        Queue[TailPointer] = input_data</div>
-<div class='code-line' data-tip="# 5) Increase the item count because one item was added">    NumberItems += 1</div>
-<div class='code-line'>    return True</div></div>
+    """'>def queueEnqueuePython(input_data):</div>
+<div class="code-line">    global Queue, HeadPointer, TailPointer, NumberItems</div>
+<div class="code-line" data-tip="# 1) Check for overflow (queue full)">    if NumberItems &gt;= MAX_QUEUE_SIZE:</div>
+<div class="code-line">        return False</div>
+<div class="code-line" data-tip="# 2) If the queue is empty, the first item sets both head and tail">    if TailPointer == -1:</div>
+<div class="code-line" data-tip="# Tail now points to index 0">        TailPointer = 0</div>
+<div class="code-line" data-tip="# Head also points to index 0">        HeadPointer = 0</div>
+<div class="code-line" data-tip="# Store the first item">        Queue[TailPointer] = input_data</div>
+<div class="code-line">    else:</div>
+<div class="code-line" data-tip="# 3) Move TailPointer forward (wrap-round if at the end)">        if TailPointer &gt;= MAX_QUEUE_SIZE - 1:</div>
+<div class="code-line" data-tip="# Wrap to the start of the array">            TailPointer = 0</div>
+<div class="code-line">        else:</div>
+<div class="code-line" data-tip="# Move to the next index">            TailPointer += 1</div>
+<div class="code-line" data-tip="# 4) Store the new item at the new tail position">        Queue[TailPointer] = input_data</div>
+<div class="code-line" data-tip="# 5) Increase the item count because one item was added">    NumberItems += 1</div>
+<div class="code-line">    return True</div></div>
 </div>
 </section>
-
 <section class="annex-pair">
-  <div class="code-panel pseudo-panel">
-<div class="code-title">Algorithm 1: Initialise a queue</div>
-<div class="code-id">Annex: queueInitialisePseudo</div>
-<div class="code-wrap pseudo" id="queueInitialisePseudo"><div class='code-line' data-tip="// NullPointer should be set to -1 if using array element with index 0">CONSTANT EMPTYSTRING = &quot;&quot;</div>
-<div class='code-line'>CONSTANT NullPointer = -1</div>
-<div class='code-line'>CONSTANT MaxQueueSize = 8</div>
-<div class='code-line'>DECLARE FrontOfQueuePointer : INTEGER</div>
-<div class='code-line'>DECLARE EndOfQueuePointer : INTEGER</div>
-<div class='code-line'>DECLARE NumberInQueue : INTEGER</div>
-<div class='code-line'>DECLARE Queue : ARRAY[0 : MaxQueueSize – 1] OF STRING</div>
-<div class='code-line'></div>
-<div class='code-line'>PROCEDURE InitialiseQueue</div>
-<div class='code-line'>  FrontOfQueuePointer ← NullPointer // set front of queue pointer</div>
-<div class='code-line'>  EndOfQueuePointer ← NullPointer   // set end of queue pointer</div>
-<div class='code-line'>  NumberInQueue ← 0                // no elements in queue</div>
-<div class='code-line'>ENDPROCEDURE</div></div>
+<div class="code-panel pseudo-panel">
+<div class="code-title">queueInitialisePseudo</div>
+
+<div class="code-wrap pseudo" id="queueInitialisePseudo"><div class="code-line" data-tip="// NullPointer should be set to -1 if using array element with index 0">CONSTANT EMPTYSTRING = ""</div>
+<div class="code-line">CONSTANT NullPointer = -1</div>
+<div class="code-line">CONSTANT MaxQueueSize = 8</div>
+<div class="code-line">DECLARE FrontOfQueuePointer : INTEGER</div>
+<div class="code-line">DECLARE EndOfQueuePointer : INTEGER</div>
+<div class="code-line">DECLARE NumberInQueue : INTEGER</div>
+<div class="code-line">DECLARE Queue : ARRAY[0 : MaxQueueSize – 1] OF STRING</div>
+<div class="code-line"></div>
+<div class="code-line">PROCEDURE InitialiseQueue</div>
+<div class="code-line">  FrontOfQueuePointer ← NullPointer // set front of queue pointer</div>
+<div class="code-line">  EndOfQueuePointer ← NullPointer   // set end of queue pointer</div>
+<div class="code-line">  NumberInQueue ← 0                // no elements in queue</div>
+<div class="code-line">ENDPROCEDURE</div></div>
 </div>
-  <div class="code-panel python-panel">
-<div class="code-title">Annex: queueInitialisePython</div>
-<div class="code-id">Annex: queueInitialisePython</div>
-<div class="code-wrap python" id="queueInitialisePython"><div class='code-line' data-tip="Fixed-size circular queue using an array and three control variables.
+<div class="code-panel python-panel">
+<div class="code-title">queueInitialisePython</div>
+
+<div class="code-wrap python" id="queueInitialisePython"><div class="code-line" data-tip="Fixed-size circular queue using an array and three control variables.
 # Maximum number of items the queue can store">MAX_QUEUE_SIZE = 20</div>
-<div class='code-line' data-tip="# The array that stores the queue items">Queue = [0] * MAX_QUEUE_SIZE</div>
-<div class='code-line' data-tip="# Index of the front item; -1 means the queue is empty">HeadPointer = -1</div>
-<div class='code-line' data-tip="# Index of the last item added; -1 means the queue is empty">TailPointer = -1</div>
-<div class='code-line' data-tip="# How many items are currently in the queue">NumberItems = 0</div></div>
+<div class="code-line" data-tip="# The array that stores the queue items">Queue = [0] * MAX_QUEUE_SIZE</div>
+<div class="code-line" data-tip="# Index of the front item; -1 means the queue is empty">HeadPointer = -1</div>
+<div class="code-line" data-tip="# Index of the last item added; -1 means the queue is empty">TailPointer = -1</div>
+<div class="code-line" data-tip="# How many items are currently in the queue">NumberItems = 0</div></div>
 </div>
 </section>
-
 <section class="annex-pair">
-  <div class="code-panel pseudo-panel">
-<div class="code-title">Annex: stackInitialisePseudo</div>
-<div class="code-id">Annex: stackInitialisePseudo</div>
-<div class="code-wrap pseudo" id="stackInitialisePseudo"><div class='code-line'>CONSTANT EMPTYSTRING = &quot;&quot;</div>
-<div class='code-line'>CONSTANT NullPointer = -1</div>
-<div class='code-line'>CONSTANT MaxStackSize = 8</div>
-<div class='code-line'></div>
-<div class='code-line'>DECLARE BaseOfStackPointer : INTEGER</div>
-<div class='code-line'>DECLARE TopOfStackPointer  : INTEGER</div>
-<div class='code-line'>DECLARE Stack : ARRAY[0 : MaxStackSize - 1] OF STRING</div>
-<div class='code-line'></div>
-<div class='code-line'>PROCEDURE stackInitialisePseudo</div>
-<div class='code-line'>    BaseOfStackPointer &lt;- 0</div>
-<div class='code-line'>    TopOfStackPointer  &lt;- NullPointer</div>
-<div class='code-line'>ENDPROCEDURE</div></div>
+<div class="code-panel pseudo-panel">
+<div class="code-title">stackInitialisePseudo</div>
+
+<div class="code-wrap pseudo" id="stackInitialisePseudo"><div class="code-line">CONSTANT EMPTYSTRING = ""</div>
+<div class="code-line">CONSTANT NullPointer = -1</div>
+<div class="code-line">CONSTANT MaxStackSize = 8</div>
+<div class="code-line"></div>
+<div class="code-line">DECLARE BaseOfStackPointer : INTEGER</div>
+<div class="code-line">DECLARE TopOfStackPointer  : INTEGER</div>
+<div class="code-line">DECLARE Stack : ARRAY[0 : MaxStackSize - 1] OF STRING</div>
+<div class="code-line"></div>
+<div class="code-line">PROCEDURE stackInitialisePseudo</div>
+<div class="code-line">    BaseOfStackPointer &lt;- 0</div>
+<div class="code-line">    TopOfStackPointer  &lt;- NullPointer</div>
+<div class="code-line">ENDPROCEDURE</div></div>
 </div>
-  <div class="code-panel python-panel">
-<div class="code-title">Annex: stackInitialisePython</div>
-<div class="code-id">Annex: stackInitialisePython</div>
-<div class="code-wrap python" id="stackInitialisePython"><div class='code-line'>MAX_STACK_SIZE = 8</div>
-<div class='code-line'>EMPTY_STRING = &quot;&quot;</div>
-<div class='code-line'>Stack = [EMPTY_STRING] * (MAX_STACK_SIZE + 1)</div>
-<div class='code-line'>BasePointer = 1</div>
-<div class='code-line'>TopPointer = 0</div>
-<div class='code-line' data-tip="    &quot;&quot;&quot;
+<div class="code-panel python-panel">
+<div class="code-title">stackInitialisePython</div>
+
+<div class="code-wrap python" id="stackInitialisePython"><div class="code-line">MAX_STACK_SIZE = 8</div>
+<div class="code-line">EMPTY_STRING = ""</div>
+<div class="code-line">Stack = [EMPTY_STRING] * (MAX_STACK_SIZE + 1)</div>
+<div class="code-line">BasePointer = 1</div>
+<div class="code-line">TopPointer = 0</div>
+<div class="code-line" data-tip='    """
     Set the stack to an empty state.
-    &quot;&quot;&quot;">def stackInitialisePython():</div>
-<div class='code-line'>    global Stack</div>
-<div class='code-line'>    global BasePointer</div>
-<div class='code-line'>    global TopPointer</div>
-<div class='code-line'>    BasePointer = 1</div>
-<div class='code-line'>    TopPointer = 0</div>
-<div class='code-line'>    for i in range(1, MAX_STACK_SIZE + 1):</div>
-<div class='code-line'>        Stack[i] = EMPTY_STRING</div></div>
+    """'>def stackInitialisePython():</div>
+<div class="code-line">    global Stack</div>
+<div class="code-line">    global BasePointer</div>
+<div class="code-line">    global TopPointer</div>
+<div class="code-line">    BasePointer = 1</div>
+<div class="code-line">    TopPointer = 0</div>
+<div class="code-line">    for i in range(1, MAX_STACK_SIZE + 1):</div>
+<div class="code-line">        Stack[i] = EMPTY_STRING</div></div>
 </div>
 </section>
-
 <section class="annex-pair">
-  <div class="code-panel pseudo-panel">
-<div class="code-title">Annex: stackIsEmptyPseudo</div>
-<div class="code-id">Annex: stackIsEmptyPseudo</div>
-<div class="code-wrap pseudo" id="stackIsEmptyPseudo"><div class='code-line'>FUNCTION stackIsEmptyPseudo RETURNS BOOLEAN</div>
-<div class='code-line'>    IF TopOfStackPointer = NullPointer THEN</div>
-<div class='code-line'>        RETURN TRUE</div>
-<div class='code-line'>    ELSE</div>
-<div class='code-line'>        RETURN FALSE</div>
-<div class='code-line'>    ENDIF</div>
-<div class='code-line'>ENDFUNCTION</div></div>
+<div class="code-panel pseudo-panel">
+<div class="code-title">stackIsEmptyPseudo</div>
+
+<div class="code-wrap pseudo" id="stackIsEmptyPseudo"><div class="code-line">FUNCTION stackIsEmptyPseudo RETURNS BOOLEAN</div>
+<div class="code-line">    IF TopOfStackPointer = NullPointer THEN</div>
+<div class="code-line">        RETURN TRUE</div>
+<div class="code-line">    ELSE</div>
+<div class="code-line">        RETURN FALSE</div>
+<div class="code-line">    ENDIF</div>
+<div class="code-line">ENDFUNCTION</div></div>
 </div>
-  <div class="code-panel python-panel">
-<div class="code-title">Annex: stackIsEmptyPython</div>
-<div class="code-id">Annex: stackIsEmptyPython</div>
-<div class="code-wrap python" id="stackIsEmptyPython"><div class='code-line' data-tip="    &quot;&quot;&quot;
+<div class="code-panel python-panel">
+<div class="code-title">stackIsEmptyPython</div>
+
+<div class="code-wrap python" id="stackIsEmptyPython"><div class="code-line" data-tip='    """
     Return True if the stack is empty, otherwise False.
-    &quot;&quot;&quot;">def stackIsEmptyPython():</div>
-<div class='code-line'>    global BasePointer</div>
-<div class='code-line'>    global TopPointer</div>
-<div class='code-line'>    return TopPointer &lt; BasePointer</div></div>
+    """'>def stackIsEmptyPython():</div>
+<div class="code-line">    global BasePointer</div>
+<div class="code-line">    global TopPointer</div>
+<div class="code-line">    return TopPointer &lt; BasePointer</div></div>
 </div>
 </section>
-
 <section class="annex-pair">
-  <div class="code-panel pseudo-panel">
-<div class="code-title">Annex: stackIsFullPseudo</div>
-<div class="code-id">Annex: stackIsFullPseudo</div>
-<div class="code-wrap pseudo" id="stackIsFullPseudo"><div class='code-line'>FUNCTION stackIsFullPseudo RETURNS BOOLEAN</div>
-<div class='code-line'>    IF TopOfStackPointer &gt;= MaxStackSize - 1 THEN</div>
-<div class='code-line'>        RETURN TRUE</div>
-<div class='code-line'>    ELSE</div>
-<div class='code-line'>        RETURN FALSE</div>
-<div class='code-line'>    ENDIF</div>
-<div class='code-line'>ENDFUNCTION</div></div>
+<div class="code-panel pseudo-panel">
+<div class="code-title">stackIsFullPseudo</div>
+
+<div class="code-wrap pseudo" id="stackIsFullPseudo"><div class="code-line">FUNCTION stackIsFullPseudo RETURNS BOOLEAN</div>
+<div class="code-line">    IF TopOfStackPointer &gt;= MaxStackSize - 1 THEN</div>
+<div class="code-line">        RETURN TRUE</div>
+<div class="code-line">    ELSE</div>
+<div class="code-line">        RETURN FALSE</div>
+<div class="code-line">    ENDIF</div>
+<div class="code-line">ENDFUNCTION</div></div>
 </div>
-  <div class="code-panel python-panel">
-<div class="code-title">Annex: stackIsFullPython</div>
-<div class="code-id">Annex: stackIsFullPython</div>
-<div class="code-wrap python" id="stackIsFullPython"><div class='code-line' data-tip="    &quot;&quot;&quot;
+<div class="code-panel python-panel">
+<div class="code-title">stackIsFullPython</div>
+
+<div class="code-wrap python" id="stackIsFullPython"><div class="code-line" data-tip='    """
     Return True if the stack is full, otherwise False.
-    &quot;&quot;&quot;">def stackIsFullPython():</div>
-<div class='code-line'>    global TopPointer</div>
-<div class='code-line'>    return TopPointer == MAX_STACK_SIZE</div></div>
+    """'>def stackIsFullPython():</div>
+<div class="code-line">    global TopPointer</div>
+<div class="code-line">    return TopPointer == MAX_STACK_SIZE</div></div>
 </div>
 </section>
-
 <section class="annex-pair">
-  <div class="code-panel pseudo-panel">
-<div class="code-title">Annex: stackPopPseudo</div>
-<div class="code-id">Annex: stackPopPseudo</div>
-<div class="code-wrap pseudo" id="stackPopPseudo"><div class='code-line'>FUNCTION stackPopPseudo RETURNS STRING</div>
-<div class='code-line'>    DECLARE Item : STRING</div>
-<div class='code-line'>    Item &lt;- EMPTYSTRING</div>
-<div class='code-line'></div>
-<div class='code-line'>    IF TopOfStackPointer &gt; NullPointer THEN</div>
-<div class='code-line'>        Item &lt;- Stack[TopOfStackPointer]</div>
-<div class='code-line'>        TopOfStackPointer &lt;- TopOfStackPointer - 1</div>
-<div class='code-line'>    ENDIF</div>
-<div class='code-line'></div>
-<div class='code-line'>    RETURN Item</div>
-<div class='code-line'>ENDFUNCTION</div></div>
+<div class="code-panel pseudo-panel">
+<div class="code-title">stackPopPseudo</div>
+
+<div class="code-wrap pseudo" id="stackPopPseudo"><div class="code-line">FUNCTION stackPopPseudo RETURNS STRING</div>
+<div class="code-line">    DECLARE Item : STRING</div>
+<div class="code-line">    Item &lt;- EMPTYSTRING</div>
+<div class="code-line"></div>
+<div class="code-line">    IF TopOfStackPointer &gt; NullPointer THEN</div>
+<div class="code-line">        Item &lt;- Stack[TopOfStackPointer]</div>
+<div class="code-line">        TopOfStackPointer &lt;- TopOfStackPointer - 1</div>
+<div class="code-line">    ENDIF</div>
+<div class="code-line"></div>
+<div class="code-line">    RETURN Item</div>
+<div class="code-line">ENDFUNCTION</div></div>
 </div>
-  <div class="code-panel python-panel">
-<div class="code-title">Annex: stackPopPython</div>
-<div class="code-id">Annex: stackPopPython</div>
-<div class="code-wrap python" id="stackPopPython"><div class='code-line' data-tip="    &quot;&quot;&quot;
+<div class="code-panel python-panel">
+<div class="code-title">stackPopPython</div>
+
+<div class="code-wrap python" id="stackPopPython"><div class="code-line" data-tip='    """
     Remove and return the top item from the stack.
     Return EMPTY_STRING if the stack is empty.
-    &quot;&quot;&quot;">def stackPopPython():</div>
-<div class='code-line'>    global Stack</div>
-<div class='code-line'>    global TopPointer</div>
-<div class='code-line'>    if stackIsEmptyPython():</div>
-<div class='code-line'>        return EMPTY_STRING</div>
-<div class='code-line'>    item = Stack[TopPointer]</div>
-<div class='code-line'>    Stack[TopPointer] = EMPTY_STRING</div>
-<div class='code-line'>    TopPointer = TopPointer - 1</div>
-<div class='code-line'>    return item</div></div>
+    """'>def stackPopPython():</div>
+<div class="code-line">    global Stack</div>
+<div class="code-line">    global TopPointer</div>
+<div class="code-line">    if stackIsEmptyPython():</div>
+<div class="code-line">        return EMPTY_STRING</div>
+<div class="code-line">    item = Stack[TopPointer]</div>
+<div class="code-line">    Stack[TopPointer] = EMPTY_STRING</div>
+<div class="code-line">    TopPointer = TopPointer - 1</div>
+<div class="code-line">    return item</div></div>
 </div>
 </section>
-
 <section class="annex-pair">
-  <div class="code-panel pseudo-panel">
-<div class="code-title">Annex: stackPushPseudo</div>
-<div class="code-id">Annex: stackPushPseudo</div>
-<div class="code-wrap pseudo" id="stackPushPseudo"><div class='code-line'>PROCEDURE stackPushPseudo(NewItem)</div>
-<div class='code-line'>    IF TopOfStackPointer &lt; MaxStackSize - 1 THEN</div>
-<div class='code-line'>        TopOfStackPointer &lt;- TopOfStackPointer + 1</div>
-<div class='code-line'>        Stack[TopOfStackPointer] &lt;- NewItem</div>
-<div class='code-line'>    ENDIF</div>
-<div class='code-line'>ENDPROCEDURE</div></div>
+<div class="code-panel pseudo-panel">
+<div class="code-title">stackPushPseudo</div>
+
+<div class="code-wrap pseudo" id="stackPushPseudo"><div class="code-line">PROCEDURE stackPushPseudo(NewItem)</div>
+<div class="code-line">    IF TopOfStackPointer &lt; MaxStackSize - 1 THEN</div>
+<div class="code-line">        TopOfStackPointer &lt;- TopOfStackPointer + 1</div>
+<div class="code-line">        Stack[TopOfStackPointer] &lt;- NewItem</div>
+<div class="code-line">    ENDIF</div>
+<div class="code-line">ENDPROCEDURE</div></div>
 </div>
-  <div class="code-panel python-panel">
-<div class="code-title">Annex: stackPushPython</div>
-<div class="code-id">Annex: stackPushPython</div>
-<div class="code-wrap python" id="stackPushPython"><div class='code-line' data-tip="    &quot;&quot;&quot;
+<div class="code-panel python-panel">
+<div class="code-title">stackPushPython</div>
+
+<div class="code-wrap python" id="stackPushPython"><div class="code-line" data-tip='    """
     Add new_item to the top of the stack.
     Return True if the push succeeds, otherwise False.
-    &quot;&quot;&quot;">def stackPushPython(new_item):</div>
-<div class='code-line'>    global Stack</div>
-<div class='code-line'>    global TopPointer</div>
-<div class='code-line'>    if stackIsFullPython():</div>
-<div class='code-line'>        return False</div>
-<div class='code-line'>    TopPointer = TopPointer + 1</div>
-<div class='code-line'>    Stack[TopPointer] = new_item</div>
-<div class='code-line'>    return True</div></div>
+    """'>def stackPushPython(new_item):</div>
+<div class="code-line">    global Stack</div>
+<div class="code-line">    global TopPointer</div>
+<div class="code-line">    if stackIsFullPython():</div>
+<div class="code-line">        return False</div>
+<div class="code-line">    TopPointer = TopPointer + 1</div>
+<div class="code-line">    Stack[TopPointer] = new_item</div>
+<div class="code-line">    return True</div></div>
 </div>
 </section>
-
-
-    <div class="tip-panel" id="tipPanel" aria-hidden="true"></div>
-  </main>
-
-  <script src="script.js"></script>
+<div aria-hidden="true" class="tip-panel" id="tipPanel"></div>
+</main>
+<script src="script.js"></script>
 </body>
 </html>
