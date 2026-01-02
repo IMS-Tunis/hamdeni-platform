@@ -10,26 +10,39 @@
   <header class="platform-header">
     <div class="platform-header-left">
       <a href="../../../dashboard.html">
-        <img src="../../../images/maarifLOGO.png" class="logo" id="maarif-logo" alt="Maarif logo">
+        <img src="/images/maarifLOGO.png" class="logo" id="maarif-logo" alt="Maarif logo">
       </a>
     </div>
     <div class="platform-header-center">
       <h1>Layer 1: Theoretical Foundation</h1>
-      <div class="platform-subtitle">19.1 Algorithms</div>
+      <div class="info-line">
+        <span id="point-title"></span>
+        <span id="student-name"></span>
+        <span id="platform-name"></span>
+      </div>
     </div>
     <div class="platform-header-right" style="text-align:right;">
-      <img src="../../../images/cambridge.png" class="logo" alt="Cambridge logo">
+      <img src="/images/cambridge.png" class="logo" alt="Cambridge logo">
     </div>
   </header>
   <header class="header">
     <div class="header-inner">
-      <h1 class="main-title">19.1 Algorithms</h1>
-      <div class="sub-title">Theory notes prepared by Dr. Hamdeni</div>
-      <div class="layer-menu" aria-label="Layer navigation">
-        <div class="layer-menu-links">
-          <a class="layer-link" href="../layer2.html"><span class="layer-number">2</span> Layer 2</a>
-          <a class="layer-link" href="../layer3.html"><span class="layer-number">3</span> Layer 3</a>
-          <a class="layer-link" href="../layer4.html"><span class="layer-number">4</span> Layer 4</a>
+      <div class="header-top">
+        <div class="layer-menu" aria-label="Layer navigation">
+          <div class="layer-menu-links">
+            <a class="layer-link" href="../layer2.html"><span class="layer-number">2</span> Layer 2</a>
+            <a class="layer-link" href="../layer3.html"><span class="layer-number">3</span> Layer 3</a>
+            <a class="layer-link" href="../layer4.html"><span class="layer-number">4</span> Layer 4</a>
+          </div>
+        </div>
+        <div class="header-text">
+          <div class="header-title-row">
+            <h1 class="main-title">19.1 Algorithms</h1>
+            <button class="syllabus-button" type="button" data-syllabus-trigger="true" aria-haspopup="dialog" aria-controls="syllabus-modal">
+              📌 Syllabus
+            </button>
+          </div>
+          <div class="sub-title">Theory notes prepared by Dr. Hamdeni</div>
         </div>
       </div>
       <nav class="nav"><a class='nav-link' href='19_1a.html'>19.1a</a>
@@ -40,6 +53,13 @@
 <a class='nav-link' href='annex_19_1.html'>Annex</a></nav>
     </div>
   </header>
+  <div class="syllabus-modal" id="syllabus-modal" role="dialog" aria-modal="true" aria-labelledby="syllabus-title">
+    <div class="syllabus-modal-content">
+      <button class="syllabus-close" type="button" id="close-syllabus">Close ✕</button>
+      <h2 id="syllabus-title" style="margin-top: 0; color: #003366;">Syllabus Points</h2>
+      <img src="../../syllabus.png" alt="Syllabus points for this page">
+    </div>
+  </div>
 
   <main class="layout">
     <aside class="sidebar"><div class='sommaire'><div class='sommaire-title'>Sommaire</div><ul class='sommaire-list'><li class='sommaire-item'><a href='#sec_1_Linked_List'>1) Linked List</a></li><li class='sommaire-subsub'><a href='#sec_1_Linked_List__What_a_linked_list_node_stores'>What a linked list node stores</a></li><li class='sommaire-subsub'><a href='#sec_1_Linked_List__Array_based_linked_list'>Array based linked list</a></li><li class='sommaire-subsub'><a href='#sec_1_Linked_List__The_free_list_how_unused_nodes_are_tracked'>The free list (how unused nodes are tracked)</a></li><li class='sommaire-subsub'><a href='#sec_1_Linked_List__Algorithm_1_Find_search_in_a_linked_list'>Algorithm 1: Find (search) in a linked list</a></li><li class='sommaire-subsub'><a href='#sec_1_Linked_List__Algorithm_2_Insertion_of_a_new_node'>Algorithm 2: Insertion of a new node</a></li><li class='sommaire-subsub'><a href='#sec_1_Linked_List__Algorithm_3_Delete_remove_one_item'>Algorithm 3: Delete (remove one item)</a></li><li class='sommaire-item'><a href='#sec_2_Stack'>2) Stack</a></li><li class='sommaire-subsub'><a href='#sec_2_Stack__Algorithm_0_Initialise_the_stack'>Algorithm 0: Initialise the stack</a></li><li class='sommaire-subsub'><a href='#sec_2_Stack__Algorithm_1_Check_if_the_stack_is_empty'>Algorithm 1: Check if the stack is empty</a></li><li class='sommaire-subsub'><a href='#sec_2_Stack__Algorithm_2_Check_if_the_stack_is_full'>Algorithm 2: Check if the stack is full</a></li><li class='sommaire-subsub'><a href='#sec_2_Stack__Algorithm_3_Push'>Algorithm 3: Push</a></li><li class='sommaire-subsub'><a href='#sec_2_Stack__Algorithm_4_Pop'>Algorithm 4: Pop</a></li><li class='sommaire-subsub2'><a href='#sec_2_Stack__Underflow_and_overflow'>Underflow and overflow</a></li><li class='sommaire-item'><a href='#sec_3_Queue'>3) Queue</a></li><li class='sommaire-subsub'><a href='#sec_3_Queue__Core_idea_FIFO'>Core idea (FIFO)</a></li><li class='sommaire-subsub'><a href='#sec_3_Queue__Array_based_queue_representation_fixed_size'>Array-based queue representation (fixed size)</a></li><li class='sommaire-subsub'><a href='#sec_3_Queue__Wrap_round_circular_queue'>Wrap-round (circular queue)</a></li><li class='sommaire-subsub'><a href='#sec_3_Queue__Algorithm_1_Initialise_a_queue'>Algorithm 1: Initialise a queue</a></li><li class='sommaire-subsub'><a href='#sec_3_Queue__Algorithm_2_Add_an_item_enQueue'>Algorithm 2: Add an item (enQueue)</a></li><li class='sommaire-subsub'><a href='#sec_3_Queue__Algorithm_3_Remove_an_item_deQueue'>Algorithm 3: Remove an item (deQueue)</a></li><li class='sommaire-item'><a href='#sec_4_Binary_Tree'>4) Binary Tree</a></li><li class='sommaire-subsub'><a href='#sec_4_Binary_Tree__Core_idea_and_key_terms'>Core idea and key terms</a></li><li class='sommaire-subsub'><a href='#sec_4_Binary_Tree__Array_representation_of_the_tree'>Array representation of the tree</a></li><li class='sommaire-subsub'><a href='#sec_4_Binary_Tree__Initialising_an_empty_tree'>Initialising an empty tree</a></li><li class='sommaire-subsub'><a href='#sec_4_Binary_Tree__Inserting_a_new_value'>Inserting a new value</a></li><li class='sommaire-subsub'><a href='#sec_4_Binary_Tree__Finding_a_value_search'>Finding a value (search)</a></li><li class='sommaire-subsub'><a href='#sec_4_Binary_Tree__Why_this_tree_supports_faster_search_than_linear_scanning'>Why this tree supports faster search than linear scanning</a></li><li class='sommaire-item'><a href='#sec_5_Graph'>5) Graph</a></li><li class='sommaire-subsub'><a href='#sec_5_Graph__What_a_graph_is'>What a graph is</a></li><li class='sommaire-subsub'><a href='#sec_5_Graph__Key_features_of_a_graph'>Key features of a graph</a></li><li class='sommaire-subsub'><a href='#sec_5_Graph__Weighted_graphs'>Weighted graphs</a></li><li class='sommaire-subsub'><a href='#sec_5_Graph__Directed_and_undirected'>Directed and undirected</a></li><li class='sommaire-subsub'><a href='#sec_5_Graph__Paths_and_cycles'>Paths and cycles</a></li><li class='sommaire-subsub'><a href='#sec_5_Graph__Why_graphs_are_useful'>Why graphs are useful</a></li><li class='sommaire-subsub'><a href='#sec_5_Graph__How_a_graph_can_be_stored'>How a graph can be stored</a></li><li class='sommaire-subsub2'><a href='#sec_5_Graph__Adjacency_matrix'>Adjacency matrix</a></li><li class='sommaire-subsub2'><a href='#sec_5_Graph__Adjacency_list'>Adjacency list</a></li></ul></div></aside>

@@ -594,3 +594,61 @@ if(/found\s*←\s*true/i.test(low)) return "Set Found to TRUE because the Search
 
   enrichStaticCodeTips();
 })();
+
+(function(){
+  var pointId = "19.1";
+  var pointTitleEl = document.getElementById("point-title");
+  var studentNameEl = document.getElementById("student-name");
+  var platformNameEl = document.getElementById("platform-name");
+  var studentName = localStorage.getItem("student_name");
+  var platform = localStorage.getItem("platform");
+
+  if(studentNameEl && studentName){
+    studentNameEl.textContent = "👤 " + studentName;
+  }
+
+  if(platformNameEl && platform){
+    platformNameEl.textContent = "🎓 Platform: " + platform;
+  }
+
+  if(pointTitleEl){
+    fetch("../../index.json")
+      .then(function(res){ return res.json(); })
+      .then(function(list){
+        var found = list.find(function(point){
+          return point.id && point.id.toLowerCase() === pointId.toLowerCase();
+        });
+        if(found){
+          pointTitleEl.textContent = "📍 " + found.title;
+        }
+      })
+      .catch(function(){});
+  }
+
+  var syllabusModal = document.getElementById("syllabus-modal");
+  var openButtons = document.querySelectorAll("[data-syllabus-trigger='true']");
+  var closeButton = document.getElementById("close-syllabus");
+
+  if(syllabusModal && openButtons.length && closeButton){
+    var toggleSyllabus = function(show){
+      syllabusModal.classList.toggle("is-open", show);
+      syllabusModal.setAttribute("aria-hidden", show ? "false" : "true");
+    };
+
+    openButtons.forEach(function(button){
+      button.addEventListener("click", function(){
+        toggleSyllabus(true);
+      });
+    });
+
+    closeButton.addEventListener("click", function(){
+      toggleSyllabus(false);
+    });
+
+    syllabusModal.addEventListener("click", function(event){
+      if(event.target === syllabusModal){
+        toggleSyllabus(false);
+      }
+    });
+  }
+})();
