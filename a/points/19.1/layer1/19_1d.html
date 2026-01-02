@@ -7,10 +7,44 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <header class="platform-header">
+    <div class="platform-header-left">
+      <a href="../../../dashboard.html">
+        <img src="/images/maarifLOGO.png" class="logo" id="maarif-logo" alt="Maarif logo">
+      </a>
+    </div>
+    <div class="platform-header-center">
+      <h1>Layer 1: Theoretical Foundation</h1>
+      <div class="info-line">
+        <span id="point-title"></span>
+        <span id="student-name"></span>
+        <span id="platform-name"></span>
+      </div>
+    </div>
+    <div class="platform-header-right" style="text-align:right;">
+      <img src="/images/cambridge.png" class="logo" alt="Cambridge logo">
+    </div>
+  </header>
   <header class="header">
     <div class="header-inner">
-      <h1 class="main-title">19.1 Algorithms</h1>
-      <div class="sub-title">Theory notes prepared by Dr. Hamdeni</div>
+      <div class="header-top">
+        <div class="layer-menu" aria-label="Layer navigation">
+          <div class="layer-menu-links">
+            <a class="layer-link" href="../layer2.html"><span class="layer-number">2</span> Layer 2</a>
+            <a class="layer-link" href="../layer3.html"><span class="layer-number">3</span> Layer 3</a>
+            <a class="layer-link" href="../layer4.html"><span class="layer-number">4</span> Layer 4</a>
+          </div>
+        </div>
+        <div class="header-text">
+          <div class="header-title-row">
+            <h1 class="main-title">19.1 Algorithms</h1>
+            <button class="syllabus-button" type="button" data-syllabus-trigger="true" aria-haspopup="dialog" aria-controls="syllabus-modal">
+              📌 Syllabus
+            </button>
+          </div>
+          <div class="sub-title">Theory notes prepared by Dr. Hamdeni</div>
+        </div>
+      </div>
       <nav class="nav"><a class='nav-link' href='19_1a.html'>19.1a</a>
 <a class='nav-link' href='19_1b.html'>19.1b</a>
 <a class='nav-link' href='19_1c.html'>19.1c</a>
@@ -19,6 +53,13 @@
 <a class='nav-link' href='annex_19_1.html'>Annex</a></nav>
     </div>
   </header>
+  <div class="syllabus-modal" id="syllabus-modal" role="dialog" aria-modal="true" aria-labelledby="syllabus-title">
+    <div class="syllabus-modal-content">
+      <button class="syllabus-close" type="button" id="close-syllabus">Close ✕</button>
+      <h2 id="syllabus-title" style="margin-top: 0; color: #003366;">Syllabus Points</h2>
+      <img src="../../syllabus.png" alt="Syllabus points for this page">
+    </div>
+  </div>
 
   <main class="layout">
     <aside class="sidebar"><div class='sommaire'><div class='sommaire-title'>Sommaire</div><ul class='sommaire-list'><li class='sommaire-item'><a href='#sec_1_Stack_common_implementation_choices'>1) Stack: common implementation choices</a></li><li class='sommaire-subsub'><a href='#sec_1_Stack_common_implementation_choices__A_Stack_implemented_using_an_array_built_in_type'>A) Stack implemented using an array (built in type)</a></li><li class='sommaire-subsub'><a href='#sec_1_Stack_common_implementation_choices__B_Stack_implemented_using_a_linked_list_ADT_implemented_from_another_ADT'>B) Stack implemented using a linked list (ADT implemented from another ADT)</a></li><li class='sommaire-subsub'><a href='#sec_1_Stack_common_implementation_choices__A_Queue_implemented_using_an_array_built_in_type'>A) Queue implemented using an array (built in type)</a></li><li class='sommaire-subsub'><a href='#sec_1_Stack_common_implementation_choices__B_Queue_implemented_using_a_linked_list_ADT_implemented_from_another_ADT'>B) Queue implemented using a linked list (ADT implemented from another ADT)</a></li><li class='sommaire-item'><a href='#sec_3_Linked_list_common_implementation_style_used_for_algorithms'>3) Linked list: common implementation style used for algorithms</a></li><li class='sommaire-item'><a href='#sec_4_Dictionary_implemented_using_a_hash_table'>4) Dictionary: implemented using a hash table</a></li><li class='sommaire-subsub'><a href='#sec_4_Dictionary_implemented_using_a_hash_table__A_Dictionary_as_key_value_pairs'>A) Dictionary as key value pairs</a></li><li class='sommaire-subsub'><a href='#sec_4_Dictionary_implemented_using_a_hash_table__B_How_a_dictionary_is_implemented_hash_table_direct_access'>B) How a dictionary is implemented: hash table (direct access)</a></li><li class='sommaire-item'><a href='#sec_5_Binary_tree_commonly_implemented_using_an_array_of_records'>5) Binary tree: commonly implemented using an array of records</a></li></ul></div></aside>
