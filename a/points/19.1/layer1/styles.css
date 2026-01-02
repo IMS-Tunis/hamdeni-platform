@@ -37,6 +37,90 @@ body{
     linear-gradient(180deg, var(--bg0), var(--bg1));
 }
 
+.platform-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #003366;
+  color: #fff;
+}
+
+.platform-header-left,
+.platform-header-right{
+  flex: 1;
+}
+
+.platform-header-center{
+  flex: 2;
+  text-align: center;
+}
+
+.platform-header-center h1{
+  margin: 0;
+  font-size: 1.8em;
+}
+
+.platform-subtitle{
+  margin-top: 4px;
+  font-size: 0.95em;
+  color: #f0f0f0;
+  font-weight: 600;
+}
+
+.logo{
+  height: 45px;
+}
+
+#maarif-logo{
+  height: 55px;
+}
+
+.layer-menu{
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+}
+
+.layer-menu-links{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.layer-link{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.85);
+  border: 1px solid var(--border);
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 12px;
+  transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
+}
+
+.layer-link:hover{
+  transform: translateY(-1px);
+  border-color: rgba(99,102,241,0.55);
+  box-shadow: 0 0 0 4px rgba(99,102,241,0.12);
+}
+
+.layer-number{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(99,102,241,0.18);
+  font-size: 12px;
+  font-weight: 900;
+}
+
 .header{
   position: sticky;
   top: 0;

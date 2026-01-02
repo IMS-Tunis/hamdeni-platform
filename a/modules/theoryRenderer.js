@@ -78,7 +78,7 @@ export async function renderTheoryPoints() {
       }
       localStorage.setItem("current_point", point.id);
       const layer1Overrides = {
-        '19.1': './points/19.1/Layer%201/19_1a.html'
+        '19.1': './points/19.1/layer1/19_1a.html'
       };
       window.location.href = layer1Overrides[point.id] || `./points/${point.id}/layer1.html`;
     };
