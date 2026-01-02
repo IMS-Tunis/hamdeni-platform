@@ -38,7 +38,7 @@
   <div class="note-body"><ul class='note-list level-0'>
 <li>Insertion sort treats the list as having a sorted part and an unsorted part. Each new item from the unsorted part is inserted into its correct position in the sorted part.</li>
 <li>The loop takes the next item (ItemToBeInserted), then shifts larger sorted items one position to the right until the correct insertion position is reached, then inserts the item.</li>
-<li>See <a class="annex-link" href="annex_19_1.html#InsertionSortPseudo" data-annex="InsertionSortPseudo">Annex: InsertionSortPseudo</a> and <a class="annex-link" href="annex_19_1.html#InsertionSortPython" data-annex="InsertionSortPython">Annex: InsertionSortPython</a>.</li>
+<li><a class="annex-link" href="annex_19_1.html#InsertionSortPseudo" data-annex="InsertionSortPseudo">See <a class="annex-link" href="annex_19_1.html#InsertionSortPseudo" data-annex="InsertionSortPseudo">Annex: InsertionSortPseudo</a></a> and <a class="annex-link" href="annex_19_1.html#InsertionSortPython" data-annex="InsertionSortPython">Annex: InsertionSortPython</a>.</li>
 </ul></div>
 </section>
 
@@ -47,7 +47,7 @@
   <div class="note-body"><ul class='note-list level-0'>
 <li>Bubble sort repeatedly compares adjacent items and swaps them if they are in the wrong order.</li>
 <li>An inner loop performs adjacent comparisons and swaps; a variable (Unsorted) is reduced each outer pass, so the algorithm does fewer comparisons as the largest items move into their final positions.</li>
-<li>See <a class="annex-link" href="annex_19_1.html#BubbleSortPseudo" data-annex="BubbleSortPseudo">Annex: BubbleSortPseudo</a> and <a class="annex-link" href="annex_19_1.html#BubbleSortPython" data-annex="BubbleSortPython">Annex: BubbleSortPython</a>.</li>
+<li><a class="annex-link" href="annex_19_1.html#BubbleSortPseudo" data-annex="BubbleSortPseudo">See <a class="annex-link" href="annex_19_1.html#BubbleSortPseudo" data-annex="BubbleSortPseudo">Annex: BubbleSortPseudo</a></a> and <a class="annex-link" href="annex_19_1.html#BubbleSortPython" data-annex="BubbleSortPython">Annex: BubbleSortPython</a>.</li>
 </ul></div>
 </section>
 
@@ -67,7 +67,8 @@
 </ul>
 <li>As the number of elements increases, bubble sort performance can worsen faster than insertion sort. See the curve in the figure below:</li>
 </ul>
-<div class='figure-wrap'><img class='doc-figure size-50' src='images/img_01.png' alt=''></div>
+<p class='note-paragraph'>Figure : bubblke sort VS insertion Sort evolution</p>
+<div class='figure-wrap'><img class='doc-figure' src='images/img_01.png' alt=''></div>
 <ul class='note-list level-0'>
 <ul class='note-list level-1'>
 <li>What the figure should show: when the number of items becomes large, the bubble sort curve rises more sharply than the insertion sort curve.</li>
@@ -78,7 +79,7 @@
 <li>To test performance properly, change the starting order of items (already in order, reverse order, mixed) and observe the effect.</li>
 <li>both algorithms are fast on sorted data and slow on reversed data, but on partially sorted data insertion sort typically performs better because it can place an item into its correct position in one insertion step, while bubble sort moves items gradually via neighbour swaps across multiple passes.:</li>
 </ul>
-<div class="example-box"><a id='sec_3_Performance_depends_on_initial_order_and_number_of_items__Example'></a><h4 class='subsub-heading level4'>Example:</h4>
+<a id='sec_3_Performance_depends_on_initial_order_and_number_of_items__Example'></a><h4 class='subsub-heading level4'>Example:</h4>
 <p class='note-paragraph'>List: [1,2,3,4,6,7,8,9,5]</p>
 <p class='note-paragraph'>Insertion sort</p>
 <ul class='note-list level-0'>
@@ -95,7 +96,7 @@
 <li>Pass 4: [1,2,3,4,5,6,7,8,9]</li>
 </ul>
 </ul>
-<p class='note-paragraph'>Point: insertion places 5 correctly in one step; bubble needs several passes because it keeps finding a new swap each pass.</p></div></div>
+<p class='note-paragraph'>Point: insertion places 5 correctly in one step; bubble needs several passes because it keeps finding a new swap each pass.</p></div>
 </section>
 
     </section>
@@ -105,7 +106,6 @@
   <div class="modal" role="dialog" aria-modal="true" aria-label="Annex code">
     <div class="modal-header">
       <div class="modal-title" id="annexModalTitle"></div>
-      <div class="modal-subtitle" id="annexModalSubtitle"></div>
       <button class="modal-close" id="annexModalClose" type="button">Close</button>
     </div>
     <div class="modal-body">
