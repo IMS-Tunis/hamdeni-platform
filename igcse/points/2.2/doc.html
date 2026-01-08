@@ -104,8 +104,6 @@
     </ul>
     <ul class="no-bullets">
       <li><div class="example-box">Example: ISBN-13 check digit. Add the digits in the odd positions. Add three times the digits in the even positions. Sum these results and take the remainder when divided by 10. If the remainder is zero, the check digit is 0. Otherwise it is 10 minus the remainder. For 978034098382, the remainder is 1, so the check digit is 9 and the full code is 9780340983829. Verification repeats the process including the check digit and expects a remainder of 0.</div></li>
-      <li><div class="example-box">Example: modulo-11 method. Multiply each digit by a weight from 8 down to 2, add the products, divide by 11, and use 11 minus the remainder as the check digit, using X if the remainder is 10. For the base 4156710 the total is 130, the remainder is 9, so the check digit is 2. Verification with weights 8 down to 1 gives a remainder of 0.</div></li>
-      <li><span class="fun-tip">The check digit is like a quick maths riddle at the supermarket. If the totals do not add up when the last digit is checked, the till asks for a rescan because a digit was entered wrongly.</span></li>
       <li>
         <div class="button-group">
           <button class="keyword-button" onclick="openPopupK('2.2c')">
@@ -121,7 +119,7 @@
   <div class="section">
     <h2>2.2d: Describe how an automatic repeat request can be used to establish that data is received without error</h2>
     <ul>
-      <li><span class="official-note">Automatic repeat request uses <span class="keyword" data-tooltip="a message sent to the receiver indicating that data has been received correctly (used in the ARQ error detection method)">acknowledgement</span>, which are messages that confirm whether reception succeeded, and a <span class="keyword" data-tooltip="the time interval allowed to elapse before an acknowledgement is received (in the ARQ error detection method)">timeout</span>, which is the maximum waiting time for an acknowledgement, to ensure that data is delivered correctly and to trigger re-transmission when necessary.</span>
+      <li><span class="official-note">Automatic repeat request (ARQ, automatic repeat query) uses <span class="keyword" data-tooltip="a message sent to the receiver indicating that data has been received correctly (used in the ARQ error detection method)">acknowledgement</span>, which are messages that confirm whether reception succeeded, and a <span class="keyword" data-tooltip="the time interval allowed to elapse before an acknowledgement is received (in the ARQ error detection method)">timeout</span>, which is the maximum waiting time for an acknowledgement, to ensure that data is delivered correctly and to trigger re-transmission when necessary.</span>
         <ul>
           <li><span class="official-note">Operational flow: if a positive acknowledgement is received, delivery is confirmed. If a negative acknowledgement is received or the timeout expires, the sender re-sends the packet.</span></li>
           <li><span class="official-note">Start timer on send: when a packet is transmitted, a timer starts immediately; if the acknowledgement does not arrive before the timer expires, the sender automatically retransmits the packet.</span></li>
