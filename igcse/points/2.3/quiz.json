@@ -23,7 +23,7 @@
     },
     {
       "type": "mcq",
-      "question": "According to the notes, what does encryption do regarding interception?",
+      "question": "What does encryption do regarding interception?",
       "options": [
         "It completely prevents interception of data.",
         "It reduces the impact of interception but does not stop interception itself.",
@@ -67,7 +67,7 @@
     },
     {
       "type": "mcq",
-      "question": "Why was asymmetric encryption designed according to the notes?",
+      "question": "Why was asymmetric encryption designed?",
       "options": [
         "To process data faster than symmetric encryption.",
         "To use fewer computational resources.",
@@ -78,7 +78,7 @@
     },
     {
       "type": "mcq",
-      "question": "Which statement reflects the security comparison stated in the notes?",
+      "question": "Which statement best reflects the security comparison?",
       "options": [
         "Symmetric approaches are generally less secure than asymmetric approaches because a single shared key must be distributed.",
         "Symmetric approaches are more secure because they do not use keys.",

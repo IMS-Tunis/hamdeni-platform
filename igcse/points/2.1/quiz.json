@@ -7,7 +7,7 @@
     },
     {
       "type": "mcq",
-      "question": "Which statement is supported by the notes about using packets?",
+      "question": "Which statement about using packets is correct?",
       "options": [
         "Packets force data to use a single fixed route end-to-end",
         "Packets allow different routes to be used if one route is unsuitable",
@@ -58,7 +58,7 @@
     },
     {
       "type": "mcq",
-      "question": "Which header details are listed in the notes in addition to IP addresses?",
+      "question": "Which header details are included in addition to IP addresses?",
       "options": [
         "Only the actual data being transmitted",
         "Error checking methods and end-of-packet markers",
@@ -74,7 +74,7 @@
     },
     {
       "type": "mcq",
-      "question": "How do routers choose the next route for packets according to the notes?",
+      "question": "How do routers choose the next route for packets?",
       "options": [
         "They always use the absolute shortest path available",
         "They randomly select from available paths",
@@ -90,7 +90,7 @@
     },
     {
       "type": "mcq",
-      "question": "Which is listed as a drawback or overhead of packet switching in the notes?",
+      "question": "Which is a drawback or overhead of packet switching?",
       "options": [
         "It ties up a single dedicated line for the whole message",
         "It removes all delays caused by reordering",
@@ -121,7 +121,7 @@
     },
     {
       "type": "mcq",
-      "question": "Which statement matches the notes?",
+      "question": "Which statement is correct?",
       "options": [
         "Serial sends several bits at the same time over multiple wires",
         "Parallel sends one bit at a time over a single wire or channel",
@@ -159,7 +159,7 @@
     },
     {
       "type": "mcq",
-      "question": "Which choice fits the notes for long-distance links with lower cost and maintained synchronisation at lower data rates?",
+      "question": "Which choice fits long-distance links with lower cost and maintained synchronisation at lower data rates?",
       "options": [
         "Parallel transmission",
         "Serial transmission",
