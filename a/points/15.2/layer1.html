@@ -617,6 +617,25 @@
       border-radius: 0.4rem;
       object-fit: contain;
     }
+    .figure-note-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+    }
+    .figure-note-row img {
+      max-width: 62%;
+      margin: 0.1rem 0 0.5rem;
+    }
+    .figure-note {
+      font-size: 0.72rem;
+      line-height: 1.35;
+      color: #6b7280;
+    }
+    .figure-note-title {
+      font-weight: 600;
+      margin: 0 0 0.25rem;
+      color: #6b7280;
+    }
     figure.figure figcaption {
       font-size: 0.85rem;
       text-align: left;
@@ -805,6 +824,12 @@
       }
       figure.figure img {
         max-width: 78%;
+      }
+      .figure-note-row {
+        flex-direction: column;
+      }
+      .figure-note-row img {
+        max-width: 88%;
       }
     }
 
@@ -1160,7 +1185,13 @@
       </ul>
 
       <figure class="figure">
-        <img src="images15.2/19.05.png" alt="SR flip-flop built from two cross-coupled NOR gates">
+        <div class="figure-note-row">
+          <img src="images15.2/19.05.png" alt="SR flip-flop built from two cross-coupled NOR gates">
+          <aside class="figure-note">
+            <p class="figure-note-title">Procedure for determining the stable state of an SR flip-flop</p>
+            <p>To determine the output of an SR flip-flop implemented with NOR gates, the input values S and R are applied to the circuit together with the current outputs Q and Q′, noting that each output is fed back into the opposite gate. The NOR logic is evaluated to obtain new values for Q and Q′. If the resulting outputs are complementary (one is 1 and the other is 0), the state is stable and represents the final stored value. If both outputs are equal, the state is unstable and the feedback must be re-evaluated until a stable complementary pair is reached. The final stable state is the output reported in the truth table.</p>
+          </aside>
+        </div>
         <figcaption>
           <strong>SR flip-flop using NOR gates</strong>
           Two NOR gates are cross-coupled so that each output feeds back to the other gate.
