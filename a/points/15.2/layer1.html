@@ -1186,10 +1186,12 @@
         </li>
       </ul>
 
-         <p>Analogy: Think of the SR flip-flop as a mechanical toggle switch on a wall. If you don't touch it (S=0, R=0), it stays exactly where it was. If you push it up (S=1), it stays up even after you move your hand away. The "Invalid State" (S=1, R=1) is like two people trying to push the switch up and down at the exact same moment—the mechanism cannot be in two places at once, so the system breaks its own rules.</p>
+<ul>
+        <li> <p><strong>Analogy:</strong> Think of the SR flip-flop as a mechanical toggle switch on a wall. If you don't touch it (S=0, R=0), it stays exactly where it was. If you push it up (S=1), it stays up even after you move your hand away. The "Invalid State" (S=1, R=1) is like two people trying to push the switch up and down at the exact same moment—the mechanism cannot be in two places at once, so the system breaks its own rules.</p>
 	 
-	     <p>The output is not just dependent on the current input values but also on the previous output. This defines a sequential circuit, such as the SR flip-flop or ‘latch’, which uses feedback to maintain a state. Using the light-switch analogy, the circuit allows a "set" or "reset" command to be remembered even after the signal is removed.</p>
-
+	    <li> <p>The output is not just dependent on the current input values but also on the previous output. This defines a sequential circuit, such as the SR flip-flop or ‘latch’, which uses feedback to maintain a state. The circuit allows a "set" or "reset" command to be remembered even after the signal is removed.</p>
+    </ul>
+	
     <table class="styled-table" border="1">
         <thead>
             <tr>
@@ -1275,11 +1277,11 @@
         </tbody>
     </table>
 
+	<strong>Key Insights from the Table</strong>
     <ul>
-	Key Insights from the Table
-        <li><strong>Memory and Storage:</strong> Because the flip-flop maintains its state when no new signal is input (0,0), it acts as a storage device for 1 bit</li>
-        <li><strong>Two-State Device:</strong> The SR flip-flop is a two-state device because states where Q and Q' are the same (both 0 or both 1) are logically self-contradictory</li>
-        <li><strong>Protection from Invalid States:</strong> Inputting S=1 and R=1 simultaneously results in an invalid state where both Q and Q' are 0; the circuit must be protected from this</li>
+        <li><i>Memory and Storage:</i> Because the flip-flop maintains its state when no new signal is input (0,0), it acts as a storage device for 1 bit</li>
+        <li><i>Two-State Device:</i> The SR flip-flop is a two-state device because states where Q and Q' are the same (both 0 or both 1) are logically self-contradictory</li>
+        <li><i>Protection from Invalid States:</i> Inputting S=1 and R=1 simultaneously results in an invalid state where both Q and Q' are 0; the circuit must be protected from this</li>
     </ul>
 
 
@@ -1289,23 +1291,19 @@
 with R=0 and S=1.</p>
 
 
-
-
-
+<strong>CONCUSION:</strong>
       <ul>
-        <li><strong>CONCUSION:</strong> Because the SR flip-flop retains a 1 or 0 until a change is requested, it can be used as a basic building block for <span class="keyword tooltip" data-tooltip="A memory circuit stores one or more bits so that their values remain available even after inputs change.">memory</span> circuits.</li>
+        <li> Because the SR flip-flop retains a 1 or 0 until a change is requested, it can be used as a basic building block for <span class="keyword tooltip" data-tooltip="A memory circuit stores one or more bits so that their values remain available even after inputs change.">memory</span> circuits.</li>
       </ul>
 
-
-      <ul>
-        <li>Weaknesses of the basic SR design:
+<strong>Weaknesses of SR design</strong>
           <ul>
             <li>the combination S = 1 and R = 1 is forbidden, because it tries to force both Q and Qʹ to 0 at the same time</li>
             <li>if S and R change very close together in time, small timing differences can make the final stored state unstable or unpredictable.</li>
           </ul>
-        </li>
+   
 		==> Next section will suggest another FLIP FLOP that overcomes these weaknesses
-      </ul>
+
 	  
 	  
 	  
