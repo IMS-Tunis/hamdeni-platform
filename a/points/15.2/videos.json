@@ -4,16 +4,13 @@
       "url": "doc.html"
     },
     "videos": [
+
       {
-        "title": "Intro to File Organization",
-        "iframe": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/_kxf_Ztyfq8?si=MLHDXWn83dJ0HDnX\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
-      },
-      {
-        "title": "Layer 1 Additional Video 1",
+        "title": "HALF ADDER AND FULL ADDER",
         "iframe": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/X4mzhHX8IwI?si=Cvrlwr5QPExLWCdV\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
       },
       {
-        "title": "Layer 1 Additional Video 2",
+        "title": "FLIP FLOPS",
         "iframe": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/bmtHWvVAiBc?si=HgW_YUwSykW4DLiB\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
       }
     ]
