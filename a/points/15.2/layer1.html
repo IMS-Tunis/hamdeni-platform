@@ -1186,9 +1186,9 @@
         </li>
       </ul>
 
-     
+         <p>Analogy: Think of the SR flip-flop as a mechanical toggle switch on a wall. If you don't touch it (S=0, R=0), it stays exactly where it was. If you push it up (S=1), it stays up even after you move your hand away. The "Invalid State" (S=1, R=1) is like two people trying to push the switch up and down at the exact same moment—the mechanism cannot be in two places at once, so the system breaks its own rules.</p>
 	 
-	     The output is not just dependent on the current input values but also on the previous output [1], [2]. This defines a sequential circuit, such as the SR flip-flop or ‘latch’, which uses feedback to maintain a state [1], [3]. Using the light-switch analogy, the circuit allows a "set" or "reset" command to be remembered even after the signal is removed [4], [5].
+	     <p>The output is not just dependent on the current input values but also on the previous output. This defines a sequential circuit, such as the SR flip-flop or ‘latch’, which uses feedback to maintain a state. Using the light-switch analogy, the circuit allows a "set" or "reset" command to be remembered even after the signal is removed.</p>
 
     <table class="styled-table" border="1">
         <thead>
@@ -1216,7 +1216,7 @@
                 <td>0</td>
                 <td><strong>1</strong></td>
                 <td><strong>0</strong></td>
-                <td>No signal is input; the light remembers it was ON and stays ON [4], [5].</td>
+                <td>No signal is input; the light remembers it was ON and stays ON</td>
             </tr>
             <tr>
                 <td>1</td>
@@ -1225,7 +1225,7 @@
                 <td>0</td>
                 <td><strong>1</strong></td>
                 <td><strong>0</strong></td>
-                <td>The light is ON; you press "Turn ON" again, so it remains ON [5].</td>
+                <td>The light is ON; you press "Turn ON" again, so it remains ON</td>
             </tr>
             <tr>
                 <td>0</td>
@@ -1234,7 +1234,7 @@
                 <td>0</td>
                 <td><strong>0</strong></td>
                 <td><strong>1</strong></td>
-                <td>The light is ON; you press "Turn OFF", switching it to the unset state [5].</td>
+                <td>The light is ON; you press "Turn OFF", switching it to the unset state</td>
             </tr>
             <tr>
                 <td>0</td>
@@ -1243,7 +1243,7 @@
                 <td>1</td>
                 <td><strong>0</strong></td>
                 <td><strong>1</strong></td>
-                <td>No signal is input; the light remembers it was OFF and stays OFF [4], [5].</td>
+                <td>No signal is input; the light remembers it was OFF and stays OFF</td>
             </tr>
             <tr>
                 <td>1</td>
@@ -1252,7 +1252,7 @@
                 <td>1</td>
                 <td><strong>1</strong></td>
                 <td><strong>0</strong></td>
-                <td>The light is OFF; you press "Turn ON", switching it to the set state [5].</td>
+                <td>The light is OFF; you press "Turn ON", switching it to the set state</td>
             </tr>
             <tr>
                 <td>0</td>
@@ -1261,7 +1261,7 @@
                 <td>1</td>
                 <td><strong>0</strong></td>
                 <td><strong>1</strong></td>
-                <td>The light is OFF; you press "Turn OFF" again, so it remains OFF [5].</td>
+                <td>The light is OFF; you press "Turn OFF" again, so it remains OFF</td>
             </tr>
             <tr>
                 <td>1</td>
@@ -1270,24 +1270,31 @@
                 <td>Any</td>
                 <td><strong>0</strong></td>
                 <td><strong>0</strong></td>
-                <td>Invalid State: Trying to turn it ON and OFF at once; the logic fails [6].</td>
+                <td>Invalid State: Trying to turn it ON and OFF at once; the logic fails</td>
             </tr>
         </tbody>
     </table>
 
     <ul>
-        <li><strong>Memory and Storage:</strong> Because the flip-flop maintains its state when no new signal is input (0,0), it acts as a storage device for 1 bit [4], [5].</li>
-        <li><strong>Two-State Device:</strong> The SR flip-flop is a two-state device because states where Q and Q' are the same (both 0 or both 1) are logically self-contradictory [3].</li>
-        <li><strong>Protection from Invalid States:</strong> Inputting S=1 and R=1 simultaneously results in an invalid state where both Q and Q' are 0; the circuit must be protected from this [5], [6].</li>
-        <li><strong>JK Flip-Flop Synchronisation:</strong> The JK flip-flop improves on the SR design by using a clock pulse to synchronise inputs and prevent uncertain states [7].</li>
-        <li><strong>The Toggle Feature:</strong> When both J and K are set to 1, the JK flip-flop toggles its outputs, meaning they switch their current values [8], [9].</li>
+	Key Insights from the Table
+        <li><strong>Memory and Storage:</strong> Because the flip-flop maintains its state when no new signal is input (0,0), it acts as a storage device for 1 bit</li>
+        <li><strong>Two-State Device:</strong> The SR flip-flop is a two-state device because states where Q and Q' are the same (both 0 or both 1) are logically self-contradictory</li>
+        <li><strong>Protection from Invalid States:</strong> Inputting S=1 and R=1 simultaneously results in an invalid state where both Q and Q' are 0; the circuit must be protected from this</li>
     </ul>
 
-    Analogy: Think of the SR flip-flop as a mechanical toggle switch on a wall. If you don't touch it (S=0, R=0), it stays exactly where it was. If you push it up (S=1), it stays up even after you move your hand away. The "Invalid State" (S=1, R=1) is like two people trying to push the switch up and down at the exact same moment—the mechanism cannot be in two places at once, so the system breaks its own rules.
+
+
+
+<p>The alternative NAND gate circuit for the SR flip-flop has a similar structure but the labeling is diff erent. The important diff erence is that setting is achieved with S=0 and R=1 and resetting
+with R=0 and S=1.</p>
 
 
 
 
+
+      <ul>
+        <li><strong>CONCUSION:</strong> Because the SR flip-flop retains a 1 or 0 until a change is requested, it can be used as a basic building block for <span class="keyword tooltip" data-tooltip="A memory circuit stores one or more bits so that their values remain available even after inputs change.">memory</span> circuits.</li>
+      </ul>
 
 
       <ul>
@@ -1297,12 +1304,11 @@
             <li>if S and R change very close together in time, small timing differences can make the final stored state unstable or unpredictable.</li>
           </ul>
         </li>
+		==> Next section will suggest another FLIP FLOP that overcomes these weaknesses
       </ul>
-
-      <ul>
-        <li>Because the SR flip-flop retains a 1 or 0 until a change is requested, it can be used as a basic building block for <span class="keyword tooltip" data-tooltip="A memory circuit stores one or more bits so that their values remain available even after inputs change.">memory</span> circuits.</li>
-      </ul>
-
+	  
+	  
+	  
       <h3>The JK flip-flop</h3>
       <ul>
         <li>The <span class="keyword tooltip" data-tooltip="A JK flip-flop is an improved SR flip-flop with J and K inputs and a clock; it avoids the invalid SR case and can toggle its state.">JK flip-flop</span> extends the SR design to remove the forbidden input case and to improve timing control.</li>
