@@ -1125,15 +1125,15 @@
     <div class="section-content">
       <h3>From combinational to sequential logic</h3>
       <ul>
-        <li>In a <span class="keyword tooltip" data-tooltip="In a combinational circuit, outputs depend only on the current inputs, with no memory of past values.">combinational circuit</span>, outputs depend only on current inputs.</li>
+        <li>In a <span class="keyword tooltip" data-tooltip="In a combinational circuit, outputs depend only on the current inputs, with no memory of past values.">combinational circuit</span>, outputs depend only on current inputs. Inputs are combined using logic gates to produce 0 or 1</li>
         <li>In a <span class="keyword tooltip" data-tooltip="In a sequential circuit, outputs depend on current inputs and on stored past information, so the circuit has memory.">sequential circuit</span>, outputs depend on both:
           <ul>
             <li>current inputs</li>
-            <li>previous stored outputs (the internal state).</li>
+            <li>previous stored outputs (the internal past state).</li>
           </ul>
         </li>
-        <li>Sequential circuits can remember bits and are used for storage elements, registers and counters.</li>
-        <li>A collection of flip-flop cells, each storing 1 bit, can be combined to form larger memories such as registers and RAM, with one flip-flop per stored bit.</li>
+        <li>Sequential circuits can remember bits. They are used for storage elements when we want to store the status of one bit like the case for registers and counters.</li>
+        <li>A collection of flip-flop cells (each storing 1 bit) can be combined to form larger memories such as registers and RAM, with one flip-flop per stored bit.</li>
       </ul>
 
       <h3>The SR flip-flop</h3>
@@ -1186,37 +1186,109 @@
         </li>
       </ul>
 
-      <table class="styled-table">
-        <caption>SR flip-flop behaviour (NOR implementation)</caption>
+     
+	 
+	     The output is not just dependent on the current input values but also on the previous output [1], [2]. This defines a sequential circuit, such as the SR flip-flop or ‘latch’, which uses feedback to maintain a state [1], [3]. Using the light-switch analogy, the circuit allows a "set" or "reset" command to be remembered even after the signal is removed [4], [5].
+
+    <table class="styled-table" border="1">
         <thead>
-        <tr>
-          <th colspan="2">Inputs</th>
-          <th colspan="2">Initial state</th>
-          <th colspan="2">Final state</th>
-        </tr>
-        <tr>
-          <th>S</th>
-          <th>R</th>
-          <th>Q</th>
-          <th>Qʹ</th>
-          <th>Q</th>
-          <th>Qʹ</th>
-        </tr>
+            <tr>
+                <th colspan="2">Inputs</th>
+                <th colspan="2">Initial state</th>
+                <th colspan="2">Final state</th>
+                <th> Analogy </th>
+            </tr>
+            <tr>
+                <th>S (Set)</th>
+                <th>R (Reset)</th>
+                <th>Q</th>
+                <th>Q’</th>
+                <th>Q</th>
+                <th>Q’</th>
+                <th>Explanation</th>
+            </tr>
         </thead>
         <tbody>
-        <tr><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td></tr>
-        <tr><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td></tr>
-        <tr><td>0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td></tr>
-        <tr><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td></tr>
-        <tr><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td></tr>
+            <tr>
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>0</td>
+                <td><strong>1</strong></td>
+                <td><strong>0</strong></td>
+                <td>No signal is input; the light remembers it was ON and stays ON [4], [5].</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>0</td>
+                <td>1</td>
+                <td>0</td>
+                <td><strong>1</strong></td>
+                <td><strong>0</strong></td>
+                <td>The light is ON; you press "Turn ON" again, so it remains ON [5].</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>1</td>
+                <td>1</td>
+                <td>0</td>
+                <td><strong>0</strong></td>
+                <td><strong>1</strong></td>
+                <td>The light is ON; you press "Turn OFF", switching it to the unset state [5].</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td><strong>0</strong></td>
+                <td><strong>1</strong></td>
+                <td>No signal is input; the light remembers it was OFF and stays OFF [4], [5].</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td><strong>1</strong></td>
+                <td><strong>0</strong></td>
+                <td>The light is OFF; you press "Turn ON", switching it to the set state [5].</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>1</td>
+                <td>0</td>
+                <td>1</td>
+                <td><strong>0</strong></td>
+                <td><strong>1</strong></td>
+                <td>The light is OFF; you press "Turn OFF" again, so it remains OFF [5].</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>Any</td>
+                <td>Any</td>
+                <td><strong>0</strong></td>
+                <td><strong>0</strong></td>
+                <td>Invalid State: Trying to turn it ON and OFF at once; the logic fails [6].</td>
+            </tr>
         </tbody>
-        <tr class="table-description">
-          <td colspan="6">
-            The table illustrates how different combinations of S and R move the flip-flop between set and reset states or leave the previous state unchanged.
-          </td>
-        </tr>
-      </table>
+    </table>
+
+    <ul>
+        <li><strong>Memory and Storage:</strong> Because the flip-flop maintains its state when no new signal is input (0,0), it acts as a storage device for 1 bit [4], [5].</li>
+        <li><strong>Two-State Device:</strong> The SR flip-flop is a two-state device because states where Q and Q' are the same (both 0 or both 1) are logically self-contradictory [3].</li>
+        <li><strong>Protection from Invalid States:</strong> Inputting S=1 and R=1 simultaneously results in an invalid state where both Q and Q' are 0; the circuit must be protected from this [5], [6].</li>
+        <li><strong>JK Flip-Flop Synchronisation:</strong> The JK flip-flop improves on the SR design by using a clock pulse to synchronise inputs and prevent uncertain states [7].</li>
+        <li><strong>The Toggle Feature:</strong> When both J and K are set to 1, the JK flip-flop toggles its outputs, meaning they switch their current values [8], [9].</li>
+    </ul>
+
+    Analogy: Think of the SR flip-flop as a mechanical toggle switch on a wall. If you don't touch it (S=0, R=0), it stays exactly where it was. If you push it up (S=1), it stays up even after you move your hand away. The "Invalid State" (S=1, R=1) is like two people trying to push the switch up and down at the exact same moment—the mechanism cannot be in two places at once, so the system breaks its own rules.
+
+
+
+
+
 
       <ul>
         <li>Weaknesses of the basic SR design:
