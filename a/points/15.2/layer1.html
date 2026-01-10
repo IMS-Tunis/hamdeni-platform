@@ -609,13 +609,42 @@
       padding: 0.65rem 0.65rem 0.7rem;
       box-shadow: 0 10px 30px rgba(15, 23, 42, 0.25);
     }
+    figure.figure.note-layout {
+      max-width: 100%;
+      width: 100%;
+    }
     figure.figure img {
       display: block;
-      max-width: 72%;
+      max-width: clamp(240px, 72%, 360px);
+      width: 100%;
       height: auto;
       margin: 0.1rem auto 0.5rem;
       border-radius: 0.4rem;
       object-fit: contain;
+    }
+    .figure-note-row {
+      display: flex;
+      align-items: stretch;
+      gap: 0.85rem;
+    }
+    .figure-note-row img {
+      flex: 0 0 55%;
+      max-width: clamp(260px, 55%, 520px);
+      width: 100%;
+      margin: 0.1rem 0 0.5rem;
+    }
+    .figure-note {
+      flex: 1;
+      font-size: 0.72rem;
+      line-height: 1.35;
+      color: #6b7280;
+      max-height: 100%;
+      overflow: hidden;
+    }
+    .figure-note-title {
+      font-weight: 600;
+      margin: 0 0 0.25rem;
+      color: #6b7280;
     }
     figure.figure figcaption {
       font-size: 0.85rem;
@@ -806,6 +835,12 @@
       figure.figure img {
         max-width: 78%;
       }
+      .figure-note-row {
+        flex-direction: column;
+      }
+      .figure-note-row img {
+        max-width: 88%;
+      }
     }
 
     .tooltip {
@@ -975,7 +1010,7 @@
         </li>
       </ul>
 
-      <figure class="figure">
+      <figure class="figure note-layout">
         <img src="images15.2/19.01.png" alt="Logic diagram of a half adder using XOR and AND gates">
         <figcaption>
           <strong>Half adder circuit</strong>
@@ -1018,7 +1053,7 @@
         <li>A half adder can be reconstructed entirely from NAND gates by building equivalent structures for XOR and AND.</li>
       </ul>
 
-      <figure class="figure">
+      <figure class="figure note-layout">
         <img src="images15.2/19.02.png" alt="Half adder implemented using only NAND gates with internal signals">
         <figcaption>
           <strong>Half adder using only NAND gates</strong>
@@ -1160,7 +1195,13 @@
       </ul>
 
       <figure class="figure">
-        <img src="images15.2/19.05.png" alt="SR flip-flop built from two cross-coupled NOR gates">
+        <div class="figure-note-row">
+          <img src="images15.2/19.05.png" alt="SR flip-flop built from two cross-coupled NOR gates">
+          <aside class="figure-note">
+            <p class="figure-note-title">Procedure for determining the stable state of an SR flip-flop</p>
+            <p>To determine the output of an SR flip-flop implemented with NOR gates, the input values S and R are applied to the circuit together with the current outputs Q and Q′, noting that each output is fed back into the opposite gate. The NOR logic is evaluated to obtain new values for Q and Q′. If the resulting outputs are complementary (one is 1 and the other is 0), the state is stable and represents the final stored value. If both outputs are equal, the state is unstable and the feedback must be re-evaluated until a stable complementary pair is reached. The final stable state is the output reported in the truth table.</p>
+          </aside>
+        </div>
         <figcaption>
           <strong>SR flip-flop using NOR gates</strong>
           Two NOR gates are cross-coupled so that each output feeds back to the other gate.
