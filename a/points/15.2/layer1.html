@@ -1532,16 +1532,15 @@ and the full expression is the OR of all minterms.
       </ul>
 
       <ul>
-        <li>For the half adder:
+        <li>Example 1: Deriving the Boolean expression for a half adder (S and C) using the Sum of Products form based on its truth table shown above:
           <ul>
             <li>the carry output C is 1 only when A = 1 and B = 1, so C = A.B</li>
             <li>the sum output S is 1 when (A = 0, B = 1) or (A = 1, B = 0), so S = Ā.B + A.B̄.</li>
           </ul>
         </li>
-      </ul>
-
-      <table class="styled-table">
-        <caption>Example fragment of a <span class="tooltip" data-tooltip="A truth table lists all possible input combinations and shows the corresponding output for a logic circuit or Boolean expression.">truth table</span></caption>
+		<li> Example 2: consider a truth table which contains the following two rows with X is the output:
+<table class="styled-table">
+        <caption>Example fragment of a truth table</span></caption>
         <thead>
         <tr>
           <th>A</th>
@@ -1561,6 +1560,14 @@ and the full expression is the OR of all minterms.
           </td>
         </tr>
       </table>
+	  The output for X is the same whether C = 0 or C = 1. There must therefore be a minterm which
+has no reference to C which in this case will be A.B
+	  
+	  
+		</li>
+      </ul>
+
+      
 
       <h3>Deriving expressions from circuits</h3>
       <ul>
