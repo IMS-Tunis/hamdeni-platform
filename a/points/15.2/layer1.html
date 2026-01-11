@@ -602,8 +602,8 @@
     }
     figure.figure {
       margin: 1.3rem auto;
-      max-width: 100%;
-      width: 100%;
+      max-width: 60%;
+      width: 60%;
       background: var(--card-bg);
       border-radius: 0.85rem;
       border: 1px solid rgba(148, 163, 184, 0.55);
@@ -616,8 +616,8 @@
     }
     figure.figure img {
       display: block;
-      max-width: clamp(240px, 72%, 360px);
-      width: 100%;
+      max-width: clamp(240px, 60%, 360px);
+      width: 60%;
       height: auto;
       margin: 0.1rem auto 0.5rem;
       border-radius: 0.4rem;
@@ -631,8 +631,8 @@
     .figure-note-row img {
       flex: 0 0 55%;
       max-width: clamp(260px, 55%, 520px);
-      width: 100%;
-      margin: 0.1rem 0 0.5rem;
+      width: 85%;
+      margin: 0.1rem auto 0.5rem;
     }
     .figure-note {
       flex: 1;
@@ -832,6 +832,7 @@
       }
       figure.figure {
         max-width: 100%;
+        width: 100%;
       }
       figure.figure img {
         max-width: 78%;
@@ -1123,7 +1124,7 @@
         </li>
       </ul>
 
-      <figure class="figure">
+      <figure class="figure note-layout">
         <img src="images15.2/19.03.png" alt="Full adder built from two half adders and an OR gate">
         <figcaption>
           <strong>Full adder built from half adders</strong>
@@ -1136,7 +1137,7 @@
         <li>As with the half adder, the full adder can be re-expressed using only <span class="keyword">NAND gates</span>, which simplifies fabrication on chips.</li>
       </ul>
 
-      <figure class="figure">
+      <figure class="figure note-layout">
         <img src="images15.2/19.04.png" alt="Full adder implemented only with NAND gates">
         <figcaption>
           <strong>Full adder using only NAND gates</strong>
@@ -1195,7 +1196,7 @@
         </li>
       </ul>
 
-      <figure class="figure">
+      <figure class="figure note-layout">
         <div class="figure-note-row">
           <img src="images15.2/19.05.png" alt="SR flip-flop built from two cross-coupled NOR gates">
           <aside class="figure-note">
