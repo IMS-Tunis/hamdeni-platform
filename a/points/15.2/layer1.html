@@ -1405,34 +1405,14 @@ with R=0 and S=1.</p>
         <li>Many laws have an AND version and an OR version that mirror each other.</li>
       </ul>
 
-      <table class="styled-table">
-        <caption>Core Boolean algebra identities</caption>
-        <thead>
-        <tr>
-          <th>Law</th>
-          <th>AND form</th>
-          <th>OR form</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr><td>Identity</td><td>1.A = A</td><td>0 + A = A</td></tr>
-        <tr><td>Null</td><td>0.A = 0</td><td>1 + A = 1</td></tr>
-        <tr><td>Idempotent</td><td>A.A = A</td><td>A + A = A</td></tr>
-        <tr><td>Inverse</td><td>A.Ā = 0</td><td>A + Ā = 1</td></tr>
-        <tr><td>Commutative</td><td>A.B = B.A</td><td>A + B = B + A</td></tr>
-        <tr><td>Associative</td><td>(A.B).C = A.(B.C)</td><td>(A + B) + C = A + (B + C)</td></tr>
-        <tr><td>Distributive</td><td>A + B.C = (A + B).(A + C)</td><td>A.(B + C) = A.B + A.C</td></tr>
-        <tr><td>Absorption</td><td>A.(A + B) = A</td><td>A + A.B = A</td></tr>
-        <tr><td>De Morgan</td><td>(A.B)̄ = Ā + B̄</td><td>(A + B)̄ = Ā.B̄</td></tr>
-        <tr><td>Double complement</td><td>Ā̄ = A</td><td>&nbsp;</td></tr>
-        </tbody>
-        <tr class="table-description">
-          <td colspan="3">
-            These identities provide standard moves for simplifying logic expressions or converting one form into another.
-          </td>
-        </tr>
-      </table>
-
+      <figure class="figure">
+        <img src="images15.2/laws.png" alt="laws">
+        <figcaption>
+          <strong>Core Boolean algebra identities</strong>
+         These identities provide standard moves for simplifying logic expressions or converting one form into another.
+        </figcaption>
+      </figure>
+	  
       <div class="worked-example">
         <div class="worked-header">
           <span>WORKED EXAMPLE 1</span>
@@ -1499,7 +1479,13 @@ with R=0 and S=1.</p>
             <li>use the complement of any input that is 0 in the row.</li>
           </ul>
         </li>
-        <li>Each such product is a <span class="keyword tooltip" data-tooltip="A minterm is a product (AND) term that matches one exact combination of input bits in a <span class="tooltip" data-tooltip="A truth table lists all possible input combinations and shows the corresponding output for a logic circuit or Boolean expression.">truth table</span> where the output is 1.">minterm</span>, and the full expression is the OR of all minterms.</li>
+        <li>Each such product is a
+<span class="keyword tooltip"
+      data-tooltip="A minterm is a product (AND) term that matches exactly one input combination (one truth table row) where the output is 1.">
+  minterm
+</span>,
+and the full expression is the OR of all minterms.
+</li>
         <li>In exams this procedure is often described as "forming a sum-of-products expression from the minterms where the output is 1", then simplifying using the Boolean identities.</li>
       </ul>
 
