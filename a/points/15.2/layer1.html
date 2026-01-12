@@ -616,8 +616,8 @@
     }
     figure.figure img {
       display: block;
-      max-width: 100%;
-      width: 100%;
+      max-width: clamp(240px, 60%, 360px);
+      width: 60%;
       height: auto;
       margin: 0.1rem auto 0.5rem;
       border-radius: 0.4rem;
@@ -1012,7 +1012,7 @@
         </li>
       </ul>
 
-      <figure class="figure">
+      <figure class="figure note-layout">
         <img src="images15.2/19.01.png" alt="Logic diagram of a half adder using XOR and AND gates">
         <figcaption>
           <strong>Half adder circuit</strong>
@@ -1055,7 +1055,7 @@
         <li>A half adder can be reconstructed entirely from NAND gates by building equivalent structures for XOR and AND.</li>
       </ul>
 
-      <figure class="figure">
+      <figure class="figure note-layout">
         <img src="images15.2/19.02.png" alt="Half adder implemented using only NAND gates with internal signals">
         <figcaption>
           <strong>Half adder using only NAND gates</strong>
@@ -1606,7 +1606,7 @@ has no reference to C which in this case will be A.B
  
           
 <p style="margin: 0 0 1rem 0;">
-  <strong>Figure 19.07</strong> shows inputs A and B to a NAND gate with output W.
+  We have inputs A and B to a NAND gate with output W.
   The first three rows of the NAND truth table produce a 1 output so the sum of products has three minterms:
 </p>
 
