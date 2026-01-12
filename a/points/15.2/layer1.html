@@ -614,6 +614,10 @@
       max-width: 100%;
       width: 100%;
     }
+    figure.figure.figure-wide {
+      max-width: min(92%, 980px);
+      width: 92%;
+    }
     figure.figure img {
       display: block;
       max-width: 100%;
@@ -622,6 +626,10 @@
       margin: 0.1rem auto 0.5rem;
       border-radius: 0.4rem;
       object-fit: contain;
+    }
+    figure.figure.figure-wide img {
+      max-width: 100%;
+      width: 100%;
     }
     .figure-note-row {
       display: flex;
@@ -1448,8 +1456,8 @@ with R=0 and S=1.</p>
         <li>Many laws have an AND version and an OR version that mirror each other.</li>
       </ul>
 
-      <figure class="figure">
-        <img src="images15.2/laws.png" alt="laws" style="width: 130%; height: auto;">
+      <figure class="figure figure-wide">
+        <img src="images15.2/laws.png" alt="laws">
         <figcaption>
           <strong>Core Boolean algebra identities</strong>
          These identities provide standard moves for simplifying logic expressions or converting one form into another.
