@@ -602,8 +602,8 @@
     }
     figure.figure {
       margin: 1.3rem auto;
-      max-width: 100%;
-      width: 100%;
+      max-width: 60%;
+      width: 60%;
       background: var(--card-bg);
       border-radius: 0.85rem;
       border: 1px solid rgba(148, 163, 184, 0.55);
@@ -616,7 +616,7 @@
     }
     figure.figure img {
       display: block;
-      max-width: clamp(240px, 72%, 360px);
+      max-width: 100%;
       width: 100%;
       height: auto;
       margin: 0.1rem auto 0.5rem;
@@ -631,8 +631,8 @@
     .figure-note-row img {
       flex: 0 0 55%;
       max-width: clamp(260px, 55%, 520px);
-      width: 100%;
-      margin: 0.1rem 0 0.5rem;
+      width: 85%;
+      margin: 0.1rem auto 0.5rem;
     }
     .figure-note {
       flex: 1;
@@ -832,6 +832,7 @@
       }
       figure.figure {
         max-width: 100%;
+        width: 100%;
       }
       figure.figure img {
         max-width: 78%;
@@ -1011,7 +1012,7 @@
         </li>
       </ul>
 
-      <figure class="figure note-layout">
+      <figure class="figure">
         <img src="images15.2/19.01.png" alt="Logic diagram of a half adder using XOR and AND gates">
         <figcaption>
           <strong>Half adder circuit</strong>
@@ -1054,7 +1055,7 @@
         <li>A half adder can be reconstructed entirely from NAND gates by building equivalent structures for XOR and AND.</li>
       </ul>
 
-      <figure class="figure note-layout">
+      <figure class="figure">
         <img src="images15.2/19.02.png" alt="Half adder implemented using only NAND gates with internal signals">
         <figcaption>
           <strong>Half adder using only NAND gates</strong>
@@ -1195,7 +1196,7 @@
         </li>
       </ul>
 
-      <figure class="figure">
+      <figure class="figure note-layout">
         <div class="figure-note-row">
           <img src="images15.2/19.05.png" alt="SR flip-flop built from two cross-coupled NOR gates">
           <aside class="figure-note">
