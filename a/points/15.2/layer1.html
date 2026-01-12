@@ -1744,7 +1744,17 @@ has no reference to C which in this case will be A.B
     <div class="section-content">
       <h3>Purpose of Karnaugh maps</h3>
       <ul>
-        <li>A <span class="keyword tooltip" data-tooltip="A Karnaugh map (K-map) is a grid version of a <span class="tooltip" data-tooltip="A truth table lists all possible input combinations and shows the corresponding output for a logic circuit or Boolean expression.">truth table</span> that helps you visually group 1s to get a simpler Boolean expression.">Karnaugh map</span> (K-map) is a visual method for simplifying Boolean expressions.</li>
+      
+	  <li>
+  A
+  <span class="keyword tooltip"
+        data-tooltip="A Karnaugh map (K-map) is a grid version of a truth table that helps you visually group 1s to derive a simpler Boolean expression.">
+    Karnaugh map
+  </span>
+  (K-map) is a visual method for simplifying Boolean expressions.
+</li>
+
+
         <li>It reorganises a <span class="tooltip" data-tooltip="A truth table lists all possible input combinations and shows the corresponding output for a logic circuit or Boolean expression.">truth table</span> into a grid where adjacent cells differ in only one input bit, which makes patterns easier to see.</li>
         <li>The goal is to identify groups of 1s that can be merged into simpler terms in a sum-of-products expression.</li>
         <li>K-maps are especially useful when the straightforward sum-of-products expression from the <span class="tooltip" data-tooltip="A truth table lists all possible input combinations and shows the corresponding output for a logic circuit or Boolean expression.">truth table</span> is long, because grouping the 1s often leads to a minimal expression and a circuit with fewer gates.</li>
