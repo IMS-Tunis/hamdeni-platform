@@ -1124,7 +1124,7 @@
         </li>
       </ul>
 
-      <figure class="figure">
+      <figure class="figure note-layout">
         <img src="images15.2/19.03.png" alt="Full adder built from two half adders and an OR gate">
         <figcaption>
           <strong>Full adder built from half adders</strong>
@@ -1137,7 +1137,7 @@
         <li>As with the half adder, the full adder can be re-expressed using only <span class="keyword">NAND gates</span>, which simplifies fabrication on chips.</li>
       </ul>
 
-      <figure class="figure">
+      <figure class="figure note-layout">
         <img src="images15.2/19.04.png" alt="Full adder implemented only with NAND gates">
         <figcaption>
           <strong>Full adder using only NAND gates</strong>
@@ -1448,34 +1448,14 @@ with R=0 and S=1.</p>
         <li>Many laws have an AND version and an OR version that mirror each other.</li>
       </ul>
 
-      <table class="styled-table">
-        <caption>Core Boolean algebra identities</caption>
-        <thead>
-        <tr>
-          <th>Law</th>
-          <th>AND form</th>
-          <th>OR form</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr><td>Identity</td><td>1.A = A</td><td>0 + A = A</td></tr>
-        <tr><td>Null</td><td>0.A = 0</td><td>1 + A = 1</td></tr>
-        <tr><td>Idempotent</td><td>A.A = A</td><td>A + A = A</td></tr>
-        <tr><td>Inverse</td><td>A.Ā = 0</td><td>A + Ā = 1</td></tr>
-        <tr><td>Commutative</td><td>A.B = B.A</td><td>A + B = B + A</td></tr>
-        <tr><td>Associative</td><td>(A.B).C = A.(B.C)</td><td>(A + B) + C = A + (B + C)</td></tr>
-        <tr><td>Distributive</td><td>A + B.C = (A + B).(A + C)</td><td>A.(B + C) = A.B + A.C</td></tr>
-        <tr><td>Absorption</td><td>A.(A + B) = A</td><td>A + A.B = A</td></tr>
-        <tr><td>De Morgan</td><td>(A.B)̄ = Ā + B̄</td><td>(A + B)̄ = Ā.B̄</td></tr>
-        <tr><td>Double complement</td><td>Ā̄ = A</td><td>&nbsp;</td></tr>
-        </tbody>
-        <tr class="table-description">
-          <td colspan="3">
-            These identities provide standard moves for simplifying logic expressions or converting one form into another.
-          </td>
-        </tr>
-      </table>
-
+      <figure class="figure">
+        <img src="images15.2/laws.png" alt="laws" style="width: 130%; height: auto;">
+        <figcaption>
+          <strong>Core Boolean algebra identities</strong>
+         These identities provide standard moves for simplifying logic expressions or converting one form into another.
+        </figcaption>
+      </figure>
+	  
       <div class="worked-example">
         <div class="worked-header">
           <span>WORKED EXAMPLE 1</span>
@@ -1542,21 +1522,26 @@ with R=0 and S=1.</p>
             <li>use the complement of any input that is 0 in the row.</li>
           </ul>
         </li>
-        <li>Each such product is a <span class="keyword tooltip" data-tooltip="A minterm is a product (AND) term that matches one exact combination of input bits in a <span class="tooltip" data-tooltip="A truth table lists all possible input combinations and shows the corresponding output for a logic circuit or Boolean expression.">truth table</span> where the output is 1.">minterm</span>, and the full expression is the OR of all minterms.</li>
+        <li>Each such product is a
+<span class="keyword tooltip"
+      data-tooltip="A minterm is a product (AND) term that matches exactly one input combination (one truth table row) where the output is 1.">
+  minterm
+</span>,
+and the full expression is the OR of all minterms.
+</li>
         <li>In exams this procedure is often described as "forming a sum-of-products expression from the minterms where the output is 1", then simplifying using the Boolean identities.</li>
       </ul>
 
       <ul>
-        <li>For the half adder:
+        <li>Example 1: Deriving the Boolean expression for a half adder (S and C) using the Sum of Products form based on its truth table shown above:
           <ul>
             <li>the carry output C is 1 only when A = 1 and B = 1, so C = A.B</li>
             <li>the sum output S is 1 when (A = 0, B = 1) or (A = 1, B = 0), so S = Ā.B + A.B̄.</li>
           </ul>
         </li>
-      </ul>
-
-      <table class="styled-table">
-        <caption>Example fragment of a <span class="tooltip" data-tooltip="A truth table lists all possible input combinations and shows the corresponding output for a logic circuit or Boolean expression.">truth table</span></caption>
+		<li> Example 2: consider a truth table which contains the following two rows with X is the output:
+<table class="styled-table">
+        <caption>Example fragment of a truth table</span></caption>
         <thead>
         <tr>
           <th>A</th>
@@ -1576,6 +1561,14 @@ with R=0 and S=1.</p>
           </td>
         </tr>
       </table>
+	  The output for X is the same whether C = 0 or C = 1. There must therefore be a minterm which
+has no reference to C which in this case will be A.B
+	  
+	  
+		</li>
+      </ul>
+
+      
 
       <h3>Deriving expressions from circuits</h3>
       <ul>
@@ -1593,7 +1586,7 @@ with R=0 and S=1.</p>
           <span>WORKED EXAMPLE 2</span>
           <button class="toggle-btn" type="button" data-toggle-target="we19-02">Hide</button>
         </div>
-        <div class="worked-subtitle">Algebraic analysis of a NAND-based half adder</div>
+        <div class="worked-subtitle">Creating a Boolean algebra logic expression for a half adder circuit</div>
         <div class="toggle-target" id="we19-02">
           <figure class="figure">
             <img src="images15.2/19.07.png" alt="Half adder circuit with several NAND gates and internal signals W, X and Y">
@@ -1604,68 +1597,133 @@ with R=0 and S=1.</p>
             </figcaption>
           </figure>
           <ul>
-            <li>We are given a half adder circuit built entirely from NAND gates that has internal outputs labelled W, X and Y.</li>
+     
             <li>Objective:
               <ul>
                 <li>confirm that the NAND-only circuit behaves like a standard half adder by deriving expressions for its outputs.</li>
               </ul>
             </li>
-            <li>Step 1 - interpret each NAND gate:
-              <ul>
-                <li>a NAND gate can be treated as an AND gate followed by a NOT operation</li>
-                <li>this means we can write the AND of the inputs first and then apply a complement at the end.</li>
-              </ul>
-            </li>
-            <li>Step 2 - write an expression for an intermediate signal:
-              <ul>
-                <li>suppose the intermediate output W has already been expressed as a sum of products in terms of A and B</li>
-                <li>to find the output X of a NAND gate that takes A and W as inputs we first form the AND A.W</li>
-                <li>we then expand the product and simplify using distributive, inverse and idempotent laws to obtain a compact expression for A.W.</li>
-              </ul>
-            </li>
-            <li>Step 3 - complete the NAND operation for X:
-              <ul>
-                <li>because the gate is NAND, the actual output is X = (A.W)̄</li>
-                <li>applying the AND version of <span class="keyword tooltip" data-tooltip="De Morgan’s laws show how to move a NOT over AND and OR: (A.B)̄ = Ā + B̄ and (A + B)̄ = Ā.B̄. They are very useful for simplifying logic.">De Morgan’s law</span> converts this into a sum:
-                  <ul>
-                    <li>(A.W)̄ = Ā + W̄.</li>
-                  </ul>
-                </li>
-                <li>after substituting the simplified form of W̄ and tidying up, X reduces to A + B.</li>
-              </ul>
-            </li>
-            <li>Step 4 - repeat for Y:
-              <ul>
-                <li>the other intermediate NAND gate produces Y in a symmetric way</li>
-                <li>by the same reasoning we obtain Y = A + B.</li>
-              </ul>
-            </li>
-            <li>Step 5 - final NAND gate for the sum output:
-              <ul>
-                <li>the final NAND gate takes X and Y as inputs, so the AND at its input is X.Y = (A + B).(A + B)</li>
-                <li>rather than expanding the product, we again apply De Morgan’s law to the complement:
-                  <ul>
-                    <li>S = (X.Y)̄ = (A + B).(A + B) all complemented, which simplifies to Ā.B̄ + Ā.B.</li>
-                  </ul>
-                </li>
-                <li>this expression for S matches the sum output of a half adder:
-                  <ul>
-                    <li>S = Ā.B + A.B̄ (equivalent to A XOR B).</li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            <li>Step 6 - carry output:
-              <ul>
-                <li>a similar analysis of the carry path shows that C simplifies to A.B</li>
-                <li>this is exactly the carry behaviour required for a half adder.</li>
-              </ul>
-            </li>
-            <li>Conclusion:
-              <ul>
-                <li>the NAND-only network is algebraically equivalent to the basic half adder built from XOR and AND gates.</li>
-              </ul>
-            </li>
+ 
+          
+<p style="margin: 0 0 1rem 0;">
+  <strong>Figure 19.07</strong> shows inputs A and B to a NAND gate with output W.
+  The first three rows of the NAND truth table produce a 1 output so the sum of products has three minterms:
+</p>
+
+<div style="font-family: 'Courier New', Courier, monospace; display: block; margin: 0.4rem 0 1rem 0;">
+  W =
+  <span style="text-decoration: overline; font-weight: 700;">A</span>
+  <span style="margin: 0 0.15rem;">·</span>
+  <span style="text-decoration: overline; font-weight: 700;">B</span>
+  + 
+  <span style="text-decoration: overline; font-weight: 700;">A</span>
+  <span style="margin: 0 0.15rem;">·</span>
+  B
+  + 
+  A
+  <span style="margin: 0 0.15rem;">·</span>
+  <span style="text-decoration: overline; font-weight: 700;">B</span>
+</div>
+
+<p style="margin: 0 0 1rem 0;">
+  We now consider the input of W to a NAND gate with A as the other input to produce the X output.
+  Instead of using the NAND truth table we use the fact that the NAND gate operates as an AND gate
+  followed by a NOT gate.
+</p>
+
+<p style="margin: 0 0 0.5rem 0;">
+  The result of the AND operation is the product of the inputs, so the intermediate (AND) output is:
+</p>
+
+<div style="font-family: 'Courier New', Courier, monospace; display: block; margin: 0.4rem 0 1rem 0;">
+  A
+  <span style="margin: 0 0.15rem;">·</span>
+  (
+    <span style="text-decoration: overline; font-weight: 700;">A</span>
+    <span style="margin: 0 0.15rem;">·</span>
+    <span style="text-decoration: overline; font-weight: 700;">B</span>
+    +
+    <span style="text-decoration: overline; font-weight: 700;">A</span>
+    <span style="margin: 0 0.15rem;">·</span>
+    B
+    +
+    A
+    <span style="margin: 0 0.15rem;">·</span>
+    <span style="text-decoration: overline; font-weight: 700;">B</span>
+  )
+</div>
+
+<p style="margin: 0 0 0.5rem 0;">
+  This can be simplified by applying the distributive and inverse laws to give:
+</p>
+
+<div style="font-family: 'Courier New', Courier, monospace; display: block; margin: 0.4rem 0 1rem 0;">
+  0 + 0 + A
+  <span style="margin: 0 0.15rem;">·</span>
+  A
+  <span style="margin: 0 0.15rem;">·</span>
+  <span style="text-decoration: overline; font-weight: 700;">B</span>
+  &nbsp;=&nbsp;
+  A
+  <span style="margin: 0 0.15rem;">·</span>
+  <span style="text-decoration: overline; font-weight: 700;">B</span>
+</div>
+
+<p style="margin: 0 0 1rem 0;">
+  To complete the NAND operation and get the value for X we must apply the NOT operation, i.e. take the inverse of the above expression.
+</p>
+
+<p style="margin: 0 0 0.5rem 0;">
+  Using the AND version of De&nbsp;Morgan’s law, which transforms
+  A<span style="margin: 0 0.15rem;">·</span><span style="text-decoration: overline; font-weight: 700;">B</span>
+  into
+  <span style="text-decoration: overline; font-weight: 700;">A</span> + B, we have:
+</p>
+
+<div style="font-family: 'Courier New', Courier, monospace; display: block; margin: 0.4rem 0 1rem 0;">
+  X = <span style="text-decoration: overline; font-weight: 700;">A</span> + B
+</div>
+
+<p style="margin: 0 0 0.5rem 0;">
+  The same laws applied to the other intermediate NAND gate give:
+</p>
+
+<div style="font-family: 'Courier New', Courier, monospace; display: block; margin: 0.4rem 0 1rem 0;">
+  Y = A + <span style="text-decoration: overline; font-weight: 700;">B</span>
+</div>
+
+<p style="margin: 0 0 0.5rem 0;">
+  Finally, we consider
+  <span style="text-decoration: overline; font-weight: 700;">A</span> + B
+  and
+  A + <span style="text-decoration: overline; font-weight: 700;">B</span>
+  being input to the final NAND gate.
+  We consider the AND operation first (the product of the inputs):
+</p>
+
+<div style="font-family: 'Courier New', Courier, monospace; display: block; margin: 0.4rem 0 1rem 0;">
+  ( <span style="text-decoration: overline; font-weight: 700;">A</span> + B )
+  <span style="margin: 0 0.15rem;">·</span>
+  ( A + <span style="text-decoration: overline; font-weight: 700;">B</span> )
+</div>
+
+<p style="margin: 0 0 0.5rem 0;">
+  We will not multiply this out; instead, we apply De&nbsp;Morgan’s law directly to perform the inverse operation and complete the NAND:
+</p>
+
+<div style="font-family: 'Courier New', Courier, monospace; display: block; margin: 0.4rem 0 1rem 0;">
+  S = <span style="text-decoration: overline; font-weight: 700;">A</span>
+  <span style="margin: 0 0.15rem;">·</span>
+  B
+  +
+  A
+  <span style="margin: 0 0.15rem;">·</span>
+  <span style="text-decoration: overline; font-weight: 700;">B</span>
+</div>
+
+<p style="margin: 0 0 1rem 0; color: #444;">
+  This matches the value obtained directly from the truth table, so the algebra has been used correctly.
+</p>
           </ul>
         </div>
       </div>
@@ -1686,7 +1744,17 @@ with R=0 and S=1.</p>
     <div class="section-content">
       <h3>Purpose of Karnaugh maps</h3>
       <ul>
-        <li>A <span class="keyword tooltip" data-tooltip="A Karnaugh map (K-map) is a grid version of a <span class="tooltip" data-tooltip="A truth table lists all possible input combinations and shows the corresponding output for a logic circuit or Boolean expression.">truth table</span> that helps you visually group 1s to get a simpler Boolean expression.">Karnaugh map</span> (K-map) is a visual method for simplifying Boolean expressions.</li>
+      
+	  <li>
+  A
+  <span class="keyword tooltip"
+        data-tooltip="A Karnaugh map (K-map) is a grid version of a truth table that helps you visually group 1s to derive a simpler Boolean expression.">
+    Karnaugh map
+  </span>
+  (K-map) is a visual method for simplifying Boolean expressions.
+</li>
+
+
         <li>It reorganises a <span class="tooltip" data-tooltip="A truth table lists all possible input combinations and shows the corresponding output for a logic circuit or Boolean expression.">truth table</span> into a grid where adjacent cells differ in only one input bit, which makes patterns easier to see.</li>
         <li>The goal is to identify groups of 1s that can be merged into simpler terms in a sum-of-products expression.</li>
         <li>K-maps are especially useful when the straightforward sum-of-products expression from the <span class="tooltip" data-tooltip="A truth table lists all possible input combinations and shows the corresponding output for a logic circuit or Boolean expression.">truth table</span> is long, because grouping the 1s often leads to a minimal expression and a circuit with fewer gates.</li>
