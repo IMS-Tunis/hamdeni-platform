@@ -2,101 +2,207 @@
   "questions": [
     {
       "type": "mcq",
-      "question": "What is the main reason computers use binary to represent all data?",
+      "question": "A list of unsorted values is searched by checking each element from index 0 to the end until the target value is found or the list ends. Which searching algorithm is being used?",
       "options": [
-        "Binary numbers are easier for humans to read",
-        "Computers use logic gates that only understand ON and OFF states",
-        "It uses less power",
-        "Binary numbers are shorter than decimal numbers"
+        "Binary search",
+        "Linear search",
+        "Insertion sort",
+        "Hash-based search"
       ],
-      "answer": "Computers use logic gates that only understand ON and OFF states"
+      "answer": "Linear search"
     },
     {
       "type": "mcq",
-      "question": "In an 8-bit binary number, what does the leftmost bit represent?",
+      "question": "Which condition must be satisfied before binary search can be used?",
       "options": [
-        "Least Significant Bit",
-        "The parity bit",
-        "Most Significant Bit",
-        "The hexadecimal value"
+        "The data is random",
+        "All values are identical",
+        "The data is sorted",
+        "The data is stored in a linked list"
       ],
-      "answer": "Most Significant Bit"
+      "answer": "The data is sorted"
     },
     {
       "type": "mcq",
-      "question": "Which of the following is a hexadecimal digit?",
+      "question": "Which sorting algorithm repeatedly compares and swaps neighbouring items?",
       "options": [
-        "8",
-        "G",
-        "H",
-        "Q"
+        "Selection sort",
+        "Insertion sort",
+        "Bubble sort",
+        "Merge sort"
       ],
-      "answer": "8"
+      "answer": "Bubble sort"
     },
     {
       "type": "mcq",
-      "question": "What is the maximum value that can be represented in an 8-bit binary number?",
+      "question": "Which sorting algorithm usually performs best on an almost sorted list (among simple comparison sorts such as bubble and insertion)?",
       "options": [
-        "255",
-        "256",
-        "128",
-        "1024"
+        "Bubble sort",
+        "Insertion sort",
+        "Binary search",
+        "Linear search"
       ],
-      "answer": "255"
+      "answer": "Insertion sort"
     },
     {
-      "type": "fill_blank",
-      "question": "The process of moving all bits in a binary number to the left or right and filling the emptied spaces with zeros is called a __________ shift.",
-      "answer": "Logical"
+      "type": "mcq",
+      "question": "Two sorting algorithms are applied to the same list. One repeatedly swaps adjacent elements. The other inserts each new element into its correct position in an already sorted section of the list. Which pairing correctly matches the algorithm to its behaviour?",
+      "options": [
+        "Bubble sort → adjacent swaps, Insertion sort → sorted section",
+        "Insertion sort → adjacent swaps, Bubble sort → sorted section",
+        "Binary search → adjacent swaps, Bubble sort → sorted section",
+        "Selection sort → adjacent swaps, Insertion sort → sorted section"
+      ],
+      "answer": "Bubble sort → adjacent swaps, Insertion sort → sorted section"
     },
     {
-      "type": "fill_blank",
-      "question": "In binary addition, if the result is too large for the register to hold, this is called an __________ error.",
-      "answer": "Overflow"
+      "type": "mcq",
+      "question": "Which principle describes how a stack removes items?",
+      "options": [
+        "FIFO",
+        "FILO",
+        "LIFO",
+        "Random"
+      ],
+      "answer": "LIFO"
     },
     {
-      "type": "fill_blank",
-      "question": "Each hexadecimal digit can be represented by exactly ___ binary bits.",
-      "answer": "4"
+      "type": "mcq",
+      "question": "Which abstract data type removes items in the same order they were added?",
+      "options": [
+        "Stack",
+        "Tree",
+        "Queue",
+        "Graph"
+      ],
+      "answer": "Queue"
+    },
+    {
+      "type": "mcq",
+      "question": "Which data structure represents relationships using nodes connected by edges?",
+      "options": [
+        "Tree",
+        "Stack",
+        "Graph",
+        "Queue"
+      ],
+      "answer": "Graph"
+    },
+    {
+      "type": "match",
+      "question": "Match each abstract data type with its organisational principle.",
+      "pairs": {
+        "Stack": "LIFO",
+        "Queue": "FIFO",
+        "Tree": "Hierarchical",
+        "Graph": "Network"
+      }
+    },
+    {
+      "type": "mcq",
+      "question": "Which data structures are commonly used to implement a stack?",
+      "options": [
+        "Graphs only",
+        "Arrays or linked lists",
+        "Trees only",
+        "Hash tables only"
+      ],
+      "answer": "Arrays or linked lists"
+    },
+    {
+      "type": "mcq",
+      "question": "Which implementation of a queue allows unused spaces to be reused efficiently?",
+      "options": [
+        "Linear array",
+        "Circular array",
+        "Binary tree",
+        "Graph"
+      ],
+      "answer": "Circular array"
+    },
+    {
+      "type": "mcq",
+      "question": "How is a linked list most commonly implemented at a low level?",
+      "options": [
+        "Using objects only",
+        "Using arrays with pointers",
+        "Using hash tables",
+        "Using stacks"
+      ],
+      "answer": "Using arrays with pointers"
+    },
+    {
+      "type": "mcq",
+      "question": "Which data structure can be used to implement a dictionary abstract data type?",
+      "options": [
+        "Stack",
+        "Queue",
+        "Hash table",
+        "Binary tree only"
+      ],
+      "answer": "Hash table"
+    },
+    {
+      "type": "mcq",
+      "question": "Which factor has a direct impact on the memory usage and performance of an abstract data type?",
+      "options": [
+        "Variable names",
+        "Choice of implementation",
+        "Output format",
+        "Data values only"
+      ],
+      "answer": "Choice of implementation"
+    },
+    {
+      "type": "match",
+      "question": "Match each abstract data type with one valid implementation method.",
+      "pairs": {
+        "Stack": "Array or linked list",
+        "Queue": "Circular array",
+        "Dictionary": "Hash table",
+        "Binary tree": "Linked nodes"
+      }
     },
     {
       "type": "true_false",
-      "question": "Digital data can take any value, just like analogue data.",
-      "answer": "False"
-    },
-    {
-      "type": "true_false",
-      "question": "In two’s complement, the most significant bit represents the sign of the number.",
+      "question": "The same abstract data type can be implemented in different ways.",
       "answer": "True"
     },
     {
       "type": "true_false",
-      "question": "The denary number system is also known as base 16.",
+      "question": "The choice of implementation can affect how fast an abstract data type operates.",
+      "answer": "True"
+    },
+    {
+      "type": "true_false",
+      "question": "An abstract data type defines how data is stored in memory.",
       "answer": "False"
     },
     {
+      "type": "mcq",
+      "question": "Which Big O notation represents linear growth as input size increases?",
+      "options": [
+        "O(1)",
+        "O(log n)",
+        "O(n)",
+        "O(n²)"
+      ],
+      "answer": "O(n)"
+    },
+    {
       "type": "match",
-      "question": "Match the term with its correct definition:",
+      "question": "Match each Big O notation with its meaning.",
       "pairs": {
-        "Register": "Used to temporarily hold binary data",
-        "Logic gate": "Basic building block for processing digital data",
-        "Two’s complement": "Method to represent negative binary"
+        "O(1)": "Constant",
+        "O(log n)": "Logarithmic",
+        "O(n)": "Linear",
+        "O(n²)": "Quadratic"
       }
     },
     {
-      "type": "fill_blank",
-      "question": "Convert the binary number 1101 to denary: __________",
-      "answer": "13"
-    },
-    {
-      "type": "fill_blank",
-      "question": "What is the hexadecimal equivalent of the denary number 15? __________",
-      "answer": "F"
-    },
-    {
-      "type": "fill_blank",
-      "question": "What is the binary value for the hexadecimal digit C? __________",
-      "answer": "1100"
+      "type": "true_false",
+      "question": "An algorithm with O(log n) time complexity grows more slowly than one with O(n) time complexity.",
+      "answer": "True"
     }
   ]
 }
