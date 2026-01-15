@@ -2,101 +2,285 @@
   "questions": [
     {
       "type": "mcq",
-      "question": "What is the main reason computers use binary to represent all data?",
+      "section": "16.1a Maximizing Resource Use in Operating Systems",
+      "question": "Which operating system responsibility is directly concerned with allocating processor time efficiently?",
       "options": [
-        "Binary numbers are easier for humans to read",
-        "Computers use logic gates that only understand ON and OFF states",
-        "It uses less power",
-        "Binary numbers are shorter than decimal numbers"
+        "Memory management",
+        "CPU management",
+        "File system management",
+        "Device abstraction"
       ],
-      "answer": "Computers use logic gates that only understand ON and OFF states"
+      "answer": "CPU management"
     },
     {
       "type": "mcq",
-      "question": "In an 8-bit binary number, what does the leftmost bit represent?",
+      "section": "16.1a Maximizing Resource Use in Operating Systems",
+      "question": "Which scheduling approach cycles tasks using equal time slices to prevent CPU monopolization?",
       "options": [
-        "Least Significant Bit",
-        "The parity bit",
-        "Most Significant Bit",
-        "The hexadecimal value"
+        "First Come First Serve",
+        "Shortest Job First",
+        "Round Robin scheduling",
+        "Shortest Remaining Time"
       ],
-      "answer": "Most Significant Bit"
+      "answer": "Round Robin scheduling"
     },
     {
       "type": "mcq",
-      "question": "Which of the following is a hexadecimal digit?",
+      "section": "16.1a Maximizing Resource Use in Operating Systems",
+      "question": "What technique enables large applications to run by combining physical RAM and disk space?",
       "options": [
-        "8",
-        "G",
-        "H",
-        "Q"
+        "Direct Memory Access",
+        "Multitasking",
+        "Virtual memory",
+        "Segmentation"
       ],
-      "answer": "8"
+      "answer": "Virtual memory"
     },
     {
       "type": "mcq",
-      "question": "What is the maximum value that can be represented in an 8-bit binary number?",
+      "section": "16.1a Maximizing Resource Use in Operating Systems",
+      "question": "Which mechanism allows devices to access memory directly without burdening the CPU?",
       "options": [
-        "255",
-        "256",
-        "128",
-        "1024"
+        "Paging",
+        "Virtual memory",
+        "Direct Memory Access",
+        "Interrupt handling"
       ],
-      "answer": "255"
+      "answer": "Direct Memory Access"
+    },
+    {
+      "type": "mcq",
+      "section": "16.1b Hiding Hardware Complexities with User Interfaces",
+      "question": "Which operating system component provides intuitive, visual interaction for users?",
+      "options": [
+        "Kernel",
+        "File system",
+        "Graphical User Interface",
+        "Scheduler"
+      ],
+      "answer": "Graphical User Interface"
+    },
+    {
+      "type": "mcq",
+      "section": "16.1b Hiding Hardware Complexities with User Interfaces",
+      "question": "Which element converts operating system commands into device-specific instructions?",
+      "options": [
+        "Kernel",
+        "Device drivers",
+        "File systems",
+        "Interrupt handlers"
+      ],
+      "answer": "Device drivers"
+    },
+    {
+      "type": "mcq",
+      "section": "16.1b Hiding Hardware Complexities with User Interfaces",
+      "question": "How does an operating system represent stored data to users?",
+      "options": [
+        "As raw memory blocks",
+        "As registers and pages",
+        "As folders and files",
+        "As disk sectors"
+      ],
+      "answer": "As folders and files"
+    },
+    {
+      "type": "mcq",
+      "section": "16.1c Process Management",
+      "question": "What best defines a process?",
+      "options": [
+        "A compiled program stored on disk",
+        "A program in execution with code, data, and execution state",
+        "A hardware interrupt handler",
+        "A memory allocation unit"
+      ],
+      "answer": "A program in execution with code, data, and execution state"
+    },
+    {
+      "type": "mcq",
+      "section": "16.1c Process Management",
+      "question": "Which multitasking type allows high-priority tasks to interrupt low-priority ones?",
+      "options": [
+        "Cooperative",
+        "Non-preemptive",
+        "Sequential",
+        "Preemptive"
+      ],
+      "answer": "Preemptive"
+    },
+    {
+      "type": "mcq",
+      "section": "16.1c Process Management",
+      "question": "Which multitasking type allows a process to retain resources until completion?",
+      "options": [
+        "Preemptive",
+        "Non-preemptive",
+        "Priority-based",
+        "Time-sliced"
+      ],
+      "answer": "Non-preemptive"
+    },
+    {
+      "type": "mcq",
+      "section": "16.1c Process Management",
+      "question": "Which data structure contains information such as the program counter, CPU registers, and allocated resources?",
+      "options": [
+        "Process queue",
+        "Thread table",
+        "Process control block",
+        "Memory page table"
+      ],
+      "answer": "Process control block"
+    },
+    {
+      "type": "mcq",
+      "section": "16.1c Process Management",
+      "question": "Which entity is described as part of a program that is handled as an individual process during execution?",
+      "options": [
+        "Kernel",
+        "Thread",
+        "Scheduler",
+        "Segment"
+      ],
+      "answer": "Thread"
+    },
+    {
+      "type": "mcq",
+      "section": "16.1c Process Management",
+      "question": "Which scheduler decides which program stored on disk should be moved into memory?",
+      "options": [
+        "Low-level scheduler",
+        "High-level scheduler",
+        "Interrupt handler",
+        "Kernel dispatcher"
+      ],
+      "answer": "High-level scheduler"
+    },
+    {
+      "type": "mcq",
+      "section": "16.1c Process Management",
+      "question": "Which scheduler determines which process already in memory gains access to the CPU?",
+      "options": [
+        "Disk scheduler",
+        "High-level scheduler",
+        "Low-level scheduler",
+        "Memory manager"
+      ],
+      "answer": "Low-level scheduler"
+    },
+    {
+      "type": "mcq",
+      "section": "16.1c Process Management",
+      "question": "Which scheduling algorithm executes processes strictly in their order of arrival?",
+      "options": [
+        "Shortest Job First",
+        "Shortest Remaining Time",
+        "Round Robin",
+        "First Come First Serve"
+      ],
+      "answer": "First Come First Serve"
+    },
+    {
+      "type": "mcq",
+      "section": "16.1c Process Management",
+      "question": "Which scheduling algorithm dynamically prioritizes tasks with the shortest remaining execution time?",
+      "options": [
+        "First Come First Serve",
+        "Shortest Job First",
+        "Shortest Remaining Time",
+        "Round Robin"
+      ],
+      "answer": "Shortest Remaining Time"
+    },
+    {
+      "type": "mcq",
+      "section": "16.1c Process Management",
+      "question": "What is an interrupt in the context of process management?",
+      "options": [
+        "A memory allocation request",
+        "A paused background process",
+        "A signal that pauses a process to handle a high-priority event",
+        "A scheduling algorithm"
+      ],
+      "answer": "A signal that pauses a process to handle a high-priority event"
+    },
+    {
+      "type": "mcq",
+      "section": "16.1c Process Management",
+      "question": "Which operating system component manages interrupts, process queues, and resource allocation?",
+      "options": [
+        "File system",
+        "Device driver",
+        "Kernel",
+        "Scheduler"
+      ],
+      "answer": "Kernel"
+    },
+    {
+      "type": "mcq",
+      "section": "16.1d Memory Management",
+      "question": "Which concept combines physical memory with disk storage to allow execution of larger programs?",
+      "options": [
+        "Paging",
+        "Segmentation",
+        "Virtual memory",
+        "Thrashing"
+      ],
+      "answer": "Virtual memory"
+    },
+    {
+      "type": "mcq",
+      "section": "16.1d Memory Management",
+      "question": "Which memory management technique divides memory into fixed-size blocks?",
+      "options": [
+        "Segmentation",
+        "Paging",
+        "Swapping",
+        "Caching"
+      ],
+      "answer": "Paging"
+    },
+    {
+      "type": "mcq",
+      "section": "16.1d Memory Management",
+      "question": "Which memory management approach divides memory according to logical program structures?",
+      "options": [
+        "Paging",
+        "Caching",
+        "Virtual memory",
+        "Segmentation"
+      ],
+      "answer": "Segmentation"
+    },
+    {
+      "type": "mcq",
+      "section": "16.1d Memory Management",
+      "question": "Which statement correctly describes a difference between paging and segmentation?",
+      "options": [
+        "Paging uses variable-size blocks, while segmentation uses fixed-size blocks",
+        "Paging avoids external fragmentation but may waste space within pages",
+        "Segmentation eliminates unused memory gaps",
+        "Paging aligns memory with program structure"
+      ],
+      "answer": "Paging avoids external fragmentation but may waste space within pages"
+    },
+    {
+      "type": "mcq",
+      "section": "16.1d Memory Management",
+      "question": "What condition occurs when excessive page swapping between RAM and disk degrades system performance?",
+      "options": [
+        "Fragmentation",
+        "Paging",
+        "Disk thrashing",
+        "Segmentation"
+      ],
+      "answer": "Disk thrashing"
     },
     {
       "type": "fill_blank",
-      "question": "The process of moving all bits in a binary number to the left or right and filling the emptied spaces with zeros is called a __________ shift.",
-      "answer": "Logical"
-    },
-    {
-      "type": "fill_blank",
-      "question": "In binary addition, if the result is too large for the register to hold, this is called an __________ error.",
-      "answer": "Overflow"
-    },
-    {
-      "type": "fill_blank",
-      "question": "Each hexadecimal digit can be represented by exactly ___ binary bits.",
-      "answer": "4"
-    },
-    {
-      "type": "true_false",
-      "question": "Digital data can take any value, just like analogue data.",
-      "answer": "False"
-    },
-    {
-      "type": "true_false",
-      "question": "In two’s complement, the most significant bit represents the sign of the number.",
-      "answer": "True"
-    },
-    {
-      "type": "true_false",
-      "question": "The denary number system is also known as base 16.",
-      "answer": "False"
-    },
-    {
-      "type": "match",
-      "question": "Match the term with its correct definition:",
-      "pairs": {
-        "Register": "Used to temporarily hold binary data",
-        "Logic gate": "Basic building block for processing digital data",
-        "Two’s complement": "Method to represent negative binary"
-      }
-    },
-    {
-      "type": "fill_blank",
-      "question": "Convert the binary number 1101 to denary: __________",
-      "answer": "13"
-    },
-    {
-      "type": "fill_blank",
-      "question": "What is the hexadecimal equivalent of the denary number 15? __________",
-      "answer": "F"
-    },
-    {
-      "type": "fill_blank",
-      "question": "What is the binary value for the hexadecimal digit C? __________",
-      "answer": "1100"
+      "section": "16.1d Memory Management",
+      "question": "Disk thrashing is caused by excessive page swapping due to insufficient _____.",
+      "answer": "memory"
     }
   ]
 }
