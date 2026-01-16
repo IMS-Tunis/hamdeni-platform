@@ -275,12 +275,6 @@
         "Segmentation"
       ],
       "answer": "Disk thrashing"
-    },
-    {
-      "type": "fill_blank",
-      "section": "16.1d Memory Management",
-      "question": "Disk thrashing is caused by excessive page swapping due to insufficient _____.",
-      "answer": "memory"
     }
   ]
 }
