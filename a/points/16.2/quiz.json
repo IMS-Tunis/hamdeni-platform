@@ -2,101 +2,132 @@
   "questions": [
     {
       "type": "mcq",
-      "question": "What is the main reason computers use binary to represent all data?",
+      "question": "Which statement best describes how an interpreter works according to the notes?",
       "options": [
-        "Binary numbers are easier for humans to read",
-        "Computers use logic gates that only understand ON and OFF states",
-        "It uses less power",
-        "Binary numbers are shorter than decimal numbers"
+        "It translates the entire source code into object code before execution",
+        "It executes the source code directly, one line at a time",
+        "It produces an executable file for later use",
+        "It analyzes code without executing it"
       ],
-      "answer": "Computers use logic gates that only understand ON and OFF states"
+      "answer": "It executes the source code directly, one line at a time"
     },
     {
       "type": "mcq",
-      "question": "In an 8-bit binary number, what does the leftmost bit represent?",
+      "question": "What is produced when a program is executed using an interpreter?",
       "options": [
-        "Least Significant Bit",
-        "The parity bit",
-        "Most Significant Bit",
-        "The hexadecimal value"
+        "Object code and error messages",
+        "Only object code",
+        "Error messages and program output",
+        "Executable files only"
       ],
-      "answer": "Most Significant Bit"
+      "answer": "Error messages and program output"
     },
     {
       "type": "mcq",
-      "question": "Which of the following is a hexadecimal digit?",
+      "question": "Why must an interpreter be used every time a program is executed?",
       "options": [
-        "8",
-        "G",
-        "H",
-        "Q"
+        "Because object code expires after execution",
+        "Because no object code is produced",
+        "Because the source code is deleted after execution",
+        "Because error messages replace the program output"
       ],
-      "answer": "8"
+      "answer": "Because no object code is produced"
     },
     {
       "type": "mcq",
-      "question": "What is the maximum value that can be represented in an 8-bit binary number?",
+      "question": "Which disadvantage of an interpreter is explicitly stated in the notes?",
       "options": [
-        "255",
-        "256",
-        "128",
-        "1024"
+        "Slower execution due to repeated interpretation",
+        "High memory consumption",
+        "Inability to display error messages",
+        "Dependence on hardware architecture"
       ],
-      "answer": "255"
-    },
-    {
-      "type": "fill_blank",
-      "question": "The process of moving all bits in a binary number to the left or right and filling the emptied spaces with zeros is called a __________ shift.",
-      "answer": "Logical"
-    },
-    {
-      "type": "fill_blank",
-      "question": "In binary addition, if the result is too large for the register to hold, this is called an __________ error.",
-      "answer": "Overflow"
-    },
-    {
-      "type": "fill_blank",
-      "question": "Each hexadecimal digit can be represented by exactly ___ binary bits.",
-      "answer": "4"
-    },
-    {
-      "type": "true_false",
-      "question": "Digital data can take any value, just like analogue data.",
-      "answer": "False"
-    },
-    {
-      "type": "true_false",
-      "question": "In two’s complement, the most significant bit represents the sign of the number.",
-      "answer": "True"
-    },
-    {
-      "type": "true_false",
-      "question": "The denary number system is also known as base 16.",
-      "answer": "False"
+      "answer": "Slower execution due to repeated interpretation"
     },
     {
       "type": "match",
-      "question": "Match the term with its correct definition:",
+      "question": "Match each interpreter characteristic with its correct description.",
       "pairs": {
-        "Register": "Used to temporarily hold binary data",
-        "Logic gate": "Basic building block for processing digital data",
-        "Two’s complement": "Method to represent negative binary"
+        "Execution model": "Runs one line at a time",
+        "Execution requirement": "Needs the interpreter every time",
+        "Performance": "Slower due to repeated interpretation"
       }
     },
     {
-      "type": "fill_blank",
-      "question": "Convert the binary number 1101 to denary: __________",
-      "answer": "13"
+      "type": "mcq",
+      "question": "Which statement correctly describes a compiler according to the notes?",
+      "options": [
+        "It executes the program while compiling",
+        "It translates and executes code line by line",
+        "It does not execute the program during compilation",
+        "It requires recompilation before every execution"
+      ],
+      "answer": "It does not execute the program during compilation"
     },
     {
       "type": "fill_blank",
-      "question": "What is the hexadecimal equivalent of the denary number 15? __________",
-      "answer": "F"
+      "question": "With a compiler, the program source code is input and either the _____ or error messages are output.",
+      "answer": "object code"
+    },
+    {
+      "type": "mcq",
+      "question": "What can be done with object code produced by a compiler?",
+      "options": [
+        "It must be interpreted line by line",
+        "It can be executed without recompilation",
+        "It only reports syntax errors",
+        "It cannot be executed directly"
+      ],
+      "answer": "It can be executed without recompilation"
+    },
+    {
+      "type": "mcq",
+      "question": "How is a compiler structurally divided according to the notes?",
+      "options": [
+        "Input unit and output unit",
+        "Analysis phase and execution phase",
+        "Front end and back end",
+        "Translation phase and runtime phase"
+      ],
+      "answer": "Front end and back end"
     },
     {
       "type": "fill_blank",
-      "question": "What is the binary value for the hexadecimal digit C? __________",
-      "answer": "1100"
+      "question": "The compiler front end performs _____ of the source code.",
+      "answer": "analysis"
+    },
+    {
+      "type": "mcq",
+      "question": "What is produced by the front end if no errors are found?",
+      "options": [
+        "Executable code",
+        "Object code",
+        "Intermediate code",
+        "Program output"
+      ],
+      "answer": "Intermediate code"
+    },
+    {
+      "type": "mcq",
+      "question": "What does the intermediate code represent according to the notes?",
+      "options": [
+        "Hardware-level instructions",
+        "The syntax of the source code only",
+        "The semantics of the source code",
+        "Final executable instructions"
+      ],
+      "answer": "The semantics of the source code"
+    },
+    {
+      "type": "mcq",
+      "question": "What is the role of the compiler back end?",
+      "options": [
+        "Detecting syntax errors",
+        "Executing source code directly",
+        "Translating intermediate code into object code",
+        "Displaying runtime output"
+      ],
+      "answer": "Translating intermediate code into object code"
     }
   ]
 }
