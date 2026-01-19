@@ -1,25 +1,360 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<script src="/assets/js/storage-fallback.js"></script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NRRL1TSE7Z"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-NRRL1TSE7Z');
-</script>
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>16.2 Translation Software</title>
+<style>
+  :root{--ink:#0f172a;--muted:#475569;--line:#e2e8f0;--bg:#ffffff;--soft:#f8fafc;--s0:#f1f5f9;--s1:#eaf4ff;--s2:#fff7ed;--s3:#f0fdf4;--s4:#f5f3ff;--kwbg:#fff7cc;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55;}
+  .wrap{max-width:980px;margin:0 auto;padding:28px 18px 60px;}
+  h1.page{margin:0 0 10px 0;padding:18px 18px 16px 18px;border-radius:14px;background:linear-gradient(90deg,#eaf4ff,#f3f7ff);border:1px solid #d7e6ff;box-shadow:0 10px 28px rgba(15,23,42,.08);font-size:40px;letter-spacing:.2px;}
+  .subtitle{margin:0 0 18px;color:var(--muted);font-size:14px;}
 
-  <meta charset="UTF-8">
-  <title>Content not ready</title>
-  <link rel="stylesheet" href="igcse-style.css">
-<script defer src="/assets/js/paste-guard.js"></script>
-</head>
-<body>
-   <div class="container">
-    <h1>Content will be ready soon!</h1>
-   
-</body>
-</html>
+  .s0{margin:18px 0 26px;padding:12px 14px;border:1px solid var(--line);background:var(--s0);border-radius:10px;}
+  .s0 h2{margin:0 0 8px;font-size:14px;letter-spacing:.6px;text-transform:uppercase;color:#64748b;}
+  .s0 ul{margin:0;padding-left:20px;color:#64748b;font-size:13px;}
+
+  section.main{margin:22px 0;padding:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--soft);}
+  .head{padding:14px 16px;border-bottom:1px solid var(--line);}
+  .head.h1{background:var(--s1);} .head.h2{background:var(--s2);} .head.h3{background:var(--s3);} .head.h4{background:var(--s4);}
+  .head h2{margin:0;font-size:20px;}
+  .body{padding:14px 16px 18px;background:#fff;}
+
+  ul{margin:10px 0 12px;padding-left:22px;}
+  ol{margin:10px 0 12px;padding-left:22px;}
+  li{margin:6px 0;}
+
+  /* Subheading marker: strong at the start of a list item should look like a label, but stay light */
+  li > strong{color:#0f3b75;}
+
+  /* Keywords: only in body text */
+  .kw{background:var(--kwbg);border:1px solid #fde68a;border-radius:7px;padding:0 6px;cursor:help;white-space:nowrap;}
+  .tip{position:fixed;z-index:9999;max-width:360px;background:#0b1220;color:#fff;border-radius:10px;padding:10px 12px;font-size:13px;line-height:1.35;box-shadow:0 10px 30px rgba(0,0,0,.25);display:none;}
+
+  figure{margin:14px 0 6px;padding:10px;border:1px solid var(--line);border-radius:12px;background:#fff;}
+  figure img{max-width:100%;height:auto;display:block;margin:0 auto;border-radius:8px;}
+  figcaption{margin:8px 0 0;color:var(--muted);font-size:12px;}
+
+  @media print{
+    .tip{display:none !important;}
+    section.main{break-inside:avoid;}
+  }
+
+  /* Unified A/B/C subheading style (Section 2 stages) */
+  .subheadline{display:flex;align-items:center;gap:10px;margin:10px 0 8px 0;padding:10px 12px;border-radius:12px;background:#f8fafc;border:1px solid #e2e8f0;}
+  .subtag{font-weight:800;color:#1d4ed8;}
+  .subtext{font-weight:800;color:#0f172a;}
+
+  /* Figure sizing */
+  figure.figure2 img{width:50%;max-width:50%;}
+
+
+  .page-title{font-size:40px;font-weight:800;line-height:1.15;}
+  .page-subtitle{margin-top:8px;font-size:14px;color:var(--muted);font-weight:500;}
+
+
+/* v20 fixes: unified subsection lettering and typography */
+.subsections{margin: 12px 0 18px 0; padding-left: 26px;}
+.subsections > li{margin: 10px 0 14px 0;}
+.subsections > li::marker{font-weight: 800; color: #1d4ed8;}
+.subsection-title{display:block; font-weight:800; color:#0f172a; padding:10px 12px; border:1px solid #e2e8f0; border-radius:10px; background:#f8fafc; margin: 0 0 10px 0;}
+/* normalize list text */
+.body ul, .body ol{font-size: 16px; line-height: 1.6;}
+.body li{font-size: 16px; line-height: 1.6;}
+.body li span{font-size: inherit;}
+.body li strong{font-weight: 700;}
+
+
+
+</style>
+</head><body><div class="wrap">
+<h1 class="page"><div class="page-title">16.2 Translation Software</div><div class="page-subtitle">A level theory notes prepared by Dr. Hamdeni.</div></h1>
+<div class="s0"><h2>REMINDER (FROM AS LEVEL)</h2><ul><li>
+<span>With a compiler the program source code is input and either the </span><strong><span>object code</span></strong><span> program or </span><strong><span>error messages</span></strong><span> are output. The object code produced can then be executed without needing recompilation.</span>
+</li><li>
+<span>With an interpreter, No object code is output, but error messages from the interpreter are output, as well as any outputs produced by the program being interpreted. As there is no object code produced from the interpretation process, the interpreter will need to be used every time the program is executed, which making it slower than compilation.</span>
+</li></ul></div><section class="main"><div class="head h1"><h2>1. How an Interpreter Executes Programs Without Producing a Translated Version</h2></div><div class="body"><ul type="disc">
+<li>
+<strong><span>Concept</span></strong><span>: An <span class="kw" data-tip="Runs a program by translating and executing one statement at a time, without producing a separate object or executable file.">interpreter</span> executes the <span class="kw" data-tip="The original program written by the programmer in a high-level language.">source code</span> directly, translating and running one line at a time without generating a separate translated or executable file.</span>
+</li>
+<li>
+<strong><span>Advantages</span></strong><span>: </span>
+<ul type="circle">
+<li>
+<span>Immediate execution and feedback during development.</span>
+</li>
+<li>
+<span>Easier debugging as errors are displayed as soon as they occur.</span>
+</li>
+</ul>
+</li>
+<li>
+<strong><span>Disadvantages</span></strong><span>: </span>
+<ul type="circle">
+<li>
+<span>Slower execution due to repeated interpretation.</span>
+</li>
+<li>
+<span>Requires the <span class="kw" data-tip="The original program written by the programmer in a high-level language.">source code</span> and <span class="kw" data-tip="Runs a program by translating and executing one statement at a time, without producing a separate object or executable file.">interpreter</span> for every execution.</span>
+</li>
+</ul>
+</li>
+</ul></div></section><section class="main"><div class="head h2"><h2>2. Stages in Compilation</h2></div><div class="body">
+<ul>
+<li>A <span class="kw" data-tip="Translates the whole source program into object or machine code before the program is executed.">compiler</span> can be described as having a ‘<span class="kw" data-tip="The compiler part that analyses the source program and produces an intermediate representation.">front end</span>’ and a ‘<span class="kw" data-tip="The compiler part that turns the intermediate representation into target code for a specific machine.">back end</span>’. </li>
+
+<li>The front-end program performs analysis of the <span class="kw" data-tip="The original program written by the programmer in a high-level language.">source code</span> and, unless errors are found, produces an <span class="kw" data-tip="A machine independent representation produced by a compiler to simplify later stages.">intermediate code</span> that expresses completely the semantics (the meaning) of the <span class="kw" data-tip="The original program written by the programmer in a high-level language.">source code</span>.</li>
+
+ <li>The backend program then takes this <span class="kw" data-tip="A machine independent representation produced by a compiler to simplify later stages.">intermediate code</span> as input and performs synthesis of object code.</li>
+ 
+ <li> Compilation process can be illustrated as follows:
+</ul>
+<figure>
+<img alt="Figure 1" src="images/figure_01.png"/>
+</figure>
+<ul></li>
+<br>
+<h3 style="font-size: 1.4em; font-weight: bold; color: #2c3e50; text-shadow: 1px 1px 2px rgba(0,0,0,0.1); margin-bottom: 15px;"> 2.1 Front-end analysis stages  </h3>
+
+
+The four stages of front-end analysis are: lexical analysis, syntax analysis semantic analysis and intermediate code generation:
+</ul>
+<ol class="subsections" type="A">
+<li>
+<div class="subsection-title">Lexical Analysis</div>
+<ul type="circle">
+<li>The compilation stage that groups characters into tokens such as identifiers, keywords, and numbers.</li>
+<li>The <span class="kw" data-tip="The original program written by the programmer in a high-level language.">source code</span> is tokenized, and unnecessary characters like comments are removed.</li>
+</ul>
+<figure class="figure2">
+<img alt="Figure 2" src="images/figure_02.png"/>
+</figure>
+<ul type="circle">
+<li>In order to tokenise the program, the compiler will use a keyword table that contains all the tokens for the reserved words and symbols used in a programming language</li>
+<li>For each identifier recognized there must be an entry made in the symbol table. The symbol table contains identifier attributes such as the data type, where it is declared and where it is assigned a value.</li>
+<li><strong>==&gt; the output from lexical analysis is a tokenised version of the source code.</strong></li>
+</ul>
+</li>
+<li>
+
+
+
+<div class="subsection-title">Syntax Analysis</div>
+<ul type="circle">
+<li>The compilation stage that checks whether tokens follow the grammar rules of the language.</li>
+<li>Ensures that the code structure follows the language grammar rules.</li>
+<li>Syntax analysis, which is also known as parsing, involves analysis of the program constructs.</li>
+<li>The results of the analysis are recorded as a syntax or parse tree</li>
+<li><strong>Example 1</strong>: Input: int x = ; <br> Error: Missing a value for x.</li>
+<li><strong>Example 2</strong>: syntax tree generation</li>
+</ul>
+<figure>
+<img alt="Figure 3" src="images/figure_03.png" width="50%"/>
+</figure>
+<ul type="circle">
+<li>The rules for parsing can be set out in Syntax Diagrams or in Backus-Naur form (BNF) notation (see section 3 below)</li>
+</strong></li>
+</ul>
+</li>
+<li>
+
+<div class="subsection-title">Semantic Analysis</div>
+<ul type="circle">
+<li>Checks for logical errors, such as type mismatches.</li>
+<li><strong>Example</strong>: Assigning a string to an integer variable triggers a semantic error.</li>
+</ul>
+</li>
+
+<li>
+
+<div class="subsection-title">Intermediate code generation</div>
+<ul type="circle">
+<li>Produces a simplified, platform-independent representation of the code.</li>
+<li>This object program is either in machine code that can be executed by the CPU, or in an intermediate form that is converted to machine code when the program is loaded.</li>
+
+</li></ul>
+</ol>
+
+
+<h3 style="font-size: 1.4em; font-weight: bold; color: #2c3e50; text-shadow: 1px 1px 2px rgba(0,0,0,0.1); margin-bottom: 15px;"> 2.2 Back-end synthesis stages </h3>
+
+<ul style="padding-left: 2em; margin-left: 0; list-style-position: outside;">
+
+<li> If the front-end analysis has established that there are syntax errors, the only backend process is the presentation of a list of these errors. For each error, there will be an
+explanation and the location within the program source code.</li>
+<li>In the absence of errors, the main back-end stage is machine code generation from the
+intermediate code.</li>
+<li> This may involve optimisation of the code. The aim of optimisation is to create an efficient program.</li>
+
+
+<li><strong>Example 1</strong>: Simplifies x = y + 0 into x = y to reduce unnecessary operations</li>
+<li><strong>Example 2</strong>:</li>
+consider these successive assignment statements:<br>
+x = (a + b) * (a – b)<br>
+y = (a + 2 * b) * (a – b)<br>
+More effecient code (optimisation) would be:<br>
+temp = (a – b)<br>
+x = (a + b) * temp<br>
+y = x + temp * b<br>
+<li><strong>Example 3</strong>:</li>
+<figure>
+<img alt="Figure 6" src="images/optimisation.png" width="50%"/>
+</figure>
+
+
+<li>After code generation and optimisation, additional system-level steps may take place, including linking (combining object code with required libraries) and loading (placing the program into memory so it can be executed).</li>
+</ul>
+
+
+</section><section class="main"><div class="head h3"><h2>3. Expressing Language Grammar Using Syntax Diagrams or BNF</h2></div><div class="body">
+<ul>
+<li>The grammatical rules or syntax for a programming language need to be set out clearly so a programmer can write code that obeys the rules, and a compiler can be built to check that a program obeys these rules.</li> 
+<li>The rules can be shown graphically in a syntax diagram or using a meta language such as Backus-Naur form (BNF) notation</li>
+</ul>
+<ol class="subsections" type="A">
+<li>
+<div class="subsection-title">Syntax diagram</div>
+
+Each element in the language has a diagram showing how it is built.<br>
+<strong>Example:</strong><br>
+A grammar rule says that an identifier must start with a letter which can be followed by any combination of none or more letters or digits. This can be represented graphically using syntax diagram as follows:
+
+<figure>
+<img alt="Figure 6" src="images/figure_06.png" width="60%"/>
+</figure>
+
+
+
+
+
+</li>
+<li>
+<div class="subsection-title">BNF</div>
+BNF uses a set of symbols to describe the grammar rules in a programming language.
+
+
+<br> BNF notation includes:
+
+  <ul style="margin: 0 0 18px 20px; padding: 0;">
+    <li style="margin: 6px 0;">
+      <span style="font-family: 'Courier New', monospace;">&lt; &gt;</span>
+      used to enclose an item
+    </li>
+    <li style="margin: 6px 0;">
+      <span style="font-family: 'Courier New', monospace;">::=</span>
+      separates an item from its definition
+    </li>
+    <li style="margin: 6px 0;">
+      <span style="font-family: 'Courier New', monospace;">|</span>
+      between items indicates a choice
+    </li>
+    <li style="margin: 6px 0;">
+      <span style="font-family: 'Courier New', monospace;">;</span>
+      the end of a rule
+    </li>
+  </ul>
+
+  <p style="margin: 0 0 10px 0;">
+    For example, a simple variable consisting of a letter (A, B or C) followed by a digit (1, 2, 3)
+    would be shown as:
+  </p>
+
+  <pre style="margin: 0 0 18px 0; padding: 12px; background: #f6f6f6; border: 1px solid #ddd; overflow: auto; font-family: 'Courier New', monospace; font-size: 14px;">
+&lt;variable&gt; ::= &lt;letter&gt; | &lt;digit&gt; ;
+&lt;letter&gt;   ::= A|B|C ;
+&lt;digit&gt;    ::= 1|2|3 ;
+  </pre>
+
+  <p style="margin: 0 0 10px 0;">
+    BNF notation can be used for recursive definitions where an item definition can refer to itself.
+    For example:
+	
+	<pre style="margin: 0; padding: 12px; background: #f6f6f6; border: 1px solid #ddd; overflow: auto; font-family: 'Courier New', monospace; font-size: 14px;">
+&lt;Identifier&gt; ::= &lt;Letter&gt; | &lt;Identifier&gt; &lt;Letter&gt; | &lt;Identifier&gt; &lt;Digit&gt;
+
+&lt;Digit&gt; ::= 0|1|2|3|4|5|6|7|8|9
+
+&lt;Letter&gt; ::= &lt;UpperCaseLetter&gt;|&lt;LowerCaseLetter&gt;
+
+&lt;UpperCaseLetter&gt; ::= A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z
+
+&lt;LowerCaseLetter&gt; ::= a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z
+</pre>
+
+  
+  <br>
+  A syntax diagram is only used in the context of a language. It has limited use because it
+cannot be incorporated into a compiler program as an algorithm. By contrast, BNF is a
+general approach which can be used to describe any assembly of data. 
+  
+  
+  
+  
+  
+
+
+
+
+
+
+</li>
+</ol>
+</div></section><section class="main"><div class="head h4"><h2>4. Reverse Polish Notation</h2></div><div class="body">
+<ul>
+<li>RPN is a method of representing an arithmetical expression without the use of brackets.</li>
+<li>RPN uses postfix notation, where an operator is placed after the variables it acts on.</li>
+<li>For example, A + B would be written as A B +.</li>
+<li>Compilers use RPN because any expression can be processed from left to right without using any back tracking.</li>
+
+<br>
+</ul>
+
+<div class="subsection-title">Converting an expression between RPN and infix</div>
+
+
+
+<figure>
+<img alt="Figure 8" src="images/fromtoRPN.png"/>
+</figure>
+</div>
+
+<div class="subsection-title">Evaluating an RPN expression</div>
+
+</ul>
+<figure>
+<img alt="Figure 8" src="images/evaluatingRPN.png"/>
+</figure>
+</div>
+
+
+
+</section><div class="tip" id="kwTip"></div></div><script>
+(function(){
+  const tip = document.getElementById('kwTip');
+  function showTip(el, ev){
+    const txt = el.getAttribute('data-tip');
+    if(!txt) return;
+    tip.textContent = txt;
+    tip.style.display = 'block';
+    const pad = 14;
+    const r = tip.getBoundingClientRect();
+    let x = ev.clientX + pad;
+    let y = ev.clientY + pad;
+    if(x + r.width > window.innerWidth - 8) x = window.innerWidth - r.width - 8;
+    if(y + r.height > window.innerHeight - 8) y = window.innerHeight - r.height - 8;
+    tip.style.left = x + 'px';
+    tip.style.top = y + 'px';
+  }
+  function hideTip(){ tip.style.display='none'; }
+
+  document.addEventListener('mousemove', (ev)=>{
+    const el = ev.target.closest && ev.target.closest('.kw');
+    if(el){ showTip(el, ev); } else { hideTip(); }
+  });
+  document.addEventListener('scroll', hideTip, {passive:true});
+})();
+</script> <script>
+      window.addEventListener('load', function () {
+        const height = document.body.scrollHeight;
+        window.parent.postMessage({ type: 'resize', height }, '*');
+      });
+    </script></body></html>
