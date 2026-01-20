@@ -99,6 +99,14 @@
       margin-bottom: 20px;
     }
 
+    .official-doc {
+      display: block;
+      margin: 0 auto;
+      width: min(100%, 1600px);
+      max-width: 100%;
+      min-height: 1200px;
+    }
+
     .videos iframe {
       height: 250px;
     }
@@ -231,6 +239,54 @@
       border-radius: 2px;
     }
 
+    .layer-menu {
+      display: flex;
+      justify-content: center;
+      margin: 10px auto 24px;
+    }
+
+    .layer-menu-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: #f8fafc;
+      border: 1px solid #dbe5f2;
+      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.08);
+    }
+
+    .layer-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-weight: 600;
+      text-decoration: none;
+      color: #0f172a;
+      background: #eaf2ff;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .layer-link:hover {
+      background: #dbe8ff;
+      transform: translateY(-1px);
+    }
+
+    .layer-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      background: #1e3a8a;
+      color: #f8fafc;
+      font-size: 0.85em;
+    }
+
     body {
       font-family: 'Segoe UI', 'Arial', sans-serif;
       background: #fafbfc;
@@ -238,12 +294,13 @@
       line-height: 1.7;
     }
     .container {
-      max-width: 850px;
+      max-width: 1600px;
       margin: 2.5rem auto;
       background: #fff;
       border-radius: 14px;
       box-shadow: 0 4px 16px rgba(60,70,90,0.07);
       padding: 2.2rem 2.5rem;
+      width: min(100%, 1600px);
     }
     h1 {
       font-size: 2.18em;
@@ -451,8 +508,15 @@
   </div>
 
   <main id="content-area" style="display: none;">
+  <nav class="layer-menu" aria-label="Layer navigation">
+    <div class="layer-menu-links">
+      <a class="layer-link" href="layer2.html"><span class="layer-number">2</span> Layer 2</a>
+      <a class="layer-link" href="layer3.html"><span class="layer-number">3</span> Layer 3</a>
+      <a class="layer-link" href="layer4.html"><span class="layer-number">4</span> Layer 4</a>
+    </div>
+  </nav>
   <div class="container">
-    <h1>Content will be ready soon!</h1>
+    <iframe id="doc-frame" class="official-doc" scrolling="no"></iframe>
   </div>
   </main>
   <div class="actions">
@@ -519,7 +583,18 @@
       .then(res => res.json())
       .then(data => {
         if (data[point_id]) {
-          const { videos = [] } = data[point_id];
+          const { videos = [], doc } = data[point_id];
+
+          if (doc) {
+            const frame = document.getElementById("doc-frame");
+            frame.addEventListener("load", () => {
+              const docBody = frame.contentDocument?.body;
+              if (docBody) {
+                frame.style.height = `${docBody.scrollHeight}px`;
+              }
+            });
+            frame.src = doc.url;
+          }
 
           if (videos.length > 0) {
             document.getElementById("video-section").style.display = "block";
