@@ -99,6 +99,14 @@
       margin-bottom: 20px;
     }
 
+    .official-doc {
+      display: block;
+      margin: 0 auto;
+      width: min(100%, 1350px);
+      max-width: 100%;
+      min-height: 1200px;
+    }
+
     .videos iframe {
       height: 250px;
     }
@@ -452,7 +460,7 @@
 
   <main id="content-area" style="display: none;">
   <div class="container">
-    <h1>Content will be ready soon!</h1>
+    <iframe id="doc-frame" class="official-doc" scrolling="no"></iframe>
   </div>
   </main>
   <div class="actions">
@@ -519,7 +527,18 @@
       .then(res => res.json())
       .then(data => {
         if (data[point_id]) {
-          const { videos = [] } = data[point_id];
+          const { videos = [], doc } = data[point_id];
+
+          if (doc) {
+            const frame = document.getElementById("doc-frame");
+            frame.addEventListener("load", () => {
+              const docBody = frame.contentDocument?.body;
+              if (docBody) {
+                frame.style.height = `${docBody.scrollHeight}px`;
+              }
+            });
+            frame.src = doc.url;
+          }
 
           if (videos.length > 0) {
             document.getElementById("video-section").style.display = "block";
