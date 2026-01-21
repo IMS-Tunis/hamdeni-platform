@@ -304,15 +304,7 @@
 
 <!-- APPEND: mock test JSON payload -->
 <script id="mockTestData" type="application/json">
-{
-  "mock_test": {
-    "title": "Mock Test ",
-    "question": "Exercise 1\n\n(a) For each field, choose the best type from {String, Integer, Real, Boolean} and give a brief justification:\nProductName, StockCount, PricePerUnit, IsTaxExempt.\n\n(b) Write pseudocode that reads Units (Integer) and Price (Real), defines VAT_RATE as 0.13, computes Subtotal, Tax, GrandTotal, then prints each rounded to 2 decimal places.\n\n(c) Using your design from (b), evaluate when Units = 9 and Price = 4.60.\nGive Subtotal, Tax (2 dp), GrandTotal (2 dp). Also compute 45 DIV 7, 45 MOD 7, and ROUND(GrandTotal, 1).\n\n(d) Complete the truth table for Y ← (NOT A OR (B AND C)) for all eight rows where A, B, C ∈ {0,1} (use 0 for FALSE, 1 for TRUE).\n\n(e) Give one expression that returns a uniformly distributed integer from 5 to 12 inclusive using RANDOM().",
-    "question_self_contained": "Tasks:\n(a) Type + one-phrase justification for ProductName, StockCount, PricePerUnit, IsTaxExempt.\n(b) Pseudocode: read Units, Price; VAT_RATE = 0.13; Subtotal = Units * Price; Tax = Subtotal * VAT_RATE; GrandTotal = Subtotal + Tax; print all rounded to 2 dp.\n(c) Evaluate for Units = 9, Price = 4.60; also compute 45 DIV 7, 45 MOD 7, ROUND(GrandTotal, 1).\n(d) Truth table for Y ← (NOT A OR (B AND C)).\n(e) One RANDOM() expression for an integer in [5,12].",
-    "mark_scheme_answer": "a) ProductName → String (text label); StockCount → Integer (whole count); PricePerUnit → Real (decimals allowed); IsTaxExempt → Boolean (yes/no).\n\nb) One correct solution:\nINPUT Units\nINPUT Price\nCONSTANT VAT_RATE ← 0.13\nSubtotal ← Units * Price\nTax ← Subtotal * VAT_RATE\nGrandTotal ← Subtotal + Tax\nOUTPUT \"Subtotal:\", ROUND(Subtotal, 2)\nOUTPUT \"Tax:\", ROUND(Tax, 2)\nOUTPUT \"Grand total:\", ROUND(GrandTotal, 2)\n\nc) Subtotal = 9 * 4.60 = 41.40\nTax = 41.40 * 0.13 = 5.382 → 5.38\nGrandTotal = 41.40 + 5.382 = 46.782 → 46.78\n45 DIV 7 = 6; 45 MOD 7 = 3\nROUND(GrandTotal, 1) = 46.8\n\nd) Y for Y ← (NOT A OR (B AND C))\nA B C → Y\n0 0 0 → 1\n0 0 1 → 1\n0 1 0 → 1\n0 1 1 → 1\n1 0 0 → 0\n1 0 1 → 0\n1 1 0 → 0\n1 1 1 → 1\n\ne) INT(RANDOM() * 8) + 5",
-    "marks_allocation": "[15]"
-  }
-}
+
 
 
 </script>
