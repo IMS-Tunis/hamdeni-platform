@@ -2,101 +2,222 @@
   "questions": [
     {
       "type": "mcq",
-      "question": "What is the main reason computers use binary to represent all data?",
+      "section": "Section 1: Understanding How Encryption Works",
+      "question": "Which pair correctly represents data before and after encryption?",
       "options": [
-        "Binary numbers are easier for humans to read",
-        "Computers use logic gates that only understand ON and OFF states",
-        "It uses less power",
-        "Binary numbers are shorter than decimal numbers"
+        "Ciphertext and plaintext",
+        "Key and algorithm",
+        "Plaintext and ciphertext",
+        "Digest and signature"
       ],
-      "answer": "Computers use logic gates that only understand ON and OFF states"
+      "answer": "Plaintext and ciphertext"
     },
     {
       "type": "mcq",
-      "question": "In an 8-bit binary number, what does the leftmost bit represent?",
+      "section": "Section 1: Understanding How Encryption Works",
+      "question": "Which component is specifically responsible for converting ciphertext back into readable data?",
       "options": [
-        "Least Significant Bit",
-        "The parity bit",
-        "Most Significant Bit",
-        "The hexadecimal value"
+        "Encryption algorithm",
+        "Decryption algorithm",
+        "Public key",
+        "Hashing algorithm"
       ],
-      "answer": "Most Significant Bit"
+      "answer": "Decryption algorithm"
     },
     {
       "type": "mcq",
-      "question": "Which of the following is a hexadecimal digit?",
+      "section": "Section 1: Understanding How Encryption Works",
+      "question": "Which security objective ensures that only the intended recipient can read the message?",
       "options": [
-        "8",
-        "G",
-        "H",
-        "Q"
+        "Authenticity",
+        "Integrity",
+        "Confidentiality",
+        "Non-repudiation"
       ],
-      "answer": "8"
+      "answer": "Confidentiality"
     },
     {
       "type": "mcq",
-      "question": "What is the maximum value that can be represented in an 8-bit binary number?",
+      "section": "Section 1: Understanding How Encryption Works",
+      "question": "In asymmetric encryption, which key is used to encrypt a message so that only the receiver can read it?",
       "options": [
-        "255",
-        "256",
-        "128",
-        "1024"
+        "Sender's private key",
+        "Sender's public key",
+        "Receiver's public key",
+        "Receiver's private key"
       ],
-      "answer": "255"
+      "answer": "Receiver's public key"
+    },
+    {
+      "type": "mcq",
+      "section": "Section 1: Understanding How Encryption Works",
+      "question": "Why is asymmetric encryption commonly used before symmetric encryption in practice?",
+      "options": [
+        "It encrypts large data faster",
+        "It avoids the need for encryption keys",
+        "It allows secure exchange of a temporary secret key",
+        "It removes the need for decryption"
+      ],
+      "answer": "It allows secure exchange of a temporary secret key"
+    },
+    {
+      "type": "mcq",
+      "section": "Section 1: Understanding How Encryption Works",
+      "question": "Why can Quantum Key Distribution detect an eavesdropper?",
+      "options": [
+        "It uses very long encryption keys",
+        "Measuring quantum states changes their state",
+        "It relies on hidden algorithms",
+        "It prevents interception entirely"
+      ],
+      "answer": "Measuring quantum states changes their state"
     },
     {
       "type": "fill_blank",
-      "question": "The process of moving all bits in a binary number to the left or right and filling the emptied spaces with zeros is called a __________ shift.",
-      "answer": "Logical"
+      "section": "Section 1: Understanding How Encryption Works",
+      "question": "The unreadable result produced after encryption is called _____.",
+      "answer": "Ciphertext"
     },
     {
       "type": "fill_blank",
-      "question": "In binary addition, if the result is too large for the register to hold, this is called an __________ error.",
-      "answer": "Overflow"
+      "section": "Section 1: Understanding How Encryption Works",
+      "question": "An unauthorized person who intercepts data during transmission is called an _____.",
+      "answer": "Eavesdropper"
     },
     {
       "type": "fill_blank",
-      "question": "Each hexadecimal digit can be represented by exactly ___ binary bits.",
-      "answer": "4"
-    },
-    {
-      "type": "true_false",
-      "question": "Digital data can take any value, just like analogue data.",
-      "answer": "False"
-    },
-    {
-      "type": "true_false",
-      "question": "In two’s complement, the most significant bit represents the sign of the number.",
-      "answer": "True"
-    },
-    {
-      "type": "true_false",
-      "question": "The denary number system is also known as base 16.",
-      "answer": "False"
+      "section": "Section 1: Understanding How Encryption Works",
+      "question": "The basic unit of quantum information is called a _____.",
+      "answer": "Qubit"
     },
     {
       "type": "match",
-      "question": "Match the term with its correct definition:",
+      "section": "Section 1: Understanding How Encryption Works",
+      "question": "Match each encryption concept with its description.",
       "pairs": {
-        "Register": "Used to temporarily hold binary data",
-        "Logic gate": "Basic building block for processing digital data",
-        "Two’s complement": "Method to represent negative binary"
+        "Block cipher": "Encrypts fixed-size blocks of data",
+        "Stream cipher": "Encrypts bits sequentially as they arrive",
+        "Block chaining": "Combines previous ciphertext with plaintext"
       }
     },
     {
-      "type": "fill_blank",
-      "question": "Convert the binary number 1101 to denary: __________",
-      "answer": "13"
+      "type": "match",
+      "section": "Section 1: Understanding How Encryption Works",
+      "question": "Match each security objective with its meaning.",
+      "pairs": {
+        "Confidentiality": "Ensures data is unreadable to others",
+        "Authenticity": "Verifies sender identity",
+        "Integrity": "Ensures data is not altered",
+        "Non-repudiation": "Prevents denial of involvement"
+      }
+    },
+    {
+      "type": "mcq",
+      "section": "Section 2: Secure Socket Layer (SSL) and Transport Layer Security (TLS)",
+      "question": "What is the main purpose of SSL/TLS?",
+      "options": [
+        "To store user credentials",
+        "To secure communication by encryption and authentication",
+        "To speed up web connections",
+        "To replace encryption algorithms"
+      ],
+      "answer": "To secure communication by encryption and authentication"
+    },
+    {
+      "type": "mcq",
+      "section": "Section 2: Secure Socket Layer (SSL) and Transport Layer Security (TLS)",
+      "question": "During the SSL/TLS handshake, what information does the server send to the client?",
+      "options": [
+        "A session key",
+        "Its private key",
+        "An SSL certificate containing its public key",
+        "A hashed message"
+      ],
+      "answer": "An SSL certificate containing its public key"
+    },
+    {
+      "type": "mcq",
+      "section": "Section 2: Secure Socket Layer (SSL) and Transport Layer Security (TLS)",
+      "question": "Why is a temporary session key used after the handshake phase?",
+      "options": [
+        "To replace public key encryption",
+        "To allow faster encryption of the main data",
+        "To verify the client identity",
+        "To shorten certificate validity"
+      ],
+      "answer": "To allow faster encryption of the main data"
     },
     {
       "type": "fill_blank",
-      "question": "What is the hexadecimal equivalent of the denary number 15? __________",
-      "answer": "F"
+      "section": "Section 2: Secure Socket Layer (SSL) and Transport Layer Security (TLS)",
+      "question": "The framework that allows authentication using digital certificates is called _____.",
+      "answer": "Public Key Infrastructure"
     },
     {
       "type": "fill_blank",
-      "question": "What is the binary value for the hexadecimal digit C? __________",
-      "answer": "1100"
+      "section": "Section 2: Secure Socket Layer (SSL) and Transport Layer Security (TLS)",
+      "question": "The TLS feature that allows reuse of a previous secure session is called _____.",
+      "answer": "Session caching"
+    },
+    {
+      "type": "match",
+      "section": "Section 2: Secure Socket Layer (SSL) and Transport Layer Security (TLS)",
+      "question": "Match each SSL/TLS handshake step with its description.",
+      "pairs": {
+        "Client connects via HTTPS": "Secure connection is initiated",
+        "Server sends certificate": "Server provides its public key",
+        "Client verifies certificate": "Certificate validity is checked",
+        "Session key generated": "Temporary symmetric key is created",
+        "Encrypted communication": "Data is encrypted using session key"
+      }
+    },
+    {
+      "type": "mcq",
+      "section": "Section 3: Digital Certification",
+      "question": "Which element added by a Certificate Authority verifies a certificate’s authenticity?",
+      "options": [
+        "Owner information",
+        "Expiration date",
+        "CA’s digital signature",
+        "Public key length"
+      ],
+      "answer": "CA’s digital signature"
+    },
+    {
+      "type": "mcq",
+      "section": "Section 3: Digital Certification",
+      "question": "What is the first step in creating a digital signature?",
+      "options": [
+        "Encrypting the message",
+        "Hashing the message to create a digest",
+        "Sending the public key",
+        "Encrypting the digest with the receiver’s key"
+      ],
+      "answer": "Hashing the message to create a digest"
+    },
+    {
+      "type": "fill_blank",
+      "section": "Section 3: Digital Certification",
+      "question": "A _____ _____ is an electronic document used to verify identity and contains a public key.",
+      "answer": "Digital certificate"
+    },
+    {
+      "type": "fill_blank",
+      "section": "Section 3: Digital Certification",
+      "question": "To verify a digital signature, the recipient uses the sender’s _____ key.",
+      "answer": "Public"
+    },
+    {
+      "type": "true_false",
+      "section": "Section 3: Digital Certification",
+      "question": "A digital certificate contains the owner’s private key.",
+      "answer": "False"
+    },
+    {
+      "type": "true_false",
+      "section": "Section 3: Digital Certification",
+      "question": "If the recomputed digest matches the decrypted digest, the message is authentic and unaltered.",
+      "answer": "True"
     }
   ]
 }
