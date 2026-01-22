@@ -1,25 +1,1006 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script src="/assets/js/storage-fallback.js"></script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NRRL1TSE7Z"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>17. Encryption, Encryption Protocols and Digital certificates</title>
+  <style>
+    :root{
+      --bg: #f6f7fb;
+      --panel: #ffffff;
+      --panel2: #ffffff;
+      --text: #000000;
+      --muted: #4a5568;
+      --border: rgba(17, 24, 39, 0.12);
+      --accent: #1e6bd6;
+      --accent2: #14866d;
+      --highlight: #fce8e5;
+      --shadow: 0 10px 22px rgba(17, 24, 39, 0.08);
+      --radius: 14px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      --lh: 1.55;
+    }
 
-  gtag('config', 'G-NRRL1TSE7Z');
-</script>
+    html, body { height: 100%; }
+    body{
+      margin:0;
+      font-family: var(--sans);
+      line-height: var(--lh);
+      color: var(--text);
+      background: var(--bg);
+    }
 
-  <meta charset="UTF-8">
-  <title>Content not ready</title>
-  <link rel="stylesheet" href="igcse-style.css">
-<script defer src="/assets/js/paste-guard.js"></script>
+    .container{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 22px 18px 50px;
+    }
+
+    .title-bar{
+      background: var(--highlight);
+      padding: 14px 16px;
+      border-radius: 0;
+    }
+    .title-bar h1{
+      margin: 0;
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #000;
+    }
+
+    .subtitle{
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+      padding: 0 2px;
+    }
+
+    .top-card{
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    nav{
+      margin-top: 14px;
+      padding: 14px 16px 16px;
+      border-top: 1px solid var(--border);
+      display: grid;
+      gap: 10px;
+      background: var(--panel2);
+    }
+    .toc-title{
+      margin: 0;
+      font-size: 0.92rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .toc{
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .toc a{
+      display: inline-block;
+      text-decoration: none;
+      color: var(--text);
+      background: #eaf3ff;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 0.92rem;
+    }
+    .toc a:hover{
+      border-color: rgba(30,107,214,0.45);
+      box-shadow: 0 0 0 3px rgba(30,107,214,0.12);
+    }
+
+    main{
+      margin-top: 18px;
+      display: grid;
+      gap: 18px;
+    }
+
+    section{
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .section-head{
+      padding: 16px 18px;
+      background: #eaf3ff;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-head h2{
+      margin: 0 0 6px;
+      font-size: 1.2rem;
+    }
+    .section-head p{
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .content{
+      padding: 14px 18px 18px;
+    }
+
+    h3{
+      margin: 18px 0 10px;
+      font-size: 1.05rem;
+      color: var(--text);
+      border-left: 4px solid rgba(30,107,214,0.70);
+      padding-left: 10px;
+    }
+
+    h4{
+      margin: 14px 0 10px;
+      font-size: 1.0rem;
+      color: var(--text);
+      border-left: 4px solid rgba(20,134,109,0.65);
+      padding-left: 10px;
+    }
+
+    .note{
+      margin: 10px 0 14px;
+      color: var(--muted);
+    }
+
+    .card{
+      background: #fbfcfe;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin: 10px 0;
+    }
+
+    .term{
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .def{
+      color: var(--muted);
+      margin: 0;
+    }
+
+    ul{
+      margin: 8px 0 0 18px;
+      color: var(--muted);
+    }
+    li{ margin: 6px 0; }
+
+    .label{
+      display:inline-block;
+      font-size: 0.85rem;
+      padding: 3px 9px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #f3f5f9;
+      color: var(--text);
+    }
+
+    .example{
+      border-left: 4px solid rgba(255, 193, 7, 0.75);
+      background: rgba(255, 193, 7, 0.12);
+      padding: 12px 14px;
+      border-radius: 10px;
+      margin: 10px 0;
+    }
+    .example h5{
+      margin: 0 0 6px;
+      font-size: 0.95rem;
+      color: var(--text);
+      font-weight: 800;
+    }
+    .example p{
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .mono{
+      font-family: var(--mono);
+      color: var(--text);
+      background: #f3f5f9;
+      border: 1px solid var(--border);
+      padding: 10px 12px;
+      border-radius: 10px;
+      overflow-x: auto;
+      margin-top: 10px;
+      white-space: pre-wrap;
+    }
+
+    .steps{
+      counter-reset: step;
+      list-style: none;
+      margin: 10px 0 0;
+      padding: 0;
+    }
+    .steps li{
+      counter-increment: step;
+      background: #fbfcfe;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 12px;
+      margin: 8px 0;
+      color: var(--muted);
+    }
+    .steps li::before{
+      content: counter(step);
+      display: inline-flex;
+      width: 22px;
+      height: 22px;
+      align-items: center;
+      justify-content: center;
+      margin-right: 10px;
+      border-radius: 999px;
+      background: rgba(30,107,214,0.12);
+      border: 1px solid rgba(30,107,214,0.22);
+      color: var(--text);
+      font-weight: 800;
+      font-size: 0.88rem;
+      vertical-align: middle;
+    }
+
+    figure.note-figure{
+      margin: 12px 0 16px;
+      padding: 12px;
+      background: #fbfcfe;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+    figure.note-figure img{
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto;
+    }
+    figure.note-figure figcaption{
+      margin-top: 10px;
+      color: #000;
+      font-size: 0.95rem;
+      line-height: 1.45;
+    }
+
+    @media (max-width: 560px){
+      .toc{ flex-direction: column; align-items: stretch; }
+      .toc a{ text-align: center; }
+    }
+
+    .content,
+    .content p,
+    .content li,
+    .content .note,
+    .content .def,
+    .content .example p,
+    .content .example li,
+    .content .steps li,
+    .content ul,
+    .content ol{
+      color: #000000;
+    }
+    .content .term{
+      color: #000000;
+    }
+
+    .kw{
+      position: relative;
+      cursor: help;
+      font-weight: 700;
+      border-bottom: 1px dotted rgba(0,0,0,0.55);
+      padding-bottom: 1px;
+    }
+    .kw::after{
+      content: attr(data-tip);
+      position: absolute;
+      left: 0;
+      bottom: 140%;
+      min-width: 240px;
+      max-width: 360px;
+      background: #ffffff;
+      color: #000000;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 12px;
+      box-shadow: var(--shadow);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(6px);
+      transition: opacity 0.15s ease, transform 0.15s ease;
+      z-index: 50;
+      font-weight: 500;
+    }
+    .kw::before{
+      content: "";
+      position: absolute;
+      left: 18px;
+      bottom: 132%;
+      width: 10px;
+      height: 10px;
+      background: #ffffff;
+      border-left: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      transform: rotate(45deg);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.15s ease;
+      z-index: 51;
+    }
+    .kw:hover::after,
+    .kw:hover::before{
+      opacity: 1;
+      transform: translateY(0);
+    }
+	
+	/* =========================================================
+   SECTION HIERARCHY VISUAL DESIGN (append or override)
+   Goal: make h3 clearly "subsection" and h4 "sub-subsection"
+   with indentation, colored heading bars, and nested feel.
+   ========================================================= */
+
+/* Optional: slightly stronger separation between main sections */
+section{
+  border-color: rgba(17, 24, 39, 0.16);
+}
+
+/* Main section header (h2) becomes a stronger banner */
+.section-head{
+  background: linear-gradient(90deg, #d9ecff 0%, #eaf3ff 55%, #ffffff 100%);
+  border-bottom: 1px solid rgba(17, 24, 39, 0.16);
+  position: relative;
+}
+.section-head::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 8px;
+  background: rgba(30,107,214,0.55);
+}
+.section-head h2{
+  padding-left: 10px;
+}
+
+/* Create a clearer nesting context inside each section */
+.content{
+  position: relative;
+}
+
+/* Subsection (h3): indented block with background and left rail */
+h3{
+  border-left: none;
+  padding: 10px 12px 10px 14px;
+  margin: 18px 0 10px;
+  margin-left: 12px;            /* indentation = clearly subsection */
+  border-radius: 10px;
+  background: #eef6ff;
+  border: 1px solid rgba(30,107,214,0.18);
+  box-shadow: 0 4px 10px rgba(17,24,39,0.06);
+  position: relative;
+}
+h3::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 7px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  background: rgba(30,107,214,0.70);
+}
+
+/* Ensure content that "belongs" to the h3 looks nested */
+h3 + p,
+h3 + .note,
+h3 + .card,
+h3 + ul,
+h3 + ol,
+h3 + .example,
+h3 + figure{
+  margin-left: 26px;
+}
+
+/* General rule: everything until the next heading stays visually nested */
+.content > p,
+.content > .note,
+.content > .card,
+.content > ul,
+.content > ol,
+.content > .example,
+.content > figure{
+  /* default content left edge */
+  margin-left: 0;
+}
+
+/* h4: sub-subsection, deeper indentation + distinct color */
+h4{
+  border-left: none;
+  padding: 9px 12px 9px 14px;
+  margin: 14px 0 10px;
+  margin-left: 34px;            /* deeper indentation */
+  border-radius: 10px;
+  background: #ecfbf6;
+  border: 1px solid rgba(20,134,109,0.22);
+  position: relative;
+}
+h4::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 7px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  background: rgba(20,134,109,0.70);
+}
+
+/* Content under h4 gets even more indentation */
+h4 + p,
+h4 + .note,
+h4 + .card,
+h4 + ul,
+h4 + ol,
+h4 + .example,
+h4 + figure{
+  margin-left: 48px;
+}
+
+/* Nested components: align cards/examples/figures with the subsection depth */
+.content .card{
+  border-left: 4px solid rgba(30,107,214,0.18);
+}
+.content .example{
+  border-left-width: 5px; /* keep existing but slightly more visible */
+}
+
+/* If a figure follows h3/h4, keep it aligned with the indentation */
+h3 + figure.note-figure,
+h4 + figure.note-figure{
+  margin-left: 26px;
+}
+h4 + figure.note-figure{
+  margin-left: 48px;
+}
+
+/* Lists: make nested lists read cleaner at deeper indentation */
+.content ul,
+.content ol{
+  padding-left: 4px;
+}
+h3 + ul,
+h3 + ol{
+  padding-left: 18px;
+}
+h4 + ul,
+h4 + ol{
+  padding-left: 18px;
+}
+
+/* Optional: subtle guide line to reinforce hierarchy inside each section */
+.content::before{
+  content:"";
+  position:absolute;
+  left: 14px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(17,24,39,0.06);
+  border-radius: 2px;
+}
+
+/* =========================
+   INDENT CONTENT UNDER h3/h4
+   Append at end of your CSS
+   ========================= */
+
+/* Base: keep section content normal */
+.content{
+  --h3-indent: 18px;   /* indentation depth for h3 blocks */
+  --h4-indent: 36px;   /* indentation depth for h4 blocks */
+}
+
+/* Make headings themselves visually nested */
+.content h3{
+  margin-left: 0;
+}
+.content h4{
+  margin-left: var(--h3-indent);
+}
+
+/* Indent EVERYTHING that belongs to an h3 block (until next h3/h2) */
+.content h3 ~ *:not(h2):not(h3){
+  margin-left: var(--h3-indent);
+}
+
+/* Stronger indent for EVERYTHING that belongs to an h4 block (until next h4/h3/h2)
+   This overrides the h3 rule when h4 exists. */
+.content h4 ~ *:not(h2):not(h3):not(h4){
+  margin-left: var(--h4-indent);
+}
+
+/* Lists: ensure bullets align with the block indentation */
+.content h3 ~ ul:not(:has(h3,h4)),
+.content h3 ~ ol:not(:has(h3,h4)){
+  padding-left: 18px;     /* controls bullet text offset relative to list block */
+}
+
+.content h4 ~ ul,
+.content h4 ~ ol{
+  padding-left: 18px;
+}
+
+/* Steps list: keep numbers aligned with the indented block */
+.content h3 ~ ol.steps,
+.content h4 ~ ol.steps{
+  padding-left: 0;        /* steps already styled; margin-left handles nesting */
+}
+
+/* Cards/examples/figures: keep width consistent inside indented block */
+.content h3 ~ .card,
+.content h3 ~ .example,
+.content h3 ~ figure.note-figure,
+.content h3 ~ p.note{
+  max-width: calc(100% - var(--h3-indent));
+}
+
+.content h4 ~ .card,
+.content h4 ~ .example,
+.content h4 ~ figure.note-figure,
+.content h4 ~ p.note{
+  max-width: calc(100% - var(--h4-indent));
+}
+
+/* Optional: slight visual guide line for nested blocks */
+.content h3 ~ *:not(h2):not(h3){
+  border-left: 2px solid rgba(30,107,214,0.10);
+  padding-left: 12px;
+}
+.content h4 ~ *:not(h2):not(h3):not(h4){
+  border-left: 2px solid rgba(20,134,109,0.12);
+  padding-left: 12px;
+}
+
+  </style>
 </head>
+
 <body>
-   <div class="container">
-    <h1>Content will be ready soon!</h1>
-   
+  <div class="container">
+    <div class="top-card">
+      <div class="title-bar">
+        <h1>17. Encryption, Encryption Protocols and Digital certificates</h1>
+		  <p class="subtitle">Theory notes prepared by Dr. Hamdeni</p>
+      </div>
+    
+
+      <nav aria-label="Table of contents">
+
+        <ul class="toc">
+          <li><a href="#sec1">1. Understanding How Encryption Works</a></li>
+          <li><a href="#sec2">2. Secure Socket Layer (SSL) and Transport Layer Security (TLS)</a></li>
+          <li><a href="#sec3">3. Digital Certification</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <main>
+      <!-- SECTION 1 -->
+      <section id="sec1">
+        <div class="section-head">
+          <h2>17.a: Understanding How Encryption Works</h2>
+          <p>Encryption, key concepts, security objectives, models, and quantum cryptography.</p>
+        </div>
+
+        <div class="content">
+          <p class="note">
+            Encryption is the process of converting readable data (<span class="kw" data-tip="Plaintext means the original readable data before it is encrypted.">plaintext</span>) into an unreadable format (<span class="kw" data-tip="Ciphertext is the scrambled output produced after encryption.">ciphertext</span>) to protect it during transmission.
+            It ensures that sensitive information remains confidential, authentic, and unchanged during communication.
+          </p>
+
+          <h3>1.0 The Communication Story</h3>
+          <ul>
+            <li>A sender starts with <span class="kw" data-tip="Plaintext means the original readable data before it is encrypted.">plaintext</span> (readable data).</li>
+            <li>The sender applies an encryption algorithm and a key to produce <span class="kw" data-tip="Ciphertext is the scrambled output produced after encryption.">ciphertext</span> (unreadable data).</li>
+            <li>The ciphertext is transmitted over a network, where an <span class="kw" data-tip="An eavesdropper is someone who secretly intercepts data being transmitted.">eavesdropper</span> may try to intercept it.</li>
+            <li>The receiver applies the decryption algorithm and the correct key to recover the original plaintext.</li>
+            <li>Security goals include keeping data confidential, checking who sent it, and checking it was not changed.</li>
+          </ul>
+
+          <p class="note">
+            The following image illustrates the overall flow of encryption and decryption when data is sent across a network.
+          </p>
+          <figure class="note-figure">
+            <img src="images/overview%20of%20encryption%20and%20decryption.png" alt="Overview of encryption and decryption process" width ="70%"/>
+            <figcaption>
+              <span class="kw" data-tip="Plaintext means the original readable data before it is encrypted.">Plaintext</span> is transformed into <span class="kw" data-tip="Ciphertext is the scrambled output produced after encryption.">ciphertext</span> by an encryption algorithm using an encryption key, then sent across the internet.
+              The receiver applies the decryption algorithm with the decryption key to recover the original plaintext.
+            </figcaption>
+          </figure>
+
+          <h3>1.1 Core Encryption Concepts</h3>
+
+          <div class="card">
+            <div class="term"><span class="kw" data-tip="Plaintext means the original readable data before it is encrypted.">Plaintext</span></div>
+            <p class="def">The original, readable data before encryption.</p>
+          </div>
+
+          <div class="card">
+            <div class="term"><span class="kw" data-tip="Ciphertext is the scrambled output produced after encryption.">Ciphertext</span></div>
+            <p class="def">The unreadable result after encryption.</p>
+          </div>
+
+          <div class="card">
+            <div class="term">Encryption Algorithm</div>
+            <p class="def">The mathematical process used to convert plaintext into ciphertext.</p>
+          </div>
+
+          <div class="card">
+            <div class="term">Decryption Algorithm</div>
+            <p class="def">The reverse process, converting ciphertext back into plaintext using a key.</p>
+          </div>
+
+          <div class="card">
+            <div class="term"><span class="kw" data-tip="An eavesdropper is someone who secretly intercepts data being transmitted.">Eavesdropper</span></div>
+            <p class="def">An unauthorized person who intercepts data during transmission.</p>
+          </div>
+
+          <h3>1.2 Security Objectives of Encryption</h3>
+
+          <div class="card">
+            <div class="term">Confidentiality</div>
+            <p class="def">Ensures that only the intended recipient can read the message.</p>
+          </div>
+
+          <div class="card">
+            <div class="term">Authenticity</div>
+            <p class="def">Verifies the sender of the message and ensures they are legitimate.</p>
+          </div>
+
+          <div class="card">
+            <div class="term">Integrity</div>
+            <p class="def">Guarantees that the data has not been altered during transmission.</p>
+          </div>
+
+          <div class="card">
+            <div class="term">Non-Repudiation</div>
+            <p class="def">Prevents the sender or receiver from denying their involvement in the transmission.</p>
+          </div>
+
+          <h3>1.3 Encryption Models</h3>
+
+          <p class="note">
+            In practice, both symmetric and asymmetric encryption are used because they solve different problems: symmetric encryption is fast for large amounts of data, while asymmetric encryption helps avoid sharing a secret key in advance.
+          </p>
+
+          <div class="card">
+            <span class="label">Key distinction</span>
+            <p class="def" style="margin-top:8px;">
+              A fundamental distinction between <span class="kw" data-tip="Symmetric encryption uses the same shared secret key to encrypt and decrypt.">symmetric encryption</span> and <span class="kw" data-tip="Asymmetric encryption uses two keys: a public key and a private key.">asymmetric encryption</span> is that symmetric encryption relies on one common key used by all communicating parties,
+              whereas asymmetric encryption relies on a pair of keys in which one key is publicly available and the other must be kept secret.
+            </p>
+          </div>
+
+          <h4>1.3.1 <span class="kw" data-tip="Symmetric key encryption uses one shared secret key for both encryption and decryption.">Symmetric Key Encryption</span></h4>
+
+          <ul>
+            <li>Uses the same secret key for both encryption and decryption.</li>
+            <li>Suitable for fast and secure communication when both parties can share the key privately.</li>
+          </ul>
+
+          <p class="note">
+            In symmetric encryption, the encryption algorithm can work in different ways depending on how it processes the data.
+          </p>
+          <ul>
+            <li><span class="kw" data-tip="Block cipher: encrypts a whole block of bits together, rather than one bit at a time.">Block cipher</span> is the encryption of a number of contiguous bits in one go rather than one bit at a time.</li>
+            <li><span class="kw" data-tip="Stream cipher: encrypts bits one by one (or in a continuous stream) as they arrive.">Stream cipher</span> is the encryption of bits in sequence as they arrive at the encryption algorithm.</li>
+            <li><span class="kw" data-tip="Block chaining: combines each plaintext block with the previous ciphertext block before encryption, preventing identical plaintext blocks producing identical ciphertext.">Block chaining</span> is a form of encryption in which the previous block of ciphertext is combined with the block of plaintext and then encrypted, thus preventing identical plaintext blocks producing identical ciphertext.</li>
+          </ul>
+
+          <div class="example">
+            <h5>Example</h5>
+            <p>If the plaintext is "COMPUTER SCIENCE IS EXCITING" and a 10-digit key shifts each letter by certain positions, the ciphertext becomes "GQSMXYIV WKMGIRG MW IBAOXMQK."</p>
+          </div>
+
+          <div class="example">
+            <h5>Limitation</h5>
+            <p>The key must be securely shared between sender and receiver. If intercepted, the encryption becomes useless. This is known as the <span class="kw" data-tip="Key distribution problem: the shared secret key might be intercepted when it is sent to the receiver.">key distribution problem</span>.</p>
+          </div>
+
+          <p class="note">
+            Modern symmetric encryption, such as Advanced Encryption Standard (AES), uses 256-bit keys with 2^256 possible combinations, making it highly secure (this means an extremely large number of possible keys).
+          </p>
+
+          <h4>1.3.2 <span class="kw" data-tip="Asymmetric key encryption uses a public key and a private key. One is used to encrypt and the other to decrypt.">Asymmetric Key Encryption</span> (Public Key Encryption)</h4>
+
+          <p class="note">
+            Asymmetric encryption is often used to exchange a temporary secret key safely, then that temporary key is used for fast symmetric encryption of the main data.
+          </p>
+
+          <p class="note">Uses a pair of keys:</p>
+          <ul>
+            <li><strong><span class="kw" data-tip="Public key: a key shared openly that others use to encrypt data to you.">Public Key</span>:</strong> Shared with everyone and used to encrypt data.</li>
+            <li><strong><span class="kw" data-tip="Private key: a secret key known only to the owner, used to decrypt data.">Private Key</span>:</strong> Kept secret and used to decrypt data.</li>
+          </ul>
+
+          <div class="example">
+            <h5>Example scenario</h5>
+            <ul>
+              <li>Mohamed wants to send a confidential message to Fatma.</li>
+              <li>To ensure only Fatma can read the message, Mohamed needs Fatma’s public key.</li>
+              <li>Fatma shares her public key with Mohamed. This key is safe to share with anyone.</li>
+              <li>Mohamed encrypts the message using Fatma’s public key.</li>
+              <li>He sends the encrypted message to Fatma.</li>
+              <li>When Fatma receives the message, she uses her private key to decrypt it and read the original content.</li>
+            </ul>
+          </div>
+
+          <div class="example">
+            <h5>Why is this secure?</h5>
+            <p>
+              Even if someone intercepts the encrypted message, they cannot read it because they don’t have Fatma’s private key.
+              <br />
+              Only Fatma can decrypt the message since she is the only one who has the corresponding private key.
+            </p>
+          </div>
+
+          <div class="example">
+            <h5>Advantages</h5>
+            <ul>
+              <li>Eliminates the need to share a secret key (key distribution problem).</li>
+              <li>Better security for large networks. Each person has a unique key pair, avoiding key distribution issues.</li>
+            </ul>
+          </div>
+
+          <h3>1.4 Advanced Encryption Approaches</h3>
+
+          <h4>1.4.1 <span class="kw" data-tip="Quantum cryptography uses the laws of quantum mechanics (properties of photons) to secure communication.">Quantum Cryptography</span></h4>
+
+          <p class="note">
+            Quantum cryptography uses the properties of photons (light particles) and quantum mechanics to enable ultra-secure communication.
+          </p>
+
+          <div class="card">
+            <div class="term"><span class="kw" data-tip="Qubit: the basic unit of quantum information (quantum bit).">Qubit</span></div>
+            <p class="def">The basic unit of a quantum of information (quantum bit).</p>
+          </div>
+
+          <p class="note">
+            In some quantum communication systems, information can be represented using quantum states (for example, different photon polarizations), which is one way to think about how a qubit can be physically represented.
+          </p>
+
+          <div class="card">
+            <div class="term">Polarization</div>
+            <p class="def">Polarization is the direction in which a light wave oscillates.</p>
+          </div>
+
+          <div class="example">
+            <h5><span class="kw" data-tip="Quantum key distribution (QKD): a protocol that uses quantum mechanics to securely send encryption keys and detect interception.">Quantum Key Distribution (QKD)</span></h5>
+            <p>In Quantum Key Distribution (QKD), photons are polarized to represent bits:</p>
+            <div class="mono">Vertical (|) = 1
+Horizontal ( - ) = 0
+45° Right (/) = 1
+45° Left (\) = 0</div>
+          </div>
+
+          <p class="note">
+            A special method called Quantum Key Distribution (QKD) allows two people to share a secret encryption key while detecting any eavesdroppers.
+            If a hacker tries to intercept the key, the act of measuring the photons changes their state, alerting the sender and receiver.
+          </p>
+
+          <div class="example">
+            <h5>Advantages</h5>
+            <p>Quantum cryptography can detect eavesdropping during key exchange because measuring certain quantum states changes them.</p>
+          </div>
+
+          <div class="example">
+            <h5>Limitations</h5>
+            <ul>
+              <li>Requires specialized hardware and dedicated quantum communication channels.</li>
+            </ul>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SECTION 2 -->
+      <section id="sec2">
+        <div class="section-head">
+          <h2>17.b: Secure Socket Layer (SSL) and Transport Layer Security (TLS)</h2>
+          <p>Purpose, handshake process, and common applications of SSL/TLS.</p>
+        </div>
+
+        <div class="content">
+          <p class="note">
+            <span class="kw" data-tip="SSL: a security protocol used when sending data over the internet.">SSL</span> and <span class="kw" data-tip="TLS: a more up to date version of SSL.">TLS</span> are protocols used to secure online communication by encrypting data and verifying the authenticity of websites.
+          </p>
+
+          <div class="card">
+            <div class="term"><span class="kw" data-tip="Public key infrastructure (PKI): protocols, standards, and services that let users authenticate each other using CA-issued digital certificates.">Public Key Infrastructure (PKI)</span></div>
+            <p class="def">A set of protocols, standards and services that allow clients and servers to authenticate each other using digital certificates issued by a <span class="kw" data-tip="Certificate authority (CA): a commercial organisation that issues and signs digital certificates.">CA</span>.</p>
+          </div>
+
+          <h3>2.1 Security Properties Provided by SSL/TLS</h3>
+
+          <div class="card">
+            <div class="term">Encryption</div>
+            <p class="def">Ensures that data transmitted between the client (browser) and the server (website) is unreadable by unauthorized parties.</p>
+          </div>
+
+          <div class="card">
+            <div class="term">Authentication</div>
+            <p class="def">Confirms the identity of the website to prevent impersonation.</p>
+          </div>
+
+          <div class="card">
+            <div class="term">Data Integrity</div>
+            <p class="def">Ensures that data has not been altered during transmission.</p>
+          </div>
+
+          <h3>2.2 SSL/TLS <span class="kw" data-tip="Handshake: the process of initiating communication between two devices and agreeing how to exchange data securely.">Handshake</span> Process</h3>
+
+          <ol class="steps">
+            <li>The client connects to a secure website via HTTPS.</li>
+            <li>The server sends an SSL certificate, which contains its public key, to the client.</li>
+          </ol>
+
+          <div class="card">
+            <div class="term">What is the certificate in this step?</div>
+            <p class="def">
+              A digital certificate is an electronic document used to prove the identity of a website or individual. It contains a public key and information identifying the owner, and it is issued and signed by a trusted <span class="kw" data-tip="Certificate authority (CA): a commercial organisation that issues and signs digital certificates.">Certificate Authority (CA)</span>.
+            </p>
+          </div>
+
+          <ol class="steps">
+            <li style="counter-increment: step;">
+              The client verifies the certificate by checking:
+              <ul>
+                <li>The certificate’s digital signature, issued by a trusted Certificate Authority (CA).</li>
+                <li>The domain name in the certificate matches the website’s domain.</li>
+                <li>The certificate’s validity period.</li>
+              </ul>
+            </li>
+            <li>The client generates a temporary session key using the server’s public key and sends it to the server.</li>
+            <li>The server decrypts the session key using its private key.</li>
+            <li>All communication between the client and server is encrypted using this session key.</li>
+          </ol>
+
+          <p class="note">
+            The session key is used because it allows fast encryption of the main data after the secure setup phase is completed.
+          </p>
+
+          <p class="note">
+            TLS can also reduce repeated setup work when the same client reconnects to the same server.
+          </p>
+          <ul>
+            <li><span class="kw" data-tip="Session caching: TLS can remember a previous session so a new secure link can be set up faster next time.">Session caching</span> is a function in TLS that allows a previous computer session to be remembered, therefore preventing the need to establish a new link each time a new session is attempted.</li>
+          </ul>
+
+          <h3>2.3 Common Applications of SSL/TLS</h3>
+          <ul>
+            <li>Online banking and shopping (e.g., protecting credit card information).</li>
+            <li>Cloud storage services (e.g., ensuring secure file transfers).</li>
+            <li>Virtual Private Networks (VPNs) for secure remote access.</li>
+          </ul>
+
+        </div>
+      </section>
+
+      <!-- SECTION 3 -->
+      <section id="sec3">
+        <div class="section-head">
+          <h2>17.c: Digital Certification</h2>
+          <p>Digital certificates, how they are acquired, and how they are used.</p>
+        </div>
+
+        <div class="content">
+          <p class="note">
+            Digital certificates are electronic documents used to verify the identity of individuals, organizations, or websites.
+            They ensure trust and secure communication in online interactions.
+          </p>
+
+          <h3>3.1 Digital Certificates: Definition and Contents</h3>
+          <p class="note">A digital certificate contains:</p>
+          <ul>
+            <li>The owner’s public key.</li>
+            <li>Information about the owner (e.g., domain name, organization name).</li>
+            <li>The CA’s digital signature, which verifies the certificate’s authenticity.</li>
+            <li>Validity dates (start and expiration).</li>
+          </ul>
+
+          <p class="note">
+            In practice, verification is possible because the CA has a public key that can be used to check the CA’s digital signature on the certificate.
+          </p>
+
+          <h3>3.2 Certificate Issuance Process</h3>
+
+          <p class="note">
+            The following image illustrates the main steps involved in obtaining a digital certificate from a Certification Authority (CA).
+          </p>
+          <figure class="note-figure">
+            <img src="images/Processes%20involved%20in%20obtaining%20a%20digital%20certificate.png" alt="Processes involved in obtaining a digital certificate" width ="50%"/>
+            <figcaption>
+              The certificate creation process links a person or website to a public key.
+              The CA uses its private key to sign the certificate, allowing others to verify that the public key and identity information are trustworthy.
+            </figcaption>
+          </figure>
+
+          <ol class="steps">
+            <li>The owner generates a public-private key pair.</li>
+            <li>The public key, along with identity information, is submitted to a trusted Certificate Authority.</li>
+            <li>The CA verifies the owner’s identity and issues a digital certificate.</li>
+          </ol>
+
+          <h3>3.3 Uses of Digital Certificates</h3>
+
+          <h4>3.3.1 Website Authentication</h4>
+          <p class="note">
+            When a client connects to a secure website, the browser verifies the server’s certificate to ensure it is legitimate.
+          </p>
+
+          <h4>3.3.2 Digital Signatures and Message Integrity</h4>
+
+          <p class="note">
+            Encryption is mainly used to keep data confidential, while a <span class="kw" data-tip="Digital signature: electronic way of validating authenticity and showing that a document was sent by a known user.">digital signature</span> is mainly used to prove who sent a message and to prove the message was not changed during transmission.
+          </p>
+
+          <p class="note">A digital signature verifies the authenticity and integrity of a message.</p>
+
+          <p class="note">
+            The following image shows how a sender creates a digital signature from a message by first producing a digest using a hashing algorithm, then encrypting that digest.
+          </p>
+          <figure class="note-figure">
+            <img src="images/Sender%20using%20a%20one-way%20hash%20function%20to%20send%20a%20digital%20signature.png" alt="Sender creating a digital signature using a hash and encryption" width="50%"/>
+            <figcaption>
+              A cryptographic hash function converts the message into a <span class="kw" data-tip="Digest: a fixed-size numeric summary of a message produced by hashing.">digest</span>.
+              Encrypting the digest with the sender’s private key produces the digital signature that can be checked by others.
+            </figcaption>
+          </figure>
+
+          <div class="example">
+            <h5>Process</h5>
+            <ol class="steps" style="margin-top:10px;">
+              <li>A message is hashed using a <span class="kw" data-tip="Hashing algorithm: a function that converts data into a numeric string used in cryptography.">hashing algorithm</span> (e.g., SHA-256) to create a <span class="kw" data-tip="Digest: a fixed-size numeric summary of a message produced by hashing.">digest</span> (a unique numeric summary).</li>
+              <li>The digest is encrypted with the sender’s private key to form the digital signature.</li>
+              <li>
+                The recipient decrypts the signature using the sender’s public key and compares it with their own digest of the message.
+                If the digests match, the message is verified as authentic and unaltered.
+              </li>
+            </ol>
+          </div>
+
+          <p class="note">
+            The following image illustrates how the receiver checks authenticity and integrity by recomputing the digest from the received message and comparing it with the digest obtained from the digital signature.
+          </p>
+          <figure class="note-figure">
+            <img src="images/Receiver%20checking%20that%20the%20received%20transmission%20is%20authentic%20and%20unchanged.png" alt="Receiver verifying a digital signature and checking message integrity" width="40%"/>
+            <figcaption>
+              The receiver hashes the received message to get a digest.
+              In parallel, the receiver uses the sender’s public key to obtain a digest from the digital signature.
+              If both digests match, the transmission is authentic and unchanged.
+            </figcaption>
+          </figure>
+
+        </div>
+      </section>
+    </main>
+  </div>
+  <script>
+      window.addEventListener('load', function () {
+        const height = document.body.scrollHeight;
+        window.parent.postMessage({ type: 'resize', height }, '*');
+      });
+    </script>
 </body>
 </html>
