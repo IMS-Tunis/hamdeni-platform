@@ -78,91 +78,225 @@
 <section class="note-card" id="sec_1_Linked_List">
   <h2 class="subheading">1) Linked List</h2>
   <div class="note-body"><a id='sec_1_Linked_List__What_a_linked_list_node_stores'></a><h3 class='subsub-heading level3'>What a linked list node stores</h3>
+
+
+
 <ul class='note-list level-0'>
-<li>A linked list is made of nodes.</li>
-<li>Each node stores:</li>
-<ul class='note-list level-1'>
-<li>a Data field (the value)</li>
-<li>a Pointer (also called link) field that stores where the next node is.</li>
+  <li>A linked list is made of nodes.</li>
+  <li>Each node stores:</li>
+  <ul class='note-list level-1'>
+    <li>a Data field (the value)</li>
+    <li>a Pointer (also called link) field that stores where the next node is</li>
+  </ul>
+  <li>The pointer of the last node stores a null value (meaning “no next node”).</li>
 </ul>
-<li>The pointer of the last node stores a null value (meaning “no next node”).</li>
-</ul>
-<a id='sec_1_Linked_List__Array_based_linked_list'></a><h3 class='subsub-heading level3'>Array based linked list</h3>
-<p class='note-paragraph'>A common way to implement a linked list is to store nodes inside an array:</p>
+
+<a id='sec_1_Linked_List__Array_based_linked_list'></a>
+<h3 class='subsub-heading level3'>Array based linked list</h3>
+
+<p class='note-paragraph'>
+A common way to implement a linked list is to store nodes inside an array (or in Python, a list).
+Each array position represents one node record.
+</p>
+
 <ul class='note-list level-0'>
-<li>Each array position is a node record with:</li>
-<ul class='note-list level-1'>
-<li>Data</li>
-<li>Pointer (the index of the next node, or NullPointer).</li>
+  <li>Each array position is a node record with:</li>
+  <ul class='note-list level-1'>
+    <li>Data</li>
+    <li>Pointer (the index of the next node, or NullPointer).</li>
+  </ul>
+  <li>StartPointer stores the index of the first node in the list (or NullPointer if the list is empty).</li>
+  <li>FreeListPtr stores the index of the first free (unused) node.</li>
+  <li>NullPointer is often -1 when array indices start at 0.</li>
 </ul>
-<li>StartPointer stores the index of the first node in the list (or NullPointer if the list is empty).</li>
-<li>FreeListPtr stores the index of the first free (unused) node.</li>
-<li>NullPointer is often -1 when array indices start at 0.</li>
-</ul>
-<a id='sec_1_Linked_List__The_free_list_how_unused_nodes_are_tracked'></a><h3 class='subsub-heading level3'>The free list (how unused nodes are tracked)</h3>
+
+<p class='note-paragraph'>
+In the Python code, the array-based linked list is created as a list of nodes where each node is stored as a pair:
+<code>[Data, Pointer]</code>. During initialisation, every node starts as unused, so its Data is set to <code>-1</code>.
+</p>
+
+<p class='note-paragraph'>
+Initialisation also sets:
+</p>
 <ul class='note-list level-0'>
-<li>Unused nodes are connected together in their own linked list called the free list.</li>
-<li>FreeListPtr points to the first free node, and each free node’s pointer links to the next free node.</li>
-<li>When you insert a node, you take the first node from the free list and move FreeListPtr forward.</li>
-<li>When you delete a node, you return that node to the free list by linking it back to FreeListPtr.</li>
+  <li><code>FirstNode</code> to NullPointer to show the linked list is empty (StartPointer).</li>
+  <li><code>FirstEmpty</code> to <code>0</code> so the first free node is at index 0 (FreeListPtr).</li>
 </ul>
+
+<a id='sec_1_Linked_List__The_free_list_how_unused_nodes_are_tracked'></a>
+<h3 class='subsub-heading level3'>The free list (how unused nodes are tracked)</h3>
+
+<ul class='note-list level-0'>
+  <li>Unused nodes are connected together in their own linked list called the free list.</li>
+  <li>FreeListPtr points to the first free node, and each free node’s pointer links to the next free node.</li>
+  <li>When you insert a node, you take the first node from the free list and move FreeListPtr forward.</li>
+  <li>When you delete a node, you return that node to the free list by linking it back to FreeListPtr.</li>
+</ul>
+
+<p class='note-paragraph'>
+In <code>linkedInitialisePython(size)</code>, the free list is built by setting each node’s pointer to the next index:
+index 0 points to 1, 1 points to 2, and so on, until the last node points to NullPointer.
+This creates a chain of free nodes that can be used later for insertion.
+</p>
+<p class='note-paragraph'>See:</p>
+<ul class='note-list level-0'>
+  <li><a class="annex-link" href="annex_19_1.html#linkedInitialisePseudo" data-annex="linkedInitialisePseudo">linkedInitialisePseudo (annex)</a></li>
+  <li><a class="annex-link" href="annex_19_1.html#linkedInitialisePython" data-annex="linkedInitialisePython">linkedInitialisePython (annex)</a></li>
+</ul>
+
+
+
+
+
 <a id='sec_1_Linked_List__Algorithm_1_Find_search_in_a_linked_list'></a><h3 class='subsub-heading level3'>Algorithm 1: Find (search) in a linked list</h3>
-<p class='note-paragraph'>Goal: locate the node whose Data equals a target value.</p>
+
+
+
+
+<p class='note-paragraph'>
+Goal: locate the node whose Data equals a target value in an array-based linked list.
+</p>
+
+<p class='note-paragraph'>
+In Python, the linked list is stored as a <strong>2D list</strong>. Each node is stored as:
+</p>
+
 <ul class='note-list level-0'>
-<li>Start from StartPointer.</li>
-<li>Repeat:</li>
-<ul class='note-list level-1'>
-<li>compare the current node’s Data to the target</li>
-<li>if not equal, follow the pointer to the next node</li>
+  <li><code>LinkedList[index][0]</code> → the <strong>Data</strong> in the node</li>
+  <li><code>LinkedList[index][1]</code> → the <strong>Pointer</strong> (index of the next node)</li>
 </ul>
-<li>Stop when:</li>
-<ul class='note-list level-1'>
-<li>the item is found, or</li>
-<li>the pointer becomes NullPointer (end of list).</li>
+
+<p class='note-paragraph'>
+The <strong>first index</strong> selects which node is accessed, and the <strong>second index</strong> selects Data (<code>0</code>) or Pointer (<code>1</code>).
+</p>
+
+<p class='note-paragraph'>
+Moving to the next node is done by <strong>replacing the current pointer with the next pointer</strong>.
+This happens using:
+<code>current_ptr = LinkedList[current_ptr][1]</code>.  
+When the pointer value is replaced, the algorithm automatically moves to the next node.
+</p>
+
+<ul class='note-list level-0'>
+  <li>Start from <strong>StartPointer</strong>.</li>
+  <li>Repeat:</li>
+  <ul class='note-list level-1'>
+    <li>compare the Data using <code>LinkedList[current_ptr][0]</code></li>
+    <li>move to the next node by replacing the pointer using <code>current_ptr = LinkedList[current_ptr][1]</code></li>
+  </ul>
+  <li>Stop when:</li>
+  <ul class='note-list level-1'>
+    <li>the Data matches the target, or</li>
+    <li>the pointer becomes <strong>NullPointer</strong>.</li>
+  </ul>
 </ul>
-</ul>
+
+
+
+
+
 <p class='note-paragraph'>See:</p>
 <ul class='note-list level-0'>
 <li><a class="annex-link" href="annex_19_1.html#linkedFindPseudo" data-annex="linkedFindPseudo">linkedFindPseudo (annex)</a> for the pseudocode</li>
 <li><a class="annex-link" href="annex_19_1.html#linkedFindPython" data-annex="linkedFindPython">linkedFindPython (annex)</a> for the Python version</li>
 </ul>
 <a id='sec_1_Linked_List__Algorithm_2_Insertion_of_a_new_node'></a><h3 class='subsub-heading level3'>Algorithm 2: Insertion of a new node</h3>
-<p class='note-paragraph'>To make it simple: insert at the front of the list.</p>
-<p class='note-paragraph'>This is a standard special case of linked list insertion where the new node becomes the first node:</p>
+
+
+
+
+
+
+
+<p class='note-paragraph'>
+Insertion is done at the <strong>front</strong> of the list, so no traversal is required.
+</p>
+
 <ul class='note-list level-0'>
-<li>take a free node</li>
-<li>store the new data in it</li>
-<li>make its pointer point to the old first node</li>
-<li>move StartPointer to the new node</li>
+  <li>If <strong>FreeListPtr</strong> is <strong>NullPointer</strong>, there are no free nodes and insertion fails.</li>
+  <li>The first free node is taken from the <strong>free list</strong> to store the new item.</li>
 </ul>
-<p class='note-paragraph'>Important outcomes:</p>
+
+<p class='note-paragraph'>
+Before storing the new data, the pointer of the free node is saved.
+This is necessary because the pointer currently stores the <strong>next free node</strong>.
+If it is not saved, the rest of the free list would be lost.
+</p>
+
 <ul class='note-list level-0'>
-<li>If FreeListPtr is NullPointer, there is no space, so insertion fails.</li>
-<li>If the list is empty (StartPointer = NullPointer), insertion still works because the new node’s pointer becomes NullPointer.</li>
+  <li>The new data is stored in the free node.</li>
+  <li>The node’s pointer is updated to point to the old first node.</li>
+  <li>The <strong>StartPointer</strong> is replaced with the index of the new node.</li>
 </ul>
-<p class='note-paragraph'>Variants students may meet in the exam:</p>
+
+<p class='note-paragraph'>
+Key idea: insertion works by <strong>removing one node from the free list</strong> and
+<strong>adding it to the front of the linked list</strong> by updating pointers.
+</p>
+
+
+<p class='note-paragraph'>
+Variants students may meet in the exam:
+</p>
 <ul class='note-list level-0'>
-<li>insert at the end</li>
-<li>insert into an ordered position (insert between nodes after searching for the correct position)</li>
+  <li>insert at the end</li>
+  <li>insert into an ordered position (insert between nodes after searching for the correct position)</li>
 </ul>
+
+
+
+
+
+
+
+
+
 <p class='note-paragraph'>See:</p>
 <ul class='note-list level-0'>
 <li><a class="annex-link" href="annex_19_1.html#linkedInsertPseudo" data-annex="linkedInsertPseudo">linkedInsertPseudo (annex)</a></li>
 <li><a class="annex-link" href="annex_19_1.html#linkedInsertPython" data-annex="linkedInsertPython">linkedInsertPython (annex)</a></li>
 </ul>
 <a id='sec_1_Linked_List__Algorithm_3_Delete_remove_one_item'></a><h3 class='subsub-heading level3'>Algorithm 3: Delete (remove one item)</h3>
-<p class='note-paragraph'>Goal: remove the first node whose Data matches the target.</p>
-<p class='note-paragraph'>Core idea:</p>
+
+
+
+
+
+<p class='note-paragraph'>
+Goal: remove the first node whose Data matches the target.
+</p>
+
+<p class='note-paragraph'>
+Key idea: to delete a node, we must also know the node <strong>before</strong> it, so we can re-link the list.
+This is why the algorithm uses two pointers: <code>this_ptr</code> (current node) and <code>prev_ptr</code> (previous node).
+</p>
+
 <ul class='note-list level-0'>
-<li>traverse the list to find the node to delete, while also tracking the previous node</li>
-<li>if deleting the first node, update StartPointer to the second node</li>
-<li>otherwise, change the previous node’s pointer to skip the deleted node</li>
-<li>return the deleted node to the free list:</li>
-<ul class='note-list level-1'>
-<li>point the deleted node to FreeListPtr</li>
-<li>update FreeListPtr to the deleted node</li>
+  <li><strong>Search for the target:</strong> traverse from StartPointer until the Data matches or NullPointer is reached.</li>
+  <li><strong>If NullPointer is reached:</strong> the item is not in the list, so deletion fails.</li>
+  <li><strong>Two deletion cases:</strong></li>
+  <ul class='note-list level-1'>
+    <li><strong>Deleting the first node:</strong> update StartPointer to the second node (the current first node’s pointer).</li>
+    <li><strong>Deleting any other node:</strong> update the previous node’s pointer to skip the deleted node (link previous directly to the node after it).</li>
+  </ul>
+  <li><strong>Return the deleted node to the free list:</strong> the deleted node is not destroyed; it is reused later.</li>
+  <ul class='note-list level-1'>
+    <li>make the deleted node’s pointer point to the current FreeListPtr</li>
+    <li>move FreeListPtr to the deleted node</li>
+    <li>clear the Data field (e.g. set to <code>-1</code>)</li>
+  </ul>
 </ul>
-</ul>
+
+<p class='note-paragraph'>
+Summary: deletion works by <strong>removing a node from the linked list</strong> (by pointer changes) and <strong>adding that node to the front of the free list</strong>.
+</p>
+
+
+
+
+
+
+
 <p class='note-paragraph'>See:</p>
 <ul class='note-list level-0'>
 <li><a class="annex-link" href="annex_19_1.html#linkedDeletePseudo" data-annex="linkedDeletePseudo">linkedDeletePseudo (annex)</a></li>
