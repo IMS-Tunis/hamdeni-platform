@@ -293,10 +293,6 @@ Summary: deletion works by <strong>removing a node from the linked list</strong>
 
 
 
-
-
-
-
 <p class='note-paragraph'>See:</p>
 <ul class='note-list level-0'>
 <li><a class="annex-link" href="annex_19_1.html#linkedDeletePseudo" data-annex="linkedDeletePseudo">linkedDeletePseudo (annex)</a></li>
@@ -304,226 +300,456 @@ Summary: deletion works by <strong>removing a node from the linked list</strong>
 </ul></div>
 </section>
 
+
+
+
+
 <section class="note-card" id="sec_2_Stack">
   <h2 class="subheading">2) Stack</h2>
   <div class="note-body">
+
 <p class='note-paragraph'>What a stack is</p>
 <ul class='note-list level-0'>
-<li>A stack is a data structure where the last item added is the first item removed (LIFO).</li>
-<li>Items are added to the top and removed from the top.</li>
+  <li>A stack is a data structure where the last item added is the first item removed (LIFO).</li>
+  <li>Items are added to the top and removed from the top.</li>
 </ul>
 
-<a id='sec_2_Stack__Algorithm_0_Initialise_the_stack'></a><h3 class='subsub-heading level3'>Algorithm 0: Initialise the stack</h3>
+<p class='note-paragraph'>
+In the Python implementation, the stack is stored in a fixed-size array and controlled using pointers.
+Only the top of the stack is accessed directly.
+</p>
+
+<a id='sec_2_Stack__Algorithm_0_Initialise_the_stack'></a>
+<h3 class='subsub-heading level3'>Algorithm 0: Initialise the stack</h3>
+
 <ul class='note-list level-0'>
-<li>Before using a stack, the pointers must be set to represent an empty stack.</li>
-<li>Initialise sets the stack to empty by setting the top pointer to the empty value</li>
+  <li>Before using a stack, the pointers must be set to represent an empty stack.</li>
+  <li>The stack is empty when <strong>TopPointer</strong> is below the first valid position.</li>
 </ul>
+
+<p class='note-paragraph'>
+In the Python code, the stack uses <strong>1-based indexing</strong>:
+</p>
+<ul class='note-list level-0'>
+  <li><strong>BasePointer</strong> is set to 1 (the first valid stack position).</li>
+  <li><strong>TopPointer</strong> is set to 0 to represent an empty stack.</li>
+</ul>
+
+<p class='note-paragraph'>
+This makes the empty-stack condition easy to check: if <code>TopPointer &lt; BasePointer</code>, the stack is empty.
+</p>
+
 <p class='note-paragraph'>See Annex:</p>
 <ul class='note-list level-0'>
-<li><a class="annex-link" href="annex_19_1.html#stackInitialisePseudo" data-annex="stackInitialisePseudo">stackInitialisePseudo</a></li>
-<li><a class="annex-link" href="annex_19_1.html#stackInitialisePython" data-annex="stackInitialisePython">stackInitialisePython</a></li>
+  <li><a class="annex-link" href="annex_19_1.html#stackInitialisePseudo" data-annex="stackInitialisePseudo">stackInitialisePseudo</a></li>
+  <li><a class="annex-link" href="annex_19_1.html#stackInitialisePython" data-annex="stackInitialisePython">stackInitialisePython</a></li>
 </ul>
+
 <p class='note-paragraph'>How the stack is stored</p>
 <ul class='note-list level-0'>
-<li>A stack can be stored in a fixed size array plus an integer pointer called TopPointer (TopOfStackPointer).</li>
-<li>The pointer always shows the position of the current top item.</li>
-<li>When an item is pushed, TopPointer moves up.</li>
-<li>When an item is popped, TopPointer moves down.</li>
+  <li>The stack is stored in a fixed-size array.</li>
+  <li><strong>TopPointer</strong> always stores the index of the current top item.</li>
+  <li>When an item is pushed, <strong>TopPointer moves up</strong>.</li>
+  <li>When an item is popped, <strong>TopPointer moves down</strong>.</li>
 </ul>
-<a id='sec_2_Stack__Algorithm_1_Check_if_the_stack_is_empty'></a><h3 class='subsub-heading level3'>Algorithm 1: Check if the stack is empty</h3>
+
+<a id='sec_2_Stack__Algorithm_1_Check_if_the_stack_is_empty'></a>
+<h3 class='subsub-heading level3'>Algorithm 1: Check if the stack is empty</h3>
+
 <ul class='note-list level-0'>
-<li>A stack is empty when it contains no items.</li>
-<li>The empty check prevents underflow (trying to pop from an empty stack).</li>
+  <li>A stack is empty when it contains no items.</li>
+  <li>In the Python code, this is checked by comparing the pointers.</li>
 </ul>
+
+<p class='note-paragraph'>
+If <code>TopPointer &lt; BasePointer</code>, no valid stack positions are in use, so the stack is empty.
+</p>
+
 <p class='note-paragraph'>See Annex:</p>
 <ul class='note-list level-0'>
-<li><a class="annex-link" href="annex_19_1.html#stackIsEmptyPseudo" data-annex="stackIsEmptyPseudo">stackIsEmptyPseudo</a></li>
-<li><a class="annex-link" href="annex_19_1.html#stackIsEmptyPython" data-annex="stackIsEmptyPython">stackIsEmptyPython</a></li>
+  <li><a class="annex-link" href="annex_19_1.html#stackIsEmptyPseudo" data-annex="stackIsEmptyPseudo">stackIsEmptyPseudo</a></li>
+  <li><a class="annex-link" href="annex_19_1.html#stackIsEmptyPython" data-annex="stackIsEmptyPython">stackIsEmptyPython</a></li>
 </ul>
-<a id='sec_2_Stack__Algorithm_2_Check_if_the_stack_is_full'></a><h3 class='subsub-heading level3'>Algorithm 2: Check if the stack is full</h3>
+
+<a id='sec_2_Stack__Algorithm_2_Check_if_the_stack_is_full'></a>
+<h3 class='subsub-heading level3'>Algorithm 2: Check if the stack is full</h3>
+
 <ul class='note-list level-0'>
-<li>A stack is full when it has no free space left.</li>
-<li>The full check prevents overflow (trying to push to a full stack).</li>
+  <li>A stack is full when no free space remains.</li>
 </ul>
+
+<p class='note-paragraph'>
+In the Python code, the stack is full when <code>TopPointer</code> reaches the maximum stack size.
+</p>
+
 <p class='note-paragraph'>See Annex:</p>
 <ul class='note-list level-0'>
-<li><a class="annex-link" href="annex_19_1.html#stackIsFullPseudo" data-annex="stackIsFullPseudo">stackIsFullPseudo</a></li>
-<li><a class="annex-link" href="annex_19_1.html#stackIsFullPython" data-annex="stackIsFullPython">stackIsFullPython</a></li>
+  <li><a class="annex-link" href="annex_19_1.html#stackIsFullPseudo" data-annex="stackIsFullPseudo">stackIsFullPseudo</a></li>
+  <li><a class="annex-link" href="annex_19_1.html#stackIsFullPython" data-annex="stackIsFullPython">stackIsFullPython</a></li>
 </ul>
-<a id='sec_2_Stack__Algorithm_3_Push'></a><h3 class='subsub-heading level3'>Algorithm 3: Push</h3>
+
+<a id='sec_2_Stack__Algorithm_3_Push'></a>
+<h3 class='subsub-heading level3'>Algorithm 3: Push</h3>
+
 <ul class='note-list level-0'>
-<li>Push adds an item to the top of the stack.</li>
-<li>Steps:</li>
-<ul class='note-list level-1'>
-<li>Check the stack is not full.</li>
-<li>Move TopPointer to the next free position.</li>
-<li>Store the new item at the top.</li>
+  <li>Push adds an item to the top of the stack.</li>
 </ul>
-</ul>
+
+<p class='note-paragraph'>
+To push an item, the algorithm first checks the stack is not full.
+If there is space, <strong>TopPointer is increased by one</strong> and the new item is stored at that position.
+</p>
+
+<p class='note-paragraph'>
+Key idea: pushing does not move data — it only moves <strong>TopPointer</strong>.
+</p>
+
 <p class='note-paragraph'>See Annex:</p>
 <ul class='note-list level-0'>
-<li><a class="annex-link" href="annex_19_1.html#stackPushPseudo" data-annex="stackPushPseudo">stackPushPseudo</a></li>
-<li><a class="annex-link" href="annex_19_1.html#stackPushPython" data-annex="stackPushPython">stackPushPython</a></li>
+  <li><a class="annex-link" href="annex_19_1.html#stackPushPseudo" data-annex="stackPushPseudo">stackPushPseudo</a></li>
+  <li><a class="annex-link" href="annex_19_1.html#stackPushPython" data-annex="stackPushPython">stackPushPython</a></li>
 </ul>
-<a id='sec_2_Stack__Algorithm_4_Pop'></a><h3 class='subsub-heading level3'>Algorithm 4: Pop</h3>
+
+<a id='sec_2_Stack__Algorithm_4_Pop'></a>
+<h3 class='subsub-heading level3'>Algorithm 4: Pop</h3>
+
 <ul class='note-list level-0'>
-<li>Pop removes and returns the item at the top of the stack.</li>
-<li>Steps:</li>
-<ul class='note-list level-1'>
-<li>Check the stack is not empty.</li>
-<li>Read the item at the top.</li>
-<li>Move TopPointer down by one position.</li>
-<li>Return the removed item.</li>
+  <li>Pop removes and returns the item at the top of the stack.</li>
 </ul>
-</ul>
+
+<p class='note-paragraph'>
+To pop an item, the algorithm first checks the stack is not empty.
+The item at <strong>TopPointer</strong> is read, then <strong>TopPointer is decreased by one</strong>.
+</p>
+
+<p class='note-paragraph'>
+Key idea: popping removes an item by moving the pointer down, not by shifting elements.
+</p>
+
 <p class='note-paragraph'>See Annex:</p>
 <ul class='note-list level-0'>
-<li><a class="annex-link" href="annex_19_1.html#stackPopPseudo" data-annex="stackPopPseudo">stackPopPseudo</a></li>
-<li><a class="annex-link" href="annex_19_1.html#stackPopPython" data-annex="stackPopPython">stackPopPython</a></li>
+  <li><a class="annex-link" href="annex_19_1.html#stackPopPseudo" data-annex="stackPopPseudo">stackPopPseudo</a></li>
+  <li><a class="annex-link" href="annex_19_1.html#stackPopPython" data-annex="stackPopPython">stackPopPython</a></li>
 </ul>
-<a id='sec_2_Stack__Underflow_and_overflow'></a><h4 class='subsub-heading level4'>Underflow and overflow</h4>
+
+<a id='sec_2_Stack__Underflow_and_overflow'></a>
+<h4 class='subsub-heading level4'>Underflow and overflow</h4>
 <ul class='note-list level-0'>
-<li>Underflow means trying to pop when the stack is empty.</li>
-<li>Overflow means trying to push when the stack is full.</li>
-</ul></div>
+  <li><strong>Underflow</strong>: trying to pop when the stack is empty.</li>
+  <li><strong>Overflow</strong>: trying to push when the stack is full.</li>
+</ul>
+
+</div>
 </section>
+
+
+
+
+
+
 
 <section class="note-card" id="sec_3_Queue">
   <h2 class="subheading">3) Queue</h2>
-  <div class="note-body"><a id='sec_3_Queue__Core_idea_FIFO'></a><h3 class='subsub-heading level3'>Core idea (FIFO)</h3>
+  <div class="note-body">
+
+<a id='sec_3_Queue__Core_idea_FIFO'></a>
+<h3 class='subsub-heading level3'>Core idea (FIFO)</h3>
+
 <ul class='note-list level-0'>
-<li>A queue is a First-In, First-Out (FIFO) structure: the first item added is the first item removed.</li>
-<li>The front is the end where items are removed (deQueue).</li>
-<li>The rear (end) is the end where items are added (enQueue).</li>
+  <li>A queue is a First-In, First-Out (FIFO) structure.</li>
+  <li>The <strong>front</strong> is where items are removed (deQueue).</li>
+  <li>The <strong>rear</strong> is where items are added (enQueue).</li>
 </ul>
-<a id='sec_3_Queue__Array_based_queue_representation_fixed_size'></a><h3 class='subsub-heading level3'>Array-based queue representation (fixed size)</h3>
-<p class='note-paragraph'>A queue can be stored in a fixed-size 1D array. Three control variables are commonly used:</p>
+
+<p class='note-paragraph'>
+In the Python implementation, a queue is stored in a fixed-size array and controlled using pointers and a counter.
+</p>
+
+<a id='sec_3_Queue__Array_based_queue_representation_fixed_size'></a>
+<h3 class='subsub-heading level3'>Array-based queue representation (fixed size)</h3>
+
 <ul class='note-list level-0'>
-<li>FrontOfQueuePointer (front pointer): points to the first item in the queue (next item to remove).</li>
-<li>EndOfQueuePointer (rear pointer): points to the last item in the queue (most recently added item).</li>
-<li>NumberInQueue (counter): how many items are currently stored.</li>
+  <li><strong>HeadPointer</strong> points to the front item (next item to remove).</li>
+  <li><strong>TailPointer</strong> points to the rear item (most recently added).</li>
+  <li><strong>NumberItems</strong> stores how many items are currently in the queue.</li>
 </ul>
-<p class='note-paragraph'>A counter makes it easier to check:</p>
+
+<p class='note-paragraph'>
+The queue is empty when <code>NumberItems = 0</code> and full when
+<code>NumberItems = MAX_QUEUE_SIZE</code>.
+</p>
+
+<p class='note-paragraph'>
+In the Python code, both pointers start at <code>-1</code> to represent an empty queue.
+This avoids pointing to an invalid array position before the first insertion.
+</p>
+
+<a id='sec_3_Queue__Wrap_round_circular_queue'></a>
+<h3 class='subsub-heading level3'>Wrap-round (circular queue)</h3>
+
+<p class='note-paragraph'>
+Because the queue uses a fixed-size array, pointers must wrap back to the start
+when they reach the end of the array.
+</p>
+
 <ul class='note-list level-0'>
-<li>Queue full when NumberInQueue equals the maximum size.</li>
-<li>Queue empty when NumberInQueue equals 0.</li>
+  <li>If a pointer is increased past the last index, it is reset to <code>0</code>.</li>
+  <li>This allows freed spaces at the start of the array to be reused.</li>
 </ul>
-<a id='sec_3_Queue__Wrap_round_circular_queue'></a><h3 class='subsub-heading level3'>Wrap-round (circular queue)</h3>
-<p class='note-paragraph'>If the queue uses a fixed-size array, the pointers must “wrap” back to the start when they reach the last index.</p>
+
+<p class='note-paragraph'>
+Key idea: wrap-round changes only the pointer value — data is not moved.
+</p>
+
+<a id='sec_3_Queue__Algorithm_1_Initialise_a_queue'></a>
+<h3 class='subsub-heading level3'>Algorithm 1: Initialise a queue</h3>
+
 <ul class='note-list level-0'>
-<li>When increasing a pointer causes it to go past the last index, it is reset to 0.</li>
-<li>This allows reusing spaces that were freed at the start of the array after removals.</li>
+  <li>Initialisation sets the queue to an empty state.</li>
+  <li><strong>HeadPointer</strong> and <strong>TailPointer</strong> are set to <code>-1</code>.</li>
+  <li><strong>NumberItems</strong> is set to <code>0</code>.</li>
 </ul>
-<a id='sec_3_Queue__Algorithm_1_Initialise_a_queue'></a><h3 class='subsub-heading level3'>Algorithm 1: Initialise a queue</h3>
+
+<p class='note-paragraph'>
+This clearly marks the queue as empty and ready to accept its first item.
+</p>
+
+<p class='note-paragraph'>See Annex:</p>
 <ul class='note-list level-0'>
-<li>Purpose: set the queue to an empty state and reset control variables.</li>
-<li>Result: the queue contains no items and is ready to accept new items.</li>
-<li>See <a class="annex-link" href="annex_19_1.html#queueInitialisePseudo" data-annex="queueInitialisePseudo">Annex: queueInitialisePseudo</a> and <a class="annex-link" href="annex_19_1.html#queueInitialisePython" data-annex="queueInitialisePython">queueInitialisePython</a>.</li>
+  <li><a class="annex-link" href="annex_19_1.html#queueInitialisePseudo" data-annex="queueInitialisePseudo">queueInitialisePseudo</a></li>
+  <li><a class="annex-link" href="annex_19_1.html#queueInitialisePython" data-annex="queueInitialisePython">queueInitialisePython</a></li>
 </ul>
-<a id='sec_3_Queue__Algorithm_2_Add_an_item_enQueue'></a><h3 class='subsub-heading level3'>Algorithm 2: Add an item (enQueue)</h3>
+
+<a id='sec_3_Queue__Algorithm_2_Add_an_item_enQueue'></a>
+<h3 class='subsub-heading level3'>Algorithm 2: Add an item (enQueue)</h3>
+
 <ul class='note-list level-0'>
-<li>Purpose: add a new item at the rear of the queue.</li>
-<li>Typical steps:</li>
-<ul class='note-list level-1'>
-<li>Check there is space (queue is not full).</li>
-<li>Move the rear pointer forward by 1 (with wrap-round if needed).</li>
-<li>Store the new item at the rear position.</li>
-<li>Increase the counter.</li>
+  <li>Purpose: add a new item at the rear of the queue.</li>
 </ul>
-<li>See <a class="annex-link" href="annex_19_1.html#queueEnqueuePseudo" data-annex="queueEnqueuePseudo">Annex: queueEnqueuePseudo</a> and <a class="annex-link" href="annex_19_1.html#queueEnqueuePython" data-annex="queueEnqueuePython">queueEnqueuePython</a>.</li>
-</ul>
-<a id='sec_3_Queue__Algorithm_3_Remove_an_item_deQueue'></a><h3 class='subsub-heading level3'>Algorithm 3: Remove an item (deQueue)</h3>
+
+<p class='note-paragraph'>
+Before adding an item, the algorithm checks that the queue is not full
+using <code>NumberItems</code>.
+</p>
+
+<p class='note-paragraph'>
+If the queue is empty (<code>TailPointer = -1</code>), both pointers are set to <code>0</code>
+and the first item is stored.
+This special case is needed to establish the initial front and rear.
+</p>
+
+<p class='note-paragraph'>
+Otherwise, <strong>TailPointer is moved forward</strong>.
+If it reaches the end of the array, it wraps back to <code>0</code>.
+The new item is then stored at the updated position.
+</p>
+
+<p class='note-paragraph'>
+Finally, <code>NumberItems</code> is increased by 1.
+</p>
+
+<p class='note-paragraph'>
+Key idea: enQueue adds an item by moving the rear pointer, not by shifting data.
+</p>
+
+<p class='note-paragraph'>See Annex:</p>
 <ul class='note-list level-0'>
-<li>Purpose: remove and return the item at the front of the queue.</li>
-<li>Typical steps:</li>
-<ul class='note-list level-1'>
-<li>Check there is at least one item (queue is not empty).</li>
-<li>Read the item at the front position.</li>
-<li>Decrease the counter.</li>
-<li>If the queue becomes empty, reset the queue to the empty state.</li>
-<li>Otherwise, move the front pointer forward by 1 (with wrap-round if needed).</li>
+  <li><a class="annex-link" href="annex_19_1.html#queueEnqueuePseudo" data-annex="queueEnqueuePseudo">queueEnqueuePseudo</a></li>
+  <li><a class="annex-link" href="annex_19_1.html#queueEnqueuePython" data-annex="queueEnqueuePython">queueEnqueuePython</a></li>
 </ul>
-<li>See <a class="annex-link" href="annex_19_1.html#queueDequeuePseudo" data-annex="queueDequeuePseudo">Annex: queueDequeuePseudo</a> and <a class="annex-link" href="annex_19_1.html#queueDequeuePython" data-annex="queueDequeuePython">queueDequeuePython</a>.</li>
-</ul></div>
+
+<a id='sec_3_Queue__Algorithm_3_Remove_an_item_deQueue'></a>
+<h3 class='subsub-heading level3'>Algorithm 3: Remove an item (deQueue)</h3>
+
+<ul class='note-list level-0'>
+  <li>Purpose: remove and return the item at the front of the queue.</li>
+</ul>
+
+<p class='note-paragraph'>
+Before removal, the algorithm checks that the queue is not empty
+using <code>NumberItems</code>.
+</p>
+
+<p class='note-paragraph'>
+The item at <strong>HeadPointer</strong> is read, then <strong>HeadPointer is moved forward</strong>.
+If it goes past the last index, it wraps back to <code>0</code>.
+</p>
+
+<p class='note-paragraph'>
+After removal, <code>NumberItems</code> is decreased by 1.
+If the queue becomes empty, both pointers are reset to <code>-1</code>.
+</p>
+
+<p class='note-paragraph'>
+Key idea: deQueue removes an item by moving the front pointer, not by shifting elements.
+</p>
+
+<p class='note-paragraph'>See Annex:</p>
+<ul class='note-list level-0'>
+  <li><a class="annex-link" href="annex_19_1.html#queueDequeuePseudo" data-annex="queueDequeuePseudo">queueDequeuePseudo</a></li>
+  <li><a class="annex-link" href="annex_19_1.html#queueDequeuePython" data-annex="queueDequeuePython">queueDequeuePython</a></li>
+</ul>
+
+</div>
 </section>
+
+
+
+
+
+
 
 <section class="note-card" id="sec_4_Binary_Tree">
   <h2 class="subheading">4) Binary Tree</h2>
-  <div class="note-body"><a id='sec_4_Binary_Tree__Core_idea_and_key_terms'></a><h3 class='subsub-heading level3'>Core idea and key terms</h3>
+  <div class="note-body">
+
+<a id='sec_4_Binary_Tree__Core_idea_and_key_terms'></a>
+<h3 class='subsub-heading level3'>Core idea and key terms</h3>
+
 <ul class='note-list level-0'>
-<li>A binary tree is a structure in which each node can have at most two children.</li>
-<li>An ordered binary tree (binary search tree) stores values so that:</li>
-<ul class='note-list level-1'>
-<li>if the new value is smaller than the current node’s value, follow the left pointer</li>
-<li>if the new value is greater than or equal to the current node’s value, follow the right pointer</li>
+  <li>A binary tree is a structure in which each node can have at most two children.</li>
+  <li>An ordered binary tree (binary search tree) stores values so that:</li>
+  <ul class='note-list level-1'>
+    <li>if the new value is smaller than the current node’s value, follow the left pointer</li>
+    <li>if the new value is greater than or equal to the current node’s value, follow the right pointer</li>
+  </ul>
+  <li>Root: the first node in the tree; RootPointer stores the index of the root node.</li>
+  <li>A null pointer indicates “no child” below a node on that side.</li>
+  <li>The following image shows a conceptual diagram of an ordered binary tree:</li>
 </ul>
-<li>Root: the first node in the tree; RootPointer stores the index of the root node.</li>
-<li>A null pointer indicates “no child” below a node on that side.</li>
-<li>The following image shows a Conceptual diagram of an ordered binary tree:</li>
-</ul>
+
 <div class='figure-wrap'><img class='doc-figure size-70' src='images/img_02.png' alt=''></div>
-<p class='note-paragraph'>For example, if we want to add a new node with data value D to the binary tree in Figure 23.03,
-we execute the following steps:
+
+<p class='note-paragraph'>
+For example, if we want to add a new node with data value D to the binary tree in Figure 23.03:
 1 Start at the root node.
 2 D is smaller than F, so turn left.
 3 D is greater than C, so turn right.
 4 D is smaller than E, so turn left.
-5 There is no branch going left from E, so we add D as a left child from E</p>
-<a id='sec_4_Binary_Tree__Array_representation_of_the_tree'></a><h3 class='subsub-heading level3'>Array representation of the tree</h3>
+5 There is no branch going left from E, so we add D as a left child from E.
+</p>
+
+<a id='sec_4_Binary_Tree__Array_representation_of_the_tree'></a>
+<h3 class='subsub-heading level3'>Array representation of the tree</h3>
+
 <ul class='note-list level-0'>
-<li>The tree can be stored in an array of records, where each record represents one node and contains:</li>
-<ul class='note-list level-1'>
-<li>Data</li>
-<li>LeftPointer</li>
-<li>RightPointer</li>
+  <li>The tree can be stored in an array of records, where each record represents one node and contains:</li>
+  <ul class='note-list level-1'>
+    <li>Data</li>
+    <li>LeftPointer</li>
+    <li>RightPointer</li>
+  </ul>
+  <li>A constant NullPointer = -1 is used when array indices start at 0.</li>
+  <li>Unused nodes are tracked so that insertion can take the next available space.</li>
 </ul>
-<li>A constant NullPointer = -1 is used when array indices start at 0.</li>
-<li>Unused nodes are tracked so that insertion can take the next available space. (In pseudocode this is done using a free list.)</li>
-</ul>
-<a id='sec_4_Binary_Tree__Initialising_an_empty_tree'></a><h3 class='subsub-heading level3'>Initialising an empty tree</h3>
+
+<p class='note-paragraph'>
+In the Python code, the tree is stored as a 2D list where each node is stored in the fixed order:
+<code>[LeftPointer, Data, RightPointer]</code>.
+This means:
+<code>ArrayNodes[i][0]</code> is the left child index,
+<code>ArrayNodes[i][1]</code> is the data value,
+and <code>ArrayNodes[i][2]</code> is the right child index.
+</p>
+
+<a id='sec_4_Binary_Tree__Initialising_an_empty_tree'></a>
+<h3 class='subsub-heading level3'>Initialising an empty tree</h3>
+
 <ul class='note-list level-0'>
-<li>Initialisation sets:</li>
-<ul class='note-list level-1'>
-<li>RootPointer to NullPointer (empty tree)</li>
-<li>the “free space” pointer so that insertions know where unused nodes are</li>
+  <li>Initialisation sets:</li>
+  <ul class='note-list level-1'>
+    <li>RootPointer to NullPointer (empty tree)</li>
+    <li>the “free space” pointer so that insertions know where unused nodes are</li>
+  </ul>
 </ul>
-<li>See <a class="annex-link" href="annex_19_1.html#binaryTreeInitialisePseudo" data-annex="binaryTreeInitialisePseudo">binaryTreeInitialisePseudo</a> and <a class="annex-link" href="annex_19_1.html#binaryTreeInitialisePython" data-annex="binaryTreeInitialisePython">binaryTreeInitialisePython</a>.</li>
-</ul>
-<a id='sec_4_Binary_Tree__Inserting_a_new_value'></a><h3 class='subsub-heading level3'>Inserting a new value</h3>
+
+<p class='note-paragraph'>
+In the Python code, unused nodes are tracked using <strong>FreeNode</strong>, which stores the index of the next unused array position.
+Each new insertion uses the node at <code>FreeNode</code>, then <code>FreeNode</code> is increased by 1.
+</p>
+
+<p class='note-paragraph'>See:</p>
 <ul class='note-list level-0'>
-<li>Insertion first checks there is space available in the array.</li>
-<li>A new node is created in a free position, its Data is stored, and both child pointers are set to NullPointer (it starts as a leaf).</li>
-<li>If the tree is empty, the new node becomes the root.</li>
-<li>Otherwise, start at the root and repeatedly compare:</li>
-<ul class='note-list level-1'>
-<li>if current node value &gt; new value, go left</li>
-<li>otherwise go right
-Stop when there is no pointer to follow, then attach the new node at that leaf position.</li>
+  <li><a class="annex-link" href="annex_19_1.html#binaryTreeInitialisePseudo" data-annex="binaryTreeInitialisePseudo">binaryTreeInitialisePseudo (annex)</a></li>
+  <li><a class="annex-link" href="annex_19_1.html#binaryTreeInitialisePython" data-annex="binaryTreeInitialisePython">binaryTreeInitialisePython (annex)</a></li>
 </ul>
-<li>Example reasoning (conceptual): to insert D, compare at each node and turn left or right until there is no branch, then insert at that position.</li>
-<li>See <a class="annex-link" href="annex_19_1.html#binaryTreeInsertPseudo" data-annex="binaryTreeInsertPseudo">binaryTreeInsertPseudo</a> and <a class="annex-link" href="annex_19_1.html#binaryTreeInsertPython" data-annex="binaryTreeInsertPython">binaryTreeInsertPython</a>.</li>
-</ul>
-<a id='sec_4_Binary_Tree__Finding_a_value_search'></a><h3 class='subsub-heading level3'>Finding a value (search)</h3>
+
+<a id='sec_4_Binary_Tree__Inserting_a_new_value'></a>
+<h3 class='subsub-heading level3'>Inserting a new value</h3>
+
 <ul class='note-list level-0'>
-<li>Searching starts from the root and follows pointers while:</li>
-<ul class='note-list level-1'>
-<li>the current pointer is not NullPointer</li>
-<li>and the data does not match the search item</li>
+  <li>Insertion first checks there is space available in the array.</li>
+  <li>A new node is created in a free position, its Data is stored, and both child pointers are set to NullPointer (it starts as a leaf).</li>
+  <li>If the tree is empty, the new node becomes the root.</li>
+  <li>Otherwise, start at the root and repeatedly compare:</li>
+  <ul class='note-list level-1'>
+    <li>if current node value &gt; new value, go left</li>
+    <li>otherwise go right</li>
+  </ul>
+  <li>Stop when there is no pointer to follow, then attach the new node at that leaf position.</li>
+  <li>Example reasoning (conceptual): to insert D, compare at each node and turn left or right until there is no branch, then insert at that position.</li>
 </ul>
-<li>At each step:</li>
-<ul class='note-list level-1'>
-<li>if current node value &gt; search item, go left</li>
-<li>otherwise go right</li>
-</ul>
-<li>If the search fails, the algorithm returns NullPointer.</li>
-<li>See <a class="annex-link" href="annex_19_1.html#binaryTreeFindPseudo" data-annex="binaryTreeFindPseudo">binaryTreeFindPseudo</a> and <a class="annex-link" href="annex_19_1.html#binaryTreeFindPython" data-annex="binaryTreeFindPython">binaryTreeFindPython</a>.</li>
-</ul>
-<a id='sec_4_Binary_Tree__Why_this_tree_supports_faster_search_than_linear_scanning'></a><h3 class='subsub-heading level3'>Why this tree supports faster search than linear scanning</h3>
+
+<p class='note-paragraph'>
+In the Python code, the new node is prepared at <code>FreeNode</code> by storing the data and setting both child pointers to <code>-1</code>.
+To attach it, the algorithm travels down from the root and changes exactly <strong>one</strong> pointer in the parent node
+(either its LeftPointer or RightPointer) so it points to <code>FreeNode</code>.
+</p>
+
+<p class='note-paragraph'>See:</p>
 <ul class='note-list level-0'>
-<li>Because it is ordered and branches left or right based on comparisons, it provides faster search than linear search and linked-list search.</li>
-<li>When inserting, existing nodes are not moved; only one pointer is updated to link the new node into the tree.</li>
-</ul></div>
+  <li><a class="annex-link" href="annex_19_1.html#binaryTreeInsertPseudo" data-annex="binaryTreeInsertPseudo">binaryTreeInsertPseudo (annex)</a></li>
+  <li><a class="annex-link" href="annex_19_1.html#binaryTreeInsertPython" data-annex="binaryTreeInsertPython">binaryTreeInsertPython (annex)</a></li>
+</ul>
+
+<a id='sec_4_Binary_Tree__Finding_a_value_search'></a>
+<h3 class='subsub-heading level3'>Finding a value (search)</h3>
+
+<ul class='note-list level-0'>
+  <li>Searching starts from the root and follows pointers while:</li>
+  <ul class='note-list level-1'>
+    <li>the current pointer is not NullPointer</li>
+    <li>and the data does not match the search item</li>
+  </ul>
+  <li>At each step:</li>
+  <ul class='note-list level-1'>
+    <li>if current node value &gt; search item, go left</li>
+    <li>otherwise go right</li>
+  </ul>
+  <li>If the search fails, the algorithm returns NullPointer.</li>
+</ul>
+
+<p class='note-paragraph'>
+In the Python code, searching works by updating <code>CurrentNode</code>.
+At each node, the search compares <code>SearchItem</code> with the node’s Data (<code>ArrayNodes[CurrentNode][1]</code>).
+If the item is smaller it replaces <code>CurrentNode</code> with the left pointer; otherwise it replaces it with the right pointer.
+This moves automatically to the next node in the tree.
+</p>
+
+<p class='note-paragraph'>See:</p>
+<ul class='note-list level-0'>
+  <li><a class="annex-link" href="annex_19_1.html#binaryTreeFindPseudo" data-annex="binaryTreeFindPseudo">binaryTreeFindPseudo (annex)</a></li>
+  <li><a class="annex-link" href="annex_19_1.html#binaryTreeFindPython" data-annex="binaryTreeFindPython">binaryTreeFindPython (annex)</a></li>
+</ul>
+
+<a id='sec_4_Binary_Tree__Why_this_tree_supports_faster_search_than_linear_scanning'></a>
+<h3 class='subsub-heading level3'>Why this tree supports faster search than linear scanning</h3>
+
+<ul class='note-list level-0'>
+  <li>Because it is ordered and branches left or right based on comparisons, it provides faster search than linear search and linked-list search.</li>
+  <li>When inserting, existing nodes are not moved; only one pointer is updated to link the new node into the tree.</li>
+</ul>
+
+</div>
 </section>
+
+
+
+
+
+
+
+
 
 <section class="note-card" id="sec_5_Graph">
   <h2 class="subheading">5) Graph</h2>

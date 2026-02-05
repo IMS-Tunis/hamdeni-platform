@@ -892,3 +892,60 @@ body.single-view .code-wrap{ max-height: none; }
 .modal-title{
   font-weight: 800;
 }
+/* =========================================
+   Headings: default + semantic overrides
+   (No HTML changes needed — uses existing h3 classes and anchor ids)
+   ========================================= */
+
+/* Default style for ALL level3 sub-headings */
+h3.subsub-heading.level3{
+  padding: 10px 12px;
+  border-radius: 12px;
+  color: #0b1b3a; /* dark navy */
+  border-left: 6px solid rgba(15,23,42,0.28);
+  background: linear-gradient(90deg, rgba(15,23,42,0.05), rgba(255,255,255,0));
+}
+
+/* Keep level4 headings lighter (optional but improves hierarchy) */
+h4.subsub-heading.level4{
+  padding: 8px 10px;
+  border-radius: 12px;
+  color: rgba(15,23,42,0.82);
+  border-left: 5px solid rgba(15,23,42,0.20);
+  background: linear-gradient(90deg, rgba(15,23,42,0.035), rgba(255,255,255,0));
+}
+
+/* Algorithms: strongest emphasis */
+a[id*="Algorithm"] + h3.subsub-heading.level3{
+  color: #1e3a8a; /* deep blue */
+  border-left-color: rgba(30,58,138,0.85);
+  background: linear-gradient(90deg, rgba(30,58,138,0.10), rgba(255,255,255,0));
+}
+
+/* Operations (Find/Search/Insert/Delete/Push/Pop/Enqueue/Dequeue) */
+a[id*="Find"] + h3.subsub-heading.level3,
+a[id*="Finding"] + h3.subsub-heading.level3,
+a[id*="Search"] + h3.subsub-heading.level3,
+a[id*="Insert"] + h3.subsub-heading.level3,
+a[id*="Insertion"] + h3.subsub-heading.level3,
+a[id*="Inserting"] + h3.subsub-heading.level3,
+a[id*="Delete"] + h3.subsub-heading.level3,
+a[id*="Push"] + h3.subsub-heading.level3,
+a[id*="Pop"] + h3.subsub-heading.level3,
+a[id*="Enqueue"] + h3.subsub-heading.level3,
+a[id*="Dequeue"] + h3.subsub-heading.level3,
+a[id*="enQueue"] + h3.subsub-heading.level3,
+a[id*="deQueue"] + h3.subsub-heading.level3{
+  color: #14532d; /* deep green */
+  border-left-color: rgba(20,83,45,0.85);
+  background: linear-gradient(90deg, rgba(20,83,45,0.10), rgba(255,255,255,0));
+}
+
+/* Concept sections (core theory titles) */
+a[id*="Core_idea"] + h3.subsub-heading.level3,
+a[id*="Array_representation"] + h3.subsub-heading.level3,
+a[id*="Weighted_graphs"] + h3.subsub-heading.level3{
+  color: #374151; /* dark neutral */
+  border-left-color: rgba(55,65,81,0.70);
+  background: linear-gradient(90deg, rgba(55,65,81,0.08), rgba(255,255,255,0));
+}
