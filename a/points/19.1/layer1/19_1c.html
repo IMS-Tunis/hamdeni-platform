@@ -302,41 +302,57 @@ Summary: deletion works by <strong>removing a node from the linked list</strong>
 
 
 
-
-
 <section class="note-card" id="sec_2_Stack">
   <h2 class="subheading">2) Stack</h2>
   <div class="note-body">
 
-<p class='note-paragraph'>What a stack is</p>
+<p class='note-paragraph'><strong>What a stack is</strong></p>
 <ul class='note-list level-0'>
-  <li>A stack is a data structure where the last item added is the first item removed (LIFO).</li>
-  <li>Items are added to the top and removed from the top.</li>
+  <li>A stack is a data structure that follows the Last-In, First-Out (LIFO) principle.</li>
+  <li>The most recently added item is the first item removed.</li>
+  <li>All operations take place at one end called the <strong>top</strong>.</li>
+</ul>
+
+<p class='note-paragraph'><strong>How the stack is stored</strong></p>
+<ul class='note-list level-0'>
+  <li>A stack can be stored in a fixed-size array.</li>
+  <li>An integer pointer called <strong>TopPointer</strong> stores the index of the current top item.</li>
+  <li>When an item is pushed, <strong>TopPointer increases</strong>.</li>
+  <li>When an item is popped, <strong>TopPointer decreases</strong>.</li>
 </ul>
 
 <p class='note-paragraph'>
-In the Python implementation, the stack is stored in a fixed-size array and controlled using pointers.
-Only the top of the stack is accessed directly.
+In this implementation, the stack uses <strong>1-based indexing</strong>:
 </p>
+<ul class='note-list level-0'>
+  <li><strong>BasePointer</strong> is set to 1 (first valid stack position).</li>
+  <li><strong>TopPointer</strong> is set to 0 when the stack is empty.</li>
+</ul>
+
+<p class='note-paragraph'>
+Because index <code>0</code> is not used, the array is created with one extra element
+(<code>MAX_STACK_SIZE + 1</code>) so that valid stack positions run from <code>1</code> to <code>MAX_STACK_SIZE</code>.
+</p>
+
+<div class='figure-wrap'>
+  <img class='doc-figure size-70' src='images/stack.png' alt='Stack diagram'>
+</div>
 
 <a id='sec_2_Stack__Algorithm_0_Initialise_the_stack'></a>
 <h3 class='subsub-heading level3'>Algorithm 0: Initialise the stack</h3>
 
 <ul class='note-list level-0'>
-  <li>Before using a stack, the pointers must be set to represent an empty stack.</li>
-  <li>The stack is empty when <strong>TopPointer</strong> is below the first valid position.</li>
+  <li>Initialisation sets the stack to an empty state.</li>
+  <li><strong>BasePointer</strong> is set to 1 and <strong>TopPointer</strong> is set to 0.</li>
+  <li>The array positions from <code>1</code> to <code>MAX_STACK_SIZE</code> are cleared.</li>
 </ul>
 
 <p class='note-paragraph'>
-In the Python code, the stack uses <strong>1-based indexing</strong>:
+The initialise loop starts from <code>1</code> (not <code>0</code>) because index <code>0</code> is not part of the stack.
 </p>
-<ul class='note-list level-0'>
-  <li><strong>BasePointer</strong> is set to 1 (the first valid stack position).</li>
-  <li><strong>TopPointer</strong> is set to 0 to represent an empty stack.</li>
-</ul>
 
 <p class='note-paragraph'>
-This makes the empty-stack condition easy to check: if <code>TopPointer &lt; BasePointer</code>, the stack is empty.
+The stack is empty when <code>TopPointer &lt; BasePointer</code>.
 </p>
 
 <p class='note-paragraph'>See Annex:</p>
@@ -345,25 +361,14 @@ This makes the empty-stack condition easy to check: if <code>TopPointer &lt; Bas
   <li><a class="annex-link" href="annex_19_1.html#stackInitialisePython" data-annex="stackInitialisePython">stackInitialisePython</a></li>
 </ul>
 
-<p class='note-paragraph'>How the stack is stored</p>
-<ul class='note-list level-0'>
-  <li>The stack is stored in a fixed-size array.</li>
-  <li><strong>TopPointer</strong> always stores the index of the current top item.</li>
-  <li>When an item is pushed, <strong>TopPointer moves up</strong>.</li>
-  <li>When an item is popped, <strong>TopPointer moves down</strong>.</li>
-</ul>
-
 <a id='sec_2_Stack__Algorithm_1_Check_if_the_stack_is_empty'></a>
 <h3 class='subsub-heading level3'>Algorithm 1: Check if the stack is empty</h3>
 
 <ul class='note-list level-0'>
   <li>A stack is empty when it contains no items.</li>
-  <li>In the Python code, this is checked by comparing the pointers.</li>
+  <li>This is checked by verifying that <code>TopPointer &lt; BasePointer</code>.</li>
+  <li>This prevents <strong>underflow</strong>.</li>
 </ul>
-
-<p class='note-paragraph'>
-If <code>TopPointer &lt; BasePointer</code>, no valid stack positions are in use, so the stack is empty.
-</p>
 
 <p class='note-paragraph'>See Annex:</p>
 <ul class='note-list level-0'>
@@ -375,12 +380,10 @@ If <code>TopPointer &lt; BasePointer</code>, no valid stack positions are in use
 <h3 class='subsub-heading level3'>Algorithm 2: Check if the stack is full</h3>
 
 <ul class='note-list level-0'>
-  <li>A stack is full when no free space remains.</li>
+  <li>A stack is full when no free space remains in the array.</li>
+  <li>The stack is full when <code>TopPointer = MAX_STACK_SIZE</code>.</li>
+  <li>This prevents <strong>overflow</strong>.</li>
 </ul>
-
-<p class='note-paragraph'>
-In the Python code, the stack is full when <code>TopPointer</code> reaches the maximum stack size.
-</p>
 
 <p class='note-paragraph'>See Annex:</p>
 <ul class='note-list level-0'>
@@ -392,16 +395,14 @@ In the Python code, the stack is full when <code>TopPointer</code> reaches the m
 <h3 class='subsub-heading level3'>Algorithm 3: Push</h3>
 
 <ul class='note-list level-0'>
-  <li>Push adds an item to the top of the stack.</li>
+  <li>Push adds a new item to the top of the stack.</li>
+  <li>The stack must not be full before insertion.</li>
+  <li><strong>TopPointer</strong> increases by one, then the item is stored at that position.</li>
 </ul>
 
 <p class='note-paragraph'>
-To push an item, the algorithm first checks the stack is not full.
-If there is space, <strong>TopPointer is increased by one</strong> and the new item is stored at that position.
-</p>
-
-<p class='note-paragraph'>
-Key idea: pushing does not move data — it only moves <strong>TopPointer</strong>.
+Key idea: <strong>TopPointer always points to the current top item</strong>.  
+So the pointer is moved first to the next free position, then the new item becomes the top.
 </p>
 
 <p class='note-paragraph'>See Annex:</p>
@@ -415,15 +416,13 @@ Key idea: pushing does not move data — it only moves <strong>TopPointer</stron
 
 <ul class='note-list level-0'>
   <li>Pop removes and returns the item at the top of the stack.</li>
+  <li>The stack must not be empty before removal.</li>
+  <li>The item at <strong>TopPointer</strong> is read, then <strong>TopPointer</strong> decreases by one.</li>
 </ul>
 
 <p class='note-paragraph'>
-To pop an item, the algorithm first checks the stack is not empty.
-The item at <strong>TopPointer</strong> is read, then <strong>TopPointer is decreased by one</strong>.
-</p>
-
-<p class='note-paragraph'>
-Key idea: popping removes an item by moving the pointer down, not by shifting elements.
+In the Python code, the array position is cleared after popping (set to an empty value).  
+This is good practice because it removes the old value, although the stack logic mainly depends on <strong>TopPointer</strong>.
 </p>
 
 <p class='note-paragraph'>See Annex:</p>
@@ -434,16 +433,14 @@ Key idea: popping removes an item by moving the pointer down, not by shifting el
 
 <a id='sec_2_Stack__Underflow_and_overflow'></a>
 <h4 class='subsub-heading level4'>Underflow and overflow</h4>
+
 <ul class='note-list level-0'>
-  <li><strong>Underflow</strong>: trying to pop when the stack is empty.</li>
-  <li><strong>Overflow</strong>: trying to push when the stack is full.</li>
+  <li><strong>Underflow</strong>: attempting to pop when the stack is empty.</li>
+  <li><strong>Overflow</strong>: attempting to push when the stack is full.</li>
 </ul>
 
 </div>
 </section>
-
-
-
 
 
 
@@ -456,50 +453,45 @@ Key idea: popping removes an item by moving the pointer down, not by shifting el
 <h3 class='subsub-heading level3'>Core idea (FIFO)</h3>
 
 <ul class='note-list level-0'>
-  <li>A queue is a First-In, First-Out (FIFO) structure.</li>
+  <li>A queue is a First-In, First-Out (FIFO) structure: the first item added is the first item removed.</li>
   <li>The <strong>front</strong> is where items are removed (deQueue).</li>
   <li>The <strong>rear</strong> is where items are added (enQueue).</li>
 </ul>
 
-<p class='note-paragraph'>
-In the Python implementation, a queue is stored in a fixed-size array and controlled using pointers and a counter.
-</p>
-
 <a id='sec_3_Queue__Array_based_queue_representation_fixed_size'></a>
 <h3 class='subsub-heading level3'>Array-based queue representation (fixed size)</h3>
 
+<p class='note-paragraph'>
+A queue can be stored in a fixed-size array and controlled using pointers and a counter:
+</p>
+
 <ul class='note-list level-0'>
-  <li><strong>HeadPointer</strong> points to the front item (next item to remove).</li>
-  <li><strong>TailPointer</strong> points to the rear item (most recently added).</li>
+  <li><strong>HeadPointer</strong> points to the front item (the next item to remove).</li>
+  <li><strong>TailPointer</strong> points to the rear item (the most recently added item).</li>
   <li><strong>NumberItems</strong> stores how many items are currently in the queue.</li>
 </ul>
 
 <p class='note-paragraph'>
-The queue is empty when <code>NumberItems = 0</code> and full when
-<code>NumberItems = MAX_QUEUE_SIZE</code>.
+In this implementation, the queue is empty when <code>NumberItems = 0</code>.
+When the queue is empty, both pointers are also set to <code>-1</code>.
 </p>
 
-<p class='note-paragraph'>
-In the Python code, both pointers start at <code>-1</code> to represent an empty queue.
-This avoids pointing to an invalid array position before the first insertion.
-</p>
+<div class='figure-wrap'>
+  <img class='doc-figure size-70' src='images/queue.png' alt='queue diagram'>
+</div>
 
 <a id='sec_3_Queue__Wrap_round_circular_queue'></a>
 <h3 class='subsub-heading level3'>Wrap-round (circular queue)</h3>
 
 <p class='note-paragraph'>
-Because the queue uses a fixed-size array, pointers must wrap back to the start
-when they reach the end of the array.
+In a fixed-size array, pointers must wrap back to the start when they reach the end of the array.
 </p>
 
 <ul class='note-list level-0'>
-  <li>If a pointer is increased past the last index, it is reset to <code>0</code>.</li>
-  <li>This allows freed spaces at the start of the array to be reused.</li>
+  <li>If increasing a pointer makes it reach <code>MAX_QUEUE_SIZE</code>, it is reset to <code>0</code>.</li>
+  <li>This allows the queue to reuse spaces freed at the start of the array after removals.</li>
+  <li>Wrap-round changes pointer values only; data is not moved.</li>
 </ul>
-
-<p class='note-paragraph'>
-Key idea: wrap-round changes only the pointer value — data is not moved.
-</p>
 
 <a id='sec_3_Queue__Algorithm_1_Initialise_a_queue'></a>
 <h3 class='subsub-heading level3'>Algorithm 1: Initialise a queue</h3>
@@ -509,10 +501,6 @@ Key idea: wrap-round changes only the pointer value — data is not moved.
   <li><strong>HeadPointer</strong> and <strong>TailPointer</strong> are set to <code>-1</code>.</li>
   <li><strong>NumberItems</strong> is set to <code>0</code>.</li>
 </ul>
-
-<p class='note-paragraph'>
-This clearly marks the queue as empty and ready to accept its first item.
-</p>
 
 <p class='note-paragraph'>See Annex:</p>
 <ul class='note-list level-0'>
@@ -525,23 +513,17 @@ This clearly marks the queue as empty and ready to accept its first item.
 
 <ul class='note-list level-0'>
   <li>Purpose: add a new item at the rear of the queue.</li>
+  <li>If <code>NumberItems = MAX_QUEUE_SIZE</code>, the queue is full and enQueue fails.</li>
 </ul>
 
 <p class='note-paragraph'>
-Before adding an item, the algorithm checks that the queue is not full
-using <code>NumberItems</code>.
+Special case: if the queue is empty (<code>TailPointer = -1</code>), both pointers are set to <code>0</code> and the first item is stored.
+This establishes the initial front and rear positions.
 </p>
 
 <p class='note-paragraph'>
-If the queue is empty (<code>TailPointer = -1</code>), both pointers are set to <code>0</code>
-and the first item is stored.
-This special case is needed to establish the initial front and rear.
-</p>
-
-<p class='note-paragraph'>
-Otherwise, <strong>TailPointer is moved forward</strong>.
-If it reaches the end of the array, it wraps back to <code>0</code>.
-The new item is then stored at the updated position.
+Otherwise, <strong>TailPointer is moved forward</strong>. If it is at the last index, it wraps back to <code>0</code>.
+The new item is stored at the updated TailPointer position.
 </p>
 
 <p class='note-paragraph'>
@@ -563,21 +545,17 @@ Key idea: enQueue adds an item by moving the rear pointer, not by shifting data.
 
 <ul class='note-list level-0'>
   <li>Purpose: remove and return the item at the front of the queue.</li>
+  <li>If <code>NumberItems = 0</code>, the queue is empty and deQueue fails (returns <code>-1</code> in this implementation).</li>
 </ul>
 
 <p class='note-paragraph'>
-Before removal, the algorithm checks that the queue is not empty
-using <code>NumberItems</code>.
-</p>
-
-<p class='note-paragraph'>
 The item at <strong>HeadPointer</strong> is read, then <strong>HeadPointer is moved forward</strong>.
-If it goes past the last index, it wraps back to <code>0</code>.
+If it reaches <code>MAX_QUEUE_SIZE</code>, it wraps back to <code>0</code>.
 </p>
 
 <p class='note-paragraph'>
 After removal, <code>NumberItems</code> is decreased by 1.
-If the queue becomes empty, both pointers are reset to <code>-1</code>.
+If <code>NumberItems</code> becomes 0, both pointers are reset to <code>-1</code> to represent an empty queue.
 </p>
 
 <p class='note-paragraph'>
