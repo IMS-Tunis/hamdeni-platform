@@ -591,20 +591,20 @@ Key idea: deQueue removes an item by moving the front pointer, not by shifting e
     <li>if the new value is smaller than the current node’s value, follow the left pointer</li>
     <li>if the new value is greater than or equal to the current node’s value, follow the right pointer</li>
   </ul>
-  <li>Root: the first node in the tree; RootPointer stores the index of the root node.</li>
-  <li>A null pointer indicates “no child” below a node on that side.</li>
+  <li><strong>Root</strong>: the first node in the tree; <strong>RootPointer</strong> stores the index of the root node.</li>
+  <li>A <strong>null pointer</strong> indicates “no child” on that side.</li>
   <li>The following image shows a conceptual diagram of an ordered binary tree:</li>
 </ul>
 
 <div class='figure-wrap'><img class='doc-figure size-70' src='images/img_02.png' alt=''></div>
 
 <p class='note-paragraph'>
-For example, if we want to add a new node with data value D to the binary tree in Figure 23.03:
-1 Start at the root node.
-2 D is smaller than F, so turn left.
-3 D is greater than C, so turn right.
-4 D is smaller than E, so turn left.
-5 There is no branch going left from E, so we add D as a left child from E.
+Example (conceptual insertion): to insert D into the tree in the Figure:</br>
+1. Start at the root node.</br>
+2. D is smaller than F, so go left.</br>
+3. D is greater than C, so go right.</br>
+4. D is smaller than E, so go left.</br>
+5. There is no left branch from E, so add D as the left child of E.</br>
 </p>
 
 <a id='sec_4_Binary_Tree__Array_representation_of_the_tree'></a>
@@ -617,18 +617,38 @@ For example, if we want to add a new node with data value D to the binary tree i
     <li>LeftPointer</li>
     <li>RightPointer</li>
   </ul>
-  <li>A constant NullPointer = -1 is used when array indices start at 0.</li>
-  <li>Unused nodes are tracked so that insertion can take the next available space.</li>
+  <li>A constant <strong>NullPointer = -1</strong> is used when array indices start at 0.</li>
+  <li>Unused nodes are tracked so insertion can take the next available space.</li>
 </ul>
 
 <p class='note-paragraph'>
-In the Python code, the tree is stored as a 2D list where each node is stored in the fixed order:
+In the Python code, each node is stored in the fixed order:
 <code>[LeftPointer, Data, RightPointer]</code>.
-This means:
-<code>ArrayNodes[i][0]</code> is the left child index,
-<code>ArrayNodes[i][1]</code> is the data value,
-and <code>ArrayNodes[i][2]</code> is the right child index.
+So:
+<code>ArrayNodes[i][0]</code> is LeftPointer,
+<code>ArrayNodes[i][1]</code> is Data,
+and <code>ArrayNodes[i][2]</code> is RightPointer.
 </p>
+
+
+
+
+<strong>Array representation example (from the diagram):</strong>
+<pre class='note-code'>
+RootPointer = 0
+
+Index   [Left, Data, Right]
+[0]     [ 1,  F,  2]
+[1]     [ 3,  C,  4]
+[2]     [ 5,  S, -1]
+[3]     [-1,  B, -1]
+[4]     [ 6,  E, -1]
+[5]     [-1,  R, -1]
+[6]     [-1,  D, -1]
+</pre>
+
+
+
 
 <a id='sec_4_Binary_Tree__Initialising_an_empty_tree'></a>
 <h3 class='subsub-heading level3'>Initialising an empty tree</h3>
@@ -636,14 +656,15 @@ and <code>ArrayNodes[i][2]</code> is the right child index.
 <ul class='note-list level-0'>
   <li>Initialisation sets:</li>
   <ul class='note-list level-1'>
-    <li>RootPointer to NullPointer (empty tree)</li>
-    <li>the “free space” pointer so that insertions know where unused nodes are</li>
+    <li><strong>RootPointer</strong> to NullPointer (empty tree)</li>
+    <li>the “free space” pointer so insertions know where unused nodes are</li>
   </ul>
 </ul>
 
 <p class='note-paragraph'>
-In the Python code, unused nodes are tracked using <strong>FreeNode</strong>, which stores the index of the next unused array position.
-Each new insertion uses the node at <code>FreeNode</code>, then <code>FreeNode</code> is increased by 1.
+In this implementation, unused nodes are tracked using <strong>FreeNode</strong>, which stores the index of the next unused array position.
+Each insertion uses the node at <code>FreeNode</code>, then <code>FreeNode</code> is increased by 1.
+If <code>FreeNode</code> reaches the array size, the tree is full and insertion fails.
 </p>
 
 <p class='note-paragraph'>See:</p>
@@ -662,16 +683,14 @@ Each new insertion uses the node at <code>FreeNode</code>, then <code>FreeNode</
   <li>Otherwise, start at the root and repeatedly compare:</li>
   <ul class='note-list level-1'>
     <li>if current node value &gt; new value, go left</li>
-    <li>otherwise go right</li>
+    <li>if current node value &lt;= new value, go right</li>
   </ul>
   <li>Stop when there is no pointer to follow, then attach the new node at that leaf position.</li>
-  <li>Example reasoning (conceptual): to insert D, compare at each node and turn left or right until there is no branch, then insert at that position.</li>
 </ul>
 
 <p class='note-paragraph'>
-In the Python code, the new node is prepared at <code>FreeNode</code> by storing the data and setting both child pointers to <code>-1</code>.
-To attach it, the algorithm travels down from the root and changes exactly <strong>one</strong> pointer in the parent node
-(either its LeftPointer or RightPointer) so it points to <code>FreeNode</code>.
+In the Python code, duplicates are placed on the <strong>right</strong> side (the <code>else</code> branch handles values that are equal or greater).
+The new node is attached by updating exactly one pointer in the parent node (left or right).
 </p>
 
 <p class='note-paragraph'>See:</p>
@@ -698,10 +717,8 @@ To attach it, the algorithm travels down from the root and changes exactly <stro
 </ul>
 
 <p class='note-paragraph'>
-In the Python code, searching works by updating <code>CurrentNode</code>.
-At each node, the search compares <code>SearchItem</code> with the node’s Data (<code>ArrayNodes[CurrentNode][1]</code>).
-If the item is smaller it replaces <code>CurrentNode</code> with the left pointer; otherwise it replaces it with the right pointer.
-This moves automatically to the next node in the tree.
+In the Python code, the search returns the <strong>index</strong> of the node if found.
+If the item is not found, it returns <code>-1</code> (NullPointer).
 </p>
 
 <p class='note-paragraph'>See:</p>
@@ -714,11 +731,104 @@ This moves automatically to the next node in the tree.
 <h3 class='subsub-heading level3'>Why this tree supports faster search than linear scanning</h3>
 
 <ul class='note-list level-0'>
-  <li>Because it is ordered and branches left or right based on comparisons, it provides faster search than linear search and linked-list search.</li>
+  <li>Because the tree is ordered and branches left or right based on comparisons, it can search faster than linear scanning (linear search or linked-list search).</li>
   <li>When inserting, existing nodes are not moved; only one pointer is updated to link the new node into the tree.</li>
 </ul>
 
 </div>
+
+
+
+<a id='sec_4_Binary_Tree__Worked_example_insert_non_empty'></a>
+<h3 class='subsub-heading level3'>Worked example: inserting into a non-empty tree (array-based)</h3>
+
+<p class='note-paragraph'>
+This example uses the array representation <code>[LeftPointer, Data, RightPointer]</code> and shows how an insertion
+updates exactly one pointer in the parent node.
+</p>
+
+<p class='note-paragraph'><strong>Current tree (already contains: 50, 30, 70, 40)</strong></p>
+
+<p class='note-paragraph'><strong>Conceptual structure</strong></p>
+<pre class='note-code'>
+          50
+         /  \
+       30    70
+         \
+          40
+</pre>
+
+<p class='note-paragraph'><strong>Current array state</strong> (format: <code>[Left, Data, Right]</code>)</p>
+<pre class='note-code'>
+RootPointer = 0
+FreeNode    = 4
+
+Index   [Left, Data, Right]
+[0]     [ 1, 50,  2]
+[1]     [-1, 30,  3]
+[2]     [-1, 70, -1]
+[3]     [-1, 40, -1]
+[4]     [-1, -1, -1]   ← next free
+</pre>
+
+<p class='note-paragraph'><strong>Task:</strong> insert <code>35</code> into the tree.</p>
+
+<ul class='note-list level-0'>
+  <li><strong>Step 1: Prepare the new node at FreeNode</strong></li>
+  <ul class='note-list level-1'>
+    <li><code>FreeNode = 4</code>, so the new node is stored at index 4.</li>
+    <li>Set it up as a leaf: <code>ArrayNodes[4] = [-1, 35, -1]</code>.</li>
+  </ul>
+
+  <li><strong>Step 2: Traverse from the root to find where it belongs</strong></li>
+  <ul class='note-list level-1'>
+    <li>Start at <code>CurrentNode = RootPointer = 0</code> (Data = 50).</li>
+    <li><code>35 &lt; 50</code> → go left to node <code>ArrayNodes[0][0] = 1</code> (Data = 30).</li>
+    <li><code>35 &gt;= 30</code> → go right to node <code>ArrayNodes[1][2] = 3</code> (Data = 40).</li>
+    <li><code>35 &lt; 40</code> → try to go left, but <code>ArrayNodes[3][0] = -1</code> (no left child).</li>
+  </ul>
+
+  <li><strong>Step 3: Attach the node</strong></li>
+  <ul class='note-list level-1'>
+    <li>Attach the new node as the left child of node 3 by updating one pointer:</li>
+    <li><code>ArrayNodes[3][0]</code> changes from <code>-1</code> to <code>4</code>.</li>
+  </ul>
+
+  <li><strong>Step 4: Update FreeNode</strong></li>
+  <ul class='note-list level-1'>
+    <li>Move to the next free index: <code>FreeNode = 5</code>.</li>
+  </ul>
+</ul>
+
+<p class='note-paragraph'><strong>Tree after inserting 35</strong></p>
+<pre class='note-code'>
+          50
+         /  \
+       30    70
+         \
+          40
+         /
+        35
+</pre>
+
+<p class='note-paragraph'><strong>Updated array state</strong></p>
+<pre class='note-code'>
+RootPointer = 0
+FreeNode    = 5
+
+Index   [Left, Data, Right]
+[0]     [ 1, 50,  2]
+[1]     [-1, 30,  3]
+[2]     [-1, 70, -1]
+[3]     [ 4, 40, -1]
+[4]     [-1, 35, -1]
+</pre>
+
+<p class='note-paragraph'>
+<strong>Key takeaway:</strong> insertion does not move existing nodes in the array. It creates the new node at
+<code>FreeNode</code> and links it into the tree by changing exactly one pointer in the parent node.
+</p>
+
 </section>
 
 
@@ -753,7 +863,7 @@ lines connecting the stations</p>
 <li>Weights can represent measures such as distance or cost in a network.</li>
 </ul>
 <p class='note-paragraph'>The following Weighted graph shows the travelling times between stations</p>
-<div class='figure-wrap'><img class='doc-figure' src='images/img_03.png' alt=''></div>
+<div class='figure-wrap'><img class='doc-figure' src='images/img_04.png' alt=''></div>
 <a id='sec_5_Graph__Directed_and_undirected'></a><h3 class='subsub-heading level3'>Directed and undirected</h3>
 <ul class='note-list level-0'>
 <li>Graphs can be undirected or directed.</li>
@@ -761,7 +871,7 @@ lines connecting the stations</p>
 <li>Direction may matter because the relationship or cost may differ depending on the direction.</li>
 </ul>
 <p class='note-paragraph'>The following is a directed graph:</p>
-<div class='figure-wrap'><img class='doc-figure' src='images/img_03.png' alt=''></div>
+<div class='figure-wrap'><img class='doc-figure' src='images/img_05.png' alt=''></div>
 <a id='sec_5_Graph__Paths_and_cycles'></a><h3 class='subsub-heading level3'>Paths and cycles</h3>
 <ul class='note-list level-0'>
 <li>A path is a sequence of connected nodes between two nodes.</li>
