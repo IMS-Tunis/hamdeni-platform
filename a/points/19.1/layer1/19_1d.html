@@ -73,90 +73,199 @@
 <li>The same ADT can be implemented in different ways (for example, using arrays, records, linked lists, or a combination). The choice affects how you store items and how you update the structure.</li>
 </ul></div>
       </section>
-      
-<section class="note-card" id="sec_1_Stack_common_implementation_choices">
+     
+	 
+	 
+	 <section class="note-card" id="sec_1_Stack_common_implementation_choices">
   <h2 class="subheading">1) Stack: common implementation choices</h2>
-  <div class="note-body"><a id='sec_1_Stack_common_implementation_choices__A_Stack_implemented_using_an_array_built_in_type'></a><h3 class='subsub-heading level3'>A) Stack implemented using an array (built in type)</h3>
-<ul class='note-list level-0'>
-<li>The stack items are stored in a 1D array.</li>
-<li>A pointer/index is used to indicate where the current “top” of the stack is.</li>
-<li>Because an array has a fixed size, this implementation can become full.</li>
-</ul>
-<a id='sec_1_Stack_common_implementation_choices__B_Stack_implemented_using_a_linked_list_ADT_implemented_from_another_ADT'></a><h3 class='subsub-heading level3'>B) Stack implemented using a linked list (ADT implemented from another ADT)</h3>
-<ul class='note-list level-0'>
-<li>Stack items are stored as nodes, with each node pointing to the next.</li>
-<li>A pointer identifies the first node (the current top of the stack).</li>
-<li>Insert and delete only at the front of the list.</li>
-<li>A linked list implementation can avoid a fixed maximum, which is one reason it can be better than an array implementation in some situations.</li>
-</ul>
-<p class='note-paragraph'>2) Queue: common implementation choices</p>
-<a id='sec_1_Stack_common_implementation_choices__A_Queue_implemented_using_an_array_built_in_type'></a><h3 class='subsub-heading level3'>A) Queue implemented using an array (built in type)</h3>
-<ul class='note-list level-0'>
-<li>The queue items are stored in a 1D array.</li>
-<li>Two pointers/indexes are typically used:</li>
-<ul class='note-list level-1'>
-<li>one for the front (where items are removed)</li>
-<li>one for the rear (where items are added)</li>
-</ul>
-<li>Because an array has a fixed size, this implementation can become full.</li>
-</ul>
-<a id='sec_1_Stack_common_implementation_choices__B_Queue_implemented_using_a_linked_list_ADT_implemented_from_another_ADT'></a><h3 class='subsub-heading level3'>B) Queue implemented using a linked list (ADT implemented from another ADT)</h3>
-<ul class='note-list level-0'>
-<li>Queue items are stored as nodes, with pointers linking nodes.</li>
-<li>Pointers are used to identify the front and the rear of the queue (so items can be added at the rear and removed from the front).</li>
-<li>Like stacks, linked list based queues can avoid a fixed maximum size.</li>
-</ul></div>
+  <div class="note-body">
+
+    <a id='sec_1_Stack_common_implementation_choices__A_Stack_implemented_using_an_array_built_in_type'></a>
+    <h3 class='subsub-heading level3'>A) Stack implemented using an array</h3>
+
+    <ul class='note-list level-0'>
+      <li>The stack items are stored in a <span style="font-weight:800; color:#1e3a8a;">fixed-size</span> <span style="font-weight:800; color:#374151;">1D array</span>.</li>
+      <li>A pointer (often called <span style="font-weight:800; color:#14532d;">TopPointer</span>) stores the <span style="font-weight:800; color:#374151;">index</span> of the current <span style="font-weight:800; color:#14532d;">top</span> item.</li>
+      <li><span style="font-weight:800; color:#14532d;">Push</span> increases <span style="font-weight:800; color:#14532d;">TopPointer</span>; <span style="font-weight:800; color:#14532d;">Pop</span> decreases it.</li>
+      <li>Because the array has a fixed size, the stack can become <span style="font-weight:800; color:#7c2d12;">full</span> (this causes <span style="font-weight:800; color:#7c2d12;">overflow</span> when pushing).</li>
+    </ul>
+
+    <p class='note-paragraph'>
+      <span style="font-weight:800; color:#374151;">Example:</span>
+      if <span style="font-weight:800; color:#14532d;">TopPointer</span> = <span style="font-weight:800; color:#111827;">3</span>, then the top item is stored in
+      <code style="background:rgba(15,23,42,0.06); padding:2px 6px; border-radius:8px;">Stack[3]</code>.
+    </p>
+
+    <a id='sec_1_Stack_common_implementation_choices__B_Stack_implemented_using_a_linked_list_ADT_implemented_from_another_ADT'></a>
+    <h3 class='subsub-heading level3'>B) Stack implemented using a linked list</h3>
+
+    <ul class='note-list level-0'>
+      <li>Stack items are stored as <span style="font-weight:800; color:#374151;">nodes</span> linked together using <span style="font-weight:800; color:#14532d;">pointers</span>.</li>
+      <li>A pointer identifies the <span style="font-weight:800; color:#14532d;">first node</span> (this node represents the <span style="font-weight:800; color:#14532d;">top</span> of the stack).</li>
+      <li><span style="font-weight:800; color:#14532d;">Push</span> inserts a node at the <span style="font-weight:800; color:#374151;">front</span> of the list.</li>
+      <li><span style="font-weight:800; color:#14532d;">Pop</span> removes the <span style="font-weight:800; color:#374151;">first node</span> of the list.</li>
+      <li>This avoids a <span style="font-weight:800; color:#1e3a8a;">fixed maximum size</span> (limited only by available memory).</li>
+    </ul>
+
+    <p class='note-paragraph'>
+      <span style="font-weight:800; color:#374151;">Key idea:</span>
+      in a linked list stack, push/pop work by changing a <span style="font-weight:800; color:#14532d;">pointer</span>, not by shifting data.
+    </p>
+
+  </div>
 </section>
+
+
+<section class="note-card" id="sec_2_Queue_common_implementation_choices">
+  <h2 class="subheading">2) Queue: common implementation choices</h2>
+  <div class="note-body">
+
+    <a id='sec_2_Queue_common_implementation_choices__A_Queue_implemented_using_an_array'></a>
+    <h3 class='subsub-heading level3'>A) Queue implemented using an array</h3>
+
+    <ul class='note-list level-0'>
+      <li>The queue items are stored in a <span style="font-weight:800; color:#1e3a8a;">fixed-size</span> <span style="font-weight:800; color:#374151;">1D array</span>.</li>
+      <li>Two pointers are used:</li>
+      <ul class='note-list level-1'>
+        <li><span style="font-weight:800; color:#14532d;">HeadPointer</span> – index of the <span style="font-weight:800; color:#14532d;">front</span> item (next to remove).</li>
+        <li><span style="font-weight:800; color:#14532d;">TailPointer</span> – index of the <span style="font-weight:800; color:#14532d;">rear</span> item (most recently added).</li>
+      </ul>
+      <li>A counter such as <span style="font-weight:800; color:#14532d;">NumberItems</span> stores how many items are currently in the queue.</li>
+      <li>Because the array size is fixed, the queue can become <span style="font-weight:800; color:#7c2d12;">full</span> (this causes <span style="font-weight:800; color:#7c2d12;">overflow</span> when enQueueing).</li>
+      <li>A <span style="font-weight:800; color:#374151;">circular</span> (wrap-round) approach is often used so pointers can reuse freed spaces.</li>
+    </ul>
+
+    <p class='note-paragraph'>
+      <span style="font-weight:800; color:#374151;">Example:</span>
+      if <span style="font-weight:800; color:#14532d;">HeadPointer</span> = <span style="font-weight:800; color:#111827;">2</span> and
+      <span style="font-weight:800; color:#14532d;">TailPointer</span> = <span style="font-weight:800; color:#111827;">5</span>,
+      the next deQueue reads from <code style="background:rgba(15,23,42,0.06); padding:2px 6px; border-radius:8px;">Queue[2]</code>.
+    </p>
+
+    <a id='sec_2_Queue_common_implementation_choices__B_Queue_implemented_using_a_linked_list'></a>
+    <h3 class='subsub-heading level3'>B) Queue implemented using a linked list</h3>
+
+    <ul class='note-list level-0'>
+      <li>Queue items are stored as linked <span style="font-weight:800; color:#374151;">nodes</span>.</li>
+      <li>Two pointers are used:</li>
+      <ul class='note-list level-1'>
+        <li>a pointer to the <span style="font-weight:800; color:#14532d;">front node</span> (for deQueue)</li>
+        <li>a pointer to the <span style="font-weight:800; color:#14532d;">rear node</span> (for enQueue)</li>
+      </ul>
+      <li><span style="font-weight:800; color:#14532d;">enQueue</span> adds a node at the <span style="font-weight:800; color:#14532d;">rear</span>.</li>
+      <li><span style="font-weight:800; color:#14532d;">deQueue</span> removes a node at the <span style="font-weight:800; color:#14532d;">front</span>.</li>
+      <li>This avoids a <span style="font-weight:800; color:#1e3a8a;">fixed maximum size</span> (limited only by memory).</li>
+    </ul>
+
+  </div>
+</section>
+
 
 <section class="note-card" id="sec_3_Linked_list_common_implementation_style_used_for_algorithms">
   <h2 class="subheading">3) Linked list: common implementation style used for algorithms</h2>
-  <div class="note-body"><p class='note-paragraph'>  A linked list can be implemented using an array of records, where each array element (node) has two fields: Data and Pointer.</p>
-<p class='note-paragraph'>  The Pointer field stores the index of the next node in the array; a special value such as -1 is used as a null pointer to mean “no next node”.</p>
-<p class='note-paragraph'>  The list is accessed using StartPointer, which stores the index of the first node in the list.</p>
-<p class='note-paragraph'>  Unused array positions are managed using a free list; its first node index is stored in FreeListPtr, and the unused nodes are linked together so their space can be reused.</p>
-<p class='note-paragraph'>  In an ordered linked list, insertion first finds the correct position, then links the new node either at the start or between two nodes by updating pointer values.</p></div>
+  <div class="note-body">
+
+    <ul class='note-list level-0'>
+      <li>A linked list can be implemented using an <span style="font-weight:800; color:#374151;">array of records</span>.</li>
+      <li>Each node contains two fields:</li>
+      <ul class='note-list level-1'>
+        <li><span style="font-weight:800; color:#14532d;">Data</span> – the value stored in the node.</li>
+        <li><span style="font-weight:800; color:#14532d;">Pointer</span> – the index of the next node.</li>
+      </ul>
+      <li>A special value such as <span style="font-weight:800; color:#7c2d12;">-1</span> is used as <span style="font-weight:800; color:#7c2d12;">NullPointer</span> to mean “no next node”.</li>
+      <li><span style="font-weight:800; color:#14532d;">StartPointer</span> stores the index of the first node in the list.</li>
+      <li>Unused array positions are managed using a <span style="font-weight:800; color:#374151;">free list</span>, whose first index is stored in <span style="font-weight:800; color:#14532d;">FreeListPtr</span>.</li>
+      <li>Free nodes are linked together so their space can be <span style="font-weight:800; color:#1e3a8a;">reused</span>.</li>
+    </ul>
+
+    <p class='note-paragraph'>
+      <span style="font-weight:800; color:#374151;">Example:</span>
+      if <span style="font-weight:800; color:#14532d;">StartPointer</span> = <span style="font-weight:800; color:#111827;">4</span>,
+      then the first node of the list is stored at index <span style="font-weight:800; color:#111827;">4</span>.
+    </p>
+
+    <p class='note-paragraph'>
+      In an <span style="font-weight:800; color:#374151;">ordered linked list</span>, insertion first finds the correct position, then updates pointer values to link the new node either:
+    </p>
+    <ul class='note-list level-0'>
+      <li>at the <span style="font-weight:800; color:#14532d;">start</span> of the list, or</li>
+      <li><span style="font-weight:800; color:#14532d;">between</span> two existing nodes.</li>
+    </ul>
+
+  </div>
 </section>
+
 
 <section class="note-card" id="sec_4_Dictionary_implemented_using_a_hash_table">
   <h2 class="subheading">4) Dictionary: implemented using a hash table</h2>
-  <div class="note-body"><a id='sec_4_Dictionary_implemented_using_a_hash_table__A_Dictionary_as_key_value_pairs'></a><h3 class='subsub-heading level3'>A) Dictionary as key value pairs</h3>
-<ul class='note-list level-0'>
-<li>A dictionary stores key value pairs; the key is used to look up the value. Example: key &quot;book&quot; maps to value &quot;livre&quot;.</li>
-<li>Many languages provide a built in dictionary type, for example Python:</li>
-<ul class='note-list level-1'>
-<li>EnglishFrench[&quot;book&quot;] = &quot;livre&quot; adds a key value pair</li>
-<li>EnglishFrench[&quot;book&quot;] accesses the value for key &quot;book&quot;</li>
-</ul>
-</ul>
-<a id='sec_4_Dictionary_implemented_using_a_hash_table__B_How_a_dictionary_is_implemented_hash_table_direct_access'></a><h3 class='subsub-heading level3'>B) How a dictionary is implemented: hash table (direct access)</h3>
-<ul class='note-list level-0'>
-<li>A computer science dictionary is implemented using a hash table so that a value can be looked up using a direct access method.</li>
-<li>A hash table is a 1D array of records, where an address (array index) is calculated from the record key (hashing).</li>
-<li>Example hashing function: Address ← Key MOD(n + 1)</li>
-<li>If two different keys hash to the same address, this is a collision.</li>
-<li>Collision handling methods include:</li>
-<ul class='note-list level-1'>
-<li>Chaining: create a linked list for collisions starting at the hashed address</li>
-<li>Closed hashing: store collisions in a separate overflow area</li>
-<li>Open hashing: search neighbouring slots to find an empty slot</li>
-</ul>
-</ul></div>
+  <div class="note-body">
+
+    <a id='sec_4_Dictionary_implemented_using_a_hash_table__A_Dictionary_as_key_value_pairs'></a>
+    <h3 class='subsub-heading level3'>A) Dictionary as key–value pairs</h3>
+
+    <ul class='note-list level-0'>
+      <li>A dictionary stores <span style="font-weight:800; color:#374151;">key–value pairs</span>.</li>
+      <li>The <span style="font-weight:800; color:#14532d;">key</span> is used to look up the <span style="font-weight:800; color:#14532d;">value</span>.</li>
+      <li>Example: key <code style="background:rgba(15,23,42,0.06); padding:2px 6px; border-radius:8px;">"book"</code> maps to value <code style="background:rgba(15,23,42,0.06); padding:2px 6px; border-radius:8px;">"livre"</code>.</li>
+      <li>Many languages provide a built-in dictionary type.</li>
+    </ul>
+
+    <p class='note-paragraph'>
+      <span style="font-weight:800; color:#374151;">Example in Python:</span>
+      <code style="background:rgba(15,23,42,0.06); padding:2px 6px; border-radius:8px;">EnglishFrench["book"] = "livre"</code>
+      adds a pair, and
+      <code style="background:rgba(15,23,42,0.06); padding:2px 6px; border-radius:8px;">EnglishFrench["book"]</code>
+      retrieves the value.
+    </p>
+
+    <a id='sec_4_Dictionary_implemented_using_a_hash_table__B_How_a_dictionary_is_implemented_hash_table_direct_access'></a>
+    <h3 class='subsub-heading level3'>B) Implementation using a hash table</h3>
+
+    <ul class='note-list level-0'>
+      <li>A dictionary can be implemented using a <span style="font-weight:800; color:#374151;">hash table</span> to allow fast <span style="font-weight:800; color:#1e3a8a;">direct access</span>.</li>
+      <li>A hash table is a <span style="font-weight:800; color:#374151;">1D array</span> where the array index (address) is calculated from the key using a <span style="font-weight:800; color:#14532d;">hash function</span>.</li>
+      <li>Example hash function: <code style="background:rgba(15,23,42,0.06); padding:2px 6px; border-radius:8px;">Address &larr; Key MOD n</code></li>
+      <li>If two different keys produce the same address, this is a <span style="font-weight:800; color:#7c2d12;">collision</span>.</li>
+      <li>Common collision handling methods:</li>
+      <ul class='note-list level-1'>
+        <li><span style="font-weight:800; color:#14532d;">Chaining</span> – store colliding items in a linked list at that address.</li>
+        <li><span style="font-weight:800; color:#14532d;">Open addressing</span> – search nearby slots to find an empty position.</li>
+      </ul>
+    </ul>
+
+  </div>
 </section>
+
 
 <section class="note-card" id="sec_5_Binary_tree_commonly_implemented_using_an_array_of_records">
-  <h2 class="subheading">5) Binary tree: commonly implemented using an array of records</h2>
-  <div class="note-body"><ul class='note-list level-0'>
-<li>A binary tree can be implemented using an array, where each element is a record containing:</li>
-<ul class='note-list level-1'>
-<li>the data value</li>
-<li>a left pointer</li>
-<li>a right pointer</li>
-</ul>
-<li>Pointers are often stored as integer indexes (pointing to positions in the array), and a special value such as -1 is used to indicate “no child” (null pointer).</li>
-</ul></div>
+  <h2 class="subheading">5) Binary tree: implemented using an array of records</h2>
+  <div class="note-body">
+
+    <ul class='note-list level-0'>
+      <li>A binary tree can be stored in an <span style="font-weight:800; color:#374151;">array of records</span>.</li>
+      <li>Each node contains three fields:</li>
+      <ul class='note-list level-1'>
+        <li><span style="font-weight:800; color:#14532d;">LeftPointer</span> – index of the left child</li>
+        <li><span style="font-weight:800; color:#14532d;">Data</span> – value stored in the node</li>
+        <li><span style="font-weight:800; color:#14532d;">RightPointer</span> – index of the right child</li>
+      </ul>
+      <li>Pointers are stored as <span style="font-weight:800; color:#374151;">integer indexes</span>.</li>
+      <li><span style="font-weight:800; color:#7c2d12;">-1</span> is used as the <span style="font-weight:800; color:#7c2d12;">NullPointer</span> to indicate “no child”.</li>
+      <li><span style="font-weight:800; color:#14532d;">RootPointer</span> stores the index of the root node.</li>
+    </ul>
+
+    <p class='note-paragraph'>
+      <span style="font-weight:800; color:#374151;">Example:</span>
+      if <span style="font-weight:800; color:#14532d;">RootPointer</span> = <span style="font-weight:800; color:#111827;">0</span>,
+      the root node is stored at index <span style="font-weight:800; color:#111827;">0</span>.
+    </p>
+
+  </div>
 </section>
 
-    </section>
+
+
+
   </main>
 
   <div class="modal-backdrop" id="annexModalBackdrop" aria-hidden="true">
