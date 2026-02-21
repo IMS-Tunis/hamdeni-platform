@@ -1,165 +1,173 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>IGCSE Computer Science - 3.1 Computer Architecture</title>
-  <link rel="stylesheet" href="../igcse-style.css">
+<meta charset="utf-8"/>
+<title>IGCSE Computer Science - 3.1 Computer Architecture</title>
+<link href="../igcse-style.css" rel="stylesheet"/>
 </head>
 <body>
 <div class="container">
 <div class="header-container">
-<img src="../syllabus.png" alt="Syllabus Update" class="top-right-icon">
-  <div class="title-row">
-    <h1 class="section-title">3.1 Computer Architecture</h1>
-  </div>
-  <div class="title-underline"></div>
-  <p class="section-subtitle">Computer Science IGCSE notes, prepared by Dr. Hamdeni</p>
+<img alt="Syllabus Update" class="top-right-icon" src="../syllabus.png"/>
+<div class="title-row">
+<h1 class="section-title">3.1 Computer Architecture</h1>
 </div>
-
+<div class="title-underline"></div>
+<p class="section-subtitle">Computer Science IGCSE notes, prepared by Dr. Hamdeni</p>
+</div>
 <div class="section">
-  <h2>3.1a: Role of the CPU and Microprocessor</h2>
-  <ul>
-    <li><span class="official-note">The <span class="keyword" data-tooltip="a component in a computer system that processes data and instructions">central processing unit (CPU)</span>, also called a <span class="keyword" data-tooltip="an integrated circuit that is able to perform many of the functions of a CPU">microprocessor</span> or processor, is the main part of the computer that processes all data and instructions, similar to the brain in a human body.</span>
-    <ul>
-      <li><span class="official-note">It is found in all modern devices like PCs, tablets, and smartphones, often built into a single <span class="keyword" data-tooltip="usually a chip made from a semiconductor material which carries out the same tasks as a larger circuit made from individual components">integrated circuit</span>.</span></li>
-      <li><span class="official-note">The CPU usually contains three key parts: the <span class="keyword" data-tooltip="the component in the CPU that controls all the operations in the CPU">control unit</span> (CU), the <span class="keyword" data-tooltip="the component in the CPU that performs all the mathematical and logical operations required when processing data and instructions">arithmetic and logic unit (ALU)</span>, and <span class="keyword" data-tooltip="a temporary component in the CPU which can be general or specific in its use">registers</span> connected through buses.</span></li>
-    </ul>
-  </li>
-    <li><span class="official-note">In smaller electronic systems, like washing machines or traffic lights, a similar component called a microprocessor is used.</span>
-    <ul>
-      <li><span class="official-note">These microprocessors are part of <span class="keyword" data-tooltip="a computer system that performs a dedicated function">embedded systems</span>, which are designed to carry out one specific task rather than multiple ones.</span></li>
-    </ul>
-  </li>
-  </ul>
+<h2>3.1a: Role of the CPU and Microprocessor</h2>
+<ul>
+<li><span class="official-note">The <span class="keyword" data-tooltip="a component in a computer system that processes data and instructions">central processing unit (CPU)</span>, also called a <span class="keyword" data-tooltip="an integrated circuit that is able to perform many of the functions of a CPU">microprocessor</span> or processor, is the main part of the computer that processes all data and instructions, similar to the brain in a human body.</span>
+<ul>
+<li><span class="official-note">It is found in all modern devices like PCs, tablets, and smartphones, often built into a single <span class="keyword" data-tooltip="usually a chip made from a semiconductor material which carries out the same tasks as a larger circuit made from individual components">integrated circuit</span>.</span></li>
+<li><span class="official-note">The CPU usually contains three key parts: the <span class="keyword" data-tooltip="the component in the CPU that controls all the operations in the CPU">control unit</span> (CU), the <span class="keyword" data-tooltip="the component in the CPU that performs all the mathematical and logical operations required when processing data and instructions">arithmetic and logic unit (ALU)</span>, and <span class="keyword" data-tooltip="a temporary component in the CPU which can be general or specific in its use">registers</span> connected through buses.</span></li>
+</ul>
+</li>
+<li><span class="official-note">In smaller electronic systems, like washing machines or traffic lights, a similar component called a microprocessor is used.</span>
+<ul>
+<li><span class="official-note">These microprocessors are part of <span class="keyword" data-tooltip="a computer system that performs a dedicated function">embedded systems</span>, which are designed to carry out one specific task rather than multiple ones.</span></li>
+</ul>
+</li>
+</ul>
 <ul class="no-bullets">
 <li><div class="example-box">A washing machine uses a microprocessor to control dedicated tasks like selecting and executing wash cycles.</div></li>
 <li><span class="fun-tip">If your brain had a CPU, it would be like your personal assistant - sorting tasks, solving math, and making sure you don’t forget lunch. A washing machine’s microprocessor is like a helper that just knows how to do laundry - nothing else!</span></li>
 <li><div class="example-box">Example: In a parking system, a microprocessor checks if a sensor is activated, compares how long a car has been parked against the time paid, and sends a signal to an output device (like a barrier) if the time is exceeded.</div></li>
-  <div class="button-group">
-          <button class="keyword-button" onclick="openPopupK('3.1a')">
+<div class="button-group">
+<button class="keyword-button" onclick="openPopupK('3.1a')">
             🔑 View Keywords on This Topic 🔑
           </button>
-          <button class="exam-button" onclick="openPopupQ('3.1a')">
+<button class="exam-button" onclick="openPopupQ('3.1a')">
             👁️ Quick Look at Exam Questions on This Topic 👁️
           </button>
-        </div>
+</div>
 </ul>
 </div>
 <div class="section">
-  <h2>3.1b: Von Neumann Architecture, CPU Components, FDE Cycle</h2>
-  <ul>
-    <li><span class="official-note">The <span class="keyword" data-tooltip="a type of computer architecture which introduced the concept of the stored program in the 1940s">Von Neumann architecture</span> is a design model where both data and programs are stored in memory and processed by a central CPU using a repeated <span class="keyword" data-tooltip="the cycle through which data and instructions are processed">Fetch–Decode–Execute (FDE) cycle</span>.</span>
-    <ul>
-      <li><span class="official-note">The architecture uses a system of components including: <span class="keyword" data-tooltip="a component in the CPU that stores the address of the next instruction to be processed">Program Counter (PC)</span>, <span class="keyword" data-tooltip="a component in the CPU that holds the address of the data or instruction to be located in RAM">Memory Address Register (MAR)</span>, <span class="keyword" data-tooltip="a component in the CPU that holds the data or instruction that are fetched from RAM">Memory Data Register (MDR)</span>, <span class="keyword" data-tooltip="a register that stores the current instruction being decoded and executed">Current Instruction Register (CIR)</span>, Arithmetic Logic Unit (ALU), <span class="keyword" data-tooltip="a register that is built into the ALU that stores the result of any interim calculations">Accumulator (ACC)</span>, Control Unit (CU), and the <span class="keyword" data-tooltip="produces timing signals on the control bus to ensure synchronisation takes place">system clock</span>.</span></li>
-      <li><span class="official-note">The CPU connects to memory and devices using three main <span class="keyword" data-tooltip="a connection between major components in a computer that can carry data, addresses or control signals">system buses</span>:
-  - <span class="keyword" data-tooltip="wires used for the transmission of addresses between components in a computer">Address bus</span>: sends memory locations in one direction (<span class="keyword" data-tooltip="can travel in one direction only; used to describe data">unidirectional</span>)
-  - <span class="keyword" data-tooltip="wires used for the transmission of data and instructions between components in a computer">Data bus</span>: sends and receives data (<span class="keyword" data-tooltip="can travel in both directions; used to describe data">bidirectional</span>)
-  - <span class="keyword" data-tooltip="wires used for the transmission of control signals between components in a computer">Control bus</span>: sends control signals (usually bidirectional)</span></li>
-    </ul>
-  </li>
-    <li><span class="official-note">The Fetch stage involves several steps:
-  - The PC stores the address of the next instruction and sends it to the MAR using the address bus.
-  - The instruction at that address is copied from <span class="keyword" data-tooltip="memory that holds all data and programs needed to be accessed by the control unit">immediate access store (IAS)</span> into the MDR.
-  - The MDR passes the instruction to the CIR, where it is ready to be decoded.
-  - The PC is incremented by 1 to point to the next instruction.</span>
-  </li>
-    <li><span class="official-note">In the Decode stage, the CIR uses the instruction set to decode the instruction so the CPU understands what to do.</span>
-  </li>
-    <li><span class="official-note">In the Execute stage, the CU sends control signals to carry out the decoded instruction. If calculations are needed, the ALU performs them using the ACC.</span>
-  </li>
-  </ul>
+<h2>3.1b: Von Neumann Architecture, CPU Components, FDE Cycle</h2>
+<ul>
+<li><span class="official-note">The <span class="keyword" data-tooltip="a type of computer architecture which introduced the concept of the stored program in the 1940s">Von Neumann architecture</span> is a design model where both data and programs are stored in memory and processed by a central CPU using a repeated <span class="keyword" data-tooltip="the cycle through which data and instructions are processed">Fetch–Decode–Execute (FDE) cycle</span>.</span>
+<ul>
+
+<div class="image-container">
+<img alt="CPU registers including MAR, MDR, CIR, and accumulator" class="content-image" src="images/registers.png" style="width:75%;height:auto;"/>
+</div>
+<div class="image-container">
+<img alt="Summary table of key registers" class="content-image" src="images/registersummarytable.png" style="width:75%;height:auto;"/>
+</div>
+<div class="image-container">
+
+</div>
+</ul>
+</li><li><span class="official-note">The architecture uses a system of components including: Program Counter (PC) , Memory Address Register (MAR) , Memory Data Register (MDR) , Current Instruction Register (CIR) , Arithmetic Logic Unit (ALU), Accumulator (ACC) , Control Unit (CU), and the system clock .</span></li><li><span class="official-note">The CPU connects to memory and devices using three main <span class="keyword" data-tooltip="a connection between major components in a computer that can carry data, addresses or control signals">system buses</span>:<ul><li><span class="keyword" data-tooltip="wires used for the transmission of addresses between components in a computer">Address bus</span>: sends memory locations in one direction (<span class="keyword" data-tooltip="can travel in one direction only; used to describe data">unidirectional</span>)</li><li><span class="keyword" data-tooltip="wires used for the transmission of data and instructions between components in a computer">Data bus</span>: sends and receives data (<span class="keyword" data-tooltip="can travel in both directions; used to describe data">bidirectional</span>)</li><li><span class="keyword" data-tooltip="wires used for the transmission of control signals between components in a computer">Control bus</span>: sends control signals (usually bidirectional)</li></ul></span></li><img alt="System buses connecting CPU components" class="content-image" src="images/buses.png" style="width:50%;height:auto;"/>
+<li><span class="official-note">The Fetch stage involves several steps:<ul><li>The PC stores the address of the next instruction and sends it to the MAR using the address bus.</li><li>The instruction at that address is copied from <span class="keyword" data-tooltip="memory that holds all data and programs needed to be accessed by the control unit">immediate access store (IAS)</span> into the MDR.</li><li>The MDR passes the instruction to the CIR, where it is ready to be decoded.</li><li>The PC is incremented by 1 to point to the next instruction.</li></ul></span>
+</li><div class="image-container">
+<img alt="Fetch Decode Execute cycle" class="content-image" src="images/fetchdecodeexecutecycle.png" style="width:35%;height:auto;"/>
+</div>
+<li><span class="official-note">In the Decode stage, the CIR uses the instruction set to decode the instruction so the CPU understands what to do.</span>
+</li>
+<li><span class="official-note">In the Execute stage, the CU sends control signals to carry out the decoded instruction. If calculations are needed, the ALU performs them using the ACC.</span>
+</li>
+</ul>
 <ul class="no-bullets">
 <li><div class="example-box">Reading from RAM:
   MAR holds address 1111 0001 → RAM sends data 0101 1011 to MDR.
   Why it matters: Shows how CPUs find and process instructions step-by-step.</div></li>
 <li><span class="fun-tip">Think of the fetch-decode-execute cycle like ordering pizza: You look up the pizza (fetch), read the recipe (decode), and cook it (execute). The CPU does this millions of times per second - but sadly, no pizza at the end.</span></li>
-  <div class="button-group">
-          <button class="keyword-button" onclick="openPopupK('3.1b')">
+<div class="button-group">
+<button class="keyword-button" onclick="openPopupK('3.1b')">
             🔑 View Keywords on This Topic 🔑
           </button>
-          <button class="exam-button" onclick="openPopupQ('3.1b')">
+<button class="exam-button" onclick="openPopupQ('3.1b')">
             👁️ Quick Look at Exam Questions on This Topic 👁️
           </button>
-        </div>
+</div>
 </ul>
 </div>
 <div class="section">
-  <h2>🔹 3.1c: Core, Cache, and Clock - Factors Affecting Performance</h2>
-  <ul>
-    <li><span class="official-note">CPU performance is about how quickly the CPU can carry out instructions, and it's affected by three main things: <span class="keyword" data-tooltip="the number of fetch-decode-execute cycles that can be performed in a second">clock speed</span>, number of <span class="keyword" data-tooltip="the part of the CPU that contains all the components that are used to perform the fetch-decode-execute cycle">cores</span>, and size of <span class="keyword" data-tooltip="a type of storage that is built into the CPU, to store the most frequently used data and instructions">cache</span>.</span>
-  </li>
-    <li><span class="official-note">The clock speed is measured in gigahertz (GHz) and tells how many <span class="keyword" data-tooltip="clock speeds are measured in terms of GHz; this is the vibrational frequency of the system clock which sends out pulses along the control bus">clock cycles</span> can be completed per second. A faster clock can increase processing speed but may also cause overheating or errors if pushed beyond safe limits (<span class="keyword" data-tooltip="changing the clock speed of a system clock to a value higher than the factory/recommended setting">overclocking</span>).</span>
-  </li>
-    <li><span class="official-note">Cores are individual processors within the CPU. More cores allow more instructions to be processed at the same time.</span>
-    <ul>
-      <li><span class="official-note">A <span class="keyword" data-tooltip="a CPU containing two cores">dual-core</span> CPU can process two instructions at once; a <span class="keyword" data-tooltip="a CPU containing four cores">quad-core</span> can do four, allowing multitasking.</span></li>
-      <li><span class="official-note">However, more cores don’t always double performance because the CPU must coordinate communication between cores.</span></li>
-    </ul>
-  </li>
-    <li><span class="official-note">Cache is high-speed memory inside the CPU that stores frequently used data and instructions.</span>
-    <ul>
-      <li><span class="official-note">Using cache is faster than accessing RAM, so more cache generally means better performance-up to a point.</span></li>
-    </ul>
-  </li>
-  </ul>
+<h2>🔹 3.1c: Core, Cache, and Clock - Factors Affecting Performance</h2>
+<ul>
+<li><span class="official-note">CPU performance is about how quickly the CPU can carry out instructions, and it's affected by three main things: <span class="keyword" data-tooltip="the number of fetch-decode-execute cycles that can be performed in a second">clock speed</span>, number of <span class="keyword" data-tooltip="the part of the CPU that contains all the components that are used to perform the fetch-decode-execute cycle">cores</span>, and size of <span class="keyword" data-tooltip="a type of storage that is built into the CPU, to store the most frequently used data and instructions">cache</span>.</span>
+</li>
+<li><span class="official-note">The clock speed is measured in gigahertz (GHz) and tells how many <span class="keyword" data-tooltip="clock speeds are measured in terms of GHz; this is the vibrational frequency of the system clock which sends out pulses along the control bus">clock cycles</span> can be completed per second. A faster clock can increase processing speed but may also cause overheating or errors if pushed beyond safe limits (<span class="keyword" data-tooltip="changing the clock speed of a system clock to a value higher than the factory/recommended setting">overclocking</span>).</span>
+</li>
+<div class="video-container">
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/Z5JC9Ve1sfI?start=326" title="Clock cycles" width="560"></iframe>
+</div>
+<li><span class="official-note">Cores are individual processors within the CPU. More cores allow more instructions to be processed at the same time.</span>
+<ul>
+<li><span class="official-note">A <span class="keyword" data-tooltip="a CPU containing two cores">dual-core</span> CPU can process two instructions at once; a <span class="keyword" data-tooltip="a CPU containing four cores">quad-core</span> can do four, allowing multitasking.</span>
+
+</li>
+<li><span class="official-note">However, more cores don’t always double performance because the CPU must coordinate communication between cores.</span></li>
+</ul>
+</li>
+<li><span class="official-note">Cache is high-speed memory inside the CPU that stores frequently used data and instructions.</span>
+<ul>
+<li><span class="official-note">Using cache is faster than accessing RAM, so more cache generally means better performance-up to a point.</span></li>
+</ul>
+</li>
+</ul>
 <ul class="no-bullets">
 <li><div class="example-box">Example: Increasing clock speed from 2.4 GHz to 3.5 GHz improves CPU performance by allowing more instructions per second to be executed, speeding up processing and improving responsiveness.</div></li>
 <li><div class="example-box">A 2.4 GHz dual-core CPU processes 4.8 billion instructions/second:
   Calculation: 2.4 billion cycles/core × 2 cores = 4.8 billion.
   Why it matters: Shows how cores and speed multiply performance.</div></li>
 <li><span class="fun-tip">More cores in a CPU are like more chefs in a kitchen - they can cook faster, but only if they don’t bump into each other. And cache is like a spice rack on the counter - faster than running to the pantry (RAM)!</span></li>
-  <div class="button-group">
-          <button class="keyword-button" onclick="openPopupK('🔹 3.1c')">
+<div class="button-group">
+<button class="keyword-button" onclick="openPopupK('🔹 3.1c')">
             🔑 View Keywords on This Topic 🔑
           </button>
-          <button class="exam-button" onclick="openPopupQ('🔹 3.1c')">
+<button class="exam-button" onclick="openPopupQ('🔹 3.1c')">
             👁️ Quick Look at Exam Questions on This Topic 👁️
           </button>
-        </div>
+</div>
 </ul>
 </div>
 <div class="section">
-  <h2>🔹 3.1d: Instruction Set</h2>
-  <ul>
-    <li><span class="official-note">An <span class="keyword" data-tooltip="a set of commands that can be processed by a certain CPU">instruction set</span> is a list of all low-level machine code commands a CPU can understand and execute.</span>
-    <ul>
-      <li><span class="official-note">Each instruction consists of an <span class="keyword" data-tooltip="part of a machine code instruction that identifies what action the CPU has to perform">opcode</span> (the action to be performed) and an <span class="keyword" data-tooltip="part of a machine code instruction that identifies what data is to be used">operand</span> (the data or location the action applies to).</span></li>
-      <li><span class="official-note">Software written in high-level programming languages is translated into these low-level instructions by compilers or interpreters.</span></li>
-    </ul>
-  </li>
-  </ul>
+<h2>🔹 3.1d: Instruction Set</h2>
+<ul>
+<li><span class="official-note">An <span class="keyword" data-tooltip="a set of commands that can be processed by a certain CPU">instruction set</span> is a list of all low-level machine code commands a CPU can understand and execute.</span>
+<ul>
+<li><span class="official-note">Each instruction consists of an <span class="keyword" data-tooltip="part of a machine code instruction that identifies what action the CPU has to perform">opcode</span> (the action to be performed) and an <span class="keyword" data-tooltip="part of a machine code instruction that identifies what data is to be used">operand</span> (the data or location the action applies to).</span></li>
+<li><span class="official-note">Software written in high-level programming languages is translated into these low-level instructions by compilers or interpreters.</span></li>
+</ul>
+</li>
+</ul>
 <ul class="no-bullets">
 <li><div class="example-box">The X86 instruction set (used in Intel CPUs) allows different computers to run the same software.</div></li>
 <li><span class="fun-tip">An instruction set is like a language your CPU speaks. If you shout “Wash the dishes!” at your toaster, it won’t respond - wrong instruction set. CPUs need the right opcodes to do the job!</span></li>
-  <div class="button-group">
-          <button class="keyword-button" onclick="openPopupK('🔹 3.1d')">
+<div class="button-group">
+<button class="keyword-button" onclick="openPopupK('🔹 3.1d')">
             🔑 View Keywords on This Topic 🔑
           </button>
-          <button class="exam-button" onclick="openPopupQ('🔹 3.1d')">
+<button class="exam-button" onclick="openPopupQ('🔹 3.1d')">
             👁️ Quick Look at Exam Questions on This Topic 👁️
           </button>
-        </div>
+</div>
 </ul>
 </div>
 <div class="section">
-  <h2>🔹 3.1e: Embedded Systems</h2>
-  <ul>
-    <li><span class="official-note">An embedded system is a computer system built into a larger device to perform one specific, dedicated function.</span>
-    <ul>
-      <li><span class="official-note">Most embedded systems are not easy to reprogram and are designed to carry out their specific tasks reliably without frequent updates.</span></li>
-      <li><span class="official-note">Embedded systems may include microcontrollers (with CPU, RAM, ROM on a chip), microprocessors (CPU only), or SoC (System on Chip) that combines everything.</span></li>
-    </ul>
-  </li>
-    <li><span class="official-note">Embedded systems are used in devices like washing machines, GPS units, security alarms, vending machines, lighting systems, and medical equipment.</span>
-    <ul>
-      <li><span class="official-note">They may take input from sensors (e.g., temperature, pressure), process it, and give outputs such as displaying information or controlling motors.</span></li>
-    </ul>
-  </li>
-    <li><span class="official-note">Some embedded systems are programmable (software can be updated), while others are fixed and need replacement if outdated.</span>
-  </li>
-    <li><span class="official-note">Embedded systems are used in devices like washing machines, GPS units, security alarms, vending machines, lighting systems, and medical equipment.</span>
-  </li>
-  </ul>
+<h2>🔹 3.1e: Embedded Systems</h2>
+<ul>
+<li><span class="official-note">An embedded system is a computer system built into a larger device to perform one specific, dedicated function.</span>
+<ul>
+<li><span class="official-note">Most embedded systems are not easy to reprogram and are designed to carry out their specific tasks reliably without frequent updates.</span></li>
+<li><span class="official-note">Embedded systems may include microcontrollers (with CPU, RAM, ROM on a chip), microprocessors (CPU only), or SoC (System on Chip) that combines everything.</span></li>
+</ul>
+</li>
+<li><span class="official-note">Embedded systems are used in devices like washing machines, GPS units, security alarms, vending machines, lighting systems, and medical equipment.</span>
+<ul>
+<li><span class="official-note">They may take input from sensors (e.g., temperature, pressure), process it, and give outputs such as displaying information or controlling motors.</span></li>
+</ul>
+</li>
+<li><span class="official-note">Some embedded systems are programmable (software can be updated), while others are fixed and need replacement if outdated.</span>
+</li>
+<li><span class="official-note">Embedded systems are used in devices like washing machines, GPS units, security alarms, vending machines, lighting systems, and medical equipment.</span>
+</li>
+</ul>
 <ul class="no-bullets">
 <li><div class="example-box">A car’s ABS braking system:
   Inputs: Sensors detecting wheel speed.
@@ -167,14 +175,14 @@
 <li><div class="example-box">Example: A vending machine uses sensors to read coin values and temperatures and actuators to release snacks. All of this is controlled by an embedded system, making the machine work automatically.</div></li>
 <li><div class="example-box">Example: A smartwatch is not a general-purpose computer because it is built for limited, specific functions like fitness tracking or notifications and cannot run a wide range of software like a laptop or desktop computer.</div></li>
 <li><span class="fun-tip">An embedded system is like that friend who only talks about one thing - cars, games, or cake. They’re great at that one thing, but don’t expect them to help with your math homework.</span></li>
-  <div class="button-group">
-          <button class="keyword-button" onclick="openPopupK('🔹 3.1e')">
+<div class="button-group">
+<button class="keyword-button" onclick="openPopupK('🔹 3.1e')">
             🔑 View Keywords on This Topic 🔑
           </button>
-          <button class="exam-button" onclick="openPopupQ('🔹 3.1e')">
+<button class="exam-button" onclick="openPopupQ('🔹 3.1e')">
             👁️ Quick Look at Exam Questions on This Topic 👁️
           </button>
-        </div>
+</div>
 </ul>
 </div>
 <script src="popup-script.js"></script>
@@ -184,5 +192,5 @@
     window.parent.postMessage({type: 'resize', height: height}, '*');
   });
 </script>
-</body>
+</div></body>
 </html>

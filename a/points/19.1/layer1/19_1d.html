@@ -76,192 +76,262 @@
      
 	 
 	 
-	 <section class="note-card" id="sec_1_Stack_common_implementation_choices">
-  <h2 class="subheading">1) Stack: common implementation choices</h2>
+
+
+<section class="note-card" id="sec_ADT_Implementation_From_ADT">
+  <h2 class="subheading">Implementing ADTs from Built-in Types and Other ADTs</h2>
   <div class="note-body">
 
-    <a id='sec_1_Stack_common_implementation_choices__A_Stack_implemented_using_an_array_built_in_type'></a>
-    <h3 class='subsub-heading level3'>A) Stack implemented using an array</h3>
-
-    <ul class='note-list level-0'>
-      <li>The stack items are stored in a <span style="font-weight:800; color:#1e3a8a;">fixed-size</span> <span style="font-weight:800; color:#374151;">1D array</span>.</li>
-      <li>A pointer (often called <span style="font-weight:800; color:#14532d;">TopPointer</span>) stores the <span style="font-weight:800; color:#374151;">index</span> of the current <span style="font-weight:800; color:#14532d;">top</span> item.</li>
-      <li><span style="font-weight:800; color:#14532d;">Push</span> increases <span style="font-weight:800; color:#14532d;">TopPointer</span>; <span style="font-weight:800; color:#14532d;">Pop</span> decreases it.</li>
-      <li>Because the array has a fixed size, the stack can become <span style="font-weight:800; color:#7c2d12;">full</span> (this causes <span style="font-weight:800; color:#7c2d12;">overflow</span> when pushing).</li>
-    </ul>
-
     <p class='note-paragraph'>
-      <span style="font-weight:800; color:#374151;">Example:</span>
-      if <span style="font-weight:800; color:#14532d;">TopPointer</span> = <span style="font-weight:800; color:#111827;">3</span>, then the top item is stored in
-      <code style="background:rgba(15,23,42,0.06); padding:2px 6px; border-radius:8px;">Stack[3]</code>.
+      An <strong>Abstract Data Type (ADT)</strong> defines the <strong>behaviour</strong> of a data structure 
+      (its operations and rules), but it does <strong>not</strong> define how the data is stored internally.
     </p>
 
-    <a id='sec_1_Stack_common_implementation_choices__B_Stack_implemented_using_a_linked_list_ADT_implemented_from_another_ADT'></a>
-    <h3 class='subsub-heading level3'>B) Stack implemented using a linked list</h3>
+    <p class='note-paragraph'>
+      The same ADT can therefore be implemented in different ways:
+    </p>
 
     <ul class='note-list level-0'>
-      <li>Stack items are stored as <span style="font-weight:800; color:#374151;">nodes</span> linked together using <span style="font-weight:800; color:#14532d;">pointers</span>.</li>
-      <li>A pointer identifies the <span style="font-weight:800; color:#14532d;">first node</span> (this node represents the <span style="font-weight:800; color:#14532d;">top</span> of the stack).</li>
-      <li><span style="font-weight:800; color:#14532d;">Push</span> inserts a node at the <span style="font-weight:800; color:#374151;">front</span> of the list.</li>
-      <li><span style="font-weight:800; color:#14532d;">Pop</span> removes the <span style="font-weight:800; color:#374151;">first node</span> of the list.</li>
-      <li>This avoids a <span style="font-weight:800; color:#1e3a8a;">fixed maximum size</span> (limited only by available memory).</li>
+      <li>Using a <strong>built-in data type</strong> (such as an array).</li>
+      <li>Using <strong>another ADT</strong> as the underlying structure.</li>
     </ul>
 
     <p class='note-paragraph'>
-      <span style="font-weight:800; color:#374151;">Key idea:</span>
-      in a linked list stack, push/pop work by changing a <span style="font-weight:800; color:#14532d;">pointer</span>, not by shifting data.
+      When we say “implement an ADT using another ADT”, we mean:
+      the operations of the first ADT are carried out using the operations of the second ADT.
     </p>
 
   </div>
 </section>
 
 
-<section class="note-card" id="sec_2_Queue_common_implementation_choices">
-  <h2 class="subheading">2) Queue: common implementation choices</h2>
+<!-- STACK -->
+
+<section class="note-card" id="sec_ADT_Stack">
+  <h2 class="subheading">1) Stack ADT</h2>
   <div class="note-body">
 
-    <a id='sec_2_Queue_common_implementation_choices__A_Queue_implemented_using_an_array'></a>
-    <h3 class='subsub-heading level3'>A) Queue implemented using an array</h3>
+    <p class='note-paragraph'>
+      A <strong>stack</strong> follows the <strong>LIFO (Last-In, First-Out)</strong> principle.
+      Main operations: <strong>Push</strong> and <strong>Pop</strong>.
+    </p>
 
+    <h3 class='subsub-heading level3'>A) Stack implemented using a built-in array</h3>
     <ul class='note-list level-0'>
-      <li>The queue items are stored in a <span style="font-weight:800; color:#1e3a8a;">fixed-size</span> <span style="font-weight:800; color:#374151;">1D array</span>.</li>
-      <li>Two pointers are used:</li>
-      <ul class='note-list level-1'>
-        <li><span style="font-weight:800; color:#14532d;">HeadPointer</span> – index of the <span style="font-weight:800; color:#14532d;">front</span> item (next to remove).</li>
-        <li><span style="font-weight:800; color:#14532d;">TailPointer</span> – index of the <span style="font-weight:800; color:#14532d;">rear</span> item (most recently added).</li>
-      </ul>
-      <li>A counter such as <span style="font-weight:800; color:#14532d;">NumberItems</span> stores how many items are currently in the queue.</li>
-      <li>Because the array size is fixed, the queue can become <span style="font-weight:800; color:#7c2d12;">full</span> (this causes <span style="font-weight:800; color:#7c2d12;">overflow</span> when enQueueing).</li>
-      <li>A <span style="font-weight:800; color:#374151;">circular</span> (wrap-round) approach is often used so pointers can reuse freed spaces.</li>
+      <li>Items are stored in a <strong>1D array</strong>.</li>
+      <li><strong>TopPointer</strong> stores the index of the current top item.</li>
+      <li>Push → increase TopPointer, then store the new value.</li>
+      <li>Pop → read the top value, then decrease TopPointer.</li>
+      <li>The array has a <strong>fixed size</strong>, so overflow can occur.</li>
+    </ul>
+
+    <h3 class='subsub-heading level3'>B) Stack implemented using the Linked List ADT</h3>
+    <ul class='note-list level-0'>
+      <li>Items are stored as nodes in a <strong>linked list</strong>.</li>
+      <li><strong>StartPointer</strong> represents the top of the stack.</li>
+      <li>Push → use the linked list <strong>insert-at-start</strong> operation.</li>
+      <li>Pop → use the linked list <strong>delete-from-start</strong> operation.</li>
+      <li>No fixed maximum size (limited only by memory).</li>
     </ul>
 
     <p class='note-paragraph'>
-      <span style="font-weight:800; color:#374151;">Example:</span>
-      if <span style="font-weight:800; color:#14532d;">HeadPointer</span> = <span style="font-weight:800; color:#111827;">2</span> and
-      <span style="font-weight:800; color:#14532d;">TailPointer</span> = <span style="font-weight:800; color:#111827;">5</span>,
-      the next deQueue reads from <code style="background:rgba(15,23,42,0.06); padding:2px 6px; border-radius:8px;">Queue[2]</code>.
+      Here, the <strong>Stack ADT</strong> is implemented using the <strong>Linked List ADT</strong>.
+      Stack operations are performed using linked list operations.
     </p>
-
-    <a id='sec_2_Queue_common_implementation_choices__B_Queue_implemented_using_a_linked_list'></a>
-    <h3 class='subsub-heading level3'>B) Queue implemented using a linked list</h3>
-
-    <ul class='note-list level-0'>
-      <li>Queue items are stored as linked <span style="font-weight:800; color:#374151;">nodes</span>.</li>
-      <li>Two pointers are used:</li>
-      <ul class='note-list level-1'>
-        <li>a pointer to the <span style="font-weight:800; color:#14532d;">front node</span> (for deQueue)</li>
-        <li>a pointer to the <span style="font-weight:800; color:#14532d;">rear node</span> (for enQueue)</li>
-      </ul>
-      <li><span style="font-weight:800; color:#14532d;">enQueue</span> adds a node at the <span style="font-weight:800; color:#14532d;">rear</span>.</li>
-      <li><span style="font-weight:800; color:#14532d;">deQueue</span> removes a node at the <span style="font-weight:800; color:#14532d;">front</span>.</li>
-      <li>This avoids a <span style="font-weight:800; color:#1e3a8a;">fixed maximum size</span> (limited only by memory).</li>
-    </ul>
 
   </div>
 </section>
 
 
-<section class="note-card" id="sec_3_Linked_list_common_implementation_style_used_for_algorithms">
-  <h2 class="subheading">3) Linked list: common implementation style used for algorithms</h2>
+<!-- QUEUE -->
+
+<section class="note-card" id="sec_ADT_Queue">
+  <h2 class="subheading">2) Queue ADT</h2>
   <div class="note-body">
 
+    <p class='note-paragraph'>
+      A <strong>queue</strong> follows the <strong>FIFO (First-In, First-Out)</strong> principle.
+      Main operations: <strong>enQueue</strong> and <strong>deQueue</strong>.
+    </p>
+
+    <h3 class='subsub-heading level3'>A) Queue implemented using a built-in array</h3>
     <ul class='note-list level-0'>
-      <li>A linked list can be implemented using an <span style="font-weight:800; color:#374151;">array of records</span>.</li>
-      <li>Each node contains two fields:</li>
-      <ul class='note-list level-1'>
-        <li><span style="font-weight:800; color:#14532d;">Data</span> – the value stored in the node.</li>
-        <li><span style="font-weight:800; color:#14532d;">Pointer</span> – the index of the next node.</li>
-      </ul>
-      <li>A special value such as <span style="font-weight:800; color:#7c2d12;">-1</span> is used as <span style="font-weight:800; color:#7c2d12;">NullPointer</span> to mean “no next node”.</li>
-      <li><span style="font-weight:800; color:#14532d;">StartPointer</span> stores the index of the first node in the list.</li>
-      <li>Unused array positions are managed using a <span style="font-weight:800; color:#374151;">free list</span>, whose first index is stored in <span style="font-weight:800; color:#14532d;">FreeListPtr</span>.</li>
-      <li>Free nodes are linked together so their space can be <span style="font-weight:800; color:#1e3a8a;">reused</span>.</li>
+      <li>Items are stored in a <strong>1D array</strong>.</li>
+      <li><strong>HeadPointer</strong> identifies the front item.</li>
+      <li><strong>TailPointer</strong> identifies the rear item.</li>
+      <li>A counter such as <strong>NumberItems</strong> tracks how many elements are stored.</li>
+      <li>A <strong>circular (wrap-round)</strong> method allows reuse of freed space.</li>
+      <li>The array has a fixed size, so overflow can occur.</li>
+    </ul>
+
+    <h3 class='subsub-heading level3'>B) Queue implemented using the Linked List ADT</h3>
+    <ul class='note-list level-0'>
+      <li>Items are stored as nodes in a <strong>linked list</strong>.</li>
+      <li>A pointer to the <strong>front</strong> and a pointer to the <strong>rear</strong> are used.</li>
+      <li>enQueue → use linked list <strong>insert-at-end</strong>.</li>
+      <li>deQueue → use linked list <strong>delete-from-start</strong>.</li>
+      <li>No fixed maximum size (limited only by memory).</li>
     </ul>
 
     <p class='note-paragraph'>
-      <span style="font-weight:800; color:#374151;">Example:</span>
-      if <span style="font-weight:800; color:#14532d;">StartPointer</span> = <span style="font-weight:800; color:#111827;">4</span>,
-      then the first node of the list is stored at index <span style="font-weight:800; color:#111827;">4</span>.
+      Here, the <strong>Queue ADT</strong> is implemented using the <strong>Linked List ADT</strong>.
     </p>
-
-    <p class='note-paragraph'>
-      In an <span style="font-weight:800; color:#374151;">ordered linked list</span>, insertion first finds the correct position, then updates pointer values to link the new node either:
-    </p>
-    <ul class='note-list level-0'>
-      <li>at the <span style="font-weight:800; color:#14532d;">start</span> of the list, or</li>
-      <li><span style="font-weight:800; color:#14532d;">between</span> two existing nodes.</li>
-    </ul>
 
   </div>
 </section>
 
 
-<section class="note-card" id="sec_4_Dictionary_implemented_using_a_hash_table">
-  <h2 class="subheading">4) Dictionary: implemented using a hash table</h2>
+<!-- LINKED LIST -->
+
+<section class="note-card" id="sec_ADT_LinkedList">
+  <h2 class="subheading">3) Linked List ADT</h2>
   <div class="note-body">
 
-    <a id='sec_4_Dictionary_implemented_using_a_hash_table__A_Dictionary_as_key_value_pairs'></a>
-    <h3 class='subsub-heading level3'>A) Dictionary as key–value pairs</h3>
+    <p class='note-paragraph'>
+      A linked list stores items in nodes connected by pointers.
+    </p>
+
+    <h3 class='subsub-heading level3'>Implementation using a built-in array (array-based linked list)</h3>
 
     <ul class='note-list level-0'>
-      <li>A dictionary stores <span style="font-weight:800; color:#374151;">key–value pairs</span>.</li>
-      <li>The <span style="font-weight:800; color:#14532d;">key</span> is used to look up the <span style="font-weight:800; color:#14532d;">value</span>.</li>
-      <li>Example: key <code style="background:rgba(15,23,42,0.06); padding:2px 6px; border-radius:8px;">"book"</code> maps to value <code style="background:rgba(15,23,42,0.06); padding:2px 6px; border-radius:8px;">"livre"</code>.</li>
-      <li>Many languages provide a built-in dictionary type.</li>
+      <li>The list is stored in an <strong>array of records</strong> (2D list).</li>
+      <li>Each node contains:</li>
+      <ul class='note-list level-1'>
+        <li><strong>Data</strong></li>
+        <li><strong>Pointer</strong> (index of next node)</li>
+      </ul>
+      <li><strong>NullPointer = -1</strong> means “no next node”.</li>
+      <li><strong>StartPointer</strong> stores the first node index.</li>
+      <li><strong>FreeListPtr</strong> manages unused nodes using a free list.</li>
     </ul>
 
     <p class='note-paragraph'>
-      <span style="font-weight:800; color:#374151;">Example in Python:</span>
-      <code style="background:rgba(15,23,42,0.06); padding:2px 6px; border-radius:8px;">EnglishFrench["book"] = "livre"</code>
-      adds a pair, and
-      <code style="background:rgba(15,23,42,0.06); padding:2px 6px; border-radius:8px;">EnglishFrench["book"]</code>
-      retrieves the value.
+      Here, the <strong>Linked List ADT</strong> is implemented using a <strong>built-in array</strong>.
     </p>
 
-    <a id='sec_4_Dictionary_implemented_using_a_hash_table__B_How_a_dictionary_is_implemented_hash_table_direct_access'></a>
-    <h3 class='subsub-heading level3'>B) Implementation using a hash table</h3>
+  </div>
+</section>
 
+
+<!-- DICTIONARY -->
+
+<section class="note-card" id="sec_ADT_Dictionary">
+  <h2 class="subheading">4) Dictionary ADT</h2>
+  <div class="note-body">
+
+    <p class='note-paragraph'>
+      A dictionary stores <strong>key–value pairs</strong>.
+      The key is used to retrieve its associated value.
+    </p>
+
+    <h3 class='subsub-heading level3'>A) Using a built-in dictionary type</h3>
     <ul class='note-list level-0'>
-      <li>A dictionary can be implemented using a <span style="font-weight:800; color:#374151;">hash table</span> to allow fast <span style="font-weight:800; color:#1e3a8a;">direct access</span>.</li>
-      <li>A hash table is a <span style="font-weight:800; color:#374151;">1D array</span> where the array index (address) is calculated from the key using a <span style="font-weight:800; color:#14532d;">hash function</span>.</li>
-      <li>Example hash function: <code style="background:rgba(15,23,42,0.06); padding:2px 6px; border-radius:8px;">Address &larr; Key MOD n</code></li>
-      <li>If two different keys produce the same address, this is a <span style="font-weight:800; color:#7c2d12;">collision</span>.</li>
-      <li>Common collision handling methods:</li>
-      <ul class='note-list level-1'>
-        <li><span style="font-weight:800; color:#14532d;">Chaining</span> – store colliding items in a linked list at that address.</li>
-        <li><span style="font-weight:800; color:#14532d;">Open addressing</span> – search nearby slots to find an empty position.</li>
-      </ul>
+      <li>Many programming languages provide a built-in dictionary type.</li>
+      <li>Example in Python: <code>EnglishFrench["book"] = "livre"</code>.</li>
     </ul>
+
+    <h3 class='subsub-heading level3'>B) Using a Hash Table ADT</h3>
+    <ul class='note-list level-0'>
+      <li>A dictionary can be implemented using a <strong>hash table</strong>.</li>
+      <li>The hash table itself is implemented using a <strong>1D array</strong>.</li>
+      <li>A <strong>hash function</strong> converts a key into an array index.</li>
+      <li>If two keys map to the same index, a <strong>collision</strong> occurs.</li>
+      <li>Collisions can be handled using <strong>chaining</strong>, which uses the <strong>Linked List ADT</strong>.</li>
+    </ul>
+
+    <p class='note-paragraph'>
+      Therefore:
+      <br>
+      Dictionary ADT → implemented using Hash Table ADT →
+      collision handling may use Linked List ADT.
+    </p>
 
   </div>
 </section>
 
 
-<section class="note-card" id="sec_5_Binary_tree_commonly_implemented_using_an_array_of_records">
-  <h2 class="subheading">5) Binary tree: implemented using an array of records</h2>
+<!-- BINARY TREE -->
+
+<section class="note-card" id="sec_ADT_BinaryTree">
+  <h2 class="subheading">5) Binary Tree ADT</h2>
   <div class="note-body">
 
+    <p class='note-paragraph'>
+      A binary tree is a hierarchical structure where each node has at most two children.
+    </p>
+
+    <h3 class='subsub-heading level3'>Implementation using an array of records</h3>
+
     <ul class='note-list level-0'>
-      <li>A binary tree can be stored in an <span style="font-weight:800; color:#374151;">array of records</span>.</li>
-      <li>Each node contains three fields:</li>
+      <li>The tree is stored in an <strong>array</strong>.</li>
+      <li>Each node contains:</li>
       <ul class='note-list level-1'>
-        <li><span style="font-weight:800; color:#14532d;">LeftPointer</span> – index of the left child</li>
-        <li><span style="font-weight:800; color:#14532d;">Data</span> – value stored in the node</li>
-        <li><span style="font-weight:800; color:#14532d;">RightPointer</span> – index of the right child</li>
+        <li><strong>LeftPointer</strong></li>
+        <li><strong>Data</strong></li>
+        <li><strong>RightPointer</strong></li>
       </ul>
-      <li>Pointers are stored as <span style="font-weight:800; color:#374151;">integer indexes</span>.</li>
-      <li><span style="font-weight:800; color:#7c2d12;">-1</span> is used as the <span style="font-weight:800; color:#7c2d12;">NullPointer</span> to indicate “no child”.</li>
-      <li><span style="font-weight:800; color:#14532d;">RootPointer</span> stores the index of the root node.</li>
+      <li><strong>NullPointer = -1</strong> represents “no child”.</li>
+      <li><strong>RootPointer</strong> stores the index of the root node.</li>
     </ul>
 
     <p class='note-paragraph'>
-      <span style="font-weight:800; color:#374151;">Example:</span>
-      if <span style="font-weight:800; color:#14532d;">RootPointer</span> = <span style="font-weight:800; color:#111827;">0</span>,
-      the root node is stored at index <span style="font-weight:800; color:#111827;">0</span>.
+      Here, the <strong>Binary Tree ADT</strong> is implemented using a <strong>built-in array</strong>.
     </p>
 
   </div>
 </section>
+
+
+<!-- COMPARISON TABLE -->
+
+<section class="note-card" id="sec_ADT_Comparison_Table">
+  <h2 class="subheading">Comparison Summary</h2>
+  <div class="note-body">
+
+    <p class='note-paragraph'>
+      The table below compares implementations using built-in types versus other ADTs.
+    </p>
+
+    <div style="overflow-x:auto;">
+      <table style="width:100%; border-collapse:collapse; border:1px solid #ccc;">
+        <thead>
+          <tr style="background:#f3f4f6;">
+            <th style="padding:8px; border:1px solid #ccc;">ADT</th>
+            <th style="padding:8px; border:1px solid #ccc;">Built-in Type</th>
+            <th style="padding:8px; border:1px solid #ccc;">Using Another ADT</th>
+            <th style="padding:8px; border:1px solid #ccc;">Main Difference</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding:8px; border:1px solid #ccc;"><strong>Stack</strong></td>
+            <td style="padding:8px; border:1px solid #ccc;">Array + TopPointer</td>
+            <td style="padding:8px; border:1px solid #ccc;">Linked list (insert/delete at start)</td>
+            <td style="padding:8px; border:1px solid #ccc;">Array is fixed size; linked list can grow</td>
+          </tr>
+          <tr>
+            <td style="padding:8px; border:1px solid #ccc;"><strong>Queue</strong></td>
+            <td style="padding:8px; border:1px solid #ccc;">Array + wrap-round</td>
+            <td style="padding:8px; border:1px solid #ccc;">Linked list (rear insert, front delete)</td>
+            <td style="padding:8px; border:1px solid #ccc;">Array needs circular logic</td>
+          </tr>
+          <tr>
+            <td style="padding:8px; border:1px solid #ccc;"><strong>Dictionary</strong></td>
+            <td style="padding:8px; border:1px solid #ccc;">Built-in dictionary</td>
+            <td style="padding:8px; border:1px solid #ccc;">Hash table (+ linked list for chaining)</td>
+            <td style="padding:8px; border:1px solid #ccc;">Uses hashing for fast access</td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</section>
+
+
+
+
 
 
 

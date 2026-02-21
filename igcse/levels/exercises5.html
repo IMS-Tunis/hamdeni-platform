@@ -237,14 +237,25 @@ Reason: Only values in 0..100 increase ValidCount; -1 ends the loop.</code></pre
         </div>
         <div class="mark-scheme" id="ms-3" hidden>
           <div class="ms-title"><span class="dot"></span>Mark scheme</div>
-          <pre class="ms"><code>INPUT Score
-WHILE Score &lt; 0 OR Score &gt; 20 DO
-  OUTPUT "Invalid. Enter a value from 0 to 20."
-  INPUT Score
+          <pre class="ms"><code><strong> A possible answer using REPEAT loop:</strong>
+REPEAT
+    OUTPUT "Enter score (0–20): "
+    INPUT Score
+UNTIL Score >= 0 AND Score <= 20
+OUTPUT "Accepted score: ", Score	  
+
+<strong>An alternative correct answer using a WHILE loop:</strong>
+OUTPUT "Enter score (0–20): "
+INPUT Score
+WHILE Score < 0 OR Score > 20 DO
+    OUTPUT "Enter score (0–20): "
+    INPUT Score
 ENDWHILE
 OUTPUT "Accepted score: ", Score
 
-Key points: out-of-range condition uses OR; re-input occurs inside loop.</code></pre>
+<i>Both approaches would gain full marks in an exam.</i>
+
+</code></pre>
         </div>
       </article>
 
@@ -395,62 +406,46 @@ Reason: After passes → (3,7), (5,8); third test fails because x &lt; 5 is fals
           </div>
         </header>
         <div class="card-body">
-          <p>Write pseudocode that repeatedly inputs non-negative integers, stops when −1 is entered, and outputs the integer average of the values entered before −1. If none are entered, output 0. Do not use arrays.</p>
+          <p>Write pseudocode that repeatedly inputs integer values.<br> The input ends when the value −1 is entered. After this, output the integer average of all the values entered before −1.</p>
         </div>
         <div class="mark-scheme" id="ms-8" hidden>
           <div class="ms-title"><span class="dot"></span>Mark scheme</div>
           <pre class="ms"><code>Total ← 0
 Count ← 0
-INPUT Value
-WHILE Value ≠ -1 DO
-  Total ← Total + Value
-  Count ← Count + 1
-  INPUT Value
+INPUT Number
+WHILE Number <> -1 DO
+    Total ← Total + Number
+    Count ← Count + 1
+    INPUT Number
 ENDWHILE
-IF Count = 0 THEN
-  OUTPUT 0
-ELSE
-  OUTPUT Total DIV Count
-ENDIF</code></pre>
+Average ← Total DIV Count
+OUTPUT Average
+
+
+
+<strong>alternative solution:</strong>
+Total ← 0
+Count ← 0
+REPEAT
+    INPUT Number
+    IF Number <> -1 THEN
+        Total ← Total + Number
+        Count ← Count + 1
+    ENDIF
+UNTIL Number = -1
+Average ← Total DIV Count
+OUTPUT Average
+</code></pre>
         </div>
       </article>
+
 
       <!-- Exercise 9 -->
       <article class="card exercise" id="ex-9" data-idx="9">
         <header class="card-header">
-          <h3>Exercise 9 - Explain precise termination</h3>
+          <h3>Exercise 9 - Trace and justify termination</h3>
           <div class="actions">
             <button class="btn ghost toggle-ms" aria-expanded="false" aria-controls="ms-9">Show mark scheme</button>
-          </div>
-        </header>
-        <div class="card-body">
-          <p>Read the algorithm and explain exactly when and why the loop stops, in one clear sentence.</p>
-          <pre class="code"><code>Word ← INPUT()
-L ← 1
-R ← LEN(Word)
-Result ← TRUE
-WHILE (L &lt; R) AND (Result = TRUE) DO
-  IF Word[L] ≠ Word[R] THEN
-    Result ← FALSE
-  ELSE
-    L ← L + 1
-    R ← R - 1
-  ENDIF
-ENDWHILE
-OUTPUT Result</code></pre>
-        </div>
-        <div class="mark-scheme" id="ms-9" hidden>
-          <div class="ms-title"><span class="dot"></span>Mark scheme</div>
-          <pre class="ms"><code>The loop stops if a mismatch is found (Result becomes FALSE) or when pointers meet or cross (L ≥ R), meaning all mirrored characters matched.</code></pre>
-        </div>
-      </article>
-
-      <!-- Exercise 10 -->
-      <article class="card exercise" id="ex-10" data-idx="10">
-        <header class="card-header">
-          <h3>Exercise 10 - Trace and justify termination</h3>
-          <div class="actions">
-            <button class="btn ghost toggle-ms" aria-expanded="false" aria-controls="ms-10">Show mark scheme</button>
           </div>
         </header>
         <div class="card-body">
@@ -463,7 +458,7 @@ WHILE P &lt; N DO
 ENDWHILE
 OUTPUT K</code></pre>
         </div>
-        <div class="mark-scheme" id="ms-10" hidden>
+        <div class="mark-scheme" id="ms-9" hidden>
           <div class="ms-title"><span class="dot"></span>Mark scheme</div>
           <pre class="ms"><code>Trace:
 Start: K = 0, P = 1
@@ -478,6 +473,36 @@ Final K = 5</code></pre>
         </div>
       </article>
 
+
+     <!-- Exercise 10 -->
+      <article class="card exercise" id="ex-10" data-idx="10">
+        <header class="card-header">
+          <h3>Exercise 10 - Conditional sum</h3>
+          <div class="actions">
+            <button class="btn ghost toggle-ms" aria-expanded="false" aria-controls="ms-10">Show mark scheme</button>
+          </div>
+        </header>
+        <div class="card-body">
+          <p>Write pseudocode that repeatedly asks the user to enter an integer between 1 and 10 inclusive.<br>
+The program must continue asking until a valid number is entered.<br>
+After this, output the message:<br>
+"You entered n"<br>
+where n is the valid number entered by the user.</p>
+        </div>
+        <div class="mark-scheme" id="ms-10" hidden>
+          <div class="ms-title"><span class="dot"></span>Mark scheme</div>
+          <pre class="ms"><code>DECLARE number : INTEGER
+REPEAT
+	OUTPUT "Enter a number between 1 and 10: "
+	INPUT number
+UNTIL number >= 1 AND number <= 10
+OUTPUT "You entered " & number
+</code></pre>
+        </div>
+      </article>
+	  
+	  
+	  
     </section>
 
   </main>

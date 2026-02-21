@@ -65,234 +65,222 @@
     <aside class="sidebar"><div class='sommaire'><div class='sommaire-title'>Sommaire</div><ul class='sommaire-list'><li class='sommaire-item'><a href='#sec_1_What_input_size_n_means'>1. What “input size n” means</a></li><li class='sommaire-item'><a href='#sec_2_What_Big_O_means_and_what_it_does_not_mean'>2. What Big O means (and what it does not mean)</a></li><li class='sommaire-item'><a href='#sec_3_Why_worst_case_is_often_used'>3. Why “worst case” is often used</a></li><li class='sommaire-item'><a href='#sec_4_Time_complexity_Big_O_for_running_time'>4. Time complexity (Big O for running time)</a></li><li class='sommaire-subsub'><a href='#sec_4_Time_complexity_Big_O_for_running_time__A_O_1_constant_time'>A. O(1) constant time</a></li><li class='sommaire-subsub'><a href='#sec_4_Time_complexity_Big_O_for_running_time__B_O_n_linear_time'>B. O(n) linear time</a></li><li class='sommaire-subsub'><a href='#sec_4_Time_complexity_Big_O_for_running_time__C_O_log2_n_logarithmic_time'>C. O(log2 n) logarithmic time</a></li><li class='sommaire-subsub'><a href='#sec_4_Time_complexity_Big_O_for_running_time__D_O_n_quadratic_time'>D. O(n²) quadratic time</a></li><li class='sommaire-subsub'><a href='#sec_4_Time_complexity_Big_O_for_running_time__E_O_n_O_n'>E. O(n³), O(n⁴), …</a></li><li class='sommaire-subsub'><a href='#sec_4_Time_complexity_Big_O_for_running_time__F_O_2_n_exponential_time'>F. O(2^n) exponential time</a></li><li class='sommaire-item'><a href='#sec_5_Basic_operation_what_we_count'>5. “Basic operation” (what we count)</a></li><li class='sommaire-item'><a href='#sec_6_Space_complexity_Big_O_for_memory'>6. Space complexity (Big O for memory)</a></li><li class='sommaire-subsub2'><a href='#sec_6_Space_complexity_Big_O_for_memory__A_O_1_constant_space'>A. O(1) constant space</a></li><li class='sommaire-subsub2'><a href='#sec_6_Space_complexity_Big_O_for_memory__B_O_n_linear_space'>B. O(n) linear space</a></li><li class='sommaire-item'><a href='#sec_7_How_to_compare_two_algorithms_that_do_the_same_task'>7. How to compare two algorithms that do the same task</a></li></ul></div></aside>
 
 
+
 <section class="content">
 
+  <!-- SYLLABUS CARD -->
   <section class="syllabus-card">
     <div class="hero-title">
-      <div class='hero-code'>19.1e:</div>
+      <div class='hero-code'>19.1e</div>
       <div class='hero-rest'>
-        Show understanding that different algorithms which perform the same task can be compared by using criteria:
+        Show understanding that different algorithms which perform the same task can be compared using criteria such as:
       </div>
     </div>
     <div class="targets-wrap">
       <ul class='targets level-0'>
-        <li>
-          time taken to complete the task and memory used :
-          Including use of Big O notation to specify time and space complexity
-        </li>
+        <li>time taken to complete the task</li>
+        <li>memory used</li>
+        <li>use of <strong>Big O notation</strong> to specify time and space complexity</li>
       </ul>
     </div>
   </section>
 
-
-  <section class="note-card" id="sec_1_What_input_size_n_means">
-    <h2 class="subheading">1. What “input size n” means</h2>
+  <!-- 1 -->
+  <section class="note-card">
+    <h2 class="subheading">1. Why compare algorithms?</h2>
     <div class="note-body">
-      <ul class='note-list level-0'>
-        <li><strong>n</strong> means “how much data the algorithm receives.”</li>
-        <li>Examples:</li>
-        <ul class='note-list level-1'>
-          <li>If a list has 8 numbers, then <strong>n = 8</strong>.</li>
-          <li>If a file has 2000 records, then <strong>n = 2000</strong>.</li>
-          <li>If searching a binary tree with 100 nodes, then <strong>n = 100</strong>.</li>
-        </ul>
+      <ul class="note-list level-0">
+        <li>The same problem can often be solved using different algorithms.</li>
+        <li>Some algorithms are faster than others for large data sets.</li>
+        <li>Some algorithms use more memory than others.</li>
+        <li>We compare algorithms to choose the most efficient solution.</li>
       </ul>
+
+      <p class="note-paragraph">
+        Cambridge requires comparison based on:
+        <strong>time taken</strong> and <strong>memory used</strong>.
+      </p>
     </div>
   </section>
 
-
-  <section class="note-card" id="sec_2_What_Big_O_means_and_what_it_does_not_mean">
-    <h2 class="subheading">2. What Big O means (and what it does not mean)</h2>
+  <!-- 2 -->
+  <section class="note-card">
+    <h2 class="subheading">2. What does input size n mean?</h2>
     <div class="note-body">
-      <ul class='note-list level-0'>
-        <li>Big O describes how the number of steps (or the extra memory) grows when <strong>n grows</strong>.</li>
-        <li>Big O is <strong>not</strong> the exact time in seconds, because seconds depend on the computer and programming language.</li>
-        <li>Big O ignores constant values and focuses only on the growth rate.</li>
-        <ul class='note-list level-1'>
-          <li>Example: 3n + 10 grows like n, so it is written as <strong>O(n)</strong>.</li>
-        </ul>
-        <li>Big O answers questions like:</li>
-        <ul class='note-list level-1'>
-          <li>“If n becomes 10 times larger, how much larger does the work become?”</li>
-        </ul>
+      <ul class="note-list level-0">
+        <li><strong>n</strong> represents the size of the input data.</li>
+        <li>If a list contains 50 items → n = 50.</li>
+        <li>If a binary tree has 200 nodes → n = 200.</li>
+        <li>If sorting 10 000 values → n = 10 000.</li>
       </ul>
+
+      <p class="note-paragraph">
+        Complexity describes how performance changes as <strong>n becomes very large</strong>.
+      </p>
     </div>
   </section>
 
-
-  <section class="note-card" id="sec_3_Why_worst_case_is_often_used">
-    <h2 class="subheading">3. Why “worst case” is often used</h2>
-    <div class="note-body">
-      <ul class='note-list level-0'>
-        <li>The worst case is the situation where the algorithm must do the <strong>most work</strong>.</li>
-        <li>It is used because it gives a safe guarantee: “the algorithm will not be worse than this.”</li>
-        <li>Example (searching in a list):</li>
-        <ul class='note-list level-1'>
-          <li>Best case: the item is the first one.</li>
-          <li>Worst case: the item is the last one (or not present), so you check almost all items.</li>
-        </ul>
-      </ul>
-    </div>
-  </section>
-
-
-  <section class="note-card" id="sec_4_Time_complexity_Big_O_for_running_time">
-    <h2 class="subheading">4. Time complexity (Big O for running time)</h2>
-
+  <!-- 3 -->
+  <section class="note-card">
+    <h2 class="subheading">3. Big O notation</h2>
     <div class="note-body">
 
-      <a id='sec_4_Time_complexity_Big_O_for_running_time__A_O_1_constant_time'></a>
-      <h3 class='subsub-heading level3'>A. O(1) constant time</h3>
-      <ul class='note-list level-0'>
-        <li>Meaning: the work stays the same even if <strong>n grows</strong>.</li>
-        <li>Example:</li>
-        <ul class='note-list level-1'>
-          <li>Checking if 24 is even (one simple check).</li>
-          <li>Accessing an array element using its index.</li>
-        </ul>
+      <ul class="note-list level-0">
+        <li>Big O notation describes how running time or memory grows as input size increases.</li>
+        <li>It measures the <strong>order of growth</strong>, not exact seconds.</li>
+        <li>It is normally calculated using the <strong>worst-case scenario</strong>.</li>
       </ul>
 
-
-      <a id='sec_4_Time_complexity_Big_O_for_running_time__B_O_n_linear_time'></a>
-      <h3 class='subsub-heading level3'>B. O(n) linear time</h3>
-      <ul class='note-list level-0'>
-        <li>Meaning: the work grows roughly in proportion to <strong>n</strong>.</li>
-        <li>Example (linear search):</li>
-        <ul class='note-list level-1'>
-          <li>n = 5 → up to 5 checks.</li>
-          <li>n = 10 → up to 10 checks.</li>
-          <li>Doubling n roughly doubles the checks.</li>
-        </ul>
-      </ul>
-
-
-      <a id='sec_4_Time_complexity_Big_O_for_running_time__C_O_log2_n_logarithmic_time'></a>
-      <h3 class='subsub-heading level3'>C. O(log n) logarithmic time</h3>
-      <ul class='note-list level-0'>
-        <li>Meaning: the work grows slowly because each step removes a large part of the remaining data.</li>
-        <li>Key idea: each step halves what is left.</li>
-        <li>Example (binary search on a sorted list):</li>
-        <ul class='note-list level-1'>
-          <li>n = 16 items</li>
-          <li>16 → 8 → 4 → 2 → 1</li>
-          <li>About 4–5 steps.</li>
-        </ul>
-        <li>The base of the logarithm does not matter in Big O notation.</li>
-      </ul>
-
-
-      <a id='sec_4_Time_complexity_Big_O_for_running_time__D_O_n_quadratic_time'></a>
-      <h3 class='subsub-heading level3'>D. O(n²) quadratic time</h3>
-      <ul class='note-list level-0'>
-        <li>Meaning: the work grows roughly like n × n.</li>
-        <li>Typical reason: two nested loops.</li>
-        <li>Concrete example (pair checking):</li>
-        <ul class='note-list level-1'>
-          <li>n = 4 → about 16 comparisons.</li>
-          <li>n = 8 → about 64 comparisons.</li>
-        </ul>
-        <li>Example algorithms (worst case): bubble sort, insertion sort.</li>
-      </ul>
-
-
-      <a id='sec_4_Time_complexity_Big_O_for_running_time__E_O_n3'></a>
-      <h3 class='subsub-heading level3'>E. O(n³), O(n⁴), …</h3>
-      <ul class='note-list level-0'>
-        <li>Meaning: the work grows even faster than n².</li>
-        <li>Example: three nested loops may give about n × n × n = n³ operations.</li>
-      </ul>
-
-
-      <a id='sec_4_Time_complexity_Big_O_for_running_time__F_O_2_n_exponential_time'></a>
-      <h3 class='subsub-heading level3'>F. O(2ⁿ) exponential time</h3>
-      <ul class='note-list level-0'>
-        <li>Meaning: when n increases by 1, the work can roughly double.</li>
-        <li>Example:</li>
-        <ul class='note-list level-1'>
-          <li>n = 5 → about 32 units of work</li>
-          <li>n = 6 → about 64 units of work</li>
-          <li>n = 7 → about 128 units of work</li>
-        </ul>
-        <li>Example algorithm: naive recursive Fibonacci.</li>
-      </ul>
-
-    </div>
-  </section>
-
-
-  <section class="note-card" id="sec_5_Basic_operation_what_we_count">
-    <h2 class="subheading">5. “Basic operation” (what we count)</h2>
-    <div class="note-body">
-      <ul class='note-list level-0'>
-        <li>To estimate time complexity, we count a repeated <strong>basic step</strong>, such as:</li>
-        <ul class='note-list level-1'>
-          <li>a comparison (&gt;, &lt;, ==)</li>
-          <li>an assignment</li>
-          <li>a swap</li>
-        </ul>
-        <li>Example (bubble sort):</li>
-        <ul class='note-list level-1'>
-          <li>The key repeated step is “compare two neighbouring items.”</li>
-          <li>The worst case leads to about 1 + 2 + 3 + … + (n − 1) comparisons.</li>
-          <li>This equals n(n−1)/2, which grows like n².</li>
-        </ul>
-      </ul>
-    </div>
-  </section>
-
-
-  <section class="note-card" id="sec_6_Space_complexity_Big_O_for_memory">
-    <h2 class="subheading">6. Space complexity (Big O for memory)</h2>
-    <div class="note-body">
-      <ul class='note-list level-0'>
-        <li>Space complexity measures how <strong>extra memory</strong> grows with n.</li>
-        <li>Extra memory means memory used beyond storing the input itself.</li>
-      </ul>
-
-      <h4 class='subsub-heading level4'>A. O(1) constant space</h4>
-      <ul class='note-list level-0'>
-        <li>The algorithm uses the same extra memory regardless of n.</li>
-        <li>Example: using only a few variables.</li>
-      </ul>
-
-      <h4 class='subsub-heading level4'>B. O(n) linear space</h4>
-      <ul class='note-list level-0'>
-        <li>Extra memory grows in proportion to n.</li>
-        <li>Example: creating an extra array of size n.</li>
-      </ul>
-
-    </div>
-  </section>
-
-
-  <section class="note-card" id="sec_7_How_to_compare_two_algorithms_that_do_the_same_task">
-    <h2 class="subheading">7. How to compare two algorithms that do the same task</h2>
-    <div class="note-body">
-      <ul class='note-list level-0'>
-        <li>Compare both:</li>
-        <ul class='note-list level-1'>
-          <li>Time complexity</li>
-          <li>Space complexity</li>
-        </ul>
-        <li>Example (searching):</li>
-        <ul class='note-list level-1'>
-          <li>Linear search: O(n) time.</li>
-          <li>Binary search: O(log n) time.</li>
-        </ul>
-      </ul>
-
-      <p class='note-paragraph'>
-        Concrete scaling example:
+      <p class="note-paragraph">
+        Worst case is used because it guarantees the algorithm will never perform worse than this.
       </p>
 
-      <ul class='note-list level-0'>
-        <li>If n = 1,000,000:</li>
-        <ul class='note-list level-1'>
-          <li>O(n) → about 1,000,000 checks.</li>
-          <li>O(log n) → about 20 checks.</li>
-        </ul>
-        <li>For large n, O(log n) grows much more slowly than O(n).</li>
+      <p class="note-paragraph">
+        Example (linear search worst case):
+        If the item is last in the list or not present,
+        the algorithm checks all n items → O(n).
+      </p>
+
+      <p class="note-paragraph">
+        Big O ignores constants and small terms.
+        For example:
+        3n + 10 → O(n)
+      </p>
+
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section class="note-card">
+    <h2 class="subheading">4. Time complexity (running time)</h2>
+    <div class="note-body">
+
+      <h3 class="subsub-heading level3">O(1) — Constant time</h3>
+      <ul class="note-list level-0">
+        <li>Running time does not change as n increases.</li>
+        <li>Example: accessing an array element by index.</li>
       </ul>
+
+      <h3 class="subsub-heading level3">O(n) — Linear time</h3>
+      <ul class="note-list level-0">
+        <li>Running time increases in direct proportion to n.</li>
+        <li>Example: linear search.</li>
+        <li>If n doubles, the work roughly doubles.</li>
+      </ul>
+
+      <h3 class="subsub-heading level3">O(log n) — Logarithmic time</h3>
+      <ul class="note-list level-0">
+        <li>Each step reduces the remaining data significantly (often halves it).</li>
+        <li>Example: binary search.</li>
+        <li>For n = 1 000 000 → about 20 steps only.</li>
+      </ul>
+
+      <h3 class="subsub-heading level3">O(n²) — Quadratic time</h3>
+      <ul class="note-list level-0">
+        <li>Often caused by nested loops.</li>
+        <li>Example: bubble sort (worst case), insertion sort (worst case).</li>
+        <li>If n doubles, work becomes about 4 times larger.</li>
+      </ul>
+
+      <h3 class="subsub-heading level3">O(2ⁿ) — Exponential time</h3>
+      <ul class="note-list level-0">
+        <li>Work doubles when n increases by 1.</li>
+        <li>Example: naive recursive Fibonacci.</li>
+      </ul>
+
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section class="note-card">
+    <h2 class="subheading">5. Example: Bubble sort worst case</h2>
+    <div class="note-body">
+
+      <p class="note-paragraph">
+        In bubble sort, the main repeated operation is:
+        <strong>comparing two adjacent items</strong>.
+      </p>
+
+      <p class="note-paragraph">
+        Number of comparisons:
+      </p>
+
+      <ul class="note-list level-0">
+        <li>n = 3 → 3 comparisons</li>
+        <li>n = 4 → 6 comparisons</li>
+        <li>n = 5 → 10 comparisons</li>
+      </ul>
+
+      <p class="note-paragraph">
+        Total comparisons = 1 + 2 + 3 + ... + (n − 1)
+      </p>
+
+      <p class="note-paragraph">
+        This equals n(n − 1)/2.
+      </p>
+
+      <p class="note-paragraph">
+        For very large n, we ignore smaller terms → growth behaves like n².
+      </p>
+
+      <p class="note-paragraph">
+        Therefore, bubble sort worst case is O(n²).
+      </p>
+
+    </div>
+  </section>
+
+  <!-- 6 -->
+  <section class="note-card">
+    <h2 class="subheading">6. Space complexity (memory use)</h2>
+    <div class="note-body">
+
+      <ul class="note-list level-0">
+        <li>Space complexity measures how extra memory grows as n increases.</li>
+        <li>It does not count the input data itself.</li>
+      </ul>
+
+      <h4 class="subsub-heading level4">O(1) — Constant space</h4>
+      <ul class="note-list level-0">
+        <li>Uses only a fixed number of variables.</li>
+        <li>Example: bubble sort, insertion sort.</li>
+      </ul>
+
+      <h4 class="subsub-heading level4">O(n) — Linear space</h4>
+      <ul class="note-list level-0">
+        <li>Uses extra memory proportional to n.</li>
+        <li>Example: creating an additional array of size n.</li>
+      </ul>
+
+    </div>
+  </section>
+
+  <!-- 7 -->
+  <section class="note-card">
+    <h2 class="subheading">7. Comparing two algorithms</h2>
+    <div class="note-body">
+
+      <p class="note-paragraph">
+        Example: Searching a sorted list
+      </p>
+
+      <ul class="note-list level-0">
+        <li>Linear search → O(n)</li>
+        <li>Binary search → O(log n)</li>
+      </ul>
+
+      <p class="note-paragraph">
+        If n = 1 000 000:
+      </p>
+
+      <ul class="note-list level-0">
+        <li>O(n) → about 1 000 000 comparisons</li>
+        <li>O(log n) → about 20 comparisons</li>
+      </ul>
+
+      <p class="note-paragraph">
+        For large n, algorithms with smaller growth rates are significantly more efficient.
+      </p>
 
     </div>
   </section>
@@ -301,7 +289,6 @@
 
 
 
-    </section>
   </main>
 
   <div class="modal-backdrop" id="annexModalBackdrop" aria-hidden="true">
