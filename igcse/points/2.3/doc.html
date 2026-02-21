@@ -16,6 +16,25 @@
   <title>IGCSE Computer Science - 2.3 Encryption</title>
   <link rel="stylesheet" href="../igcse-style.css">
 <script defer src="/assets/js/paste-guard.js"></script>
+<style>
+/* Tooltip terms: consistent underline + hover cursor + allow hover even if a parent blocks pointer events */
+abbr.tip {
+  text-decoration: underline dotted !important;
+  cursor: help !important;
+  pointer-events: auto !important;
+  border-bottom: none !important; /* some browsers add default abbr border */
+}
+
+/* Optional: avoid changing color (keeps your theme intact) */
+abbr.tip {
+  color: inherit;
+}
+
+/* Optional: make underline slightly clearer */
+abbr.tip {
+  text-underline-offset: 2px;
+}
+</style>
 </head>
 <body>
 
@@ -31,19 +50,54 @@
 </div>
   <div class="section">
     <h2>2.3a: Understand the need for and purpose of encryption when transmitting data</h2>
+	
+<ul>
+  <li><span class="official-note">
+    Encryption protects data sent over networks by converting readable text into unreadable
+    <abbr class="tip" title="scrambled text">ciphertext</abbr>
+    so only the intended recipient can make sense of it using the correct key; it reduces the impact of
+    <abbr class="tip" title="someone capturing the message">interception</abbr>
+    but does not stop interception itself.
+  </span>
     <ul>
-      <li><span class="official-note">Encryption protects data sent over networks by converting readable text into unreadable ciphertext so only the intended recipient can make sense of it; it reduces the impact of interception but does not stop interception itself.</span>
-        <ul>
-          <li><span class="official-note">The original readable data is called plaintext, and after an encryption algorithm is applied the result is called ciphertext.</span></li>
-          <li><span class="official-note">An encryption algorithm uses a key to scramble plaintext into ciphertext, and the receiving device uses the appropriate key to decrypt the ciphertext back into plaintext.</span></li>
-          <li><span class="official-note">Security protocol example: SSL (Secure Sockets Layer) protects data in transit by combining encryption with digital certificates for authentication.</span></li>
-        </ul>
-      </li>
+      <li><span class="official-note">
+        The original readable data is called
+        <abbr class="tip" title="normal readable message">plaintext</abbr>,
+        and after an encryption algorithm is applied the result is called
+        <abbr class="tip" title="encrypted unreadable message">ciphertext</abbr>.
+      </span></li>
+      <li><span class="official-note">
+        An <abbr class="tip" title="a mathematical procedure">encryption algorithm</abbr> uses a
+        <abbr class="tip" title="a secret value">key</abbr>
+        to scramble plaintext into ciphertext, and the receiving device uses the appropriate key to
+        <abbr class="tip" title="reverse the process">decrypt</abbr>
+        the ciphertext back into plaintext.
+      </span></li>
+      <li><span class="official-note">
+        Security protocol example: SSL (Secure Sockets Layer) protects data in
+        <abbr class="tip" title="data moving across a network">transit</abbr>
+        by combining encryption with digital certificates for
+        <abbr class="tip" title="verifying identity">authentication</abbr>.
+      </span></li>
     </ul>
+  </li>
+</ul>
+
+<div style="text-align: center; margin: 15px 0;">
+  <img src="images/plaintextVSciphertext.png" 
+       alt="Encrypted versus unencrypted data illustration"
+       style="max-width: 90%; height: auto; border-radius: 6px;">
+  <div style="font-size: 0.9em; margin-top: 6px; color: #555;">
+  </div>
+</div>
+
     <ul class="no-bullets">
-      <li><div class="example-box">Example: sensitive data to encrypt in transit. Credit card or bank details, medical records, and legal documents should be encrypted when sent across public networks because intercepted messages would otherwise reveal confidential information.</div></li>
-      <li><div class="example-box">Interception view of ciphertext. If a hacker intercepts encrypted data during transmission, they see scrambled text like &quot;GQVQ...&quot; instead of &quot;COMPUTER,&quot; which shows why encrypted data is unreadable without the correct key.</div></li>
-      <li><span class="fun-tip">Postcard vs locked envelope. An unencrypted message is like a postcard anyone on the route can read, while an encrypted message is like a sealed envelope locked with a key that only the intended reader can open.</span></li>
+ 
+ <li><div class="example-box"><b>Sensitive data to encrypt in <abbr class="tip" title="data moving across a network">transit</abbr>:</b> Credit card or bank details, medical records, and legal documents should be <abbr class="tip" title="protected using encryption">encrypted</abbr> when sent across <abbr class="tip" title="shared networks like the Internet">public networks</abbr> because intercepted messages would otherwise reveal <abbr class="tip" title="private or secret information">confidential information</abbr>.</div></li>
+<li><div class="example-box"><b><abbr class="tip" title="what an attacker sees if they capture the message">Interception view</abbr> of <abbr class="tip" title="scrambled text">ciphertext</abbr>.</b> If a hacker intercepts encrypted data during transmission, they see scrambled text like &quot;GQVQ...&quot; instead of &quot;COMPUTER,&quot; which shows why encrypted data is unreadable without the correct <abbr class="tip" title="secret value used to decrypt">key</abbr>.</div></li>
+<li><span class="fun-tip"><b>Postcard vs locked envelope.</b> An <abbr class="tip" title="not protected by encryption">unencrypted</abbr> message is like a postcard anyone on the route can read, while an <abbr class="tip" title="protected by encryption">encrypted</abbr> message is like a sealed envelope locked with a key that only the intended reader can open.</span></li>
+
+
         <div class="button-group">
           <button class="keyword-button" onclick="openPopupK('2.3a')">
             🔑 View Keywords on This Topic 🔑
@@ -56,30 +110,58 @@
   </div>
   <div class="section">
     <h2>2.3b: Understand how data is encrypted using symmetric and asymmetric encryption</h2>
+	
+	<ul>
+  <li><span class="official-note">Symmetric encryption uses a single <abbr class="tip" title="same key for both sides">shared key</abbr> for both <abbr class="tip" title="turn plaintext into ciphertext">encryption</abbr> and <abbr class="tip" title="turn ciphertext back into plaintext">decryption</abbr>.</span>
     <ul>
-      <li><span class="official-note">Symmetric encryption uses a single shared key for both encryption and decryption.</span>
-        <ul>
-          <li><span class="official-note">Typical flow: encrypt the plaintext with the shared key to produce ciphertext, send the ciphertext and provide the same shared key to the receiver in a separate message, then the receiver uses that shared key to decrypt the ciphertext back to plaintext.</span></li>
-          <li><span class="official-note">Main drawback: the single shared key must be transmitted to the receiver, which creates a risk of interception and makes keeping the key secret difficult.</span></li>
-        </ul>
-      </li>
+      <li><span class="official-note">Typical flow: encrypt the <abbr class="tip" title="original readable message">plaintext</abbr> with the shared key to produce <abbr class="tip" title="scrambled text">ciphertext</abbr>, send the ciphertext and provide the same shared key to the receiver in a separate message, then the receiver uses that shared key to decrypt the ciphertext back to plaintext.</span></li>
+      <li><span class="official-note">Main drawback: the single shared key must be <abbr class="tip" title="sent to the receiver">transmitted</abbr> to the receiver, which creates a risk of <abbr class="tip" title="someone capturing the message or key">interception</abbr> and makes keeping the key secret difficult.</span></li>
     </ul>
-    <ul class="no-bullets">
-      <li><div class="example-box">Example: digit-shift illustration of symmetric encryption. A 10-digit key such as 4 2 9 1 3 6 2 8 5 6 can instruct how far to shift each letter to form ciphertext; applying the reverse shifts with the same key decrypts the message.</div></li>
-    </ul>
-    <ul>
-      <li><span class="official-note">Asymmetric encryption uses two related keys: a public key that is shared and a private key that is kept secret; data encrypted with the public key is decrypted with the matching private key.</span>
-        <ul>
-          <li><span class="official-note">Communication steps: the sender obtains the recipient’s public key and encrypts the plaintext; the recipient uses their private key to decrypt the received ciphertext.</span></li>
-          <li><span class="official-note">One-to-many communication: a person can share their public key with many senders; each sender uses that public key to encrypt a message, and only the private key owner can decrypt the received ciphertext.</span></li>
-          <li><span class="official-note">Asymmetric encryption was designed to overcome the key sharing risk in symmetric encryption, because no secret key needs to be sent over the network.</span></li>
-          <li><span class="official-note">Security comparison: symmetric approaches are generally less secure than asymmetric approaches because a single shared key must be distributed.</span></li>
-        </ul>
-      </li>
-    </ul>
-    <ul class="no-bullets">
-      <li><div class="example-box">Example: online banking with public and private keys. Banks use asymmetric encryption to protect sensitive online transaction data; senders encrypt using the bank’s public key and the bank decrypts with its private key, illustrating how confidentiality is maintained without sharing a secret key.</div></li>
-      <li><span class="fun-tip">Public padlocks and a private key. Imagine you hand out open padlocks to everyone. Anyone can lock a box for you with those padlocks (public keys), but only you have the single key that opens them (your private key).</span></li>
+  </li>
+</ul>
+
+
+<div style="text-align: center; margin: 15px 0;">
+  <img src="images/Symmetric-Encryption.png" 
+       alt="Encrypted versus unencrypted data illustration"
+       style="max-width: 60%; height: auto; border-radius: 6px;">
+  <div style="font-size: 0.9em; margin-top: 6px; color: #555;">
+  </div>
+</div>
+
+
+
+<ul class="no-bullets">
+  <li><div class="example-box">Example: digit-shift illustration of symmetric encryption. A 10-digit key such as 4 2 9 1 3 6 2 8 5 6 can instruct how far to <abbr class="tip" title="move each letter forward by a number">shift</abbr> each letter to form ciphertext; applying the reverse shifts with the same key decrypts the message.</div></li>
+</ul>
+<ul>
+
+<li><span class="official-note">Asymmetric encryption uses two related keys: a <abbr class="tip" title="shared openly">public key</abbr> that is shared and a <abbr class="tip" title="kept secret by the owner">private key</abbr> that is kept secret; data encrypted with the public key is decrypted with the matching private key.</span>
+  <ul>
+    <li><span class="official-note">Communication steps: the sender obtains the recipient’s public key and encrypts the <abbr class="tip" title="original readable message">plaintext</abbr>; the recipient uses their private key to decrypt the received <abbr class="tip" title="scrambled text">ciphertext</abbr>.</span></li>
+    <li><span class="official-note">One-to-many communication: a person can share their public key with many senders; each sender uses that public key to encrypt a message, and only the private key owner can decrypt the received ciphertext.</span></li>
+    <li><span class="official-note">Asymmetric encryption was designed to overcome the <abbr class="tip" title="risk when a shared key must be sent">key sharing risk</abbr> in symmetric encryption, because no secret key needs to be sent over the network.</span></li>
+    <li><span class="official-note">Security comparison: symmetric approaches are generally less secure than asymmetric approaches because a single shared key must be <abbr class="tip" title="shared with the receiver">distributed</abbr>.</span></li>
+  </ul>
+</li>
+</ul>
+
+<div style="text-align: center; margin: 15px 0;">
+  <img src="images/Asymmetric-Encryption.png" 
+       alt="Encrypted versus unencrypted data illustration"
+       style="max-width: 60%; height: auto; border-radius: 6px;">
+  <div style="font-size: 0.9em; margin-top: 6px; color: #555;">
+  </div>
+</div>
+
+
+
+<ul class="no-bullets">
+  <li><div class="example-box">Example: online banking with public and private keys. Banks use asymmetric encryption to protect <abbr class="tip" title="important private information">sensitive</abbr> online transaction data; senders encrypt using the bank’s public key and the bank decrypts with its private key, illustrating how <abbr class="tip" title="only intended parties can read">confidentiality</abbr> is maintained without sharing a secret key.</div></li>
+  <li><span class="fun-tip">Public padlocks and a private key. Imagine you hand out open padlocks to everyone. Anyone can lock a box for you with those padlocks (<abbr class="tip" title="shared openly">public keys</abbr>), but only you have the single key that opens them (<abbr class="tip" title="kept secret by the owner">your private key</abbr>).</span></li>
+
+
+
         <div class="button-group">
           <button class="keyword-button" onclick="openPopupK('2.3b')">
             🔑 View Keywords on This Topic 🔑
