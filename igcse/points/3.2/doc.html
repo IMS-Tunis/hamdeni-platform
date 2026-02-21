@@ -16,10 +16,29 @@
   <title>IGCSE Computer Science - 3.2 Input and Output Devices</title>
   <link rel="stylesheet" href="../igcse-style.css">
 <script defer src="/assets/js/paste-guard.js"></script>
+
+<style>
+/* Tooltip terms: consistent underline + hover cursor + allow hover even if a parent blocks pointer events */
+abbr.tip {
+  text-decoration: underline dotted !important;
+  cursor: help !important;
+  pointer-events: auto !important;
+  border-bottom: none !important; /* some browsers add default abbr border */
+}
+
+/* Optional: avoid changing color (keeps your theme intact) */
+abbr.tip {
+  color: inherit;
+}
+
+/* Optional: make underline slightly clearer */
+abbr.tip {
+  text-underline-offset: 2px;
+}
+</style>
 </head>
 <body>
 <!-- Bullet count check: JSON bullets = 137; HTML <li> = 137; verified = True -->
-
 
 <div class="container">
 
@@ -31,342 +50,278 @@
   <div class="title-underline"></div>
   <p class="section-subtitle">Computer Science IGCSE notes, prepared by Dr. Hamdeni</p>
 </div>
-  <div class="section">
-    <h2>3.2a: Input Devices</h2>
-    <ul>
-	
-	
-	
-	
-	
-	
-      <li><span class="official-note">An input device is a piece of hardware that allows data to be entered into a computer system.</span>
-        <ul>
-          <li><span class="official-note">The data entered may be in different forms, such as text, images, sound, or movement.</span></li>
-          <li><span class="official-note">Input devices are essential for sending information into the computer so it can be processed.</span></li>
-          <li><span class="official-note">Some input devices are used by humans (e.g., keyboard), while others like sensors are automatic and work in real-time environments.</span></li>
-        </ul>
-      </li>
-	  
-	  
-	  <li>
-  <span class="official-note">
-    An input device is a piece of hardware (a physical part of a computer) 
-    that allows data to be entered into a computer system.
-  </span>
 
-  <!-- Small visual example -->
-  <div class="visual-example">
-    <img src="images/input-devices-example.jpg" alt="Keyboard, mouse and microphone examples" width="250">
-  </div>
-
+<div class="section">
+  <h2>3.2a: Input Devices</h2>
   <ul>
-    <li>
-      <span class="official-note">
-        The data entered may be in different forms, such as text (letters and numbers), 
-        images (pictures), sound (voice or music), or movement (touch or motion).
-      </span>
+
+    <li><span class="official-note">An <abbr class="tip" title="physical components of a computer system">input device</abbr> is a piece of hardware that allows data to be entered into a computer system. This means the device sends raw data to the computer so the CPU can work with it.</span>
+      <ul>
+        <li><span class="official-note">The data entered may be in different forms, such as text, images, sound, or movement. For example, moving a mouse sends movement data to the computer.</span></li>
+        <li><span class="official-note">Input devices are essential because they send information into the computer for <abbr class="tip" title="manipulated or calculated by the CPU">processing</abbr>.</span></li>
+        <li><span class="official-note">Some input devices are used by humans (e.g., a keyboard). Others, such as <abbr class="tip" title="devices that detect physical conditions from the environment">sensors</abbr>, work automatically in real-time environments. Real-time means the device sends data continuously as events happen, without waiting.</span></li>
+      </ul>
     </li>
 
-    <li>
-      <span class="official-note">
-        Input devices are essential for sending information into the computer 
-        so it can be processed (worked on or understood by the computer).
-      </span>
+    <li><span class="official-note">A <abbr class="tip" title="reads patterns of dark and light lines to identify products">barcode scanner</abbr> is used to read barcodes made of dark and light parallel lines that represent digits using specific patterns.</span>
+      <ul>
+        <li><span class="official-note">Each digit has a unique pattern of thick and thin lines. Digits on the left and right of the barcode use different codes to allow scanning in either direction. This allows the barcode to be read even if it is upside down.</span></li>
+        <li><span class="official-note">When scanned, the barcode reflects red light differently between dark and light areas, which is captured by <abbr class="tip" title="devices that detect and measure physical signals">sensors</abbr> and converted into digital data. The scanner detects differences in reflected light and converts them into 0s and 1s.</span></li>
+        <li><span class="official-note">The barcode is looked up in a <abbr class="tip" title="organized collection of stored data">database</abbr> where its record includes item name, price, quantity, and reorder level.</span></li>
+        <li><span class="official-note">Barcode systems update stock levels and trigger automatic reordering when stock is low.</span></li>
+      </ul>
     </li>
 
-    <li>
-      <span class="official-note">
-        Some input devices are used by humans (e.g., keyboard), 
-        while others like sensors are automatic and work in real-time environments 
-        (for example, temperature sensors in weather stations).
-      </span>
+    <li><span class="official-note">A <abbr class="tip" title="square 2D code that stores more data than a barcode">QR code</abbr> (Quick Response code) is a square-shaped matrix of black and white blocks that can hold much more data than a traditional barcode.</span>
+      <ul>
+        <li><span class="official-note">A QR code can store up to 4296 characters or 7089 digits, including web addresses or phone numbers. This is enough to store a long web address or contact information.</span></li>
+        <li><span class="official-note">It includes three large squares in the corners to help the scanner detect the code's position and angle.</span></li>
+        <li><span class="official-note">QR codes are often scanned using smartphone or tablet cameras, and decoded by QR applications into readable information.</span></li>
+        <li><span class="official-note">QR codes use built-in <abbr class="tip" title="detects and corrects small mistakes in data">error-checking</abbr> so they are more reliable than traditional barcodes even if damaged.</span></li>
+      </ul>
     </li>
+
+    <li><span class="official-note">A digital camera captures light using a lens and a light-sensitive array of pixels called a <abbr class="tip" title="charge-coupled device">CCD</abbr>.</span>
+      <ul>
+        <li><span class="official-note">Each pixel converts light into an electric signal. This signal is sent to an <abbr class="tip" title="converts analogue signals into digital form">analogue-to-digital converter (ADC)</abbr> to form a digital image. The CCD captures light, and the ADC converts the captured signal into digital form.</span></li>
+        <li><span class="official-note">Digital cameras also measure colour using 24-bit <abbr class="tip" title="red, green, blue colour model">RGB</abbr>: 8 bits each for red, green, and blue levels. Each colour can have 256 different intensity levels.</span></li>
+        <li><span class="official-note">More pixels usually mean higher image resolution and a larger file size. Image quality also depends on the lens and <abbr class="tip" title="device that detects incoming light">sensor</abbr>.</span></li>
+        <li><span class="official-note">Images can be transferred to computers using USB or Bluetooth and stored in formats like JPEG or RAW.</span></li>
+      </ul>
+    </li>
+
+    <li><span class="official-note">A keyboard is the most common method of entering text into a computer or device.</span>
+      <ul>
+        <li><span class="official-note">Pressing a key completes a circuit. The <abbr class="tip" title="central processing unit">CPU</abbr> detects the signal and matches it to a character using its <abbr class="tip" title="numeric code representing characters">ASCII</abbr> value. For example, the letter 'A' is stored as the number 65 in ASCII.</span></li>
+        <li><span class="official-note">Keyboards can be wired or wireless; virtual keyboards exist on phones and tablets using touch screens.</span></li>
+        <li><span class="official-note">Repetitive keyboard use may cause injuries such as <abbr class="tip" title="repetitive strain injury">RSI</abbr> (repetitive strain injury). Ergonomic keyboards can help reduce strain.</span></li>
+      </ul>
+    </li>
+
+    <li><span class="official-note">A microphone captures sound by detecting air vibrations and converting them into an electric signal.</span>
+      <ul>
+        <li><span class="official-note">Inside the microphone, a vibrating <abbr class="tip" title="thin membrane that moves with sound waves">diaphragm</abbr> causes a coil to move in a magnetic field, generating a current. In simple terms, when the diaphragm moves, it creates a small electric signal.</span></li>
+        <li><span class="official-note">This analogue signal is then converted to digital using an <abbr class="tip" title="converts analogue signals into digital form">ADC</abbr> before the computer can store or process it.</span></li>
+        <li><span class="official-note">Microphones can be built into the device or connected externally via USB or Bluetooth.</span></li>
+      </ul>
+    </li>
+
+    <li><span class="official-note">An <abbr class="tip" title="pointing device that tracks surface movement using light">optical mouse</abbr> detects movement by capturing many images per second of the surface beneath it.</span>
+      <ul>
+        <li><span class="official-note">A red LED reflects light from the surface; a <abbr class="tip" title="complementary metal-oxide semiconductor sensor">CMOS sensor</abbr> reads the pattern and a processor calculates movement. By comparing images quickly, the mouse calculates how far it has moved.</span></li>
+        <li><span class="official-note">Optical mice are more reliable than mechanical ones and can be used on most flat surfaces.</span></li>
+        <li><span class="official-note">Wireless optical mice use Bluetooth, but wired ones avoid signal loss and do not need batteries.</span></li>
+      </ul>
+    </li>
+
+    <li><span class="official-note">Scanners convert physical documents or 3D objects into digital images for storage or processing.</span>
+      <ul>
+        <li><span class="official-note">2D scanners use a CCD and light to scan flat pages, producing JPEG or editable text files using <abbr class="tip" title="optical character recognition">OCR</abbr>. OCR converts a picture of text into actual editable characters.</span></li>
+        <li><span class="official-note">3D scanners scan solid objects across x, y, and z dimensions, producing 3D models for <abbr class="tip" title="computer-aided design">CAD</abbr> design or 3D printing.</span></li>
+        <li><span class="official-note">2D scanners are often used in airports to match passport photos with live images using <abbr class="tip" title="software that identifies faces">face recognition</abbr> software.</span></li>
+        <li><span class="official-note">In 2D scanning, a light shines on the document. Mirrors and lenses reflect the image onto sensors, which convert it into digital format.</span></li>
+      </ul>
+    </li>
+
+    <li><span class="official-note">A <abbr class="tip" title="screen that detects touch input">touch screen</abbr> is an input device that detects user interaction through direct touch on the display surface.</span>
+      <ul>
+        <li><span class="official-note"><abbr class="tip" title="uses electrical charge to detect touch">Capacitive</abbr> screens use a conductive layer that detects changes in electric fields caused by fingers or special styluses.</span></li>
+        <li><span class="official-note">In a capacitive touchscreen, the screen stores electrical charge and detects coordinates when a finger touches the screen and completes the circuit at that point. Your finger changes the electric field at the touch point.</span></li>
+        <li><span class="official-note"><abbr class="tip" title="uses light beams to detect touch">Infrared</abbr> screens detect when a beam of light is interrupted by touch.</span></li>
+        <li><span class="official-note"><abbr class="tip" title="uses pressure between two layers">Resistive</abbr> screens consist of two layers that create a circuit when pressed together.</span></li>
+        <li><span class="official-note">Touch screens are used in mobile phones, tablets, ATMs, and kiosks to allow direct interaction without a keyboard or mouse.</span></li>
+      </ul>
+    </li>
+
+    <li><span class="official-note">Summary: Input devices send data into the computer system.</span></li>
+
   </ul>
 
-  <!-- Optional short video (keep only one to avoid length increase) -->
-  <div class="video-support">
-    <iframe width="300" height="170" 
-      src="https://www.youtube.com/embed/3J6u8JkZ2uQ" 
-      title="Introduction to Input Devices" 
-      frameborder="0" allowfullscreen>
-    </iframe>
-  </div>
-</li>
-	  
-	  
-	  
-	  
-	  
-      <li><span class="official-note">A <span class="keyword" data-tooltip="a series of dark and light lines of varying thickness used to represent data; the code has to be scanned using laser or LED light source">barcode</span> scanner is used to read barcodes made of dark and light parallel lines that represent digits using specific patterns.</span>
-        <ul>
-          <li><span class="official-note">Each digit has a unique pattern of thick and thin lines; digits on the left and right of the barcode use different codes to support two-way scanning.</span></li>
-          <li><span class="official-note">When scanned, the barcode reflects red light differently between dark and light areas, which is captured by sensors and turned into digital data.</span></li>
-          <li><span class="official-note">The barcode is looked up in a stock database where its record includes item name, price, quantity, and reorder level.</span></li>
-          <li><span class="official-note">Barcode systems update stock levels and trigger automatic reordering when stock is low.</span></li>
-        </ul>
-      </li>
-      <li><span class="official-note">A QR code (Quick Response code) is a square-shaped matrix of black and white blocks that can hold much more data than a traditional barcode.</span>
-        <ul>
-          <li><span class="official-note">A QR code can store up to 4296 characters or 7089 digits, including web addresses or phone numbers.</span></li>
-          <li><span class="official-note">It includes three large alignment squares in the corners to help the scanner determine the position and angle of the code.</span></li>
-          <li><span class="official-note">QR codes are often scanned using smartphone or tablet cameras, and decoded by QR applications into readable information.</span></li>
-          <li><span class="official-note">QR codes use built-in error-checking so they are more reliable than traditional barcodes even if damaged.</span></li>
-        </ul>
-      </li>
-      <li><span class="official-note">A digital camera captures light using a lens and a light-sensitive array of pixels called a CCD (charge-coupled device).</span>
-        <ul>
-          <li><span class="official-note">Each pixel converts light into an electric signal, which is sent to an analogue-to-digital converter (ADC) to create a digital image.</span></li>
-          <li><span class="official-note">Digital cameras also measure colour using 24-bit RGB: 8 bits each for red, green, and blue levels.</span></li>
-          <li><span class="official-note">More pixels mean higher image resolution and larger file size; quality also depends on the lens and <span class="keyword" data-tooltip="a type of input device that is used to capture data from its immediate environment.">sensor</span>.</span></li>
-          <li><span class="official-note">Images can be transferred to computers using USB or Bluetooth and stored in formats like JPEG or RAW.</span></li>
-        </ul>
-      </li>
-      <li><span class="official-note">A keyboard is the most common method of entering text into a computer or device.</span>
-        <ul>
-          <li><span class="official-note">Pressing a key completes a circuit that the CPU detects and matches to a character using its ASCII value.</span></li>
-          <li><span class="official-note">Keyboards can be wired or wireless; virtual keyboards exist on phones and tablets using touch screens.</span></li>
-          <li><span class="official-note">Repetitive use of keyboards may cause injuries such as RSI (repetitive strain injury), but ergonomic keyboards help reduce strain.</span></li>
-        </ul>
-      </li>
-      <li><span class="official-note">A microphone captures sound by detecting air vibrations and converting them into an electric signal.</span>
-        <ul>
-          <li><span class="official-note">Inside the microphone, a vibrating diaphragm causes a coil to move in a magnetic field, generating a current.</span></li>
-          <li><span class="official-note">This analogue signal is then converted to digital using an analogue-to-digital converter (ADC) before the computer can store or process it.</span></li>
-          <li><span class="official-note">Microphones can be built into the device or connected externally via USB or Bluetooth.</span></li>
-        </ul>
-      </li>
-      <li><span class="official-note">An <span class="keyword" data-tooltip="a pointing device that uses a red LED to track the movement of the device and then relays its coordinates to a computer">optical mouse</span> detects movement by capturing multiple images per second of the surface below it.</span>
-        <ul>
-          <li><span class="official-note">A red LED reflects light from the surface; a CMOS sensor reads the pattern and a processor calculates movement.</span></li>
-          <li><span class="official-note">Optical mice are more reliable than mechanical ones and can be used on most flat surfaces.</span></li>
-          <li><span class="official-note">Wireless optical mice use Bluetooth, but wired ones avoid signal loss and don’t need batteries.</span></li>
-        </ul>
-      </li>
-      <li><span class="official-note">Scanners convert physical documents or 3D objects into digital images for storage or processing.</span>
-        <ul>
-          <li><span class="official-note">2D scanners use a CCD and light to scan flat pages, producing JPEG or editable text files using OCR (<span class="keyword" data-tooltip="technology that can convert hard copy text or images into a digital format to be stored in a computer memory">optical character recognition</span>).</span></li>
-          <li><span class="official-note">3D scanners scan solid objects across x, y, and z dimensions, producing 3D models for CAD design or 3D printing.</span></li>
-          <li><span class="official-note">2D scanners are often used in airports to match passport photos with live images using face recognition software.</span></li>
-          <li><span class="official-note">The process of 2D scanning involves shining a light on the document, then using mirrors and lenses to reflect the image onto sensors, which convert it into digital format.</span></li>
-        </ul>
-      </li>
-      <li><span class="official-note">A <span class="keyword" data-tooltip="a screen that allows the user to select or manipulate a screen image using the touch of a finger or stylus; touch screens most frequently use capacitive, infra-red or resistive technology">touch screen</span> is an input device that detects user interaction through direct touch on the display surface.</span>
-        <ul>
-          <li><span class="official-note">Capacitive screens use a conductive layer that detects changes in electric fields caused by fingers or special styluses.</span></li>
-          <li><span class="official-note">In a capacitive touchscreen, the screen stores electrical charge and detects coordinates when a finger touches the screen and completes the circuit.</span></li>
-          <li><span class="official-note">Infrared screens detect when a beam of light is interrupted by touch.</span></li>
-          <li><span class="official-note">Resistive screens consist of two layers that create a circuit when pressed together.</span></li>
-          <li><span class="official-note">Touch screens are used in mobile phones, tablets, ATMs, and kiosks to allow direct interaction without a keyboard or mouse.</span></li>
-        </ul>
-      </li>
-    </ul>
-    <ul class="no-bullets">
-      <li><div class="example-box">In supermarkets, barcode scanners are used to identify products during checkout. Each scan decreases the stock level in the database. When it reaches the reorder level, new stock is ordered automatically.</div></li>
-      <li><div class="example-box">A QR code can link to a product website. When scanned by a mobile phone, it opens a webpage instantly without typing the URL. This is commonly used in advertisements, boarding passes, or menus.</div></li>
-      <li><div class="example-box">When a photo is taken, the CCD captures brightness and colour of each pixel, like an orange pixel with values red=215, green=165, blue=40. This data is converted to binary and stored as a digital image.</div></li>
-      <li><div class="example-box">When the letter ‘H’ is pressed, it completes a circuit that sends a signal to the computer, which uses a lookup table to match the signal to the ASCII code for &#x27;H&#x27;.</div></li>
-      <li><div class="example-box">Saying “hut” into a microphone produces air vibrations that are turned into electric signals, then digitized into binary so the computer can store or edit the sound.</div></li>
-      <li><div class="example-box">At airport immigration, a 2D scanner reads the passport photo and compares it with a real-time camera photo using software that measures face features like eye distance and jawline.</div></li>
-      <li><div class="example-box">Projective capacitive screens used in modern smartphones allow multi-touch gestures (like zoom or scroll) and work with gloved hands or styluses.</div></li>
-        <div class="button-group">
-          <button class="keyword-button" onclick="openPopupK('3.2a')">
-            🔑 View Keywords on This Topic 🔑
-          </button>
-          <button class="exam-button" onclick="openPopupQ('3.2a')">
-            👁️ Quick Look at Exam Questions on This Topic 👁️
-          </button>
-        </div>
-    </ul>
-  </div>
-  <div class="section">
-    <h2>3.2b: Output Devices</h2>
-    <ul>
-      <li><span class="official-note">An <span class="keyword" data-tooltip="a device that can be used to obtain the results of data that has been processed.">output device</span> is hardware that shows or plays the result of the computer’s processing.</span>
-        <ul>
-          <li><span class="official-note">Output can be in the form of text, images, sound, or physical actions.</span></li>
-          <li><span class="official-note">These devices allow the system to communicate with the user or another system.</span></li>
-          <li><span class="official-note">Some output devices create visible displays (like screens), while others perform physical tasks (like actuators).</span></li>
-        </ul>
-      </li>
-      <li><span class="official-note">An <span class="keyword" data-tooltip="an output device that converts electrical energy into mechanical movement">actuator</span> is a mechanical component that performs an action, such as moving a part or turning something on or off.</span>
-        <ul>
-          <li><span class="official-note">Actuators are often used in systems that need physical changes, like controlling valves or motors.</span></li>
-          <li><span class="official-note">A solenoid is one type of actuator that creates motion using magnetic fields.</span></li>
-          <li><span class="official-note">Solenoids can produce linear or rotary motion depending on their construction.</span></li>
-          <li><span class="official-note">Actuators receive signals from the microprocessor and respond by carrying out actions such as turning on a motor, opening a valve, or switching on lights.</span></li>
-        </ul>
-      </li>
-      <li><span class="official-note">Projectors are used to display digital output on large screens and come in two main types: DLP (digital light processing) and LCD (liquid crystal display).</span>
-        <ul>
-          <li><span class="official-note">DLP projectors use a chip with thousands of tiny mirrors (DMD) that reflect light to form an image.</span></li>
-          <li><span class="official-note">DLP mirrors tilt toward or away from light to produce light or dark pixels and switch rapidly to create greyscale and colour.</span></li>
-          <li><span class="official-note">LCD projectors use coloured mirrors and separate LCD panels for red, green, and blue. These combine to form a full-colour image.</span></li>
-          <li><span class="official-note">DLP projectors are known for high contrast and reliability; LCD projectors give better colour detail and energy efficiency.</span></li>
-        </ul>
-      </li>
-      <li><span class="official-note">Inkjet printers spray tiny droplets of liquid ink onto paper using either <span class="keyword" data-tooltip="inkjet printer technology whereby tiny resistors create heat and form an ink bubble which is ejected onto paper in an inkjet printer">thermal bubble</span> or piezoelectric methods.</span>
-        <ul>
-          <li><span class="official-note">A thermal bubble printer heats the ink to form bubbles that force ink onto the page.</span></li>
-          <li><span class="official-note">A piezoelectric printer uses vibrating crystals to eject ink droplets.</span></li>
-          <li><span class="official-note">Inkjet printers are ideal for printing photos or small documents in colour.</span></li>
-          <li><span class="official-note">The print head in an inkjet printer moves back and forth across the paper, precisely controlling where each droplet of ink lands to form the image or text.</span></li>
-        </ul>
-      </li>
-      <li><span class="official-note">Laser printers use dry toner powder and static electricity to produce fast and high-quality printed pages.</span>
-        <ul>
-          <li><span class="official-note">A rotating drum is charged and then scanned by a laser to remove charge in the shape of the image.</span></li>
-          <li><span class="official-note">Toner powder sticks to the charged areas, then is transferred to paper using opposite charges.</span></li>
-          <li><span class="official-note">A heated roller called a fuser melts the toner to make the print permanent.</span></li>
-          <li><span class="official-note">Laser printers are typically used in offices due to their high printing speed, cost-efficiency over time, and ability to handle large print volumes.</span></li>
-        </ul>
-      </li>
-      <li><span class="official-note">A 3D printer creates solid objects by adding material layer by layer, based on a digital design.</span>
-        <ul>
-          <li><span class="official-note">The process starts with a CAD (computer-aided design) model that is converted into a printable format.</span></li>
-          <li><span class="official-note"><span class="keyword" data-tooltip="a 3D printing technique in which the print head moves in the x, y and z directions">Direct 3D printing</span> uses inkjet-like movement to build the object vertically.</span></li>
-          <li><span class="official-note"><span class="keyword" data-tooltip="a 3D printing method that uses a two-stage pass; the first stage uses dry powder and second stage uses a binding agent">Binder 3D printing</span> sprays powder, then a glue layer to solidify it.</span></li>
-          <li><span class="official-note">3D printers use materials like resin, metal powder, or plastic, and may require post-processing such as curing or cleaning.</span></li>
-        </ul>
-      </li>
-      <li><span class="official-note">Display screens can be LED, LCD, or OLED depending on how they produce images.</span>
-        <ul>
-          <li><span class="official-note">LED screens use red, green, and blue light-emitting diodes. Brightness is controlled by the current, allowing vivid colours.</span></li>
-          <li><span class="official-note">LCD screens use liquid crystals and need backlighting, usually with LEDs, to display the image.</span></li>
-          <li><span class="official-note">OLED screens use organic compounds that emit light when powered and do not need backlighting.</span></li>
-          <li><span class="official-note">OLED screens are flexible, thin, and use less power, which makes them ideal for smart devices and modern TVs.</span></li>
-        </ul>
-      </li>
-      <li><span class="official-note">A <span class="keyword" data-tooltip="an output device that converts electric current into sound">loudspeaker</span> is an output device that produces sound by converting electric signals into air vibrations.</span>
-        <ul>
-          <li><span class="official-note">A DAC (digital-to-analogue converter) turns digital audio files into analogue electrical signals.</span></li>
-          <li><span class="official-note">These signals are amplified to a strong current and sent to a speaker cone.</span></li>
-          <li><span class="official-note">The vibrating cone moves air to create sound waves that humans can hear.</span></li>
-          <li><span class="official-note">Sound output may also be delivered through headphones, which use similar principles as loudspeakers but are designed for personal listening.</span></li>
-        </ul>
-      </li>
-    </ul>
-    <ul class="no-bullets">
-      <li><div class="example-box">In an automated irrigation system, an actuator can open or close a water valve when triggered by the system.</div></li>
-      <li><div class="example-box">In a classroom, LCD projectors are often used for presentations because they show sharp and colourful images on a whiteboard.</div></li>
-      <li><div class="example-box">When printing a colour photo, the inkjet printer uses four colours (cyan, magenta, yellow, black) and mixes them in precise amounts to form different shades.</div></li>
-      <li><div class="example-box">Laser printers are used in offices to print hundreds of pages quickly, such as documents or flyers.</div></li>
-      <li><div class="example-box">A prosthetic limb cover can be made using a 3D printer by layering powdered plastic and binding it into a custom-fit shape based on a scan of the user’s leg.</div></li>
-      <li><div class="example-box">A curved OLED TV uses organic layers to produce bright colours and deep contrast without needing a separate light source.</div></li>
-      <li><div class="example-box">When a song is played on a computer, the audio file is converted to an electric current, sent through an amplifier, and used to move the speaker cone to produce music.</div></li>
-        <div class="button-group">
-          <button class="keyword-button" onclick="openPopupK('3.2b')">
-            🔑 View Keywords on This Topic 🔑
-          </button>
-          <button class="exam-button" onclick="openPopupQ('3.2b')">
-            👁️ Quick Look at Exam Questions on This Topic 👁️
-          </button>
-        </div>
-    </ul>
-  </div>
-  <div class="section">
-    <h2>3.2c: Sensors</h2>
-    <ul>
-      <li><span class="official-note">A sensor is a special input device that detects physical changes in the environment and sends that information to a computer system.</span>
-        <ul>
-          <li><span class="official-note">Sensors detect changes such as temperature, light, pressure, or movement and send continuous signals, not only when changes happen.</span></li>
-          <li><span class="official-note">The data captured by sensors is analogue, meaning it has many possible values and needs to be converted to digital using an ADC (analogue-to-digital converter).</span></li>
-          <li><span class="official-note">In control systems, feedback is used: the output affects the next sensor reading, creating a loop that adjusts the system automatically.</span></li>
-          <li><span class="official-note">Sensors do not make decisions—they simply send data to a microprocessor which then determines the appropriate action.</span></li>
-        </ul>
-      </li>
-      <li><span class="official-note">Sensors are used in both monitoring systems (which observe and report) and control systems (which take action).</span>
-        <ul>
-          <li><span class="official-note">Monitoring systems only report when something is out of range, like a hospital monitor alerting a nurse.</span></li>
-          <li><span class="official-note">Control systems adjust devices to bring the situation back to a desired level, like an air conditioner turning on when it&#x27;s too hot.</span></li>
-          <li><span class="official-note">Monitoring systems can alert users when abnormal values are detected, while control systems use sensor data to automatically adjust the output to maintain desired conditions.</span></li>
-        </ul>
-      </li>
-      <li><span class="official-note">Different types of sensors are used for specific applications:</span>
-      </li>
-      <li><span class="official-note">Temperature sensors measure heat levels.</span>
-        <ul>
-          <li><span class="official-note">Used in greenhouses, heating systems, and industrial processes.</span></li>
-          <li><span class="official-note">Can also be used in medical applications like digital thermometers or body temperature monitoring systems.</span></li>
-        </ul>
-      </li>
-      <li><span class="official-note">Moisture and humidity sensors detect water levels in air or soil.</span>
-        <ul>
-          <li><span class="official-note">Used in agriculture, food factories, and microchip manufacturing.</span></li>
-        </ul>
-      </li>
-      <li><span class="official-note">Light sensors measure brightness and trigger actions.</span>
-        <ul>
-          <li><span class="official-note">Used in automatic streetlights or headlamps on cars.</span></li>
-          <li><span class="official-note">Light sensors are also used in alarm systems or display brightness control.</span></li>
-        </ul>
-      </li>
-      <li><span class="official-note">Infrared sensors detect invisible IR radiation.</span>
-        <ul>
-          <li><span class="official-note">Active sensors detect broken beams; passive sensors detect heat.</span></li>
-        </ul>
-      </li>
-      <li><span class="official-note">Pressure sensors measure force from solids, liquids, or gases.</span>
-        <ul>
-          <li><span class="official-note">Used in weighing systems and safety checks.</span></li>
-        </ul>
-      </li>
-      <li><span class="official-note">Acoustic sensors detect sound.</span>
-        <ul>
-          <li><span class="official-note">Used in security alarms or machinery fault detection.</span></li>
-        </ul>
-      </li>
-      <li><span class="official-note">Gas sensors detect oxygen or carbon dioxide levels.</span>
-        <ul>
-          <li><span class="official-note">Used in pollution monitoring or car emissions.</span></li>
-          <li><span class="official-note">Gas sensors can also be used in safety systems to detect leaks in factories or households.</span></li>
-        </ul>
-      </li>
-      <li><span class="official-note">pH sensors measure how acidic or alkaline a substance is.</span>
-        <ul>
-          <li><span class="official-note">Used in soil testing and chemical plants.</span></li>
-        </ul>
-      </li>
-      <li><span class="official-note">Magnetic field sensors detect changes in magnetic strength.</span>
-        <ul>
-          <li><span class="official-note">Used in CD players, mobile phones, and braking systems.</span></li>
-        </ul>
-      </li>
-      <li><span class="official-note">Accelerometers detect motion or changes in velocity.</span>
-        <ul>
-          <li><span class="official-note">Used in airbag systems and phone screen rotation.</span></li>
-        </ul>
-      </li>
-      <li><span class="official-note">Proximity sensors detect nearby objects without touching them.</span>
-        <ul>
-          <li><span class="official-note">Used in mobile phones to turn off the screen when near the ear.</span></li>
-          <li><span class="official-note">Proximity sensors are also used in parking systems to detect obstacles and alert drivers.</span></li>
-        </ul>
-      </li>
-      <li><span class="official-note">Flow sensors measure how much gas or liquid is moving.</span>
-        <ul>
-          <li><span class="official-note">Used in hospital devices and pipe flow systems.</span></li>
-        </ul>
-      </li>
-      <li><span class="official-note">Level sensors check liquid levels in tanks or containers.</span>
-        <ul>
-          <li><span class="official-note">Used in fuel tanks, medicine production, and leak detection.</span></li>
-        </ul>
-      </li>
-    </ul>
-    <ul class="no-bullets">
-      <li><div class="example-box">In a smart greenhouse, a temperature sensor checks the air temperature and sends data to a microprocessor. If it&#x27;s too hot, a fan is activated. The new temperature is then measured again, continuing the loop.</div></li>
-      <li><div class="example-box">A thermostat uses a temperature sensor to maintain a set room temperature. If the room is too cold, it turns on the heating.</div></li>
-        <div class="button-group">
-          <button class="keyword-button" onclick="openPopupK('3.2c')">
-            🔑 View Keywords on This Topic 🔑
-          </button>
-          <button class="exam-button" onclick="openPopupQ('3.2c')">
-            👁️ Quick Look at Exam Questions on This Topic 👁️
-          </button>
-        </div>
-    </ul>
-  </div>
+<div class="section">
+  <h2>3.2b: Output Devices</h2>
+  <ul>
+    <li><span class="official-note">An <abbr class="tip" title="device that presents processed results">output device</abbr> is hardware that shows or plays the results of the computer’s processing. Output devices present results but do not store data permanently.</span>
+      <ul>
+        <li><span class="official-note">Output can be in the form of text, images, sound, or physical actions.</span></li>
+        <li><span class="official-note">These devices allow the system to communicate with the user or another system.</span></li>
+        <li><span class="official-note">Some output devices create visible displays (like screens), while others perform physical tasks (like <abbr class="tip" title="device that produces movement">actuators</abbr>).</span></li>
+      </ul>
+    </li>
+
+    <li><span class="official-note">An <abbr class="tip" title="converts electrical signals into physical movement">actuator</abbr> is a mechanical component that performs an action, such as moving a part, opening or closing something, or switching something on or off. An actuator is considered an output device because it performs physical actions based on computer instructions.</span>
+      <ul>
+        <li><span class="official-note">Actuators are often used in systems that need physical changes, like controlling valves or motors.</span></li>
+        <li><span class="official-note">A <abbr class="tip" title="electromagnetic actuator that produces motion">solenoid</abbr> is one type of actuator that creates motion using magnetic fields.</span></li>
+        <li><span class="official-note">Solenoids can produce linear or rotary motion depending on their construction.</span></li>
+        <li><span class="official-note">Actuators receive signals from the <abbr class="tip" title="central processing unit or controller">microprocessor</abbr> and respond by carrying out actions such as turning on a motor, opening a valve, or switching on lights.</span></li>
+      </ul>
+    </li>
+
+    <li><span class="official-note">Projectors are used to display digital output on large screens and come in two main types: <abbr class="tip" title="digital light processing">DLP</abbr> and <abbr class="tip" title="liquid crystal display">LCD</abbr>.</span>
+      <ul>
+        <li><span class="official-note">DLP projectors use a chip with thousands of tiny mirrors (<abbr class="tip" title="digital micromirror device">DMD</abbr>) that reflect light to form an image.</span></li>
+        <li><span class="official-note">DLP mirrors tilt toward or away from light to produce light or dark pixels and switch rapidly to create greyscale and colour images. They can tilt thousands of times per second.</span></li>
+        <li><span class="official-note">LCD projectors use coloured mirrors and separate LCD panels for red, green, and blue. These combine to form a full-colour image.</span></li>
+        <li><span class="official-note">DLP projectors are known for high contrast and reliability; LCD projectors give better colour detail and energy efficiency.</span></li>
+      </ul>
+    </li>
+
+    <li><span class="official-note">Inkjet printers spray tiny droplets of liquid ink onto paper using either <abbr class="tip" title="heats ink to form bubbles that eject droplets">thermal bubble</abbr> or <abbr class="tip" title="uses vibrating crystals to eject droplets">piezoelectric</abbr> methods.</span>
+      <ul>
+        <li><span class="official-note">A thermal bubble printer heats the ink to form bubbles that force ink onto the page.</span></li>
+        <li><span class="official-note">A piezoelectric printer uses vibrating crystals to eject ink droplets.</span></li>
+        <li><span class="official-note">Inkjet printers are ideal for printing photos or small documents in colour.</span></li>
+        <li><span class="official-note">The print head in an inkjet printer moves back and forth across the paper, precisely controlling where each droplet of ink lands to form the image or text.</span></li>
+      </ul>
+    </li>
+
+    <li><span class="official-note">Laser printers use dry <abbr class="tip" title="fine powder used for printing">toner</abbr> powder and static electricity to produce fast and high-quality printed pages.</span>
+      <ul>
+        <li><span class="official-note">A rotating <abbr class="tip" title="cylindrical component that attracts toner">drum</abbr> is charged and then scanned by a laser, which removes charge in the shape of the image.</span></li>
+        <li><span class="official-note">Toner powder sticks to the charged areas, then is transferred to paper using opposite charges. Opposite electrical charges attract each other.</span></li>
+        <li><span class="official-note">A heated roller called a <abbr class="tip" title="melts toner to fix it permanently">fuser</abbr> melts the toner to make the print permanent.</span></li>
+        <li><span class="official-note">Laser printers are typically used in offices due to their high printing speed, cost-efficiency over time, and ability to handle large print volumes.</span></li>
+      </ul>
+    </li>
+
+    <li><span class="official-note">A 3D printer creates solid objects by adding material layer by layer, based on a digital design.</span>
+      <ul>
+        <li><span class="official-note">The process starts with a <abbr class="tip" title="computer-aided design">CAD</abbr> model that is converted into a format the printer can use. This is usually converted into a file such as STL.</span></li>
+        <li><span class="official-note"><abbr class="tip" title="print head moves in x, y, z directions to build object">Direct 3D printing</abbr> uses inkjet-like movement to build the object vertically.</span></li>
+        <li><span class="official-note"><abbr class="tip" title="uses powder and binding agent in two stages">Binder 3D printing</abbr> sprays powder, then a glue layer to solidify it.</span></li>
+        <li><span class="official-note">3D printers use materials like resin, metal powder, or plastic, and may require post-processing such as curing or cleaning.</span></li>
+      </ul>
+    </li>
+
+    <li><span class="official-note">Display screens can be <abbr class="tip" title="light-emitting diode">LED</abbr>, <abbr class="tip" title="liquid crystal display">LCD</abbr>, or <abbr class="tip" title="organic light-emitting diode">OLED</abbr> depending on how they produce images.</span>
+      <ul>
+        <li><span class="official-note">LED screens use red, green, and blue light-emitting diodes. Brightness is controlled by the current, allowing vivid colours.</span></li>
+        <li><span class="official-note">LCD screens use liquid crystals and need backlighting, usually with LEDs, to display the image.</span></li>
+        <li><span class="official-note">OLED screens use organic compounds that emit light when powered and do not need backlighting.</span></li>
+        <li><span class="official-note">OLED screens are flexible, thin, and often use less power, which makes them suitable for smart devices and modern TVs. Because pixels produce their own light, they can turn off completely when displaying black.</span></li>
+      </ul>
+    </li>
+
+    <li><span class="official-note">A <abbr class="tip" title="converts electrical signals into sound waves">loudspeaker</abbr> is an output device that produces sound by converting electric signals into air vibrations.</span>
+      <ul>
+        <li><span class="official-note">A <abbr class="tip" title="digital-to-analogue converter">DAC</abbr> turns digital audio files into analogue electrical signals. Speakers can only work with analogue electrical signals.</span></li>
+        <li><span class="official-note">These signals are amplified to a strong current and sent to a speaker cone.</span></li>
+        <li><span class="official-note">The vibrating cone moves air to create sound waves that humans can hear.</span></li>
+        <li><span class="official-note">Sound output may also be delivered through headphones, which use similar principles as loudspeakers but are designed for personal listening.</span></li>
+      </ul>
+    </li>
+
+    <li><span class="official-note">Summary: Output devices present the results of processing.</span></li>
+
+  </ul>
+
+ <div class="section">
+  <h2>3.2c: Sensors</h2>
+  <ul>
+    <li><span class="official-note">A <abbr class="tip" title="input device that detects physical changes">sensor</abbr> is a special input device that detects physical changes in the environment and sends that information to a computer system.</span>
+      <ul>
+        <li><span class="official-note">Sensors detect changes such as temperature, light, pressure, or movement and send continuous signals, not only when a change happens. They constantly measure the environment, even when nothing changes.</span></li>
+        <li><span class="official-note">The data captured by sensors is <abbr class="tip" title="data with many possible values">analogue</abbr>, meaning it can take many values, and it needs to be converted to digital using an <abbr class="tip" title="analogue-to-digital converter">ADC</abbr>. For example, temperature can be 21.3°C, 21.4°C, and so on.</span></li>
+        <li><span class="official-note">In <abbr class="tip" title="system that automatically adjusts itself">control systems</abbr>, <abbr class="tip" title="output affects the next input reading">feedback</abbr> is used: the output affects the next sensor reading, creating a loop that helps adjust the system automatically. For example, heating turns off when the temperature becomes correct.</span></li>
+        <li><span class="official-note">Sensors do not make decisions; they simply send data to a <abbr class="tip" title="processing unit that makes decisions">microprocessor</abbr> which then determines the appropriate action.</span></li>
+      </ul>
+    </li>
+
+    <li><span class="official-note">Sensors are used in both <abbr class="tip" title="system that observes and reports only">monitoring systems</abbr> and <abbr class="tip" title="system that takes automatic action">control systems</abbr>.</span>
+      <ul>
+        <li><span class="official-note">Monitoring systems report when something is out of range, like a hospital monitor alerting a nurse. Monitoring systems inform humans; control systems act automatically.</span></li>
+        <li><span class="official-note">Control systems adjust devices to bring the value back to the desired level, like an air conditioner turning on when it's too hot.</span></li>
+        <li><span class="official-note">Monitoring systems can alert users when abnormal values are detected, while control systems use sensor data to automatically adjust the output to maintain desired conditions.</span></li>
+      </ul>
+    </li>
+
+    <li><span class="official-note">Different types of sensors are used for specific applications:</span></li>
+
+    <li><span class="official-note"><abbr class="tip" title="measures heat level">Temperature sensors</abbr> measure heat levels.</span>
+      <ul>
+        <li><span class="official-note">Used in greenhouses, heating systems, and industrial processes.</span></li>
+        <li><span class="official-note">Can also be used in medical applications like digital thermometers or body temperature monitoring systems.</span></li>
+      </ul>
+    </li>
+
+    <li><span class="official-note"><abbr class="tip" title="detect water content in air or soil">Moisture and humidity sensors</abbr> detect water levels in air or soil.</span>
+      <ul>
+        <li><span class="official-note">Used in agriculture, food factories, and microchip manufacturing.</span></li>
+      </ul>
+    </li>
+
+    <li><span class="official-note"><abbr class="tip" title="detect brightness level">Light sensors</abbr> measure brightness and trigger actions.</span>
+      <ul>
+        <li><span class="official-note">Used in automatic streetlights or headlamps on cars.</span></li>
+        <li><span class="official-note">Light sensors are also used in alarm systems or display brightness control.</span></li>
+      </ul>
+    </li>
+
+    <li><span class="official-note"><abbr class="tip" title="detect infrared radiation">Infrared sensors</abbr> detect invisible IR radiation.</span>
+      <ul>
+        <li><span class="official-note">Active sensors detect broken beams; passive sensors detect heat. Active sensors emit IR light, while passive sensors only detect existing heat.</span></li>
+      </ul>
+    </li>
+
+    <li><span class="official-note"><abbr class="tip" title="measure force or pressure">Pressure sensors</abbr> measure force from solids, liquids, or gases.</span>
+      <ul>
+        <li><span class="official-note">Used in weighing systems and safety checks.</span></li>
+      </ul>
+    </li>
+
+    <li><span class="official-note"><abbr class="tip" title="detect sound waves">Acoustic sensors</abbr> detect sound.</span>
+      <ul>
+        <li><span class="official-note">Used in security alarms or machinery fault detection.</span></li>
+      </ul>
+    </li>
+
+    <li><span class="official-note"><abbr class="tip" title="detect oxygen or carbon dioxide levels">Gas sensors</abbr> detect oxygen or carbon dioxide levels.</span>
+      <ul>
+        <li><span class="official-note">Used in pollution monitoring or car emissions.</span></li>
+        <li><span class="official-note">Gas sensors can also be used in safety systems to detect leaks in factories or households.</span></li>
+      </ul>
+    </li>
+
+    <li><span class="official-note"><abbr class="tip" title="measure acidity or alkalinity">pH sensors</abbr> measure how acidic or alkaline a substance is.</span>
+      <ul>
+        <li><span class="official-note">Used in soil testing and chemical plants.</span></li>
+      </ul>
+    </li>
+
+    <li><span class="official-note"><abbr class="tip" title="detect magnetic strength changes">Magnetic field sensors</abbr> detect changes in magnetic strength.</span>
+      <ul>
+        <li><span class="official-note">Used in CD players, mobile phones, and braking systems. For example, a phone can detect when a flip cover is closed.</span></li>
+      </ul>
+    </li>
+
+    <li><span class="official-note"><abbr class="tip" title="detect motion or change in velocity">Accelerometers</abbr> detect motion or changes in velocity.</span>
+      <ul>
+        <li><span class="official-note">Used in airbag systems and phone screen rotation. They detect tilting, shaking, or sudden stops.</span></li>
+      </ul>
+    </li>
+
+    <li><span class="official-note"><abbr class="tip" title="detect nearby objects without touching them">Proximity sensors</abbr> detect nearby objects without touching them.</span>
+      <ul>
+        <li><span class="official-note">Used in mobile phones to turn off the screen when near the ear.</span></li>
+        <li><span class="official-note">Proximity sensors are also used in parking systems to detect obstacles and alert drivers.</span></li>
+      </ul>
+    </li>
+
+    <li><span class="official-note"><abbr class="tip" title="measure movement of gas or liquid">Flow sensors</abbr> measure how much gas or liquid is moving.</span>
+      <ul>
+        <li><span class="official-note">Used in hospital devices and pipe flow systems. They measure the rate of flow, such as litres per minute.</span></li>
+      </ul>
+    </li>
+
+    <li><span class="official-note"><abbr class="tip" title="detect liquid level in containers">Level sensors</abbr> check liquid levels in tanks or containers.</span>
+      <ul>
+        <li><span class="official-note">Used in fuel tanks, medicine production, and leak detection.</span></li>
+      </ul>
+    </li>
+
+    <li><span class="official-note">Summary: Sensors detect environmental changes and send data to the system.</span></li>
+
+  </ul>
 
   <script src="popup-script.js"></script>
 </div>
