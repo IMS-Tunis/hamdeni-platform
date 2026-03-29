@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Level 6: Standard methods of solution</title>
+  <link rel="stylesheet" href="../levels.css">
+</head>
+<body>
+
+<div class="header">
+  <div class="container">
+    <div class="header-bar">
+      <a class="brand" href="../../dashboard.html" aria-label="Go to dashboard">
+        <img src="../logo.png" alt="logo" class="brand-logo">
+      </a>
+      <div class="header-main">
+        <h1>Level 6: Standard methods of solution</h1>
+        <p>IGCSE Computer Science (0478): student notes, prepared by Dr. Hamdeni</p>
+      </div>
+      <a class="btn btn-home" href="../../dashboard.html" aria-label="Go to dashboard">
+        <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+          <path d="M3 10.5L12 3l9 7.5v9a1 1 0 0 1-1 1h-5.5a1 1 0 0 1-1-1v-5h-3v5a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-9zM5 11.1V19h3.5v-5a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v5H19v-7.9L12 5.6 5 11.1z"/>
+        </svg>
+        <span>Home</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="toc">
+    <strong>Contents</strong>
+    <ol>
+      <li><a href="#s1">Totalling</a></li>
+      <li><a href="#s2">Counting</a></li>
+      <li><a href="#s3">Finding maximum and minimum values</a></li>
+      <li><a href="#s4">Finding average values</a></li>
+    </ol>
+  </div>
+
+  <div class="section" id="s1">
+    <h2>1. Totalling</h2>
+    <ul class="bullets">
+      <li>Totalling means adding values together to keep a running total.</li>
+      <li>To write a totalling program, you usually:
+        <ul>
+          <li>initialise the total to 0</li>
+          <li>input one value at a time</li>
+          <li>add each new value to the total</li>
+        </ul>
+      </li>
+    </ul>
+
+    <div class="example">
+      <div class="title"><strong>Example 1: </strong>Total 10 numbers entered by the user.</div>
+      <div class="pseudocode">
+        <div class="pc-line"><span class="comment"><em>Total ← 0</em></span></div>
+        <div class="pc-line"><span class="comment"><em>FOR Counter ← 1 TO 10</em></span></div>
+        <div class="pc-line"><span class="comment"><em>  INPUT Number</em></span></div>
+        <div class="pc-line"><span class="comment"><em>  Total ← Total + Number</em></span></div>
+        <div class="pc-line"><span class="comment"><em>NEXT Counter</em></span></div>
+        <div class="pc-line"><span class="comment"><em>OUTPUT Total</em></span></div>
+      </div>
+    </div>
+
+    <div class="example">
+      <div class="title"><strong>Example 2: </strong>Total the marks of a class.</div>
+      <div class="pseudocode">
+        <div class="pc-line"><span class="comment"><em>INPUT ClassSize</em></span></div>
+        <div class="pc-line"><span class="comment"><em>Total ← 0</em></span></div>
+        <div class="pc-line"><span class="comment"><em>FOR Counter ← 1 TO ClassSize</em></span></div>
+        <div class="pc-line"><span class="comment"><em>  INPUT StudentMark</em></span></div>
+        <div class="pc-line"><span class="comment"><em>  Total ← Total + StudentMark</em></span></div>
+        <div class="pc-line"><span class="comment"><em>NEXT Counter</em></span></div>
+        <div class="pc-line"><span class="comment"><em>OUTPUT Total</em></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="s2">
+    <h2>2. Counting</h2>
+    <ul class="bullets">
+      <li>Counting means finding how many times something happens.</li>
+      <li>To write a counting program, you usually:
+        <ul>
+          <li>initialise the counter to 0</li>
+          <li>test each value or event</li>
+          <li>increase the counter by 1 when the condition is met</li>
+        </ul>
+      </li>
+      <li>The counter is often updated using <code>Count ← Count + 1</code>.</li>
+      <li>Counting can also be used to count down, for example when stock is reduced after a sale.</li>
+    </ul>
+
+    <div class="example">
+      <div class="title"><strong>Example 1: </strong>Count how many of 10 entered numbers are greater than 50.</div>
+      <div class="pseudocode">
+        <div class="pc-line"><span class="comment"><em>Count ← 0</em></span></div>
+        <div class="pc-line"><span class="comment"><em>FOR Counter ← 1 TO 10</em></span></div>
+        <div class="pc-line"><span class="comment"><em>  INPUT Number</em></span></div>
+        <div class="pc-line"><span class="comment"><em>  IF Number &gt; 50 THEN</em></span></div>
+        <div class="pc-line"><span class="comment"><em>    Count ← Count + 1</em></span></div>
+        <div class="pc-line"><span class="comment"><em>  ENDIF</em></span></div>
+        <div class="pc-line"><span class="comment"><em>NEXT Counter</em></span></div>
+        <div class="pc-line"><span class="comment"><em>OUTPUT Count</em></span></div>
+      </div>
+    </div>
+
+    <div class="example">
+      <div class="title"><strong>Example 2: </strong>Count down the last 10 seconds before a race starts.</div>
+      <div class="pseudocode">
+        <div class="pc-line"><span class="comment"><em>FOR Counter ← 10 TO 1 STEP -1</em></span></div>
+        <div class="pc-line"><span class="comment"><em>  OUTPUT Counter</em></span></div>
+        <div class="pc-line"><span class="comment"><em>NEXT Counter</em></span></div>
+        <div class="pc-line"><span class="comment"><em>OUTPUT &quot;Start&quot;</em></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="s3">
+    <h2>3. Finding maximum and minimum values</h2>
+    <ul class="bullets">
+      <li>Before comparing values, the maximum and minimum must be initialised first, otherwise the program may produce incorrect results.</li>
+      <li>If the valid range is known, you can initialise the maximum to a small value and the minimum to a large value.</li>
+      <li>If the valid range is not known, initialise both values from the first input, then continue from the second input.</li>
+      <li>Each new value is compared with the current maximum and minimum.</li>
+    </ul>
+
+    <div class="example">
+      <div class="title"><strong>Example 1: </strong>Find the highest and lowest mark in a class when the range is known.</div>
+      <div class="pseudocode">
+        <div class="pc-line"><span class="comment"><em>INPUT ClassSize</em></span></div>
+        <div class="pc-line"><span class="comment"><em>MaximumMark ← 0</em></span></div>
+        <div class="pc-line"><span class="comment"><em>MinimumMark ← 100</em></span></div>
+        <div class="pc-line"><span class="comment"><em>FOR Counter ← 1 TO ClassSize</em></span></div>
+        <div class="pc-line"><span class="comment"><em>  INPUT StudentMark</em></span></div>
+        <div class="pc-line"><span class="comment"><em>  IF StudentMark &gt; MaximumMark THEN</em></span></div>
+        <div class="pc-line"><span class="comment"><em>    MaximumMark ← StudentMark</em></span></div>
+        <div class="pc-line"><span class="comment"><em>  ENDIF</em></span></div>
+        <div class="pc-line"><span class="comment"><em>  IF StudentMark &lt; MinimumMark THEN</em></span></div>
+        <div class="pc-line"><span class="comment"><em>    MinimumMark ← StudentMark</em></span></div>
+        <div class="pc-line"><span class="comment"><em>  ENDIF</em></span></div>
+        <div class="pc-line"><span class="comment"><em>NEXT Counter</em></span></div>
+      </div>
+    </div>
+
+    <div class="example">
+      <div class="title"><strong>Example 2: </strong>Find the highest and lowest values when the range is not known.</div>
+      <div class="pseudocode">
+        <div class="pc-line"><span class="comment"><em>INPUT Number</em></span></div>
+        <div class="pc-line"><span class="comment"><em>Maximum ← Number</em></span></div>
+        <div class="pc-line"><span class="comment"><em>Minimum ← Number</em></span></div>
+        <div class="pc-line"><span class="comment"><em>FOR Counter ← 2 TO 10</em></span></div>
+        <div class="pc-line"><span class="comment"><em>  INPUT Number</em></span></div>
+        <div class="pc-line"><span class="comment"><em>  IF Number &gt; Maximum THEN</em></span></div>
+        <div class="pc-line"><span class="comment"><em>    Maximum ← Number</em></span></div>
+        <div class="pc-line"><span class="comment"><em>  ENDIF</em></span></div>
+        <div class="pc-line"><span class="comment"><em>  IF Number &lt; Minimum THEN</em></span></div>
+        <div class="pc-line"><span class="comment"><em>    Minimum ← Number</em></span></div>
+        <div class="pc-line"><span class="comment"><em>  ENDIF</em></span></div>
+        <div class="pc-line"><span class="comment"><em>NEXT Counter</em></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="s4">
+    <h2>4. Finding average values</h2>
+    <ul class="bullets">
+      <li>The average here means the mean.</li>
+      <li>The mean is found by adding all the values together, then dividing by how many values there are.</li>
+      <li>To find an average, a program needs a total and a count.</li>
+      <li>The formula is <code>Average ← Total / Count</code>.</li>
+    </ul>
+
+    <div class="example">
+      <div class="title"><strong>Example 1: </strong>Find the average of 10 entered numbers.</div>
+      <div class="pseudocode">
+        <div class="pc-line"><span class="comment"><em>Total ← 0</em></span></div>
+        <div class="pc-line"><span class="comment"><em>Count ← 0</em></span></div>
+        <div class="pc-line"><span class="comment"><em>FOR Counter ← 1 TO 10</em></span></div>
+        <div class="pc-line"><span class="comment"><em>  INPUT Number</em></span></div>
+        <div class="pc-line"><span class="comment"><em>  Total ← Total + Number</em></span></div>
+        <div class="pc-line"><span class="comment"><em>  Count ← Count + 1</em></span></div>
+        <div class="pc-line"><span class="comment"><em>NEXT Counter</em></span></div>
+        <div class="pc-line"><span class="comment"><em>Average ← Total / Count</em></span></div>
+        <div class="pc-line"><span class="comment"><em>OUTPUT Average</em></span></div>
+      </div>
+    </div>
+
+    <div class="example">
+      <div class="title"><strong>Example 2: </strong>Find the average mark for a class.</div>
+      <div class="pseudocode">
+        <div class="pc-line"><span class="comment"><em>INPUT ClassSize</em></span></div>
+        <div class="pc-line"><span class="comment"><em>Total ← 0</em></span></div>
+        <div class="pc-line"><span class="comment"><em>FOR Counter ← 1 TO ClassSize</em></span></div>
+        <div class="pc-line"><span class="comment"><em>  INPUT StudentMark</em></span></div>
+        <div class="pc-line"><span class="comment"><em>  Total ← Total + StudentMark</em></span></div>
+        <div class="pc-line"><span class="comment"><em>NEXT Counter</em></span></div>
+        <div class="pc-line"><span class="comment"><em>Average ← Total / ClassSize</em></span></div>
+        <div class="pc-line"><span class="comment"><em>OUTPUT Average</em></span></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">© IGCSE CS (0478) - Student notes prepared by Dr. Hamdeni</div>
+
+<center><a href="exercises6.html" class="btn btn-cta" role="button">Ready to Practice</a></center>
+
+</body>
+</html>

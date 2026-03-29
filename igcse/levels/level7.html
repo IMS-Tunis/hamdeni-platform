@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Level 7: Arrays and Iterative Data Handling</title>
+  <link rel="stylesheet" href="../levels.css">
+</head>
+<body>
+
+<div class="header">
+  <div class="container">
+    <div class="header-bar">
+      <a class="brand" href="../../dashboard.html" aria-label="Go to dashboard">
+        <img src="../logo.png" alt="logo" class="brand-logo">
+      </a>
+      <div class="header-main">
+        <h1>Level 7: Arrays and Iterative Data Handling</h1>
+        <p>IGCSE Computer Science (0478): student notes, prepared by Dr. Hamdeni</p>
+      </div>
+      <a class="btn btn-home" href="../../dashboard.html" aria-label="Go to dashboard">
+        <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+          <path d="M3 10.5L12 3l9 7.5v9a1 1 0 0 1-1 1h-5.5a1 1 0 0 1-1-1v-5h-3v5a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-9zM5 11.1V19h3.5v-5a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v5H19v-7.9L12 5.6 5 11.1z"/>
+        </svg>
+        <span>Home</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="toc">
+    <strong>Contents</strong>
+    <ol>
+      <li><a href="#s1">What is an array?</a></li>
+      <li><a href="#s2">One-dimensional arrays</a></li>
+      <li><a href="#s3">Two-dimensional arrays</a></li>
+      <li><a href="#s4">First index: zero or one</a></li>
+      <li><a href="#s5">Using variables as array indexes</a></li>
+      <li><a href="#s6">Nested iteration with arrays</a></li>
+      <li><a href="#s7">Meaningful identifiers for arrays</a></li>
+    </ol>
+  </div>
+
+  <div class="section" id="s1">
+    <h2>1. What is an array?</h2>
+    <ul class="bullets">
+      <li>An array is a data structure that stores several data items under one identifier.</li>
+      <li>All elements in one array must have the same data type.</li>
+      <li>Each element is accessed using an index, which identifies its position in the array.</li>
+      <li>Arrays are useful when a program needs to store multiple related values in a uniformly accessible way.</li>
+    </ul>
+
+    <img src="array.png" alt="Array basics showing indexes, length, contents, and element access" width="500">
+
+    <div class="example">
+      <div class="title"><strong>Example: </strong>Accessing one element in an array</div>
+      <div class="pseudocode">
+        <div class="pc-line"><span class="comment"><em>Colour[0] ← "red"</em></span></div>
+      </div>
+      <p class="explain">This stores the value <code>"red"</code> in the first position of the array <code>Colour</code>.</p>
+    </div>
+  </div>
+
+  <div class="section" id="s2">
+    <h2>2. One-dimensional arrays</h2>
+    <ul class="bullets">
+      <li>A one-dimensional array can be thought of as a list.</li>
+      <li>It has one index only.</li>
+      <li>When a one-dimensional array is declared in pseudocode, the declaration includes:
+        <ul>
+          <li>the array name</li>
+          <li>the first index value</li>
+          <li>the last index value</li>
+          <li>the data type</li>
+        </ul>
+      </li>
+    </ul>
+
+    <div class="example">
+      <div class="title"><strong>Example: </strong>Declaring a one-dimensional array</div>
+      <div class="pseudocode">
+        <div class="pc-line"><span class="comment"><em>DECLARE MyList : ARRAY[0:9] OF INTEGER</em></span></div>
+      </div>
+      <p class="explain">This declares an integer array called <code>MyList</code> with ten elements, indexed from 0 to 9.</p>
+    </div>
+
+    <div class="example">
+      <div class="title"><strong>Example: </strong>Storing one value in a one-dimensional array</div>
+      <div class="pseudocode">
+        <div class="pc-line"><span class="comment"><em>MyList[4] ← 27</em></span></div>
+      </div>
+      <p class="explain">This stores the value <code>27</code> at index <code>4</code>.</p>
+    </div>
+
+    <div class="example">
+      <div class="title"><strong>Example: </strong>Reading values into a one-dimensional array</div>
+      <div class="pseudocode">
+        <div class="pc-line"><span class="comment"><em>FOR Counter ← 0 TO 9</em></span></div>
+        <div class="pc-line"><span class="comment"><em>  OUTPUT "Enter next value "</em></span></div>
+        <div class="pc-line"><span class="comment"><em>  INPUT MyList[Counter]</em></span></div>
+        <div class="pc-line"><span class="comment"><em>NEXT Counter</em></span></div>
+      </div>
+      <p class="explain">The loop uses the variable <code>Counter</code> to fill every position in the array.</p>
+    </div>
+
+    <div class="example">
+      <div class="title"><strong>Example: </strong>Outputting one value from a one-dimensional array</div>
+      <div class="pseudocode">
+        <div class="pc-line"><span class="comment"><em>OUTPUT MyList[1]</em></span></div>
+      </div>
+      <p class="explain">This outputs the value stored at index <code>1</code>.</p>
+    </div>
+  </div>
+
+  <div class="section" id="s3">
+    <h2>3. Two-dimensional arrays</h2>
+    <ul class="bullets">
+      <li>A two-dimensional array can be thought of as a table.</li>
+      <li>It uses rows and columns.</li>
+      <li>Each element needs two indexes: one for the row and one for the column.</li>
+      <li>The first element of a two-dimensional array may be at position <code>0,0</code> if zero indexing is used.</li>
+    </ul>
+
+    <div class="example">
+      <div class="title"><strong>Example: </strong>Declaring a two-dimensional array</div>
+      <div class="pseudocode">
+        <div class="pc-line"><span class="comment"><em>DECLARE MyTable : ARRAY[0:9,0:2] OF INTEGER</em></span></div>
+      </div>
+      <p class="explain">This declares an integer table with row indexes from 0 to 9 and column indexes from 0 to 2.</p>
+    </div>
+
+    <div class="example">
+      <div class="title"><strong>Example: </strong>Storing one value in a two-dimensional array</div>
+      <div class="pseudocode">
+        <div class="pc-line"><span class="comment"><em>Data[4, 3] ← 10</em></span></div>
+      </div>
+      <p class="explain">This stores the value <code>10</code> in one position identified by two indexes.</p>
+    </div>
+
+    <div class="example">
+      <div class="title"><strong>Example: </strong>Outputting one value from a two-dimensional array</div>
+      <div class="pseudocode">
+        <div class="pc-line"><span class="comment"><em>OUTPUT(ArrayData[4, 1])</em></span></div>
+      </div>
+      <p class="explain">To access one element in a two-dimensional array, both indexes must be given.</p>
+    </div>
+  </div>
+
+  <div class="section" id="s4">
+    <h2>4. First index: zero or one</h2>
+    <ul class="bullets">
+      <li>The first element of an array can have an index of zero or one.</li>
+      <li>This depends on the programming language being used.</li>
+      <li>Most programming languages automatically set the first index to zero.</li>
+      <li>When writing or reading an algorithm, always check clearly whether the first index is 0 or 1.</li>
+    </ul>
+
+    <div class="example">
+      <div class="title"><strong>Example: </strong>Zero-indexed and one-indexed notation</div>
+      <div class="pseudocode">
+        <div class="pc-line"><span class="comment"><em>Array[0]</em></span></div>
+        <div class="pc-line"><span class="comment"><em>StudentName[1]</em></span></div>
+      </div>
+      <p class="explain">Both styles are valid. The important point is to know which indexing system is being used.</p>
+    </div>
+  </div>
+
+  <div class="section" id="s5">
+    <h2>5. Using variables as array indexes</h2>
+    <ul class="bullets">
+      <li>A variable can be used as the index of an array.</li>
+      <li>This is very common inside a loop.</li>
+      <li>Using a loop counter as the index makes it possible to process all elements of an array one by one.</li>
+    </ul>
+
+    <div class="example">
+      <div class="title"><strong>Example: </strong>Using a variable as an array index</div>
+      <div class="pseudocode">
+        <div class="pc-line"><span class="comment"><em>FOR Counter ← 1 TO 10</em></span></div>
+        <div class="pc-line"><span class="comment"><em>  OUTPUT "Enter Name of Student "</em></span></div>
+        <div class="pc-line"><span class="comment"><em>  INPUT StudentName[Counter]</em></span></div>
+        <div class="pc-line"><span class="comment"><em>NEXT Counter</em></span></div>
+      </div>
+      <p class="explain">Here, <code>Counter</code> changes each time through the loop and selects a different position in the array.</p>
+    </div>
+  </div>
+
+  <div class="section" id="s6">
+    <h2>6. Nested iteration with arrays</h2>
+    <ul class="bullets">
+      <li>Two-dimensional arrays usually need nested loops.</li>
+      <li>One loop is used for one index and the second loop is used for the other index.</li>
+      <li>This allows the program to read or write every element in the table.</li>
+    </ul>
+
+    <div class="example">
+      <div class="title"><strong>Example: </strong>Populating a two-dimensional array using nested loops</div>
+      <div class="pseudocode">
+        <div class="pc-line"><span class="comment"><em>FOR ColumnCounter ← 0 TO 2</em></span></div>
+        <div class="pc-line"><span class="comment"><em>  FOR RowCounter ← 0 TO 9</em></span></div>
+        <div class="pc-line"><span class="comment"><em>    OUTPUT "Enter next value "</em></span></div>
+        <div class="pc-line"><span class="comment"><em>    INPUT MyTable[RowCounter, ColumnCounter]</em></span></div>
+        <div class="pc-line"><span class="comment"><em>  NEXT RowCounter</em></span></div>
+        <div class="pc-line"><span class="comment"><em>NEXT ColumnCounter</em></span></div>
+      </div>
+      <p class="explain">This uses two counters because a two-dimensional array has two indexes.</p>
+    </div>
+  </div>
+
+  <div class="section" id="s7">
+    <h2>7. Meaningful identifiers for arrays</h2>
+    <ul class="bullets">
+      <li>In a maintainable program, identifiers should be meaningful.</li>
+      <li>This includes array names.</li>
+      <li>A meaningful array name helps another programmer understand what the array stores.</li>
+      <li>For example, a name such as <code>StudentName</code> or <code>StudentMark</code> is clearer than a name such as <code>A</code> or <code>X</code>.</li>
+    </ul>
+
+    <div class="example">
+      <div class="title"><strong>Example: </strong>Clear array names</div>
+      <div class="pseudocode">
+        <div class="pc-line"><span class="comment"><em>DECLARE StudentName : ARRAY[1:10] OF STRING</em></span></div>
+        <div class="pc-line"><span class="comment"><em>DECLARE StudentMark : ARRAY[1:10] OF INTEGER</em></span></div>
+      </div>
+      <p class="explain">These names immediately show what each array is intended to store.</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">© IGCSE CS (0478) - Student notes prepared by Dr. Hamdeni</div>
+
+</body>
+</html>
