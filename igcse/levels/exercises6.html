@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Level 6 - Standard methods of solution</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ms-bg:#eafaf1;        /* light green background for mark scheme */
+      --ms-border:#b7e4c7;    /* green border */
+      --ms-title:#065f46;     /* deep green title */
+
+      /* Rose Noir theme: darker pink + darker grey */
+      --bg:#eef0f4;
+      --panel:#ffffff;
+      --panel-2:#f6f7fa;
+      --text:#1f2937;        /* slate-800 */
+      --muted:#475569;       /* slate-600 */
+      --accent:#e11d48;      /* rose-600 */
+      --accent-2:#be185d;    /* rose-700 */
+      --link:#db2777;        /* rose-600 link */
+      --ok:#16a34a;          /* green-600 */
+      --code-bg:#f4f5f7;
+      --code-text:#111827;
+      --border:#cbd5e1;      /* slate-300 */
+      --shadow:0 10px 28px rgba(2,6,23,.08);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      background:
+        radial-gradient(800px 400px at 85% -10%, rgba(225,29,72,.10), transparent 60%),
+        radial-gradient(700px 380px at 5% 20%, rgba(190,24,93,.10), transparent 60%),
+        linear-gradient(180deg,#f4f6fa 0%, var(--bg) 100%);
+      color:var(--text);
+      display:flex;
+      min-height:100vh;
+    }
+    /* Top-right actions */
+    .top-right-actions{
+      position:fixed;
+      top:12px; right:12px; z-index:1200;
+      display:flex; gap:10px; align-items:center;
+    }
+    .pill-btn{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:10px 14px; border-radius:999px; text-decoration:none;
+      color:#fff; font-weight:700; letter-spacing:.2px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      box-shadow:0 8px 20px rgba(225,29,72,.28);
+      border:1px solid rgba(225,29,72,.25);
+    }
+    .pill-btn.secondary{
+      background:linear-gradient(135deg,#94a3b8,#64748b);
+      color:#f8fafc; border:1px solid rgba(100,116,139,.35);
+      box-shadow:0 8px 20px rgba(100,116,139,.25);
+    }
+    /* Sidebar */
+    .sidebar{
+      width:280px;
+      background:linear-gradient(180deg,var(--panel) 0%, var(--panel-2) 100%);
+      border-right:1px solid var(--border);
+      padding:18px 16px;
+      position:sticky;
+      top:0;
+      height:100vh;
+      overflow:auto;
+      box-shadow:var(--shadow);
+    }
+    .brand{display:flex; align-items:center; gap:12px; margin-bottom:12px}
+    .logo{
+      width:44px; height:44px; border-radius:10px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:flex; align-items:center; justify-content:center;
+      font-weight:800; color:#fff5f7;
+      box-shadow:0 8px 22px rgba(190,24,93,.25);
+    }
+    .brand-text .title{font-weight:800; letter-spacing:.2px}
+    .brand-text .subtitle{color:var(--muted); font-size:.92rem}
+    .nav{display:flex; flex-direction:column; gap:6px; margin-top:8px}
+    .nav-item{
+      display:block; padding:10px 12px; border-radius:10px; text-decoration:none;
+      color:var(--text); border:1px solid transparent; background:transparent; transition:.15s;
+    }
+    .nav-item:hover{background:#ffe4ec}
+    .nav-item.active{border-color:var(--accent); background:#ffe1ea}
+    .sidebar-footer{display:flex; flex-direction:column; gap:8px; margin-top:16px}
+    .btn{
+      border:none; padding:10px 12px; border-radius:10px; cursor:pointer; font-weight:700;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2)); color:#fff5f7;
+      box-shadow:0 8px 20px rgba(225,29,72,.28);
+    }
+    .btn.ghost{
+      background:transparent; color:var(--text); border:1px solid var(--border); box-shadow:none
+    }
+    .btn.ghost:hover{border-color:var(--accent); background:#fff1f5}
+    /* Main content */
+    .content{flex:1; padding:82px 22px 22px 22px; display:flex; flex-direction:column; gap:16px}
+    .points-container{display:grid; gap:16px}
+    /* Cards */
+    .card{
+      background:var(--panel);
+      border:1px solid var(--border);
+      border-radius:16px; overflow:hidden;
+      box-shadow:var(--shadow);
+    }
+    .card-header{
+      display:flex; align-items:center; justify-content:space-between; gap:8px;
+      padding:12px 14px; border-bottom:1px solid var(--border);
+      background:linear-gradient(180deg,#ffffff 0%, #fff0f4 100%);
+    }
+    .card-header h3{margin:0; font-size:1rem; letter-spacing:.2px}
+    .card-body{padding:14px}
+    .card-body p{margin:0 0 10px 0}
+    pre.code, pre.ms{
+      background:var(--code-bg); color:var(--code-text); border:1px solid var(--border);
+      padding:12px; border-radius:12px; overflow:auto;
+      font-family:'JetBrains Mono',ui-monospace,Consolas,monospace; font-size:.95rem; line-height:1.45
+    }
+    .mark-scheme{padding:12px 14px 14px 14px; border-top:1px dashed var(--ms-border); background:var(--ms-bg); border-radius:0 0 16px 16px}
+    .ms-title{display:flex; align-items:center; gap:8px; margin:12px 0 8px 0; font-weight:800; color:var(--ms-title)}
+    .ms-title .dot{width:10px; height:10px; border-radius:999px; background:var(--ok)}
+    .actions{display:flex; gap:8px; align-items:center}
+    table.trace{width:100%; border-collapse:collapse; margin:10px 0; font-size:.95rem; background:#fff}
+    table.trace th, table.trace td{border:1px solid var(--border); padding:8px; text-align:center}
+    @media (max-width: 900px){
+      .top-right-actions{top:56px}
+      .content{padding-top:120px}
+
+      .sidebar{position:fixed; transform:translateX(-100%); transition:.2s; z-index:1000}
+      .sidebar.open{transform:none}
+      .content{padding:16px}
+      .mobile-toggle{display:inline-flex}
+      .top-right-actions{right:8px}
+    }
+    .mobile-toggle{display:none; position:fixed; top:12px; left:12px; z-index:1100; background:#ffffff; border:1px solid var(--border); color:var(--text); padding:10px 12px; border-radius:10px; box-shadow:var(--shadow)}
+  </style>
+</head>
+<body>
+  <!-- Top-right Home/Theory buttons -->
+  <div class="top-right-actions" role="navigation" aria-label="Quick links">
+    <a class="pill-btn secondary" href="../../dashboard.html" title="Home">🏠 Home</a>
+    <a class="pill-btn" href="./level6.html" title="Theory Notes">📚 Theory Notes</a>
+  </div>
+
+  <button class="mobile-toggle" id="mobileToggle" aria-controls="sidebar" aria-expanded="false">Menu</button>
+  <aside class="sidebar" id="sidebar" aria-label="Exercise navigation">
+    <div class="brand">
+      <div class="logo">0478</div>
+      <div class="brand-text">
+        <div class="title">Level 6</div>
+        <div class="subtitle">Standard methods of solution</div>
+      </div>
+    </div>
+
+    <nav class="nav" id="nav"></nav>
+
+    <div class="sidebar-footer">
+      <button id="expandAll" class="btn ghost">Show all mark schemes</button>
+      <button id="collapseAll" class="btn ghost">Hide all mark schemes</button>
+    </div>
+  </aside>
+
+  <main class="content">
+
+    <section id="pointsContainer" class="points-container" aria-live="polite">
+
+
+
+      <!-- Exercise 1 -->
+      <article class="card exercise" id="ex-1" data-idx="1">
+        <header class="card-header">
+          <h3>Exercise 1 - Count down</h3>
+          <div class="actions">
+            <button class="btn ghost toggle-ms" aria-expanded="false" aria-controls="ms-1">Show mark scheme</button>
+          </div>
+        </header>
+        <div class="card-body">
+          <p>State exactly what is output by this algorithm.</p>
+          <pre class="code"><code>FOR A ← 10 TO 2 STEP -2
+  OUTPUT A
+NEXT A
+OUTPUT "Start"</code></pre>
+        </div>
+        <div class="mark-scheme" id="ms-1" hidden>
+          <div class="ms-title"><span class="dot"></span>Mark scheme</div>
+          <pre class="ms"><code>10
+8
+6
+4
+2
+Start</code></pre>
+        </div>
+      </article>
+
+
+      <!-- Exercise 2 -->
+      <article class="card exercise" id="ex-2" data-idx="2">
+        <header class="card-header">
+          <h3>Exercise 2 - Identify the standard method</h3>
+          <div class="actions">
+            <button class="btn ghost toggle-ms" aria-expanded="false" aria-controls="ms-2">Show mark scheme</button>
+          </div>
+        </header>
+        <div class="card-body">
+          <p>For each algorithm A to D, state which standard method of solution is being used: <strong>totalling</strong>, <strong>counting</strong>, <strong>finding maximum value</strong>, or <strong>finding average values</strong>.</p>
+          <pre class="code"><code>A)
+P ← 0
+FOR R ← 1 TO 6
+  INPUT S
+  P ← P + S
+NEXT R
+
+B)
+P ← 0
+FOR R ← 1 TO 8
+  INPUT S
+  IF S MOD 2 = 0 THEN
+    P ← P + 1
+  ENDIF
+NEXT R
+
+C)
+INPUT S
+P ← S
+FOR R ← 2 TO 5
+  INPUT S
+  IF S > P THEN
+    P ← S
+  ENDIF
+NEXT R
+
+D)
+P ← 0
+Q ← 0
+FOR R ← 1 TO 4
+  INPUT S
+  P ← P + S
+  Q ← Q + 1
+NEXT R
+T ← P / Q</code></pre>
+        </div>
+        <div class="mark-scheme" id="ms-2" hidden>
+          <div class="ms-title"><span class="dot"></span>Mark scheme</div>
+          <pre class="ms"><code>A) Totalling
+B) Counting
+C) Finding maximum value
+D) Finding average values</code></pre>
+        </div>
+      </article>
+
+
+      <!-- Exercise 3 -->
+      <article class="card exercise" id="ex-3" data-idx="3">
+        <header class="card-header">
+          <h3>Exercise 3 - Trace a totalling algorithm</h3>
+          <div class="actions">
+            <button class="btn ghost toggle-ms" aria-expanded="false" aria-controls="ms-3">Show mark scheme</button>
+          </div>
+        </header>
+        <div class="card-body">
+          <p>Using the input sequence, complete the trace table and state the final output.</p>
+          <pre class="code"><code>Total ← 0
+FOR Counter ← 1 TO 5
+  INPUT Number
+  Total ← Total + Number
+NEXT Counter
+OUTPUT Total
+
+Input sequence: 4, 7, 2, 9, 3</code></pre>
+          <table class="trace" aria-label="Trace table">
+            <thead><tr><th>Iteration</th><th>Number</th><th>Total</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td></td><td></td></tr>
+              <tr><td>2</td><td></td><td></td></tr>
+              <tr><td>3</td><td></td><td></td></tr>
+              <tr><td>4</td><td></td><td></td></tr>
+              <tr><td>5</td><td></td><td></td></tr>
+              <tr><td>End</td><td>-</td><td></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="mark-scheme" id="ms-3" hidden>
+          <div class="ms-title"><span class="dot"></span>Mark scheme</div>
+          <pre class="ms"><code>Iteration  Number  Total
+1          4       4
+2          7       11
+3          2       13
+4          9       22
+5          3       25
+End        -       25
+
+Final output: 25</code></pre>
+        </div>
+      </article>
+
+
+      <!-- Exercise 4 -->
+      <article class="card exercise" id="ex-4" data-idx="4">
+        <header class="card-header">
+          <h3>Exercise 4 - State the purpose</h3>
+          <div class="actions">
+            <button class="btn ghost toggle-ms" aria-expanded="false" aria-controls="ms-4">Show mark scheme</button>
+          </div>
+        </header>
+        <div class="card-body">
+          <p>Read the algorithm and write one clear sentence that explains what it does overall.</p>
+          <pre class="code"><code>K ← 0
+FOR P ← 1 TO 6
+  INPUT Q
+  IF Q > 50 THEN
+    K ← K + 1
+  ENDIF
+NEXT P
+OUTPUT K</code></pre>
+        </div>
+        <div class="mark-scheme" id="ms-4" hidden>
+          <div class="ms-title"><span class="dot"></span>Mark scheme</div>
+          <pre class="ms"><code>Inputs 6 values and counts how many of them are greater than 50.</code></pre>
+        </div>
+      </article>
+
+
+      <!-- Exercise 5 -->
+      <article class="card exercise" id="ex-5" data-idx="5">
+        <header class="card-header">
+          <h3>Exercise 5 - Trace maximum and minimum values</h3>
+          <div class="actions">
+            <button class="btn ghost toggle-ms" aria-expanded="false" aria-controls="ms-5">Show mark scheme</button>
+          </div>
+        </header>
+        <div class="card-body">
+          <p>Using the input sequence, complete the trace table and state the final outputs.</p>
+          <pre class="code"><code>INPUT X
+A ← X
+B ← X
+FOR C ← 2 TO 5
+  INPUT X
+  IF X > A THEN
+    A ← X
+  ENDIF
+  IF X < B THEN
+    B ← X
+  ENDIF
+NEXT C
+OUTPUT A
+OUTPUT B
+
+Input sequence: 12, 7, 19, 4, 10</code></pre>
+          <table class="trace" aria-label="Trace table">
+            <thead><tr><th>Stage</th><th>X</th><th>A</th><th>B</th></tr></thead>
+            <tbody>
+              <tr><td>After first input</td><td></td><td></td><td></td></tr>
+              <tr><td>Iteration 2</td><td></td><td></td><td></td></tr>
+              <tr><td>Iteration 3</td><td></td><td></td><td></td></tr>
+              <tr><td>Iteration 4</td><td></td><td></td><td></td></tr>
+              <tr><td>Iteration 5</td><td></td><td></td><td></td></tr>
+              <tr><td>End</td><td>-</td><td></td><td></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="mark-scheme" id="ms-5" hidden>
+          <div class="ms-title"><span class="dot"></span>Mark scheme</div>
+          <pre class="ms"><code>Stage              X    A    B
+After first input  12   12   12
+Iteration 2        7    12   7
+Iteration 3        19   19   7
+Iteration 4        4    19   4
+Iteration 5        10   19   4
+End                -    19   4
+
+Final outputs:
+19
+4</code></pre>
+        </div>
+      </article>
+
+
+      <!-- Exercise 6 -->
+      <article class="card exercise" id="ex-6" data-idx="6">
+        <header class="card-header">
+          <h3>Exercise 6 - Correct the average algorithm</h3>
+          <div class="actions">
+            <button class="btn ghost toggle-ms" aria-expanded="false" aria-controls="ms-6">Show mark scheme</button>
+          </div>
+        </header>
+        <div class="card-body">
+          <p>The algorithm should calculate the average of 6 numbers. Identify the logical error and write a corrected version.</p>
+          <pre class="code"><code>P ← 0
+Q ← 0
+FOR R ← 1 TO 6
+  INPUT S
+  P ← P + S
+NEXT R
+T ← P / Q
+OUTPUT T</code></pre>
+        </div>
+        <div class="mark-scheme" id="ms-6" hidden>
+          <div class="ms-title"><span class="dot"></span>Mark scheme</div>
+          <pre class="ms"><code>The value of Q is never updated.
+
+Correct version:
+P ← 0
+Q ← 0
+FOR R ← 1 TO 6
+  INPUT S
+  P ← P + S
+  Q ← Q + 1
+NEXT R
+T ← P / Q
+OUTPUT T</code></pre>
+        </div>
+      </article>
+
+
+      <!-- Exercise 7 -->
+      <article class="card exercise" id="ex-7" data-idx="7">
+        <header class="card-header">
+          <h3>Exercise 7 - Correct the initialisation</h3>
+          <div class="actions">
+            <button class="btn ghost toggle-ms" aria-expanded="false" aria-controls="ms-7">Show mark scheme</button>
+          </div>
+        </header>
+        <div class="card-body">
+          <p>The algorithm should find the highest and lowest mark in a class, where valid marks are in the range 0 to 100. Identify the error and write a corrected version.</p>
+          <pre class="code"><code>INPUT C
+H ← 100
+L ← 0
+FOR D ← 1 TO C
+  INPUT E
+  IF E > H THEN
+    H ← E
+  ENDIF
+  IF E < L THEN
+    L ← E
+  ENDIF
+NEXT D
+OUTPUT H
+OUTPUT L</code></pre>
+        </div>
+        <div class="mark-scheme" id="ms-7" hidden>
+          <div class="ms-title"><span class="dot"></span>Mark scheme</div>
+          <pre class="ms"><code>The initial values are reversed.
+
+Correct version:
+INPUT C
+H ← 0
+L ← 100
+FOR D ← 1 TO C
+  INPUT E
+  IF E > H THEN
+    H ← E
+  ENDIF
+  IF E < L THEN
+    L ← E
+  ENDIF
+NEXT D
+OUTPUT H
+OUTPUT L</code></pre>
+        </div>
+      </article>
+
+
+      <!-- Exercise 8 -->
+      <article class="card exercise" id="ex-8" data-idx="8">
+        <header class="card-header">
+          <h3>Exercise 8 - Write pseudocode</h3>
+          <div class="actions">
+            <button class="btn ghost toggle-ms" aria-expanded="false" aria-controls="ms-8">Show mark scheme</button>
+          </div>
+        </header>
+        <div class="card-body">
+          <p>Write pseudocode to input 10 integers and count how many are positive and how many are negative. Zero is not counted as positive or negative.</p>
+        </div>
+        <div class="mark-scheme" id="ms-8" hidden>
+          <div class="ms-title"><span class="dot"></span>Mark scheme</div>
+          <pre class="ms"><code>PositiveCount ← 0
+NegativeCount ← 0
+FOR Counter ← 1 TO 10
+  INPUT Number
+  IF Number > 0 THEN
+    PositiveCount ← PositiveCount + 1
+  ENDIF
+  IF Number < 0 THEN
+    NegativeCount ← NegativeCount + 1
+  ENDIF
+NEXT Counter
+OUTPUT PositiveCount
+OUTPUT NegativeCount</code></pre>
+        </div>
+      </article>
+
+
+      <!-- Exercise 9 -->
+      <article class="card exercise" id="ex-9" data-idx="9">
+        <header class="card-header">
+          <h3>Exercise 9 - Write pseudocode</h3>
+          <div class="actions">
+            <button class="btn ghost toggle-ms" aria-expanded="false" aria-controls="ms-9">Show mark scheme</button>
+          </div>
+        </header>
+        <div class="card-body">
+          <p>Write pseudocode to input 8 positive integers and calculate the average of only the even numbers. You may assume that at least one even number will be entered.</p>
+        </div>
+        <div class="mark-scheme" id="ms-9" hidden>
+          <div class="ms-title"><span class="dot"></span>Mark scheme</div>
+          <pre class="ms"><code>TotalEven ← 0
+CountEven ← 0
+FOR Counter ← 1 TO 8
+  INPUT Number
+  IF Number MOD 2 = 0 THEN
+    TotalEven ← TotalEven + Number
+    CountEven ← CountEven + 1
+  ENDIF
+NEXT Counter
+Average ← TotalEven / CountEven
+OUTPUT Average</code></pre>
+        </div>
+      </article>    </section>    </section>
+
+  </main>
+
+  <script>
+  // Build sidebar nav, toggle mark schemes, expand or collapse all, and mobile menu.
+  document.addEventListener('DOMContentLoaded', () => {
+    const sidebar = document.getElementById('sidebar');
+    const mobileToggle = document.getElementById('mobileToggle');
+    const cards = Array.from(document.querySelectorAll('.exercise'));
+    const nav = document.getElementById('nav');
+    const expandAllBtn = document.getElementById('expandAll');
+    const collapseAllBtn = document.getElementById('collapseAll');
+
+    // Mobile menu toggling
+    mobileToggle?.addEventListener('click', () => {
+      const open = sidebar.classList.toggle('open');
+      mobileToggle.setAttribute('aria-expanded', String(open));
+    });
+
+    // Build sidebar nav items
+    const frag = document.createDocumentFragment();
+    cards.forEach((card) => {
+      const idx = card.getAttribute('data-idx');
+      const a = document.createElement('a');
+      a.href = `#ex-${idx}`;
+      a.className = 'nav-item';
+      a.textContent = `Exercise ${idx}`;
+      frag.appendChild(a);
+    });
+    nav.appendChild(frag);
+
+    // Scroll spy highlight
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const id = entry.target.getAttribute('id');
+        const link = nav.querySelector(`a[href="#${id}"]`);
+        if (link) {
+          if (entry.isIntersecting) link.classList.add('active');
+          else link.classList.remove('active');
+        }
+      });
+    }, {rootMargin: "0px 0px -70% 0px", threshold: 0.1});
+    cards.forEach(c => obs.observe(c));
+
+    // Per-card toggle
+    cards.forEach((card) => {
+      const btn = card.querySelector('.toggle-ms');
+      const ms = card.querySelector('.mark-scheme');
+      btn.addEventListener('click', () => {
+        const isHidden = ms.hasAttribute('hidden');
+        if (isHidden) {
+          ms.removeAttribute('hidden');
+          btn.setAttribute('aria-expanded', 'true');
+          btn.textContent = 'Hide mark scheme';
+        } else {
+          ms.setAttribute('hidden', '');
+          btn.setAttribute('aria-expanded', 'false');
+          btn.textContent = 'Show mark scheme';
+        }
+      });
+    });
+
+    // Global expand/collapse
+    expandAllBtn?.addEventListener('click', () => {
+      cards.forEach((card) => {
+        const ms = card.querySelector('.mark-scheme');
+        const btn = card.querySelector('.toggle-ms');
+        if (ms && ms.hasAttribute('hidden')) {
+          ms.removeAttribute('hidden');
+          btn?.setAttribute('aria-expanded', 'true');
+          if (btn) btn.textContent = 'Hide mark scheme';
+        }
+      });
+    });
+    collapseAllBtn?.addEventListener('click', () => {
+      cards.forEach((card) => {
+        const ms = card.querySelector('.mark-scheme');
+        const btn = card.querySelector('.toggle-ms');
+        if (ms && !ms.hasAttribute('hidden')) {
+          ms.setAttribute('hidden', '');
+          btn?.setAttribute('aria-expanded', 'false');
+          if (btn) btn.textContent = 'Show mark scheme';
+        }
+      });
+    });
+  });
+  </script>
+</body>
+</html>

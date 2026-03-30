@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Level 7 - Arrays and Iterative Data Handling</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ms-bg:#eafaf1;
+      --ms-border:#b7e4c7;
+      --ms-title:#065f46;
+      --bg:#eef0f4;
+      --panel:#ffffff;
+      --panel-2:#f6f7fa;
+      --text:#1f2937;
+      --muted:#475569;
+      --accent:#e11d48;
+      --accent-2:#be185d;
+      --link:#db2777;
+      --ok:#16a34a;
+      --code-bg:#f4f5f7;
+      --code-text:#111827;
+      --border:#cbd5e1;
+      --shadow:0 10px 28px rgba(2,6,23,.08);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      background:
+        radial-gradient(800px 400px at 85% -10%, rgba(225,29,72,.10), transparent 60%),
+        radial-gradient(700px 380px at 5% 20%, rgba(190,24,93,.10), transparent 60%),
+        linear-gradient(180deg,#f4f6fa 0%, var(--bg) 100%);
+      color:var(--text);
+      display:flex;
+      min-height:100vh;
+    }
+    .top-right-actions{
+      position:fixed;
+      top:12px; right:12px; z-index:1200;
+      display:flex; gap:10px; align-items:center;
+    }
+    .pill-btn{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:10px 14px; border-radius:999px; text-decoration:none;
+      color:#fff; font-weight:700; letter-spacing:.2px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      box-shadow:0 8px 20px rgba(225,29,72,.28);
+      border:1px solid rgba(225,29,72,.25);
+    }
+    .pill-btn.secondary{
+      background:linear-gradient(135deg,#94a3b8,#64748b);
+      color:#f8fafc; border:1px solid rgba(100,116,139,.35);
+      box-shadow:0 8px 20px rgba(100,116,139,.25);
+    }
+    .sidebar{
+      width:280px;
+      background:linear-gradient(180deg,var(--panel) 0%, var(--panel-2) 100%);
+      border-right:1px solid var(--border);
+      padding:18px 16px;
+      position:sticky;
+      top:0;
+      height:100vh;
+      overflow:auto;
+      box-shadow:var(--shadow);
+    }
+    .brand{display:flex; align-items:center; gap:12px; margin-bottom:12px}
+    .logo{
+      width:44px; height:44px; border-radius:10px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:flex; align-items:center; justify-content:center;
+      font-weight:800; color:#fff5f7;
+      box-shadow:0 8px 22px rgba(190,24,93,.25);
+    }
+    .brand-text .title{font-weight:800; letter-spacing:.2px}
+    .brand-text .subtitle{color:var(--muted); font-size:.92rem}
+    .nav{display:flex; flex-direction:column; gap:6px; margin-top:8px}
+    .nav-item{
+      display:block; padding:10px 12px; border-radius:10px; text-decoration:none;
+      color:var(--text); border:1px solid transparent; background:transparent; transition:.15s;
+    }
+    .nav-item:hover{background:#ffe4ec}
+    .nav-item.active{border-color:var(--accent); background:#ffe1ea}
+    .sidebar-footer{display:flex; flex-direction:column; gap:8px; margin-top:16px}
+    .btn{
+      border:none; padding:10px 12px; border-radius:10px; cursor:pointer; font-weight:700;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2)); color:#fff5f7;
+      box-shadow:0 8px 20px rgba(225,29,72,.28);
+    }
+    .btn.ghost{
+      background:transparent; color:var(--text); border:1px solid var(--border); box-shadow:none
+    }
+    .btn.ghost:hover{border-color:var(--accent); background:#fff1f5}
+    .content{flex:1; padding:82px 22px 22px 22px; display:flex; flex-direction:column; gap:16px}
+    .points-container{display:grid; gap:16px}
+    .card{
+      background:var(--panel);
+      border:1px solid var(--border);
+      border-radius:16px; overflow:hidden;
+      box-shadow:var(--shadow);
+    }
+    .card-header{
+      display:flex; align-items:center; justify-content:space-between; gap:8px;
+      padding:12px 14px; border-bottom:1px solid var(--border);
+      background:linear-gradient(180deg,#ffffff 0%, #fff0f4 100%);
+    }
+    .card-header h3{margin:0; font-size:1rem; letter-spacing:.2px}
+    .card-body{padding:14px}
+    .card-body p{margin:0 0 10px 0}
+    pre.code, pre.ms{
+      background:var(--code-bg); color:var(--code-text); border:1px solid var(--border);
+      padding:12px; border-radius:12px; overflow:auto;
+      font-family:'JetBrains Mono',ui-monospace,Consolas,monospace; font-size:.95rem; line-height:1.45
+    }
+    .mark-scheme{padding:12px 14px 14px 14px; border-top:1px dashed var(--ms-border); background:var(--ms-bg); border-radius:0 0 16px 16px}
+    .ms-title{display:flex; align-items:center; gap:8px; margin:12px 0 8px 0; font-weight:800; color:var(--ms-title)}
+    .ms-title .dot{width:10px; height:10px; border-radius:999px; background:var(--ok)}
+    .actions{display:flex; gap:8px; align-items:center}
+    table.trace{width:100%; border-collapse:collapse; margin:10px 0; font-size:.95rem; background:#fff}
+    table.trace th, table.trace td{border:1px solid var(--border); padding:8px; text-align:center}
+    @media (max-width: 900px){
+      .top-right-actions{top:56px}
+      .content{padding-top:120px}
+      .sidebar{position:fixed; transform:translateX(-100%); transition:.2s; z-index:1000}
+      .sidebar.open{transform:none}
+      .content{padding:16px}
+      .mobile-toggle{display:inline-flex}
+      .top-right-actions{right:8px}
+    }
+    .mobile-toggle{display:none; position:fixed; top:12px; left:12px; z-index:1100; background:#ffffff; border:1px solid var(--border); color:var(--text); padding:10px 12px; border-radius:10px; box-shadow:var(--shadow)}
+  </style>
+</head>
+<body>
+  <div class="top-right-actions" role="navigation" aria-label="Quick links">
+    <a class="pill-btn secondary" href="../../dashboard.html" title="Home">🏠 Home</a>
+    <a class="pill-btn" href="./level7.html" title="Theory Notes">📚 Theory Notes</a>
+  </div>
+
+  <button class="mobile-toggle" id="mobileToggle" aria-controls="sidebar" aria-expanded="false">Menu</button>
+  <aside class="sidebar" id="sidebar" aria-label="Exercise navigation">
+    <div class="brand">
+      <div class="logo">0478</div>
+      <div class="brand-text">
+        <div class="title">Level 7</div>
+        <div class="subtitle">Arrays and Iterative Data Handling</div>
+      </div>
+    </div>
+
+    <nav class="nav" id="nav"></nav>
+
+    <div class="sidebar-footer">
+      <button id="expandAll" class="btn ghost">Show all mark schemes</button>
+      <button id="collapseAll" class="btn ghost">Hide all mark schemes</button>
+    </div>
+  </aside>
+
+  <main class="content">
+    <section id="pointsContainer" class="points-container" aria-live="polite">
+
+      <article class="card exercise" id="ex-1" data-idx="1">
+        <header class="card-header">
+          <h3>Exercise 1 - Identify valid array statements</h3>
+          <div class="actions">
+            <button class="btn ghost toggle-ms" aria-expanded="false" aria-controls="ms-1">Show mark scheme</button>
+          </div>
+        </header>
+        <div class="card-body">
+          <p>For each statement, write <strong>Correct</strong> or <strong>Incorrect</strong>. If incorrect, give one reason.</p>
+          <pre class="code"><code>A) An array stores several data items under one identifier.
+B) Elements in the same array may have different data types.
+C) An array element is accessed using an index.
+D) A one-dimensional array always needs two indexes.</code></pre>
+        </div>
+        <div class="mark-scheme" id="ms-1" hidden>
+          <div class="ms-title"><span class="dot"></span>Mark scheme</div>
+          <pre class="ms"><code>A) Correct
+B) Incorrect - all elements in one array must have the same data type.
+C) Correct
+D) Incorrect - a one-dimensional array uses one index only.</code></pre>
+        </div>
+      </article>
+
+      <article class="card exercise" id="ex-2" data-idx="2">
+        <header class="card-header">
+          <h3>Exercise 2 - Interpret a declaration</h3>
+          <div class="actions">
+            <button class="btn ghost toggle-ms" aria-expanded="false" aria-controls="ms-2">Show mark scheme</button>
+          </div>
+        </header>
+        <div class="card-body">
+          <p>Study the declaration and answer the questions.</p>
+          <pre class="code"><code>DECLARE Scores : ARRAY[0:9] OF INTEGER</code></pre>
+          <p>1) What is the name of the array?<br>
+             2) What is the data type of each element?<br>
+             3) What is the first index?<br>
+             4) What is the last index?<br>
+             5) How many elements does the array contain?</p>
+        </div>
+        <div class="mark-scheme" id="ms-2" hidden>
+          <div class="ms-title"><span class="dot"></span>Mark scheme</div>
+          <pre class="ms"><code>1) Scores
+2) INTEGER
+3) 0
+4) 9
+5) 10 elements</code></pre>
+        </div>
+      </article>
+
+      <article class="card exercise" id="ex-3" data-idx="3">
+        <header class="card-header">
+          <h3>Exercise 3 - One-dimensional array access</h3>
+          <div class="actions">
+            <button class="btn ghost toggle-ms" aria-expanded="false" aria-controls="ms-3">Show mark scheme</button>
+          </div>
+        </header>
+        <div class="card-body">
+          <p>Assume the following values are already stored:</p>
+          <pre class="code"><code>Colour[0] ← "red"
+Colour[1] ← "blue"
+Colour[2] ← "green"
+Colour[3] ← "yellow"</code></pre>
+          <p>What value is output by each instruction?</p>
+          <pre class="code"><code>A) OUTPUT Colour[0]
+B) OUTPUT Colour[2]
+C) OUTPUT Colour[3]</code></pre>
+        </div>
+        <div class="mark-scheme" id="ms-3" hidden>
+          <div class="ms-title"><span class="dot"></span>Mark scheme</div>
+          <pre class="ms"><code>A) red
+B) green
+C) yellow</code></pre>
+        </div>
+      </article>
+
+      <article class="card exercise" id="ex-4" data-idx="4">
+        <header class="card-header">
+          <h3>Exercise 4 - Write a declaration</h3>
+          <div class="actions">
+            <button class="btn ghost toggle-ms" aria-expanded="false" aria-controls="ms-4">Show mark scheme</button>
+          </div>
+        </header>
+        <div class="card-body">
+          <p>Write Cambridge-style pseudocode declarations for the following:</p>
+          <p>1) A one-dimensional array called <code>Temperature</code> with index 1 to 7 storing real numbers.<br>
+             2) A two-dimensional array called <code>Marks</code> with row indexes 0 to 4 and column indexes 0 to 2 storing integers.</p>
+        </div>
+        <div class="mark-scheme" id="ms-4" hidden>
+          <div class="ms-title"><span class="dot"></span>Mark scheme</div>
+          <pre class="ms"><code>1) DECLARE Temperature : ARRAY[1:7] OF REAL
+2) DECLARE Marks : ARRAY[0:4,0:2] OF INTEGER</code></pre>
+        </div>
+      </article>
+
+      <article class="card exercise" id="ex-5" data-idx="5">
+        <header class="card-header">
+          <h3>Exercise 5 - Zero indexing and one indexing</h3>
+          <div class="actions">
+            <button class="btn ghost toggle-ms" aria-expanded="false" aria-controls="ms-5">Show mark scheme</button>
+          </div>
+        </header>
+        <div class="card-body">
+          <p>An array has 8 elements.</p>
+          <p>1) If it is zero-indexed, what are the first and last indexes?<br>
+             2) If it is one-indexed, what are the first and last indexes?<br>
+             3) Why is it important to know whether indexing starts at 0 or 1?</p>
+        </div>
+        <div class="mark-scheme" id="ms-5" hidden>
+          <div class="ms-title"><span class="dot"></span>Mark scheme</div>
+          <pre class="ms"><code>1) First index = 0, last index = 7
+2) First index = 1, last index = 8
+3) Because the position of each element depends on the indexing system used, so the program must access the correct element.</code></pre>
+        </div>
+      </article>
+
+      <article class="card exercise" id="ex-6" data-idx="6">
+        <header class="card-header">
+          <h3>Exercise 6 - Trace updates in a one-dimensional array</h3>
+          <div class="actions">
+            <button class="btn ghost toggle-ms" aria-expanded="false" aria-controls="ms-6">Show mark scheme</button>
+          </div>
+        </header>
+        <div class="card-body">
+          <p>The array <code>Number</code> is initially:</p>
+          <pre class="code"><code>Index:   0   1   2   3
+Value:   4  -2   7   1</code></pre>
+          <p>Trace the algorithm and give the final contents of the array.</p>
+          <pre class="code"><code>FOR Counter ← 1 TO 3
+  Number[Counter] ← Number[Counter] + Number[Counter - 1]
+NEXT Counter</code></pre>
+          <p>Also state the value stored in each position after every iteration.</p>
+        </div>
+        <div class="mark-scheme" id="ms-6" hidden>
+          <div class="ms-title"><span class="dot"></span>Mark scheme</div>
+          <pre class="ms"><code>Initial array:
+[4, -2, 7, 1]
+
+After Counter = 1:
+[4, 2, 7, 1]
+
+After Counter = 2:
+[4, 2, 9, 1]
+
+After Counter = 3:
+[4, 2, 9, 10]
+
+Final contents of the array:
+Number[0] = 4
+Number[1] = 2
+Number[2] = 9
+Number[3] = 10</code></pre>
+        </div>
+      </article>
+
+      <article class="card exercise" id="ex-7" data-idx="7">
+        <header class="card-header">
+          <h3>Exercise 7 - Two-dimensional array positions</h3>
+          <div class="actions">
+            <button class="btn ghost toggle-ms" aria-expanded="false" aria-controls="ms-7">Show mark scheme</button>
+          </div>
+        </header>
+        <div class="card-body">
+          <p>Consider the declaration:</p>
+          <pre class="code"><code>DECLARE Data : ARRAY[0:2,0:3] OF INTEGER</code></pre>
+          <p>1) How many rows are there?<br>
+             2) How many columns are there?<br>
+             3) How many elements are there in total?<br>
+             4) Is <code>Data[2,3]</code> a valid position?<br>
+             5) Is <code>Data[3,1]</code> a valid position?</p>
+        </div>
+        <div class="mark-scheme" id="ms-7" hidden>
+          <div class="ms-title"><span class="dot"></span>Mark scheme</div>
+          <pre class="ms"><code>1) 3 rows
+2) 4 columns
+3) 12 elements
+4) Yes
+5) No - row index 3 is outside the declared range 0 to 2.</code></pre>
+        </div>
+      </article>
+
+      <article class="card exercise" id="ex-8" data-idx="8">
+        <header class="card-header">
+          <h3>Exercise 8 - Explain the role of the loop variable</h3>
+          <div class="actions">
+            <button class="btn ghost toggle-ms" aria-expanded="false" aria-controls="ms-8">Show mark scheme</button>
+          </div>
+        </header>
+        <div class="card-body">
+          <p>Read the algorithm, then answer the questions.</p>
+          <pre class="code"><code>FOR Counter ← 1 TO 5
+  INPUT StudentName[Counter]
+NEXT Counter</code></pre>
+          <p>1) Which variable is used as the array index?<br>
+             2) Why does this algorithm store data in different positions of the array?<br>
+             3) What position is filled first?<br>
+             4) What position is filled last?</p>
+        </div>
+        <div class="mark-scheme" id="ms-8" hidden>
+          <div class="ms-title"><span class="dot"></span>Mark scheme</div>
+          <pre class="ms"><code>1) Counter
+2) Because Counter changes each time through the loop, so a different array position is selected each time.
+3) Position 1
+4) Position 5</code></pre>
+        </div>
+      </article>
+
+      <article class="card exercise" id="ex-9" data-idx="9">
+        <header class="card-header">
+          <h3>Exercise 9 - Nested loops with a table</h3>
+          <div class="actions">
+            <button class="btn ghost toggle-ms" aria-expanded="false" aria-controls="ms-9">Show mark scheme</button>
+          </div>
+        </header>
+        <div class="card-body">
+          <p>Study the algorithm.</p>
+          <pre class="code"><code>FOR ColumnCounter ← 0 TO 1
+  FOR RowCounter ← 0 TO 2
+    INPUT MyTable[RowCounter, ColumnCounter]
+  NEXT RowCounter
+NEXT ColumnCounter</code></pre>
+          <p>1) Why are two loops needed?<br>
+             2) Which element is filled first?<br>
+             3) Which element is filled second?<br>
+             4) Which element is filled last?</p>
+        </div>
+        <div class="mark-scheme" id="ms-9" hidden>
+          <div class="ms-title"><span class="dot"></span>Mark scheme</div>
+          <pre class="ms"><code>1) Because a two-dimensional array has two indexes, so one loop is needed for each index.
+2) MyTable[0,0]
+3) MyTable[1,0]
+4) MyTable[2,1]</code></pre>
+        </div>
+      </article>
+
+      <article class="card exercise" id="ex-10" data-idx="10">
+        <header class="card-header">
+          <h3>Exercise 10 - Process a one-dimensional array</h3>
+          <div class="actions">
+            <button class="btn ghost toggle-ms" aria-expanded="false" aria-controls="ms-10">Show mark scheme</button>
+          </div>
+        </header>
+        <div class="card-body">
+          <p>Write Cambridge-style pseudocode to browse all elements of the array <code>Number</code>.</p>
+          <pre class="code"><code>DECLARE Number : ARRAY[0:5] OF INTEGER</code></pre>
+          <p>Your algorithm must:</p>
+          <p>1) count how many positive integers are stored in the array<br>
+             2) calculate the sum of the positive integers<br>
+             3) calculate the average of the positive integers</p>
+          <p>Assume that the array contains at least one positive integer.</p>
+        </div>
+        <div class="mark-scheme" id="ms-10" hidden>
+          <div class="ms-title"><span class="dot"></span>Mark scheme</div>
+          <pre class="ms"><code>DECLARE Count : INTEGER
+DECLARE Sum : INTEGER
+DECLARE Average : REAL
+DECLARE Counter : INTEGER
+
+Count ← 0
+Sum ← 0
+
+FOR Counter ← 0 TO 5
+  IF Number[Counter] &gt; 0 THEN
+    Count ← Count + 1
+    Sum ← Sum + Number[Counter]
+  ENDIF
+NEXT Counter
+
+Average ← Sum / Count
+
+OUTPUT Count
+OUTPUT Sum
+OUTPUT Average</code></pre>
+        </div>
+      </article>
+
+      <article class="card exercise" id="ex-11" data-idx="11">
+        <header class="card-header">
+          <h3>Exercise 11 - Replace negative values in a two-dimensional array</h3>
+          <div class="actions">
+            <button class="btn ghost toggle-ms" aria-expanded="false" aria-controls="ms-11">Show mark scheme</button>
+          </div>
+        </header>
+        <div class="card-body">
+          <p>Write Cambridge-style pseudocode to browse all elements of the two-dimensional array <code>Data</code>.</p>
+          <pre class="code"><code>DECLARE Data : ARRAY[0:2,0:3] OF INTEGER</code></pre>
+          <p>Your algorithm must set every negative value in the array to zero.</p>
+        </div>
+        <div class="mark-scheme" id="ms-11" hidden>
+          <div class="ms-title"><span class="dot"></span>Mark scheme</div>
+          <pre class="ms"><code>DECLARE RowCounter : INTEGER
+DECLARE ColumnCounter : INTEGER
+
+FOR RowCounter ← 0 TO 2
+  FOR ColumnCounter ← 0 TO 3
+    IF Data[RowCounter, ColumnCounter] &lt; 0 THEN
+      Data[RowCounter, ColumnCounter] ← 0
+    ENDIF
+  NEXT ColumnCounter
+NEXT RowCounter</code></pre>
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const sidebar = document.getElementById('sidebar');
+    const mobileToggle = document.getElementById('mobileToggle');
+    const cards = Array.from(document.querySelectorAll('.exercise'));
+    const nav = document.getElementById('nav');
+    const expandAllBtn = document.getElementById('expandAll');
+    const collapseAllBtn = document.getElementById('collapseAll');
+
+    mobileToggle?.addEventListener('click', () => {
+      const open = sidebar.classList.toggle('open');
+      mobileToggle.setAttribute('aria-expanded', String(open));
+    });
+
+    const frag = document.createDocumentFragment();
+    cards.forEach((card) => {
+      const idx = card.getAttribute('data-idx');
+      const a = document.createElement('a');
+      a.href = `#ex-${idx}`;
+      a.className = 'nav-item';
+      a.textContent = `Exercise ${idx}`;
+      frag.appendChild(a);
+    });
+    nav.appendChild(frag);
+
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const id = entry.target.getAttribute('id');
+        const link = nav.querySelector(`a[href="#${id}"]`);
+        if (link) {
+          if (entry.isIntersecting) link.classList.add('active');
+          else link.classList.remove('active');
+        }
+      });
+    }, {rootMargin: "0px 0px -70% 0px", threshold: 0.1});
+    cards.forEach(c => obs.observe(c));
+
+    cards.forEach((card) => {
+      const btn = card.querySelector('.toggle-ms');
+      const ms = card.querySelector('.mark-scheme');
+      btn.addEventListener('click', () => {
+        const isHidden = ms.hasAttribute('hidden');
+        if (isHidden) {
+          ms.removeAttribute('hidden');
+          btn.setAttribute('aria-expanded', 'true');
+          btn.textContent = 'Hide mark scheme';
+        } else {
+          ms.setAttribute('hidden', '');
+          btn.setAttribute('aria-expanded', 'false');
+          btn.textContent = 'Show mark scheme';
+        }
+      });
+    });
+
+    expandAllBtn?.addEventListener('click', () => {
+      cards.forEach((card) => {
+        const ms = card.querySelector('.mark-scheme');
+        const btn = card.querySelector('.toggle-ms');
+        if (ms && ms.hasAttribute('hidden')) {
+          ms.removeAttribute('hidden');
+          btn?.setAttribute('aria-expanded', 'true');
+          if (btn) btn.textContent = 'Hide mark scheme';
+        }
+      });
+    });
+    collapseAllBtn?.addEventListener('click', () => {
+      cards.forEach((card) => {
+        const ms = card.querySelector('.mark-scheme');
+        const btn = card.querySelector('.toggle-ms');
+        if (ms && !ms.hasAttribute('hidden')) {
+          ms.setAttribute('hidden', '');
+          btn?.setAttribute('aria-expanded', 'false');
+          if (btn) btn.textContent = 'Show mark scheme';
+        }
+      });
+    });
+  });
+  </script>
+</body>
+</html>
