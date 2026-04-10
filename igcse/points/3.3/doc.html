@@ -181,11 +181,17 @@
       <li><span class="official-note"><span class="keyword" data-tooltip="a type of memory that can be used as an extension to the RAM.">virtual memory</span> is created when part of a computer’s hard disk drive or solid state drive is used as an extension of RAM.</span>
         <ul>
           <li><span class="official-note">It is used when RAM becomes full, allowing more programs to run at the same time.</span></li>
+          <li><span class="official-note">RAM is limited and relatively expensive, so virtual memory provides extra working space when physical RAM runs out and helps prevent programs from crashing.</span></li>
+          <li><span class="official-note">This extra space is slower than RAM because the processor cannot use the drive as quickly as main memory.</span></li>
+          <li><span class="official-note">The area used on secondary storage is often called a swap file or swap space.</span></li>
         </ul>
       </li>
       <li><span class="official-note">Data that is not immediately needed in RAM is moved to virtual memory in units called <span class="keyword" data-tooltip="a unit of data.">page</span>.</span>
         <ul>
           <li><span class="official-note">When the data is needed again, it is moved back into RAM.</span></li>
+          <li><span class="official-note">RAM and the virtual memory area are organised into equal sized blocks called pages.</span></li>
+          <li><span class="official-note">This movement of pages between RAM and the storage device is called swapping or paging.</span></li>
+          <li><span class="official-note">Programs keep running, but they may respond more slowly if this movement happens too often.</span></li>
         </ul>
       </li>
       <li><span class="official-note">Benefits of virtual memory include:</span>
@@ -193,20 +199,29 @@
           <li><span class="official-note">Ability to run programs larger than the available physical RAM.</span></li>
           <li><span class="official-note">More efficient use of RAM by moving unused data out temporarily.</span></li>
           <li><span class="official-note">Reduced need to install extra RAM.</span></li>
+          <li><span class="official-note">It helps prevent a program from closing just because main memory is temporarily full.</span></li>
         </ul>
       </li>
       <li><span class="official-note">Drawbacks of using hard disk based virtual memory include slower performance because of disk thrashing.</span>
         <ul>
           <li><span class="official-note">Disk thrashing occurs when frequent swapping between RAM and virtual memory causes a high number of read or write movements, reducing processing speed.</span></li>
+          <li><span class="official-note">A common sign of thrashing is that the computer becomes very slow while the storage device stays busy for long periods.</span></li>
           <li><span class="official-note">Excessive swapping, called disk thrashing, can also shorten the life of mechanical drives.</span></li>
           <li><span class="official-note">Using a solid state drive instead of a hard disk for virtual memory can reduce thrashing.</span></li>
           <li><span class="official-note">Adding more RAM or using a solid state drive can reduce virtual memory problems.</span></li>
         </ul>
       </li>
     </ul>
+    <div style="margin: 14px 0 10px 0; text-align: center;">
+      <img src="virtual-memory-flow.svg" alt="Diagram showing active data staying in RAM while less used pages move to virtual memory on secondary storage and return when needed" style="max-width: 100%; height: auto; border: 1px solid #d9d9d9; border-radius: 8px; padding: 10px; background: #ffffff;">
+      <div style="font-size: 0.95em; margin-top: 6px;"><strong>Figure:</strong> Active data stays in RAM. Less used pages are moved to virtual memory and brought back when required.</div>
+    </div>
     <ul class="no-bullets">
+      <li><div class="example-box">Classroom example: Imagine RAM as the top of a student’s desk and virtual memory as a shelf at the back of the room. Books needed now stay on the desk. Books not needed immediately are moved to the shelf, then brought back later if required.</div></li>
       <li><div class="example-box">Five program scenario: If five programs fill RAM, the least recently needed data can be paged to virtual memory so a new task can start without a crash. When that data is needed again, its page returns to RAM.</div></li>
-      <li><span class="fun-tip">Virtual memory is like borrowing your neighbor’s garage when yours is full — convenient, but walking back and forth takes extra time.</span></li>
+      <li><div class="example-box">Browser tabs example: If a browser is opened with dozens of tabs and the total memory use becomes larger than physical RAM, less active tab data may be moved to virtual memory so the system can keep running.</div></li>
+      <li><div class="example-box">Exam phrase to remember: Virtual memory increases available working memory capacity, but it does not make the computer faster than using real RAM.</div></li>
+      <li><span class="fun-tip">Virtual memory is like borrowing your neighbor’s garage when yours is full, convenient, but walking back and forth takes extra time.</span></li>
       <li>
         <div class="button-group">
           <button class="keyword-button" onclick="openPopupK('3.3d')">
@@ -226,6 +241,7 @@
         <ul>
           <li><span class="official-note">Data is often stored on multiple servers to ensure it can still be accessed during maintenance or in case of hardware failure.</span></li>
           <li><span class="official-note">Cloud servers are often in large, secure data centers and operate 24/7.</span></li>
+          <li><span class="official-note">The user does not need to know the exact physical location of the files because access is provided through the internet.</span></li>
         </ul>
       </li>
       <li><span class="official-note">Three main types of cloud storage are:</span>
@@ -242,6 +258,7 @@
           <li><span class="official-note">Cloud storage offers remote backups that help with disaster recovery.</span></li>
           <li><span class="official-note">Storage space can be scaled up or down easily.</span></li>
           <li><span class="official-note">Cloud providers handle security and backups.</span></li>
+          <li><span class="official-note">The same file can be shared and updated by different users if the service supports collaboration.</span></li>
         </ul>
       </li>
       <li><span class="official-note">Disadvantages of cloud storage include:</span>
@@ -249,12 +266,19 @@
           <li><span class="official-note">Dependence on internet speed and stability.</span></li>
           <li><span class="official-note">Possible ongoing costs for large storage or high data transfer.</span></li>
           <li><span class="official-note">Risks from security breaches, hacking, or provider failure.</span></li>
+          <li><span class="official-note">Access may be limited if a school, company, or country network blocks part of the service.</span></li>
         </ul>
       </li>
     </ul>
+    <div style="margin: 14px 0 10px 0; text-align: center;">
+      <img src="cloud-storage-types.svg" alt="Diagram showing a user device connecting through the internet to public, private, and hybrid cloud storage" style="max-width: 100%; height: auto; border: 1px solid #d9d9d9; border-radius: 8px; padding: 10px; background: #ffffff;">
+      <div style="font-size: 0.95em; margin-top: 6px;"><strong>Figure:</strong> A user can reach cloud files through the internet, while the storage may be public, private, or hybrid.</div>
+    </div>
     <ul class="no-bullets">
+      <li><div class="example-box">School example: A teacher uploads lesson slides to cloud storage. Students can open the same file from school, from home, or from a phone, as long as they have internet access and permission.</div></li>
       <li><div class="example-box">Google Drive accessibility: Photos saved to a cloud service such as Google Drive can be viewed on any device that signs in, while photos stored only on a local phone are not available on other devices without copying.</div></li>
-      <li><span class="fun-tip">Cloud storage is like having a magical backpack — you can open it from anywhere in the world, but only if there’s Wi-Fi in the air.</span></li>
+      <li><div class="example-box">Exam phrase to remember: Cloud storage improves access and backup convenience, but control depends partly on the service provider and the internet connection.</div></li>
+      <li><span class="fun-tip">Cloud storage is like having a magical backpack, you can open it from anywhere in the world, but only if there is internet access.</span></li>
       <li>
         <div class="button-group">
           <button class="keyword-button" onclick="openPopupK('3.3e')">

@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="1600"
+   height="900"
+   viewBox="0 0 1600 900"
+   version="1.1"
+   id="svg25"
+   sodipodi:docname="virtual_memory_paging_diagram.svg"
+   inkscape:version="1.4.3 (0d15f75, 2025-12-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview25"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="0.84625"
+     inkscape:cx="800"
+     inkscape:cy="449.63072"
+     inkscape:window-width="1920"
+     inkscape:window-height="991"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg25" />
+  <defs
+     id="defs3">
+    <rect
+       x="1031.61"
+       y="627.47415"
+       width="10.635155"
+       height="37.813885"
+       id="rect33" />
+    <rect
+       x="236.33678"
+       y="254.06204"
+       width="46.085672"
+       height="49.630724"
+       id="rect32" />
+    <rect
+       x="18.906942"
+       y="151.25554"
+       width="282.42245"
+       height="109.8966"
+       id="rect31" />
+    <rect
+       x="251.69867"
+       y="252.88035"
+       width="16.543575"
+       height="115.80502"
+       id="rect30" />
+    <rect
+       x="34.268833"
+       y="172.52585"
+       width="295.42097"
+       height="81.536189"
+       id="rect29" />
+    <rect
+       x="199.70458"
+       y="202.06795"
+       width="33.087149"
+       height="193.79616"
+       id="rect28" />
+    <rect
+       x="144.16544"
+       y="219.79321"
+       width="15.361891"
+       height="22.451994"
+       id="rect27" />
+    <rect
+       x="179.61595"
+       y="220.97489"
+       width="11.816839"
+       height="211.52142"
+       id="rect26" />
+    <marker
+       id="arrow"
+       markerWidth="12"
+       markerHeight="12"
+       refX="10"
+       refY="6"
+       orient="auto"
+       markerUnits="strokeWidth">
+      <path
+         d="M0,0 L12,6 L0,12 z"
+         fill="#333"
+         id="path1" />
+    </marker>
+    <marker
+       id="arrowBlue"
+       markerWidth="12"
+       markerHeight="12"
+       refX="10"
+       refY="6"
+       orient="auto"
+       markerUnits="strokeWidth">
+      <path
+         d="M0,0 L12,6 L0,12 z"
+         fill="#1f5fbf"
+         id="path2" />
+    </marker>
+    <marker
+       id="arrowOrange"
+       markerWidth="12"
+       markerHeight="12"
+       refX="10"
+       refY="6"
+       orient="auto"
+       markerUnits="strokeWidth">
+      <path
+         d="M0,0 L12,6 L0,12 z"
+         fill="#d96b00"
+         id="path3" />
+    </marker>
+    <style
+       id="style3">
+      .title { font: 700 34px Arial, Helvetica, sans-serif; fill: #111; }
+      .subtitle { font: 600 20px Arial, Helvetica, sans-serif; fill: #333; }
+      .label { font: 700 22px Arial, Helvetica, sans-serif; fill: #111; }
+      .small { font: 500 18px Arial, Helvetica, sans-serif; fill: #222; }
+      .tiny { font: 500 16px Arial, Helvetica, sans-serif; fill: #222; }
+      .boxlabel { font: 700 24px Arial, Helvetica, sans-serif; fill: #111; }
+      .caption { font: 600 18px Arial, Helvetica, sans-serif; fill: #1f5fbf; }
+      .caption2 { font: 600 18px Arial, Helvetica, sans-serif; fill: #d96b00; }
+      .note { font: 500 17px Arial, Helvetica, sans-serif; fill: #444; }
+    </style>
+  </defs>
+  <text
+     x="800"
+     y="60"
+     text-anchor="middle"
+     class="title"
+     id="text3">How Paging Works with Virtual Memory</text>
+  <text
+     x="800"
+     y="92"
+     text-anchor="middle"
+     class="subtitle"
+     id="text4">RAM is full, so a least used program page is moved to secondary storage to make space for a new program.</text>
+  <!-- Left callout -->
+  <rect
+     x="19.276218"
+     y="424.60858"
+     rx="18"
+     ry="18"
+     width="250"
+     height="95"
+     fill="#eef5ff"
+     stroke="#1f5fbf"
+     stroke-width="2.5"
+     id="rect4" />
+  <text
+     x="145.4579"
+     y="459.24521"
+     text-anchor="middle"
+     class="label"
+     id="text5"
+     style="font-style:normal;font-variant:normal;font-weight:700;font-stretch:normal;font-size:22px;line-height:normal;font-family:Arial, Helvetica, sans-serif">New program launched</text>
+  <text
+     x="145.4579"
+     y="489.24521"
+     text-anchor="middle"
+     class="small"
+     id="text6"
+     style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:18px;line-height:normal;font-family:Arial, Helvetica, sans-serif">Example: Paint 3D</text>
+  <!-- RAM BOX -->
+  <rect
+     x="349.82343"
+     y="139.82341"
+     rx="22.013874"
+     ry="18.275064"
+     width="560.35315"
+     height="531.63824"
+     fill="#f8fbff"
+     stroke="#2d5ca8"
+     stroke-width="3.64683"
+     id="rect6" />
+  <text
+     x="630"
+     y="185"
+     text-anchor="middle"
+     class="boxlabel"
+     id="text7">RAM (volatile primary memory)</text>
+  <!-- OS large block -->
+  <rect
+     x="390"
+     y="220"
+     rx="12"
+     ry="12"
+     width="480"
+     height="150"
+     fill="#9cc3ff"
+     stroke="#2d5ca8"
+     stroke-width="2.5"
+     id="rect7" />
+  <text
+     x="630"
+     y="300"
+     text-anchor="middle"
+     class="label"
+     id="text8">Operating System</text>
+  <!-- program blocks -->
+  <rect
+     x="390"
+     y="395"
+     rx="10"
+     ry="10"
+     width="220"
+     height="95"
+     fill="#cde0ff"
+     stroke="#2d5ca8"
+     stroke-width="2"
+     id="rect8" />
+  <text
+     x="500"
+     y="452"
+     text-anchor="middle"
+     class="small"
+     id="text9">Microsoft Word</text>
+  <rect
+     x="650"
+     y="395"
+     rx="10"
+     ry="10"
+     width="220"
+     height="95"
+     fill="#cde0ff"
+     stroke="#2d5ca8"
+     stroke-width="2"
+     id="rect9" />
+  <text
+     x="760"
+     y="452"
+     text-anchor="middle"
+     class="small"
+     id="text10">Google Chrome</text>
+  <rect
+     x="390"
+     y="515"
+     rx="10"
+     ry="10"
+     width="220"
+     height="95"
+     fill="#cde0ff"
+     stroke="#2d5ca8"
+     stroke-width="2"
+     id="rect10" />
+  <text
+     x="500"
+     y="572"
+     text-anchor="middle"
+     class="small"
+     id="text11">Game</text>
+  <rect
+     x="650"
+     y="515"
+     rx="10"
+     ry="10"
+     width="220"
+     height="95"
+     fill="#ffd4d4"
+     stroke="#b33a3a"
+     stroke-width="2.5"
+     stroke-dasharray="8 6"
+     id="rect11" />
+  <text
+     x="760"
+     y="556"
+     text-anchor="middle"
+     class="small"
+     id="text12">Least used</text>
+  <text
+     x="760"
+     y="581"
+     text-anchor="middle"
+     class="small"
+     id="text13">program page</text>
+  <!-- full indicator -->
+  <text
+     x="593.3678"
+     y="709.45349"
+     text-anchor="middle"
+     class="label"
+     fill="#962828"
+     id="text14"
+     style="font-style:normal;font-variant:normal;font-weight:700;font-stretch:normal;font-size:22px;line-height:normal;font-family:Arial, Helvetica, sans-serif">RAM is full</text>
+  <!-- Secondary storage box -->
+  <rect
+     x="1029.8295"
+     y="139.82951"
+     rx="22.015003"
+     ry="18.396507"
+     width="500.34097"
+     height="535.17114"
+     fill="#fffaf4"
+     stroke="#b97a24"
+     stroke-width="3.65902"
+     id="rect14" />
+  <text
+     x="1280"
+     y="185"
+     text-anchor="middle"
+     class="boxlabel"
+     id="text15">Secondary Storage (non volatile)</text>
+  <rect
+     x="1065.1306"
+     y="215.13055"
+     rx="12.008156"
+     ry="9.4098101"
+     width="420.28543"
+     height="282.29431"
+     fill="#ffe2bd"
+     stroke="#b97a24"
+     stroke-width="2.21456"
+     id="rect15" />
+  <text
+     x="1274.0916"
+     y="341.27771"
+     text-anchor="middle"
+     class="label"
+     id="text16"
+     style="font-style:normal;font-variant:normal;font-weight:700;font-stretch:normal;font-size:22px;line-height:normal;font-family:Arial, Helvetica, sans-serif">Other non volatile data</text>
+  <text
+     x="1281.1816"
+     y="386.63959"
+     text-anchor="middle"
+     class="small"
+     id="text17"
+     style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:18px;line-height:normal;font-family:Arial, Helvetica, sans-serif">documents, photos, applications, system files</text>
+  <rect
+     x="1068.8184"
+     y="526.37372"
+     rx="12"
+     ry="12"
+     width="420"
+     height="125"
+     fill="#fff1cf"
+     stroke="#d96b00"
+     stroke-width="3"
+     id="rect17" />
+  <text
+     x="1274.0916"
+     y="580.19202"
+     text-anchor="middle"
+     class="label"
+     id="text18"
+     style="font-style:normal;font-variant:normal;font-weight:700;font-stretch:normal;font-size:22px;line-height:normal;font-family:Arial, Helvetica, sans-serif">Virtual memory</text>
+  <text
+     x="1271.7283"
+     y="617.2821"
+     text-anchor="middle"
+     class="small"
+     id="text19"
+     style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:18px;line-height:normal;font-family:Arial, Helvetica, sans-serif">swap file / swap space</text>
+  <!-- arrows -->
+  <line
+     x1="272.82126"
+     y1="472.60858"
+     x2="362.82126"
+     y2="472.60858"
+     stroke="#1f5fbf"
+     stroke-width="5"
+     marker-end="url(#arrowBlue)"
+     id="line19" />
+  <text
+     x="154.74889"
+     y="542.68982"
+     text-anchor="middle"
+     class="caption"
+     id="text20"
+     style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:18px;line-height:normal;font-family:Arial, Helvetica, sans-serif">New program needs RAM space</text>
+  <line
+     x1="871.91333"
+     y1="556.47565"
+     x2="1079.6458"
+     y2="581.90259"
+     stroke="#d96b00"
+     stroke-width="3.8586"
+     marker-end="url(#arrowOrange)"
+     id="line20"
+     inkscape:transform-center-x="-42.591135"
+     inkscape:transform-center-y="216.91082" />
+  <text
+     x="794.65582"
+     y="634.98969"
+     text-anchor="middle"
+     class="caption2"
+     id="text21"
+     style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:18px;line-height:normal;font-family:Arial, Helvetica, sans-serif">... is moved out</text>
+  <!-- arrow back from virtual memory to ram -->
+  <line
+     x1="1070"
+     y1="725"
+     x2="870"
+     y2="725"
+     stroke="#666"
+     stroke-width="3.5"
+     stroke-dasharray="10 8"
+     marker-end="url(#arrow)"
+     id="line21" />
+  <text
+     x="974.72675"
+     y="765.63513"
+     text-anchor="middle"
+     class="note"
+     id="text22"
+     style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:17px;line-height:normal;font-family:Arial, Helvetica, sans-serif">Later, if needed, the page can be moved back into RAM.</text>
+  <!-- page labels -->
+  <text
+     x="949.36487"
+     y="583.81976"
+     text-anchor="middle"
+     class="tiny"
+     id="text23"
+     style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:16px;line-height:normal;font-family:Arial, Helvetica, sans-serif">page</text>
+  <text
+     x="960.45789"
+     y="604.91138"
+     text-anchor="middle"
+     class="tiny"
+     id="text24"
+     style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:16px;line-height:normal;font-family:Arial, Helvetica, sans-serif">transfer</text>
+  <!-- footer explanation -->
+  <text
+     xml:space="preserve"
+     id="text26"
+     style="writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect26);display:inline;fill:#516056;fill-opacity:0.353952" />
+  <text
+     xml:space="preserve"
+     id="text27"
+     style="writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect27);display:inline;fill:#516056;fill-opacity:0.353952" />
+  <text
+     xml:space="preserve"
+     id="text28"
+     style="writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect28);display:inline;fill:#516056;fill-opacity:0.353952" />
+  <text
+     xml:space="preserve"
+     id="text29"
+     style="writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect29);display:inline;fill:#516056;fill-opacity:0.353952" />
+  <text
+     xml:space="preserve"
+     id="text30"
+     style="writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect30);display:inline;fill:#516056;fill-opacity:0.353952" />
+  <text
+     xml:space="preserve"
+     id="text31"
+     style="writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect31);display:inline;fill:#516056;fill-opacity:0.353952" />
+  <text
+     xml:space="preserve"
+     id="text32"
+     style="writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect32);display:inline;fill:#516056;fill-opacity:0.353952" />
+  <text
+     xml:space="preserve"
+     id="text33"
+     style="writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect33);display:inline;fill:#516056;fill-opacity:0.353952" />
+</svg>

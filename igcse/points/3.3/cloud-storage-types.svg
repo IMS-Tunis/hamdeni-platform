@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="390" viewBox="0 0 980 390" role="img" aria-labelledby="title desc">
+  <title id="title">Cloud storage types diagram</title>
+  <desc id="desc">Diagram showing a user device connecting through the internet to public cloud, private cloud, and hybrid cloud storage.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,3 L0,6 z" fill="#444"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="980" height="390" fill="#fafafa"/>
+  <text x="490" y="34" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#222">Cloud storage overview</text>
+
+  <rect x="55" y="120" width="185" height="130" rx="18" fill="#fff7e8" stroke="#c48a2c" stroke-width="2"/>
+  <text x="148" y="154" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#8a5b14">💻</text>
+  <text x="148" y="184" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#333">User device</text>
+  <text x="148" y="210" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#333">Laptop, tablet,</text>
+  <text x="148" y="230" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#333">or phone</text>
+
+  <ellipse cx="390" cy="185" rx="110" ry="60" fill="#e9f3ff" stroke="#4a78a8" stroke-width="2"/>
+  <text x="390" y="182" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#234">Internet</text>
+  <text x="390" y="205" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#234">Connection required</text>
+
+  <rect x="610" y="45" width="285" height="85" rx="16" fill="#eef8ea" stroke="#4d8e49" stroke-width="2"/>
+  <text x="752" y="78" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#253">Public cloud</text>
+  <text x="752" y="101" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#253">Shared provider service</text>
+
+  <rect x="610" y="152" width="285" height="85" rx="16" fill="#fff2f2" stroke="#b65858" stroke-width="2"/>
+  <text x="752" y="185" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#632">Private cloud</text>
+  <text x="752" y="208" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#632">Dedicated to one organisation</text>
+
+  <rect x="610" y="259" width="285" height="85" rx="16" fill="#f2ecff" stroke="#7b63b5" stroke-width="2"/>
+  <text x="752" y="292" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#42306b">Hybrid cloud</text>
+  <text x="752" y="315" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#42306b">Mix of public and private</text>
+
+  <path d="M240 185 L280 185" fill="none" stroke="#444" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M500 160 C540 140, 560 120, 610 90" fill="none" stroke="#444" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M500 185 L610 194" fill="none" stroke="#444" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M500 210 C540 230, 560 255, 610 301" fill="none" stroke="#444" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <text x="490" y="370" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#333">Cloud storage lets users reach remote files through the internet from different devices.</text>
+</svg>
