@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <script src="/assets/js/storage-fallback.js"></script>
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NRRL1TSE7Z"></script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-NRRL1TSE7Z"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -11,129 +12,114 @@
 
   gtag('config', 'G-NRRL1TSE7Z');
 </script>
-
-  <meta charset="UTF-8">
-  <title>IGCSE Computer Science - 3.4 Network hardware</title>
-  <link rel="stylesheet" href="../igcse-style.css">
-<script defer src="/assets/js/paste-guard.js"></script>
+<meta charset="utf-8"/>
+<title>IGCSE Computer Science - 3.4 Network hardware</title>
+<link href="../igcse-style.css" rel="stylesheet"/>
+<script defer="" src="/assets/js/paste-guard.js"></script>
 </head>
 <body>
-
 <div class="container">
-  <div class="header-container">
-    <img src="../syllabus.png" alt="Syllabus Update" class="top-right-icon">
-    <div class="title-row">
-      <h1 class="section-title">3.4 Network hardware</h1>
-    </div>
-    <div class="title-underline"></div>
-    <p class="section-subtitle">Computer Science IGCSE notes, prepared by Dr. Hamdeni</p>
-  </div>
-  <div class="section">
-    <h2>3.4a: Network interface card (NIC) and MAC address at manufacture</h2>
-    <ul>
-      <li><span class="official-note">A <span class="keyword" data-tooltip="the component in a computer that is used to connect it to a network.">network interface card (NIC)</span> is required for a device to connect to a <span class="keyword" data-tooltip="computers and devices that are joined together using cables or wireless technology.">network</span>; it stores a media access control (MAC) address assigned at manufacture. </span>
-        <ul>
-          <li><span class="official-note">A NIC can be wired or wireless. </span></li>
-          <li><span class="official-note">It establishes the physical connection and transmits and receives data. </span></li>
-          <li><span class="official-note">It converts between network data and computer-readable data. </span></li>
-          <li><span class="official-note">The NIC enables network connectivity so that DHCP on the <span class="keyword" data-tooltip="a device that enables data packets to be moved between different networks, for example, to join a LAN to a WAN.">router</span> or the ISP can assign an IP address to the device. </span></li>
-        </ul>
-      </li>
-    </ul>
-    <ul class="no-bullets">
-      <li><div class="example-box">Data sent on the network includes the device MAC address so the sender can be identified. </div></li>
-      <li><div class="example-box">Wireless NIC: a laptop uses a wireless network interface card to connect to a home network without a cable. </div></li>
-      <li><span class="fun-tip">Think of the NIC as your device’s network passport. It carries your identity (the MAC address) and lets you enter the network. </span></li>
-      <div class="button-group">
-        <button class="keyword-button" onclick="openPopupK('3.4a')">
-          🔑 View Keywords on This Topic 🔑
-        </button>
-        <button class="exam-button" onclick="openPopupQ('3.4a')">
-          👁️ Quick Look at Exam Questions on This Topic 👁️
-        </button>
-      </div>
-    </ul>
-  </div>
-  <div class="section">
-    <h2>3.4b: Media access control (MAC) address and its structure</h2>
-    <ul>
-      <li><span class="official-note">A media access control (MAC) address uniquely identifies a device and is assigned by the manufacturer. </span>
-        <ul>
-          <li><span class="official-note">Structure: the address contains a manufacturer code and a device serial code. </span></li>
-          <li><span class="official-note">Format: six pairs written in hexadecimal, separated by colons or dashes. </span></li>
-          <li><span class="official-note">Length: a <span class="keyword" data-tooltip="the unique address that is given to a NIC by the manufacturer.">MAC address</span> is 48 bits long, which equals twelve hexadecimal digits. </span></li>
-          <li><span class="official-note">Property: a MAC address is normally unchanged, known as a universally administered address (UAA), but it can be altered in some cases using a locally administered address (LAA). </span></li>
-        </ul>
-      </li>
-    </ul>
-    <ul class="no-bullets">
-      <li><div class="example-box">Example MAC: 34:4D:EA:89:75:B2 shows six hexadecimal pairs separated by colons. </div></li>
-      <div class="button-group">
-        <button class="keyword-button" onclick="openPopupK('3.4b')">
-          🔑 View Keywords on This Topic 🔑
-        </button>
-        <button class="exam-button" onclick="openPopupQ('3.4b')">
-          👁️ Quick Look at Exam Questions on This Topic 👁️
-        </button>
-      </div>
-    </ul>
-  </div>
-  <div class="section">
-    <h2>3.4c: Internet protocol (IP) address; types; IPv4 vs IPv6</h2>
-    <ul>
-      <li><span class="official-note">An internet protocol (IP) address is used to locate a device on a network and is allocated by the network. </span>
-        <ul>
-          <li><span class="official-note">IPv4 uses 32 bits and is written as four numbers separated by full stops; IPv6 uses 128 bits and is written in hexadecimal groups separated by colons. </span></li>
-        </ul>
-      </li>
-      <li><span class="official-note">IP addresses can be static or dynamic. </span>
-        <ul>
-          <li><span class="official-note">A <span class="keyword" data-tooltip="an IP address that can change each time the device connects to a network.">dynamic IP address</span> can change each time the device connects to the network. </span></li>
-          <li><span class="official-note">IPv4 number range: each of the four numbers is from 0 to 255. </span></li>
-        </ul>
-      </li>
-    </ul>
-    <ul class="no-bullets">
-      <li><div class="example-box">IPv4 12.244.233.165 uses four numbers with full stops; IPv6 2001:0db8:0000:0000:0000:ff00:0042:7879 uses hexadecimal groups with colons. </div></li>
-      <li><div class="example-box">Valid IPv4 selection: among 110:255:2:1, 1.30.2FF.A9, 3.162.74.3, and 8.0.257.6.8, only 3.162.74.3 is valid because each section must be a number from 0 to 255 and the format must contain exactly four numbers separated by full stops. </div></li>
-      <li><div class="example-box">IPv4 validity check: 10.245.3.99 has four numbers separated by full stops and each number is between 0 and 255, so it is valid. </div></li>
-      <li><div class="example-box">Static IP in practice: a website server may use a static IPv4 address so users can always reach the same address. </div></li>
-      <li><span class="fun-tip">An IP address is like where you live. Static IP is a fixed home address, dynamic IP is a hotel room that can change the next time you visit. </span></li>
-      <div class="button-group">
-        <button class="keyword-button" onclick="openPopupK('3.4c')">
-          🔑 View Keywords on This Topic 🔑
-        </button>
-        <button class="exam-button" onclick="openPopupQ('3.4c')">
-          👁️ Quick Look at Exam Questions on This Topic 👁️
-        </button>
-      </div>
-    </ul>
-  </div>
-  <div class="section">
-    <h2>3.4d: Role of a router in a network</h2>
-    <ul>
-      <li><span class="official-note">A router reads a destination address and forwards data to the correct destination; it connects a local network to the internet. </span>
-        <ul>
-          <li><span class="official-note">On a local network, the router can assign IP addresses to devices. </span></li>
-          <li><span class="official-note">Forwarding on a local network can use MAC addresses; forwarding to the internet uses IP addresses. </span></li>
-          <li><span class="official-note">In packet switching, routers make per-packet, per-hop forwarding decisions. Different packets can take different paths when routing information indicates a more efficient path. </span></li>
-        </ul>
-      </li>
-    </ul>
-    <ul class="no-bullets">
-      <li><div class="example-box">Home network: devices connect to the router, which forwards data and can assign local IP addresses.</div></li>
-      <li><span class="fun-tip">A router works like a post office sorter. It reads the destination and sends each parcel on a good route, switching paths when another route is faster.</span></li>
-      <div class="button-group">
-        <button class="keyword-button" onclick="openPopupK('3.4d')">
-          🔑 View Keywords on This Topic 🔑
-        </button>
-        <button class="exam-button" onclick="openPopupQ('3.4d')">
-          👁️ Quick Look at Exam Questions on This Topic 👁️
-        </button>
-      </div>
-    </ul>
-  </div>
+<div class="header-container">
+<img alt="Syllabus Update" class="top-right-icon" src="../syllabus.png"/>
+<div class="title-row">
+<h1 class="section-title">3.4 Network hardware</h1>
 </div>
-  <script src="popup-script.js"></script>
+<div class="title-underline"></div>
+<p class="section-subtitle">Computer Science IGCSE notes, prepared by Dr. Hamdeni</p>
+</div>
+<div class="section">
+<h2>3.4a: Network interface card (NIC) and MAC address at manufacture</h2>
+<ul>
+<li><span class="official-note">A <span class="keyword" data-tooltip="the component in a computer that is used to connect it to a network.">network interface card (NIC)</span> is required for a device to connect to a <span class="keyword" data-tooltip="computers and devices that are joined together using cables or wireless technology.">network</span>; it stores a media access control (MAC) address assigned at manufacture. </span>
+<ul>
+<li><span class="official-note">A NIC can be wired or wireless. </span></li>
+<li><span class="official-note">It establishes the physical connection and transmits and receives data. </span></li>
+<li><span class="official-note">It converts between network data and computer-readable data. </span></li>
+<li><span class="official-note">The network card (NIC) connects your device to the network, so the <span class="keyword" data-tooltip="a device that enables data packets to be moved between different networks, for example, to join a LAN to a WAN.">router</span> or internet service provider (ISP) can assign it an IP address. </span></li>
+</ul>
+</li>
+</ul>
+<ul class="no-bullets">
+<li><div class="example-box">Data sent on the network includes the device MAC address so the sender can be identified. </div></li>
+<li><div class="example-box">Wireless NIC: a laptop uses a wireless network interface card to connect to a home network without a cable. </div></li>
+<li><span class="fun-tip">Think of the NIC as your device’s network passport. It carries your identity (the MAC address) and lets you enter the network. </span></li>
+<div class="button-group">
+<button class="keyword-button" onclick="openPopupK('3.4a')">
+          🔑 View Keywords on This Topic 🔑
+        </button>
+<button class="exam-button" onclick="openPopupQ('3.4a')">
+          👁️ Quick Look at Exam Questions on This Topic 👁️
+        </button>
+</div>
+</ul>
+</div>
+<div class="section">
+<h2>3.4b: Media access control (MAC) address and its structure</h2>
+<ul>
+<li><span class="official-note">A media access control (MAC) address uniquely identifies a device and is assigned by the manufacturer. </span>
+<ul>
+<li><span class="official-note">Structure: the address contains a manufacturer code and a device serial code. </span></li>
+<li><span class="official-note">Format: six pairs written in hexadecimal, separated by colons or dashes. </span></li>
+<li><span class="official-note">Length: a <span class="keyword" data-tooltip="the unique address that is given to a NIC by the manufacturer.">MAC address</span> is 48 bits long, which equals twelve hexadecimal digits. </span></li>
+<li><span class="official-note">Property: a MAC address is normally unchanged, known as a universally administered address (UAA), but it can be altered in some cases using a locally administered address (LAA). </span></li>
+</ul>
+</li>
+</ul>
+<ul class="no-bullets">
+<li><div class="example-box">Example MAC: 34:4D:EA:89:75:B2 shows six hexadecimal pairs separated by colons. </div></li>
+<div class="button-group">
+<button class="keyword-button" onclick="openPopupK('3.4b')">
+          🔑 View Keywords on This Topic 🔑
+        </button>
+<button class="exam-button" onclick="openPopupQ('3.4b')">
+          👁️ Quick Look at Exam Questions on This Topic 👁️
+        </button>
+</div>
+</ul>
+</div>
+<div class="section">
+<h2>3.4c: Internet protocol (IP) address; types; IPv4 vs IPv6</h2>
+<ul>
+<li><span class="official-note">An internet protocol (IP) address is used to locate a device on a network and is allocated by the network. </span>
+<ul>
+<li><span class="official-note">IPv4 uses 32 bits and is written as four numbers separated by full stops; IPv6 uses 128 bits and is written in hexadecimal groups separated by colons. </span></li>
+<li><span class="official-note">IPv4 was created first, but as more devices connected to networks, the number of available IPv4 addresses decreased. </span></li>
+<li><span class="official-note">IPv6 was introduced to provide many more unique IP addresses. </span></li>
+</ul>
+</li>
+<li><span class="official-note">IP addresses can be static or dynamic. </span>
+<ul>
+<li><span class="official-note">Most devices are assigned a dynamic IP address. </span></li>
+<li><span class="official-note">A <span class="keyword" data-tooltip="an IP address that can change each time the device connects to a network.">dynamic IP address</span> can change each time the device connects to the network. </span></li>
+<li><span class="official-note">A static IP address stays the same each time the device connects to the network unless it is changed. </span></li>
+<li><span class="official-note">Dynamic IP addresses are usually assigned automatically using Dynamic Host Configuration Protocol (DHCP). </span></li>
+<li><span class="official-note">IPv4 number range: each of the four numbers is from 0 to 255. </span></li>
+</ul>
+</li>
+</ul>
+<ul class="no-bullets">
+<li><div class="example-box">IPv4 12.244.233.165 uses four numbers with full stops; IPv6 2001:0db8:0000:0000:0000:ff00:0042:7879 uses hexadecimal groups with colons. </div></li>
+<li><div class="example-box">Valid IPv4 selection: among 110:255:2:1, 1.30.2FF.A9, 3.162.74.3, and 8.0.257.6.8, only 3.162.74.3 is valid because each section must be a number from 0 to 255 and the format must contain exactly four numbers separated by full stops. </div></li>
+<li><div class="example-box">IPv4 validity check: 10.245.3.99 has four numbers separated by full stops and each number is between 0 and 255, so it is valid. </div></li>
+<li><div class="example-box">Static IP in practice: a website server may use a static IPv4 address so users can always reach the same address. </div></li>
+<li><div class="example-box">Dynamic IP in practice: when a device joins a network, DHCP can automatically assign it a dynamic IP address. </div></li>
+<li><div style="text-align:center; margin: 18px 0;"><img alt="Illustration of IPv4, IPv6, and static and dynamic IP addresses" src="image_3_4c_ip_address.svg" style="max-width:100%; height:auto; border:1px solid #d1d5db; border-radius:8px;"/></div></li><li><span class="fun-tip">An IP address is like where you live. Static IP is a fixed home address, dynamic IP is a hotel room that can change the next time you visit. </span></li>
+<div class="button-group">
+<button class="keyword-button" onclick="openPopupK('3.4c')">
+          🔑 View Keywords on This Topic 🔑
+        </button>
+<button class="exam-button" onclick="openPopupQ('3.4c')">
+          👁️ Quick Look at Exam Questions on This Topic 👁️
+        </button>
+</div>
+</ul>
+</div>
+<div class="section">
+<h2>3.4d: Role of a router in a network</h2>
+
+
+<ul><li><span class="official-note">A router is a network device used to connect different networks together. Its main role is to allow data to travel from one network to another rather than only within a single network. </span><ul><li><span class="official-note">In a typical network, a router is used to connect a LAN to a WAN or to the internet. This allows users on the local network to communicate with devices and servers outside their own network. </span></li><li><span class="official-note">The router receives data packets from one network and then forwards them to another network. This means it acts as the device responsible for passing data between separate networks. </span></li><li><span class="official-note">A router routes or directs packets to the correct destination. It checks where the packet needs to go and sends it in the right direction. </span></li><li><span class="official-note">To do this, the router uses the destination IP address in the packet. The IP address helps the router decide which network the packet should be sent to. </span></li><li><span class="official-note">The router can also select the best or most appropriate route for the packet to travel. This helps make sure the data reaches the correct destination efficiently. </span></li></ul></li></ul><ul class="no-bullets"><li><div class="example-box">Example: in a home network, the router connects the LAN to the internet and forwards packets to websites and servers on other networks. </div></li><div class="button-group"><button class="keyword-button" onclick="openPopupK('3.4d')">🔑 View Keywords on This Topic 🔑</button><button class="exam-button" onclick="openPopupQ('3.4d')">👁️ Quick Look at Exam Questions on This Topic 👁️</button></div></ul></div>
+</div>
+<script src="popup-script.js"></script>
 </body>
 </html>

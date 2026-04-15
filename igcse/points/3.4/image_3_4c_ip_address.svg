@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+  <defs>
+    <style>
+      .title { font: 700 34px Arial, Helvetica, sans-serif; fill: #1f2937; }
+      .subtitle { font: 600 24px Arial, Helvetica, sans-serif; fill: #1f2937; }
+      .body { font: 20px Arial, Helvetica, sans-serif; fill: #374151; }
+      .small { font: 18px Arial, Helvetica, sans-serif; fill: #4b5563; }
+      .box { fill: #ffffff; stroke: #cbd5e1; stroke-width: 2.5; rx: 22; ry: 22; }
+      .core { fill: #f8fafc; stroke: #94a3b8; stroke-width: 3; rx: 26; ry: 26; }
+      .line { stroke: #64748b; stroke-width: 4; stroke-linecap: round; }
+      .dashed { stroke: #94a3b8; stroke-width: 3; stroke-dasharray: 10 10; stroke-linecap: round; }
+      .chip { fill: #eef2ff; stroke: #a5b4fc; stroke-width: 2; rx: 16; ry: 16; }
+      .chip2 { fill: #ecfeff; stroke: #67e8f9; stroke-width: 2; rx: 16; ry: 16; }
+      .chip3 { fill: #f0fdf4; stroke: #86efac; stroke-width: 2; rx: 16; ry: 16; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="1400" height="900" fill="#ffffff"/>
+
+  <rect class="core" x="520" y="52" width="360" height="100"/>
+  <text class="title" x="700" y="96" text-anchor="middle">IP address</text>
+  <text class="body" x="700" y="128" text-anchor="middle">used to locate a device on a network</text>
+
+  <line class="line" x1="700" y1="152" x2="420" y2="230"/>
+  <line class="line" x1="700" y1="152" x2="980" y2="230"/>
+  <line class="line" x1="700" y1="152" x2="700" y2="540"/>
+
+  <rect class="box" x="120" y="230" width="480" height="265"/>
+  <text class="subtitle" x="360" y="276" text-anchor="middle">IPv4</text>
+  <rect class="chip" x="170" y="304" width="140" height="42"/>
+  <text class="body" x="240" y="332" text-anchor="middle">32 bits</text>
+  <rect class="chip" x="330" y="304" width="170" height="42"/>
+  <text class="body" x="415" y="332" text-anchor="middle">four numbers</text>
+  <rect class="chip" x="170" y="362" width="170" height="42"/>
+  <text class="body" x="255" y="390" text-anchor="middle">full stops</text>
+  <rect class="chip" x="360" y="362" width="150" height="42"/>
+  <text class="body" x="435" y="390" text-anchor="middle">0 to 255</text>
+  <text class="small" x="360" y="445" text-anchor="middle">12.244.233.165</text>
+  <text class="small" x="360" y="475" text-anchor="middle">IPv4 was created first</text>
+
+  <rect class="box" x="800" y="230" width="480" height="265"/>
+  <text class="subtitle" x="1040" y="276" text-anchor="middle">IPv6</text>
+  <rect class="chip2" x="850" y="304" width="150" height="42"/>
+  <text class="body" x="925" y="332" text-anchor="middle">128 bits</text>
+  <rect class="chip2" x="1020" y="304" width="210" height="42"/>
+  <text class="body" x="1125" y="332" text-anchor="middle">hexadecimal groups</text>
+  <rect class="chip2" x="910" y="362" width="160" height="42"/>
+  <text class="body" x="990" y="390" text-anchor="middle">colons</text>
+  <text class="small" x="1040" y="445" text-anchor="middle">2001:0db8:0000:0000:0000:ff00:0042:7879</text>
+  <text class="small" x="1040" y="475" text-anchor="middle">introduced to provide many more unique IP addresses</text>
+
+  <rect class="core" x="455" y="540" width="490" height="290"/>
+  <text class="subtitle" x="700" y="588" text-anchor="middle">Types of IP address</text>
+
+  <line class="dashed" x1="700" y1="610" x2="700" y2="804"/>
+
+  <rect class="box" x="495" y="635" width="180" height="135"/>
+  <text class="subtitle" x="585" y="678" text-anchor="middle">Static</text>
+  <text class="body" x="585" y="720" text-anchor="middle">same each time</text>
+  <text class="small" x="585" y="748" text-anchor="middle">unless it is changed</text>
+
+  <rect class="box" x="725" y="635" width="180" height="165"/>
+  <text class="subtitle" x="815" y="678" text-anchor="middle">Dynamic</text>
+  <text class="body" x="815" y="720" text-anchor="middle">can change</text>
+  <text class="small" x="815" y="748" text-anchor="middle">most devices</text>
+  <text class="small" x="815" y="775" text-anchor="middle">usually assigned by DHCP</text>
+</svg>
