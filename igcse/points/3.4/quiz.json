@@ -7,7 +7,7 @@
         "Component that establishes the physical connection, transmits and receives data",
         "Device that connects a local network to the internet",
         "Service that assigns IP addresses on the local network",
-        "Identifier that is 48 bits long for a device"
+        "Hardware component that selects the best route for packets between networks"
       ],
       "answer": "Component that establishes the physical connection, transmits and receives data"
     },
@@ -27,7 +27,7 @@
       "pairs": {
         "NIC": "Component that connects a computer to a network and stores a MAC address assigned at manufacture",
         "Network": "Devices and computers joined together using cables or wireless technology",
-        "Router": "Device that enables data packets to move between networks and can assign IP addresses via DHCP"
+        "Router": "Device that forwards data packets between different networks and selects an appropriate route"
       }
     },
     {
@@ -101,33 +101,33 @@
         "Converts between network data and computer-readable data",
         "Reads a destination address, forwards data to the correct destination, and connects a local network to the internet",
         "Assigns a 48-bit address to each device at manufacture",
-        "Defines the 0 to 255 range used in IPv4"
+        "Stores the manufacturer code and device serial code for each device"
       ],
       "answer": "Reads a destination address, forwards data to the correct destination, and connects a local network to the internet"
     },
     {
       "type": "true_false",
-      "question": "On a local network, the router can assign IP addresses to devices.",
+      "question": "The router uses the destination IP address in a packet to decide which network the packet should be sent to.",
       "answer": "True"
     },
     {
       "type": "match",
-      "question": "Match forwarding context to the addressing method used.",
+      "question": "Match each item to the correct description.",
       "pairs": {
-        "Forwarding on a local network": "Can use MAC addresses",
-        "Forwarding to the internet": "Uses IP addresses"
+        "Static IP address": "Stays the same each time the device connects unless it is changed",
+        "Dynamic IP address": "Can change each time the device connects to the network"
       }
     },
     {
       "type": "mcq",
-      "question": "Which statement about packet switching is correct?",
+      "question": "Which statement about a router is correct?",
       "options": [
-        "Routers make per-packet, per-hop decisions; different packets can take different paths when a more efficient path is indicated",
-        "Routers always keep all packets on a single path",
-        "Packet switching requires IPv6 and cannot operate with IPv4",
-        "Packet switching assigns device serial codes during forwarding"
+        "It selects the best route for packets to travel",
+        "It stores a MAC address assigned at manufacture",
+        "It converts network data into computer-readable data",
+        "It defines the valid number range used in IPv4"
       ],
-      "answer": "Routers make per-packet, per-hop decisions; different packets can take different paths when a more efficient path is indicated"
+      "answer": "It selects the best route for packets to travel"
     }
   ]
 }
