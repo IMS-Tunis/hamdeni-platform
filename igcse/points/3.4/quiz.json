@@ -12,11 +12,6 @@
       "answer": "Component that establishes the physical connection, transmits and receives data"
     },
     {
-      "type": "fill_blank",
-      "question": "The ________ is required for a device to connect to a network and stores a MAC address assigned at manufacture.",
-      "answer": "network interface card"
-    },
-    {
       "type": "true_false",
       "question": "The NIC converts between network data and computer-readable data.",
       "answer": "True"
@@ -40,11 +35,6 @@
         "It uses 128 bits written in hexadecimal groups separated by colons"
       ],
       "answer": "It uniquely identifies a device and is assigned by the manufacturer"
-    },
-    {
-      "type": "fill_blank",
-      "question": "A ________ is 48 bits long, which equals twelve hexadecimal digits.",
-      "answer": "MAC address"
     },
     {
       "type": "mcq",
@@ -73,11 +63,7 @@
       ],
       "answer": "IPv4 uses four numbers separated by full stops; IPv6 uses hexadecimal groups separated by colons"
     },
-    {
-      "type": "fill_blank",
-      "question": "A ________ can change each time the device connects to the network.",
-      "answer": "dynamic IP address"
-    },
+
     {
       "type": "true_false",
       "question": "Each of the four numbers in an IPv4 address is from 0 to 255.",
