@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <script src="/assets/js/storage-fallback.js"></script>
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NRRL1TSE7Z"></script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-NRRL1TSE7Z"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -11,217 +12,255 @@
 
   gtag('config', 'G-NRRL1TSE7Z');
 </script>
-
-  <meta charset="UTF-8">
-  <title>IGCSE Computer Science - 4.1 Hardware and Software</title>
-  <link rel="stylesheet" href="../igcse-style.css">
-<script defer src="/assets/js/paste-guard.js"></script>
+<meta charset="utf-8"/>
+<title>IGCSE Computer Science - 4.1 Hardware and Software</title>
+<link href="../igcse-style.css" rel="stylesheet"/>
+<script defer="" src="/assets/js/paste-guard.js"></script>
+<style>
+  .diagram-block {
+    text-align: center;
+    margin: 18px 0 14px 0;
+  }
+  .diagram-img {
+    display: inline-block;
+    width: 100%;
+    height: auto;
+    border: 1px solid #d8d8d8;
+    border-radius: 6px;
+    background: #ffffff;
+  }
+  .diagram-img.diagram-wide {
+    max-width: 520px;
+  }
+  .diagram-img.diagram-medium {
+    max-width: 470px;
+  }
+  .diagram-img.diagram-narrow {
+    max-width: 280px;
+  }
+</style>
 </head>
 <body>
-
 <div class="container">
-  <div class="header-container">
-    <img src="../syllabus.png" alt="Syllabus Update" class="top-right-icon">
-    <div class="title-row">
-      <h1 class="section-title">4.1 Hardware and Software</h1>
-    </div>
-    <div class="title-underline"></div>
-    <p class="section-subtitle">Computer Science IGCSE notes, prepared by Dr. Hamdeni</p>
-  </div>
-
-  <!-- Section 4.1a -->
-  <div class="section">
-    <h2>4.1a</h2>
-    <ul>
-      <li>
-        <span class="official-note"><span class="keyword" data-tooltip="a series of instructions written in a programming language that performs a function">Software</span> is a set of instructions that tells a computer what to do and allows the user to do useful tasks on devices such as PCs, laptops, tablets, or mobile phones.</span>
-      </li>
-      <li>
-        <span class="official-note">Without <span class="keyword" data-tooltip="a series of instructions written in a programming language that performs a function">software</span>, the hardware itself cannot do anything meaningful.</span>
-      </li>
-      <li>
-        <span class="official-note">There are two main types of <span class="keyword" data-tooltip="a series of instructions written in a programming language that performs a function">software</span>: system <span class="keyword" data-tooltip="a series of instructions written in a programming language that performs a function">software</span> and <span class="keyword" data-tooltip="software that allows the user to perform a useful task">application software</span>.</span>
-        <ul>
-          <li><span class="official-note"><span class="keyword" data-tooltip="a type of software that manages the hardware and software in a computer">System software</span> manages the running of hardware and other <span class="keyword" data-tooltip="a series of instructions written in a programming language that performs a function">software</span> and provides a platform on which other <span class="keyword" data-tooltip="a series of instructions written in a programming language that performs a function">software</span> can run. It ensures that hardware and <span class="keyword" data-tooltip="a series of instructions written in a programming language that performs a function">software</span> work properly together and maintains efficiency.</span></li>
-          <li><span class="official-note"><span class="keyword" data-tooltip="software that allows the user to perform a useful task">Application software</span> allows users to perform specific tasks like writing letters or analyzing data. It can be a single program or a suite.</span></li>
-        </ul>
-      </li>
-      <li>
-        <span class="official-note">Typical examples of <span class="keyword" data-tooltip="a type of software that manages the hardware and software in a computer">system software</span> include:</span>
-        <ul>
-          <li><span class="official-note">Device <span class="keyword" data-tooltip="a program that controls a device, for example, a printer or a keyboard">drivers</span> enable <span class="keyword" data-tooltip="a hardware device, used to input, store or output data from a computer, that is not directly part of the computer itself">peripherals</span> to communicate with the operating system.</span></li>
-          <li><span class="official-note">Utility programs carry out maintenance tasks such as virus checking, backups, disk repair, file compression, and <span class="keyword" data-tooltip="the part of an operating system that ensures the integrity, confidentiality and availability of data">security management</span>.</span></li>
-          <li><span class="official-note">The operating system manages basic functions like input/output, error handling, running programs, and security.</span></li>
-        </ul>
-      </li>
-      <li>
-        <span class="official-note">Typical examples of <span class="keyword" data-tooltip="software that allows the user to perform a useful task">application software</span> include:</span>
-        <ul>
-          <li><span class="official-note"><span class="keyword" data-tooltip="a type of application software that allows the user to create text-based documents">Word processors</span> create and edit text documents, allowing tools like formatting, spell checking, and importing images.</span></li>
-          <li><span class="official-note"><span class="keyword" data-tooltip="a type of application software that performs calculations on data">Spreadsheets</span> organize numerical data into rows and columns, performing calculations using formulas and providing graphs.</span></li>
-          <li><span class="official-note"><span class="keyword" data-tooltip="an example of application software to store and manipulate data">Databases</span> store and analyze data using tables, allowing users to query, modify, and report on the data.</span></li>
-          <li><span class="official-note"><span class="keyword" data-tooltip="a piece of software that retrieves and displays web pages">Web browsers</span> retrieve, display, and navigate web pages.</span></li>
-        </ul>
-      </li>
-    </ul>
-    <ul class="no-bullets">
-      <li><div class="example-box">Defragmentation: A defragmenter rearranges fragmented file pieces so that they are stored contiguously on a disk. This reduces the movement of the disk's read-write head, which improves file access speed and overall computer performance.</div></li>
-      <li><div class="example-box">Example: Using a Printer — When you plug in a new printer, the device driver (system software) ensures the OS and printer can communicate, letting applications print.</div></li>
-      <li><div class="example-box">Common applications like word processors or web browsers can run on various devices such as PCs, tablets, or smartphones, performing the same basic tasks across different platforms.</div></li>
-      <li><span class="fun-tip">Think of system software as the “invisible stage crew” of a play. They handle lights, curtains, and props (hardware and drivers) so the actors (applications) can perform for the audience (you) without any chaos. Without the stage crew, the actors would be standing in the dark, confused!</span></li>
-    </ul>
-    <div class="button-group">
-      <button class="keyword-button" onclick="openPopupK('4.1a')">
+<div class="header-container">
+<img alt="Syllabus Update" class="top-right-icon" src="../syllabus.png"/>
+<div class="title-row">
+<h1 class="section-title">4.1 Hardware and Software</h1>
+</div>
+<div class="title-underline"></div>
+<p class="section-subtitle">Computer Science IGCSE notes, prepared by Dr. Hamdeni</p>
+</div>
+<!-- Section 4.1a -->
+<div class="section">
+<h2>4.1a: Difference between system software and application software</h2>
+<ul>
+<li>
+<span class="official-note"><span class="keyword" data-tooltip="a series of instructions written in a programming language that performs a function">Software</span> is a set of instructions that tells a computer what to do and allows the user to do useful tasks on devices such as PCs, laptops, tablets, or mobile phones.</span>
+</li>
+<li>
+<span class="official-note">Without <span class="keyword">software</span>, the hardware itself cannot do anything meaningful.</span>
+</li>
+<li><span class="official-note"><span class="keyword" data-tooltip="a type of software that manages the hardware and software in a computer">System software</span> manages the running of hardware and other <span class="keyword">software</span>.</span>
+<ul>
+<li><span class="official-note">It allows communication between these components.</span></li>
+<li><span class="official-note">It provides a platform on which other <span class="keyword">software</span> can run.</span></li>
+<li><span class="official-note">It helps hardware and <span class="keyword">software</span> work properly together and maintains efficiency.</span></li>
+</ul>
+</li>
+<li>
+<span class="official-note">System software helps the computer run, while application software helps the user perform tasks.</span>
+</li>
+<li><span class="official-note">Utility programs carry out maintenance tasks such as virus checking, backups, disk repair, file compression, and <span class="keyword" data-tooltip="the part of an operating system that ensures the integrity, confidentiality and availability of data">security management</span>.</span>
+<ul>
+<li><span class="official-note">System clean-up searches for and removes unused programs and data.</span></li>
+<li><span class="official-note">Defragmentation rearranges files so that they are stored contiguously and the free spaces are located together.</span></li>
+</ul>
+</li>
+<li>
+<span class="official-note">Typical examples of <span class="keyword">application software</span> include generic software names. Application software may also have brand names:</span>
+<ul>
+<li><span class="official-note"><span class="keyword" data-tooltip="a type of application software that allows the user to create text-based documents">Word processors</span> create and edit text documents, allowing tools like formatting, spell checking, and importing images.</span></li>
+<li><span class="official-note"><span class="keyword" data-tooltip="a type of application software that performs calculations on data">Spreadsheets</span> organize numerical data into rows and columns, performing calculations using formulas and providing graphs.</span></li>
+<li><span class="official-note"><span class="keyword" data-tooltip="an example of application software to store and manipulate data">Databases</span> store and analyze data using tables, allowing users to query, modify, and report on the data.</span></li>
+<li><span class="official-note"><span class="keyword" data-tooltip="a piece of software that retrieves and displays web pages">Web browsers</span> retrieve, display, and navigate web pages.</span></li>
+</ul>
+</li>
+</ul>
+<div class="diagram-block">
+<img alt="Diagram showing hardware, system software, and application software" class="diagram-img diagram-wide" src="software and hardware.png"/>
+</div>
+<ul class="no-bullets">
+<li><div class="example-box">Example: Defragmentation. A defragmenter rearranges fragmented file pieces so that they are stored contiguously on a disk. This reduces the movement of the disk's read-write head, which improves file access speed and overall computer performance.</div></li>
+<li><div class="example-box">Example: Using a printer. When you plug in a new printer, the device driver (system software) ensures the OS and printer can communicate, letting applications print.</div></li>
+<li><div class="example-box">Example: Application software on different devices. Common applications like word processors or web browsers can run on various devices such as PCs, tablets, or smartphones, performing the same basic tasks across different platforms.</div></li>
+<li><span class="fun-tip">Think of system software as the “invisible stage crew” of a play. They handle lights, curtains, and props (hardware and drivers) so the actors (applications) can perform for the audience (you) without any chaos. Without the stage crew, the actors would be standing in the dark, confused!</span></li>
+</ul>
+<div class="button-group">
+<button class="keyword-button" onclick="openPopupK('4.1a')">
         🔑 View Keywords on This Topic 🔑
       </button>
-      <button class="exam-button" onclick="openPopupQ('4.1a')">
+<button class="exam-button" onclick="openPopupQ('4.1a')">
         👁️ Quick Look at Exam Questions on This Topic 👁️
       </button>
-    </div>
-  </div>
-
-  <!-- Section 4.1b -->
-  <div class="section">
-    <h2>4.1b</h2>
-    <ul>
-      <li>
-        <span class="official-note">An operating system (OS) is <span class="keyword" data-tooltip="a type of software that manages the hardware and software in a computer">system software</span> that lets users interact with hardware and manages computer operations. Examples include Windows, Mac OS, Android, and iOS.</span>
-      </li>
-      <li>
-        <span class="official-note">The OS provides a user <span class="keyword" data-tooltip="the method by which a user communicates with a computer">interface</span> allowing data input and output. There are different types of interfaces:</span>
-        <ul>
-          <li><span class="official-note">A Graphical User <span class="keyword" data-tooltip="the method by which a user communicates with a computer">Interface</span> (GUI) uses visual elements like windows, icons, menus, and pointers, making it easy and intuitive for beginners.</span></li>
-          <li><span class="official-note">A <span class="keyword" data-tooltip="a type of operating system where the user types commands">Command Line Interface</span> (CLI) requires users to type exact text commands, suitable for advanced users needing precise system control.</span></li>
-          <li><span class="official-note">A <span class="keyword" data-tooltip="a type of operating system that allows the user to type or speak commands">Natural Language Interface</span> allows users to type or speak normally, and the OS interprets these commands without requiring exact syntax.</span></li>
-        </ul>
-      </li>
-      <li>
-        <span class="official-note">The operating system manages files, including creating, opening, deleting, renaming, copying, moving, and organizing files and folders.</span>
-      </li>
-      <li>
-        <span class="official-note">The OS manages <span class="keyword" data-tooltip="a hardware device, used to input, store or output data from a computer, that is not directly part of the computer itself">peripherals</span> through device drivers, <span class="keyword" data-tooltip="a series of instructions written in a programming language that performs a function">software</span> that translates data between the hardware and OS. Without drivers, <span class="keyword" data-tooltip="a hardware device, used to input, store or output data from a computer, that is not directly part of the computer itself">peripherals</span> cannot function properly.</span>
-      </li>
-      <li>
-        <span class="official-note">The OS manages memory by controlling data movement between RAM (Random Access Memory, a type of temporary storage) and permanent storage, ensuring applications have enough memory, and preventing memory conflicts.</span>
-        <ul>
-          <li><span class="official-note">Managing memory involves allocating memory to different processes, preventing processes from accessing each other’s memory, and freeing up memory when processes complete.</span></li>
-        </ul>
-      </li>
-      <li>
-        <span class="official-note">The OS manages <span class="keyword" data-tooltip="a function that allows a computer to process more than one task/process at a time">multitasking</span> by allowing multiple applications to run simultaneously, allocating resources efficiently, and switching tasks as needed.</span>
-      </li>
-      <li>
-        <span class="official-note">The <span class="keyword" data-tooltip="a program that manages the computer, allows the user to communicate with the computer, and allows software to be run">OS</span> manages system security, user accounts, and access rights. It applies updates, manages antivirus <span class="keyword" data-tooltip="a series of instructions written in a programming language that performs a function">software</span>, firewalls, user permissions, and data protection.</span>
-        <ul>
-          <li><span class="official-note">The OS also helps recover data if files become lost or corrupted, thanks to built-in backup and restore tools.</span></li>
-        </ul>
-      </li>
-      <li>
-        <span class="official-note">The OS provides a platform for running applications by loading applications into memory and managing their execution.</span>
-      </li>
-    </ul>
-    <ul class="no-bullets">
-      <li><div class="example-box">Voice assistants like Amazon's Alexa or Apple's Siri allow users to speak normal commands, interpreting the spoken words to carry out tasks without requiring technical commands or syntax knowledge.</div></li>
-      <li><div class="example-box">Memory conflict prevention: The OS stops a game and a word processor from overwriting each other’s data in RAM.</div></li>
-      <li><span class="fun-tip">Imagine your OS as a super-busy party host. It takes coats (stores files), introduces guests (connects devices), stops arguments (memory conflicts), and ensures everyone gets a slice of cake (CPU time). And when the music stops suddenly, that’s an “interrupt” telling the host to fix the speaker!</span></li>
-    </ul>
-    <div class="button-group">
-      <button class="keyword-button" onclick="openPopupK('4.1b')">
+</div>
+</div>
+<!-- Section 4.1b -->
+<div class="section">
+<h2>4.1b role and basic functions of an operating system</h2>
+<ul>
+<li><span class="official-note">An operating system (OS) is <span class="keyword">system software</span> that lets users interact with hardware and manages computer operations.</span></li><li><span class="official-note">Examples include Windows, Linux, macOS, Android, and iOS.</span></li><li><span class="official-note">The overall purpose of the OS is to allow the user to interact with the hardware.</span></li>
+<li>
+<span class="official-note">The OS provides a user <span class="keyword" data-tooltip="the method by which a user communicates with a computer">interface</span> allowing data input and output. There are different types of interfaces:</span>
+<ul>
+<li><span class="official-note">A Graphical User <span class="keyword">Interface</span> (GUI) uses visual elements like windows, icons, menus, and pointers (WIMP), making it easy and intuitive for beginners. An example is Windows.</span></li>
+<li><span class="official-note">A <span class="keyword" data-tooltip="a type of operating system where the user types commands">Command Line Interface</span> (CLI) requires users to type exact text commands, suitable for advanced users needing precise system control. An example is Linux.</span></li>
+<li><span class="official-note">A <span class="keyword" data-tooltip="a type of operating system that allows the user to type or speak commands">Natural Language Interface</span> allows users to type or speak normally, and the OS interprets these commands without requiring exact syntax.</span></li>
+</ul>
+</li>
+<li><span class="official-note">The operating system manages files, including creating, opening, deleting, renaming, copying, moving, and organizing files and folders.</span></li><li><span class="official-note">It also allows the creation of directories that files can be stored within.</span></li><li><span class="official-note">It allows actions such as sorting files by date.</span></li>
+<li><span class="official-note">The OS manages <span class="keyword" data-tooltip="a hardware device, used to input, store or output data from a computer, that is not directly part of the computer itself">peripherals</span> through device drivers.</span>
+<ul>
+<li><span class="official-note">A device driver is <span class="keyword">software</span> that translates data from the computer to the peripheral, and vice versa.</span></li>
+<li><span class="official-note">The OS allows the installation of these drivers and the sending of data to and from the peripheral.</span></li>
+<li><span class="official-note">Without drivers, <span class="keyword">peripherals</span> cannot function properly.</span></li>
+</ul>
+</li>
+<li><span class="official-note">The OS manages memory by controlling data movement between RAM (Random Access Memory, a type of temporary storage) and permanent storage.</span></li><li><span class="official-note">It ensures applications have enough memory and prevents memory conflicts.</span>
+<ul>
+<li><span class="official-note">Managing memory involves allocating memory to different processes.</span></li>
+<li><span class="official-note">It prevents processes from accessing each other’s memory.</span></li>
+<li><span class="official-note">It frees up memory when processes complete.</span></li>
+</ul>
+</li>
+<li>
+<span class="official-note">The OS manages <span class="keyword" data-tooltip="a function that allows a computer to process more than one task/process at a time">multitasking</span> by allowing multiple applications to run simultaneously, allocating resources efficiently, and switching tasks as needed.</span>
+<ul>
+<li><span class="official-note">A single processor can only execute one instruction at a time, but it does this so fast that it appears to be doing several tasks at once.</span></li>
+<li><span class="official-note">The OS decides which processes should be executed next and how long they can spend being processed before switching to another process.</span></li>
+</ul>
+</li>
+<li><span class="official-note">The <span class="keyword" data-tooltip="a program that manages the computer, allows the user to communicate with the computer, and allows software to be run">OS</span> manages system security, user accounts, and access rights.</span>
+<ul>
+<li><span class="official-note">It applies updates, manages antivirus <span class="keyword">software</span>, firewalls, user permissions, and data protection.</span></li>
+<li><span class="official-note">It allows a user to set up an account, including preferences as well as a username and password, which may be text-based and/or biometric.</span></li>
+<li><span class="official-note">It keeps data separate for multiple accounts and restricts access using the password.</span></li>
+<li><span class="official-note">The OS also helps recover data if files become lost or corrupted, thanks to built-in backup and restore tools.</span></li>
+</ul>
+</li>
+<li><span class="official-note">The OS provides a platform for running applications by loading applications into memory and managing their execution.</span></li><li><span class="official-note">It allows application software to run on the computer by fetching instructions from it and executing them.</span></li>
+</ul>
+<div class="diagram-block">
+<img alt="Diagram showing the main roles of the operating system" class="diagram-img diagram-medium" src="operating system.png"/>
+</div>
+<ul class="no-bullets">
+<li><div class="example-box">Example: Voice assistants. Voice assistants like Amazon's Alexa or Apple's Siri interpret spoken words and carry out tasks without requiring technical commands or exact syntax.</div></li>
+<li><div class="example-box">Example: Memory conflict prevention. The OS stops a game and a word processor from overwriting each other’s data in RAM.</div></li>
+<li><span class="fun-tip">Imagine your OS as a super-busy party host. It takes coats (stores files), introduces guests (connects devices), stops arguments (memory conflicts), and ensures everyone gets a slice of cake (CPU time). And when the music stops suddenly, that’s an “interrupt” telling the host to fix the speaker!</span></li>
+</ul>
+<div class="button-group">
+<button class="keyword-button" onclick="openPopupK('4.1b')">
         🔑 View Keywords on This Topic 🔑
       </button>
-      <button class="exam-button" onclick="openPopupQ('4.1b')">
+<button class="exam-button" onclick="openPopupQ('4.1b')">
         👁️ Quick Look at Exam Questions on This Topic 👁️
       </button>
-    </div>
-  </div>
-
-  <!-- Section 4.1c -->
-  <div class="section">
-    <h2>4.1c</h2>
-    <ul>
-      <li>
-        <span class="official-note">Applications run on the operating system; the operating system runs on firmware; firmware is loaded through a <span class="keyword" data-tooltip="the first commands loaded when a computer starts, it checks hardware and loads the firmware">bootstrap</span> process when the computer starts.</span>
-      </li>
-      <li>
-        <span class="official-note">Firmware is <span class="keyword" data-tooltip="a series of instructions written in a programming language that performs a function">software</span> stored permanently in Read-Only Memory (ROM), a type of memory whose contents cannot be easily altered. Firmware is executed when the computer starts to locate and load the OS.</span>
-        <ul>
-          <li><span class="official-note"><span class="keyword" data-tooltip="a program that provides low level control for devices">Firmware</span> stores instructions to start the computer (boot up), provides the operating system with a platform to run on, and manages communication with hardware.</span></li>
-        </ul>
-      </li>
-      <li>
-        <span class="official-note">The <span class="keyword" data-tooltip="a program that provides low level control for devices">BIOS</span> (Basic Input/Output System) is <span class="keyword" data-tooltip="a program that provides low level control for devices">firmware</span> stored in EEPROM (Electrically Erasable Programmable Read-Only Memory, a type of memory that can be reprogrammed with electrical charge). BIOS provides low-level control for hardware devices and loads the OS when the computer starts.</span>
-      </li>
-      <li>
-        <span class="official-note">The <span class="keyword" data-tooltip="the first commands loaded when a computer starts, it checks hardware and loads the firmware">bootstrap</span> program is the first program executed when starting a computer, checking hardware components, and loading firmware.</span>
-        <ul>
-          <li><span class="official-note">On phones and tablets, the OS is stored in solid-state memory, not a hard drive, but the startup process is similar.</span></li>
-        </ul>
-      </li>
-    </ul>
-    <ul class="no-bullets">
-      <li><div class="example-box">Examples of firmware include the Bootstrap program, Bootloader, BIOS, and operating systems in embedded devices.</div></li>
-      <li><span class="fun-tip">Booting up your computer is like waking up a sleepy robot. First, its “alarm clock” (bootstrap) nudges it awake. Then, the robot remembers basic routines (firmware), and finally, it puts on clothes and starts working (OS loads and applications run).</span></li>
-    </ul>
-    <div class="button-group">
-      <button class="keyword-button" onclick="openPopupK('4.1c')">
+</div>
+</div>
+<!-- Section 4.1c -->
+<div class="section">
+<h2>4.1c How hardware, firmware and an operating system are required to run applications software</h2>
+<ul>
+<li><span class="official-note">Application software runs on the operating system.</span></li><li><span class="official-note">The operating system runs using instructions provided by the <span class="keyword" data-tooltip="a program that provides low level control for devices">firmware</span>.</span></li><li><span class="official-note">The <span class="keyword">firmware</span> is loaded through the <span class="keyword" data-tooltip="the first commands loaded when a computer starts, it checks hardware and loads the firmware">bootstrap</span> process when the computer first turns on.</span>
+<ul>
+<li><span class="official-note">Start-up sequence:</span></li>
+<li><span class="official-note">1. <span class="keyword">Bootstrap</span> starts when the computer is turned on.</span></li>
+<li><span class="official-note">2. <span class="keyword">Bootstrap</span> checks hardware and loads the <span class="keyword">firmware</span>.</span></li>
+<li><span class="official-note">3. <span class="keyword">Firmware</span> helps load the operating system.</span></li>
+<li><span class="official-note">4. The operating system allows application software to run.</span></li>
+</ul>
+</li>
+<li><span class="official-note"><span class="keyword">Firmware</span> is <span class="keyword">software</span> stored permanently in Read-Only Memory (ROM), a type of memory whose contents cannot be easily altered.</span>
+<ul>
+<li><span class="official-note">It consists of instructions stored in the ROM and loaded when the computer starts.</span></li>
+<li><span class="official-note">It is executed when the computer starts to help locate and load the OS.</span></li>
+<li><span class="official-note"><span class="keyword">Firmware</span> stores instructions to start the computer (boot up), provides the operating system with a platform to run on, and manages communication with hardware.</span></li>
+</ul>
+</li>
+<li><span class="official-note">The <span class="keyword" data-tooltip="a program that provides low level control for devices">BIOS</span> (Basic Input/Output System) is <span class="keyword">firmware</span> stored in EEPROM (Electrically Erasable Programmable Read-Only Memory), a type of memory that can be reprogrammed with electrical charge.</span></li><li><span class="official-note">BIOS provides low-level control for hardware devices and loads the OS when the computer starts.</span></li>
+<li><span class="official-note">The <span class="keyword">bootstrap</span> program is the first program executed when starting a computer.</span></li><li><span class="official-note">It checks hardware components and loads firmware.</span>
+<ul>
+<li><span class="official-note">On phones and tablets, the OS is stored in solid-state memory, not a hard drive, but the startup process is similar.</span></li>
+</ul>
+</li>
+</ul>
+<div class="diagram-block">
+<img alt="Diagram showing that application software runs on the operating system, which runs on firmware, which is loaded by the bootstrap" class="diagram-img diagram-narrow" src="software of a computer.png"/>
+</div>
+<ul class="no-bullets">
+<li><div class="example-box">Reminder: Do not confuse firmware with the operating system. Firmware helps start the system, while the operating system manages the computer after start-up.</div></li>
+<li><div class="example-box">Example: Firmware. Examples of firmware include the Bootstrap program, Bootloader, BIOS, and operating systems in embedded devices.</div></li>
+<li><span class="fun-tip">Booting up your computer is like waking up a sleepy robot. First, its “alarm clock” (bootstrap) nudges it awake. Then, the robot remembers basic routines (firmware), and finally, it puts on clothes and starts working (OS loads and applications run).</span></li>
+</ul>
+<div class="button-group">
+<button class="keyword-button" onclick="openPopupK('4.1c')">
         🔑 View Keywords on This Topic 🔑
       </button>
-      <button class="exam-button" onclick="openPopupQ('4.1c')">
+<button class="exam-button" onclick="openPopupQ('4.1c')">
         👁️ Quick Look at Exam Questions on This Topic 👁️
       </button>
-    </div>
-  </div>
-
-  <!-- Section 4.1d -->
-  <div class="section">
-    <h2>4.1d</h2>
-    <ul>
-      <li>
-        <span class="official-note">An <span class="keyword" data-tooltip="a signal sent to the processor to tell it that its attention is required">interrupt</span> is a signal from hardware or <span class="keyword" data-tooltip="a series of instructions written in a programming language that performs a function">software</span> that temporarily stops a processor’s current task to handle the interrupt.</span>
-      </li>
-      <li>
-        <span class="official-note"><span class="keyword" data-tooltip="a signal sent to the processor to tell it that its attention is required">Interrupts</span> can be categorized into <span class="keyword" data-tooltip="a series of instructions written in a programming language that performs a function">software</span> and hardware interrupts:</span>
-        <ul>
-          <li><span class="official-note">A common hardware <span class="keyword" data-tooltip="a signal sent to the processor to tell it that its attention is required">interrupt</span> example is pressing a key on the keyboard or clicking/moving a mouse.</span></li>
-          <li><span class="official-note"><span class="keyword" data-tooltip="a series of instructions written in a programming language that performs a function">Software</span> interrupts examples include division by zero, simultaneous memory access by processes, or <span class="keyword" data-tooltip="a series of instructions written in a programming language that performs a function">software</span> requesting user input.</span></li>
-          <li><span class="official-note">Hardware <span class="keyword" data-tooltip="a signal sent to the processor to tell it that its attention is required">interrupts</span> examples include pressing keyboard keys, mouse clicks, hardware errors, or connecting new devices.</span></li>
-        </ul>
-      </li>
-      <li>
-        <span class="official-note"><span class="keyword" data-tooltip="a signal sent to the processor to tell it that its attention is required">Interrupts</span> have different priority levels. High-priority interrupts (e.g., hardware failures) are addressed immediately, whereas low-priority interrupts (e.g., key presses) are queued.</span>
-      </li>
-      <li>
-        <span class="official-note">When an <span class="keyword" data-tooltip="a signal sent to the processor to tell it that its attention is required">interrupt</span> occurs:</span>
-        <ul>
-          <li><span class="official-note">It is placed in the <span class="keyword" data-tooltip="the priority assigned to an interrupt are given a priority so that the microprocessor knows which one needs to be serviced first and which interrupts are to be dealt with quickly">interrupt priority</span> queue. The processor finishes its current fetch-decode-execute cycle and then checks the queue.</span></li>
-          <li><span class="official-note">If a higher priority <span class="keyword" data-tooltip="a signal sent to the processor to tell it that its attention is required">interrupt</span> is detected, the current process is saved on the stack, the interrupt source is checked, and the appropriate Interrupt Service Routine (ISR) is called.</span></li>
-          <li><span class="official-note">Once the ISR completes, the processor retrieves the previous process from the stack and continues execution.</span></li>
-          <li><span class="official-note">The processor saves the current task status (program counter and registers).</span></li>
-          <li><span class="official-note">It executes the <span class="keyword" data-tooltip="a signal sent to the processor to tell it that its attention is required">interrupt</span> service routine (ISR) to address the interrupt.</span></li>
-          <li><span class="official-note">After completion, it restores the saved status to continue the interrupted task.</span></li>
-        </ul>
-      </li>
-      <li>
-        <span class="official-note"><span class="keyword" data-tooltip="a memory area used to store data temporarily">Buffers</span> are temporary memory storage used alongside interrupts to manage data transfer between fast and slow devices, allowing smoother <span class="keyword" data-tooltip="a function that allows a computer to process more than one task/process at a time">multitasking</span>.</span>
-      </li>
-    </ul>
-    <ul class="no-bullets">
-      <li><div class="example-box">Buffer use: When downloading media while playing it simultaneously, buffers temporarily store incoming data. This ensures continuous playback even if data arrives unevenly, providing a smooth user experience.</div></li>
-      <li><div class="example-box">Printing process: Printing uses buffers to temporarily store print data and interrupts to manage data flow. This allows the processor to perform other tasks while the printer processes data, avoiding idle processor time and enhancing efficiency.</div></li>
-      <li><span class="fun-tip">Interrupts are like someone shouting “Pizza delivery!” during a boring lecture. The teacher (CPU) pauses the topic, checks the door, handles the delivery (ISR), and then goes back to teaching as if nothing happened.</span></li>
-    </ul>
-    <div class="button-group">
-      <button class="keyword-button" onclick="openPopupK('4.1d')">
+</div>
+</div>
+<!-- Section 4.1d -->
+<div class="section">
+<h2>4.1d Role and operation of interrupts</h2>
+<ul>
+<li>
+<span class="official-note">An <span class="keyword" data-tooltip="a signal sent to the processor to tell it that its attention is required">interrupt</span> is a signal from hardware or <span class="keyword">software</span> that temporarily stops a processor’s current task to handle the interrupt.</span>
+</li>
+<li><span class="official-note"><span class="keyword" data-tooltip="a signal sent to the processor to tell it that its attention is required">Interrupts</span> can be categorized into <span class="keyword">software</span> interrupts and hardware interrupts.</span>
+<ul>
+<li><span class="official-note">A common hardware <span class="keyword">interrupt</span> example is pressing a key on the keyboard or clicking or moving a mouse.</span></li>
+<li><span class="official-note"><span class="keyword">Software</span> interrupt examples include division by zero, two processes attempting to access the same memory location, <span class="keyword">software</span> requesting user input, output required, and data required from memory.</span></li>
+<li><span class="official-note">Hardware <span class="keyword">interrupt</span> examples include pressing keyboard keys, mouse clicks, hardware errors such as a printer running out of paper, hardware failure, a hard drive signal that it has read data, and connecting a new hardware device.</span></li>
+</ul>
+</li>
+<li><span class="official-note"><span class="keyword">Interrupts</span> have different priority levels.</span></li><li><span class="official-note">High-priority interrupts, such as hardware failures, are addressed immediately, whereas low-priority interrupts, such as key presses, are queued.</span></li><li><span class="official-note">This prioritization is managed by the interrupt handler (IH), which organises interrupts by priority.</span></li>
+<li>
+<span class="official-note">In simple terms, an <span class="keyword">interrupt</span> tells the processor to pause its current work and deal with something that needs attention.</span>
+</li>
+<li>
+<span class="official-note">Interrupt process:</span>
+<ul>
+<li><span class="official-note">1. An <span class="keyword">interrupt</span> is generated.</span></li>
+<li><span class="official-note">2. It is placed in the <span class="keyword" data-tooltip="the priority assigned to an interrupt are given a priority so that the microprocessor knows which one needs to be serviced first and which interrupts are to be dealt with quickly">interrupt priority</span> queue according to priority.</span></li>
+<li><span class="official-note">3. The processor finishes its current fetch-decode-execute cycle, or checks before starting the next FDE cycle, and then checks the queue.</span></li>
+<li><span class="official-note">4. If the <span class="keyword">interrupt</span> has a higher priority than the current task, the current process is saved and the source of the <span class="keyword">interrupt</span> is checked.</span></li>
+<li><span class="official-note">5. The interrupt service routine (ISR), which handles the <span class="keyword">interrupt</span>, is called.</span></li>
+<li><span class="official-note">6. When the ISR finishes, the processor resumes the previous process, or fetches another higher-priority <span class="keyword">interrupt</span> if needed.</span></li>
+<li><span class="official-note">7. If there is no higher-priority <span class="keyword">interrupt</span>, the processor simply runs another FDE cycle.</span></li>
+</ul>
+</li>
+<li><span class="official-note"><span class="keyword" data-tooltip="a memory area used to store data temporarily">Buffers</span> are temporary memory storage used alongside interrupts to manage data transfer between fast and slow devices.</span></li><li><span class="official-note">They allow smoother <span class="keyword">multitasking</span>.</span></li>
+</ul>
+<div class="diagram-block">
+<img alt="Flowchart showing the interrupt handling process" class="diagram-img diagram-wide" src="interrupt.png"/>
+</div>
+<ul class="no-bullets">
+<li><div class="example-box">Example: Buffer use. When downloading media while playing it simultaneously, buffers temporarily store incoming data. This ensures continuous playback even if data arrives unevenly, providing a smooth user experience.</div></li>
+<li><div class="example-box">Example: Printing process. Printing uses buffers to temporarily store print data and interrupts to manage data flow. This allows the processor to perform other tasks while the printer processes data, avoiding idle processor time and enhancing efficiency.</div></li>
+<li><span class="fun-tip">Interrupts are like someone shouting “Pizza delivery!” during a boring lecture. The teacher (CPU) pauses the topic, checks the door, handles the delivery (ISR), and then goes back to teaching as if nothing happened.</span></li>
+</ul>
+<div class="button-group">
+<button class="keyword-button" onclick="openPopupK('4.1d')">
         🔑 View Keywords on This Topic 🔑
       </button>
-      <button class="exam-button" onclick="openPopupQ('4.1d')">
+<button class="exam-button" onclick="openPopupQ('4.1d')">
         👁️ Quick Look at Exam Questions on This Topic 👁️
       </button>
-    </div>
-  </div>
-
-  <script src="popup-script.js"></script>
-  <script>
+</div>
+</div>
+<script src="popup-script.js"></script>
+<script>
     window.addEventListener('load', function() {
       var height = document.body.scrollHeight;
       window.parent.postMessage({type: 'resize', height: height}, '*');
