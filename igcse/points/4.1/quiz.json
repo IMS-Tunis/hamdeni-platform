@@ -3,24 +3,34 @@
     {
       "type": "mcq",
       "question": "Which of the following best describes system software?",
-      "options": [],
+      "options": [
+        "A) Software used only to browse the web",
+        "B) Software that manages hardware and provides a platform for other software",
+        "C) Software designed only for games and entertainment",
+        "D) Software stored permanently in ROM to start the computer"
+      ],
       "answer": "B) Software that manages hardware and provides a platform for other software"
-    },
-    {
-      "type": "fill_blank",
-      "question": "__________ are programs that enable peripherals to communicate with the operating system.",
-      "answer": "Device drivers"
     },
     {
       "type": "mcq",
       "question": "Which of these is NOT an example of application software?",
-      "options": [],
+      "options": [
+        "A) Word processor",
+        "B) Web browser",
+        "C) Device driver",
+        "D) Spreadsheet"
+      ],
       "answer": "C) Device driver"
     },
     {
       "type": "match",
       "question": "Match the terms",
-      "pairs": {}
+      "pairs": {
+        "System software": "Manages hardware and other software",
+        "Application software": "Helps the user perform specific tasks",
+        "Firmware": "Software stored permanently in ROM or EEPROM that helps start the computer",
+        "Interrupt": "Signal that temporarily stops the current task so the processor can handle an event"
+      }
     },
     {
       "type": "true_false",
@@ -30,69 +40,79 @@
     {
       "type": "mcq",
       "question": "Which of the following is NOT a main function of an operating system?",
-      "options": [],
+      "options": [
+        "A) Managing files and folders",
+        "B) Providing web search engines",
+        "C) Managing memory",
+        "D) Controlling peripherals through drivers"
+      ],
       "answer": "B) Providing web search engines"
     },
     {
       "type": "mcq",
       "question": "Which interface uses visual elements like windows and icons?",
-      "options": [],
+      "options": [
+        "A) Command Line Interface",
+        "B) Natural Language Interface",
+        "C) Graphical User Interface",
+        "D) Device driver"
+      ],
       "answer": "C) Graphical User Interface"
     },
     {
       "type": "mcq",
       "question": "A Command Line Interface (CLI) is best suited for which type of user?",
-      "options": [],
+      "options": [
+        "A) Beginners who only use pictures and icons",
+        "B) Advanced users who need precise control",
+        "C) Users who do not need to enter commands",
+        "D) People who only use touchscreens"
+      ],
       "answer": "B) Advanced users who need precise control"
     },
     {
       "type": "mcq",
       "question": "Which feature of an OS allows multiple applications to run at the same time?",
-      "options": [],
+      "options": [
+        "A) Buffering",
+        "B) Multitasking",
+        "C) Defragmentation",
+        "D) Encryption"
+      ],
       "answer": "B) Multitasking"
-    },
-    {
-      "type": "fill_blank",
-      "question": "The operating system manages memory by controlling data movement between RAM and permanent storage, ensuring applications have enough resources.",
-      "answer": "memory"
-    },
-    {
-      "type": "fill_blank",
-      "question": "The OS manages __________ by creating, deleting, copying, moving, and organizing files and folders.",
-      "answer": "files"
-    },
-    {
-      "type": "fill_blank",
-      "question": "The operating system manages __________ accounts, access rights, antivirus, firewalls, and system updates.",
-      "answer": "user"
     },
     {
       "type": "mcq",
       "question": "The BIOS is an example of:",
-      "options": [],
+      "options": [
+        "A) Application software",
+        "B) Utility software",
+        "C) Device driver",
+        "D) Firmware"
+      ],
       "answer": "D) Firmware"
-    },
-    {
-      "type": "fill_blank",
-      "question": "Firmware is typically stored in __________ memory.",
-      "answer": "Read-Only"
     },
     {
       "type": "mcq",
       "question": "What is the first program executed when a computer starts?",
-      "options": [],
+      "options": [
+        "A) Device driver",
+        "B) Operating system",
+        "C) Interrupt service routine",
+        "D) Bootstrap program"
+      ],
       "answer": "D) Bootstrap program"
     },
     {
       "type": "mcq",
       "question": "What is the first thing that the processor does when an interrupt occurs?",
-      "options": [],
+      "options": [
+        "A) Finishes the current fetch-decode-execute cycle, then checks the interrupt priority queue",
+        "B) Deletes the current process from memory immediately",
+        "C) Shuts down all connected peripherals",
+        "D) Reloads the operating system from storage"
+      ],
       "answer": "A) Finishes the current fetch-decode-execute cycle, then checks the interrupt priority queue"
-    },
-    {
-      "type": "fill_blank",
-      "question": "An interrupt is handled by saving the task status, executing the appropriate __________, then restoring the original process.",
-      "answer": "Interrupt Service Routine (ISR)"
     },
     {
       "type": "true_false",
@@ -107,24 +127,29 @@
     {
       "type": "mcq",
       "question": "Which of the following is NOT listed as a function managed by the OS under system security?",
-      "options": [],
-      "answer": "c) Creating spreadsheets"
+      "options": [
+        "A) Managing user permissions",
+        "B) Applying updates",
+        "C) Creating spreadsheets",
+        "D) Managing antivirus software"
+      ],
+      "answer": "C) Creating spreadsheets"
     },
     {
       "type": "mcq",
       "question": "Which of the following would likely have the HIGHEST interrupt priority?",
-      "options": [],
-      "answer": "c) A hardware failure"
+      "options": [
+        "A) A key press",
+        "B) A mouse movement",
+        "C) A hardware failure",
+        "D) A request to print a document"
+      ],
+      "answer": "C) A hardware failure"
     },
     {
       "type": "fill_blank",
-      "question": "__________ programs carry out maintenance tasks such as virus checking, backups, disk repair, file compression, and security management.",
+      "question": "__________ software carry out maintenance tasks such as virus checking, backups, disk repair, file compression, and security management.",
       "answer": "Utility"
-    },
-    {
-      "type": "fill_blank",
-      "question": "A __________ Interface requires users to type exact text commands and is suitable for advanced users needing precise system control.",
-      "answer": "Command Line Interface (CLI)"
     },
     {
       "type": "true_false",
@@ -134,8 +159,13 @@
     {
       "type": "mcq",
       "question": "Which of the following is an example of a software interrupt?",
-      "options": [],
-      "answer": "c) Division by zero"
+      "options": [
+        "A) Mouse click",
+        "B) Printer out of paper",
+        "C) Division by zero",
+        "D) Connecting a new USB device"
+      ],
+      "answer": "C) Division by zero"
     }
   ]
 }
