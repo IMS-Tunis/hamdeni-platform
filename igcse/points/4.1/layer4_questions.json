@@ -4,14 +4,6 @@
     "answer": "System software provides the services that the computer requires (e.g., operating system, utility software).\nApplication software provides the services that the user requires (e.g., word processor, spreadsheet).\nAny two valid examples of each category.\n(Award 1 mark for difference + 1 mark for valid example of each type)"
   },
   {
-    "question": "Complete the statements about different types of software.",
-    "answer": "System\nApplication\nOperating\nHardware\n(1 mark for each correct term in the correct place)"
-  },
-  {
-    "question": "Complete the table by writing each missing OS function name and description.",
-    "answer": "Managing memory: allocates memory to processes, prevents two processes accessing the same memory\nPlatform for running applications: allows application software to run on the computer\nManaging peripherals: allocates data to buffers, transmits data to hardware, receives data from hardware\n(1 mark each for correct function and description)"
-  },
-  {
     "question": "Describe what is meant by managing memory.",
     "answer": "Allocating memory to different processes\nPreventing processes accessing each other’s memory\nFreeing up memory when processes complete\n(Award up to 2 marks for valid points)"
   },
