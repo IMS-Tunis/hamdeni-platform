@@ -1,7 +1,7 @@
 
 import { renderTheoryPoints } from "./modules/theoryRenderer.js";
 import { renderProgrammingLevels } from "./modules/levelRenderer.js";
-import { initializeLogin, fetchProgressCounts, verifyPlatform } from "./modules/supabase.js";
+import { initializeLogin, fetchProgressCounts, fetchStudentSubmissionLink, verifyPlatform } from "./modules/supabase.js";
 
 async function updateGeneralProgress() {
   const fill = document.querySelector(".general-progress-fill");
@@ -58,6 +58,37 @@ async function updateGeneralProgress() {
   console.debug('[dashboard] Progress percent', roundedPercent);
 }
 
+async function updateSubmissionFolderLink() {
+  const linkEl = document.getElementById("submission-folder-link");
+  if (!linkEl) return;
+
+  const username = localStorage.getItem("username");
+
+  if (!username) {
+    linkEl.classList.add("disabled");
+    linkEl.setAttribute("aria-disabled", "true");
+    linkEl.setAttribute("tabindex", "-1");
+    linkEl.removeAttribute("href");
+    return;
+  }
+
+  const submissionLink = await fetchStudentSubmissionLink();
+  if (!submissionLink) {
+    linkEl.classList.add("disabled");
+    linkEl.setAttribute("aria-disabled", "true");
+    linkEl.setAttribute("tabindex", "-1");
+    linkEl.removeAttribute("href");
+    return;
+  }
+
+  linkEl.classList.remove("disabled");
+  linkEl.setAttribute("href", submissionLink);
+  linkEl.setAttribute("target", "_blank");
+  linkEl.setAttribute("rel", "noopener noreferrer");
+  linkEl.setAttribute("aria-disabled", "false");
+  linkEl.removeAttribute("tabindex");
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   console.log("✅ DOM fully loaded, running dashboard.js");
 
@@ -67,6 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderProgrammingLevels();
   initializeLogin();
   updateGeneralProgress();
+  updateSubmissionFolderLink();
 
   const homeBtn = document.getElementById("home-btn");
   if (homeBtn) {
