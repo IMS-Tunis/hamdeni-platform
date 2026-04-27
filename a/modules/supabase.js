@@ -110,6 +110,51 @@ export async function fetchProgressCounts() {
   }
 }
 
+export async function fetchStudentSubmissionLink() {
+  const username = localStorage.getItem('username');
+  const studentId = localStorage.getItem('student_id');
+  const uuid = localStorage.getItem('uuid');
+
+  const identifiers = [
+    ['id', studentId],
+    ['username', username],
+    ['uuid', uuid]
+  ].filter(([, value]) => Boolean(value));
+
+  if (!identifiers.length) {
+    return '';
+  }
+
+  const base = `${SUPABASE_URL}/rest/v1`;
+
+  for (const [column, value] of identifiers) {
+    const encodedValue = encodeURIComponent(value);
+    try {
+      const response = await fetch(`${base}/students?select=Link&${column}=eq.${encodedValue}`, {
+        method: 'GET',
+        headers: {
+          apikey: SUPABASE_KEY,
+          Authorization: 'Bearer ' + SUPABASE_KEY
+        }
+      });
+
+      if (!response.ok) {
+        continue;
+      }
+
+      const data = await response.json();
+      const link = Array.isArray(data) && data.length ? data[0]?.Link : '';
+      if (link) {
+        return link;
+      }
+    } catch (err) {
+      console.warn(`[supabaseModule] Failed to fetch Link by ${column}:`, err);
+    }
+  }
+
+  return '';
+}
+
 export function initializeLogin() {
   console.log('[supabaseModule] Initializing login handlers');
   verifyPlatform();
