@@ -16,6 +16,23 @@
   <title>IGCSE Computer Science - 4.2 Programming Concepts</title>
   <link rel="stylesheet" href="../igcse-style.css">
 <script defer src="/assets/js/paste-guard.js"></script>
+
+<style>
+  .inline-illustrations {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px 0 2px;
+    flex-wrap: wrap;
+  }
+  .tiny-illustration {
+    width: 180px;
+    max-width: 42%;
+    height: auto;
+    border: 1px solid #d8d8d8;
+    border-radius: 6px;
+  }
+</style>
 </head>
 <body>
 
@@ -58,6 +75,11 @@
       <li><div class="example-box">Example: High-Level vs Low-Level Code<br>The high-level instruction `Sum := FirstNumber + SecondNumber` is simple and clear. In assembly language, the same task might require:<br>```<br>LDA First<br>ADD Second<br>STO Sum<br>```<br>In <span class="keyword" data-tooltip="binary code, an example of a low-level language.">machine code</span>, this would become a set of binary or hexadecimal instructions like `0001 00010010`. This shows how high-level code is much easier to read and write.</div></li>
       <li><span class="fun-tip">Think of high-level languages like giving instructions to a friend: “Make me a sandwich.” Low-level languages are like saying, “Take two slices of bread, open the peanut butter jar, use a knife...” : more precise, but definitely more work!</span></li>
     </ul>
+    <div class="inline-illustrations" aria-label="Language level illustrations">
+      <img src="./high vs low.jpg" alt="Example of high-level pseudocode" class="tiny-illustration">
+      <img src="./high-level-language" alt="Example of low-level style step-by-step logic" class="tiny-illustration">
+    </div>
+
     <div class="button-group">
       <button class="keyword-button" onclick="openPopupK('4.2a')">
         🔑 View Keywords on This Topic 🔑
