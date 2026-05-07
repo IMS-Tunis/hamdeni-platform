@@ -1,25 +1,7 @@
 {
   "questions": [
-    {
-      "type": "fill_blank",
-      "question": "• A _____ is a type of programming language that uses words similar to human language, such as \"if\", \"print\", or \"input\". These languages are designed to be easy to understand, write, and debug.",
-      "answer": "high-level language"
-    },
-    {
-      "type": "fill_blank",
-      "question": "– They are often _____, meaning they can run on different types of computers.",
-      "answer": "portable"
-    },
-    {
-      "type": "fill_blank",
-      "question": "– Examples of _____ include LDA (load), ADD (add), and STO (store), each of which performs a specific operation on memory or data.",
-      "answer": "mnemonics"
-    },
-    {
-      "type": "fill_blank",
-      "question": "– Interpreters are often used during development because they allow real-time testing and _____.",
-      "answer": "debugging"
-    },
+
+
     {
       "type": "mcq",
       "question": "What is the main purpose of a compiler?",
@@ -30,31 +12,6 @@
         "To debug a program during its execution.",
         "To write mnemonics in low-level programs."
       ]
-    },
-    {
-      "type": "fill_blank",
-      "question": "– A _____ program can run without needing the compiler or the original source code, making it suitable for distribution.",
-      "answer": "executable"
-    },
-    {
-      "type": "fill_blank",
-      "question": "– The built-in _____ in an IDE works together with tools like error diagnostics, version control, and code navigation to help programming.",
-      "answer": "translator"
-    },
-    {
-      "type": "fill_blank",
-      "question": "– **_____** suggests keywords or variables while typing.",
-      "answer": "auto-completion"
-    },
-    {
-      "type": "fill_blank",
-      "question": "– **_____** fixes common typing or syntax mistakes.",
-      "answer": "auto-correction"
-    },
-    {
-      "type": "fill_blank",
-      "question": "– **_____** formats code and uses colors to make it easier to read.",
-      "answer": "prettyprinting"
     },
     {
       "type": "mcq",
@@ -170,11 +127,6 @@
       ]
     },
     {
-      "type": "fill_blank",
-      "question": "A code _____________ in the IDE allows the programmer to type and edit code directly.",
-      "answer": "editor"
-    },
-    {
       "type": "mcq",
       "question": "Which of the following statements about a high-level language is TRUE?",
       "answer": "It uses words similar to human language like “if” and “print”.",
@@ -184,11 +136,6 @@
         "It produces programs that run only on one specific type of computer.",
         "Programs written are generally harder to maintain over time."
       ]
-    },
-    {
-      "type": "fill_blank",
-      "question": "The programmer must define and manage the memory addresses of variables manually in [_______]{code written in mnemonics that allows direct manipulation of the hardware. It must be converted into binary code to run.}.",
-      "answer": "assembly language"
     },
     {
       "type": "mcq",
@@ -240,11 +187,6 @@
       "answer": "True"
     },
     {
-      "type": "fill_blank",
-      "question": "The [_______]{a feature of an IDE that allows a program to be run and lets the user interact with the program.} shows the program’s output while it runs.",
-      "answer": "runtime environment"
-    },
-    {
       "type": "mcq",
       "question": "Why are IDEs useful for programmers when writing code?",
       "answer": "They detect and correct errors early and suggest fixes while typing.",
@@ -266,20 +208,7 @@
         "Tied to specific machine architecture"
       ]
     },
-    {
-      "type": "fill_blank",
-      "question": "Assembly language requires programmers to manually manage __________ addresses, increasing precision but also complexity.",
-      "answer": "memory"
-    },
-    {
-      "type": "matching",
-      "question": "Match the translator to its function:\n\nA. Compiler\nB. Interpreter\n\n1. Translates entire program at once\n2. Runs code line by line, useful for debugging",
-      "answer": "A-1, B-2",
-      "pairs": {
-        "Compiler": "1",
-        "Interpreter": "2"
-      }
-    },
+
     {
       "type": "fill_blank",
       "question": "Compiled programs run faster because they do not need __________ every time they execute.",
@@ -290,15 +219,22 @@
       "question": "All IDEs support multiple programming languages (e.g., PyCharm works for Python and Java).",
       "answer": "False"
     },
-    {
-      "type": "matching",
-      "question": "Match IDE features to their functions:\n\nA. Error diagnostics\nB. Prettyprinting\nC. Version control\n\n1. Displays code with colors/formatting for readability\n2. Shows mistakes during typing\n3. Tracks code changes for collaboration",
-      "answer": "A-2, B-1, C-3",
-      "pairs": {
-        "Error diagnostics": "2",
-        "Prettyprinting": "1",
-        "Version control": "3"
-      }
+ {
+    "type": "match",
+    "question": "Match the translators to their functions",
+    "pairs": {
+      "Compiler": "Translates entire program at once",
+      "Interpreter": "Runs code line by line, useful for debugging"
     }
+  },
+   {
+    "type": "match",
+    "question": "Match the IDE features to their functions",
+    "pairs": {
+      "Error diagnostics": "Shows mistakes during typing",
+      "Prettyprinting": "Displays code with colors or formatting for readability",
+      "Version control": "Tracks code changes for collaboration"
+    }
+  }
   ]
 }
