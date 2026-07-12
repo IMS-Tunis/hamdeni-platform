@@ -400,6 +400,31 @@ header {
   border-radius: 16px;
 }
 
+.training-coming-soon {
+  position: fixed;
+  z-index: 10001;
+  padding: 8px 12px;
+  border: 1px solid #b9e4f3;
+  border-radius: 9px;
+  background: #f7fcff;
+  color: #005DAA;
+  font-size: 0.82rem;
+  font-weight: 700;
+  white-space: nowrap;
+  box-shadow: 0 6px 18px rgba(0, 93, 170, 0.18);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(4px);
+  transition: opacity 0.18s ease, visibility 0.18s ease, transform 0.18s ease;
+}
+
+.training-coming-soon.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
 h1 {
   color: #007BFF;
 }

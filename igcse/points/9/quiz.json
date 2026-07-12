@@ -1,0 +1,264 @@
+{
+  "questions": [
+    {
+      "type": "mcq",
+      "question": "Which group gives examples of information that may be stored in a database?",
+      "options": [
+        "People, items and events",
+        "Commands, clauses and operators",
+        "Fields, rows and columns",
+        "Checks, conditions and calculations"
+      ],
+      "answer": "People, items and events"
+    },
+    {
+      "type": "mcq",
+      "question": "Which pairing is correct?",
+      "options": [
+        "Field = column; record = row",
+        "Field = row; record = column",
+        "Field = table; record = column",
+        "Field = database; record = table"
+      ],
+      "answer": "Field = column; record = row"
+    },
+    {
+      "type": "mcq",
+      "question": "Which statement correctly distinguishes a data type from validation?",
+      "options": [
+        "A data type defines the kind of value stored, while validation restricts permitted values.",
+        "A data type selects stored records, while validation sorts the selected records.",
+        "A data type identifies the table, while validation identifies the primary key.",
+        "A data type names the field, while validation creates the database table."
+      ],
+      "answer": "A data type defines the kind of value stored, while validation restricts permitted values."
+    },
+    {
+      "type": "mcq",
+      "question": "Why is BookID suitable as a primary key?",
+      "options": [
+        "Each value identifies one record only.",
+        "Each value describes the genre of a book.",
+        "Each value identifies the author of a book.",
+        "Each value shows whether a book is fiction."
+      ],
+      "answer": "Each value identifies one record only."
+    },
+    {
+      "type": "mcq",
+      "question": "What does SQL stand for?",
+      "options": [
+        "Structured Query Language",
+        "Standard Query List",
+        "Structured Question Language",
+        "Standard Question List"
+      ],
+      "answer": "Structured Query Language"
+    },
+    {
+      "type": "mcq",
+      "question": "What is an SQL script?",
+      "options": [
+        "A list of SQL commands that performs a task",
+        "A list of fields that forms one database record",
+        "A list of validation rules for one database field",
+        "A list of data types used in one database table"
+      ],
+      "answer": "A list of SQL commands that performs a task"
+    },
+    {
+      "type": "mcq",
+      "question": "Which statement correctly describes SELECT and WHERE?",
+      "options": [
+        "SELECT chooses columns to display; WHERE chooses rows to include.",
+        "SELECT chooses rows to include; WHERE chooses columns to display.",
+        "SELECT sorts the records; WHERE identifies the database table.",
+        "SELECT counts the records; WHERE adds the numeric values."
+      ],
+      "answer": "SELECT chooses columns to display; WHERE chooses rows to include."
+    },
+    {
+      "type": "mcq",
+      "question": "What does the asterisk mean in this SQL statement?\n\nSELECT *\nFROM Books;",
+      "options": [
+        "Display all fields.",
+        "Display all tables.",
+        "Count all records.",
+        "Sort all records."
+      ],
+      "answer": "Display all fields."
+    },
+    {
+      "type": "mcq",
+      "question": "How should several field names be separated after SELECT?",
+      "options": [
+        "With commas",
+        "With semicolons",
+        "With quotation marks",
+        "With comparison operators"
+      ],
+      "answer": "With commas"
+    },
+    {
+      "type": "mcq",
+      "question": "Where are AND and OR used in an SQL query?",
+      "options": [
+        "Between conditions in the WHERE clause",
+        "Between fields in the SELECT clause",
+        "Between the table name and the semicolon",
+        "Between a function and its field name"
+      ],
+      "answer": "Between conditions in the WHERE clause"
+    },
+    {
+      "type": "mcq",
+      "question": "Which pair of SQL conditions is written correctly?",
+      "options": [
+        "WHERE Consultant = 'Mr Smith' and WHERE TotalCost < 5.00",
+        "WHERE Consultant = Mr Smith and WHERE TotalCost < '5.00'",
+        "WHERE Consultant = 7 and WHERE TotalCost = 'Mr Smith'",
+        "WHERE Consultant = TRUE and WHERE TotalCost = FALSE"
+      ],
+      "answer": "WHERE Consultant = 'Mr Smith' and WHERE TotalCost < 5.00"
+    },
+    {
+      "type": "mcq",
+      "question": "What is the default order used by ORDER BY?",
+      "options": [
+        "Ascending order",
+        "Descending order",
+        "Random order",
+        "Reverse record order"
+      ],
+      "answer": "Ascending order"
+    },
+    {
+      "type": "mcq",
+      "question": "Use the following Orders table:\nOrderID | FirstName | NumberItems | TotalCost | Posted\n1A | Oirat | 20 | 21.99 | No\n1B | Simon | 2 | 3.99 | Yes\n1C | Mei | 1 | 6.00 | Yes\n1D | Jenny | 29 | 59.65 | No\n\nWhat is returned by this query?\n\nSELECT FirstName\nFROM Orders\nWHERE Posted = Yes;",
+      "options": [
+        "Simon and Mei",
+        "Oirat and Jenny",
+        "Simon and Jenny",
+        "Oirat and Mei"
+      ],
+      "answer": "Simon and Mei"
+    },
+    {
+      "type": "mcq",
+      "question": "Use the following Orders table:\nOrderID | FirstName | NumberItems | TotalCost | Posted\n1A | Oirat | 20 | 21.99 | No\n1B | Simon | 2 | 3.99 | Yes\n1C | Mei | 1 | 6.00 | Yes\n1D | Jenny | 29 | 59.65 | No\n\nWhat is returned by this query?\n\nSELECT OrderID\nFROM Orders\nWHERE NumberItems > 1 AND Posted = Yes;",
+      "options": [
+        "1B",
+        "1A",
+        "1C",
+        "1D"
+      ],
+      "answer": "1B"
+    },
+    {
+      "type": "mcq",
+      "question": "Use the following Orders table:\nOrderID | FirstName | NumberItems | TotalCost | Posted\n1A | Oirat | 20 | 21.99 | No\n1B | Simon | 2 | 3.99 | Yes\n1C | Mei | 1 | 6.00 | Yes\n1D | Jenny | 29 | 59.65 | No\n\nWhich names are returned by this query?\n\nSELECT FirstName\nFROM Orders\nWHERE TotalCost < 5 OR Posted = No;",
+      "options": [
+        "Oirat, Simon and Jenny",
+        "Oirat, Simon and Mei",
+        "Simon, Mei and Jenny",
+        "Oirat, Mei and Jenny"
+      ],
+      "answer": "Oirat, Simon and Jenny"
+    },
+    {
+      "type": "mcq",
+      "question": "Use the following Orders table:\nOrderID | FirstName | NumberItems | TotalCost | Posted\n1A | Oirat | 20 | 21.99 | No\n1B | Simon | 2 | 3.99 | Yes\n1C | Mei | 1 | 6.00 | Yes\n1D | Jenny | 29 | 59.65 | No\n\nWhich order appears first in the output?\n\nSELECT OrderID, TotalCost\nFROM Orders\nWHERE Posted = Yes\nORDER BY TotalCost DESC;",
+      "options": [
+        "1C",
+        "1B",
+        "1A",
+        "1D"
+      ],
+      "answer": "1C"
+    },
+    {
+      "type": "mcq",
+      "question": "Use the following Orders table:\nOrderID | FirstName | NumberItems | TotalCost | Posted\n1A | Oirat | 20 | 21.99 | No\n1B | Simon | 2 | 3.99 | Yes\n1C | Mei | 1 | 6.00 | Yes\n1D | Jenny | 29 | 59.65 | No\n\nWhat is returned by this query?\n\nSELECT SUM(NumberItems)\nFROM Orders;",
+      "options": [
+        "52",
+        "4",
+        "29",
+        "31"
+      ],
+      "answer": "52"
+    },
+    {
+      "type": "mcq",
+      "question": "Use the following Orders table:\nOrderID | FirstName | NumberItems | TotalCost | Posted\n1A | Oirat | 20 | 21.99 | No\n1B | Simon | 2 | 3.99 | Yes\n1C | Mei | 1 | 6.00 | Yes\n1D | Jenny | 29 | 59.65 | No\n\nWhat is returned by this query?\n\nSELECT COUNT(OrderID)\nFROM Orders\nWHERE NumberItems > 10;",
+      "options": [
+        "2",
+        "4",
+        "20",
+        "49"
+      ],
+      "answer": "2"
+    },
+    {
+      "type": "fill_blank",
+      "question": "SELECT _____(NumberItems)\nFROM Orders;",
+      "answer": "SUM"
+    },
+    {
+      "type": "fill_blank",
+      "question": "SELECT _____(OrderID)\nFROM Orders;",
+      "answer": "COUNT"
+    },
+    {
+      "type": "fill_blank",
+      "question": "SELECT OrderID, TotalCost\n_____ Orders\nORDER BY TotalCost DESC;",
+      "answer": "FROM"
+    },
+    {
+      "type": "fill_blank",
+      "question": "SELECT OrderID, TotalCost\nFROM Orders\n_____ TotalCost DESC;",
+      "answer": "ORDER BY"
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the SQL statement so that the results are sorted from highest to lowest total cost.\n\nSELECT OrderID, TotalCost\nFROM Orders\nORDER BY TotalCost _____;",
+      "answer": "DESC"
+    },
+    {
+      "type": "true_false",
+      "question": "Every record in the same table contains the same fields.",
+      "answer": "True"
+    },
+    {
+      "type": "true_false",
+      "question": "Records may be added, changed or deleted.",
+      "answer": "True"
+    },
+    {
+      "type": "true_false",
+      "question": "A field is suitable as a primary key whenever its currently displayed values happen to be different.",
+      "answer": "False"
+    },
+    {
+      "type": "true_false",
+      "question": "A field used in WHERE must also appear after SELECT.",
+      "answer": "False"
+    },
+    {
+      "type": "true_false",
+      "question": "A field used in ORDER BY must also appear after SELECT.",
+      "answer": "False"
+    },
+    {
+      "type": "match",
+      "question": "Match each data type to the value it stores.",
+      "pairs": {
+        "Text/alphanumeric": "Several characters",
+        "Character": "One letter, digit or symbol",
+        "Boolean": "One of two possible values",
+        "Integer": "A whole number",
+        "Real": "A number with a decimal part",
+        "Date/time": "A date, a time, or both"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Databases | IGCSE Computer Science Theory Notes</title>
+<style>
+:root {
+  --ink: #18263b;
+  --muted: #5d6b7f;
+  --paper: #ffffff;
+  --canvas: #eaf0f6;
+  --navy: #153d69;
+  --blue: #2e73b8;
+  --blue-soft: #edf6ff;
+  --green: #23765a;
+  --green-soft: #edf8f3;
+  --violet: #6553a7;
+  --violet-soft: #f3f0ff;
+  --amber: #a6641f;
+  --amber-soft: #fff6e9;
+  --red: #a9444d;
+  --red-soft: #fff2f3;
+  --line: #d8e2ed;
+  --line-strong: #bbcbdc;
+  --shadow-sm: 0 8px 22px rgba(25, 49, 80, .07);
+  --shadow-md: 0 20px 52px rgba(25, 49, 80, .14);
+  --radius: 18px;
+  --mono: "Cascadia Code", "Consolas", "Courier New", monospace;
+  --sans: "Segoe UI", Arial, Helvetica, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 10% 4%, rgba(46,115,184,.12), transparent 27rem),
+    linear-gradient(180deg, #eef4f9 0, var(--canvas) 100%);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.62;
+}
+
+.page {
+  width: min(1200px, calc(100% - 34px));
+  margin: 24px auto 58px;
+  overflow: hidden;
+  border: 1px solid rgba(117,143,171,.24);
+  border-radius: 28px;
+  background: var(--paper);
+  box-shadow: var(--shadow-md);
+}
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 66px 70px 58px;
+  color: #fff;
+  background: linear-gradient(130deg, #0e315a 0%, #195489 58%, #2f79b9 100%);
+}
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  border: 1px solid rgba(255,255,255,.16);
+}
+.hero::before {
+  width: 360px;
+  height: 360px;
+  right: -90px;
+  top: -180px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.08);
+}
+.hero::after {
+  width: 420px;
+  height: 185px;
+  right: -125px;
+  bottom: -90px;
+  border-radius: 28px;
+  transform: rotate(-8deg);
+}
+.eyebrow {
+  margin: 0 0 8px;
+  color: rgba(255,255,255,.76);
+  font-size: .86rem;
+  font-weight: 850;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+.hero h1 {
+  margin: 0;
+  font-size: clamp(3.1rem, 7vw, 5.4rem);
+  line-height: .98;
+  letter-spacing: -.045em;
+}
+.hero .subtitle {
+  margin: 22px 0 0;
+  color: rgba(255,255,255,.92);
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.toc {
+  padding: 30px 70px 35px;
+  border-bottom: 1px solid var(--line);
+  background: #f5f9fd;
+}
+.toc h2 {
+  margin: 0 0 15px;
+  color: var(--navy);
+  font-size: 1.08rem;
+}
+.toc-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 13px;
+}
+.toc a {
+  --toc-accent: var(--blue);
+  position: relative;
+  display: block;
+  min-height: 112px;
+  overflow: hidden;
+  padding: 18px 17px 16px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #fff;
+  color: inherit;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(35,62,94,.04);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.toc a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 5px;
+  background: var(--toc-accent);
+}
+.toc a:nth-child(2) { --toc-accent: var(--green); }
+.toc a:nth-child(3) { --toc-accent: var(--violet); }
+.toc a:nth-child(4) { --toc-accent: var(--amber); }
+.toc a:hover { transform: translateY(-3px); box-shadow: var(--shadow-sm); }
+.toc-number {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--toc-accent);
+  font-size: .77rem;
+  font-weight: 900;
+  letter-spacing: .09em;
+}
+.toc-title { display: block; font-weight: 800; line-height: 1.3; }
+
+main { padding: 0 70px; }
+.chapter {
+  --accent: var(--blue);
+  --soft: var(--blue-soft);
+  position: relative;
+  margin: 0 -70px;
+  padding: 62px 70px 74px;
+  border-top: 14px solid var(--accent);
+  background: linear-gradient(180deg, var(--soft) 0, rgba(255,255,255,.98) 260px, #fff 100%);
+  scroll-margin-top: 18px;
+}
+.chapter + .chapter { margin-top: 28px; }
+#section-1 { --accent: var(--blue); --soft: var(--blue-soft); }
+#section-2 { --accent: var(--green); --soft: var(--green-soft); }
+#section-3 { --accent: var(--violet); --soft: var(--violet-soft); }
+#section-4 { --accent: var(--amber); --soft: var(--amber-soft); }
+.chapter::before {
+  content: "";
+  position: absolute;
+  left: 70px;
+  right: 70px;
+  top: 36px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--accent), transparent 72%);
+  opacity: .35;
+}
+.chapter-header {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 19px;
+  align-items: center;
+  margin: 0 0 42px;
+  padding: 23px 25px;
+  border: 1px solid color-mix(in srgb, var(--accent) 25%, white);
+  border-radius: 22px;
+  background: rgba(255,255,255,.95);
+  box-shadow: var(--shadow-sm);
+}
+.chapter-number {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  color: #fff;
+  background: linear-gradient(145deg, color-mix(in srgb, var(--accent) 78%, #102b4b), var(--accent));
+  font-size: 1.72rem;
+  font-weight: 900;
+  box-shadow: 0 10px 23px color-mix(in srgb, var(--accent) 25%, transparent);
+}
+.chapter-label {
+  margin-bottom: 4px;
+  color: var(--accent);
+  font-size: .78rem;
+  font-weight: 900;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.chapter-header h2 {
+  margin: 0;
+  color: var(--navy);
+  font-size: clamp(1.85rem, 3.3vw, 2.58rem);
+  line-height: 1.12;
+  letter-spacing: -.025em;
+}
+
+h3 {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 43px 0 15px;
+  color: var(--navy);
+  font-size: 1.38rem;
+  line-height: 1.25;
+}
+h3::after {
+  content: "";
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 48%, transparent), transparent);
+}
+h4 { margin: 24px 0 9px; color: var(--ink); font-size: 1.08rem; }
+p { margin: 10px 0 15px; }
+ul, ol { margin-top: 8px; }
+li + li { margin-top: 5px; }
+.lead { color: #35465f; font-size: 1.08rem; }
+
+.two-col {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  align-items: start;
+}
+.card {
+  padding: 21px;
+  border: 1px solid var(--line);
+  border-radius: 17px;
+  background: #fff;
+  box-shadow: 0 7px 18px rgba(27,53,84,.05);
+}
+.card h4 { margin-top: 0; color: var(--navy); }
+.tag {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  color: color-mix(in srgb, var(--accent) 88%, #183b65);
+  background: color-mix(in srgb, var(--soft) 86%, white);
+  font-size: .76rem;
+  font-weight: 850;
+  letter-spacing: .04em;
+}
+.inline-code {
+  padding: 2px 6px;
+  border: 1px solid #e1e8f0;
+  border-radius: 6px;
+  background: #f2f5f8;
+  font-family: var(--mono);
+  font-size: .92em;
+}
+
+pre {
+  margin: 15px 0;
+  padding: 18px 20px;
+  border: 1px solid #cbd8e6;
+  border-left: 5px solid var(--blue);
+  border-radius: 12px;
+  background: #f5f8fc;
+  color: #18314f;
+  font-family: var(--mono);
+  font-size: .94rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow: visible;
+  box-shadow: 0 5px 14px rgba(25,49,80,.04);
+}
+pre.output {
+  border-color: #b9dfca;
+  border-left-color: var(--green);
+  background: #eff8f3;
+  color: #15533a;
+  box-shadow: none;
+}
+
+.table-wrap {
+  margin: 18px 0;
+  overflow: hidden;
+  border: 1px solid var(--line-strong);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 6px 16px rgba(25,49,80,.045);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: .93rem;
+}
+th, td {
+  padding: 11px 12px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line);
+  overflow-wrap: anywhere;
+}
+th {
+  color: var(--navy);
+  background: #eaf2fb;
+  font-weight: 850;
+}
+th small {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: .74rem;
+  font-weight: 700;
+}
+tr:last-child td { border-bottom: none; }
+
+.visual {
+  position: relative;
+  margin: 27px 0 34px;
+  padding: 24px;
+  overflow: hidden;
+  border: 1px solid var(--line-strong);
+  border-top: 5px solid var(--accent);
+  border-radius: 20px;
+  background: linear-gradient(180deg, #fff, #f8fafc);
+  box-shadow: var(--shadow-sm);
+}
+.visual::after {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  right: -55px;
+  top: -60px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+}
+.visual-title {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 18px;
+  color: var(--navy);
+  font-size: 1.08rem;
+  font-weight: 850;
+}
+.visual-title::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.visual-note {
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-left: 4px solid var(--accent);
+  background: color-mix(in srgb, var(--soft) 70%, white);
+  color: #405066;
+  font-size: .93rem;
+}
+
+.definition-card {
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 17px;
+  background: #fff;
+  box-shadow: 0 7px 18px rgba(27,53,84,.05);
+}
+.definition-card h4 { margin: 9px 0 7px; color: var(--navy); }
+
+.table-concept-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+.concept-panel {
+  padding: 17px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #fff;
+}
+.concept-panel h4 { margin: 0 0 10px; color: var(--navy); }
+.field-demo th:first-child,
+.field-demo td:first-child { background: #e5f2ff; }
+.record-demo tbody tr:nth-child(2) td { background: #fff1cf; }
+.concept-caption {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: .9rem;
+  font-weight: 700;
+}
+
+.mapping-list {
+  margin-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.mapping-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  gap: 16px;
+  align-items: center;
+  padding: 13px 4px;
+  border-bottom: 1px solid var(--line);
+}
+.mapping-row span:first-child { color: #46566d; }
+.mapping-row .arrow { color: var(--blue); font-weight: 900; }
+.mapping-row code {
+  justify-self: start;
+  padding: 3px 7px;
+  border-radius: 6px;
+  background: #eef4fa;
+  color: var(--navy);
+  font-family: var(--mono);
+  font-weight: 800;
+}
+
+.validation-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 15px;
+}
+.validation-card {
+  padding: 17px;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  background: #fff;
+}
+.validation-card h4 { margin: 10px 0 8px; color: var(--navy); }
+.icon {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 13px;
+  background: var(--blue-soft);
+  color: var(--blue);
+  font-weight: 900;
+}
+.good, .bad {
+  display: inline-block;
+  margin: 5px 5px 0 0;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: .82rem;
+  font-weight: 800;
+}
+.good { background: var(--green-soft); color: var(--green); }
+.bad { background: var(--red-soft); color: var(--red); }
+
+.datatype-table td:nth-child(1) { font-weight: 850; color: var(--navy); }
+.datatype-table td:nth-child(3) { font-family: var(--mono); }
+.compare-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 13px;
+}
+.compare-item {
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  background: #fff;
+  text-align: center;
+}
+.compare-item .value {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--navy);
+  font-family: var(--mono);
+  font-size: 1.35rem;
+  font-weight: 900;
+}
+.compare-item small { color: var(--muted); }
+
+.pk-table th:first-child,
+.pk-table td:first-child {
+  background: #e7f7ee;
+  color: #16583f;
+  font-weight: 900;
+}
+.pk-table th:not(:first-child) { background: #f0f3f7; }
+.pk-table td:not(:first-child) { background: #fbfcfd; }
+.pk-reasons {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 10px 18px;
+  margin-top: 17px;
+}
+.pk-reason {
+  padding: 11px 13px;
+  border-left: 4px solid var(--violet);
+  background: #f7f5ff;
+}
+.pk-reason strong { color: var(--navy); }
+
+.sql-pipeline {
+  display: grid;
+  grid-template-columns: repeat(7, auto);
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+}
+.sql-stage {
+  min-width: 145px;
+  padding: 15px 13px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+  text-align: center;
+}
+.sql-stage code {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--navy);
+  font-family: var(--mono);
+  font-size: 1rem;
+  font-weight: 900;
+}
+.sql-stage span { display: block; color: #47566b; font-size: .87rem; }
+.sql-stage b { display: inline-block; margin-top: 7px; color: var(--muted); font-size: .72rem; }
+.pipeline-arrow { color: var(--amber); font-size: 1.35rem; font-weight: 900; }
+
+.query-example {
+  display: grid;
+  grid-template-columns: minmax(260px, .82fr) minmax(0, 1.45fr);
+  gap: 20px;
+  align-items: start;
+  margin: 23px 0 32px;
+  padding: 20px;
+  border: 1px solid var(--line-strong);
+  border-radius: 19px;
+  background: linear-gradient(180deg, #fff, #f8fafc);
+  box-shadow: var(--shadow-sm);
+}
+.query-left h4,
+.query-right h4 { margin: 0 0 9px; color: var(--navy); }
+.query-left pre { margin: 0 0 12px; }
+.query-purpose {
+  margin: 0;
+  padding: 11px 13px;
+  border-left: 4px solid var(--amber);
+  background: #fff8ed;
+  color: #49586c;
+  font-size: .92rem;
+}
+.query-right {
+  display: grid;
+  gap: 14px;
+}
+.data-panel {
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  background: #fff;
+}
+.data-panel.result-panel {
+  padding: 2px 0 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+.data-panel.result-panel h5 {
+  margin-bottom: 7px;
+  color: #566579;
+  font-size: .82rem;
+}
+.data-panel.result-panel .table-wrap {
+  border: 0;
+  border-top: 2px solid #c8d2dc;
+  border-bottom: 1px solid #c8d2dc;
+  border-radius: 0;
+  background: transparent;
+}
+.data-panel.result-panel th {
+  background: transparent;
+  color: #39495d;
+  border-bottom: 1px solid #c8d2dc;
+}
+.data-panel.result-panel td {
+  background: transparent;
+  border-bottom: 1px solid #e2e8f0;
+}
+.data-panel.result-panel .output-number {
+  display: block;
+  min-height: 0;
+  padding: 10px 0;
+  border-top: 2px solid #c8d2dc;
+  border-bottom: 1px solid #c8d2dc;
+  color: var(--navy);
+  font-size: 1.8rem;
+  text-align: left;
+}
+.data-panel h5 {
+  margin: 0 0 9px;
+  color: var(--navy);
+  font-size: .9rem;
+  letter-spacing: .02em;
+}
+.data-panel .table-wrap { margin: 0; box-shadow: none; }
+.mini-table { font-size: .81rem; }
+.mini-table th, .mini-table td { padding: 7px 8px; }
+.selected-column { background: #e6f2ff !important; }
+.selected-record td { background: #edf8f2; }
+.selected-record .selected-column { background: #d8ecdf !important; }
+.output-number {
+  display: grid;
+  place-items: center;
+  min-height: 88px;
+  color: var(--green);
+  font-family: var(--mono);
+  font-size: 2.25rem;
+  font-weight: 900;
+}
+
+.operator-line {
+  margin: 16px 0;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  background: #f7f9fc;
+}
+.operator-line code {
+  display: inline-block;
+  margin: 3px 8px 3px 0;
+  padding: 3px 8px;
+  border: 1px solid #d6e0ea;
+  border-radius: 7px;
+  background: #fff;
+  color: var(--navy);
+  font-family: var(--mono);
+  font-weight: 850;
+}
+.order-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 18px;
+}
+.order-card {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  background: #fff;
+}
+.order-card h4 { margin-top: 0; color: var(--navy); }
+.sequence { color: var(--navy); font-family: var(--mono); font-size: 1.1rem; font-weight: 850; }
+
+.steps {
+  counter-reset: lessonstep;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  padding: 0;
+  list-style: none;
+}
+.steps li {
+  counter-increment: lessonstep;
+  position: relative;
+  min-height: 126px;
+  padding: 44px 14px 14px;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  background: #fff;
+}
+.steps li::before {
+  content: counter(lessonstep);
+  position: absolute;
+  left: 14px;
+  top: 12px;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--amber);
+  color: #fff;
+  font-weight: 900;
+}
+.steps strong { color: var(--navy); }
+
+.reference-table td:first-child { font-family: var(--mono); font-weight: 850; color: var(--navy); }
+.footer {
+  padding: 24px 70px 28px;
+  border-top: 1px solid var(--line);
+  background: #f5f8fb;
+  color: var(--muted);
+  text-align: center;
+  font-size: .9rem;
+}
+
+@media (max-width: 980px) {
+  .hero, .toc, main, .footer { padding-left: 34px; padding-right: 34px; }
+  .chapter { margin-left: -34px; margin-right: -34px; padding-left: 34px; padding-right: 34px; }
+  .chapter::before { left: 34px; right: 34px; }
+  .toc-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .validation-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .query-example { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .sql-pipeline { grid-template-columns: 1fr; justify-items: stretch; }
+  .pipeline-arrow { transform: rotate(90deg); justify-self: center; }
+  .sql-stage { min-width: 0; }
+}
+
+@media (max-width: 700px) {
+  body { font-size: 15.5px; }
+  .page { width: min(100% - 16px, 1200px); margin: 8px auto 26px; border-radius: 18px; }
+  .hero { padding-top: 46px; }
+  .toc-grid, .two-col, .table-concept-grid, .compare-strip, .pk-reasons, .order-grid, .steps { grid-template-columns: 1fr; }
+  .chapter-header { grid-template-columns: 1fr; }
+  .chapter-number { width: 54px; height: 54px; }
+  h3 { align-items: flex-start; }
+  .mapping-row { grid-template-columns: 1fr auto; gap: 8px; }
+  .mapping-row code { grid-column: 1 / -1; }
+  .validation-grid { grid-template-columns: 1fr; }
+
+  .table-wrap { overflow: visible; border: 0; box-shadow: none; background: transparent; }
+  table.responsive,
+  table.responsive tbody,
+  table.responsive tr,
+  table.responsive td { display: block; width: 100%; }
+  table.responsive thead { display: none; }
+  table.responsive tr {
+    margin: 0 0 13px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 13px;
+    background: #fff;
+  }
+  table.responsive td {
+    display: grid;
+    grid-template-columns: 42% 58%;
+    gap: 8px;
+    padding: 9px 11px;
+    border-bottom: 1px solid var(--line);
+    background: #fff !important;
+  }
+  table.responsive td::before {
+    content: attr(data-label);
+    color: var(--navy);
+    font-weight: 850;
+  }
+  table.responsive td:last-child { border-bottom: none; }
+
+  .data-panel.result-panel table.responsive tr {
+    margin: 0;
+    border: 0;
+    border-bottom: 1px solid #e2e8f0;
+    border-radius: 0;
+    background: transparent;
+  }
+  .data-panel.result-panel table.responsive td {
+    padding: 7px 0;
+    background: transparent !important;
+  }
+}
+
+
+@media print {
+  @page { size: A4; margin: 15mm; }
+  body { background: #fff; }
+  .page { width: 100%; margin: 0; border: 0; border-radius: 0; box-shadow: none; }
+  .hero { padding: 28px 30px; background: #163d6b !important; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  .toc { padding: 18px 28px; }
+  main { padding: 0 28px; }
+  .chapter { margin: 0 -28px; padding: 40px 28px 44px; break-before: page; }
+  .chapter:first-of-type { break-before: auto; }
+  .footer { display: none; }
+  .card, .visual, .query-example, pre, .table-wrap { break-inside: avoid; }
+  .toc-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  a { text-decoration: none; }
+}
+</style>
+</head>
+<body>
+<article class="page">
+<header class="hero">
+  <p class="eyebrow">IGCSE Computer Science</p>
+  <h1>Databases</h1>
+  <p class="subtitle">Theory Notes Prepared by Dr. Hamdeni</p>
+</header>
+
+<nav class="toc" aria-label="Contents">
+  <h2>Contents</h2>
+  <div class="toc-grid">
+    <a href="#section-1"><span class="toc-number">SECTION 1</span><span class="toc-title">Defining a Single-Table Database</span></a>
+    <a href="#section-2"><span class="toc-number">SECTION 2</span><span class="toc-title">Choosing Suitable Basic Data Types</span></a>
+    <a href="#section-3"><span class="toc-number">SECTION 3</span><span class="toc-title">Understanding and Identifying Primary Keys</span></a>
+    <a href="#section-4"><span class="toc-number">SECTION 4</span><span class="toc-title">Reading, Understanding and Completing SQL Scripts</span></a>
+  </div>
+</nav>
+
+<main>
+<section class="chapter" id="section-1">
+  <div class="chapter-header">
+    <div class="chapter-number">1</div>
+    <div><div class="chapter-label">Section 1</div><h2>Defining a Single-Table Database</h2></div>
+  </div>
+
+  <h3>1.1 What is a database?</h3>
+  <p class="lead">A <strong>database</strong> is a structured collection of data.</p>
+  <ul>
+    <li>It allows users to store, organise, search and retrieve information.</li>
+    <li>It may store information about people, items or events.</li>
+    <li>A <strong>single-table database</strong> contains only one table.</li>
+  </ul>
+
+  <h3>1.2 Tables, fields and records</h3>
+  <p>A database table is organised into rows and columns.</p>
+  <div class="two-col">
+    <div class="definition-card">
+      <span class="tag">FIELD</span>
+      <h4>One specific piece of information</h4>
+      <ul>
+        <li>A field is represented by a <strong>column</strong>.</li>
+        <li>Each field should have a meaningful name.</li>
+        <li>Field names are normally written as one word without spaces.</li>
+      </ul>
+      <p>Examples: <span class="inline-code">FirstName</span>, <span class="inline-code">DateOfAdmission</span>, <span class="inline-code">WardNumber</span></p>
+    </div>
+    <div class="definition-card">
+      <span class="tag">RECORD</span>
+      <h4>All the data about one person, item or event</h4>
+      <ul>
+        <li>A record is represented by a <strong>row</strong>.</li>
+        <li>Every record contains the same fields.</li>
+        <li>Records may be added, changed or deleted.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="visual">
+    <p class="visual-title">Fields and records in a database table</p>
+    <div class="table-concept-grid">
+      <div class="concept-panel">
+        <h4>A field is a column</h4>
+        <div class="table-wrap">
+          <table class="mini-table field-demo" aria-label="Patient table with one field highlighted">
+            <thead><tr><th>FirstName</th><th>FamilyName</th><th>WardNumber</th></tr></thead>
+            <tbody>
+              <tr><td>Winnie</td><td>Sing</td><td>6</td></tr>
+              <tr><td>Steve</td><td>Chow</td><td>6</td></tr>
+              <tr><td>Chin</td><td>Wee</td><td>7</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="concept-caption">The highlighted column is the <span class="inline-code">FirstName</span> field.</p>
+      </div>
+      <div class="concept-panel">
+        <h4>A record is a row</h4>
+        <div class="table-wrap">
+          <table class="mini-table record-demo" aria-label="Patient table with one record highlighted">
+            <thead><tr><th>FirstName</th><th>FamilyName</th><th>WardNumber</th></tr></thead>
+            <tbody>
+              <tr><td>Winnie</td><td>Sing</td><td>6</td></tr>
+              <tr><td>Steve</td><td>Chow</td><td>6</td></tr>
+              <tr><td>Chin</td><td>Wee</td><td>7</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="concept-caption">The highlighted row is Steve Chow's complete record.</p>
+      </div>
+    </div>
+  </div>
+
+  <h3>1.3 Defining a database from storage requirements</h3>
+  <p>The objective is to define the structure of a single-table database from the information that needs to be stored.</p>
+  <p>Read the storage requirements and identify the separate pieces of information that must be stored. Each piece of information becomes a field.</p>
+  <ol>
+    <li>Identify what one record represents.</li>
+    <li>Give the table a meaningful name.</li>
+    <li>Identify the required fields and give each one a meaningful field name.</li>
+    <li>Choose a suitable data type for each field.</li>
+    <li>Add suitable validation rules.</li>
+    <li>Identify a suitable primary key.</li>
+  </ol>
+
+  <div class="visual">
+    <p class="visual-title">Converting storage requirements into field names</p>
+    <p>A wool shop needs to store information about each item. The wording in the requirements is converted into short field names:</p>
+    <div class="mapping-list" aria-label="Wool shop storage requirements mapped to field names">
+      <div class="mapping-row"><span>The name of the item</span><span class="arrow">→</span><code>ItemName</code></div>
+      <div class="mapping-row"><span>The colour of the item</span><span class="arrow">→</span><code>Colour</code></div>
+      <div class="mapping-row"><span>The weight of the item</span><span class="arrow">→</span><code>Weight</code></div>
+      <div class="mapping-row"><span>The price of the item</span><span class="arrow">→</span><code>Price</code></div>
+      <div class="mapping-row"><span>The quantity in stock</span><span class="arrow">→</span><code>Quantity</code></div>
+    </div>
+    <div class="visual-note">Each record in this table represents one item sold by the shop.</div>
+  </div>
+
+  <h3>1.4 Validation</h3>
+  <p><strong>Validation</strong> checks whether entered data follows the required rules. It helps prevent unsuitable data from being stored.</p>
+  <ul>
+    <li>Some checks are performed automatically by database software.</li>
+    <li>Other checks must be set by the database developer.</li>
+  </ul>
+
+  <div class="visual">
+    <p class="visual-title">Validation examples</p>
+    <div class="validation-grid">
+      <div class="validation-card">
+        <div class="icon">1–10</div>
+        <h4>Range check</h4>
+        <p><span class="inline-code">WardNumber</span> must be from 1 to 10.</p>
+        <span class="good">6 accepted</span><span class="bad">67 rejected</span>
+      </div>
+      <div class="validation-card">
+        <div class="icon">∅</div>
+        <h4>Presence check</h4>
+        <p>A required field cannot be left empty.</p>
+        <span class="bad">Blank value rejected</span>
+      </div>
+      <div class="validation-card">
+        <div class="icon">8</div>
+        <h4>Length check</h4>
+        <p>A hospital number may require exactly eight characters.</p>
+        <span class="good">HN123456</span>
+      </div>
+      <div class="validation-card">
+        <div class="icon">HN</div>
+        <h4>Format check</h4>
+        <p>Two letters followed by six digits.</p>
+        <span class="good">HN123456</span><span class="bad">123456HN</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="chapter" id="section-2">
+  <div class="chapter-header">
+    <div class="chapter-number">2</div>
+    <div><div class="chapter-label">Section 2</div><h2>Choosing Suitable Basic Data Types</h2></div>
+  </div>
+
+  <p class="lead">A data type identifies the kind of value that a field can store.</p>
+  <div class="table-wrap">
+    <table class="responsive datatype-table" aria-label="Six basic database data types">
+      <thead><tr><th>Data type</th><th>Stores</th><th>Example</th><th>Suitable field</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Data type">Text/alphanumeric</td><td data-label="Stores">Several characters, including letters, digits, symbols and spaces</td><td data-label="Example">HN123456</td><td data-label="Suitable field">CustomerID</td></tr>
+        <tr><td data-label="Data type">Character</td><td data-label="Stores">One letter, digit or symbol</td><td data-label="Example">M</td><td data-label="Suitable field">Gender code</td></tr>
+        <tr><td data-label="Data type">Boolean</td><td data-label="Stores">One of two possible values</td><td data-label="Example">TRUE / FALSE</td><td data-label="Suitable field">SoldOut</td></tr>
+        <tr><td data-label="Data type">Integer</td><td data-label="Stores">A whole number</td><td data-label="Example">23</td><td data-label="Suitable field">Quantity</td></tr>
+        <tr><td data-label="Data type">Real</td><td data-label="Stores">A number with a decimal part</td><td data-label="Example">3.99</td><td data-label="Suitable field">Price</td></tr>
+        <tr><td data-label="Data type">Date/time</td><td data-label="Stores">A date, a time, or both</td><td data-label="Example">12/10/2022</td><td data-label="Suitable field">DateOfAdmission</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Digits may be stored as text/alphanumeric when they form an identification code or telephone number and are not used in calculations.</p>
+  <p>For Boolean fields, use the representation shown in the given table, such as <span class="inline-code">TRUE/FALSE</span> or <span class="inline-code">Yes/No</span>.</p>
+
+</section>
+
+<section class="chapter" id="section-3">
+  <div class="chapter-header">
+    <div class="chapter-number">3</div>
+    <div><div class="chapter-label">Section 3</div><h2>Understanding and Identifying Primary Keys</h2></div>
+  </div>
+
+  <h3>3.1 Purpose of a primary key</h3>
+  <p class="lead">A <strong>primary key</strong> is a field that uniquely identifies each record.</p>
+  <ul>
+    <li>The same primary-key value must not appear in two different records.</li>
+    <li>A primary key allows one exact record to be identified reliably.</li>
+    <li>A person's name is usually unsuitable because more than one person may have the same name.</li>
+  </ul>
+
+  <h3>3.2 Choosing a suitable primary key</h3>
+  <p>A suitable primary key must contain a value that is guaranteed to be different in every record.</p>
+  <ul>
+    <li>Ask whether two records could contain the same value. If they could, the field is unsuitable.</li>
+    <li>If no existing field is guaranteed to be unique, add a new identification field.</li>
+    <li>A primary key does not have to be an integer. For example, <span class="inline-code">HospitalNumber = HN123456</span> may be stored as text/alphanumeric.</li>
+  </ul>
+
+  <h3>3.3 Why BookID is suitable</h3>
+  <div class="visual">
+    <p class="visual-title">A primary key must be guaranteed unique</p>
+    <div class="table-wrap">
+      <table class="responsive pk-table" aria-label="Book database showing BookID as the primary key">
+        <thead>
+          <tr>
+            <th>BookID<small>Unique by design</small></th>
+            <th>BookName<small>May repeat</small></th>
+            <th>Author<small>May repeat</small></th>
+            <th>Publisher<small>May repeat</small></th>
+            <th>Genre<small>May repeat</small></th>
+            <th>Fiction<small>Only two values</small></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td data-label="BookID">1 ✓</td><td data-label="BookName">Picking daisies</td><td data-label="Author">J. Frank</td><td data-label="Publisher">Cambridge horticulture</td><td data-label="Genre">Gardening</td><td data-label="Fiction">False</td></tr>
+          <tr><td data-label="BookID">2 ✓</td><td data-label="BookName">Night stars</td><td data-label="Author">K. Mars</td><td data-label="Publisher">Si-fi books</td><td data-label="Genre">Science fiction</td><td data-label="Fiction">True</td></tr>
+          <tr><td data-label="BookID">3 ✓</td><td data-label="BookName">Dreaming of the sun</td><td data-label="Author">P. Yu</td><td data-label="Publisher">Si-fi books</td><td data-label="Genre">Science fiction</td><td data-label="Fiction">True</td></tr>
+          <tr><td data-label="BookID">4 ✓</td><td data-label="BookName">Cooking for fun</td><td data-label="Author">W. Crisp</td><td data-label="Publisher">Cookery penguin</td><td data-label="Genre">Cookery</td><td data-label="Fiction">False</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>The visible values in another column may currently look different, but that does not make the field a suitable primary key. Its values must be guaranteed not to repeat in any record.</p>
+    <div class="pk-reasons">
+      <div class="pk-reason"><strong>BookName:</strong> two books can have the same name.</div>
+      <div class="pk-reason"><strong>Author:</strong> one author can write more than one book.</div>
+      <div class="pk-reason"><strong>Publisher:</strong> one publisher can publish many books.</div>
+      <div class="pk-reason"><strong>Genre:</strong> many books can belong to the same genre.</div>
+      <div class="pk-reason"><strong>Fiction:</strong> many records can contain the same Boolean value.</div>
+      <div class="pk-reason"><strong>BookID:</strong> each value is assigned to one record only.</div>
+    </div>
+  </div>
+</section>
+
+<section class="chapter" id="section-4">
+  <div class="chapter-header">
+    <div class="chapter-number">4</div>
+    <div><div class="chapter-label">Section 4</div><h2>Reading, Understanding and Completing SQL Scripts</h2></div>
+  </div>
+
+  <h3>4.1 What is SQL?</h3>
+  <ul>
+    <li><strong>SQL</strong> stands for <strong>Structured Query Language</strong>.</li>
+    <li>SQL is used to obtain information from a database.</li>
+    <li>A list of SQL commands that performs a task is called an <strong>SQL script</strong>.</li>
+    <li>A <strong>query</strong> is a request for specific information from a database.</li>
+  </ul>
+  <p>A complete SQL statement begins with <span class="inline-code">SELECT</span>, identifies a table using <span class="inline-code">FROM</span>, and ends with a semicolon.</p>
+
+  <h3>4.2 SELECT and FROM</h3>
+  <p><span class="inline-code">SELECT</span> chooses the fields to display, while <span class="inline-code">FROM</span> identifies the table. Both are required in a basic query, and a semicolon marks the end of the statement.</p>
+  <div class="query-example">
+    <div class="query-left">
+      <h4>SQL query</h4>
+      <pre>SELECT BookName, Author
+FROM Books;</pre>
+      <p class="query-purpose">Display the book name and author from every record in the <span class="inline-code">Books</span> table.</p>
+    </div>
+    <div class="query-right">
+      <div class="data-panel">
+        <h5>Original table</h5>
+        <div class="table-wrap">
+          <table class="responsive mini-table" aria-label="Original Books table">
+            <thead><tr><th>BookID</th><th>BookName</th><th>Author</th><th>Genre</th></tr></thead>
+            <tbody>
+              <tr><td data-label="BookID">1</td><td data-label="BookName">Picking daisies</td><td data-label="Author">J. Frank</td><td data-label="Genre">Gardening</td></tr>
+              <tr><td data-label="BookID">2</td><td data-label="BookName">Night stars</td><td data-label="Author">K. Mars</td><td data-label="Genre">Science fiction</td></tr>
+              <tr><td data-label="BookID">3</td><td data-label="BookName">Dreaming of the sun</td><td data-label="Author">P. Yu</td><td data-label="Genre">Science fiction</td></tr>
+              <tr><td data-label="BookID">4</td><td data-label="BookName">Cooking for fun</td><td data-label="Author">W. Crisp</td><td data-label="Genre">Cookery</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="data-panel result-panel">
+        <h5>Data returned</h5>
+        <div class="table-wrap">
+          <table class="responsive mini-table" aria-label="BookName and Author query result">
+            <thead><tr><th>BookName</th><th>Author</th></tr></thead>
+            <tbody>
+              <tr><td data-label="BookName">Picking daisies</td><td data-label="Author">J. Frank</td></tr>
+              <tr><td data-label="BookName">Night stars</td><td data-label="Author">K. Mars</td></tr>
+              <tr><td data-label="BookName">Dreaming of the sun</td><td data-label="Author">P. Yu</td></tr>
+              <tr><td data-label="BookName">Cooking for fun</td><td data-label="Author">W. Crisp</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p>Separate several field names with commas. Use <span class="inline-code">SELECT *</span> to display all fields.</p>
+
+  <h3>4.3 WHERE</h3>
+  <p><span class="inline-code">WHERE</span> includes only records that meet a condition.</p>
+  <p><span class="inline-code">SELECT</span> chooses the columns to display, while <span class="inline-code">WHERE</span> chooses the rows to include.</p>
+  <div class="query-example">
+    <div class="query-left">
+      <h4>SQL query</h4>
+      <pre>SELECT FirstName, LastName
+FROM Orders
+WHERE Posted = Yes;</pre>
+      <p class="query-purpose">Display the first and last names only for orders that have been posted.</p>
+    </div>
+    <div class="query-right">
+      <div class="data-panel">
+        <h5>Original table</h5>
+        <div class="table-wrap">
+          <table class="responsive mini-table" aria-label="Original Orders table for WHERE example">
+            <thead><tr><th>OrderID</th><th>FirstName</th><th>LastName</th><th>Posted</th></tr></thead>
+            <tbody>
+              <tr><td data-label="OrderID">1A</td><td data-label="FirstName">Qirat</td><td data-label="LastName">Raja</td><td data-label="Posted">No</td></tr>
+              <tr class="selected-record"><td data-label="OrderID">1B</td><td class="selected-column" data-label="FirstName">Simon</td><td class="selected-column" data-label="LastName">Tong</td><td data-label="Posted">Yes</td></tr>
+              <tr class="selected-record"><td data-label="OrderID">1C</td><td class="selected-column" data-label="FirstName">Mei</td><td class="selected-column" data-label="LastName">Liu</td><td data-label="Posted">Yes</td></tr>
+              <tr><td data-label="OrderID">1D</td><td data-label="FirstName">Jenny</td><td data-label="LastName">Silver</td><td data-label="Posted">No</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="data-panel result-panel">
+        <h5>Data returned</h5>
+        <div class="table-wrap">
+          <table class="responsive mini-table" aria-label="WHERE query result">
+            <thead><tr><th>FirstName</th><th>LastName</th></tr></thead>
+            <tbody>
+              <tr><td data-label="FirstName">Simon</td><td data-label="LastName">Tong</td></tr>
+              <tr><td data-label="FirstName">Mei</td><td data-label="LastName">Liu</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p>The field used in <span class="inline-code">WHERE</span> does not have to appear after <span class="inline-code">SELECT</span>. In this example, <span class="inline-code">Posted</span> controls which records are included but is not displayed.</p>
+
+  <h3>4.4 Values and comparison operators in WHERE</h3>
+  <p>Use familiar comparison operators inside a <span class="inline-code">WHERE</span> condition:</p>
+  <div class="operator-line">
+    <code>=</code><code>&lt;&gt;</code><code>&lt;</code><code>&lt;=</code><code>&gt;</code><code>&gt;=</code>
+  </div>
+  <ul>
+    <li>Write text and character values inside quotation marks: <span class="inline-code">WHERE Consultant = 'Mr Smith'</span></li>
+    <li>Write integer and real values without quotation marks: <span class="inline-code">WHERE TotalCost &lt; 5.00</span></li>
+    <li>For Boolean values, follow the form shown in the table: <span class="inline-code">TRUE/FALSE</span> or <span class="inline-code">Yes/No</span></li>
+  </ul>
+  <p>A text value may appear in a displayed table without quotation marks. In an SQL condition, quotation marks show that the value is text or a character.</p>
+
+  <h3>4.5 AND and OR in SQL</h3>
+  <p>Place <span class="inline-code">AND</span> or <span class="inline-code">OR</span> between two conditions in the <span class="inline-code">WHERE</span> clause.</p>
+
+  <div class="query-example">
+    <div class="query-left">
+      <h4>Using AND</h4>
+      <pre>SELECT OrderID, NumberItems, Posted
+FROM Orders
+WHERE NumberItems &gt; 1 AND Posted = Yes;</pre>
+      <p class="query-purpose">Both conditions are applied to each record.</p>
+    </div>
+    <div class="query-right">
+      <div class="data-panel">
+        <h5>Original table</h5>
+        <div class="table-wrap">
+          <table class="responsive mini-table" aria-label="Orders table for AND query">
+            <thead><tr><th>OrderID</th><th>NumberItems</th><th>Posted</th></tr></thead>
+            <tbody>
+              <tr><td data-label="OrderID">1A</td><td data-label="NumberItems">20</td><td data-label="Posted">No</td></tr>
+              <tr class="selected-record"><td data-label="OrderID">1B</td><td data-label="NumberItems">2</td><td data-label="Posted">Yes</td></tr>
+              <tr><td data-label="OrderID">1C</td><td data-label="NumberItems">1</td><td data-label="Posted">Yes</td></tr>
+              <tr><td data-label="OrderID">1D</td><td data-label="NumberItems">29</td><td data-label="Posted">No</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="data-panel result-panel">
+        <h5>Data returned</h5>
+        <div class="table-wrap"><table class="responsive mini-table"><thead><tr><th>OrderID</th><th>NumberItems</th><th>Posted</th></tr></thead><tbody><tr><td data-label="OrderID">1B</td><td data-label="NumberItems">2</td><td data-label="Posted">Yes</td></tr></tbody></table></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="query-example">
+    <div class="query-left">
+      <h4>Using OR</h4>
+      <pre>SELECT FirstName, TotalCost, Posted
+FROM Orders
+WHERE TotalCost &lt; 5 OR Posted = No;</pre>
+      <p class="query-purpose">The two conditions are joined inside one <span class="inline-code">WHERE</span> clause.</p>
+    </div>
+    <div class="query-right">
+      <div class="data-panel">
+        <h5>Original table</h5>
+        <div class="table-wrap">
+          <table class="responsive mini-table" aria-label="Orders table for OR query">
+            <thead><tr><th>FirstName</th><th>TotalCost</th><th>Posted</th></tr></thead>
+            <tbody>
+              <tr class="selected-record"><td data-label="FirstName">Qirat</td><td data-label="TotalCost">21.99</td><td data-label="Posted">No</td></tr>
+              <tr class="selected-record"><td data-label="FirstName">Simon</td><td data-label="TotalCost">3.99</td><td data-label="Posted">Yes</td></tr>
+              <tr><td data-label="FirstName">Mei</td><td data-label="TotalCost">6.00</td><td data-label="Posted">Yes</td></tr>
+              <tr class="selected-record"><td data-label="FirstName">Jenny</td><td data-label="TotalCost">59.65</td><td data-label="Posted">No</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="data-panel result-panel">
+        <h5>Data returned</h5>
+        <div class="table-wrap">
+          <table class="responsive mini-table"><thead><tr><th>FirstName</th><th>TotalCost</th><th>Posted</th></tr></thead><tbody>
+            <tr><td data-label="FirstName">Qirat</td><td data-label="TotalCost">21.99</td><td data-label="Posted">No</td></tr>
+            <tr><td data-label="FirstName">Simon</td><td data-label="TotalCost">3.99</td><td data-label="Posted">Yes</td></tr>
+            <tr><td data-label="FirstName">Jenny</td><td data-label="TotalCost">59.65</td><td data-label="Posted">No</td></tr>
+          </tbody></table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3>4.6 ORDER BY</h3>
+  <p><span class="inline-code">ORDER BY</span> sorts the query result. Use <span class="inline-code">ASC</span> for ascending order and <span class="inline-code">DESC</span> for descending order. Ascending order is the default.</p>
+  <div class="visual">
+    <p class="visual-title">Ascending and descending order</p>
+    <div class="order-grid">
+      <div class="order-card"><h4>ASC</h4><p class="sequence">1 → 2 → 20 → 29</p><p class="sequence">A → Z</p></div>
+      <div class="order-card"><h4>DESC</h4><p class="sequence">29 → 20 → 2 → 1</p><p class="sequence">Z → A</p></div>
+    </div>
+  </div>
+
+  <div class="query-example">
+    <div class="query-left">
+      <h4>SQL query</h4>
+      <pre>SELECT OrderID, TotalCost, Posted
+FROM Orders
+WHERE Posted = Yes
+ORDER BY TotalCost DESC;</pre>
+      <p class="query-purpose">Keep posted orders, then display them from the highest total cost to the lowest.</p>
+    </div>
+    <div class="query-right">
+      <div class="data-panel">
+        <h5>Original table</h5>
+        <div class="table-wrap">
+          <table class="responsive mini-table" aria-label="Orders table for ORDER BY query">
+            <thead><tr><th>OrderID</th><th>TotalCost</th><th>Posted</th></tr></thead>
+            <tbody>
+              <tr><td data-label="OrderID">1A</td><td data-label="TotalCost">21.99</td><td data-label="Posted">No</td></tr>
+              <tr class="selected-record"><td data-label="OrderID">1B</td><td data-label="TotalCost">3.99</td><td data-label="Posted">Yes</td></tr>
+              <tr class="selected-record"><td data-label="OrderID">1C</td><td data-label="TotalCost">6.00</td><td data-label="Posted">Yes</td></tr>
+              <tr><td data-label="OrderID">1D</td><td data-label="TotalCost">59.65</td><td data-label="Posted">No</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="data-panel result-panel">
+        <h5>Data returned after sorting</h5>
+        <div class="table-wrap"><table class="responsive mini-table"><thead><tr><th>OrderID</th><th>TotalCost</th><th>Posted</th></tr></thead><tbody>
+          <tr><td data-label="OrderID">1C</td><td data-label="TotalCost">6.00</td><td data-label="Posted">Yes</td></tr>
+          <tr><td data-label="OrderID">1B</td><td data-label="TotalCost">3.99</td><td data-label="Posted">Yes</td></tr>
+        </tbody></table></div>
+      </div>
+    </div>
+  </div>
+  <p>A field used in <span class="inline-code">ORDER BY</span> does not have to appear after <span class="inline-code">SELECT</span>.</p>
+
+  <h3>4.7 SUM</h3>
+  <p>Write <span class="inline-code">SUM(FieldName)</span> after <span class="inline-code">SELECT</span> to add the values in a numeric field.</p>
+  <div class="query-example">
+    <div class="query-left">
+      <h4>SQL query</h4>
+      <pre>SELECT SUM(NumberItems)
+FROM Orders;</pre>
+      <p class="query-purpose">Add all values in the <span class="inline-code">NumberItems</span> field.</p>
+    </div>
+    <div class="query-right">
+      <div class="data-panel">
+        <h5>Original table</h5>
+        <div class="table-wrap"><table class="responsive mini-table"><thead><tr><th>OrderID</th><th>NumberItems</th></tr></thead><tbody>
+          <tr><td data-label="OrderID">1A</td><td data-label="NumberItems">20</td></tr>
+          <tr><td data-label="OrderID">1B</td><td data-label="NumberItems">2</td></tr>
+          <tr><td data-label="OrderID">1C</td><td data-label="NumberItems">1</td></tr>
+          <tr><td data-label="OrderID">1D</td><td data-label="NumberItems">29</td></tr>
+        </tbody></table></div>
+      </div>
+      <div class="data-panel result-panel">
+        <h5>Data returned</h5>
+        <div class="output-number">52</div>
+      </div>
+    </div>
+  </div>
+  <p>A <span class="inline-code">WHERE</span> condition may be added before calculating the total.</p>
+
+  <h3>4.8 COUNT</h3>
+  <p>Write <span class="inline-code">COUNT(FieldName)</span> after <span class="inline-code">SELECT</span> to count matching records.</p>
+  <div class="query-example">
+    <div class="query-left">
+      <h4>SQL query</h4>
+      <pre>SELECT COUNT(OrderID)
+FROM Orders
+WHERE NumberItems &gt; 10;</pre>
+      <p class="query-purpose">Count the records where more than ten items were ordered.</p>
+    </div>
+    <div class="query-right">
+      <div class="data-panel">
+        <h5>Original table</h5>
+        <div class="table-wrap"><table class="responsive mini-table"><thead><tr><th>OrderID</th><th>NumberItems</th></tr></thead><tbody>
+          <tr class="selected-record"><td data-label="OrderID">1A</td><td data-label="NumberItems">20</td></tr>
+          <tr><td data-label="OrderID">1B</td><td data-label="NumberItems">2</td></tr>
+          <tr><td data-label="OrderID">1C</td><td data-label="NumberItems">1</td></tr>
+          <tr class="selected-record"><td data-label="OrderID">1D</td><td data-label="NumberItems">29</td></tr>
+        </tbody></table></div>
+      </div>
+      <div class="data-panel result-panel">
+        <h5>Data returned</h5>
+        <div class="output-number">2</div>
+      </div>
+    </div>
+  </div>
+
+  <h3>4.9 Completing SQL scripts</h3>
+  <p>Use the requested output to identify the missing field, table, condition or command.</p>
+  <div class="query-example">
+    <div class="query-left">
+      <h4>Requirement</h4>
+      <p>Display the cost of every product.</p>
+      <h4>Incomplete script</h4>
+      <pre>SELECT ______
+FROM PRODUCTS;</pre>
+      <h4>Completed script</h4>
+      <pre>SELECT Cost
+FROM PRODUCTS;</pre>
+    </div>
+    <div class="query-right">
+      <div class="data-panel">
+        <h5>Original table</h5>
+        <div class="table-wrap"><table class="responsive mini-table"><thead><tr><th>IDNumber</th><th>Name</th><th>Type</th><th>Cost</th></tr></thead><tbody>
+          <tr><td data-label="IDNumber">12GH</td><td data-label="Name">Saturn</td><td data-label="Type">Chocolate</td><td data-label="Cost">0.56</td></tr>
+          <tr><td data-label="IDNumber">59RF</td><td data-label="Name">Vanilla</td><td data-label="Type">Fudge</td><td data-label="Cost">1.99</td></tr>
+          <tr><td data-label="IDNumber">3WR</td><td data-label="Name">Peanuts</td><td data-label="Type">Nuts</td><td data-label="Cost">2.56</td></tr>
+          <tr><td data-label="IDNumber">52D</td><td data-label="Name">Jazz</td><td data-label="Type">Fruit</td><td data-label="Cost">0.23</td></tr>
+          <tr><td data-label="IDNumber">6SE</td><td data-label="Name">Signet</td><td data-label="Type">Fudge</td><td data-label="Cost">1.48</td></tr>
+        </tbody></table></div>
+      </div>
+      <div class="data-panel result-panel">
+        <h5>Data returned</h5>
+        <div class="table-wrap"><table class="responsive mini-table"><thead><tr><th>Cost</th></tr></thead><tbody>
+          <tr><td data-label="Cost">0.56</td></tr><tr><td data-label="Cost">1.99</td></tr><tr><td data-label="Cost">2.56</td></tr><tr><td data-label="Cost">0.23</td></tr><tr><td data-label="Cost">1.48</td></tr>
+        </tbody></table></div>
+      </div>
+    </div>
+  </div>
+
+  <h3>4.10 Identifying the output of an SQL statement</h3>
+  <ol class="steps">
+    <li><strong>Identify the table</strong><br>Read the name after <span class="inline-code">FROM</span>.</li>
+    <li><strong>Apply the condition</strong><br>Keep the records that satisfy <span class="inline-code">WHERE</span>.</li>
+    <li><strong>Sort if required</strong><br>Apply <span class="inline-code">ORDER BY</span>.</li>
+    <li><strong>Display or calculate</strong><br>Use the fields, <span class="inline-code">SUM</span> or <span class="inline-code">COUNT</span> written after <span class="inline-code">SELECT</span>.</li>
+  </ol>
+
+  <div class="query-example">
+    <div class="query-left">
+      <h4>SQL query</h4>
+      <pre>SELECT FirstName, FamilyName, BedNumber
+FROM PATIENT
+WHERE WardNumber = 7;</pre>
+      <p class="query-purpose">Display the requested fields only for patients in ward 7.</p>
+    </div>
+    <div class="query-right">
+      <div class="data-panel">
+        <h5>Original table</h5>
+        <div class="table-wrap"><table class="responsive mini-table"><thead><tr><th>FirstName</th><th>FamilyName</th><th>WardNumber</th><th>BedNumber</th></tr></thead><tbody>
+          <tr><td data-label="FirstName">Winnie</td><td data-label="FamilyName">Sing</td><td data-label="WardNumber">6</td><td data-label="BedNumber">8</td></tr>
+          <tr><td data-label="FirstName">Steve</td><td data-label="FamilyName">Chow</td><td data-label="WardNumber">6</td><td data-label="BedNumber">3</td></tr>
+          <tr class="selected-record"><td data-label="FirstName">Chin</td><td data-label="FamilyName">Wee</td><td data-label="WardNumber">7</td><td data-label="BedNumber">1</td></tr>
+          <tr><td data-label="FirstName">Min</td><td data-label="FamilyName">Hoo</td><td data-label="WardNumber">6</td><td data-label="BedNumber">1</td></tr>
+          <tr class="selected-record"><td data-label="FirstName">Peter</td><td data-label="FamilyName">Patel</td><td data-label="WardNumber">7</td><td data-label="BedNumber">8</td></tr>
+          <tr><td data-label="FirstName">Sue</td><td data-label="FamilyName">Sands</td><td data-label="WardNumber">6</td><td data-label="BedNumber">2</td></tr>
+          <tr class="selected-record"><td data-label="FirstName">Farouk</td><td data-label="FamilyName">Khan</td><td data-label="WardNumber">7</td><td data-label="BedNumber">4</td></tr>
+          <tr class="selected-record"><td data-label="FirstName">Ahmad</td><td data-label="FamilyName">Teo</td><td data-label="WardNumber">7</td><td data-label="BedNumber">2</td></tr>
+        </tbody></table></div>
+      </div>
+      <div class="data-panel result-panel">
+        <h5>Data returned</h5>
+        <div class="table-wrap"><table class="responsive mini-table"><thead><tr><th>FirstName</th><th>FamilyName</th><th>BedNumber</th></tr></thead><tbody>
+          <tr><td data-label="FirstName">Chin</td><td data-label="FamilyName">Wee</td><td data-label="BedNumber">1</td></tr>
+          <tr><td data-label="FirstName">Peter</td><td data-label="FamilyName">Patel</td><td data-label="BedNumber">8</td></tr>
+          <tr><td data-label="FirstName">Farouk</td><td data-label="FamilyName">Khan</td><td data-label="BedNumber">4</td></tr>
+          <tr><td data-label="FirstName">Ahmad</td><td data-label="FamilyName">Teo</td><td data-label="BedNumber">2</td></tr>
+        </tbody></table></div>
+      </div>
+    </div>
+  </div>
+
+</section>
+</main>
+
+<footer class="footer">Databases · Theory Notes Prepared by Dr. Hamdeni</footer>
+</article>
+</body>
+</html>

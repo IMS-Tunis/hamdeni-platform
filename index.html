@@ -92,7 +92,7 @@
   <div class="left-column path-frame">
     <h2 class="section-title">Choose Your Cambridge Path: The Full Journey</h2>
     <div class="path-buttons">
-      <a href="/igcse/dashboard.html" class="ripple-button" data-label="IGCSE">
+      <a href="igcse/dashboard.html" class="ripple-button" data-label="IGCSE">
         <img src="images/igbutton.png" alt="IGCSE" />
       </a>
       <a href="as/dashboard.html" class="ripple-button" data-label="AS Level">
@@ -107,10 +107,10 @@
   <div class="right-column training-frame">
     <h2 class="section-title">Available Quick Trainings</h2>
     <div class="training-buttons">
-      <a href="#" class="training-box">
+      <a href="#" class="training-box" data-coming-soon aria-controls="trainingComingSoon">
         <img src="images/pythonTraining.png" alt="Python Special Training" />
       </a>
-      <a href="#" class="training-box">
+      <a href="#" class="training-box" data-coming-soon aria-controls="trainingComingSoon">
         <img src="images/pseudocodeTraining.png" alt="Pseudocode Special Training" />
       </a>
     </div>
@@ -120,8 +120,12 @@
 
 </main>
 
+  <div id="trainingComingSoon" class="training-coming-soon" role="status" aria-live="polite">
+    Will be available soon
+  </div>
+
   <footer>
-    <p>&copy; 2025 Dr. Hamdeni – All rights reserved.</p>
+    <p>&copy; 2026 Dr. Hamdeni – All rights reserved.</p>
   </footer>
 
 
@@ -142,6 +146,43 @@ document.querySelectorAll('.ripple-container, .ripple-button').forEach(button =>
     }
   });
 });
+
+const trainingComingSoon = document.getElementById('trainingComingSoon');
+let trainingComingSoonTimer;
+
+function hideTrainingComingSoon() {
+  trainingComingSoon.classList.remove('visible');
+}
+
+document.querySelectorAll('[data-coming-soon]').forEach(button => {
+  button.addEventListener('click', function(e) {
+    e.preventDefault();
+
+    const buttonRect = this.getBoundingClientRect();
+    trainingComingSoon.classList.add('visible');
+    const noticeRect = trainingComingSoon.getBoundingClientRect();
+    const gap = 10;
+
+    let left = buttonRect.right + gap;
+    if (left + noticeRect.width > window.innerWidth - 8) {
+      left = buttonRect.left - noticeRect.width - gap;
+    }
+
+    const top = Math.min(
+      Math.max(buttonRect.top + (buttonRect.height - noticeRect.height) / 2, 8),
+      window.innerHeight - noticeRect.height - 8
+    );
+
+    trainingComingSoon.style.left = `${Math.max(left, 8)}px`;
+    trainingComingSoon.style.top = `${top}px`;
+
+    clearTimeout(trainingComingSoonTimer);
+    trainingComingSoonTimer = setTimeout(hideTrainingComingSoon, 3000);
+  });
+});
+
+window.addEventListener('scroll', hideTrainingComingSoon);
+window.addEventListener('resize', hideTrainingComingSoon);
 
 // Image-capable popover for feature chips
 window.addEventListener('DOMContentLoaded', function() {
