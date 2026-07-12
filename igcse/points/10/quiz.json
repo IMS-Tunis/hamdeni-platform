@@ -1,157 +1,145 @@
 {
   "questions": [
     {
-      "type": "match",
-      "question": "Match each term in Column A with its definition in Column B. Column A",
-      "pairs": {
-        "Voltage": "The pressure that pushes charged electrons around an electrical circuit",
-        "Logic gate": "A very small component that controls the flow of electricity inside a computer",
-        "Logic circuit": "Several connected gates working together",
-        "Truth table": "A table showing every possible binary input combination and its output",
-        "Logic expression": "Logic written like a mathematical equation",
-        "Problem statement": "Conditions of a system described in natural language"
-      }
+      "type": "mcq",
+      "question": "Match each term in Column A with its definition in Column B. Column A\n\nItems:\n1. Voltage\n2. Logic gate\n3. Logic circuit\n4. Truth table\n5. Logic expression\n6. Problem statement\n\nPossible matches:\na. The pressure that pushes charged electrons around an electrical circuit\nb. A very small component that controls the flow of electricity inside a computer\nc. Conditions of a system described in natural language\nd. A table showing every possible binary input combination and its output\ne. Several connected gates working together\nf. Logic written like a mathematical equation\n\nWhich option gives the complete correct matching sequence?",
+      "options": [
+        "1-e, 2-d, 3-f, 4-c, 5-a, 6-b",
+        "1-b, 2-e, 3-d, 4-f, 5-c, 6-a",
+        "1-a, 2-b, 3-e, 4-d, 5-f, 6-c",
+        "1-d, 2-f, 3-c, 4-a, 5-b, 6-e"
+      ],
+      "answer": "1-a, 2-b, 3-e, 4-d, 5-f, 6-c"
     },
     {
-      "type": "fill_blank",
-      "question": "Complete the statements using the correct keywords.\n\nA computer represents binary data using a _____ voltage for 1 and a _____ voltage for 0. Boolean values have the two states _____ and _____. Logic gates are built from tiny switches called _____. Every gate takes _____ inputs and produces exactly _____ binary output.",
-      "answer": "HIGH; LOW; true; false; transistors; binary; one."
+      "type": "mcq",
+      "question": "Match each gate with the description of its standard symbol.\n\nItems:\n1. NOT\n2. AND\n3. OR\n4. NAND\n5. NOR\n6. XOR\n\nPossible matches:\na. Triangle followed by a small circle\nb. OR shape with a small output circle\nc. Flat back with a rounded D-shaped front\nd. AND shape with a small output circle\ne. Curved back with a pointed front\nf. OR shape with an extra curved line behind it\n\nWhich option gives the complete correct matching sequence?",
+      "options": [
+        "1-a, 2-c, 3-e, 4-d, 5-b, 6-f",
+        "1-c, 2-e, 3-d, 4-b, 5-f, 6-a",
+        "1-d, 2-b, 3-f, 4-a, 5-c, 6-e",
+        "1-e, 2-d, 3-b, 4-f, 5-a, 6-c"
+      ],
+      "answer": "1-a, 2-c, 3-e, 4-d, 5-b, 6-f"
     },
     {
-      "type": "match",
-      "question": "Match each gate with the description of its standard symbol.",
-      "pairs": {
-        "NOT": "Triangle followed by a small circle",
-        "AND": "Flat back with a rounded D-shaped front",
-        "OR": "Curved back with a pointed front",
-        "NAND": "AND shape with a small output circle",
-        "NOR": "OR shape with a small output circle",
-        "XOR": "OR shape with an extra curved line behind it"
-      }
+      "type": "mcq",
+      "question": "Match each symbol or notation rule with its correct completion.\n\nItems:\n1. The small output circle is called a\n2. The circle means\n3. NOT has\n4. Every other individual gate has\n5. Every gate has\n6. Inputs are usually labelled\n7. Outputs are usually labelled\n\nPossible matches:\na. the result is inverted\nb. one input\nc. A and B\nd. bubble\ne. one output\nf. X, Y or Z\ng. two inputs\n\nWhich option gives the complete correct matching sequence?",
+      "options": [
+        "1-g, 2-e, 3-c, 4-f, 5-d, 6-a, 7-b",
+        "1-a, 2-b, 3-g, 4-e, 5-c, 6-f, 7-d",
+        "1-b, 2-g, 3-e, 4-c, 5-f, 6-d, 7-a",
+        "1-d, 2-a, 3-b, 4-g, 5-e, 6-c, 7-f"
+      ],
+      "answer": "1-d, 2-a, 3-b, 4-g, 5-e, 6-c, 7-f"
     },
     {
-      "type": "match",
-      "question": "Match each symbol or notation rule with its correct completion.",
-      "pairs": {
-        "The small output circle is called a": "bubble",
-        "The circle means": "the result is inverted",
-        "NOT has": "one input",
-        "Every other individual gate has": "two inputs",
-        "Every gate has": "one output",
-        "Inputs are usually labelled": "A and B",
-        "Outputs are usually labelled": "X, Y or Z"
-      }
+      "type": "mcq",
+      "question": "For the input order 00, 01, 10, 11, match each gate with its output sequence.\n\nItems:\n1. AND\n2. OR\n3. NAND\n4. NOR\n5. XOR\n\nPossible matches:\na. 1000\nb. 1110\nc. 0111\nd. 0001\ne. 0110\n\nWhich option gives the complete correct matching sequence?",
+      "options": [
+        "1-b, 2-a, 3-e, 4-d, 5-c",
+        "1-d, 2-c, 3-b, 4-a, 5-e",
+        "1-c, 2-b, 3-a, 4-e, 5-d",
+        "1-a, 2-e, 3-d, 4-c, 5-b"
+      ],
+      "answer": "1-d, 2-c, 3-b, 4-a, 5-e"
     },
     {
-      "type": "match",
-      "question": "For the input order 00, 01, 10, 11, match each gate with its output sequence.",
-      "pairs": {
-        "AND": "0001",
-        "OR": "0111",
-        "NAND": "1110",
-        "NOR": "1000",
-        "XOR": "0110"
-      }
+      "type": "mcq",
+      "question": "Match each truth-table item with its correct completion.\n\nItems:\n1. General number of rows for n inputs\n2. Rows for 2 inputs\n3. Rows for 3 inputs\n4. Rows for 4 inputs\n5. Correct order for all three-input combinations\n\nPossible matches:\na. 4\nb. 000, 001, 010, 011, 100, 101, 110, 111\nc. 2^n\nd. 8\ne. 16\n\nWhich option gives the complete correct matching sequence?",
+      "options": [
+        "1-e, 2-b, 3-c, 4-a, 5-d",
+        "1-c, 2-a, 3-d, 4-e, 5-b",
+        "1-a, 2-d, 3-e, 4-b, 5-c",
+        "1-d, 2-e, 3-b, 4-c, 5-a"
+      ],
+      "answer": "1-c, 2-a, 3-d, 4-e, 5-b"
     },
     {
-      "type": "match",
-      "question": "Match each truth-table item with its correct completion.",
-      "pairs": {
-        "General number of rows for n inputs": "2^n",
-        "Rows for 2 inputs": "4",
-        "Rows for 3 inputs": "8",
-        "Rows for 4 inputs": "16",
-        "Correct order for all three-input combinations": "000, 001, 010, 011, 100, 101, 110, 111"
-      }
-    },
-    {
-      "type": "match",
-      "question": "Match each circuit feature with its meaning.",
-      "pairs": {
-        "Letters on the left": "Inputs",
-        "Letter on the right": "Output",
-        "Signal direction": "Left to right",
-        "Crossing wires with a dot": "The wires are connected and the signal splits",
-        "Crossing wires without a dot": "The wires are not connected",
-        "Labelled in-between wires such as D and E": "Used to track intermediate values in workspace columns"
-      }
+      "type": "mcq",
+      "question": "Match each circuit feature with its meaning.\n\nItems:\n1. Letters on the left\n2. Letter on the right\n3. Signal direction\n4. Crossing wires with a dot\n5. Crossing wires without a dot\n6. Labelled in-between wires such as D and E\n\nPossible matches:\na. Output\nb. Used to track intermediate values in workspace columns\nc. The wires are not connected\nd. Left to right\ne. Inputs\nf. The wires are connected and the signal splits\n\nWhich option gives the complete correct matching sequence?",
+      "options": [
+        "1-a, 2-d, 3-f, 4-c, 5-b, 6-e",
+        "1-f, 2-c, 3-b, 4-e, 5-a, 6-d",
+        "1-d, 2-f, 3-c, 4-b, 5-e, 6-a",
+        "1-e, 2-a, 3-d, 4-f, 5-c, 6-b"
+      ],
+      "answer": "1-e, 2-a, 3-d, 4-f, 5-c, 6-b"
     },
     {
       "type": "mcq",
       "question": "For D = A OR B, E = NOT C and Y = D AND E, which set contains every input combination that produces Y = 1?",
       "options": [
-        "000, 011, 101",
-        "001, 010, 100",
         "010, 100, 110",
+        "001, 010, 100",
+        "000, 011, 101",
         "011, 101, 111"
       ],
       "answer": "010, 100, 110"
     },
     {
-      "type": "match",
-      "question": "Match each rule for writing an expression from a circuit with its correct completion.",
-      "pairs": {
-        "Begin with": "the output label and an equals sign",
-        "Identify first": "the final gate nearest the output",
-        "Write next": "the two branches feeding the final gate",
-        "Use brackets so that": "each gate's result has one clear meaning"
-      }
+      "type": "mcq",
+      "question": "Match each rule for writing an expression from a circuit with its correct completion.\n\nItems:\n1. Begin with\n2. Identify first\n3. Write next\n4. Use brackets so that\n\nPossible matches:\na. the final gate nearest the output\nb. the output label and an equals sign\nc. the two branches feeding the final gate\nd. each gate's result has one clear meaning\n\nWhich option gives the complete correct matching sequence?",
+      "options": [
+        "1-c, 2-d, 3-b, 4-a",
+        "1-d, 2-b, 3-a, 4-c",
+        "1-b, 2-a, 3-c, 4-d",
+        "1-a, 2-c, 3-d, 4-b"
+      ],
+      "answer": "1-b, 2-a, 3-c, 4-d"
     },
     {
       "type": "mcq",
       "question": "P and Q feed a NAND gate. Q also feeds a NOT gate. The two results feed an XOR gate, and the XOR result is ANDed with R to produce Z. Which expression is correct?",
       "options": [
         "Z = (P NAND Q) XOR ((NOT Q) AND R)",
-        "Z = ((P NAND Q) XOR (NOT Q)) AND R",
+        "Z = (P NAND Q) AND ((NOT Q) XOR R)",
         "Z = (P NAND (Q XOR NOT Q)) AND R",
-        "Z = (P NAND Q) AND ((NOT Q) XOR R)"
+        "Z = ((P NAND Q) XOR (NOT Q)) AND R"
       ],
       "answer": "Z = ((P NAND Q) XOR (NOT Q)) AND R"
     },
     {
-      "type": "match",
-      "question": "Match each rule for drawing a circuit from an expression with its meaning.",
-      "pairs": {
-        "Operator outside all brackets": "This is the final connecting gate nearest the output.",
-        "Innermost bracket": "Draw that part first and feed its output outward.",
-        "NOT inside a bracket": "Place a NOT gate on that input wire.",
-        "Input letter used more than once": "Draw the input once and split its wire at a junction dot."
-      }
+      "type": "mcq",
+      "question": "Match each rule for drawing a circuit from an expression with its meaning.\n\nItems:\n1. Operator outside all brackets\n2. Innermost bracket\n3. NOT inside a bracket\n4. Input letter used more than once\n\nPossible matches:\na. This is the final connecting gate nearest the output.\nb. Draw the input once and split its wire at a junction dot.\nc. Draw that part first and feed its output outward.\nd. Place a NOT gate on that input wire.\n\nWhich option gives the complete correct matching sequence?",
+      "options": [
+        "1-a, 2-c, 3-d, 4-b",
+        "1-b, 2-a, 3-c, 4-d",
+        "1-c, 2-d, 3-b, 4-a",
+        "1-d, 2-b, 3-a, 4-c"
+      ],
+      "answer": "1-a, 2-c, 3-d, 4-b"
     },
     {
       "type": "mcq",
       "question": "For X = ((A AND B) OR NOT C) XOR (B NOR C), which description is correct?",
       "options": [
-        "XOR is final; the left branch is OR and the right branch is NOR.",
         "OR is final; the left branch is XOR and the right branch is NOR.",
-        "NOR is final; the left branch is AND and the right branch is XOR.",
-        "AND is final; the left branch is OR and the right branch is XOR."
+        "AND is final; the left branch is OR and the right branch is XOR.",
+        "XOR is final; the left branch is OR and the right branch is NOR.",
+        "NOR is final; the left branch is AND and the right branch is XOR."
       ],
       "answer": "XOR is final; the left branch is OR and the right branch is NOR."
     },
     {
-      "type": "match",
-      "question": "Match each truth-table conversion rule with its correct completion.",
-      "pairs": {
-        "First check whether the table": "matches one of the six single gates",
-        "If no single gate matches, use": "the sum-of-products method",
-        "Consider only rows where": "the output is 1",
-        "An input value of 1 is written as": "the input letter",
-        "An input value of 0 is written as": "NOT followed by the input letter",
-        "Inputs within one selected row are joined with": "AND",
-        "Brackets from different selected rows are joined with": "OR",
-        "The required gates are": "NOT, AND and OR",
-        "A correct unsimplified expression": "earns full marks"
-      }
+      "type": "mcq",
+      "question": "Match each truth-table conversion rule with its correct completion.\n\nItems:\n1. First check whether the table\n2. If no single gate matches, use\n3. Consider only rows where\n4. An input value of 1 is written as\n5. An input value of 0 is written as\n6. Inputs within one selected row are joined with\n7. Brackets from different selected rows are joined with\n8. The required gates are\n9. A correct unsimplified expression\n\nPossible matches:\na. NOT followed by the input letter\nb. earns full marks\nc. the output is 1\nd. matches one of the six single gates\ne. OR\nf. the sum-of-products method\ng. the input letter\nh. NOT, AND and OR\ni. AND\n\nWhich option gives the complete correct matching sequence?",
+      "options": [
+        "1-g, 2-a, 3-i, 4-e, 5-h, 6-b, 7-d, 8-f, 9-c",
+        "1-d, 2-f, 3-c, 4-g, 5-a, 6-i, 7-e, 8-h, 9-b",
+        "1-f, 2-c, 3-g, 4-a, 5-i, 6-e, 7-h, 8-b, 9-d",
+        "1-c, 2-g, 3-a, 4-i, 5-e, 6-h, 7-b, 8-d, 9-f"
+      ],
+      "answer": "1-d, 2-f, 3-c, 4-g, 5-a, 6-i, 7-e, 8-h, 9-b"
     },
     {
       "type": "mcq",
       "question": "A truth table has X = 1 only for A B = 00 and A B = 11. Which sum-of-products expression matches it?",
       "options": [
         "X = (NOT A AND NOT B) OR (A AND B)",
+        "X = (A AND NOT B) OR (A AND B)",
         "X = (NOT A AND B) OR (A AND NOT B)",
-        "X = (NOT A OR NOT B) AND (A OR B)",
-        "X = (A AND NOT B) OR (A AND B)"
+        "X = (NOT A OR NOT B) AND (A OR B)"
       ],
       "answer": "X = (NOT A AND NOT B) OR (A AND B)"
     }
