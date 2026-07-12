@@ -199,31 +199,6 @@
       "answer": "2"
     },
     {
-      "type": "fill_blank",
-      "question": "SELECT _____(NumberItems)\nFROM Orders;",
-      "answer": "SUM"
-    },
-    {
-      "type": "fill_blank",
-      "question": "SELECT _____(OrderID)\nFROM Orders;",
-      "answer": "COUNT"
-    },
-    {
-      "type": "fill_blank",
-      "question": "SELECT OrderID, TotalCost\n_____ Orders\nORDER BY TotalCost DESC;",
-      "answer": "FROM"
-    },
-    {
-      "type": "fill_blank",
-      "question": "SELECT OrderID, TotalCost\nFROM Orders\n_____ TotalCost DESC;",
-      "answer": "ORDER BY"
-    },
-    {
-      "type": "fill_blank",
-      "question": "Complete the SQL statement so that the results are sorted from highest to lowest total cost.\n\nSELECT OrderID, TotalCost\nFROM Orders\nORDER BY TotalCost _____;",
-      "answer": "DESC"
-    },
-    {
       "type": "true_false",
       "question": "Every record in the same table contains the same fields.",
       "answer": "True"

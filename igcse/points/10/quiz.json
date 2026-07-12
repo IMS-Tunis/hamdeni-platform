@@ -1,0 +1,159 @@
+{
+  "questions": [
+    {
+      "type": "match",
+      "question": "Match each term in Column A with its definition in Column B. Column A",
+      "pairs": {
+        "Voltage": "The pressure that pushes charged electrons around an electrical circuit",
+        "Logic gate": "A very small component that controls the flow of electricity inside a computer",
+        "Logic circuit": "Several connected gates working together",
+        "Truth table": "A table showing every possible binary input combination and its output",
+        "Logic expression": "Logic written like a mathematical equation",
+        "Problem statement": "Conditions of a system described in natural language"
+      }
+    },
+    {
+      "type": "fill_blank",
+      "question": "Complete the statements using the correct keywords.\n\nA computer represents binary data using a _____ voltage for 1 and a _____ voltage for 0. Boolean values have the two states _____ and _____. Logic gates are built from tiny switches called _____. Every gate takes _____ inputs and produces exactly _____ binary output.",
+      "answer": "HIGH; LOW; true; false; transistors; binary; one."
+    },
+    {
+      "type": "match",
+      "question": "Match each gate with the description of its standard symbol.",
+      "pairs": {
+        "NOT": "Triangle followed by a small circle",
+        "AND": "Flat back with a rounded D-shaped front",
+        "OR": "Curved back with a pointed front",
+        "NAND": "AND shape with a small output circle",
+        "NOR": "OR shape with a small output circle",
+        "XOR": "OR shape with an extra curved line behind it"
+      }
+    },
+    {
+      "type": "match",
+      "question": "Match each symbol or notation rule with its correct completion.",
+      "pairs": {
+        "The small output circle is called a": "bubble",
+        "The circle means": "the result is inverted",
+        "NOT has": "one input",
+        "Every other individual gate has": "two inputs",
+        "Every gate has": "one output",
+        "Inputs are usually labelled": "A and B",
+        "Outputs are usually labelled": "X, Y or Z"
+      }
+    },
+    {
+      "type": "match",
+      "question": "For the input order 00, 01, 10, 11, match each gate with its output sequence.",
+      "pairs": {
+        "AND": "0001",
+        "OR": "0111",
+        "NAND": "1110",
+        "NOR": "1000",
+        "XOR": "0110"
+      }
+    },
+    {
+      "type": "match",
+      "question": "Match each truth-table item with its correct completion.",
+      "pairs": {
+        "General number of rows for n inputs": "2^n",
+        "Rows for 2 inputs": "4",
+        "Rows for 3 inputs": "8",
+        "Rows for 4 inputs": "16",
+        "Correct order for all three-input combinations": "000, 001, 010, 011, 100, 101, 110, 111"
+      }
+    },
+    {
+      "type": "match",
+      "question": "Match each circuit feature with its meaning.",
+      "pairs": {
+        "Letters on the left": "Inputs",
+        "Letter on the right": "Output",
+        "Signal direction": "Left to right",
+        "Crossing wires with a dot": "The wires are connected and the signal splits",
+        "Crossing wires without a dot": "The wires are not connected",
+        "Labelled in-between wires such as D and E": "Used to track intermediate values in workspace columns"
+      }
+    },
+    {
+      "type": "mcq",
+      "question": "For D = A OR B, E = NOT C and Y = D AND E, which set contains every input combination that produces Y = 1?",
+      "options": [
+        "000, 011, 101",
+        "001, 010, 100",
+        "010, 100, 110",
+        "011, 101, 111"
+      ],
+      "answer": "010, 100, 110"
+    },
+    {
+      "type": "match",
+      "question": "Match each rule for writing an expression from a circuit with its correct completion.",
+      "pairs": {
+        "Begin with": "the output label and an equals sign",
+        "Identify first": "the final gate nearest the output",
+        "Write next": "the two branches feeding the final gate",
+        "Use brackets so that": "each gate's result has one clear meaning"
+      }
+    },
+    {
+      "type": "mcq",
+      "question": "P and Q feed a NAND gate. Q also feeds a NOT gate. The two results feed an XOR gate, and the XOR result is ANDed with R to produce Z. Which expression is correct?",
+      "options": [
+        "Z = (P NAND Q) XOR ((NOT Q) AND R)",
+        "Z = ((P NAND Q) XOR (NOT Q)) AND R",
+        "Z = (P NAND (Q XOR NOT Q)) AND R",
+        "Z = (P NAND Q) AND ((NOT Q) XOR R)"
+      ],
+      "answer": "Z = ((P NAND Q) XOR (NOT Q)) AND R"
+    },
+    {
+      "type": "match",
+      "question": "Match each rule for drawing a circuit from an expression with its meaning.",
+      "pairs": {
+        "Operator outside all brackets": "This is the final connecting gate nearest the output.",
+        "Innermost bracket": "Draw that part first and feed its output outward.",
+        "NOT inside a bracket": "Place a NOT gate on that input wire.",
+        "Input letter used more than once": "Draw the input once and split its wire at a junction dot."
+      }
+    },
+    {
+      "type": "mcq",
+      "question": "For X = ((A AND B) OR NOT C) XOR (B NOR C), which description is correct?",
+      "options": [
+        "XOR is final; the left branch is OR and the right branch is NOR.",
+        "OR is final; the left branch is XOR and the right branch is NOR.",
+        "NOR is final; the left branch is AND and the right branch is XOR.",
+        "AND is final; the left branch is OR and the right branch is XOR."
+      ],
+      "answer": "XOR is final; the left branch is OR and the right branch is NOR."
+    },
+    {
+      "type": "match",
+      "question": "Match each truth-table conversion rule with its correct completion.",
+      "pairs": {
+        "First check whether the table": "matches one of the six single gates",
+        "If no single gate matches, use": "the sum-of-products method",
+        "Consider only rows where": "the output is 1",
+        "An input value of 1 is written as": "the input letter",
+        "An input value of 0 is written as": "NOT followed by the input letter",
+        "Inputs within one selected row are joined with": "AND",
+        "Brackets from different selected rows are joined with": "OR",
+        "The required gates are": "NOT, AND and OR",
+        "A correct unsimplified expression": "earns full marks"
+      }
+    },
+    {
+      "type": "mcq",
+      "question": "A truth table has X = 1 only for A B = 00 and A B = 11. Which sum-of-products expression matches it?",
+      "options": [
+        "X = (NOT A AND NOT B) OR (A AND B)",
+        "X = (NOT A AND B) OR (A AND NOT B)",
+        "X = (NOT A OR NOT B) AND (A OR B)",
+        "X = (A AND NOT B) OR (A AND B)"
+      ],
+      "answer": "X = (NOT A AND NOT B) OR (A AND B)"
+    }
+  ]
+}
