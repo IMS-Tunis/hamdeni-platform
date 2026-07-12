@@ -43,6 +43,124 @@ body {
   line-height: 1.62;
 }
 
+.platform-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 76px;
+  padding: 10px 20px;
+  color: #fff;
+  background: #003366;
+  box-shadow: 0 5px 16px rgba(13, 39, 70, .2);
+}
+.platform-header-left,
+.platform-header-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.platform-header-right { justify-content: flex-end; }
+.platform-header-center {
+  flex: 2;
+  text-align: center;
+}
+.platform-header-center h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  line-height: 1.2;
+  letter-spacing: normal;
+}
+.platform-info-line {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 3px;
+  color: #f0f0f0;
+  font-size: 1rem;
+}
+.platform-logo {
+  display: block;
+  width: auto;
+  height: 45px;
+}
+#maarif-logo { height: 55px; }
+.platform-footer {
+  margin-top: 50px;
+  padding: 20px;
+  color: #333;
+  background: #e0e0e0;
+  text-align: center;
+  font-size: .95rem;
+}
+.platform-footer a {
+  color: #003366;
+  font-weight: 700;
+}
+.layer-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(1200px, calc(100% - 34px));
+  margin: 0 auto 1.2rem;
+  padding: 24px 20px;
+  gap: .4rem;
+  border: 1px solid rgba(117,143,171,.24);
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+}
+.layer-menu-title {
+  margin: 0;
+  color: var(--navy);
+  font-weight: 800;
+}
+.layer-menu-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: .4rem;
+}
+.layer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border: 1px solid #c9d5e5;
+  border-radius: 999px;
+  color: #003366;
+  background: #fff;
+  box-shadow: 0 6px 16px rgba(0, 51, 102, .12);
+  text-decoration: none;
+  font-weight: 700;
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+a.layer-link:hover {
+  background: #e6f0ff;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 51, 102, .18);
+}
+.layer-number {
+  padding: 2px 8px;
+  border-radius: 999px;
+  color: #fff;
+  background: #003366;
+  font-size: .85em;
+}
+.layer-link.is-disabled {
+  color: #6e7b8b;
+  background: #edf1f5;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+.layer-link.is-disabled .layer-number { background: #7d8996; }
+.coming-soon {
+  font-size: .72em;
+  font-weight: 600;
+}
+
 .page {
   width: min(1200px, calc(100% - 34px));
   margin: 24px auto 58px;
@@ -727,6 +845,17 @@ tr:last-child td { border-bottom: none; }
 
 @media (max-width: 700px) {
   body { font-size: 15.5px; }
+  .platform-header { padding: 9px 12px; }
+  .platform-header-left,
+  .platform-header-right { flex: 0 0 64px; }
+  .platform-header-center { padding: 0 8px; }
+  .platform-header-center h1 { font-size: 1.05rem; }
+  .platform-info-line { gap: 7px 12px; flex-wrap: wrap; font-size: .78rem; }
+  .platform-logo { max-width: 64px; height: auto; max-height: 40px; }
+  #maarif-logo { height: auto; max-height: 46px; }
+  .layer-menu { width: min(100% - 16px, 1200px); padding: 20px 12px; }
+  .layer-menu-links { flex-direction: column; width: 100%; }
+  .layer-link { justify-content: center; width: min(100%, 290px); }
   .page { width: min(100% - 16px, 1200px); margin: 8px auto 26px; border-radius: 18px; }
   .hero { padding-top: 46px; }
   .toc-grid, .two-col, .table-concept-grid, .compare-strip, .pk-reasons, .order-grid, .steps { grid-template-columns: 1fr; }
@@ -782,6 +911,7 @@ tr:last-child td { border-bottom: none; }
 @media print {
   @page { size: A4; margin: 15mm; }
   body { background: #fff; }
+  .platform-header, .layer-menu, .platform-footer { display: none; }
   .page { width: 100%; margin: 0; border: 0; border-radius: 0; box-shadow: none; }
   .hero { padding: 28px 30px; background: #163d6b !important; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
   .toc { padding: 18px 28px; }
@@ -796,6 +926,24 @@ tr:last-child td { border-bottom: none; }
 </style>
 </head>
 <body>
+<header class="platform-header">
+  <div class="platform-header-left">
+    <a href="/igcse/dashboard.html" aria-label="Return to the IGCSE dashboard">
+      <img src="../../../images/maarifLOGO.png" class="platform-logo" id="maarif-logo" alt="Türkiye Maarif Vakfı">
+    </a>
+  </div>
+  <div class="platform-header-center">
+    <h1>Layer 1: Theoretical Foundation</h1>
+    <div class="platform-info-line">
+      <span>📍 9. Database</span>
+      <span id="student-name" hidden></span>
+      <span>🎓 Platform: IGCSE</span>
+    </div>
+  </div>
+  <div class="platform-header-right">
+    <img src="../../../images/cambridge.png" class="platform-logo" alt="Cambridge Assessment International Education">
+  </div>
+</header>
 <article class="page">
 <header class="hero">
   <p class="eyebrow">IGCSE Computer Science</p>
@@ -1310,85 +1458,36 @@ WHERE NumberItems &gt; 10;</pre>
     </div>
   </div>
 
-  <h3>4.9 Completing SQL scripts</h3>
-  <p>Use the requested output to identify the missing field, table, condition or command.</p>
-  <div class="query-example">
-    <div class="query-left">
-      <h4>Requirement</h4>
-      <p>Display the cost of every product.</p>
-      <h4>Incomplete script</h4>
-      <pre>SELECT ______
-FROM PRODUCTS;</pre>
-      <h4>Completed script</h4>
-      <pre>SELECT Cost
-FROM PRODUCTS;</pre>
-    </div>
-    <div class="query-right">
-      <div class="data-panel">
-        <h5>Original table</h5>
-        <div class="table-wrap"><table class="responsive mini-table"><thead><tr><th>IDNumber</th><th>Name</th><th>Type</th><th>Cost</th></tr></thead><tbody>
-          <tr><td data-label="IDNumber">12GH</td><td data-label="Name">Saturn</td><td data-label="Type">Chocolate</td><td data-label="Cost">0.56</td></tr>
-          <tr><td data-label="IDNumber">59RF</td><td data-label="Name">Vanilla</td><td data-label="Type">Fudge</td><td data-label="Cost">1.99</td></tr>
-          <tr><td data-label="IDNumber">3WR</td><td data-label="Name">Peanuts</td><td data-label="Type">Nuts</td><td data-label="Cost">2.56</td></tr>
-          <tr><td data-label="IDNumber">52D</td><td data-label="Name">Jazz</td><td data-label="Type">Fruit</td><td data-label="Cost">0.23</td></tr>
-          <tr><td data-label="IDNumber">6SE</td><td data-label="Name">Signet</td><td data-label="Type">Fudge</td><td data-label="Cost">1.48</td></tr>
-        </tbody></table></div>
-      </div>
-      <div class="data-panel result-panel">
-        <h5>Data returned</h5>
-        <div class="table-wrap"><table class="responsive mini-table"><thead><tr><th>Cost</th></tr></thead><tbody>
-          <tr><td data-label="Cost">0.56</td></tr><tr><td data-label="Cost">1.99</td></tr><tr><td data-label="Cost">2.56</td></tr><tr><td data-label="Cost">0.23</td></tr><tr><td data-label="Cost">1.48</td></tr>
-        </tbody></table></div>
-      </div>
-    </div>
-  </div>
-
-  <h3>4.10 Identifying the output of an SQL statement</h3>
-  <ol class="steps">
-    <li><strong>Identify the table</strong><br>Read the name after <span class="inline-code">FROM</span>.</li>
-    <li><strong>Apply the condition</strong><br>Keep the records that satisfy <span class="inline-code">WHERE</span>.</li>
-    <li><strong>Sort if required</strong><br>Apply <span class="inline-code">ORDER BY</span>.</li>
-    <li><strong>Display or calculate</strong><br>Use the fields, <span class="inline-code">SUM</span> or <span class="inline-code">COUNT</span> written after <span class="inline-code">SELECT</span>.</li>
-  </ol>
-
-  <div class="query-example">
-    <div class="query-left">
-      <h4>SQL query</h4>
-      <pre>SELECT FirstName, FamilyName, BedNumber
-FROM PATIENT
-WHERE WardNumber = 7;</pre>
-      <p class="query-purpose">Display the requested fields only for patients in ward 7.</p>
-    </div>
-    <div class="query-right">
-      <div class="data-panel">
-        <h5>Original table</h5>
-        <div class="table-wrap"><table class="responsive mini-table"><thead><tr><th>FirstName</th><th>FamilyName</th><th>WardNumber</th><th>BedNumber</th></tr></thead><tbody>
-          <tr><td data-label="FirstName">Winnie</td><td data-label="FamilyName">Sing</td><td data-label="WardNumber">6</td><td data-label="BedNumber">8</td></tr>
-          <tr><td data-label="FirstName">Steve</td><td data-label="FamilyName">Chow</td><td data-label="WardNumber">6</td><td data-label="BedNumber">3</td></tr>
-          <tr class="selected-record"><td data-label="FirstName">Chin</td><td data-label="FamilyName">Wee</td><td data-label="WardNumber">7</td><td data-label="BedNumber">1</td></tr>
-          <tr><td data-label="FirstName">Min</td><td data-label="FamilyName">Hoo</td><td data-label="WardNumber">6</td><td data-label="BedNumber">1</td></tr>
-          <tr class="selected-record"><td data-label="FirstName">Peter</td><td data-label="FamilyName">Patel</td><td data-label="WardNumber">7</td><td data-label="BedNumber">8</td></tr>
-          <tr><td data-label="FirstName">Sue</td><td data-label="FamilyName">Sands</td><td data-label="WardNumber">6</td><td data-label="BedNumber">2</td></tr>
-          <tr class="selected-record"><td data-label="FirstName">Farouk</td><td data-label="FamilyName">Khan</td><td data-label="WardNumber">7</td><td data-label="BedNumber">4</td></tr>
-          <tr class="selected-record"><td data-label="FirstName">Ahmad</td><td data-label="FamilyName">Teo</td><td data-label="WardNumber">7</td><td data-label="BedNumber">2</td></tr>
-        </tbody></table></div>
-      </div>
-      <div class="data-panel result-panel">
-        <h5>Data returned</h5>
-        <div class="table-wrap"><table class="responsive mini-table"><thead><tr><th>FirstName</th><th>FamilyName</th><th>BedNumber</th></tr></thead><tbody>
-          <tr><td data-label="FirstName">Chin</td><td data-label="FamilyName">Wee</td><td data-label="BedNumber">1</td></tr>
-          <tr><td data-label="FirstName">Peter</td><td data-label="FamilyName">Patel</td><td data-label="BedNumber">8</td></tr>
-          <tr><td data-label="FirstName">Farouk</td><td data-label="FamilyName">Khan</td><td data-label="BedNumber">4</td></tr>
-          <tr><td data-label="FirstName">Ahmad</td><td data-label="FamilyName">Teo</td><td data-label="BedNumber">2</td></tr>
-        </tbody></table></div>
-      </div>
-    </div>
-  </div>
 
 </section>
 </main>
 
 <footer class="footer">Databases · Theory Notes Prepared by Dr. Hamdeni</footer>
 </article>
+<nav class="layer-menu" aria-label="Quick layer navigation">
+  <p class="layer-menu-title">Quick navigation: jump to another layer</p>
+  <div class="layer-menu-links">
+    <a class="layer-link" href="layer2.html">
+      <span class="layer-number">2</span> Layer 2
+    </a>
+    <a class="layer-link" href="layer3.html">
+      <span class="layer-number">3</span> Layer 3
+    </a>
+    <a class="layer-link" href="layer4.html">
+      <span class="layer-number">4</span> Layer 4
+    </a>
+  </div>
+</nav>
+<footer class="platform-footer">
+  📧 Contact Dr. Hamdeni at <a href="mailto:chams-eddine.hemdani@tn.maarifschools.org">chams-eddine.hemdani@tn.maarifschools.org</a>
+</footer>
+<script>
+  const storedStudentName = localStorage.getItem("student_name");
+  const studentNameElement = document.getElementById("student-name");
+  if (storedStudentName && studentNameElement) {
+    studentNameElement.textContent = "👤 " + storedStudentName;
+    studentNameElement.hidden = false;
+  }
+</script>
 </body>
 </html>

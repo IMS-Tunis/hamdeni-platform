@@ -16,5 +16,16 @@
   {"id": "5.3", "title": "5.3 Cyber security"},
   {"id": "6.1", "title": "6.1 Automated systems"},
   {"id": "6.2", "title": "6.2 Robotics"},
-  {"id": "6.3", "title": "6.3 Artificial intelligence"}
+  {"id": "6.3", "title": "6.3 Artificial intelligence"},
+  {
+    "id": "7",
+    "title": "7. Algorithm design and problem-solving",
+    "sectionLabel": "Paper 2 topics"
+  },
+  {"id": "8", "title": "8. Programming"},
+  {
+    "id": "9",
+    "title": "9. Database",
+    "url": "./points/9/database_Theory_Notes.html"
+  }
 ]

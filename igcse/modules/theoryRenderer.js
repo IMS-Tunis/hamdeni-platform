@@ -45,6 +45,16 @@ export async function renderTheoryPoints() {
 
   points.forEach((point, index) => {
     console.debug('[theoryRenderer] Rendering point', point.id);
+
+    if (point.sectionLabel) {
+      const divider = document.createElement("div");
+      divider.className = "theory-section-divider";
+      divider.setAttribute("role", "heading");
+      divider.setAttribute("aria-level", "2");
+      divider.textContent = point.sectionLabel;
+      container.appendChild(divider);
+    }
+
     const entry = progressMap[point.id.toLowerCase()] || {};
     const reached = entry.reached_layer || '0';
     let layerStates;
@@ -77,7 +87,7 @@ export async function renderTheoryPoints() {
         return;
       }
       localStorage.setItem("current_point", point.id);
-      window.location.href = `./points/${point.id}/layer1.html`;
+      window.location.href = point.url || `./points/${point.id}/layer1.html`;
     };
     container.appendChild(box);
     console.debug('[theoryRenderer] Added box for', point.id);
