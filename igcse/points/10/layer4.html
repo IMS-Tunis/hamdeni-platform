@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="/assets/js/storage-fallback.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layer 4 – Past Paper Questions | Boolean Logic</title>
+  <link rel="stylesheet" href="layer-placeholder.css">
+</head>
+<body>
+  <header>
+    <div class="header-side"><a href="../../dashboard.html" aria-label="Return to the IGCSE dashboard"><img src="../../../images/maarifLOGO.png" class="logo" id="maarif-logo" alt="Türkiye Maarif Vakfı"></a></div>
+    <div class="header-center"><h1>Layer 4: Past Paper Questions</h1><p class="subheading">Prepare for your validation checkpoint</p><div class="info-line"><span>📍 10. Boolean logic</span><span id="student-name" hidden></span><span>🎓 Platform: IGCSE</span></div></div>
+    <div class="header-side"><img src="../../../images/cambridge.png" class="logo" alt="Cambridge Assessment International Education"></div>
+  </header>
+  <main>
+    <nav class="layer-menu" aria-label="Quick layer navigation">
+      <p>Quick navigation: jump to another layer</p>
+      <div class="layer-links">
+        <a class="layer-link" href="boolean_Theory_Notes.html"><span class="layer-number">1</span> Layer 1</a>
+        <a class="layer-link" href="layer2.html"><span class="layer-number">2</span> Layer 2</a>
+        <a class="layer-link" href="layer3.html"><span class="layer-number">3</span> Layer 3</a>
+        <span class="layer-link current" aria-current="page"><span class="layer-number">4</span> Layer 4</span>
+      </div>
+    </nav>
+    <section class="placeholder" aria-labelledby="placeholder-title"><div><div class="placeholder-icon" aria-hidden="true">📝</div><h2 id="placeholder-title">Layer 4 content coming soon</h2><p>This page is ready for the Past Paper Questions activities.</p></div></section>
+  </main>
+  <footer>📧 Contact Dr. Hamdeni at <a href="mailto:chams-eddine.hemdani@tn.maarifschools.org">chams-eddine.hemdani@tn.maarifschools.org</a></footer>
+  <script>
+    const storedStudentName = localStorage.getItem("student_name");
+    const studentNameElement = document.getElementById("student-name");
+    if (storedStudentName && studentNameElement) { studentNameElement.textContent = "👤 " + storedStudentName; studentNameElement.hidden = false; }
+  </script>
+</body>
+</html>

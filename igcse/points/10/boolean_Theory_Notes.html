@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Boolean Logic | IGCSE Computer Science Theory Notes</title>
+<style>
+:root {
+  --ink: #18263b;
+  --muted: #5d6b7f;
+  --paper: #fff;
+  --canvas: #eaf0f6;
+  --navy: #153d69;
+  --blue: #2e73b8;
+  --blue-soft: #edf6ff;
+  --green: #23765a;
+  --green-soft: #edf8f3;
+  --violet: #6553a7;
+  --violet-soft: #f3f0ff;
+  --amber: #a6641f;
+  --amber-soft: #fff6e9;
+  --red: #a9444d;
+  --line: #d8e2ed;
+  --shadow-sm: 0 8px 22px rgba(25,49,80,.07);
+  --shadow-md: 0 20px 52px rgba(25,49,80,.14);
+  --mono: "Cascadia Code", Consolas, "Courier New", monospace;
+  --sans: "Segoe UI", Arial, Helvetica, sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--ink);
+  background: radial-gradient(circle at 10% 4%, rgba(46,115,184,.12), transparent 27rem), linear-gradient(180deg,#eef4f9,var(--canvas));
+  font: 16px/1.62 var(--sans);
+}
+.platform-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 76px;
+  padding: 10px 20px;
+  color: #fff;
+  background: #003366;
+  box-shadow: 0 5px 16px rgba(13,39,70,.2);
+}
+.platform-header-left,.platform-header-right { flex: 1; display: flex; align-items: center; }
+.platform-header-right { justify-content: flex-end; }
+.platform-header-center { flex: 2; text-align: center; }
+.platform-header-center h1 { margin: 0; font-size: 1.8rem; line-height: 1.2; }
+.platform-info-line { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 20px; margin-top: 3px; color: #f0f0f0; }
+.platform-logo { display: block; width: auto; height: 45px; }
+#maarif-logo { height: 55px; }
+.page {
+  width: min(1200px, calc(100% - 34px));
+  margin: 24px auto 30px;
+  overflow: hidden;
+  border: 1px solid rgba(117,143,171,.24);
+  border-radius: 28px;
+  background: var(--paper);
+  box-shadow: var(--shadow-md);
+}
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 66px 70px 58px;
+  color: #fff;
+  background: linear-gradient(130deg,#0e315a 0%,#195489 58%,#2f79b9 100%);
+}
+.hero::before,.hero::after { content:""; position:absolute; z-index:-1; border:1px solid rgba(255,255,255,.16); }
+.hero::before { width:360px; height:360px; right:-90px; top:-180px; border-radius:50%; background:rgba(255,255,255,.08); }
+.hero::after { width:420px; height:185px; right:-125px; bottom:-90px; border-radius:28px; transform:rotate(-8deg); }
+.eyebrow { margin:0 0 8px; color:rgba(255,255,255,.76); font-size:.86rem; font-weight:850; letter-spacing:.15em; text-transform:uppercase; }
+.hero h1 { margin:0; font-size:clamp(3rem,7vw,5.2rem); line-height:.98; letter-spacing:-.045em; }
+.subtitle { margin:22px 0 0; color:rgba(255,255,255,.92); font-size:1.15rem; font-weight:600; }
+.toc { padding:30px 70px 35px; border-bottom:1px solid var(--line); background:#f5f9fd; }
+.toc h2 { margin:0 0 15px; color:var(--navy); font-size:1.08rem; }
+.toc-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; }
+.toc a { --toc-accent:var(--blue); display:block; padding:15px 16px; border:1px solid var(--line); border-top:4px solid var(--toc-accent); border-radius:14px; color:var(--ink); background:#fff; text-decoration:none; box-shadow:var(--shadow-sm); }
+.toc a:nth-child(2) { --toc-accent:var(--green); }
+.toc a:nth-child(3) { --toc-accent:var(--violet); }
+.toc a:nth-child(4) { --toc-accent:var(--amber); }
+.toc-number { display:block; color:var(--toc-accent); font-size:.72rem; font-weight:900; letter-spacing:.08em; }
+.toc-title { display:block; margin-top:3px; font-weight:800; line-height:1.3; }
+.notes { padding:0 70px; }
+.chapter { --accent:var(--blue); --soft:var(--blue-soft); position:relative; margin:0 -70px; padding:54px 70px 60px; background:linear-gradient(180deg,var(--soft),#fff 270px); }
+.chapter:nth-child(2) { --accent:var(--green); --soft:var(--green-soft); }
+.chapter:nth-child(3) { --accent:var(--violet); --soft:var(--violet-soft); }
+.chapter:nth-child(4) { --accent:var(--amber); --soft:var(--amber-soft); }
+.chapter + .chapter { border-top:1px solid var(--line); }
+.chapter::before { content:""; position:absolute; left:70px; right:70px; top:0; height:4px; border-radius:4px; background:linear-gradient(90deg,var(--accent),transparent 72%); }
+.chapter-header { display:grid; grid-template-columns:auto 1fr; align-items:center; gap:18px; margin-bottom:30px; }
+.chapter-number { display:grid; place-items:center; width:64px; height:64px; border-radius:18px; color:#fff; background:var(--accent); font-size:1.9rem; font-weight:900; box-shadow:0 10px 24px color-mix(in srgb,var(--accent) 30%,transparent); }
+.chapter-kicker { margin:0; color:var(--accent); font-size:.77rem; font-weight:900; letter-spacing:.09em; text-transform:uppercase; }
+.chapter h2 { margin:2px 0 0; color:var(--navy); font-size:clamp(1.8rem,4vw,2.55rem); line-height:1.08; }
+.two-col { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+.card { padding:22px; border:1px solid var(--line); border-radius:16px; background:#fff; box-shadow:var(--shadow-sm); }
+.card h3 { margin:0 0 10px; color:var(--navy); font-size:1.17rem; }
+.card p:last-child,.card ul:last-child,.card ol:last-child { margin-bottom:0; }
+.callout { margin:22px 0; padding:20px 22px; border-left:5px solid var(--accent); border-radius:0 14px 14px 0; background:color-mix(in srgb,var(--soft) 74%,white); }
+.callout strong { color:var(--accent); }
+.gate-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+.gate-card { padding:18px; border:1px solid var(--line); border-radius:16px; background:#fff; box-shadow:var(--shadow-sm); }
+.gate-top { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.gate-name { margin:0; color:var(--navy); font-size:1.25rem; }
+.gate-symbol { width:118px; height:76px; color:var(--accent); }
+.gate-card p { margin:10px 0; }
+.expression { display:inline-block; padding:5px 9px; border-radius:7px; color:var(--navy); background:#eff4fa; font:700 .94rem var(--mono); }
+.table-wrap { margin:20px 0; overflow-x:auto; border:1px solid var(--line); border-radius:14px; background:#fff; box-shadow:var(--shadow-sm); }
+table { width:100%; border-collapse:collapse; }
+th,td { padding:11px 13px; border-bottom:1px solid var(--line); text-align:center; }
+th { color:var(--navy); background:#eaf2fb; font-weight:850; }
+tr:last-child td { border-bottom:0; }
+.truth-table td,.truth-table th { font-family:var(--mono); }
+.rules { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin:20px 0; }
+.rule { padding:18px; border:1px solid var(--line); border-radius:14px; background:#fff; }
+.rule-number { display:grid; place-items:center; width:34px; height:34px; margin-bottom:10px; border-radius:50%; color:#fff; background:var(--accent); font-weight:900; }
+.circuit {
+  display:grid;
+  grid-template-columns:1fr auto 1fr auto 1fr;
+  align-items:center;
+  gap:10px;
+  margin:22px 0;
+  padding:22px;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:#fff;
+  box-shadow:var(--shadow-sm);
+}
+.circuit-stage { padding:15px; border-radius:12px; background:var(--soft); text-align:center; }
+.circuit-stage strong { display:block; color:var(--accent); }
+.arrow { color:var(--accent); font-size:1.8rem; font-weight:900; }
+.steps { counter-reset:step; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; padding:0; list-style:none; }
+.steps li { padding:18px; border:1px solid var(--line); border-radius:14px; background:#fff; }
+.steps li::before { counter-increment:step; content:counter(step); display:grid; place-items:center; width:32px; height:32px; margin-bottom:10px; border-radius:50%; color:#fff; background:var(--accent); font-weight:900; }
+.worked { margin-top:24px; padding:24px; border:1px solid var(--line); border-radius:18px; background:#fff; box-shadow:var(--shadow-sm); }
+.worked h3 { margin-top:0; color:var(--navy); }
+.checklist { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px 24px; padding:20px 24px; border-radius:16px; background:#fff; border:1px solid var(--line); }
+.checklist div::before { content:"✓"; margin-right:9px; color:var(--green); font-weight:900; }
+.note-footer { padding:24px 70px 28px; border-top:1px solid var(--line); color:var(--muted); background:#f5f8fb; text-align:center; font-size:.9rem; }
+.layer-menu { display:flex; flex-direction:column; align-items:center; width:min(1200px,calc(100% - 34px)); margin:0 auto 1.2rem; padding:24px 20px; gap:.4rem; border:1px solid rgba(117,143,171,.24); border-radius:18px; background:#fff; box-shadow:var(--shadow-sm); text-align:center; }
+.layer-menu-title { margin:0; color:var(--navy); font-weight:800; }
+.layer-menu-links { display:flex; flex-wrap:wrap; justify-content:center; gap:12px; margin-top:.4rem; }
+.layer-link { display:inline-flex; align-items:center; gap:8px; padding:10px 18px; border:1px solid #c9d5e5; border-radius:999px; color:#003366; background:#fff; box-shadow:0 6px 16px rgba(0,51,102,.12); text-decoration:none; font-weight:700; }
+.layer-link:hover { background:#e6f0ff; transform:translateY(-2px); }
+.layer-number { padding:2px 8px; border-radius:999px; color:#fff; background:#003366; font-size:.85em; }
+.platform-footer { margin-top:50px; padding:20px; color:#333; background:#e0e0e0; text-align:center; font-size:.95rem; }
+.platform-footer a { color:#003366; font-weight:700; }
+.svg-defs { position:absolute; width:0; height:0; overflow:hidden; }
+@media (max-width:980px) {
+  .hero,.toc,.notes,.note-footer { padding-left:34px; padding-right:34px; }
+  .chapter { margin-left:-34px; margin-right:-34px; padding-left:34px; padding-right:34px; }
+  .chapter::before { left:34px; right:34px; }
+  .toc-grid,.gate-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .steps { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media (max-width:700px) {
+  body { font-size:15.5px; }
+  .platform-header { padding:9px 12px; }
+  .platform-header-left,.platform-header-right { flex:0 0 64px; }
+  .platform-header-center { padding:0 8px; }
+  .platform-header-center h1 { font-size:1.05rem; }
+  .platform-info-line { gap:4px 10px; font-size:.78rem; }
+  .platform-logo { max-width:64px; height:auto; max-height:40px; }
+  #maarif-logo { height:auto; max-height:46px; }
+  .page,.layer-menu { width:min(100% - 16px,1200px); }
+  .page { margin:8px auto 26px; border-radius:18px; }
+  .hero { padding-top:46px; }
+  .toc-grid,.two-col,.gate-grid,.rules,.steps,.checklist { grid-template-columns:1fr; }
+  .chapter-header { grid-template-columns:1fr; }
+  .chapter-number { width:54px; height:54px; }
+  .circuit { grid-template-columns:1fr; }
+  .arrow { transform:rotate(90deg); text-align:center; }
+  .layer-menu-links { flex-direction:column; width:100%; }
+  .layer-link { justify-content:center; width:min(100%,290px); }
+}
+@media print {
+  @page { size:A4; margin:15mm; }
+  body { background:#fff; }
+  .platform-header,.layer-menu,.platform-footer { display:none; }
+  .page { width:100%; margin:0; border:0; border-radius:0; box-shadow:none; }
+  .hero { padding:28px 30px; background:#163d6b !important; print-color-adjust:exact; }
+  .chapter { break-before:page; }
+  .chapter:first-of-type { break-before:auto; }
+  .card,.gate-card,.worked,.table-wrap { break-inside:avoid; }
+}
+</style>
+</head>
+<body>
+<svg class="svg-defs" aria-hidden="true">
+  <defs>
+    <symbol id="gate-not" viewBox="0 0 100 80"><path d="M15 40H28M28 13V67L68 40Z" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="74" cy="40" r="6" fill="none" stroke="currentColor" stroke-width="3"/><path d="M80 40H94" stroke="currentColor" stroke-width="3"/></symbol>
+    <symbol id="gate-and" viewBox="0 0 100 80"><path d="M8 25H28M8 55H28M28 12H50A28 28 0 0 1 50 68H28Z" fill="none" stroke="currentColor" stroke-width="3"/><path d="M78 40H94" stroke="currentColor" stroke-width="3"/></symbol>
+    <symbol id="gate-or" viewBox="0 0 100 80"><path d="M8 25H29M8 55H29M25 12Q52 13 75 40Q52 67 25 68Q37 40 25 12Z" fill="none" stroke="currentColor" stroke-width="3"/><path d="M75 40H94" stroke="currentColor" stroke-width="3"/></symbol>
+    <symbol id="gate-nand" viewBox="0 0 100 80"><path d="M5 25H25M5 55H25M25 12H47A28 28 0 0 1 47 68H25Z" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="80" cy="40" r="6" fill="none" stroke="currentColor" stroke-width="3"/><path d="M86 40H97" stroke="currentColor" stroke-width="3"/></symbol>
+    <symbol id="gate-nor" viewBox="0 0 100 80"><path d="M5 25H26M5 55H26M22 12Q49 13 72 40Q49 67 22 68Q34 40 22 12Z" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="78" cy="40" r="6" fill="none" stroke="currentColor" stroke-width="3"/><path d="M84 40H97" stroke="currentColor" stroke-width="3"/></symbol>
+    <symbol id="gate-xor" viewBox="0 0 100 80"><path d="M8 25H29M8 55H29M19 12Q31 40 19 68M26 12Q53 13 76 40Q53 67 26 68Q38 40 26 12Z" fill="none" stroke="currentColor" stroke-width="3"/><path d="M76 40H95" stroke="currentColor" stroke-width="3"/></symbol>
+  </defs>
+</svg>
+
+<header class="platform-header">
+  <div class="platform-header-left"><a href="/igcse/dashboard.html" aria-label="Return to the IGCSE dashboard"><img src="../../../images/maarifLOGO.png" class="platform-logo" id="maarif-logo" alt="Türkiye Maarif Vakfı"></a></div>
+  <div class="platform-header-center">
+    <h1>Layer 1: Theoretical Foundation</h1>
+    <div class="platform-info-line"><span>📍 10. Boolean logic</span><span id="student-name" hidden></span><span>🎓 Platform: IGCSE</span></div>
+  </div>
+  <div class="platform-header-right"><img src="../../../images/cambridge.png" class="platform-logo" alt="Cambridge Assessment International Education"></div>
+</header>
+
+<article class="page">
+  <header class="hero">
+    <p class="eyebrow">IGCSE Computer Science</p>
+    <h1>Boolean Logic</h1>
+    <p class="subtitle">Theory Notes Prepared by Dr. Hamdeni</p>
+  </header>
+
+  <nav class="toc" aria-label="Contents">
+    <h2>Contents</h2>
+    <div class="toc-grid">
+      <a href="#section-1"><span class="toc-number">SECTION 1</span><span class="toc-title">Boolean Foundations</span></a>
+      <a href="#section-2"><span class="toc-number">SECTION 2</span><span class="toc-title">Logic Gates and Truth Tables</span></a>
+      <a href="#section-3"><span class="toc-number">SECTION 3</span><span class="toc-title">Logic Circuits and Expressions</span></a>
+      <a href="#section-4"><span class="toc-number">SECTION 4</span><span class="toc-title">Converting Representations</span></a>
+    </div>
+  </nav>
+
+  <main class="notes">
+    <section class="chapter" id="section-1">
+      <div class="chapter-header"><div class="chapter-number">1</div><div><p class="chapter-kicker">Section 1</p><h2>Boolean Foundations</h2></div></div>
+      <div class="two-col">
+        <div class="card"><h3>Why Boolean logic?</h3><p>Computers use electrical signals to represent binary data. A high signal represents <strong>1</strong> and a low signal represents <strong>0</strong>. Boolean logic works with these two states, often described as <strong>true</strong> and <strong>false</strong>.</p></div>
+        <div class="card"><h3>What is a logic gate?</h3><p>A logic gate is a small electronic circuit that receives one or more binary inputs, applies a rule, and produces exactly one binary output. Several connected gates form a <strong>logic circuit</strong>.</p></div>
+      </div>
+      <div class="callout"><strong>Syllabus boundaries:</strong> NOT has one input. AND, OR, NAND, NOR and XOR have two inputs. Exam circuits have a maximum of three inputs and one output, and must be drawn exactly as stated without simplification.</div>
+      <div class="rules">
+        <div class="rule"><div class="rule-number">1</div><strong>Inputs</strong><br>Usually labelled A, B and C.</div>
+        <div class="rule"><div class="rule-number">2</div><strong>Output</strong><br>Usually labelled X, Y or Z.</div>
+        <div class="rule"><div class="rule-number">3</div><strong>All combinations</strong><br><em>n</em> inputs produce 2<sup>n</sup> truth-table rows.</div>
+      </div>
+    </section>
+
+    <section class="chapter" id="section-2">
+      <div class="chapter-header"><div class="chapter-number">2</div><div><p class="chapter-kicker">Section 2</p><h2>Logic Gates and Truth Tables</h2></div></div>
+      <div class="gate-grid">
+        <article class="gate-card"><div class="gate-top"><h3 class="gate-name">NOT</h3><svg class="gate-symbol" aria-label="NOT gate symbol"><use href="#gate-not"></use></svg></div><p>Reverses the input. 0 becomes 1 and 1 becomes 0.</p><span class="expression">X = NOT A</span></article>
+        <article class="gate-card"><div class="gate-top"><h3 class="gate-name">AND</h3><svg class="gate-symbol" aria-label="AND gate symbol"><use href="#gate-and"></use></svg></div><p>Outputs 1 only when both inputs are 1.</p><span class="expression">X = A AND B</span></article>
+        <article class="gate-card"><div class="gate-top"><h3 class="gate-name">OR</h3><svg class="gate-symbol" aria-label="OR gate symbol"><use href="#gate-or"></use></svg></div><p>Outputs 1 when either or both inputs are 1.</p><span class="expression">X = A OR B</span></article>
+        <article class="gate-card"><div class="gate-top"><h3 class="gate-name">NAND</h3><svg class="gate-symbol" aria-label="NAND gate symbol"><use href="#gate-nand"></use></svg></div><p>The opposite of AND. Outputs 0 only for inputs 1 and 1.</p><span class="expression">X = A NAND B</span></article>
+        <article class="gate-card"><div class="gate-top"><h3 class="gate-name">NOR</h3><svg class="gate-symbol" aria-label="NOR gate symbol"><use href="#gate-nor"></use></svg></div><p>The opposite of OR. Outputs 1 only for inputs 0 and 0.</p><span class="expression">X = A NOR B</span></article>
+        <article class="gate-card"><div class="gate-top"><h3 class="gate-name">XOR (EOR)</h3><svg class="gate-symbol" aria-label="XOR gate symbol"><use href="#gate-xor"></use></svg></div><p>Outputs 1 when the two inputs are different.</p><span class="expression">X = A XOR B</span></article>
+      </div>
+      <div class="callout"><strong>Symbol clue:</strong> a small circle, called a bubble, means the result is inverted. NAND is AND followed by NOT; NOR is OR followed by NOT. XOR looks like OR with one extra curved line on the input side.</div>
+      <h3>NOT truth table</h3>
+      <div class="table-wrap"><table class="truth-table"><thead><tr><th>A</th><th>NOT A</th></tr></thead><tbody><tr><td>0</td><td>1</td></tr><tr><td>1</td><td>0</td></tr></tbody></table></div>
+      <h3>Two-input gate truth tables</h3>
+      <div class="table-wrap"><table class="truth-table"><thead><tr><th>A</th><th>B</th><th>AND</th><th>OR</th><th>NAND</th><th>NOR</th><th>XOR</th></tr></thead><tbody><tr><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td></tr><tr><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td></tr><tr><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td></tr><tr><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td></tr></tbody></table></div>
+    </section>
+
+    <section class="chapter" id="section-3">
+      <div class="chapter-header"><div class="chapter-number">3</div><div><p class="chapter-kicker">Section 3</p><h2>Logic Circuits and Expressions</h2></div></div>
+      <p>A logic circuit is read from left to right. Work out the output of each gate in order and record intermediate results in extra truth-table columns.</p>
+      <div class="circuit">
+        <div class="circuit-stage"><strong>Inputs</strong>A, B and C</div><div class="arrow">→</div>
+        <div class="circuit-stage"><strong>Intermediate values</strong>D = A OR B<br>E = NOT C</div><div class="arrow">→</div>
+        <div class="circuit-stage"><strong>Final output</strong>Y = D AND E</div>
+      </div>
+      <div class="worked">
+        <h3>Worked example: Y = (A OR B) AND (NOT C)</h3>
+        <p>With three inputs there are 2<sup>3</sup> = 8 rows. Complete D and E first, then use those values to calculate Y.</p>
+        <div class="table-wrap"><table class="truth-table"><thead><tr><th>A</th><th>B</th><th>C</th><th>D = A OR B</th><th>E = NOT C</th><th>Y = D AND E</th></tr></thead><tbody><tr><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td></tr><tr><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td></tr><tr><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td></tr><tr><td>0</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td></tr><tr><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>1</td></tr><tr><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td><td>0</td></tr><tr><td>1</td><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td></tr><tr><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td></tr></tbody></table></div>
+      </div>
+      <ol class="steps"><li><strong>List inputs</strong><br>Use binary order: 000, 001, 010, 011, 100, 101, 110, 111.</li><li><strong>Label stages</strong><br>Add D, E or other intermediate labels to the circuit and table.</li><li><strong>Work left to right</strong><br>Complete the earliest gates before later gates.</li><li><strong>Calculate output</strong><br>Use the final gate to complete X, Y or Z.</li></ol>
+      <div class="callout"><strong>Wire rule:</strong> crossing wires with a dot are connected. Crossing wires without a dot are not connected. If one input is used more than once, draw it once and split its wire at a junction dot.</div>
+    </section>
+
+    <section class="chapter" id="section-4">
+      <div class="chapter-header"><div class="chapter-number">4</div><div><p class="chapter-kicker">Section 4</p><h2>Converting Representations</h2></div></div>
+      <div class="two-col">
+        <div class="card"><h3>Expression → circuit</h3><ol><li>Find the operator outside all brackets; it is the final gate.</li><li>Draw each innermost bracket first.</li><li>Feed those intermediate outputs toward the final gate.</li><li>Do not simplify the stated expression.</li></ol></div>
+        <div class="card"><h3>Circuit → expression</h3><ol><li>Begin with the output label and an equals sign.</li><li>Identify the final gate nearest the output.</li><li>Write the expressions for the branches feeding it.</li><li>Use brackets so each gate operation is unambiguous.</li></ol></div>
+      </div>
+      <div class="worked">
+        <h3>Problem statement → expression</h3>
+        <p>An alarm X sounds if A is ON and B is OFF, <strong>or</strong> if B is ON and C is OFF.</p>
+        <p><span class="expression">X = (A AND NOT B) OR (B AND NOT C)</span></p>
+        <p>Translate ON as 1, OFF as 0, and look for the keywords AND, OR and NOT. Each condition becomes a bracketed branch.</p>
+      </div>
+      <div class="worked">
+        <h3>Truth table → expression: sum of products</h3>
+        <p>If no single gate matches the table, focus only on rows where the output is 1. Inside each selected row, write a 1 input as its letter and a 0 input as NOT that letter. Join inputs with AND, then join the row expressions with OR.</p>
+        <div class="table-wrap"><table class="truth-table"><thead><tr><th>A</th><th>B</th><th>X</th><th>Term when X = 1</th></tr></thead><tbody><tr><td>0</td><td>0</td><td>1</td><td>NOT A AND NOT B</td></tr><tr><td>0</td><td>1</td><td>0</td><td>—</td></tr><tr><td>1</td><td>0</td><td>0</td><td>—</td></tr><tr><td>1</td><td>1</td><td>1</td><td>A AND B</td></tr></tbody></table></div>
+        <p><span class="expression">X = (NOT A AND NOT B) OR (A AND B)</span></p>
+      </div>
+      <h3>Exam checklist</h3>
+      <div class="checklist"><div>Use the correct standard gate symbols.</div><div>Include every input combination.</div><div>Use 2<sup>n</sup> rows for n inputs.</div><div>Show useful intermediate columns.</div><div>Use brackets clearly in expressions.</div><div>Draw the stated circuit without simplification.</div><div>Check that the final column answers the problem.</div><div>Remember XOR means inputs are different.</div></div>
+    </section>
+  </main>
+  <footer class="note-footer">Boolean Logic · Theory Notes Prepared by Dr. Hamdeni</footer>
+</article>
+
+<nav class="layer-menu" aria-label="Quick layer navigation">
+  <p class="layer-menu-title">Quick navigation: jump to another layer</p>
+  <div class="layer-menu-links">
+    <a class="layer-link" href="layer2.html"><span class="layer-number">2</span> Layer 2</a>
+    <a class="layer-link" href="layer3.html"><span class="layer-number">3</span> Layer 3</a>
+    <a class="layer-link" href="layer4.html"><span class="layer-number">4</span> Layer 4</a>
+  </div>
+</nav>
+<footer class="platform-footer">📧 Contact Dr. Hamdeni at <a href="mailto:chams-eddine.hemdani@tn.maarifschools.org">chams-eddine.hemdani@tn.maarifschools.org</a></footer>
+<script>
+  const storedStudentName = localStorage.getItem("student_name");
+  const studentNameElement = document.getElementById("student-name");
+  if (storedStudentName && studentNameElement) {
+    studentNameElement.textContent = "👤 " + storedStudentName;
+    studentNameElement.hidden = false;
+  }
+</script>
+</body>
+</html>

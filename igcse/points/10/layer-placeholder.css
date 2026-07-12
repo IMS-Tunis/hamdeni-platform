@@ -1,0 +1,62 @@
+:root {
+  --navy: #003366;
+  --blue: #0f68c3;
+  --canvas: #eaf0f6;
+  --line: #c9d5e5;
+  --ink: #18263b;
+}
+* { box-sizing: border-box; }
+body {
+  min-height: 100vh;
+  margin: 0;
+  color: var(--ink);
+  background: radial-gradient(circle at top left, #f0f4ff, var(--canvas) 70%);
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 76px;
+  padding: 10px 20px;
+  color: #fff;
+  background: var(--navy);
+  box-shadow: 0 5px 16px rgba(13,39,70,.2);
+}
+.header-side { flex: 1; display: flex; align-items: center; }
+.header-side:last-child { justify-content: flex-end; }
+.header-center { flex: 2; text-align: center; }
+.header-center h1 { margin: 0; font-size: 1.8rem; }
+.subheading { margin: 3px 0; color: #f0f0f0; }
+.info-line { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 20px; color: #f0f0f0; font-size: .95rem; }
+.logo { display: block; width: auto; height: 45px; }
+#maarif-logo { height: 55px; }
+main { width: min(920px, calc(100% - 32px)); margin: 48px auto; }
+.layer-menu,.placeholder { border: 1px solid rgba(117,143,171,.28); border-radius: 18px; background: #fff; box-shadow: 0 12px 30px rgba(25,49,80,.1); }
+.layer-menu { padding: 22px; text-align: center; }
+.layer-menu p { margin: 0 0 14px; color: var(--navy); font-weight: 800; }
+.layer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+.layer-link { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border: 1px solid var(--line); border-radius: 999px; color: var(--navy); background: #fff; text-decoration: none; font-weight: 700; }
+.layer-link:hover { background: #e6f0ff; }
+.layer-link.current { color: #fff; background: var(--blue); border-color: var(--blue); }
+.layer-number { padding: 2px 8px; border-radius: 999px; color: #fff; background: var(--navy); font-size: .85rem; }
+.current .layer-number { color: var(--blue); background: #fff; }
+.placeholder { min-height: 340px; margin-top: 24px; padding: 56px 28px; display: grid; place-items: center; text-align: center; }
+.placeholder-icon { font-size: 3.4rem; }
+.placeholder h2 { margin: 14px 0 6px; color: var(--navy); font-size: 2rem; }
+.placeholder p { margin: 0; color: #5d6b7f; font-size: 1.05rem; }
+footer { margin-top: 50px; padding: 20px; color: #333; background: #e0e0e0; text-align: center; font-size: .95rem; }
+footer a { color: var(--navy); font-weight: 700; }
+@media (max-width: 680px) {
+  header { padding: 9px 12px; }
+  .header-side { flex: 0 0 62px; }
+  .header-center { padding: 0 8px; }
+  .header-center h1 { font-size: 1.05rem; }
+  .subheading { font-size: .78rem; }
+  .info-line { gap: 4px 10px; font-size: .76rem; }
+  .logo { max-width: 62px; height: auto; max-height: 40px; }
+  #maarif-logo { height: auto; max-height: 46px; }
+  main { margin: 24px auto; }
+  .layer-links { flex-direction: column; align-items: center; }
+  .layer-link { justify-content: center; width: min(100%, 290px); }
+}
